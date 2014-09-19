@@ -1,0 +1,1411 @@
+FORMAT: 1A
+HOST: https://www.123dapp.com/api/v2
+
+# Cloud Services V2 API
+This is version 2 of ACG cloud services api's. If you are looking for older version 1 - please refer to https://confluence.123dapp.com/display/ADSK/Marketplace+APIs
+
+#URL
+URL Structure is `https://{domain}/api/{version}/{resource}/{resourceId}`    
+All endpoints begin with /api/{version}/
+
+Production URL: https://www.123dapp.com/api/v2  
+Beta URL: https://beta.squidplatform.com/api/v2  
+Example: https://beta.squidplatform.com/assets/123456 
+
+#Verbs
+We use restful verbs.
+
+|Verb         | Description                                                                                               
+| ------      | -------------------------------------------------------------------------------------------------------
+| `GET`       |  Used to select one or more items. Success returns 200 status code with json result item(s) in body.   
+| `POST`      |  Used to create a new item. Success returns 201 status code with newly created json item in body.      
+| `PUT`       |  Used to update an item. Success returns 200 status code with updated json item in body.               
+| `DELETE`    |  Used to delete an item. Success returns 204 status code with no body.
+
+#Status Codes
+We'll respond with one of the following status codes.
+
+|Code       | Description 
+| ------    |---------
+|`200`       | Success  
+|`201`        | Success - new resource created.
+|`204`        | Success - no content to return.
+|`302`        | Redirect  to another resource
+|`400`        | Bad Request - i.e. your request couldn't be parsed.
+|`401`        | Unauthorized - user is not logged in, cannot access resource.
+|`404`        | Not Found - resource doesn't exist.
+|`422`        | Unprocessable Entity - i.e. validation errors.
+|`429`        | Rate limit exceeded, try again later.
+|`500`        | Server error.
+
+# Errors
+Any non 4xx and 5xx response is an error. 
+In addition to the http code we will return additional information in the response payload as follows:  
+
+    {
+        "code":"numeric code specific to this api as defined in docs",  
+        "status":"same as http status code e.g 404",  
+        "message":"human readable error message",
+        "error_id":"unique code which links back to stack trace in logs",
+        "data":"any additional data the api may want to send back as json"
+    }
+
+
+#Headers
+All api calls require the following headers:  
+
+**X-Session**: A guest or member session. See Auth section on how to generate a guest/member session. Access to various api's depends on the type of session. 
+For example - guest session will provide access to ready only public api's such as /assets. While member session will provide access to write apis and also extended information for /member api.  
+
+**X-AFC**: Unique identifier assigned to your application. It is very important to use the AFC assigned to your application and not re-use AFC's across apps as this creates issues in debugging and analytics. 
+
+#Standards
+During api creation we follow these standards:  
+1. All json key names are lower case.  
+2. Multi word names are seperated by _ e.g member_id, asset_id etc.  
+3. For api's that return paged result we always return count, limit (page size) and offset (current cursor location) values.  
+4. For api's that return paged result we always return _link_prev and _link_next values.  
+5. All times are in GMT with format 2014-04-22 00:06:32   
+
+#Group Assets
+An asset is the top level storage construct for cloud services. An asset can be thought of as a project or a folder with metadata. The asset contains 1..n files, metadata elements and references to other assets or even external links. 
+Within the 3d modeling/printing eco-system it is often hard to model a complete creation and workflow with a single file (for example: a model may consist of obj, mtl, texture files) - Asset provides an aggregation point for several related files and metadata elements to fully represent a creation, its various transformations, translations and references. 
+The operations listed below provide a full set of activities which can be performed against an asset. 
+
+# Asset [/assets/{id}]
+Operations to perform CRUD operations on an asset with basic metadata. Additional operation sets will populate this asset with constituent files, additional metadata etc. 
+
++ Model (application/json)
+    + Body
+        {
+            "asset": {
+                "_link":"/asset/630595",
+                "artist": {
+                    "artist_name": "tim",
+                    "avatar": "",
+                    "description": "",
+                    "location": ""
+                },
+                "asset_id": 630595,
+                "asset_name": "timproduct",
+                "asset_status_code": 0,
+                "canonical_seo_url": "http://dev.squidplatform.net/users/mcatrett/ms33/sherpa/3d-model/timproduct/630595",
+                "date_submitted": "august 15, 2012 13:59:28",
+                "delivery_media": "download only",
+                "description": "this is a test",
+                "used_in_project_count": 0,
+                "child_asset_count": 2,
+                "download_count": 0,
+                "favorited_by": [],
+                "favorite_count": 0,
+                "file_formats": {
+                     [
+                        {
+                            "file_id": 5401172,
+                            "id": 999,
+                            "name": "other ( see notes )",
+                            "size": 326560,
+                            "version": ""
+                        }
+                    ]
+                ,
+                "file_system_id": 0,
+                "is_authorized_download": true,
+                "is_deleted": false,
+                "is_download_asset": true,
+                "progress_status": 1,
+                "is_member_favorite":false,
+                "is_gallery_asset": true,
+                "is_online_viewer_available": false,
+                "is_premium": false,
+                "is_repurchasable": false,
+                "is_reviewable": false,
+                "is_store_asset": false,
+                "keywords": "test",
+                "language": " ",
+                "modeltype": 1,
+                "media_type": "3d models",
+                "status_post_count": 27,
+                "parent_asset_id": "",
+                "price": 0,
+                "purchase_date": "",
+                "rating_average": 0,
+                "rating_count": 0,
+                "mesh": true,
+                "rating_result": 0,
+                "region": " ",
+                "software": 9,
+                "thumbnails":  [
+                        {
+                            "file_id": 5401170,
+                            "thumb_path_prefix":"http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
+                            "caption": "thumbnail caption",
+                            "description":"thumbnail description"
+                        },
+                        {
+                            "file_id": 5401170,
+                            "thumb_path_prefix":"http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
+                            "caption": "thumbnail caption",
+                            "description":"thumbnail description"
+                        }
+                    ]
+                
+                "referenced_assets" :  [
+                        {
+                            "_link":"/asset/588362",
+                            "thumbnails": [
+                                        {
+                                            
+                                            "thumb_path_prefix":"http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
+                                            "is_primary": false
+                                            
+                                        },
+                                        {
+                                            "thumb_path_prefix":"http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
+                                            "is_primary": true
+                                            
+                                        }
+                                    ],
+                            "reference_added_date" : "august, 28 2013 00:00:00",
+                            "description" : "publishing test.",
+                            "media_type" : 2,
+                            "asset_name" : "cylinders",
+                            "asset_id" : 588362,
+                            "is_premium_asset" : false,
+                            "canonical_seo_url" : "http://alpha.squidplatform.com/obj-catch/rn-building-2/1135545"
+                        }
+                ],
+                "keydata":{
+                       "keyfilefolder":[
+                          {
+                             "filefolder":[
+                                {
+                                   "id":5113474
+                                }
+                             ],
+                             "key":"viewerfiles"
+                          },
+                          {
+                             "filefolder":[
+                                {
+                                   "name":"10325_tissue box_v2_max2010_it2.stl",
+                                   "id":5337164,
+                                   "modeltocentimeters":-1.0
+                                },
+                                {
+                                   "name":"10325_tissue box_v2_max2010_it2.stl",
+                                   "id":5341121,
+                                   "modeltocentimeters":-1.0
+                                },
+                                {
+                                   "name":"5113474.stl",
+                                   "id":5376472,
+                                   "modeltocentimeters":-1.0
+                                }
+                             ],
+                             "key":"stlfiles"
+                          }
+                       ]
+                    },
+            }
+        }
+
+
+### Create a new asset[POST]
++ Request
+    + Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + title (required, String, `Alien`) ...Asset title
+    + description (required, String, `Mint colored alien`) ...title description
+    + tags (required, String, `alien,sci-fi,fantasy`) ... comma seperated list of tags
+    + publish (optional, Boolean, `false`) ... publish to gallery
+    + progress_status (optional, Number, 1) ...progress status <br> Options:<br> 0:in progress<br>1:complete
+
+
++ Response 201 (application/json)
+
+        {
+            "_link":"/asset/269620",
+            "asset_id":269620
+        }
+
+### Retrieve an asset [GET]
++ Request
+    + Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
+    + referenced_assets (optional, Number, `true`) ...When true referenced assets will be returned as an array sorted in descending order of the time when they were added.<br>Default: false
++ Response 200 (application/json)
+
+       [Asset][] 
+        
+
+### Update an asset[PUT]
++ Request
+    + Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+
+    + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
+    + title (required, String, `Alien`) ...Asset title
+    + description (required, String, `Mint colored alien`) ...title description
+    + tags (required, String, `alien,sci-fi,fantasy`) ... comma seperated list of tags
+    + publish (optional, Boolean, `false`) ... publish to gallery
+    + progress_status (optional, Number, 1) ...progress status <br> Options:<br> 0:in progress<br>1:complete
++ Response 200 (application/json)
+        {
+            "_link":"/asset/269620"
+            
+        }
+           
+### Delete an asset [DELETE]
++ Request
+    + Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
++ Response 204
+
+# Assets  [/assets{?q,page_size,page_num,start_date,end_date,thumbnail_index,file_type_list,exclude_keywords,asset_ids,sort_by,sort_order,display_filter,exclude_artist_ids,include_artist_ids,project_status,description,parent_assets,child_assets,include_mature}]
+This api is a starting point to display galleries, perform free-form searches. Different filtering options allow searching by specific contained file type, keywords, publish dates, curation state (featured, popular) etc. 
++ Parameters
+    + q (optional, String, `cars+cat`) ...list of keywords to search against
+    + limit (optional, number, `20`)...number of results per page
+    + offset (optional, Number, `60`) ...This offsets the start of each page by the number specified. 
+    + start_date (optional, Date, `10-12-2013`) ...Limit results to those published after a given date (mm-dd-yyyy format) 
+    + end_date (optional, Date, `10-13-2013`)...Limit results to those published before a given date (M-d-yyyy format)  
+    + thumbnail_index (optional, Number, `1`)...Index of primary thumbnail image for results shown in THUMBNAIL_FILE (default is 1).<br>If thumbnail_index=2 is not available then it defaults to thumbnail_index=1.
+    + file_type_list (optional, String, `obj`)...Limit results based on a comma-separated list of file types. Options: obj, stl, mtl
+    + exclude_keywords (optional, String, `dog`)...Limit results based to those not associated with a list of keywords 
+    + asset_ids (optional, String, `123456+987654+456789` )...Limit results based on asset ID(s) 
+    + sort_by (optional, String,`asset_name`)...Order search results based on a specific attribute. <br> Options: asset_name, artist, date, favorite_count, favorite_count_strict,format, price, download_count.<br>Note: favorite_count_strict will sort the results strictly by number of likes, where as favorite_count will sort the results by popularity.
+    + sort_order  (optional,String,`asc`)...Direction of ordered search results based on value of sort_by. <br> Options: asc, desc 
+    + display_filter  (optional,String, `d`)...Show only Gallery or Featured items.<br>Options:<br>d: Gallery item with downloads <br>f: Featured items; <br>o: Online viewer enabled assets <br>Example: d, f, o, dfo, fo 
+    + exclude_artist_ids (optional,Number, `2345678`)...Limit results based on member or artist ids.
+    + include_artist_ids (optional, Number, `20288475`)...Limit results based on member or artist ids.
+    + description (optional, Boolean, `false`)...Return description of asset till 150 characters in results
+    + project_status (optional, Number, `1`)...Get result with project status. pass 1 for completed or 0 for in-progress.<br> Options: 0 or 1
+    + parent_assets (optional, Number, `588383`)...Pass parent asset Id and get its corresponding child assets.
+    + child_assets (optional, Number, `588383`)...Pass parent asset Id and get its corresponding child assets.
+    + include_mature (optional, Boolean, `false`)...Result will include asset marked as mature.
+
+## List all Assets [GET]
+ 
+
++ Response 200 (application/json)
+        
+            {
+                "count":260,
+                "limit":13,
+                "offset":39,
+                "_link":"/assets?q=abc&limit=26",
+                "_link_prev":"/assets?q=abc&limit=26&offset=26",
+                "_link_next":"/assets?q=abc&limit=26&offset=39"
+
+                "assets":[
+                    {
+                    "is_featured":false,
+                    "comment_count":0,
+                    "member_small_avatar":"http:\/\/dev.squidplatform.net\/images\/v22\/member\/default_avatar.png",
+                    "asset_name":"tissue box",
+                    "thumb_path_prefix":"http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
+                    "is_online_viewer_available":true,
+                    "is_member_favorite":false,
+                    "favorite_count":1,
+                    "progress_status":1,
+                    "referenced_assets_count" : 0,
+                    "referenced_by_count" : 0,
+                     "referenced_asset_thumb" : "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/2012/12/13__09_57_54/hand.jpgf18ed964-0998-4f43-a165-c0f5c650ec08small.jpg",
+                      "date_published":"april 26, 2011 00:11:57",
+                    "keydata":{
+                       "keyfilefolder":[
+                          {
+                             "filefolder":[
+                                {
+                                   "id":5113474
+                                }
+                             ],
+                             "key":"viewerfiles"
+                          },
+                          {
+                             "filefolder":[
+                                {
+                                   "name":"10325_tissue box_v2_max2010_it2.stl",
+                                   "id":5337164,
+                                   "modeltocentimeters":-1.0
+                                },
+                                {
+                                   "name":"10325_tissue box_v2_max2010_it2.stl",
+                                   "id":5341121,
+                                   "modeltocentimeters":-1.0
+                                },
+                                {
+                                   "name":"5113474.stl",
+                                   "id":5376472,
+                                   "modeltocentimeters":-1.0
+                                }
+                             ],
+                             "key":"stlfiles"
+                          }
+                       ]
+                    },
+                    "canonical_seo_url":"http:\/\/dev.squidplatform.net\/123c-3d-model\/tissue-box\/592540",
+                    "artist_name":"autodesk",
+                    "asset_image":"2011\/04\/25__11_19_17\/tt_0000.jpg251cdd82-cdfb-4397-913a-738096e71046small-1.jpg",
+                    "rating":0.0,
+                    "format_name_long":"multiple ( .stl, .123c )",
+                    "count_rating":0,
+                    "price":0.0,
+                    "seo_template":"123c-3d-model tissue-box",
+                    "current_page":1,
+                    "asset_ext_name":"scenes & props",
+                    "model_type":"part",
+                    "file_size":1690664,
+                    "download_count":3008,
+                    "format_name_short":"stl 123c",
+                    "is_gallery_asset":true,
+                    "artist_avatar":"http:\/\/dev.squidplatform.net\/images\/v22\/member\/default_avatar.png",
+                    "artist_id":2345678,
+                    "media_type_id":23,
+                    "current_result":1,
+                    "mesh":yes,
+                    "associated_file_directory_path":"2011\/04\/25__11_19_17\/tt_0000.jpg251cdd82-cdfb-4397-913a-738096e71046small-1.jpg",
+                    "asset_id":592540
+                 }
+                ]
+            ,
+                
+            }
+
+# Asset References [/assets/{id}/references]
+Operations to link other assets to this asset. These operations are useful to aggregate related assets together e.g Model of a car may consist of several assets : wheels, body, engine etc.
+Note: PUT operation will replace the existing list of references with a new list. To add to existing list use POST.
++ Parameters
+    + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
+
+### Create a new reference within the asset[POST] 
++ Parameters
+    + asset_ids (required,String, `234567,334562`)...Comma seperated list of assets to be linked to this asset.
++ Response 201 (application/json)
+    {
+        "_link":"/assets/234566/references"
+    }
+
+### Retrieve asset references[GET]
++ Request
+    + Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Response 200 (application/json)
+    
+        {
+            "referenced_assets":[
+                "234567",
+                "334562"
+            ]
+        }
+
+### Update references[PUT]
++ Request
+    + Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + asset_ids (required,String, `234567,334562`)...Comma seperated list of assets to be linked to this asset.
++ Response 200 (application/json)
+    {
+        "_link":"/assets/234566/references"
+    }
+
+### Delete an asset reference[DELETE]
++ Request
+    + Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + asset_ids (required,String, `234567,334562`)...Comma seperated list of assets references to be deleted from this asset.
++ Response 204
+
+# Asset Referenced [/assets/{id}/referenced]
+This operation will return a list of assets where this asset is referenced. 
+
+### Retrieve assets referencing this asset [GET]
++ Request
+    + Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + limit (optional, Number,`20`)...Number of results to return in each page
+    + offset (optional, Number, `3`)...This offsets the start of each page by the number specified.
+
++ Response 200 (application/json)
+        {
+            "offset":20,
+            "limit":10,
+            "referenced_assets" : [
+                            {
+                            
+                                "_link":"/asset/588362",
+                                "thumbnails": [
+                                            {
+                                                "id":2232333
+                                                "thumb_path_prefix":"http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
+                                                "is_primary": false
+                                                
+                                            },
+                                            {
+                                                "id":13224244
+                                                "thumb_path_prefix":"http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
+                                                "is_primary": true
+                                                
+                                            }
+                                        ],
+                                "reference_added_date" : "august, 28 2013 00:00:00",
+                                "description" : "publishing test.",
+                                "media_type" : 2,
+                                "asset_name" : "cylinders",
+                                "asset_id" : 588362,
+                                "is_premium_asset" : false,
+                                "canonical_seo_url" : "http://alpha.squidplatform.com/obj-catch/rn-building-2/1135545"
+                            
+                            }
+                        ]
+                    }
+        }
+
+# Asset Sources [/assets/{id}/sources]
+Add files which constitute the "source" for this asset, this can include virtually any file type - 
+all major 3d formats will be automatically translated into a print ready STL format, which will be available in through the asset translations api. 
+Adding the sources will usually be a starting point for storing an asset in cloud services storage - subsequent tranformation operations can then be performed on these source files. 
+Note: PUT operation will replace all existing sources with the new list. To add to existing source list- use POST. 
+
++ Parameters
+    + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
+
+### Create a new source within the asset[POST] 
++ Request
+    + Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + file_ids (required,String, `123456,234345`) ...Comma seperated list of files to be added as sources to this asset. The operation will automatically populate the file type based on previously uploaded file's mime type. 
++ Response 201 (application/json)
+    {
+        "_link":"/assets/234566/sources"
+    }
+
+### Retrieve asset sources[GET]
++ Request
+    + Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Response 200 (application/json)
+    
+         {
+            "sources":[
+                {"123456","STL","_link":"/api/v1/download?asset=234566&file=123456"},{"234345","OBJ","_link":"/api/v1/download?asset=234566&file=123456"}
+                    
+            ]
+        }
+
+### Update sources [PUT]
++ Request
+    + Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + file_ids (required,String, `123456,234345`) ...Comma seperated list of files to be added as sources to this asset. The operation will automatically populate the file type based on previously uploaded file's mime type. 
++ Response 200 (application/json)
+    {
+        "_link":"/assets/234566/sources"
+    }
+
+### Delete an asset source[DELETE]
++ Request
+    + Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + file_ids (required,String, `234567,334562`)...Comma seperated list of files  to be deleted from this assets source.
++ Response 204
+
+# Asset Thumbnails [/assets/{id}/thumbnails]
+Add files as representational thumbnails for this asset. The thumbnails can include photographs of printed asset or rendered images of the 3d model. The thumbnail files should be atleast 1200x1200 px resolution. These thumbnails will be utilized by applications while displaying galleries or asset details.
+We will auto generate various sizes from this thumbnail:  
+
+* small(64)  
+* petite(90)  
+* medium(128)  
+* medium2(256)  
+* large(600)  
+* large2(800)  
+* hd(1200) 
+
+Images will be generated in both PNG and JPG formats. 
+ 
+The thumbnail url prefix is available in asset response, the size post-fix and extension can be appended to the prefix to recover the correct size.  
+
+Note: PUT operation will replace all existing thumbnails with the new list. To add to existing thumbnail list- use POST. 
+
++ Parameters
+    + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
+
+### Create a new thumbnail within the asset[POST] 
++ Request
+    + Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + thumbnails (required,JSON, `{[{"id":"123456","caption":"thumbnail caption","description":"thumbnail description"},{"id":"123457","caption":"thumbnail caption 2","description":"thumbnail description 2"}]}`) ...JSON list of files to be added as thumbnails to this asset. The file must be of mime type PNG or JPG/JPEG.  
+    + async (optional, Boolean, `true`)...Whether thumbnails should be generated asynchronously
++ Response 201 (application/json)
+    {
+        "_link":"/assets/234566/thumbnails"
+    }
+
+### Retrieve asset thumbnails[GET]
++ Request
+    + Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Response 200 (application/json)
+    
+        {"thumbnails":[{"id":"123456","caption":"thumbnail caption","description":"thumbnail description"},{"id":"123457","caption":"thumbnail caption 2","description":"thumbnail description 2"}]}
+
+### Update thumbnails[PUT]
++ Request
+    + Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + thumbnails (required,JSON, `{[{"id":"123456","caption":"thumbnail caption","description":"thumbnail description"},{"id":"123457","caption":"thumbnail caption 2","description":"thumbnail description 2"}]}`) ...JSON list of files to be added as thumbnails to this asset. The file must be of mime type PNG or JPG/JPEG.  
+
++ Response 204 (application/json)
+    {
+        "_link":"/assets/234566/thumbnails"
+    }
+
+### Delete an asset thumbnails[DELETE]
++ Request
+    + Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + asset_ids (required,String, `234567,334562`)...Comma seperated list of assets thumbnails to be deleted from this asset.
++ Response 204
+    
+
+# Asset External Links [/assets/{id}/links]
+All references to external artifacts such as blog posts, videos, photos etc. 
+Note: PUT operation will replace all existing links with the new set. To add a link to an existing list use POST.
+
++ Parameters
+    + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
+
+### Create a new link within the asset [POST] 
++ Request
+    + Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + links (required,JSON, `{[{"VIDEO","http://youtube.com/abc"},{"LINK","http://youtube.com/abc"}]}`) ...JSON list of links along with their types. Valid types include: VIDEO, IMAGE, INSTRUCTABLES, LINK, AUDIO, OTHERS 
++ Response 201 (application/json)
+    {
+        "_link":"/assets/234566/links"
+    }
+
+### Retrieve asset links[GET]
++ Request
+    + Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Response 200 (application/json)
+    
+        {
+                "links":[
+                {"VIDEO","http://youtube.com/abc"},{"LINK","http://youtube.com/abc"}
+                ]
+        }
+
+### Update links [PUT]
++ Request
+    + Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + links (required,JSON, `{[{"VIDEO","http://youtube.com/abc"},{"LINK","http://youtube.com/abc"}]}`) ...JSON list of links along with their types. Valid types include: VIDEO, IMAGE, INSTRUCTABLES, LINK, AUDIO, OTHERS 
++ Response 204 (application/json)
+    {
+        "_link":"/assets/234566/links"
+    }
+
+### Delete an asset link [DELETE]
++ Request
+    + Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + link_urls (required,String, `http://youtube.com/abc,http://www.blogger.com/abc`)...Comma seperated list of assets references to be deleted from this asset.
++ Response 204
+
+# Asset Translations [/assets/{id}/translations]
+This api will be used by backend services to update translations for various uploaded files including source files, tranformation files etc. 
+Note: PUT operation will replace all existing translation files with the new set. To add a translation file to an existing list use POST.
+
++ Parameters
+    + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
+
+### Create new translations within the asset [POST] 
++ Request
+    + Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + translations (required,JSON, `{[{"source":123422,"translation":3453434,"type":"STL}]}`) ...JSON list of source file id along with translated file id and type of translation performed. 
++ Response 201 (application/json)
+    {
+        "_link":"/assets/234566/translations"
+    }
+
+### Retrieve translations [GET]
++ Request
+    + Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Response 200 (application/json)
+    
+       {[{"sources":123422,"translation":3453434,"type":"STL}]}
+
+### Update the translations [PUT]
++ Request
+    + Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + translations (required,JSON, `{[{"source":123422,"translation":3453434,"type":"STL}]}`) ...JSON list of source file id along with translated file id and type of translation performed. 
++ Response 204 (application/json)
+    {
+        "_link":"/assets/234566/translations"
+    }
+
+### Delete an asset translation [DELETE]
++ Request
+    + Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + translations (required,String, `3453434,123422`)...Comma seperated list of translated file ids which should be removed.
++ Response 204 (application/json)
+
+# Asset Likes [/assets/{id}/likes]
+This operation is basically a toggle - calling PUT operation repeteadly will set/unset like state for this member on this asset.
++ Parameters
+    + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
+
+### Retrieve total like count and list of favoriters[GET]
++ Request
+    + Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + limit (optional, Number,`20`)...Number of results to return in each page
+    + offset (optional, Number, `3`)...Current page number
++ Response 200 (application/json)
+    
+        {
+                "count":260,
+                "pages":20,
+                "limit":13,
+                "offset":39,
+                "_link":"/asset/234566/likes?limit=26",
+                "_link_prev":"/asset/234566/likes?limit=26&offset=26",
+                "_link_next":"/asset/234566/likes?limit=26&offset=39",
+                "member_favorite": true,
+                "members":[
+                    {
+                    "member_id":123133,
+                    "member_name":"creative artist 101"
+                    "member_small_avatar":"http:\/\/dev.squidplatform.net\/images\/v22\/member\/default_avatar.png",
+                    "_link":"/member/123133"
+                    },
+                    {
+                    "member_id":123134,
+                    "member_name":"creative artist 102"
+                    "member_small_avatar":"http:\/\/dev.squidplatform.net\/images\/v22\/member\/default_avatar.png",
+                    "_link":"/member/123134"
+                    }
+                ]
+
+        }
+
+### Update like state for a member [PUT]
++ Request
+    + Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Response 200 (application/json)
+    {
+        "likes":{
+            "count":52,
+            "is_member_favorite":true,
+            "_link":"/asset/234566/likes"
+        }
+    }
+    
+
+# Asset Comments [/assets/{id}/comments]
+Operations to manage comments on an asset
+
+
++ Parameters
+    + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
+
+### Create new comment within an asset[POST] 
++ Request
+    + Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + comment (required,String, `encoded comment text`) ...any 3rd party links in comments will be encoded, to reference external links use /assets/{id}/links apis 
+    + in_reply_to (optional, String, `11323333`)...id of comment for which this comment is a reply
++ Response 201 (application/json)
+    
+       {
+            "count":34,
+            "link":"/assets/234566/comments",
+            "comment_id":"adaee1233"
+        }
+
+### Retrieve asset comments[GET]
++ Request
+    + Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + limit (optional, Number,`20`)...Number of results to return in each page
+    + offset (optional, Number, `3`)...This offsets the start of each page by the number specified.
+
++ Response 200 (application/json)
+    
+        {
+            "count":260,
+            "pages":20,
+            "limit":13,
+            "offset":39,
+            "_link":"/asset/234566/comments?limit=26",
+            "_link_prev":"/asset/234566/comments?limit=26&offset=26",
+            "_link_next":"/asset/234566/comments?limit=26&offset=39",
+               
+            
+            "comments":
+            [
+                {
+                    "member_id" : 20288416,
+                    "member_small_avatar" : "https://dev.squidplatform.net/images/v22/member/default_avatar.png",
+                    "member_name" : "amol tulaskar",
+                    "body" : "api test reply comment to comment",
+                    "comment_id" : "cmdm35wh3y8vx42",
+                    "timestamp" : "2012-06-27 11:04:41",
+                    "in_reply_to" :
+                    {
+                        "member_id" : 20288416,
+                        "member_small_avatar" : "https://dev.squidplatform.net/images/v22/member/default_avatar.png",
+                        "member_name" : "amol tulaskar",
+                        "body" : "api original comment",
+                        "comment_id" : "cmdm35wh3y8vx42",
+                        "timestamp" : "2012-06-27 11:04:41"
+                    }
+            
+         
+                }
+            ]
+        }
+          
+
+### Update a comment[PUT]
++ Request
+    + Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + comment (required,String, `encoded comment text`) ...any 3rd party links in comments will be encoded, to reference external links use /assets/{id}/links apis 
+    + comment_id (required, String, `123aaddq33`)...id of comment to be updated
++ Response 200 (application/json)
+    {
+        "comments":{
+            "count":52,
+            "_link":"/asset/234566/comments"
+        }
+    }
+    
+
+### Delete an asset comments[DELETE]
++ Request
+    + Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + comment_ids (required,String, `234567,334562`)...Comma seperated list of comments to be deleted from this asset.
++ Response 204
+
+# Asset Flag [/assets/{id}/flags]
+Flag an asset along with reason for flagging. This operation is a no-op if an asset has already been flagged by this member.
+
+### Flag an asset [PUT]
++ Request
+    + Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + reason (optional, String, `INAPPROPRIATE`)...Options: INAPPROPRIATE, COPYRIGHT, QUALITY
+    + comment (optional , String, `optional user comments`) ...additional user comments 
++ Response 204
+
+# Asset Status Posts [/assets/{id}/status]
+Operations to manage status posts on an asset. Status posts are updates to the progress of an asset made by the author. e.g "Finished textures today".  
+
+
++ Parameters
+    + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
+
+### Create a new status post within an asset[POST] 
++ Request
+    + Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + status_post (required,String, `encoded status post text`) ...any 3rd party links in status posts will be encoded, to reference external links use /assets/{id}/links apis 
+    
++ Response 201 (application/json)
+    
+       {
+            "status_post_id":"adaee1233",
+            "_link":"/assets/234566/status?id=adaeee1233"
+        }
+
+### Retrieve asset status posts[GET]
++ Request
+    + Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + limit (optional, Number,`20`)...Number of results to return in each page
+    + offset (optional, Number, `3`)...This offsets the start of each page by the number specified.
+
++ Response 200 (application/json)
+    
+        {
+            "count":260,
+            "pages":20,
+            "limit":13,
+            "offset":39,
+            "_link":"/asset/234566/status?limit=26",
+            "_link_prev":"/asset/234566/status?limit=26&offset=26",
+            "_link_next":"/asset/234566/status?limit=26&offset=39",
+            "status_posts":
+            [
+                {
+                
+                    "status_post_id" : "cmdm35wh3y8vx42",
+                    "body":"Updated textures",
+                    "timestamp" : "2012-06-27 11:04:41"
+         
+                }
+            ]
+        }
+          
+
+### Update a status post[PUT]
++ Request
+    + Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + status_post (required,String, `encoded comment text`) ...any 3rd party links in status posts will be encoded. To reference external links use /assets/{id}/links apis 
+    + status_post_id (required, String, `123aaddq33`)...id of status post to be updated
++ Response 200 (application/json)
+    {
+        "status_posts":{
+            "count":52,
+            "_link":"/asset/234566/status"
+        }
+    }
+    
+
+### Delete an asset status post[DELETE]
++ Request
+    + Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + status_post_id (required,String, `234567,334562`)...Comma seperated list of status posts to be deleted from this asset.
++ Response 204
+
+# Downloads [/assets/{id}/download{?file_ids}]
+Download a specific file or set of files from an asset
++ Parameters
+    + id (required, String `23244422`)... Asset id
+    + file_ids (required,String `1233233,1333233`) ...Comma seperated list of file ids. If more than one file is specified, the download will be a zip
+
+### Download [GET]
++ Request
+    + Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
+# Group Files
+Files are "second class" citizens in the Cloud Services ecosystem. As explained in the Assets api introduction: Within the 3d modeling/printing eco-system it is often hard to model a complete creation and workflow with a single file. Hence a file by itself has little meaning without the context of the asset it belongs to. 
+Of course in order to add a file to an asset, it must be uploaded first. The api operations below provide various ways of uploading a file and recieving a file id which can then be used to associate file with an asset. 
+
+#Upload [/files/upload]
+If the file is sent as a application/gzip it will be unzipped and id will be returned for each constituent file within the zip. 
+In case of gzipped files, file name extension will be utilized to determine the file type (e.g. stl or obj). 
+In case of base64 encoded files, file name extension will be utilized to determine file type (e.g stl or obj).
+
+
+### Upload files [POST]
++ Request
+    + Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+        Content-type: multipart/form-data; boundary="---abc123"
+                
+    + Body
+        ---abc123
+        Content-Disposition: form-data; name="aceb"; filename="data.aceb"
+        Content-Type: application/octet-stream
+        ... file data here ...
+        ---abc123
+        Content-Disposition: form-data; name="dome"; filename="model.gzip"
+        Content-Type: application/gzip
+        ... file data here ...
+        ---abc123
+        Content-Disposition: form-data; name="acmo"; filename="outputs.csv"
+        Content-Type: base64
+        ... file data here ...
+        ---abc123
+
++ Response 200
+    {
+        "files":[{"name":"data.aceb", "file_id":"123334"},{"name":"model.gzip.carmodel.obj", "file_id":"123335"},{"name":"model.gzip.carmodel.mtl", "file_id":"123336"},{"name":"outputs.csv", "file_id":"123337"}]
+    }
+
+#Group Members
+This group of operations provides information on the member. A member is a user who signs up or logs into Cloud Services eco-system.
+
+#Member [/members/{id}]
+Manage public information about a member.
+
++ Parameters
+    + id (required,String, `20280723`)...Member id
+
+### Retrieve a member [GET]
++ Request
+    + Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Response 200 (application/json)
+    {
+       member:{  
+          "membertypeid":0,
+          "memberid":20280723,
+          "profile":{
+             "description":"i am great!",
+             "findme":{
+                "twitter":"http:\/\/www.twitter.com\/jsmith",
+                "facebook":"http:\/\/www.facebook.com\/jsmith"
+             },
+             "avatarpath":"http:\/\/dev.squidplatform.net\/preview\/2011\/11\/11__09_47_18\/ponoko-dowloadable-design.jpg846476b8-bb22-4e8c-be2e-65366de168c6.jpg",
+             "location":"usa"
+          },   
+          "member_name":"jsmith",
+          "member_initial_name":"jsmith",
+          "comments":23,
+          "likes":2,
+          "follows":12,
+          "following":3,
+          "publish":2,
+          "locale":"en_us",
+       }
+}
+
+### Update a member [PUT]
++ Request
+    + Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + description (optional, String, `Updated description`)...Member description
+    + location (optional, String, `London, UK`)...Member location
+    + member_name (optional, String, `jsmith new`)...Member screen name - this must be unique otherwise the method will return 400 error with suggested alternatives
+    + locale (optional, String, `en_US`)... Valid locale in in format <language>_<COUNTRY> 
+    + avatar (optional, String, `123456`)...File id which represents the member avatar. Also see file upload operations
++ Response 200 (application/json)
+    {
+        "_link":"/member/20280723"
+    }
+
+# Follows [/members/{id}/follow]
+For the GET request the "following" parameter determines if we return a follower or following list. 
++ Parameters
+    + id (required,String, `20280723`)...Member id
+
+### Retrieve member followers or following [GET]
++ Request
+    + Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + following (optional, boolean, `false`)...If true return the list of members this member is following
+
++ Response 200 (application/json)
+    {
+        "follows:"
+            {
+                
+                "count":260,
+                "pages":20,
+                "limit":13,
+                "offset":39,
+                "_link":"/member/20280723/follow?limit=26",
+                "_link_prev":"/member/20280723/follow?limit=26&offset=26",
+                "_link_next":"/member/20280723/follow?limit=26&offset=39",
+                "members":[
+                    {
+                    "member_id":123133,
+                    "member_name":"creative artist 101"
+                    "member_small_avatar":"http:\/\/dev.squidplatform.net\/images\/v22\/member\/default_avatar.png",
+                    "_link":"/member/123133"
+                    },
+                    {
+                    "member_id":123134,
+                    "member_name":"creative artist 102"
+                    "member_small_avatar":"http:\/\/dev.squidplatform.net\/images\/v22\/member\/default_avatar.png",
+                    "_link":"/member/123134"
+                    }
+                ]
+                
+            }
+
+    }
+
+### Update member follow status [PUT]
++ Request
+
+    + Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Response 200 (application/json)
+     
+    {
+        "follows":{
+            "count":52,
+            "is_member_following":true,
+            "_link":"/member/20280723/follow"
+        }
+    }
+
+# Assets [/members/{id}/assets]
+Retrieve this members assets. Depending on the context this operation may return both public and private assets i.e if the logged in member is requesting his/her own assets, private assets will also be returned
++ Parameter 
+    + id (required, String , '123446')...Member id
+
+### Retrive member assets [GET]
++ Request
+    
++ Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Response 200 (application/json)
+    {"assets":
+                
+                [
+                    {
+                    "is_featured":false,
+                    "comment_count":0,
+                    "member_small_avatar":"http:\/\/dev.squidplatform.net\/images\/v22\/member\/default_avatar.png",
+                    "asset_name":"tissue box",
+                    "thumb_path_prefix":"http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
+                    "is_online_viewer_available":true,
+                    "is_member_favorite":false,
+                    "favorite_count":1,
+                    "progress_status":1,
+                    "referenced_assets_count" : 0,
+                    "referenced_by_count" : 0,
+                     "referenced_asset_thumb" : "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/2012/12/13__09_57_54/hand.jpgf18ed964-0998-4f43-a165-c0f5c650ec08small.jpg",
+                      "date_published":"april 26, 2011 00:11:57",
+                    "keydata":{
+                       "keyfilefolder":[
+                          {
+                             "filefolder":[
+                                {
+                                   "id":5113474
+                                }
+                             ],
+                             "key":"viewerfiles"
+                          },
+                          {
+                             "filefolder":[
+                                {
+                                   "name":"10325_tissue box_v2_max2010_it2.stl",
+                                   "id":5337164.0,
+                                   "modeltocentimeters":-1.0
+                                },
+                                {
+                                   "name":"10325_tissue box_v2_max2010_it2.stl",
+                                   "id":5341121.0,
+                                   "modeltocentimeters":-1.0
+                                },
+                                {
+                                   "name":"5113474.stl",
+                                   "id":5376472.0,
+                                   "modeltocentimeters":-1.0
+                                }
+                             ],
+                             "key":"stlfiles"
+                          }
+                       ]
+                    },
+                    "canonical_seo_url":"http:\/\/dev.squidplatform.net\/123c-3d-model\/tissue-box\/592540",
+                    "artist_name":"autodesk",
+                    "asset_image":"2011\/04\/25__11_19_17\/tt_0000.jpg251cdd82-cdfb-4397-913a-738096e71046small-1.jpg",
+                    "rating":0.0,
+                    "format_name_long":"multiple ( .stl, .123c )",
+                    "count_rating":0,
+                    "price":0.0,
+                    "seo_template":"123c-3d-model tissue-box",
+                    "current_page":1,
+                    "asset_ext_name":"scenes & props",
+                    "model_type":"part",
+                    "file_size":1690664,
+                    "download_count":3008,
+                    "format_name_short":"stl 123c",
+                    "is_gallery_asset":true,
+                    "artist_avatar":"http:\/\/dev.squidplatform.net\/images\/v22\/member\/default_avatar.png",
+                    "artist_id":2345678,
+                    "media_type_id":23,
+                    "current_result":1,
+                    "mesh":yes,
+                    "associated_file_directory_path":"2011\/04\/25__11_19_17\/tt_0000.jpg251cdd82-cdfb-4397-913a-738096e71046small-1.jpg",
+                    "asset_id":592540
+                 }
+                ]
+            ,
+                "count":260,
+                "pages":20,
+                "limit":13,
+                "offset":39,
+                "_link":"/member/20280723/assets?limit=26",
+                "_link_prev":"/member/20280723/assets?limit=26&offset=26",
+                "_link_next":"/member/20280723/assets?limit=26&offset=39",
+           
+        }
+  
+
+# Likes [/members/{id}/likes]
+
++ Parameter 
+    + id (required, String , '123446')...Member id
+
+    
+### Retrieve member liked assets [GET]
++ Request
+
++ Header
+            
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Response 200 (application/json)
+
+    {"assets":
+                [
+                    {
+                    "is_featured":false,
+                    "comment_count":0,
+                    "member_small_avatar":"http:\/\/dev.squidplatform.net\/images\/v22\/member\/default_avatar.png",
+                    "asset_name":"tissue box",
+                    "thumb_path_prefix":"http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
+                    "is_online_viewer_available":true,
+                    "is_member_favorite":false,
+                    "favorite_count":1,
+                    "progress_status":1,
+                    "referenced_assets_count" : 0,
+                    "referenced_by_count" : 0,
+                     "referenced_asset_thumb" : "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/2012/12/13__09_57_54/hand.jpgf18ed964-0998-4f43-a165-c0f5c650ec08small.jpg",
+                      "date_published":"april 26, 2011 00:11:57",
+                    "keydata":{
+                       "keyfilefolder":[
+                          {
+                             "filefolder":[
+                                {
+                                   "id":5113474
+                                }
+                             ],
+                             "key":"viewerfiles"
+                          },
+                          {
+                             "filefolder":[
+                                {
+                                   "name":"10325_tissue box_v2_max2010_it2.stl",
+                                   "id":5337164.0,
+                                   "modeltocentimeters":-1.0
+                                },
+                                {
+                                   "name":"10325_tissue box_v2_max2010_it2.stl",
+                                   "id":5341121.0,
+                                   "modeltocentimeters":-1.0
+                                },
+                                {
+                                   "name":"5113474.stl",
+                                   "id":5376472.0,
+                                   "modeltocentimeters":-1.0
+                                }
+                             ],
+                             "key":"stlfiles"
+                          }
+                       ]
+                    },
+                    "canonical_seo_url":"http:\/\/dev.squidplatform.net\/123c-3d-model\/tissue-box\/592540",
+                    "artist_name":"autodesk",
+                    "asset_image":"2011\/04\/25__11_19_17\/tt_0000.jpg251cdd82-cdfb-4397-913a-738096e71046small-1.jpg",
+                    "rating":0.0,
+                    "format_name_long":"multiple ( .stl, .123c )",
+                    "count_rating":0,
+                    "price":0.0,
+                    "seo_template":"123c-3d-model tissue-box",
+                    "current_page":1,
+                    "asset_ext_name":"scenes & props",
+                    "model_type":"part",
+                    "file_size":1690664,
+                    "download_count":3008,
+                    "format_name_short":"stl 123c",
+                    "is_gallery_asset":true,
+                    "artist_avatar":"http:\/\/dev.squidplatform.net\/images\/v22\/member\/default_avatar.png",
+                    "artist_id":2345678,
+                    "media_type_id":23,
+                    "current_result":1,
+                    "mesh":yes,
+                    "associated_file_directory_path":"2011\/04\/25__11_19_17\/tt_0000.jpg251cdd82-cdfb-4397-913a-738096e71046small-1.jpg",
+                    "asset_id":592540
+                 }
+                ]
+            ,
+                "count":26,
+                "pages":13,
+                "limit":26,
+                "offset":39
+                "_link":"/member/20280723/likes?limit=26",
+                "_link_prev":"/member/20280723/likes?limit=26&offset=26",
+                "_link_next":"/member/20280723/likes?limit=26&offset=39",
+           
+        }
+
+# Group Auth
+
+# Login [/login]
+Authorization is done through an "oauth-like" 3 legged process for web applications and a slightly modified 2 legged process for desktop/mobile apps.  
+Here are the general steps:  
+1. Client application calls the /login end point to begin login workflow  
+2. The /login end point displays the login screen based on display criteria specified by the client  
+3. Once end user has logged in the end point redirects back to the relative_redirect_path specified by the client application along with a login token  
+4. The client application passes the token along with the login secret key to the /login/authenticatetoken end point to recieve a user session  
+
+### Login [GET]
+
++ Parameters
+    + afc (required, String, `HM89F3`)...Application's Affiliate code.
+    + display (required, String, `iframe`)...display an be popup/iframe/mobile.
+    + secure (optional,Number, `0`)... indicates if the response will also return secure session. 
+    + relative_redirect_path (optional, String, `/abc/redirect`)...Relative redirect path where after login it will be redirect. This is required for web applications (see notes below)  Example Value: /82972/core/services/marketplace/loginhandler.php
+    + locale (optional, String, `cs`)...Pass this flag to present locale specific login dialog. If nothing is passed then default is en-US.Possible values are as follows:-*English (en-US) [default]  *CZech (cs)  *German (de)  *Spanish (es) *French (fr) *Hungarian (hu) *Italian (it) *Japanese (ja) *Korean (ko) *Polish(pl) *Brazilian Portugese (pt-BR)  *Russian (ru) *Chinese PRC (zh-cn) *Chinese Taiwan (zh-tw)
+    + register (optional,Boolean, `false`)...This param will decide whether to show register screen(create account) or signin in screen.Values = true/false. By default value is false so it will show signin in screen.
+    + ssl (optional, Boolean, `false`)...This param will decide whether redirect to http or https.Values = true/false. By default value is false.
+    + social_redirect (optional, Boolean, `false`)...This param will decide whether to open social provider in popup or in same view.Values = true/false. By default value is false.
+    + meter_session (optional, Boolean, `false`)...This param will help in meter session of a member for different afcs. Values= true/false. Default is false
+    + send_create (optional, Boolean, `false`)...This param will help in knowing whether the member is getting registered with particular affiliate id. Values= true/false. Default is false
+    + send_first_login (optional, Boolean, `false`)...This param will decide whether the member has logged in first time or not. values=true/false. Default is false
+    + oauth_asynch (optional, Boolean, `false`)...This param is used to save your oxygen oauth info to marketplace asynchronously. values = true/false. Default is true
+    + authorization_code(optional, String, ``)...This parameter is used to send COPPA authorization code to Oxygen login when Moderator tries to login using verification link in the email.Default is null or empty.
++ Response 302 
+    
+    + Header
+        
+            Location: "https://myapp.com/relative_path?token_key=12313232333"
+
+# Authenticate Token [/login/authenticatetoken]
+Authenticate the token returned by /member/login call to recieve a session id
++ Parameters
+    + login_secret (required, String, `sse34211322424424`)...login secret provided to application during AFC creation process
+    + token_key (required, String, `12313232333`)...token key returned in login method
++ Response 200 (application/json)
+    {"session":"2E709611-21ED-4C3B-85CB-F23B007E3334","secure_session":"2604B7D0408A16F3E2FA50E4AFFC318E","create":true,"first_login":true}
+
+### Retrieve session from token [GET]      
+        
+# Guest Session [/login/session]
+Returns a guest session ID.   Guest sessions expire after 4 hours of inactivity.
+
++ Request
+    + Header
+            
+        X-AFC: FJKB32
++ Reponse 200 (application/json)
+    {"session":"1213133-1213131131112"}
+
+    
+
+
+
+
+
