@@ -1396,6 +1396,8 @@ Here are the general steps:
 
 # Authenticate Token [/login/authenticatetoken]
 Authenticate the token returned by /member/login call to recieve a session id
+
+### Retrieve session from token [GET] 
 + Parameters
     + login_secret (required, String, `sse34211322424424`)...login secret provided to application during AFC creation process
     + token_key (required, String, `12313232333`)...token key returned in login method
@@ -1404,18 +1406,21 @@ Authenticate the token returned by /member/login call to recieve a session id
 
             {"session":"2E709611-21ED-4C3B-85CB-F23B007E3334","secure_session":"2604B7D0408A16F3E2FA50E4AFFC318E","create":true,"first_login":true}
 
-### Retrieve session from token [GET]      
+     
         
 # Guest Session [/login/session]
 Returns a guest session ID.   Guest sessions expire after 4 hours of inactivity.
 
-+ Request
-    + Header
++ Header
             
             X-AFC: FJKB32
 
+### Retrieve Guest session [GET]
+
+
 + Response 200 (application/json)
-    {"session":"1213133-1213131131112"}
+
+            {"session":"1213133-1213131131112"}
 
     
 
