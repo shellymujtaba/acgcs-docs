@@ -1,1 +1,1 @@
-ACG apiary docs repositor
+ACG apiary docs repository
