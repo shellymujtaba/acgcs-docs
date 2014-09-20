@@ -217,14 +217,14 @@ Operations to perform CRUD operations on an asset with basic metadata. Additiona
 + Request
     + Header
             
-        X-AFC: FJKB32
-        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
     + title (required, String, `Alien`) ...Asset title
     + description (required, String, `Mint colored alien`) ...title description
     + tags (required, String, `alien,sci-fi,fantasy`) ... comma seperated list of tags
     + publish (optional, Boolean, `false`) ... publish to gallery
-    + progress_status (optional, Number, 1) ...progress status <br> Options:<br> 0:in progress<br>1:complete
+    + progress_status (optional, Number, `1`) ...progress status <br> Options:<br> 0:in progress<br>1:complete
 
 
 + Response 201 (application/json)
@@ -238,8 +238,8 @@ Operations to perform CRUD operations on an asset with basic metadata. Additiona
 + Request
     + Header
             
-        X-AFC: FJKB32
-        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
     + referenced_assets (optional, Number, `true`) ...When true referenced assets will be returned as an array sorted in descending order of the time when they were added.<br>Default: false
