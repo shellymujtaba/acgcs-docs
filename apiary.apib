@@ -1091,13 +1091,46 @@ For the GET request the "following" parameter determines if we return a follower
             
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-+ Parameters
-    + following (optional, boolean, `false`)...If true return the list of members this member is following
 
 + Response 200 (application/json)
 
             {
                 "follows:"
+                    {
+                        
+                        "count":260,
+                        "pages":20,
+                        "limit":13,
+                        "offset":39,
+                        "_link":"/member/20280723/follow?limit=26",
+                        "_link_prev":"/member/20280723/follow?limit=26&offset=26",
+                        "_link_next":"/member/20280723/follow?limit=26&offset=39",
+                        "members":[
+                            {
+                            "member_id":123133,
+                            "member_name":"creative artist 101"
+                            "member_small_avatar":"http:\/\/dev.squidplatform.net\/images\/v22\/member\/default_avatar.png",
+                            "_link":"/member/123133"
+                            },
+                            {
+                            "member_id":123134,
+                            "member_name":"creative artist 102"
+                            "member_small_avatar":"http:\/\/dev.squidplatform.net\/images\/v22\/member\/default_avatar.png",
+                            "_link":"/member/123134"
+                            }
+                        ]
+                        
+                    }
+        
+            }
+
++ Parameters
+    + following (optional, boolean, `true`)...If true return the list of members this member is following
+
++ Response 200 (application/json)
+
+            {
+                "following:"
                     {
                         
                         "count":260,
