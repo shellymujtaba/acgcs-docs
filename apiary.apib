@@ -1126,12 +1126,32 @@ Returns the list of users this member follows.
             }
 
 
+### Update member follows status [PUT]
++ Request
+
+    + Header
+            
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Response 200 (application/json)
+     
+            {
+                "follows":{
+                    "count":52,
+                    "is_member_following":true,
+                    "_link":"/member/20280723/follow"
+                }
+            }
+
+
+
 # Following [/members/{id}/following]
 Returns the list of users following the user with the specified id.
 + Parameters
     + id (required,String, `20280723`)...Member id
 
-### Retrieve member followers or following [GET]
+### Retrieve member following [GET]
 + Request
     + Header
             
@@ -1171,23 +1191,6 @@ Returns the list of users following the user with the specified id.
         
             }
 
-### Update member follow status [PUT]
-+ Request
-
-    + Header
-            
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-
-+ Response 200 (application/json)
-     
-            {
-                "follows":{
-                    "count":52,
-                    "is_member_following":true,
-                    "_link":"/member/20280723/follow"
-                }
-            }
 
 # Assets [/members/{id}/assets]
 Retrieve this members assets. Depending on the context this operation may return both public and private assets i.e if the logged in member is requesting his/her own assets, private assets will also be returned
