@@ -1144,25 +1144,6 @@ Returns the list of users this member follows.
             }
             
 
-### Update member follows status [PUT]
-+ Request
-
-    + Header
-            
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-
-+ Response 200 (application/json)
-     
-            {
-                "follows":{
-                    "count":52,
-                    "is_member_following":true,
-                    "_link":"/member/20280723/follow"
-                }
-            }
-
-
 
 # Following [/members/{id}/following]
 Returns the list of users following this member.
@@ -1204,6 +1185,20 @@ Returns the list of users following this member.
                         
             }
             
+
+
+### Adds logged in member to another member's following [PUT]
+The other member is specified by the id in the URL path.
++ Request
+
+    + Header
+            
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Response 204 (application/json)
+    Empty Response
+
 
 
 # Assets [/members/{id}/assets]
