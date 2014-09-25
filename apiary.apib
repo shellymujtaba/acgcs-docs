@@ -630,35 +630,11 @@ Note: PUT operation will replace all existing links with the new set. To add a l
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Response 200 (application/json)
     
-{
-    "links": [
         {
-            "type": "VIDEO",
-            "references": [
-                {
-                    "title": "NYC",
-                    "description": "NYC",
-                    "link": "https://www.youtube.com/watch?v=EhuieInmdIU",
-                },
-                {
-                    "title": "Umbrella",
-                    "description": "Umbrella",
-                    "embedWidget": "<iframe width=\"640\" height=\"360\" src=\"//www.youtube.com/embed/CvBfHwUxHIk?feature=player_detailpage\" frameborder=\"0\"></iframe>",
-                }
-            ]
-        },
-        {
-            "type": "LINK",
-            "references": [
-                {
-                    "title": "link link",
-                    "url": "https://www.youtube.com/watch?v=CvBfHwUxHIk",
-                    "description": "dfadsjng",
-                }
-            ]
+                "links":[
+                {"VIDEO","http://youtube.com/abc"},{"LINK","http://youtube.com/abc"}
+                ]
         }
-    ]
-}
 
 ### Update links [PUT]
 + Request
@@ -1130,13 +1106,13 @@ Returns the list of users this member follows.
                 "members":[
                     {
                         "member_id":123133,
-                        "member_name":"creative artist 101"
+                        "member_name":"creative artist 101",
                         "member_small_avatar":"http:\/\/dev.squidplatform.net\/images\/v22\/member\/default_avatar.png",
                         "_link":"/member/123133"
                     },
                     {
                         "member_id":123134,
-                        "member_name":"creative artist 102"
+                        "member_name":"creative artist 102",
                         "member_small_avatar":"http:\/\/dev.squidplatform.net\/images\/v22\/member\/default_avatar.png",
                         "_link":"/member/123134"
                     }
@@ -1194,13 +1170,13 @@ Returns the list of users following this member.
                         "members":[
                             {
                             "member_id":123133,
-                            "member_name":"creative artist 101"
+                            "member_name":"creative artist 101",
                             "member_small_avatar":"http:\/\/dev.squidplatform.net\/images\/v22\/member\/default_avatar.png",
                             "_link":"/member/123133"
                             },
                             {
                             "member_id":123134,
-                            "member_name":"creative artist 102"
+                            "member_name":"creative artist 102",
                             "member_small_avatar":"http:\/\/dev.squidplatform.net\/images\/v22\/member\/default_avatar.png",
                             "_link":"/member/123134"
                             }
