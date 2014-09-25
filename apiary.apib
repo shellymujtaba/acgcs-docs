@@ -394,12 +394,34 @@ Note: PUT operation will replace the existing list of references with a new list
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Response 200 (application/json)
     
+{
+    "offset": 20,
+    "limit": 10,
+    "reference_assets": [
         {
-            "referenced_assets":[
-                "234567",
-                "334562"
-            ]
+            "_link": "/asset/588362",
+            "thumbnails": [
+                {
+                    "id": 2232333,
+                    "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
+                    "is_primary": false
+                },
+                {
+                    "id": 13224244,
+                    "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
+                    "is_primary": true
+                }
+            ],
+            "reference_added_date": "august, 28 2013 00:00:00",
+            "description": "publishing test.",
+            "media_type": 2,
+            "asset_name": "cylinders",
+            "asset_id": 588362,
+            "is_premium_asset": false,
+            "canonical_seo_url": "http://alpha.squidplatform.com/obj-catch/rn-building-2/1135545"
         }
+    ]
+}
 
 ### Update references[PUT]
 + Request
