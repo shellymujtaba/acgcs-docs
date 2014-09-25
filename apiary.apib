@@ -634,11 +634,28 @@ Note: PUT operation will replace all existing links with the new set. To add a l
     "links": [
         {
             "type": "VIDEO",
-            "link": "http://youtube.com/abc"
+            "references": [
+                {
+                    "title": "NYC",
+                    "description": "NYC",
+                    "link": "https://www.youtube.com/watch?v=EhuieInmdIU",
+                },
+                {
+                    "title": "Umbrella",
+                    "description": "Umbrella",
+                    "embedWidget": "<iframe width=\"640\" height=\"360\" src=\"//www.youtube.com/embed/CvBfHwUxHIk?feature=player_detailpage\" frameborder=\"0\"></iframe>",
+                }
+            ]
         },
         {
             "type": "LINK",
-            "link": "http://youtube.com/abc"
+            "references": [
+                {
+                    "title": "link link",
+                    "url": "https://www.youtube.com/watch?v=CvBfHwUxHIk",
+                    "description": "dfadsjng",
+                }
+            ]
         }
     ]
 }
