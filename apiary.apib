@@ -229,7 +229,6 @@ Operations to perform CRUD operations on an asset with basic metadata. Additiona
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
     + referenced_assets (optional, Number, `true`) ...When true referenced assets will be returned as an array sorted in descending order of the time when they were added.<br>Default: false
 + Response 200 (application/json)
-
        [Asset][] 
         
 
@@ -240,13 +239,13 @@ Operations to perform CRUD operations on an asset with basic metadata. Additiona
         X-AFC: FJKB32
         X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
-
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
     + title (required, String, `Alien`) ...Asset title
     + description (required, String, `Mint colored alien`) ...title description
     + tags (required, String, `alien,sci-fi,fantasy`) ... comma seperated list of tags
     + publish (optional, Boolean, `false`) ... publish to gallery
     + progress_status (optional, Number, `1`) ...progress status <br> Options:<br> 0:in progress<br>1:complete
+    
 + Response 200 (application/json)
 
             {
@@ -388,16 +387,14 @@ Note: PUT operation will replace the existing list of references with a new list
 
 ### Retrieve asset references[GET]
 + Parameters
-    + limit (optional, number, `20`)...number of results per page
+    + limit (optional, number, `20`)...number of results per page. Default: 10
     + offset (optional, Number, `60`) ...This offsets the start of each page by the number specified.  
-    
 + Request
     + Header
             
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Response 200 (application/json)
-    
 {
     "offset": 20,
     "limit": 10,
