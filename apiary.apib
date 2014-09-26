@@ -529,12 +529,20 @@ Note: PUT operation will replace all existing sources with the new list. To add 
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Response 200 (application/json)
     
-         {
-            "sources":[
-                {"123456","STL","_link":"/api/v1/download?asset=234566&file=123456"},{"234345","OBJ","_link":"/api/v1/download?asset=234566&file=123456"}
-                    
-            ]
+{
+    "sources": [
+        {
+            "file_id": "123456",
+            "file_type": "STL",
+            "_link": "api/v2/assets/id/download?file=123456"
+        },
+        {
+            "file_id": "123456",
+            "file_type": "STL",
+            "_link": "api/v2/assets/id/download?file=123456"
         }
+    ]
+}
 
 ### Update sources [PUT]
 + Request
