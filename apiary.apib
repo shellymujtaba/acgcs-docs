@@ -377,8 +377,6 @@ Operations to link other assets to this asset. These operations are useful to ag
 Note: PUT operation will replace the existing list of references with a new list. To add to existing list use POST.
 + Parameters
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
-    + limit (optional, number, `20`)...number of results per page
-    + offset (optional, Number, `60`) ...This offsets the start of each page by the number specified.     
 
 ### Create a new reference within the asset[POST] 
 + Parameters
@@ -389,6 +387,10 @@ Note: PUT operation will replace the existing list of references with a new list
     }
 
 ### Retrieve asset references[GET]
++ Parameters
+    + limit (optional, number, `20`)...number of results per page
+    + offset (optional, Number, `60`) ...This offsets the start of each page by the number specified.  
+    
 + Request
     + Header
             
