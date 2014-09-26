@@ -451,7 +451,7 @@ Note: PUT operation will replace the existing list of references with a new list
 + Response 204
 
 # Asset Referenced [/assets/{id}/referenced]
-This operation will return a list of assets where this asset is referenced. 
+This operation will return a list of assets where this asset is referenced.
 
 ### Retrieve assets referencing this asset [GET]
 + Request
@@ -460,6 +460,7 @@ This operation will return a list of assets where this asset is referenced.
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
+    + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
     + limit (optional, Number,`20`)...Number of results to return in each page
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified.
 
