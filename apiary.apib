@@ -865,40 +865,33 @@ Operations to manage comments on an asset
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified.
 
 + Response 200 (application/json)
-    
+{
+    "count": 260,
+    "pages": 20,
+    "limit": 13,
+    "offset": 39,
+    "_link": "/asset/234566/comments?limit=26",
+    "_link_prev": "/asset/234566/comments?limit=26&offset=26",
+    "_link_next": "/asset/234566/comments?limit=26&offset=39",
+    "comments": [
         {
-            "count":260,
-            "pages":20,
-            "limit":13,
-            "offset":39,
-            "_link":"/asset/234566/comments?limit=26",
-            "_link_prev":"/asset/234566/comments?limit=26&offset=26",
-            "_link_next":"/asset/234566/comments?limit=26&offset=39",
-               
-            
-            "comments":
-            [
-                {
-                    "member_id" : 20288416,
-                    "member_small_avatar" : "https://dev.squidplatform.net/images/v22/member/default_avatar.png",
-                    "member_name" : "amol tulaskar",
-                    "body" : "api test reply comment to comment",
-                    "comment_id" : "cmdm35wh3y8vx42",
-                    "timestamp" : "2012-06-27 11:04:41",
-                    "in_reply_to" :
-                    {
-                        "member_id" : 20288416,
-                        "member_small_avatar" : "https://dev.squidplatform.net/images/v22/member/default_avatar.png",
-                        "member_name" : "amol tulaskar",
-                        "body" : "api original comment",
-                        "comment_id" : "cmdm35wh3y8vx42",
-                        "timestamp" : "2012-06-27 11:04:41"
-                    }
-            
-         
-                }
-            ]
+            "member_id": 20288416,
+            "member_small_avatar": "https://dev.squidplatform.net/images/v22/member/default_avatar.png",
+            "member_name": "amol tulaskar",
+            "body": "api test reply comment to comment",
+            "comment_id": "cmdm35wh3y8vx42",
+            "timestamp": "April 09, 2011 07:27:54",
+            "in_reply_to": {
+                "member_id": 20288416,
+                "member_small_avatar": "https://dev.squidplatform.net/images/v22/member/default_avatar.png",
+                "member_name": "amol tulaskar",
+                "body": "api original comment",
+                "comment_id": "cmdm35wh3y8vx42",
+                "timestamp": "April 09, 2011 07:27:54"
+            }
         }
+    ]
+}
           
 
 ### Update a comment[PUT]
