@@ -78,8 +78,7 @@ Operations to perform CRUD operations on an asset with basic metadata. Additiona
 + Model (application/json)
 
     + Body
-    
- {
+{
     "_link": "/asset/630595",
     "artist": {
         "artist_name": "tim",
@@ -91,7 +90,7 @@ Operations to perform CRUD operations on an asset with basic metadata. Additiona
     "asset_name": "timproduct",
     "asset_status_code": 0,
     "canonical_seo_url": "http://dev.squidplatform.net/users/mcatrett/ms33/sherpa/3d-model/timproduct/630595",
-    "date_submitted": "august 15, 2012 13:59:28",
+    "date_submitted": "April 09, 2011 07:27:54",
     "delivery_media": "download only",
     "description": "this is a test",
     "used_in_project_count": 0,
@@ -136,16 +135,18 @@ Operations to perform CRUD operations on an asset with basic metadata. Additiona
     "software": 9,
     "thumbnails": [
         {
-            "file_id": 5401170,
-            "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
+            "id": 123456,
             "caption": "thumbnail caption",
-            "description": "thumbnail description"
+            "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
+            "description": "thumbnail description",
+            "is_primary": true
         },
         {
-            "file_id": 5401170,
+            "id": 123457,
             "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
-            "caption": "thumbnail caption",
-            "description": "thumbnail description"
+            "caption": "thumbnail caption 2",
+            "description": "thumbnail description 2",
+            "is_primary": false
         }
     ],
     "referenced_assets": [
@@ -161,7 +162,7 @@ Operations to perform CRUD operations on an asset with basic metadata. Additiona
                     "is_primary": true
                 }
             ],
-            "reference_added_date": "august, 28 2013 00:00:00",
+            "reference_added_date": "April 09, 2011 07:27:54",
             "description": "publishing test.",
             "media_type": 2,
             "asset_name": "cylinders",
