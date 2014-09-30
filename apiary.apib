@@ -1498,33 +1498,6 @@ This group of operations provides information on the comments. A comment is made
     
     
 
-# Update a comment
-+ Request
-    + Header
-            
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-+ Parameters
-    + comment (required,String, `encoded comment text`) ...any 3rd party links in comments will be encoded, to reference external links use /assets/{id}/links apis 
-    + comment_id (required, String, `123aaddq33`)...id of comment to be updated
-+ Response 200 (application/json)
-    {
-        "comments":{
-            "count":52,
-            "_link":"/asset/234566/comments"
-        }
-    }
-    
-
-# Delete an asset comments
-+ Request
-    + Header
-            
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-+ Parameters
-    + comment_ids (required,String, `234567,334562`)...Comma seperated list of comments to be deleted from this asset.
-+ Response 204
 
 
 
