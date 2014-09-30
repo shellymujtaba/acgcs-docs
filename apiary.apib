@@ -1503,10 +1503,6 @@ This group of operations provides information on the comments. A comment is made
 Operations to manage comments on an asset
 
 
-+ Parameters
-    + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
-
-
 ### Update a comment[PUT]
 + Request
     + Header
@@ -1531,5 +1527,5 @@ Operations to manage comments on an asset
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
-    + comment_ids (required,String, `234567,334562`)...Comma seperated list of comments to be deleted from this asset.
+    + comment_id (required,String, `234567,334562`)...id of comment to be deleted from this asset.
 + Response 204
