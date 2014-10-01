@@ -1100,27 +1100,25 @@ Manage public information about a member.
 + Response 200 (application/json)
 
             {
-               "member":{  
-                  "membertypeid":0,
-                  "memberid":20280723,
-                  "profile":{
-                     "description":"i am great!",
-                     "findme":{
-                        "twitter":"http:\/\/www.twitter.com\/jsmith",
+               "type_id":0,
+               "id":20280723,
+               "profile":{
+                    "description":"i am great!",
+                    "findme":{
+                       "twitter":"http:\/\/www.twitter.com\/jsmith",
                         "facebook":"http:\/\/www.facebook.com\/jsmith"
                      },
                      "avatarpath":"http:\/\/dev.squidplatform.net\/preview\/2011\/11\/11__09_47_18\/ponoko-dowloadable-design.jpg846476b8-bb22-4e8c-be2e-65366de168c6.jpg",
                      "location":"usa"
-                  },   
-                  "member_name":"jsmith",
-                  "member_initial_name":"jsmith",
-                  "comments":23,
-                  "likes":2,
-                  "follows":12,
-                  "following":3,
-                  "publish":2,
-                  "locale":"en_us"
-               }
+                },   
+                "name":"jsmith",
+                "initial_name":"jsmith",
+                "comments":23,
+                "likes":2,
+                "follows":12,
+                "following":3,
+                "publish":2,
+                "locale":"en_us"
             }
 
 ### Update a member [PUT]
