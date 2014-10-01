@@ -288,9 +288,11 @@ This api is a starting point to display galleries, perform free-form searches. D
     + include_mature (optional, Boolean, `false`)...Result will include asset marked as mature.
 
 ## List all Assets [GET]
+ 
+
 + Response 200 (application/json)
         
-{
+  {
     "count": 260,
     "limit": 13,
     "offset": 39,
@@ -312,27 +314,35 @@ This api is a starting point to display galleries, perform free-form searches. D
             "referenced_by_count": 0,
             "referenced_asset_thumb": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/2012/12/13__09_57_54/hand.jpgf18ed964-0998-4f43-a165-c0f5c650ec08small.jpg",
             "date_published": "april 26, 2011 00:11:57",
-            "key_data": {
-                "viewerfiles": [
+            "keydata": {
+                "keyfilefolder": [
                     {
-                        "id": 5113474
-                    }
-                ],
-                "stlfiles": [
-                    {
-                        "name": "10325_tissue box_v2_max2010_it2.stl",
-                        "id": 5337164,
-                        "modeltocentimeters": -1
+                        "filefolder": [
+                            {
+                                "id": 5113474
+                            }
+                        ],
+                        "key": "viewerfiles"
                     },
                     {
-                        "name": "10325_tissue box_v2_max2010_it2.stl",
-                        "id": 5341121,
-                        "modeltocentimeters": -1
-                    },
-                    {
-                        "name": "5113474.stl",
-                        "id": 5376472,
-                        "modeltocentimeters": -1
+                        "filefolder": [
+                            {
+                                "name": "10325_tissue box_v2_max2010_it2.stl",
+                                "id": 5337164,
+                                "modeltocentimeters": -1
+                            },
+                            {
+                                "name": "10325_tissue box_v2_max2010_it2.stl",
+                                "id": 5341121,
+                                "modeltocentimeters": -1
+                            },
+                            {
+                                "name": "5113474.stl",
+                                "id": 5376472,
+                                "modeltocentimeters": -1
+                            }
+                        ],
+                        "key": "stlfiles"
                     }
                 ]
             },
@@ -679,32 +689,12 @@ Note: PUT operation will replace all existing links with the new set. To add a l
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Response 200 (application/json)
-{
-    "links": [
+    
         {
-            "type": "VIDEO",
-            "references": [
-                {
-                    "id": "5423906829345",
-                    "title": "title",
-                    "description": "title",
-                    "embedWidget": "<iframe width=\"854\" height=\"510\" src=\"//www.youtube.com/embed/wQ3nCa2_f88\" frameborder=\"0\"></iframe>"
-                }
-            ]
-        },
-        {
-            "type": "LINK",
-            "references": [
-                {
-                    "id": "54239097944f1",
-                    "title": "link",
-                    "description": "title",
-                    "url": "https://www.youtube.com/watch?v=wQ3nCa2_f88"
-                }
-            ]
+                "links":[
+                {"VIDEO","http://youtube.com/abc"},{"LINK","http://youtube.com/abc"}
+                ]
         }
-    ]
-}
 
 ### Update links [PUT]
 + Request
@@ -800,13 +790,11 @@ This operation is basically a toggle - calling PUT operation repeteadly will set
     
         {
                 "count":260,
-                "pages":20,
                 "limit":13,
                 "offset":39,
                 "_link":"/assets/234566/likes?limit=26",
                 "_link_prev":"/assets/234566/likes?limit=26&offset=26",
                 "_link_next":"/assets/234566/likes?limit=26&offset=39",
-                "member_favorite": true,
                 "members":[
                     {
                     "member_id":123133,
@@ -1098,29 +1086,30 @@ Manage public information about a member.
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Response 200 (application/json)
-        {  
-            "member": {
-               "type_id":0,
-               "id":20280723,
-               "profile":{
-                    "description":"i am great!",
-                    "findme":{
-                       "twitter":"http:\/\/www.twitter.com\/jsmith",
+
+            {
+               "member":{  
+                  "membertypeid":0,
+                  "memberid":20280723,
+                  "profile":{
+                     "description":"i am great!",
+                     "findme":{
+                        "twitter":"http:\/\/www.twitter.com\/jsmith",
                         "facebook":"http:\/\/www.facebook.com\/jsmith"
                      },
-                     "avatar_path":"http:\/\/dev.squidplatform.net\/preview\/2011\/11\/11__09_47_18\/ponoko-dowloadable-design.jpg846476b8-bb22-4e8c-be2e-65366de168c6.jpg",
+                     "avatarpath":"http:\/\/dev.squidplatform.net\/preview\/2011\/11\/11__09_47_18\/ponoko-dowloadable-design.jpg846476b8-bb22-4e8c-be2e-65366de168c6.jpg",
                      "location":"usa"
-                },   
-                "name":"jsmith",
-                "initial_name":"jsmith",
-                "comments":23,
-                "likes":2,
-                "follows":12,
-                "following":3,
-                "publish":2,
-                "locale":"en_us"
+                  },   
+                  "member_name":"jsmith",
+                  "member_initial_name":"jsmith",
+                  "comments":23,
+                  "likes":2,
+                  "follows":12,
+                  "following":3,
+                  "publish":2,
+                  "locale":"en_us"
+               }
             }
-        }
 
 ### Update a member [PUT]
 + Request
