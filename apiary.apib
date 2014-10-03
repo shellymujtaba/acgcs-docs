@@ -1253,6 +1253,22 @@ Returns the list of users following this member.
     Empty Response
 
 
+### Removes member from another member's following [DELETE]
++ Parameter 
+    + id (required, String , `123446`)... The logged in member will be removed from this member's following  
+
++ Request
+
+    + Header
+            
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Response 204 (application/json)
+    Empty Response
+
+
+
 
 # Assets [/members/{id}/assets]
 Retrieve this members assets. Depending on the context this operation may return both public and private assets i.e if the logged in member is requesting his/her own assets, private assets will also be returned
