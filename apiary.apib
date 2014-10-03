@@ -689,12 +689,32 @@ Note: PUT operation will replace all existing links with the new set. To add a l
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Response 200 (application/json)
-    
+{
+    "links": [
         {
-                "links":[
-                {"VIDEO","http://youtube.com/abc"},{"LINK","http://youtube.com/abc"}
-                ]
+            "type": "VIDEO",
+            "references": [
+                {
+                    "id": "5423906829345",
+                    "title": "title",
+                    "description": "title",
+                    "embedWidget": "<iframe width=\"854\" height=\"510\" src=\"//www.youtube.com/embed/wQ3nCa2_f88\" frameborder=\"0\"></iframe>"
+                }
+            ]
+        },
+        {
+            "type": "LINK",
+            "references": [
+                {
+                    "id": "54239097944f1",
+                    "title": "link",
+                    "description": "title",
+                    "url": "https://www.youtube.com/watch?v=wQ3nCa2_f88"
+                }
+            ]
         }
+    ]
+}
 
 ### Update links [PUT]
 + Request
