@@ -66,6 +66,7 @@ During api creation we follow these standards: -
  3. For api's that return paged result we always return count, limit (page size) and offset (current cursor location) values.  
  4. For api's that return paged result we always return _link_prev and _link_next values.  
  5. All times are in GMT with format "April 09, 2011 07:27:54"
+ 6. All api end points strive to be nouns vs verbs. The http method (POST/GET/PUT/DELETE) determines the action to be performed e.g GET /api/v1/asset vs /api/v1/get_asset.
 
 #Group Assets
 An asset is the top level storage construct for cloud services. An asset can be thought of as a project or a folder with metadata. The asset contains 1..n files, metadata elements and references to other assets or even external links. 
