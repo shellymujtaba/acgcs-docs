@@ -1035,10 +1035,12 @@ Files are "second class" citizens in the Cloud Services ecosystem. As explained 
 Of course in order to add a file to an asset, it must be uploaded first. The api operations below provide various ways of uploading a file and recieving a file id which can then be used to associate file with an asset. 
 
 #Upload [/files/upload]
-If the file is sent as a application/gzip it will be unzipped and id will be returned for each constituent file within the zip. 
+If the file is sent as a application/gzip and unzip parameter is = true, it will be unzipped and id will be returned for each constituent file within the zip. 
 In case of gzipped files, file name extension will be utilized to determine the file type (e.g. stl or obj). 
 In case of base64 encoded files, file name extension will be utilized to determine file type (e.g stl or obj).
 
++ Parameters
+    + unzip (optional,String, `false`)...Indicate if the zip file should be unzipped and each constituent files be treated as an individual file. Default is false. 
 
 ### Upload files [POST]
 + Request
