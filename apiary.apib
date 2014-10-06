@@ -938,10 +938,7 @@ Operations to manage comments on an asset
     + comment_id (required, String, `123aaddq33`)...id of comment to be updated
 + Response 200 (application/json)
     {
-        "comments":{
-            "count":52,
-            "_link":"/asset/234566/comments"
-        }
+        "_link":"/asset/234566/comments"
     }
     
 
@@ -952,7 +949,7 @@ Operations to manage comments on an asset
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
-    + comment_ids (required,String, `234567,334562`)...Comma seperated list of comments to be deleted from this asset.
+    + comment_id (required,String, `234567,334562`)...comment to be deleted from this asset.
 + Response 204
 
 # Asset Flag [/assets/{id}/flags]
