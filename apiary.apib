@@ -1546,38 +1546,3 @@ Returns a guest session ID.   Guest sessions expire after 4 hours of inactivity.
 
             {"session":"1213133-1213131131112"}
             
-#Group Comments
-This group of operations provides information on the comments. A comment is made on an asset.
-    
-
-
-# Asset Comments [/comments/{comment_id}]
-Operations to manage comments on an asset
-
-
-### Update a comment[PUT]
-+ Request
-    + Header
-            
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-+ Parameters
-    + comment (required,String, `encoded comment text`) ...any 3rd party links in comments will be encoded, to reference external links use /assets/{id}/links apis 
-    + comment_id (required, String, `123aaddq33`)...id of comment to be updated
-+ Response 200 (application/json)
-    {
-        "comments":{
-            "_link":"/asset/234566/comments"
-        }
-    }
-    
-
-### Delete an asset comments[DELETE]
-+ Request
-    + Header
-            
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-+ Parameters
-    + comment_id (required,String, `234567,334562`)...id of comment to be deleted from this asset.
-+ Response 204
