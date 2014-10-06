@@ -605,26 +605,7 @@ Note: PUT operation will replace all existing thumbnails with the new list. To a
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
-    + thumbnails (required, JSON, `[
-    {
-        "id": "123456",
-        "caption": "thumbnail caption",
-        "description": "thumbnail description",
-        "is_primary": true
-    },
-    {
-        "id": "123457",
-        "caption": "thumbnail caption 2",
-        "description": "thumbnail description 2",
-        "is_primary": false
-    },
-    {
-        "id": "123458",
-        "caption": "thumbnail caption 2",
-        "description": "thumbnail description 2",
-        "is_primary": false
-    }
-]`) ...JSON list of files to be added as thumbnails to this asset. The file must be of mime type PNG or JPG/JPEG.  
+    + thumbnails (required, JSON, `[{"id": "123456","caption": "thumbnail caption","description": "thumbnail description","is_primary": true},{"id": "123457","caption": "thumbnail caption 2","description": "thumbnail description 2","is_primary": false},{"id": "123458","caption": "thumbnail caption 2","description": "thumbnail description 2","is_primary": false}]`) ...JSON list of files to be added as thumbnails to this asset. The file must be of mime type PNG or JPG/JPEG.  
     + async (optional, Boolean, `true`)...Whether thumbnails should be generated asynchronously
 + Response 201 (application/json)
     {
