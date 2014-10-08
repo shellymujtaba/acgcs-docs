@@ -541,19 +541,6 @@ Note: PUT operation will replace all existing sources with the new list. To add 
     ]
 }
 
-### Update sources [PUT]
-+ Request
-    + Header
-            
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-+ Parameters
-    + file_ids (required,String, `123456,234345`) ...Comma seperated list of files to be added as sources to this asset. The operation will automatically populate the file type based on previously uploaded file's mime type. 
-+ Response 200 (application/json)
-    {
-        "_link":"/assets/234566/sources"
-    }
-
 ### Delete an asset source[DELETE]
 + Request
     + Header
