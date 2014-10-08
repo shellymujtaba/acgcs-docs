@@ -434,19 +434,6 @@ Note: PUT operation will replace the existing list of references with a new list
     ]
 }
 
-### Update references[PUT]
-+ Request
-    + Header
-            
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-+ Parameters
-    + asset_ids (required,String, `234567,334562`)...Comma seperated list of assets to be linked to this asset.
-+ Response 200 (application/json)
-    {
-        "_link":"/assets/234566/references"
-    }
-
 ### Delete an asset reference[DELETE]
 + Request
     + Header
