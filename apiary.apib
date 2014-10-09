@@ -1406,6 +1406,44 @@ Member like operations
                 "_link_prev":"/member/20280723/likes?limit=26&offset=26",
                 "_link_next":"/member/20280723/likes?limit=26&offset=39"
             }
+            
+# Subscriptions [/members/{id}/subscriptions]
+Member's Subscription History ordered cronologically in descending order
+
++ Parameter 
+    + id (required, Number , `123446`)...Member id
+
+    
+### Retrieve member's subscription history [GET]
+
+
++ Header
+            
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Response 200 (application/json)
+
+            {
+                "subscriptions":
+                        [
+                            [
+                                {
+                                    "subscription_id": 3,
+                                    "start_date": "July, 02 2014 16:34:00",
+                                    "end_date": "October, 27 2014 00:00:00",
+                                    "cancelled_date": "",
+                                    "event_type": "RENEW",
+                                    "is_true_subscription": false
+                                }
+                        ],
+                "count":26,
+                "limit":26,
+                "offset":39,
+                "_link":"/member/20280723/subscriptions?limit=26",
+                "_link_prev":"/member/20280723/subscriptions?limit=26&offset=26",
+                "_link_next":"/member/20280723/subscriptions?limit=26&offset=39"
+            }
 
 # Group Auth
 
