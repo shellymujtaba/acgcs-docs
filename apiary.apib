@@ -1408,7 +1408,25 @@ Member like operations
             }
             
 # Subscriptions [/members/{id}/subscriptions]
-Retrieves member's subscription history in cronologically descending order
+Retrieves member's subscription history in cronologically descending order. Each subscription has associated event type. List of possible event types are as follows
+
+**CREATE:**
+    User purchased subscription for the first time.
+
+**RENEW:**
+    User renewed his/her subscription at the end of subscription period.
+    
+**CHANGE_PLAN:**
+    User upgraded or downgraded subscription plan.
+    
+**CANCEL:**
+    User cancelled subscription in the middle of subscription period.
+    
+**NON_RENEW:**
+    User did not renew subscription at the end of subscription period.
+    
+**DELETE:**
+    Subscription was deleted by one of the administrator for this application.
 
 + Parameter 
     + id (required, Number , `123446`)...Member id
