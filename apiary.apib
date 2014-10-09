@@ -375,7 +375,7 @@ This api is a starting point to display galleries, perform free-form searches. D
 
 # Asset References [/assets/{id}/references]
 Operations to link other assets to this asset. These operations are useful to aggregate related assets together e.g Model of a car may consist of several assets : wheels, body, engine etc.
-Note: PUT operation will replace the existing list of references with a new list. To add to existing list use POST.
+
 + Parameters
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
 
@@ -500,7 +500,6 @@ This operation will return a list of assets where this asset is referenced.
 Add files which constitute the "source" for this asset, this can include virtually any file type - 
 all major 3d formats will be automatically translated into a print ready STL format, which will be available in through the asset translations api. 
 Adding the sources will usually be a starting point for storing an asset in cloud services storage - subsequent tranformation operations can then be performed on these source files. 
-Note: PUT operation will replace all existing sources with the new list. To add to existing source list- use POST. 
 
 + Parameters
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
@@ -565,9 +564,7 @@ We will auto generate various sizes from this thumbnail:
 
 Images will be generated in both PNG and JPG formats. 
  
-The thumbnail url prefix is available in asset response, the size post-fix and extension can be appended to the prefix to recover the correct size.  
-
-Note: PUT operation will replace all existing thumbnails with the new list. To add to existing thumbnail list- use POST. 
+The thumbnail url prefix is available in asset response, the size post-fix and extension can be appended to the prefix to recover the correct size.
 
 + Parameters
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
@@ -638,8 +635,7 @@ Note: PUT operation will replace all existing thumbnails with the new list. To a
     
 
 # Asset External Links [/assets/{id}/links]
-All references to external artifacts such as blog posts, videos, photos etc. 
-Note: PUT operation will replace all existing links with the new set. To add a link to an existing list use POST.
+All references to external artifacts such as blog posts, videos, photos etc.
 
 + Parameters
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
@@ -716,7 +712,6 @@ Note: PUT operation will replace all existing links with the new set. To add a l
 
 # Asset Translations [/assets/{id}/translations]
 This api will be used by backend services to update translations for various uploaded files including source files, tranformation files etc. 
-Note: PUT operation will replace all existing translation files with the new set. To add a translation file to an existing list use POST.
 
 + Parameters
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
