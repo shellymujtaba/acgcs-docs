@@ -553,7 +553,6 @@ Adding the sources will usually be a starting point for storing an asset in clou
 # Asset Thumbnails [/assets/{id}/thumbnails]
 Add files as representational thumbnails for this asset. The thumbnails can include photographs of printed asset or rendered images of the 3d model. The thumbnail files should be atleast 1200x1200 px resolution. These thumbnails will be utilized by applications while displaying galleries or asset details.
 We will auto generate various sizes from this thumbnail:  
-
 * small(64)  
 * petite(90)  
 * medium(128)  
@@ -565,6 +564,7 @@ We will auto generate various sizes from this thumbnail:
 Images will be generated in both PNG and JPG formats. 
  
 The thumbnail url prefix is available in asset response, the size post-fix and extension can be appended to the prefix to recover the correct size.
+
 Note: The PUT updates the thumbnail metadata such as caption, description, thumbnail data, ModelToCentimeters & Primary thumbnail flag for an already existing thumbnails for an asset.
 
 + Parameters
