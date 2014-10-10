@@ -1141,6 +1141,8 @@ Returns the list of users this member follows.
 
 + Parameters
     + id (required,String, `20280723`)...Member id
+    + limit (optional, Number,`20`)...Number of results to return in each page
+    + offset (optional, Number, `3`)...This offsets the start of each page by the number specified.
 
 ### Retrieves list this member follows [GET]
 + Request
@@ -1153,7 +1155,6 @@ Returns the list of users this member follows.
 
             {
                 "count":260,
-                "pages":20,
                 "limit":13,
                 "offset":39,
                 "_link":"/members/20280723/follows?limit=26",
@@ -1161,15 +1162,25 @@ Returns the list of users this member follows.
                 "_link_next":"/members/20280723/follows?limit=26&offset=39",
                 "members":[
                     {   
-                        "member_id":123133,
-                        "member_name":"creative artist 101",
-                        "member_small_avatar":"http:\/\/dev.squidplatform.net\/images\/v22\/member\/default_avatar.png",
+                        "followings": 3,
+                        "followers": 1,
+                        "likes": 0,
+                        "publish": 1,
+                        "total_comments": 0,
+                        "member_id": 20704527,
+                        "member_small_avatar": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Alpha/2014/07/11__06_27_59/actor.jpgd00f729d-1c9d-11e4-8fb8-22000b20990c.jpg",
+                        "member_name": "somi",
                         "_link":"/members/123133"
                     },
                     {
-                        "member_id":123134,
-                        "member_name":"creative artist 102",
-                        "member_small_avatar":"http:\/\/dev.squidplatform.net\/images\/v22\/member\/default_avatar.png",
+                        "followings": 1,
+                        "followers": 0,
+                        "likes": 0,
+                        "publish": 0,
+                        "total_comments": 0,
+                        "member_id": 20705124,
+                        "member_small_avatar": "http://alpha.squidplatform.com/Images/v23/Member/default_avatar.png",
+                        "member_name": "testprofile16 testprofile16",
                         "_link":"/members/123134"
                     }
                 ]
@@ -1184,6 +1195,8 @@ Returns the list of users following this member.
 ### Retrieve member following [GET]
 + Parameters
     + id (required,String, `20280723`)...Member id
+    + limit (optional, Number,`20`)...Number of results to return in each page
+    + offset (optional, Number, `3`)...This offsets the start of each page by the number specified.
 
 + Request
     + Header
@@ -1196,7 +1209,6 @@ Returns the list of users following this member.
 
             {
                 "count":260,
-                "pages":20,
                 "limit":13,
                 "offset":39,
                 "_link":"/members/20280723/following?limit=26",
@@ -1204,15 +1216,25 @@ Returns the list of users following this member.
                 "_link_next":"/members/20280723/following?limit=26&offset=39",
                 "members":[
                     {   
-                        "member_id":123133,
-                        "member_name":"creative artist 101",
-                        "member_small_avatar":"http:\/\/dev.squidplatform.net\/images\/v22\/member\/default_avatar.png",
+                        "followings": 0,
+                        "followers": 1,
+                        "likes": 0,
+                        "publish": 5,
+                        "total_comments": 0,
+                        "member_id": 20704571,
+                        "member_small_avatar": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Alpha/2014/04/23__23_05_51/Chrysanthemum.jpg8f2ae0cf-4a40-4c66-a0a1-43ea0584bd37.jpg",
+                        "member_name": "Viresh Shah",
                         "_link":"/members/123133"
                     },
                     {
-                        "member_id":123134,
-                        "member_name":"creative artist 102",
-                        "member_small_avatar":"http:\/\/dev.squidplatform.net\/images\/v22\/member\/default_avatar.png",
+                        "followings": 0,
+                        "followers": 1,
+                        "likes": 1,
+                        "publish": 15,
+                        "total_comments": 393,
+                        "member_id": 20629656,
+                        "member_small_avatar": "http://alpha.squidplatform.com/Images/v23/Member/default_avatar.png",
+                        "member_name": "Mario Caviedes",                                   
                         "_link":"/members/123134"
                     }
                 ]
@@ -1357,6 +1379,8 @@ Member like operations
 
 + Parameter 
     + id (required, Number , `123446`)...Member id
+    + limit (optional, Number,`20`)...Number of results to return in each page
+    + offset (optional, Number, `3`)...This offsets the start of each page by the number specified.
 
     
 ### Retrieve member liked assets [GET]
@@ -1399,7 +1423,6 @@ Member like operations
                             }
                         ],
                 "count":26,
-                "pages":13,
                 "limit":26,
                 "offset":39,
                 "_link":"/member/20280723/likes?limit=26",
