@@ -384,7 +384,10 @@ Note: The key should be unique within the asset. Using the same key in POST will
 ### Create a new custom data entry within the asset[POST] 
 + Parameters
     + custom_data (required, String, `{ "custom_data": [{"custom_data_key": "key1","custom_data": "<Any custom data. Escaped json in case of JSON custom data>"},{"custom_data_key": "key2","custom_data": "<Any custom data. Escaped json in case of JSON custom data>"}]}`)...Key-Value pair of custom data JSON.
-
++ Request
+    + Header
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Response 201 (application/json)
 {
     "_link": "/assets/1495894/customdata"
@@ -393,9 +396,8 @@ Note: The key should be unique within the asset. Using the same key in POST will
 ### Retrieve asset custom data[GET]
 + Request
     + Header
-            
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Response 200 (application/json)
 {
     "custom_data": [
@@ -413,9 +415,8 @@ Note: The key should be unique within the asset. Using the same key in POST will
 ### Delete an asset custom data[DELETE]
 + Request
     + Header
-            
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
     + keys (required, String, `key1,key2`)...Comma seperated list of custom data keys to be deleted from this asset.
 + Response 204
@@ -430,6 +431,11 @@ Operations to add preview files to this asset. These operations are used to add 
 + Parameters
     + file_ids (required, String, `16804696,16804697`)...Comma seperated list of file ids received after uploading the files.
 
++ Request
+    + Header
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
 + Response 201 (application/json)
 {
     "_link": "/assets/1495894/previews"
@@ -438,9 +444,9 @@ Operations to add preview files to this asset. These operations are used to add 
 ### Retrieve asset previews[GET]
 + Request
     + Header
-            
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
 + Response 200 (application/json)
 {
     "previews": [
@@ -460,11 +466,12 @@ Operations to add preview files to this asset. These operations are used to add 
 ### Delete an asset previews[DELETE]
 + Request
     + Header
-            
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
 + Parameters
     + file_ids (required,String, `234567,334562`)...Comma seperated list of assets preview file ids to be deleted from this asset.
+    
 + Response 204
 
 # Asset References [/assets/{id}/references]
