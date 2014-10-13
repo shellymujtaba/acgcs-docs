@@ -376,13 +376,15 @@ This api is a starting point to display galleries, perform free-form searches. D
 # Asset Custom Data [/assets/{id}/customdata]
 Operations to add custom data to this asset. These operations are useful to add any asset specific custom data to the asset e.g tenant specific asset data useful for display purpose.
 
+Note: The key should be unique within the asset. Using the same key will overwrite the existing data if any.
+
 + Parameters
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
 
 ### Create a new custom data entry within the asset[POST] 
 + Parameters
     + custom_data (required, String, `{ "custom_data": [{"custom_data_key": "key1","custom_data": "<Any custom data. Escaped json in case of JSON custom data>"},{"custom_data_key": "key2","custom_data": "<Any custom data. Escaped json in case of JSON custom data>"}]}`)...Key-Value pair of custom data JSON.
-Note: The key should be unique within the asset. Using the same key will overwrite the existing data if any.    
+
 + Response 201 (application/json)
 {
     "_link": "/assets/1495894/customdata"
