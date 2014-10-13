@@ -1125,9 +1125,14 @@ Manage public information about a member.
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
+    + name (optional, String, `jsmith new`)...Member name - this must be unique otherwise the method will return 400 error with suggested alternatives
+    + screen_name (optional, String, `jsmith new`)...Member screen name 
+    + email (optional, String, `jsmith@autodesk.com`)...Member email address
     + description (optional, String, `Updated description`)...Member description
     + location (optional, String, `London, UK`)...Member location
-    + name (optional, String, `jsmith new`)...Member screen name - this must be unique otherwise the method will return 400 error with suggested alternatives
+    + facebook (optional, String, `http://www.facebook.com/jsmith`)...Member facebook link
+    + twitter (optional, String, `http://www.twitter.com/jsmith`)...Member twitter link
+    + personal (optional, String, ``)...Member personal link
     + locale (optional, String, `en_US`)... Valid locale in in format <language>_<COUNTRY> 
     + avatar (optional, String, `123456`)...File id which represents the member avatar. Also see file upload operations
 + Response 200 (application/json)
