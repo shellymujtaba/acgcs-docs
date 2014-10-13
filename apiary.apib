@@ -381,7 +381,8 @@ Operations to add custom data to this asset. These operations are useful to add 
 
 ### Create a new custom data entry within the asset[POST] 
 + Parameters
-    + custom_data (required,String, `{ "custom_data": [{"custom_data_key": "key1","custom_data": "<Any custom data. Escaped json in case of JSON custom data>"},{"custom_data_key": "key2","custom_data": "<Any custom data. Escaped json in case of JSON custom data>"}]}`)...Key-Value pair of custom data JSON.
+    + custom_data (required, String, `{ "custom_data": [{"custom_data_key": "key1","custom_data": "<Any custom data. Escaped json in case of JSON custom data>"},{"custom_data_key": "key2","custom_data": "<Any custom data. Escaped json in case of JSON custom data>"}]}`)...Key-Value pair of custom data JSON.
+Note: The key should be unique within the asset. Using the same key will overwrite the existing data if any.    
 + Response 201 (application/json)
 {
     "_link": "/assets/1495894/customdata"
@@ -414,7 +415,7 @@ Operations to add custom data to this asset. These operations are useful to add 
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
-    + asset_ids (required,String, `key1,key2`)...Comma seperated list of custom data keys to be deleted from this asset.
+    + keys (required, String, `key1,key2`)...Comma seperated list of custom data keys to be deleted from this asset.
 + Response 204
 
 
