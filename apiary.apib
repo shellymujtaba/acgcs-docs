@@ -1664,4 +1664,27 @@ Retrieve shop info & manage shop state.
             
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Response 200 (application/json)
+
+            {
+              "member_id": 1234567890,
+              "name": "Hello Shop",
+              "banner_field": 512,
+              "current_portfolio_url": "http://dev.squidplatform.net",
+              "current_sales_url": "http://dev.squidplatform.net",
+              "shop_status": 1,
+              "shop_approval_status": "APPROVED",
+              "shop_denial_reason": null,
+              "pending_total": 40.12,
+              "total_sales": 9.99,
+              "total_payout": 4.49
+            }
+
+### Update a shop [PUT]
++ Request
+    + Header
+            
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Response 200 (application/json)
