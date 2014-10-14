@@ -823,7 +823,7 @@ This api will be used by backend services to update translations for various upl
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
-    + translations (required,JSON, `{[{"source":123422,"translation":3453434,"type":"STL}]}`) ...JSON list of source file id along with translated file id and type of translation performed. 
+    + translations (required,JSON, `[{"inputFileItemId": "5358536","outputFileItemId": "5358536","outputFileUrl": "","outputFileType": "","outputFileName": ""},{"inputFileItemId": "5358536","outputFileItemId": "5358536","outputFileUrl": "","outputFileType": "","outputFileName": ""}]`) ...JSON list of source file id along with translated file id and type of translation performed. 
 + Response 201 (application/json)
     {
         "_link":"/assets/234566/translations"
