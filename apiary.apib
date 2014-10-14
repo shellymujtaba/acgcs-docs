@@ -1648,3 +1648,20 @@ Returns a guest session ID.   Guest sessions expire after 4 hours of inactivity.
 
         {"session":"1213133-1213131131112"}
             
+
+#Group Shops - WIP
+This group of operations provides information on the shop. A shop is a core entity in the marketplace eco-system.
+
+#Shop [/shops/{id}]
+Retrieve shop info & manage shop state.
+
++ Parameters
+    + id (required,Number, `20280723`)...Shop id
+
+### Retrieve a shop [GET]
++ Request
+    + Header
+            
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Response 200 (application/json)
