@@ -1622,11 +1622,14 @@ Returns a guest session ID.   Guest sessions expire after 4 hours of inactivity.
         {"session":"1213133-1213131131112"}
             
 
+
+
 #Group Shops - WIP
 This group of operations works on shops. A shop is a core entity in marketplace eco-system. A seller needs to establish a shop in order to publish and start selling assets.
 
 #Shop [/shops]
 CRUD operations on a shop. Requesting a shop via POST causes the shop to be placed in the approval queue. DELETE shop brings the shop offline, but members can still access previously purchased products from the shop.
+
 
 ### Retrieve a shop [GET]
 + Request
@@ -1638,6 +1641,7 @@ CRUD operations on a shop. Requesting a shop via POST causes the shop to be plac
 + Response 200 (application/json)
 
             {
+              "shop_id": 1234567890,
               "member_id": 1234567890,
               "name": "Hello Shop",
               "banner_field": 512,
@@ -1650,6 +1654,7 @@ CRUD operations on a shop. Requesting a shop via POST causes the shop to be plac
               "total_sales": 9.99,
               "total_payout": 4.49
             }
+
 
 ### Create a new shop [POST]
 + Request (application/json)
@@ -1670,6 +1675,7 @@ CRUD operations on a shop. Requesting a shop via POST causes the shop to be plac
 
     + Body
     {
+        "shop_id": 1234567890,
         "member_id": 1234567890,
         "name": "Hello Shop",
         "banner_field": 512,
@@ -1684,11 +1690,40 @@ CRUD operations on a shop. Requesting a shop via POST causes the shop to be plac
     }
 
 
-
 ### Update a shop [PUT]
++ Request (application/json)
+    + Header
+            
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+    + Body
+        {
+            "name": "New Shop Name"
+        }
+
++ Response 200 (application/json)
+    + Body
+    {
+        "shop_id": 1234567890,
+        "member_id": 1234567890,
+        "name": "New Shop Name",
+        "banner_field": 512,
+        "current_portfolio_url": "http://dev.squidplatform.net",
+        "current_sales_url": "http://dev.squidplatform.net",
+        "shop_status": 1,
+        "shop_approval_status": "PENDING",
+        "shop_denial_reason": null,
+        "pending_total": 0,
+        "total_sales": 0,
+        "total_payout": 0
+    }
+
+
+### Delete a shop [DELETE]
 + Request
     + Header
             
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-+ Response 200 (application/json)
+
++ Response 204
