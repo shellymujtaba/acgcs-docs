@@ -383,7 +383,7 @@ Note: The key should be unique within the asset. Using the same key in POST will
 
 ### Create a new custom data entry within the asset[POST] 
 + Parameters
-    + custom_data (required, String, `{ "custom_data": [{"custom_data_key": "key1","custom_data": "<Any custom data. Escaped json in case of JSON custom data>"},{"custom_data_key": "key2","custom_data": "<Any custom data. Escaped json in case of JSON custom data>"}]}`)...Key-Value pair of custom data JSON.
+    + custom_data (required, String, `{"custom_data": [{"key": "key1","data": "<Any custom data. Escaped json in case of JSON custom data>"},{"key": "key2","data": "<Any custom data. Escaped json in case of JSON custom data>"}]}`)...Key-Value pair of custom data JSON.
 + Request
     + Header
         X-AFC: FJKB32
