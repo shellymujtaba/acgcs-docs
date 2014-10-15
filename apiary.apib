@@ -695,14 +695,14 @@ Note: The PUT updates the thumbnail metadata such as caption, description, thumb
 {
     "thumbnails": [
         {
-            "file_id": 123456,
+            "id": 123456,
             "caption": "thumbnail caption",
             "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
             "description": "thumbnail description",
             "is_primary": true
         },
         {
-            "file_id": 123457,
+            "id": 123457,
             "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
             "caption": "thumbnail caption 2",
             "description": "thumbnail description 2",
@@ -1627,18 +1627,13 @@ Returns a guest session ID.   Guest sessions expire after 4 hours of inactivity.
 #Group Shops - WIP
 This group of operations works on shops. A shop is a core entity in marketplace eco-system. A seller needs to establish a shop in order to publish and start selling assets.
 
-#Shop [/shops]
+
+#Shop [/shops/{id}]
 CRUD operations on a shop. Requesting a shop via POST causes the shop to be placed in the approval queue. DELETE shop brings the shop offline, but members can still access previously purchased products from the shop.
 
++ Model (application/json)
 
-### Retrieve a shop [GET]
-+ Request
-    + Header
-            
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-
-+ Response 200 (application/json)
+    + Body
 
             {
               "shop_id": 1234567890,
@@ -1654,6 +1649,21 @@ CRUD operations on a shop. Requesting a shop via POST causes the shop to be plac
               "total_sales": 9.99,
               "total_payout": 4.49
             }
+
+
++ Parameters
+    + id (required, Number, `20280723`)...Member id
+
+### Retrieve a shop [GET]
+Guest session results in only the public shop data to be returned. Offline shops and non-public information about a shop such as approval status, denial, etc. are filtered out.
++ Request
+    + Header
+            
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Response 200 (application/json)
+        [Shop][] 
 
 
 ### Create a new shop [POST]
@@ -1733,7 +1743,6 @@ Retrieve and update Assets for sale. An asset can be removed from the shop via a
 ### Retrieve shop assets [GET]
 + Request
     + Header
-            
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
