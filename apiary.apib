@@ -695,14 +695,14 @@ Note: The PUT updates the thumbnail metadata such as caption, description, thumb
 {
     "thumbnails": [
         {
-            "file_id": 123456,
+            "id": 123456,
             "caption": "thumbnail caption",
             "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
             "description": "thumbnail description",
             "is_primary": true
         },
         {
-            "file_id": 123457,
+            "id": 123457,
             "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
             "caption": "thumbnail caption 2",
             "description": "thumbnail description 2",
@@ -1657,19 +1657,17 @@ CRUD operations on a shop. Requesting a shop via POST causes the shop to be plac
 
 
 ### Create a new shop [POST]
-+ Request (application/json)
++ Request
     + Header
             
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-    + Body
-        {
-            "name": "Hello Shop",
-            "banner_field": 512,
-            "current_portfolio_url": "http://dev.squidplatform.net",
-            "current_sales_url": "http://dev.squidplatform.net",
-        }
-
+            Content-type:application/x-www-form-urlencoded
++ Parameters
+    + name (required, String, `Hello Shop`) ...Shop Name
+    + banner_field (required, Number, `512`)...Banner Field
+    + current_portfolio_url (required, String, `http://dev.squidplatform.net`) ...Portfolio url
+    + current_sales_url (required, String, `http://dev.squidplatform.net`) ...Sales url
 
 + Response 201 (application/json)
 
@@ -1691,15 +1689,14 @@ CRUD operations on a shop. Requesting a shop via POST causes the shop to be plac
 
 
 ### Update a shop [PUT]
-+ Request (application/json)
++ Request
     + Header
             
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-    + Body
-        {
-            "name": "New Shop Name"
-        }
+            Content-type:application/x-www-form-urlencoded
++ Parameters
+    + name (optional, String, `New Shop Name`) ...Shop Name
 
 + Response 200 (application/json)
     + Body
