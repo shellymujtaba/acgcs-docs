@@ -1627,11 +1627,11 @@ Returns a guest session ID.   Guest sessions expire after 4 hours of inactivity.
 This group of operations works on shops. A shop is a core entity in marketplace eco-system. A seller needs to establish a shop in order to publish and start selling assets.
 
 
-##Shop [/shops/{shopId}]
+##Shop [/shops/{shop_id}]
 CRUD operations on a shop. Requesting a shop via POST causes the shop to be placed in the approval queue. DELETE shop brings the shop offline, but members can still access previously purchased products from the shop.
 
 + Parameters
-    + shopId (required, Number, `1234567890`)...Shop id
+    + shop_id (required, Number, `1234567890`)...Shop id
 
 + Model (application/json)
 
@@ -1758,11 +1758,11 @@ Lists all shops associated with the logged in member (Currently only one shop al
        [Shop][]
 
 
-##Assets [/shops/{shopId}/assets]
+##Assets [/shops/{shop_id}/assets]
 Retrieve and update Assets for sale. An asset can be removed from the shop via an update request.
 
 + Parameters
-    + shopId (required, Number, `20280723`)...Shop id
+    + shop_id (required, Number, `20280723`)...Shop id
 
 ### Retrieve shop assets [GET]
 + Request
@@ -1784,8 +1784,8 @@ Retrieve and update Assets for sale. An asset can be removed from the shop via a
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
-    + assetId (required, Number, `234566`)...Asset id
-    + assetPrice (optional, Number, `12.99`)...Asset price
+    + asset_id (required, Number, `234566`)...Asset id
+    + asset_price (optional, Number, `12.99`)...Asset price
 
 + Response 200 (application/json)
 
