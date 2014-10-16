@@ -1654,7 +1654,7 @@ CRUD operations on a shop. Requesting a shop via POST causes the shop to be plac
 
 
 ### Retrieve a shop [GET]
-Guest session results in only the public shop data to be returned. Offline shops and non-public information about a shop such as approval status, denial, etc. are filtered out. When invoked without a shopId, returns all shops associated with the logged in member
+Guest session results in only the public shop data to be returned. Offline shops and non-public information about a shop such as approval status, denial, etc. are filtered out.
 
 + Request
     + Header
@@ -1740,6 +1740,22 @@ Guest session results in only the public shop data to be returned. Offline shops
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Response 204
+
+
+##Shops [/shops/]
+Lists all shops associated with the logged in member
+
+### List shops [GET]
++ Request
+
+    + Header
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
+
++ Response 200
+       [Shop][]
 
 
 ##Assets [/shops/{id}/Assets]
