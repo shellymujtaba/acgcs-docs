@@ -1626,11 +1626,12 @@ Returns a guest session ID.   Guest sessions expire after 4 hours of inactivity.
 #Group Shops - WIP
 This group of operations works on shops. A shop is a core entity in marketplace eco-system. A seller needs to establish a shop in order to publish and start selling assets.
 
+
+##Shop [/shops/{id}]
+CRUD operations on a shop. Requesting a shop via POST causes the shop to be placed in the approval queue. DELETE shop brings the shop offline, but members can still access previously purchased products from the shop.
+
 + Parameters
     + id (required, Number, `20280723`)...Member id
-
-#Shop [/shops/{id}]
-CRUD operations on a shop. Requesting a shop via POST causes the shop to be placed in the approval queue. DELETE shop brings the shop offline, but members can still access previously purchased products from the shop.
 
 + Model (application/json)
 
@@ -1650,8 +1651,6 @@ CRUD operations on a shop. Requesting a shop via POST causes the shop to be plac
               "total_sales": 9.99,
               "total_payout": 4.49
             }
-
-
 
 
 ### Retrieve a shop [GET]
