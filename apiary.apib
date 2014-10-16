@@ -1631,7 +1631,7 @@ This group of operations works on shops. A shop is a core entity in marketplace 
 CRUD operations on a shop. Requesting a shop via POST causes the shop to be placed in the approval queue. DELETE shop brings the shop offline, but members can still access previously purchased products from the shop.
 
 + Parameters
-    + id (required, Number, `20280723`)...Member id
+    + id (Optional, Number, `1234567890`)...Shop id
 
 + Model (application/json)
 
@@ -1654,13 +1654,14 @@ CRUD operations on a shop. Requesting a shop via POST causes the shop to be plac
 
 
 ### Retrieve a shop [GET]
-Guest session results in only the public shop data to be returned. Offline shops and non-public information about a shop such as approval status, denial, etc. are filtered out.
+Guest session results in only the public shop data to be returned. Offline shops and non-public information about a shop such as approval status, denial, etc. are filtered out. When queried without a shopId, returns all shops associated with the logged in member
+
 + Request
     + Header
             
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-
+    
 + Response 200
         [Shop][] 
 
