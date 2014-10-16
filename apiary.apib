@@ -1706,23 +1706,28 @@ Guest session results in only the public shop data to be returned. Offline shops
             Content-type:application/x-www-form-urlencoded
 + Parameters
     + name (optional, String, `New Shop Name`) ...Shop Name
+    + banner_field (optional, Number, `550`)...Banner Field
+    + current_portfolio_url (optional, String, `http://dev.squidplatform.net`) ...Portfolio url
+    + current_sales_url (optional, String, `http://dev.squidplatform.net`) ...Sales url
+    + shop_status (optional, Number, `0`) ...Shop status
 
 + Response 200 (application/json)
     + Body
-    {
-        "shop_id": 1234567890,
-        "member_id": 1234567890,
-        "name": "New Shop Name",
-        "banner_field": 512,
-        "current_portfolio_url": "http://dev.squidplatform.net",
-        "current_sales_url": "http://dev.squidplatform.net",
-        "shop_status": 1,
-        "shop_approval_status": "PENDING",
-        "shop_denial_reason": null,
-        "pending_total": 0,
-        "total_sales": 0,
-        "total_payout": 0
-    }
+    
+            {
+                "shop_id": 1234567890,
+                "member_id": 1234567890,
+                "name": "New Shop Name",
+                "banner_field": 550,
+                "current_portfolio_url": "http://dev.squidplatform.net",
+                "current_sales_url": "http://dev.squidplatform.net",
+                "shop_status": 0,
+                "shop_approval_status": "PENDING",
+                "shop_denial_reason": null,
+                "pending_total": 0,
+                "total_sales": 0,
+                "total_payout": 0
+            }
 
 
 ### Delete a shop [DELETE]
