@@ -1661,7 +1661,7 @@ Guest session results in only the public shop data to be returned. Offline shops
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
-+ Response 200 (application/json)
++ Response 200
         [Shop][] 
 
 
@@ -1681,20 +1681,21 @@ Guest session results in only the public shop data to be returned. Offline shops
 + Response 201 (application/json)
 
     + Body
-    {
-        "shop_id": 1234567890,
-        "member_id": 1234567890,
-        "name": "Hello Shop",
-        "banner_field": 512,
-        "current_portfolio_url": "http://dev.squidplatform.net",
-        "current_sales_url": "http://dev.squidplatform.net",
-        "shop_status": 1,
-        "shop_approval_status": "PENDING",
-        "shop_denial_reason": null,
-        "pending_total": 0,
-        "total_sales": 0,
-        "total_payout": 0
-    }
+    
+            {
+                "shop_id": 1234567890,
+                "member_id": 1234567890,
+                "name": "Hello Shop",
+                "banner_field": 512,
+                "current_portfolio_url": "http://dev.squidplatform.net",
+                "current_sales_url": "http://dev.squidplatform.net",
+                "shop_status": 1,
+                "shop_approval_status": "PENDING",
+                "shop_denial_reason": null,
+                "pending_total": 0,
+                "total_sales": 0,
+                "total_payout": 0
+            }
 
 
 ### Update a shop [PUT]
@@ -1746,14 +1747,16 @@ Retrieve and update Assets for sale. An asset can be removed from the shop via a
 
 ### Retrieve shop assets [GET]
 + Request
+
     + Header
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
 
-+ Response 200 (application/json)
++ Response 200
        [Asset][] 
 
 ### Update shop asset [PUT]
@@ -1762,10 +1765,12 @@ Retrieve and update Assets for sale. An asset can be removed from the shop via a
             
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
     + Body
-    {
-        "asset_id": 630595
-    }
+    
+            {
+                "asset_id": 630595
+            }
 
 + Response 200 (application/json)
 
