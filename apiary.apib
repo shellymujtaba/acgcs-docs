@@ -1627,11 +1627,11 @@ Returns a guest session ID.   Guest sessions expire after 4 hours of inactivity.
 This group of operations works on shops. A shop is a core entity in marketplace eco-system. A seller needs to establish a shop in order to publish and start selling assets.
 
 
-##Shop [/shops/{id}]
+##Shop [/shops/{shopId}]
 CRUD operations on a shop. Requesting a shop via POST causes the shop to be placed in the approval queue. DELETE shop brings the shop offline, but members can still access previously purchased products from the shop.
 
 + Parameters
-    + id (required, Number, `1234567890`)...Shop id
+    + shopId (required, Number, `1234567890`)...Shop id
 
 + Model (application/json)
 
@@ -1743,7 +1743,7 @@ Guest session results in only the public shop data to be returned. Offline shops
 
 
 ##Shops [/shops/]
-Lists all shops associated with the logged in member (Currently only one allowed).
+Lists all shops associated with the logged in member (Currently only one shop allowed).
 
 ### List shops [GET]
 + Request
@@ -1758,11 +1758,11 @@ Lists all shops associated with the logged in member (Currently only one allowed
        [Shop][]
 
 
-##Assets [/shops/{id}/Assets]
+##Assets [/shops/{shopId}/Assets]
 Retrieve and update Assets for sale. An asset can be removed from the shop via an update request.
 
 + Parameters
-    + id (required, Number, `20280723`)...Member id
+    + shopId (required, Number, `20280723`)...Shop id
 
 ### Retrieve shop assets [GET]
 + Request
@@ -1782,6 +1782,9 @@ Retrieve and update Assets for sale. An asset can be removed from the shop via a
             
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + assetId (required, Number, `234566`)...Asset id
 
     + Body
     
