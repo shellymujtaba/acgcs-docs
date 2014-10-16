@@ -1626,6 +1626,8 @@ Returns a guest session ID.   Guest sessions expire after 4 hours of inactivity.
 #Group Shops - WIP
 This group of operations works on shops. A shop is a core entity in marketplace eco-system. A seller needs to establish a shop in order to publish and start selling assets.
 
++ Parameters
+    + id (required, Number, `20280723`)...Member id
 
 #Shop [/shops/{id}]
 CRUD operations on a shop. Requesting a shop via POST causes the shop to be placed in the approval queue. DELETE shop brings the shop offline, but members can still access previously purchased products from the shop.
@@ -1650,8 +1652,7 @@ CRUD operations on a shop. Requesting a shop via POST causes the shop to be plac
             }
 
 
-+ Parameters
-    + id (required, Number, `20280723`)...Member id
+
 
 ### Retrieve a shop [GET]
 Guest session results in only the public shop data to be returned. Offline shops and non-public information about a shop such as approval status, denial, etc. are filtered out.
@@ -1741,7 +1742,7 @@ Guest session results in only the public shop data to be returned. Offline shops
 + Response 204
 
 
-#Assets [/shops/{id}Assets]
+#Assets [/shops/{id}/Assets]
 Retrieve and update Assets for sale. An asset can be removed from the shop via an update request.
 
 
