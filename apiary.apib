@@ -1793,7 +1793,6 @@ Retrieve and update assets for sale. An asset can be removed from the shop via a
 
             {
                 "assets":
-                        
                         [
                             {
                             "is_featured":false,
@@ -1909,9 +1908,32 @@ Create payout request and retrieve payout history.
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 
-+ Response 200
-       [][] 
++ Response 200 (application/json)
 
+            {
+              "payouts": [
+                {
+                  "request_date": "July, 02 2014 16:34:00",
+                  "request_amount": 100,
+                  "payout_status": "PROCESSED",
+                  "payout_denial_reason": null
+                },
+                {
+                  "request_date": "July, 07 2014 16:34:00",
+                  "request_amount": 50,
+                  "payout_status": "DENIED",
+                  "payout_denial_reason": "BALANCE_MISMATCH"
+                }
+              ],
+              "count": 260,
+              "pages": 20,
+              "limit": 13,
+              "offset": 39,
+              "_link": "/shops/20280723/payout?limit=26",
+              "_link_prev": "/shops/20280723/payout?limit=26&offset=26",
+              "_link_next": "/shops/20280723/payout?limit=26&offset=39"
+            }
+            
 ### Create payout request [POST]
 For a first time payout request, all fields are mandatory.
 
