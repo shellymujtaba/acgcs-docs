@@ -1752,6 +1752,10 @@ Lists all shops associated with the logged in member (Currently only one shop al
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
++ Parameters
+    + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
+    + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
+
 + Response 200 (application/json)
     + Body
     
@@ -1788,6 +1792,9 @@ Retrieve and update assets for sale. An asset can be removed from the shop via a
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
++ Parameters
+    + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
+    + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
 
 + Response 200 (application/json)
 
@@ -1907,6 +1914,9 @@ Create payout request and retrieve payout history.
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
++ Parameters
+    + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
+    + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
 
 + Response 200 (application/json)
 
@@ -1972,6 +1982,9 @@ Retrieve non-pending sales history.
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
++ Parameters
+    + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
+    + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
 
 + Response 200 (application/json)
 
