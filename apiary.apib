@@ -1623,7 +1623,7 @@ Returns a guest session ID.   Guest sessions expire after 4 hours of inactivity.
 
 
 
-#Group Shops - WIP
+#Group Shops - DRAFT
 This group of operations works on shops. A shop is a core entity in marketplace eco-system. A seller needs to establish a shop in order to publish and start selling assets.
 
 
@@ -1775,7 +1775,14 @@ Lists all shops associated with the logged in member (Currently only one shop al
                   "total_sales": 9.99,
                   "total_payout": 4.49
                 }
-              ]
+              ],
+              "count": 260,
+              "pages": 20,
+              "limit": 13,
+              "offset": 39,
+              "_link": "/shops/20280723/sales?limit=26",
+              "_link_prev": "/shops/20280723/sales?limit=26&offset=26",
+              "_link_next": "/shops/20280723/sales?limit=26&offset=39"
             }
 
 
@@ -1969,7 +1976,7 @@ For a first time payout request, all fields are mandatory.
 + Response 200
 
 
-##Sals [/shops/{shop_id}/sales]
+##Sales [/shops/{shop_id}/sales]
 Retrieve non-pending sales history.
 
 + Parameters
