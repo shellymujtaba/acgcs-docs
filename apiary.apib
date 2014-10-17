@@ -1735,7 +1735,7 @@ Guest session results in only the public shop data to be returned. Offline shops
 ### Delete a shop [DELETE]
 + Request
     + Header
-            
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
@@ -1747,26 +1747,23 @@ Lists all shops associated with the logged in member (Currently only one shop al
 
 ### List shops [GET]
 + Request
-
     + Header
     
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-
 
 + Response 200
        [Shop][]
 
 
 ##Assets [/shops/{shop_id}/assets]
-Retrieve and update Assets for sale. An asset can be removed from the shop via an update request.
+Retrieve and update assets for sale. An asset can be removed from the shop via an update request.
 
 + Parameters
     + shop_id (required, Number, `20280723`)...Shop id
 
 ### Retrieve shop assets [GET]
 + Request
-
     + Header
     
             X-AFC: FJKB32
@@ -1777,17 +1774,62 @@ Retrieve and update Assets for sale. An asset can be removed from the shop via a
        [Asset][] 
 
 ### Update shop asset [PUT]
-+ Request (application/json)
+Setting a private asset "for sale" results in asset state changed to public.
+
++ Request
     + Header
             
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            Content-type:application/x-www-form-urlencoded
 
 + Parameters
     + asset_id (required, Number, `234566`)...Asset id
     + asset_price (optional, Number, `12.99`)...Set asset price
     + for_sale (optional, Boolean, `true`)... Mark asset for sale
 
-+ Response 200 (application/json)
++ Response 200
+       [Asset][] 
+
+
+##Payouts [/shops/{shop_id}/payouts]
+Create payout request and retrieve payout history.
+
++ Parameters
+    + shop_id (required, Number, `20280723`)...Shop id
+
+### Retrieve shop payout history [GET]
++ Request
+    + Header
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
+
++ Response 200
+       [][] 
+
+### Create payout request [POST]
+For a first time payout request, all fields are mandatory.
+
++ Request
+    + Header
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            Content-type:application/x-www-form-urlencoded
+
++ Parameters
+    + paypal_email_verified (optional, boolean, `true`)...
+    + paypal_email (optional, string, `sample@autodesk.com`)...
+    + payout_address (optional, string, `Pier 9, San Francisco, CA`)... 
+    + phone_verified (optional, boolean, `true`)...
+    + verified_phone (optional, string, `415-1230000`)...
+    + facebook_id (optional, string, `1234abcd`)...
+    + entity_name (optional, string, `entity`)...
+    + corporation_type (optional, string, `PERSONAL`)...
+    + tin (optional, string, `abcdef1234`)...
+
++ Response 200
 
 
