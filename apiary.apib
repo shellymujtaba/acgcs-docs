@@ -1743,7 +1743,7 @@ Guest session results in only the public shop data to be returned. Offline shops
 
 
 ##Shops [/shops/]
-Lists all shops associated with the logged in member (Currently only one shop allowed).
+Lists all shops associated with the logged in member (Currently only one shop allowed per member).
 
 ### List shops [GET]
 + Request
@@ -1753,6 +1753,7 @@ Lists all shops associated with the logged in member (Currently only one shop al
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
+    + member_id (optional, Number,`1234567890`)... Used only when member is guest or a given member wants to see another members shop. This only returns public shops.
     + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
 
@@ -1930,12 +1931,14 @@ Create payout request and retrieve payout history.
             {
               "payouts": [
                 {
+                  "payout_id": 1234567890,
                   "request_date": "July, 02 2014 16:34:00",
                   "request_amount": 100,
                   "payout_status": "PROCESSED",
                   "payout_denial_reason": null
                 },
                 {
+                  "payout_id": 1234567891,
                   "request_date": "July, 07 2014 16:34:00",
                   "request_amount": 50,
                   "payout_status": "DENIED",
@@ -1963,10 +1966,8 @@ For a first time payout request, all fields are mandatory.
 
 + Parameters
     + amount (required, number, `100`)... Requested payout amount
-    + paypal_email_verified (optional, boolean, `true`)...
     + paypal_email (optional, string, `sample@autodesk.com`)...
     + payout_address (optional, string, `Pier 9, San Francisco, CA`)... 
-    + phone_verified (optional, boolean, `true`)...
     + verified_phone (optional, string, `415-1230000`)...
     + facebook_id (optional, string, `1234abcd`)...
     + entity_name (optional, string, `entity`)...
@@ -1977,7 +1978,7 @@ For a first time payout request, all fields are mandatory.
 
 
 ##Sales [/shops/{shop_id}/sales]
-Retrieve non-pending sales history.
+Retrieve non-pending sales history. Restricts order line items to only those sold by the seller as an order may have multiple line items from multiple sellers.
 
 + Parameters
     + shop_id (required, Number, `20280723`)...Shop id
@@ -1998,10 +1999,27 @@ Retrieve non-pending sales history.
             {
               "sales": [
                 {
+                  "order_id": 234567890,
+                  "sale_total": 220,
+                  "sale_total_quantity": 3,
                   "sales_date": "July, 02 2014 16:34:00",
-                  "sales_amount": 100,
-                  "sales_status": "PROCESSED",
-                  "asset_id": 592540
+                  "sale_status": "PROCESSED",
+                  "sale_items": [
+                    {
+                      "name": "Developer Kit",
+                      "asset_id": 592540,
+                      "asset_type": "KIT",
+                      "subtotal": 10,
+                      "quantity": 1
+                    },
+                    {
+                      "name": "3D Print",
+                      "asset_id": 592541,
+                      "asset_type": "PHYSICAL",
+                      "subtotal": 105,
+                      "quantity": 2
+                    }
+                  ]
                 }
               ],
               "count": 260,
