@@ -2114,96 +2114,96 @@ Perform CRUD operations on cart with basic metadata.
 + Response 200 (application/json)
 
         {
-        "ID": 90,
-        "MODIFIED": "February 24, 2014 05:26:46",
-        "CURRENCY": "USD",
-        "TOTAL": 1078,
-        "OFFER_TOTAL": 1078,
-        "TAX": "",
-        "DISCOUNT": 1078,
-        "SUBTOTAL": 1078,
-        "LINEITEM_SUBTOTAL": 2008.99,
-        "SHIPPING_PRICE": 147.01,
-        "SHIPPING_METHOD": "2 Day",
-        "SHIPPING_ADDRESS_ID": 400083,
-        "BILLING_ADDRESS_ID": 400110,
-        "LINE_ITEMS": [
+        "id": 90,
+        "modified": "February 24, 2014 05:26:46",
+        "currency": "USD",
+        "total": 1078,
+        "offer_total": 1078,
+        "tax": "",
+        "discount": 1078,
+        "subtotal": 1078,
+        "line_item_subtotal": 2008.99,
+        "shipping_price": 147.01,
+        "shipping_method": "2 Day",
+        "shipping_address_id": 400083,
+        "billing_address_id": 400110,
+        "line_items": [
             {
-                "ID": 298,
-                "CREATED": "February 25, 2014 12:08:35",
-                "MODIFIED": "February 25, 2014 12:08:35",
-                "QUANTITY": 1,
-                "PRICE": 9.99,
-                "OFFER_PRICE": 9.99,
-                "PRODUCT_ID": 3,
-                "PRODUCT_TYPE": "SUBSCRIPTION",
-                "PARENT_ID": "",
-                "PARENT_IDS": [],
-                "DATA": "",
-                "NAME": "1-month Premium Membership",
-                "DESCRIPTION": "Your 1-month Premium membership includes an Instructables Pro account, unlimited premium model downloads from the 123D Content Library, and the ability to create 2D layouts (.dwg) from 123D Design models.",
-                "THUMBNAIL": "Global/premium-membership-monthly.png"
+                "id": 298,
+                "created": "February 25, 2014 12:08:35",
+                "modified": "February 25, 2014 12:08:35",
+                "quantity": 1,
+                "price": 9.99,
+                "offer_price": 9.99,
+                "product_id": 3,
+                "product_type": "SUBSCRIPTION",
+                "parent_id": "",
+                "parent_ids": [],
+                "data": "",
+                "name": "1-month Premium Membership",
+                "description": "Your 1-month Premium membership includes an Instructables Pro account, unlimited premium model downloads from the 123D Content Library, and the ability to create 2D layouts (.dwg) from 123D Design models.",
+                "thumbnail": "Global/premium-membership-monthly.png"
             },
             {
-                "ID": 639,
-                "CREATED": "March 19, 2014 07:14:13",
-                "MODIFIED": "March 19, 2014 07:14:13",
-                "QUANTITY": 1,
-                "PRICE": 1999,
-                "OFFER_PRICE": 1999,
-                "PRODUCT_ID": 1,
-                "PRODUCT_TYPE": "PHYSICAL",
-                "PARENT_ID": "",
-                "PARENT_IDS": [],
-                "DATA": "",
-                "NAME": " 123D Makerbot Replicator 2",
-                "DESCRIPTION": " 123D Makerbot Replicator 2 item",
-                "THUMBNAIL": ""
+                "id": 639,
+                "created": "March 19, 2014 07:14:13",
+                "modified": "March 19, 2014 07:14:13",
+                "quantity": 1,
+                "price": 1999,
+                "offer_price": 1999,
+                "product_id": 1,
+                "product_type": "PHYSICAL",
+                "parent_id": "",
+                "parent_ids": [],
+                "data": "",
+                "name": " 123D Makerbot Replicator 2",
+                "description": " 123D Makerbot Replicator 2 item",
+                "thumbnail": ""
             },
             {
-                "ID": 640,
-                "CREATED": "March 19, 2014 07:14:37",
-                "MODIFIED": "March 19, 2014 08:12:40",
-                "QUANTITY": 1,
-                "PRICE": 3.99,
-                "OFFER_PRICE": 3.99,
-                "PRODUCT_ID": 3,
-                "PRODUCT_TYPE": "SHIPPING",
-                "PARENT_ID": 639,
-                "PARENT_IDS": [639],
-                "STATUS":"PRICE",
-                "SELECTED_OPTION" : {
-                    "ID": "P2",
-                    "SHIPPER": "UPS",
-                    "NAME": "2 Day",
-                    "PRICE": 3.99
+                "id": 640,
+                "created": "March 19, 2014 07:14:37",
+                "modified": "March 19, 2014 08:12:40",
+                "quantity": 1,
+                "price": 3.99,
+                "offer_price": 3.99,
+                "product_id": 3,
+                "product_type": "SHIPPING",
+                "parent_id": 639,
+                "parent_ids": [639],
+                "status":"PRICE",
+                "selected_option" : {
+                    "id": "P2",
+                    "shipper": "UPS",
+                    "name": "2 Day",
+                    "price": 3.99
                 },
      
-                "OPTIONS": [
+                "options": [
                     {
-                        "ID": "P2",
-                        "SHIPPER": "UPS",
-                        "NAME": "2 Day",
-                        "PRICE": 3.99
+                        "id": "P2",
+                        "shipper": "UPS",
+                        "name": "2 Day",
+                        "price": 3.99
                     },
                     {
-                        "ID": "P3",
-                        "SHIPPER": "UPS",
-                        "NAME": "1 Day",
-                        "PRICE": 3.99
+                        "id": "P3",
+                        "shipper": "UPS",
+                        "name": "1 Day",
+                        "price": 3.99
                     }
                  
                 ],
-                "AVAILABILITIES":"",
-                "DATA": "{\"SHIPPING_METHOD_ID\":\"\",\"SHIPPER_INFO\":\"\",\"SHIPPING_METHOD_NAME\":\"2 Day\"}",
-                "NAME": "Shipping",
-                "DESCRIPTION": "Shipping item",
-                "THUMBNAIL": ""
+                "availabilities":"",
+                "data": "{\"SHIPPING_METHOD_ID\":\"\",\"SHIPPER_INFO\":\"\",\"SHIPPING_METHOD_NAME\":\"2 Day\"}",
+                "name": "Shipping",
+                "description": "Shipping item",
+                "thumbnail": ""
             }
         ],
-        "COUPONS": [
+        "coupons": [
             {
-                "CODE": "HUGOBOSS"
+                "code": "HUGOBOSS"
             }
         ]
         }
