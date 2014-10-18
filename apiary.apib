@@ -2099,7 +2099,7 @@ Here are some key points about cart:
 Exp: Sketchbook, Pixlr and Ciruits are under different <a href="/reference/appendices">ECommerceAffiliates</a> so for single user there will be different carts for each of these apps.
 
 # Cart [/carts/{id}]
-Operations to perform CRUD operations on cart with basic metadata.
+Perform CRUD operations on cart with basic metadata.
 
 ### Retrieve a cart [GET]
 + Request
@@ -2110,9 +2110,102 @@ Operations to perform CRUD operations on cart with basic metadata.
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             Content-Type: application/x-www-form-urlencoded
 + Parameters
-    + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
-    + referenced_assets (optional, Number, `true`) ...When true referenced assets will be returned as an array sorted in descending order of the time when they were added.<br>Default: false
+    + id (required,Number,`23`)...Numeric `id` of the cart to perform action with. 
 + Response 200 (application/json)
+    {
+        "ID": 90,
+        "MODIFIED": "February 24, 2014 05:26:46",
+        "CURRENCY": "USD",
+        "TOTAL": 1078,
+        "OFFER_TOTAL": 1078,
+        "TAX": "",
+        "DISCOUNT": 1078,
+        "SUBTOTAL": 1078,
+        "LINEITEM_SUBTOTAL": 2008.99,
+        "SHIPPING_PRICE": 147.01,
+        "SHIPPING_METHOD": "2 Day",
+        "SHIPPING_ADDRESS_ID": 400083,
+        "BILLING_ADDRESS_ID": 400110,
+        "LINE_ITEMS": [
+            {
+                "ID": 298,
+                "CREATED": "February 25, 2014 12:08:35",
+                "MODIFIED": "February 25, 2014 12:08:35",
+                "QUANTITY": 1,
+                "PRICE": 9.99,
+                "OFFER_PRICE": 9.99,
+                "PRODUCT_ID": 3,
+                "PRODUCT_TYPE": "SUBSCRIPTION",
+                "PARENT_ID": "",
+                "PARENT_IDS": [],
+                "DATA": "",
+                "NAME": "1-month Premium Membership",
+                "DESCRIPTION": "Your 1-month Premium membership includes an Instructables Pro account, unlimited premium model downloads from the 123D Content Library, and the ability to create 2D layouts (.dwg) from 123D Design models.",
+                "THUMBNAIL": "Global/premium-membership-monthly.png"
+            },
+            {
+                "ID": 639,
+                "CREATED": "March 19, 2014 07:14:13",
+                "MODIFIED": "March 19, 2014 07:14:13",
+                "QUANTITY": 1,
+                "PRICE": 1999,
+                "OFFER_PRICE": 1999,
+                "PRODUCT_ID": 1,
+                "PRODUCT_TYPE": "PHYSICAL",
+                "PARENT_ID": "",
+                "PARENT_IDS": [],
+                "DATA": "",
+                "NAME": " 123D Makerbot Replicator 2",
+                "DESCRIPTION": " 123D Makerbot Replicator 2 item",
+                "THUMBNAIL": ""
+            },
+            {
+                "ID": 640,
+                "CREATED": "March 19, 2014 07:14:37",
+                "MODIFIED": "March 19, 2014 08:12:40",
+                "QUANTITY": 1,
+                "PRICE": 3.99,
+                "OFFER_PRICE": 3.99,
+                "PRODUCT_ID": 3,
+                "PRODUCT_TYPE": "SHIPPING",
+                "PARENT_ID": 639,
+                "PARENT_IDS": [639],
+                "STATUS":"PRICE",
+                "SELECTED_OPTION" : {
+                    "ID": "P2",
+                    "SHIPPER": "UPS",
+                    "NAME": "2 Day",
+                    "PRICE": 3.99
+                },
+     
+                "OPTIONS": [
+                    {
+                        "ID": "P2",
+                        "SHIPPER": "UPS",
+                        "NAME": "2 Day",
+                        "PRICE": 3.99
+                    },
+                    {
+                        "ID": "P3",
+                        "SHIPPER": "UPS",
+                        "NAME": "1 Day",
+                        "PRICE": 3.99
+                    }
+                 
+                ],
+                "AVAILABILITIES":"",
+                "DATA": "{\"SHIPPING_METHOD_ID\":\"\",\"SHIPPER_INFO\":\"\",\"SHIPPING_METHOD_NAME\":\"2 Day\"}",
+                "NAME": "Shipping",
+                "DESCRIPTION": "Shipping item",
+                "THUMBNAIL": ""
+            }
+        ],
+        "COUPONS": [
+            {
+                "CODE": "HUGOBOSS"
+            }
+        ]
+    }
 
 ### Update a cart [PUT]
 + Request
