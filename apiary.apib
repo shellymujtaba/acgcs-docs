@@ -281,7 +281,7 @@ Operations to perform CRUD operations on an asset with basic metadata. Additiona
             "asset_id":269620
         }
 
-### Retrieve an asset [GET]
+### retrieve a shop an asset [GET]
 + Request
     + Header
             
@@ -453,7 +453,7 @@ Note: The key should be unique within the asset. Using the same key in POST will
     "_link": "/assets/1495894/customdata"
 }
 
-### Retrieve asset custom data[GET]
+### retrieve a shop asset custom data[GET]
 + Request
     + Header
         X-AFC: FJKB32
@@ -501,7 +501,7 @@ Operations to add preview files to this asset. These operations are used to add 
     "_link": "/assets/1495894/previews"
 }
 
-### Retrieve asset previews[GET]
+### retrieve a shop asset previews[GET]
 + Request
     + Header
             X-AFC: FJKB32
@@ -2091,10 +2091,9 @@ Retrieve non-pending sales history. Restricts order line items to only those sol
               "_link_next": "/shops/20280723/sales?limit=26&offset=39"
             }
             
-#Group Cart
+#Group Carts
 Cart is nothing but a shopping basket where user can put digital or physical items.
 Here are some key points about cart:
 * Cart is created for guest user as well as for login user.
-* Cart is different for each ECommerceAffiliate.
-Exp: Sketchbook, Pixlr and Ciruits are under different ECommerceAffiliates so for single user there will be different carts for each of these apps.
-<a href="/reference/assets">sdfdfd</a>
+* Cart is different for each <a href="/reference/appendices">ECommerceAffiliates</a>.
+Exp: Sketchbook, Pixlr and Ciruits are under different <a href="/reference/appendices">ECommerceAffiliates</a> so for single user there will be different carts for each of these apps.
