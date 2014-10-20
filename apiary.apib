@@ -2977,3 +2977,71 @@ Update shop approval/denial status, feature shop
                 "total_sales": 0,
                 "total_payout": 0
             }
+
+
+##Payouts [/admin/payouts/{payout_id}]
+Retrieve payouts and approve/deny payout requests. Approving a payout places it to the payout queue.
+
++ Parameters
+    + payout_id (required, Number, `1234567890`)...Payout id
+
+### Retrieve shop payout history [GET]
++ Request
+    + Header
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
+    + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
+
++ Response 200 (application/json)
+
+            {
+              "payouts": [
+                {
+                  "payout_id": 1234567890,
+                  "request_date": "July, 02 2014 16:34:00",
+                  "request_amount": 100,
+                  "payout_status": "PROCESSED",
+                  "payout_denial_reason": null
+                },
+                {
+                  "payout_id": 1234567891,
+                  "request_date": "July, 07 2014 16:34:00",
+                  "request_amount": 50,
+                  "payout_status": "DENIED",
+                  "payout_denial_reason": "BALANCE_MISMATCH"
+                }
+              ],
+              "count": 260,
+              "pages": 20,
+              "limit": 13,
+              "offset": 39,
+              "_link": "/shops/20280723/payout?limit=26",
+              "_link_prev": "/shops/20280723/payout?limit=26&offset=26",
+              "_link_next": "/shops/20280723/payout?limit=26&offset=39"
+            }
+            
+### Update payout [PUT]
++ Request
+    + Header
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + payout_status (optional, String,`DENIED`)...Payout status
+    + payout_denial_reason (optional, String,`BALANCE_MISMATCH`)...Payout denial reason
+    
+
++ Response 200 (application/json)
+
+                {
+                  "payout_id": 1234567891,
+                  "request_date": "July, 07 2014 16:34:00",
+                  "request_amount": 50,
+                  "payout_status": "DENIED",
+                  "payout_denial_reason": "BALANCE_MISMATCH"
+                }
