@@ -2915,4 +2915,63 @@ https://www.123dapp.com/API/V1/Cart/ShippingAddress?address1=1%20Market&postalCo
         "telephone": "",
         "is_residential": true
         }
-        
+     
+     
+     
+
+#Group Admin
+Admin operations.
+
+
+##Shop [/admin]
+    
+
+### Retrieve shop [GET]
+
++ Request
+    + Header
+            
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+    
++ Parameters
+    + shop_id (required, Number, `1234567890`)...Shop id
+
++ Response 200
+        [Shop][] 
+
+### Update a shop [PUT]
+Update shop approval/denial status, feature shop
+
++ Request
+    + Header
+            
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            Content-type:application/x-www-form-urlencoded
++ Parameters
+    + name (optional, String, `New Shop Name`) ...Shop Name
+    + banner_file_id (optional, Number, `550123`)...File id of the uploaded banner image
+    + current_portfolio_url (optional, String, `http://dev.squidplatform.net`) ...Portfolio url
+    + current_sales_url (optional, String, `http://dev.squidplatform.net`) ...Sales url
+    + shop_status (optional, Number, `0`) ...Shop status
+    + shop_approval_status (optional, String, `DENIED`) ...Shop approved, denied ,etc.
+    + shop_denial_reason (optional, String, `FRAUD`) ...Shop denial reason
+
++ Response 200 (application/json)
+    + Body
+    
+            {
+                "shop_id": 1234567890,
+                "member_id": 1234567890,
+                "name": "New Shop Name",
+                "banner_file_id": 550123,
+                "current_portfolio_url": "http://dev.squidplatform.net",
+                "current_sales_url": "http://dev.squidplatform.net",
+                "shop_status": 0,
+                "shop_approval_status": "DENIED",
+                "shop_denial_reason": FRAUD,
+                "pending_total": 0,
+                "total_sales": 0,
+                "total_payout": 0
+            }
