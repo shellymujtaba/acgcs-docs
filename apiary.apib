@@ -2555,6 +2555,9 @@ SecureSession is a required header for this API.
 |Only one selected payment method is allowed per ordering shopper|400 Bad Request|36002
 |Multiple subscriptions is not supported in paypal|400 Bad Request|37001
 |Custom plan subscriptions are not supported in Paypal|400 Bad Request|37002
+|Charge-description should be between 1 and 500|400 Bad Request|30001
+|Charge price must be passed and contain a valid amount|400 Bad Request|30001
+|ExpectedTotalPrice must be passed and contain a valid amount|400 Bad Request|30001
 
 + Request
 
