@@ -2511,6 +2511,26 @@ SecureSession is a required header for this API.
         }
 
 ### Place an order [POST]
+
+|description|HTTP|code
+|----|----|----
+|Billing address must be set before placing an order|400 Bad Request|30010
+|Address validation failed. Country is missing from address.|400 Bad Request|30011
+|Address validation failed. State is missing from address.|400 Bad Request|30011
+|Name not provided for card.|400 Bad Request|30016
+|The resource representation passed in the request has violated validation rules.|400 Bad Request|30001
+|Validation-config retrieval  service failure. Validation-config ID: ${validationConfigId} is not found.|400 Bad Request|30002
+|User input suspected as malicious.|400 Bad Request|31001
+|The currency argument given the request is invalid.|400 Bad Request|33001
+|The Store Currency and Shopper Currency are not supported by the selected PaymentMethod.|400 Bad Request|33002
+|Currency is not supported by Credit Card Type.|400 Bad Request|33003
+|None of the cart items support the EDW option.|400 Bad Request|33004
+|None of the cart items support the CDoD option.|400 Bad Request|33005
+|Quantity is Negative or Zero|400 Bad Request|33006
+|The payment request could not be successfully completed due to missing 3D authentication information.|400 Bad Request|34001
+|Your payment request could not be successfully completed.|400 Bad Request|34002
+|An internal error.|500 Internal Server Error|34003
+
 + Request
 
     + Headers
