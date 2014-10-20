@@ -1620,6 +1620,39 @@ Retrieves member's subscription history in cronologically descending order. Each
                 "_link_next":"/member/20280723/subscriptions?limit=26&offset=39"
             }
 
+# OrderHistory [/members/{id}/orderhistory]
+### Retrieve member's purchases [GET]
+Get all the purchases made by the member.
+
++ Request
+
+    + Headers
+    
+            REFER : See common headers sesction
+            
++ Parameters
+    + id (required, Number, `2345689`)...Numeric `id` of the member.
+    + limit (optional, Number, `20`)...Number of results per page.
+    + offset (optional, Number, `48`)...This offsets the start of each page by the number specified.
+
++ Response 200 (application/json)
+
+        {       
+        "id": 1,
+        "member_id": 0,
+        "address_type": "SHIPPING_ADDRESS",
+        "name": "testMember",
+        "company": "",
+        "address1": "1 Market",
+        "address2": "",
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94105",
+        "country_code": "US",
+        "telephone": "",
+        "is_residential": true
+        }
+
 # Group Auth
 
 # Login [/login]
