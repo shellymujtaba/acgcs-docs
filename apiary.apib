@@ -2919,12 +2919,11 @@ https://www.123dapp.com/API/V1/Cart/ShippingAddress?address1=1%20Market&postalCo
      
      
 
-#Group Admin [/admin]
+#Group Admin
 Admin operations.
 
 
-##Shop [/shops]
-    
+##Shop [/admin/shops/{shop_id}]
 
 ### Retrieve shop [GET]
 
@@ -2933,9 +2932,6 @@ Admin operations.
             
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-    
-+ Parameters
-    + shop_id (required, Number, `1234567890`)...Shop id
 
 + Response 200
         [Shop][] 
@@ -2949,6 +2945,7 @@ Update shop approval/denial status, feature shop
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             Content-type:application/x-www-form-urlencoded
+    
 + Parameters
     + name (optional, String, `New Shop Name`) ...Shop Name
     + banner_file_id (optional, Number, `550123`)...File id of the uploaded banner image
