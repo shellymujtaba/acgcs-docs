@@ -2584,4 +2584,107 @@ SecureSession is a required header for this API.
           "ref_number":"1234567",
           "name":""
         }
+
+# Cart billing address [/carts/{id}/billingaddress]
+### Retrieve a billing address [GET]
++ Request
+
+    + Headers
+    
+            REFER : See common headers sesction
+            
++ Parameters
+    + id (required, Number, `23`)...Numeric `id` of the cart.
+
++ Response 200 (application/json)
+
+        {
+         
+        }
+
+### Update a billing address [GET]
++ Request
+
+    + Headers
+    
+            REFER : See common headers sesction
+            
++ Parameters
+    + id (required, Number, `23`)...Numeric `id` of the cart.
+
++ Response 200 (application/json)
+
+        {
+         
+        }
+        
+# Cart shipping address [/carts/{id}/shippingaddress]
+### Retrieve a shipping address [GET]
++ Request
+
+    + Headers
+    
+            REFER : See common headers sesction
+            
++ Parameters
+    + id (required, Number, `23`)...Numeric `id` of the cart.
+
++ Response 200 (application/json)
+
+        {       
+        "ID": 1,
+        "MEMBER_ID": 0,
+        "ADDRESS_TYPE": "SHIPPING_ADDRESS",
+        "NAME": "testMember",
+        "COMPANY": "",
+        "ADDRESS1": "1 Market",
+        "ADDRESS2": "",
+        "CITY": "San Francisco",
+        "STATE": "CA",
+        "POSTAL_CODE": "94105",
+        "COUNTRY_CODE": "US",
+        "TELEPHONE": "",
+        "IS_RESIDENTIAL": true
+        }
+        
+### Update a shipping address [PUT]
+Update a shiiping address for a cart. Sample url is
+https://www.123dapp.com/API/V1/Cart/ShippingAddress?address1=1%20Market&postalCode=12345&city=san&state=CA&countryCode=US&name=foo
+
++ Request
+
+    + Headers
+    
+            REFER : See common headers sesction
+            
++ Parameters
+    + id (required, Number, `23`)...If this is an existing address from existing member profile, you can pass the id of address to set that as shipping address for this cart. An existing address can be retrieved from GET Cart/ShippingAddress API or GET Cart API
+    + name (required, string, `23`)...If this is NOT an update, name is a required parameter.
+    + address1 (required, string, `23`)...If this is NOT an update, address1 is a required parameter.
+    + city (required, string, `23`)...If this is NOT an update, city is a required parameter.
+    + countryCode (required, string, `23`)...If this is NOT an update, countryCode is a required parameter. http://www.bluesnap.com/integrationguide/WordManual/Appendix%20B%20Country%20Codes.htm
+    + company (optional, string, `23`)...company
+    + address2 (optional, string, `23`)...Second line in address field
+    + postalCode (optional, string, `23`)...Zip or postal code
+    + state (optional, string, `23`)...State. http://www.bluesnap.com/integrationguide/default.htm?bluesnap_web_services.htm#WordManual/Appendix C State and Province.htm%3FTocPath%3DWeb%20Services%7CAppendices%7C_____3
+    + telephone (optional, string, `23`)...Telephone number
+    + residential (optional, string, `23`)...True if this address is residential false otherwise.
+
++ Response 200 (application/json)
+
+        {
+        ID: 9
+        MEMBER_ID: 0
+        ADDRESS_TYPE: "SHIPPING_ADDRESS"
+        NAME: "foo"
+        COMPANY: ""
+        ADDRESS1: "1 Market"
+        ADDRESS2: ""
+        CITY: "san"
+        STATE: "CA"
+        POSTAL_CODE: "12345"
+        COUNTRY_CODE: "US"
+        TELEPHONE: ""
+        IS_RESIDENTIAL: true
+        }
         
