@@ -2531,6 +2531,9 @@ SecureSession is a required header for this API.
 |Your payment request could not be successfully completed.|400 Bad Request|34002
 |An internal error.|500 Internal Server Error|34003
 |A failure has occurred. Please contact BlueSnap support for further assistance|400 Bad Request|34004
+|Refund amount must be greater than 0|400 Bad Request|34005
+|Refund amount cannot be more than the refundable order amount|400 Bad Request|34006
+|The time limit to perform a refund on this transaction has expired|400 Bad Request|34007
 
 + Request
 
