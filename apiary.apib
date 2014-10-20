@@ -2234,3 +2234,114 @@ Here are some key points about cart:
     + hash_key (optional, string, `AHFDHS56GFTSR67tfgdjst564a`)... required if unit_price present. How to generate hash <TODO>
     + timestamp (optional, String,`2014-08-14 18:55:59`)...required if unit_price present. YYYY-MM-DD HH:mm:ss
 + Response 200 (application/json)
+        {
+"cart":{
+  "id": 1234567,
+  "modified":"September, 25 2012 17:26:41",
+  "currency":"DOLLAR",
+  "shipping_address_id":12345,
+  "shipping_price":3.99,
+  "line_items":[
+    {
+      "id":1234567,
+      "created":"September, 25 2012 17:26:41",
+      "modified":"September, 25 2012 17:26:41",
+      "product_id":1234567,
+      "product_type":"SUBSCRIPTION",
+      "offer_price":12.99,
+      "price":12.99,
+      "quantity":3,
+      "parent_id":"",
+      "parent_idS": [],
+      "data":"",
+      "name":"Premium Subscription",
+      "description":"Monthly Premium Subscription",
+      "thumbnail":"http://url.com/productImage/12334"
+    },
+    {
+      "id":1234567,
+      "created":"September, 25 2012 17:26:41",
+      "modified":"September, 25 2012 17:26:41",
+      "product_id":1234567,
+      "product_type":"PHYSICAL",
+      "offer_price":12.99,
+      "price":12.99,
+      "quantity":3,
+      "parent_id":12345,
+      "parent_idS": [],
+      "data":"",
+      "name":"Makerbot Envelope",
+      "description":"Makerbot Envelope",
+      "thumbnail":"http://url.com/productImage/12334"   
+    },
+    {
+      "id":1234567,
+      "created":"September, 25 2012 17:26:41",
+      "modified":"September, 25 2012 17:26:41",
+      "product_id":1234567,
+      "product_type":"shipping",
+      "offer_price":3.99,
+      "price":3.99,
+      "quantity":1,
+      "parent_id":"",
+      "parent_idS": [],
+       
+      "status":"price",
+      "selected_option" : {
+        "id": "P2",
+        "shipper": "UPS",
+        "name": "2 Day",
+        "price": 3.99
+      },
+ 
+      "optionS": [
+          {
+              "id": "P2",
+              "shipper": "UPS",
+              "name": "2 Day",
+              "price": 3.99
+          },
+          {
+              "id": "P3",
+              "shipper": "UPS",
+              "name": "1 Day",
+              "price": 3.99
+          }
+             
+      ],
+      "availabilities":"",
+      "data":"{\"SHIPPING_METHOD_ID\":\"\",\"SHIPPER_INFO\":\"\",\"SHIPPING_METHOD_NAME\":\"2 Day\"}",
+      "name":"3 Day Standard shipping",
+      "description":"3 Day Standard shipping",
+      "thumbnail":"http://url.com/productImage/12334"   
+    }
+  ],
+  "coupons":[
+    {
+      "code":"ABCXTPOIU"
+    }
+  ],
+  "tax":1.99,
+  "subtotal":25.67,
+  "offer_total":25.67
+  "total":25.67
+},
+ 
+"updated":{
+  "line_items":[
+    {
+      "id":1234567,
+      "created":"September, 25 2012 17:26:41",
+      "modified":"September, 25 2012 17:26:41",
+      "product_id":1234567,
+      "product_type":"PHYSICAL",
+      "offer_price":12.99,
+      "price":12.99,
+      "quantity":3,
+      "name":"Makerbot Envelope",
+      "description":"Makerbot Envelope",
+      "thumbnail":"http://url.com/productImage/12334"   
+    }
+  ]
+}
+}
