@@ -2534,6 +2534,15 @@ SecureSession is a required header for this API.
 |Refund amount must be greater than 0|400 Bad Request|34005
 |Refund amount cannot be more than the refundable order amount|400 Bad Request|34006
 |The time limit to perform a refund on this transaction has expired|400 Bad Request|34007
+|There are not enough funds in your account to issue this refund, please contact support@plimus.com|400 Bad Request|34008
+|Invoice already refunded.|400 Bad Request|34009
+|Internal processing error, please contact support.|400 Bad Request|34010
+|The selected payment method is not supported.|400 Bad Request|34011
+|Operation not supported for unmanaged PayPal order with id ${orderId}.|400 Bad Request|34012
+|The IP address argument given in the request is invalid|400 Bad Request|35001
+|The request cannot be completed successfully since there is no default store configured for the user. Please contact BlueSnap.|500 Internal Server Error|35002
+|The order placement operation could not be completed because expected total price does not match BlueSnap's calculated total.|400 Bad Request|35003
+|Shopper creation failure since there is already a shopper for the merchant with the given interal shopper ID.|400 Bad Request|35004
 
 + Request
 
