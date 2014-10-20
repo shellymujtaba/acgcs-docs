@@ -2171,6 +2171,8 @@ Create payout request and retrieve payout history.
               "payouts": [
                 {
                   "payout_id": 1234567890,
+                  "member_id": 1234567890,
+                  "shop_id": 1234567,
                   "request_date": "July, 02 2014 16:34:00",
                   "request_amount": 100,
                   "payout_status": "PROCESSED",
@@ -2178,6 +2180,8 @@ Create payout request and retrieve payout history.
                 },
                 {
                   "payout_id": 1234567891,
+                  "member_id": 1234567890,
+                  "shop_id": 45676767,
                   "request_date": "July, 07 2014 16:34:00",
                   "request_amount": 50,
                   "payout_status": "DENIED",
@@ -2205,6 +2209,7 @@ For a first time payout request, all fields are mandatory.
 
 + Parameters
     + amount (required, number, `100`)... Requested payout amount
+    + shop_id (required, number, `100`)... Requested shop for payout
     + paypal_email (optional, string, `sample@autodesk.com`)...
     + payout_address (optional, string, `Pier 9, San Francisco, CA`)... 
     + verified_phone (optional, string, `415-1230000`)...
@@ -2918,8 +2923,7 @@ https://www.123dapp.com/API/V1/Cart/ShippingAddress?address1=1%20Market&postalCo
         "is_residential": true
         }
      
-     
-     
+
 
 #Group Admin
 Admin operations.
@@ -2993,9 +2997,9 @@ Retrieve payouts and approve/deny payout requests. Approving a payout places it 
 + Parameters
     + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
-    + pending (optional, Boolean, `true`) ...Include pending payouts
-    + paid (optional, Boolean, `false`) ...Include paid payouts
-    + approved (optional, Boolean, `false`) ...Include approved payouts
+    + include_pending (optional, Boolean, `true`) ...Include pending payouts
+    + include_paid (optional, Boolean, `false`) ...Include paid payouts
+    + include_approved (optional, Boolean, `false`) ...Include approved payouts
 
 + Response 200 (application/json)
 
@@ -3003,6 +3007,8 @@ Retrieve payouts and approve/deny payout requests. Approving a payout places it 
               "payouts": [
                 {
                   "payout_id": 1234567890,
+                  "member_id": 123456,
+                  "shop_id": 1234567,
                   "request_date": "July, 02 2014 16:34:00",
                   "request_amount": 100,
                   "payout_status": "PENDING",
@@ -3034,6 +3040,8 @@ Retrieve payouts and approve/deny payout requests. Approving a payout places it 
 
             {
               "payout_id": 1234567890,
+              "member_id": 123456,
+              "shop_id": 1234567,
               "request_date": "July, 07 2014 16:34:00",
               "request_amount": 50,
               "payout_status": "DENIED",
