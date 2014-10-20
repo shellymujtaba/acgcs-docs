@@ -2209,7 +2209,7 @@ Perform CRUD operations on cart with basic metadata.
         }
 
 ### Update a cart [PUT]
-Adds a line item to the cart.
+Adds a line item to the cart or updates exisiting one of same type and product id. Returns the updated tenant specific cart (as identified by afc header) for a member or guest session with LineItems, and total price. Additionally returns the new/updated line item in the "updated" field. 
 Here are some key points about cart:
 * If a line item of type SUBSCRIPTION already exists in the cart this operation will result in a replace as no more than one subscription is allowed.
 
@@ -2231,6 +2231,6 @@ Here are some key points about cart:
         * parent_id: replaces the existing parent(s) of this line item.
         * unit_price: replaces existing unit price
         * data: replaces existing data field
-    + hash_key (optional, string, `AHFDHS56GFTSR67tfgdjst564a`)... required if unit_price present
+    + hash_key (optional, string, `AHFDHS56GFTSR67tfgdjst564a`)... required if unit_price present. How to generate hash <TODO>
     + timestamp (optional, String,`2014-08-14 18:55:59`)...required if unit_price present. YYYY-MM-DD HH:mm:ss
 + Response 200 (application/json)
