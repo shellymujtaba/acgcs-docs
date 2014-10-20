@@ -2509,3 +2509,20 @@ SecureSession is a required header for this API.
         {
           "buynow_url":"https://www.123dapp.com/API/v2/view/buynow?paramters"
         }
+
+### Place an order [POST]
++ Request
+
+    + Headers
+    
+            REFER : See common headers sesction
+            
++ Parameters
+    + id (required, Number, `23`)...Numeric `id` of the cart.
+    + encryptedcreditcard (required, string, `sdadhabduahysd67adaiudabidyad354t`)...Encrypted value of credit card returned by ServiceProvider.
+
++ Response 200 (application/json)
+
+        {
+          "buynow_url":"https://www.123dapp.com/API/v2/view/buynow?paramters"
+        }
