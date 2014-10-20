@@ -2248,7 +2248,7 @@ Here are some key points about cart:
     
             REFER : See common headers sesction
 + Parameters
-    + id (required, Number, `23`)...Numeric `id` of the cart to perform action with.
+    + id (required, Number, `23`)...Numeric `id` of the lineitem to perform action with.
     + product_id (required, string, `SUBSCRIPTION`)...(Currently Supported: SUBSCRIPTION | PHYSICAL | BUNDLE).
     If the product_type and product_id parameters of this call are equal to those of an existing line item then quantity is going to be increased. The only exception to this rule is with SUBSCRIPTION types which are not allowed more than once in the cart.
     + quantity (optional, Number,`20`)...default is 1
@@ -2391,7 +2391,7 @@ example: http://CurieUrl.com/Cart/LineItem?line_item_id=123456
             REFER : See common headers sesction
             
 + Parameters
-    + id (required, Number, `23`)...Numeric `id` of the cart to perform action with.
+    + id (required, Number, `23`)...Numeric `id` of the line item to perform action with.
 
 + Response 200 (application/json)
 
