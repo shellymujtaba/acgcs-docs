@@ -2226,7 +2226,7 @@ Here are some key points about cart:
     + unit_priceline_item_id (optional, Number,`20`)...Price in cents, i.e. for a price of 2.99 USD clients should send 299. If price is being overridden a hash_key and timestamp are required as additional parameters. 
     + data (optional, Json,`20`)...A JSON String that can be used with spool or shipping. Set this parameter to a DATA Json object.
     + parent_id (optional, Number,`2`)...(can be used if product_type=PHYSICAL). Sets the line item parent id. To be used with makerbot spools. To add multiple parents use the parameter parent_id multiple times in the request parameters i.e. "parent_id=1&parent_id=2&parent_id=3"
-    + line_item_id (optional, Json,`20`) If present then the operation is considered an UPDATE to an existing line item. If present following parameters will replace existing values in the line item:
+    + line_item_id (optional, Json,`20`)...If present then the operation is considered an UPDATE to an existing line item. If present following parameters will replace existing values in the line item:
         * quantity : replaces the existing line item quantity.
         * parent_id: replaces the existing parent(s) of this line item.
         * unit_price: replaces existing unit price
