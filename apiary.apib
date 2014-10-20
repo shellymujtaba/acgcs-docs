@@ -2489,3 +2489,22 @@ example: http://CurieUrl.com/Cart/LineItem?line_item_id=123456
             }
         ]
         }
+        
+# Cart buynow [/carts/{id}/buynow]
+Returns a url of the custom BuyNow Page. The  BUYNOW_URL page displays the cart and asks the users for their payment details as well as shows the place order button. The BUYNOW_URL page is specific to afc code and can be customized via a template. The template and needed resources (css, images) are managed by the client applications. Ask the platform commerce team for the initial template setup. Client application are responsible to display this url as they see fit (iframe or popup).
+SecureSession is a required header for this API.
+
++ Request
+
+    + Headers
+    
+            REFER : See common headers sesction
+            
++ Parameters
+    No parameteres
+
++ Response 200 (application/json)
+
+        {
+          "BUYNOW_URL":"https://www.123dapp.com/API/v2/view/buynow?paramters"
+        }
