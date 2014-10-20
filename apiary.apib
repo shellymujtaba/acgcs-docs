@@ -2981,11 +2981,9 @@ Update shop approval/denial status, feature shop
 
 ##Payouts [/admin/payouts/{payout_id}]
 Retrieve payouts and approve/deny payout requests. Approving a payout places it to the payout queue.
+    
 
-+ Parameters
-    + payout_id (required, Number, `1234567890`)...Payout id
-
-### Retrieve shop payout history [GET]
+### Retrieve payout history [GET]
 + Request
     + Header
     
@@ -3032,6 +3030,7 @@ Retrieve payouts and approve/deny payout requests. Approving a payout places it 
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
+    + payout_id (required, Number, `1234567890`)...Payout id
     + payout_status (optional, String,`DENIED`)...Payout status
     + payout_denial_reason (optional, String,`BALANCE_MISMATCH`)...Payout denial reason
     
