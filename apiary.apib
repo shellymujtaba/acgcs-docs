@@ -1872,7 +1872,7 @@ CRUD operations on a shop. Requesting a shop via POST causes the shop to be plac
               "shop_id": 1234567890,
               "member_id": 1234567890,
               "name": "Hello Shop",
-              "banner_field": 512,
+              "banner_file_id": 512123,
               "current_portfolio_url": "http://dev.squidplatform.net",
               "current_sales_url": "http://dev.squidplatform.net",
               "shop_status": 1,
@@ -1898,6 +1898,12 @@ Guest session results in only the public shop data to be returned. Offline shops
 
 
 ### Create a new shop [POST]
+
+|Message|HTTP Status Code|Error Code|Data
+|----|----|----
+|Member already has a shop or requested one|400 Bad Request|6001|Existing shop id
+
+
 + Request
     + Header
             
@@ -1906,7 +1912,7 @@ Guest session results in only the public shop data to be returned. Offline shops
             Content-type:application/x-www-form-urlencoded
 + Parameters
     + name (required, String, `Hello Shop`) ...Shop Name
-    + banner_field (required, Number, `512`)...Banner Field
+    + banner_file_id (required, Number, `512123`)...File id of the uploaded banner image
     + current_portfolio_url (required, String, `http://dev.squidplatform.net`) ...Portfolio url
     + current_sales_url (required, String, `http://dev.squidplatform.net`) ...Sales url
 
@@ -1918,7 +1924,7 @@ Guest session results in only the public shop data to be returned. Offline shops
                 "shop_id": 1234567890,
                 "member_id": 1234567890,
                 "name": "Hello Shop",
-                "banner_field": 512,
+                "banner_file_id": 512123,
                 "current_portfolio_url": "http://dev.squidplatform.net",
                 "current_sales_url": "http://dev.squidplatform.net",
                 "shop_status": 1,
@@ -1939,7 +1945,7 @@ Guest session results in only the public shop data to be returned. Offline shops
             Content-type:application/x-www-form-urlencoded
 + Parameters
     + name (optional, String, `New Shop Name`) ...Shop Name
-    + banner_field (optional, Number, `550`)...Banner Field
+    + banner_file_id (optional, Number, `550123`)...File id of the uploaded banner image
     + current_portfolio_url (optional, String, `http://dev.squidplatform.net`) ...Portfolio url
     + current_sales_url (optional, String, `http://dev.squidplatform.net`) ...Sales url
     + shop_status (optional, Number, `0`) ...Shop status
@@ -1951,7 +1957,7 @@ Guest session results in only the public shop data to be returned. Offline shops
                 "shop_id": 1234567890,
                 "member_id": 1234567890,
                 "name": "New Shop Name",
-                "banner_field": 550,
+                "banner_file_id": 550123,
                 "current_portfolio_url": "http://dev.squidplatform.net",
                 "current_sales_url": "http://dev.squidplatform.net",
                 "shop_status": 0,
@@ -1997,7 +2003,7 @@ Lists all shops associated with the logged in member (Currently only one shop al
                   "shop_id": 1234567890,
                   "member_id": 1234567890,
                   "name": "Hello Shop",
-                  "banner_field": 512,
+                  "banner_file_id": 512123,
                   "current_portfolio_url": "http://dev.squidplatform.net",
                   "current_sales_url": "http://dev.squidplatform.net",
                   "shop_status": 1,
