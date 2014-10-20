@@ -2223,5 +2223,6 @@ Here are some key points about cart:
     + product_id (required, string, `SUBSCRIPTION`)...(Currently Supported: SUBSCRIPTION | PHYSICAL | BUNDLE).
     If the product_type and product_id parameters of this call are equal to those of an existing line item then quantity is going to be increased. The only exception to this rule is with SUBSCRIPTION types which are not allowed more than once in the cart.
     + quantity (optional, Number,`20`)...default is 1
+    + unit_price (optional, Number,`20`)...Price in cents, i.e. for a price of 2.99 USD clients should send 299. If price is being overridden a hash_key and timestamp are required as additional parameters. 
     
 + Response 200 (application/json)
