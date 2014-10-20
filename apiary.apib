@@ -2993,6 +2993,9 @@ Retrieve payouts and approve/deny payout requests. Approving a payout places it 
 + Parameters
     + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
+    + pending (optional, Boolean, `true`) ...Include pending payouts
+    + paid (optional, Boolean, `false`) ...Include paid payouts
+    + approved (optional, Boolean, `false`) ...Include approved payouts
 
 + Response 200 (application/json)
 
@@ -3002,24 +3005,17 @@ Retrieve payouts and approve/deny payout requests. Approving a payout places it 
                   "payout_id": 1234567890,
                   "request_date": "July, 02 2014 16:34:00",
                   "request_amount": 100,
-                  "payout_status": "PROCESSED",
+                  "payout_status": "PENDING",
                   "payout_denial_reason": null
-                },
-                {
-                  "payout_id": 1234567891,
-                  "request_date": "July, 07 2014 16:34:00",
-                  "request_amount": 50,
-                  "payout_status": "DENIED",
-                  "payout_denial_reason": "BALANCE_MISMATCH"
                 }
               ],
               "count": 260,
               "pages": 20,
               "limit": 13,
               "offset": 39,
-              "_link": "/shops/20280723/payout?limit=26",
-              "_link_prev": "/shops/20280723/payout?limit=26&offset=26",
-              "_link_next": "/shops/20280723/payout?limit=26&offset=39"
+              "_link": "/admin/payouts?limit=26",
+              "_link_prev": "/admin/payouts?limit=26&offset=26",
+              "_link_next": "/admin/payouts?limit=26&offset=39"
             }
             
 ### Update payout [PUT]
@@ -3034,14 +3030,13 @@ Retrieve payouts and approve/deny payout requests. Approving a payout places it 
     + payout_status (optional, String,`DENIED`)...Payout status
     + payout_denial_reason (optional, String,`BALANCE_MISMATCH`)...Payout denial reason
     
-
 + Response 200 (application/json)
 
-                {
-                  "payout_id": 1234567890,
-                  "request_date": "July, 07 2014 16:34:00",
-                  "request_amount": 50,
-                  "payout_status": "DENIED",
-                  "payout_denial_reason": "BALANCE_MISMATCH",
-                  "status_date": "July, 09 2014 16:34:00"
-                }
+            {
+              "payout_id": 1234567890,
+              "request_date": "July, 07 2014 16:34:00",
+              "request_amount": 50,
+              "payout_status": "DENIED",
+              "payout_denial_reason": "BALANCE_MISMATCH",
+              "status_date": "July, 09 2014 16:34:00"
+            }
