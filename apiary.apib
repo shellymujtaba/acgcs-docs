@@ -2534,3 +2534,25 @@ SecureSession is a required header for this API.
           "ref_number":"1234567",
           "name":""
         }
+        
+
+### Place an order [POST]
+
++ Request
+
+    + Headers
+    
+            REFER : See common headers sesction
+            
++ Parameters
+    + id (optional, Number, `23`)...Numeric `id` of the cart. This is required if 'prevcard' is false.
+    + encryptedcreditcard (optional, string, `sdadhabduahysd67adaiudabidyad354t`)...Encrypted value of credit card returned by ServiceProvider. This is required if 'prevcard' is false.
+    + encryptedcvv (optional, string, `sdadhabduahysd67adaiudabidyad354t`)...Encrypted value of cvv returned by ServiceProvider. This is required if 'prevcard' is false.
+    + expmonth (optional, Number, `03`)...Expiry month of CreditCard mentioned. This is required if 'prevcard' is false.
+    + expyear (optional, Number, `18`)...Expiry year of CreditCard mentioned. This is required if 'prevcard' is false.
+    + name (optional, string, `John Taylor`)...Expiry year of CreditCard mentioned. This is required if 'prevcard' is false.
+    + cardtype (required, string, `VISA`)...Card type
+    + cardlastfourdigit (required, string, `1111`)...Expiry year of CreditCard mentioned.
+
+
+
