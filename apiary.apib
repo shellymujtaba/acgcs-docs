@@ -2208,7 +2208,26 @@ Perform CRUD operations on cart with basic metadata.
         ]
         }
 
-### Update a cart [PUT]
+### Delete a cart [DELETE]
+Deletes the cart of the logged in user or guest. After this call, a call to GET /cart will return an empty cart. Returns an empty json object if successful otherwise an error object.
+
++ Request
+
+    + Headers
+    
+            REFER : See common headers sesction
+            
++ Parameters
+    + id (required,Number,`23`)...Numeric `id` of the cart to perform action with.
+
++ Response 204 (application/json)
+        {}
+
+# Cart line items [/carts/lineitems/{id}]
+Line items are part of carts. Cart can contain 'n' line items. User can perform various CRUD operations on line items.
+
+    
+### Update a cart line item [PUT]
 Adds a line item to the cart or updates exisiting one of same type and product id. Returns the updated tenant specific cart (as identified by afc header) for a member or guest session with LineItems, and total price. Additionally returns the new/updated line item in the "updated" field. 
 Here are some key points about cart:
 * If a line item of type SUBSCRIPTION already exists in the cart this operation will result in a replace as no more than one subscription is allowed.
