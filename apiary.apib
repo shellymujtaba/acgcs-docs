@@ -1637,20 +1637,158 @@ Get all the purchases made by the member.
 
 + Response 200 (application/json)
 
-        {       
-        "id": 1,
-        "member_id": 0,
-        "address_type": "SHIPPING_ADDRESS",
-        "name": "testMember",
-        "company": "",
-        "address1": "1 Market",
-        "address2": "",
-        "city": "San Francisco",
-        "state": "CA",
-        "postal_code": "94105",
-        "country_code": "US",
-        "telephone": "",
-        "is_residential": true
+        {
+        "count": 260,
+        "limit": 13,
+        "offset": 39,
+        "orders": [
+            {
+                "order_id": 3944327,
+                "order_cart": {
+                    "currency": "USD",
+                    "order_items": [
+                        {
+                            "name": "Shipping",
+                            "product_id": 3,
+                            "product_type": "SHIPPING",
+                            "subtotal": 12.32,
+                            "quantity": 1
+                        },
+                        {
+                            "name": "Sales Tax",
+                            "product_id": 8,
+                            "product_type": "SUBSCRIPTION",
+                            "subtotal": 9.46,
+                            "quantity": 1
+                        },
+                        {
+                            "name": "Developer Kit",
+                            "product_id": 10,
+                            "product_type": "PHYSICAL",
+                            "subtotal": 105,
+                            "quantity": 1
+                        }
+                    ],
+                    "tax": 0,
+                    "tax_rate": 0,
+                    "total": 126.78
+                },
+                "order_invoices": [
+                    {
+                        "invoice_id": "1008813674",
+                        "url": "https://sandbox.bluesnap.com/jsp/show_invoice.jsp?ref=4E5D9A69F0C17B1F82804D068FF925A1",
+                        "order_transactions": [
+                            {
+                                "status": "Approved",
+                                "created_date": "September 23, 2014 00:00:00",
+                                "amount": 126.78,
+                                "currency": "USD",
+                                "payment_method": "Credit Card",
+                                "payment_detail": {
+                                    "mask": "1111",
+                                    "type": "Visa",
+                                    "exp_month": 10,
+                                    "exp_year": 2019
+                                },
+                                "invoice_contact_info": {
+                                    "first_name": "chaitanya",
+                                    "last_name": "chaitanya",
+                                    "email": "chaitya25@yahoo.com",
+                                    "address": "1 Market",
+                                    "city": "san  francisco",
+                                    "state": "CA",
+                                    "zip": "94105",
+                                    "country": "us",
+                                    "phone": ""
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "order_fulfilments": [
+                    {
+                        "status": "IN_PROGRESS",
+                        "reference_number": "b66d9f26-02b7-4bc4-9fac-f3a43189e578",
+                        "type": "SUBSCRIPTION",
+                        "tracking_url": "",
+                        "estimated_shipping_date": "2014-10-01 00:00:00"
+                    }
+                ]
+            },
+            {
+                "order_id": 3943041,
+                "order_cart": {
+                    "currency": "USD",
+                    "order_items": [
+                        {
+                            "name": " 123D Makerbot Replicator 2",
+                            "product_id": 1,
+                            "product_type": "PHYSICAL",
+                            "subtotal": 1999,
+                            "quantity": 1
+                        },
+                        {
+                            "name": "Shipping",
+                            "product_id": 3,
+                            "product_type": "SHIPPING",
+                            "subtotal": 180.4,
+                            "quantity": 1
+                        },
+                        {
+                            "name": "Sales Tax",
+                            "product_id": 8,
+                            "product_type": "SUBSCRIPTION",
+                            "subtotal": 179.92,
+                            "quantity": 1
+                        }
+                    ],
+                    "tax": 0,
+                    "tax_rate": 0,
+                    "total": 2359.32
+                },
+                "order_invoices": [
+                    {
+                        "invoice_id": "1008807042",
+                        "url": "https://sandbox.bluesnap.com/jsp/show_invoice.jsp?ref=356F479AD204AD0CCF749389AFFE78EE",
+                        "order_transactions": [
+                            {
+                                "status": "Approved",
+                                "created_date": "September 19, 2014 00:00:00",
+                                "amount": 2359.32,
+                                "currency": "USD",
+                                "payment_method": "Credit Card",
+                                "payment_detail": {
+                                    "mask": "1111",
+                                    "type": "Visa",
+                                    "exp_month": 10,
+                                    "exp_year": 2019
+                                },
+                                "invoice_contact_info": {
+                                    "first_name": "chaitanya",
+                                    "last_name": "chaitanya",
+                                    "email": "chaitya25@yahoo.com",
+                                    "address": "1 Market",
+                                    "city": "san francisco",
+                                    "state": "CA",
+                                    "zip": "94105",
+                                    "country": "us",
+                                    "phone": ""
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "order_fulfilments": [
+                    {
+                        "status": "IN_PROGRESS",
+                        "reference_number": "0000157439",
+                        "type": "SUBSCRIPTION",
+                        "tracking_url": "",
+                        "estimated_shipping_date": ""
+                    }
+                ]
+            }
+        ]
         }
 
 # Group Auth
