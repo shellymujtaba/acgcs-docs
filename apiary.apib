@@ -2365,3 +2365,113 @@ Here are some key points about cart:
           ]
         }
         }
+
+### Delete a cart line item [DELETE]
+Deletes the line item. Also deletes all the cart coupons if any coupon does not apply after the line item is deleted. Returns the updated tenant specific cart (as identified by afc header) for a member or guest session with LineItems, coupons and total price.
+example: http://CurieUrl.com/Cart/LineItem?line_item_id=123456
+
++ Request
+
+    + Headers
+    
+            REFER : See common headers sesction
+            
++ Parameters
+    + id (required, Number, `23`)...Numeric `id` of the cart to perform action with.
+
++ Response 200 (application/json)
+
+        {
+        "id": 90,
+        "modified": "February 24, 2014 05:26:46",
+        "currency": "USD",
+        "total": 1078,
+        "offer_total": 1078,
+        "tax": "",
+        "discount": 1078,
+        "subtotal": 1078,
+        "line_item_subtotal": 2008.99,
+        "shipping_price": 147.01,
+        "shipping_method": "2 Day",
+        "shipping_address_id": 400083,
+        "billing_address_id": 400110,
+        "line_items": [
+            {
+                "id": 298,
+                "created": "February 25, 2014 12:08:35",
+                "modified": "February 25, 2014 12:08:35",
+                "quantity": 1,
+                "price": 9.99,
+                "offer_price": 9.99,
+                "product_id": 3,
+                "product_type": "SUBSCRIPTION",
+                "parent_id": "",
+                "parent_ids": [],
+                "data": "",
+                "name": "1-month Premium Membership",
+                "description": "Your 1-month Premium membership includes an Instructables Pro account, unlimited premium model downloads from the 123D Content Library, and the ability to create 2D layouts (.dwg) from 123D Design models.",
+                "thumbnail": "Global/premium-membership-monthly.png"
+            },
+            {
+                "id": 639,
+                "created": "March 19, 2014 07:14:13",
+                "modified": "March 19, 2014 07:14:13",
+                "quantity": 1,
+                "price": 1999,
+                "offer_price": 1999,
+                "product_id": 1,
+                "product_type": "PHYSICAL",
+                "parent_id": "",
+                "parent_ids": [],
+                "data": "",
+                "name": " 123D Makerbot Replicator 2",
+                "description": " 123D Makerbot Replicator 2 item",
+                "thumbnail": ""
+            },
+            {
+                "id": 640,
+                "created": "March 19, 2014 07:14:37",
+                "modified": "March 19, 2014 08:12:40",
+                "quantity": 1,
+                "price": 3.99,
+                "offer_price": 3.99,
+                "product_id": 3,
+                "product_type": "SHIPPING",
+                "parent_id": 639,
+                "parent_ids": [639],
+                "status":"PRICE",
+                "selected_option" : {
+                    "id": "P2",
+                    "shipper": "UPS",
+                    "name": "2 Day",
+                    "price": 3.99
+                },
+     
+                "options": [
+                    {
+                        "id": "P2",
+                        "shipper": "UPS",
+                        "name": "2 Day",
+                        "price": 3.99
+                    },
+                    {
+                        "id": "P3",
+                        "shipper": "UPS",
+                        "name": "1 Day",
+                        "price": 3.99
+                    }
+                 
+                ],
+                "availabilities":"",
+                "data": "{\"SHIPPING_METHOD_ID\":\"\",\"SHIPPER_INFO\":\"\",\"SHIPPING_METHOD_NAME\":\"2 Day\"}",
+                "name": "Shipping",
+                "description": "Shipping item",
+                "thumbnail": ""
+            }
+        ],
+        "coupons": [
+            {
+                "code": "HUGOBOSS"
+            }
+        ]
+        }
