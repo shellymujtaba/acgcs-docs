@@ -2379,6 +2379,10 @@ Here are some key points about cart:
 Deletes the line item. Also deletes all the cart coupons if any coupon does not apply after the line item is deleted. Returns the updated tenant specific cart (as identified by afc header) for a member or guest session with LineItems, coupons and total price.
 example: http://CurieUrl.com/Cart/LineItem?line_item_id=123456
 
+|description|HTTP|code
+|----|----|----
+|Line Item not found in cart|400 Bad Request|3010
+
 + Request
 
     + Headers
