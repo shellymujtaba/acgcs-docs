@@ -2543,6 +2543,13 @@ SecureSession is a required header for this API.
 |The request cannot be completed successfully since there is no default store configured for the user. Please contact BlueSnap.|500 Internal Server Error|35002
 |The order placement operation could not be completed because expected total price does not match BlueSnap's calculated total.|400 Bad Request|35003
 |Shopper creation failure since there is already a shopper for the merchant with the given interal shopper ID.|400 Bad Request|35004
+|The specified store does not exist.|400 Bad Request|35005
+|The specified merchant does not exist.|400 Bad Request|35006
+|The requested SKU resource does not exist.|400 Bad Request|35007
+|The requested shopper resource does not exist.|404 Not Found|35008
+|Order placement fails since the ordering shopper hasn’t the required payment information.|404 Not Found|35009
+|The provided username is not unique in the system.|404 Not Found|35010
+|Operation is suspected as fraud.|400 Bad Request|35011
 
 + Request
 
