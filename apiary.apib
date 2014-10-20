@@ -2223,7 +2223,12 @@ Here are some key points about cart:
     + product_id (required, string, `SUBSCRIPTION`)...(Currently Supported: SUBSCRIPTION | PHYSICAL | BUNDLE).
     If the product_type and product_id parameters of this call are equal to those of an existing line item then quantity is going to be increased. The only exception to this rule is with SUBSCRIPTION types which are not allowed more than once in the cart.
     + quantity (optional, Number,`20`)...default is 1
-    + unit_price (optional, Number,`20`)...Price in cents, i.e. for a price of 2.99 USD clients should send 299. If price is being overridden a hash_key and timestamp are required as additional parameters. 
+    + unit_priceline_item_id (optional, Number,`20`)...Price in cents, i.e. for a price of 2.99 USD clients should send 299. If price is being overridden a hash_key and timestamp are required as additional parameters. 
     + data (optional, Json,`20`)...A JSON String that can be used with spool or shipping. Set this parameter to a DATA Json object.
-    + quantity (optional, Number,`20`)...default is 1
+    + parent_id (optional, Number,`2`)...(can be used if product_type=PHYSICAL). Sets the line item parent id. To be used with makerbot spools. To add multiple parents use the parameter parent_id multiple times in the request parameters i.e. "parent_id=1&parent_id=2&parent_id=3"
+    + line_item_id (optional, Json,`20`) If present then the operation is considered an UPDATE to an existing line item. If present following parameters will replace existing values in the line item:
+    * quantity:  replaces the existing line item quantity.
+        * parent_id: replaces the existing parent(s) of this line item.
+        * unit_price: replaces existing unit price
+        * data: replaces existing data field
 + Response 200 (application/json)
