@@ -2585,6 +2585,22 @@ SecureSession is a required header for this API.
           "name":""
         }
 
+# Cart transfer [/carts/{id}/transfer]
+### Retrieve a shipping address [POST]
+Transfers a cart from a guest session to current logged in member
++ Request
+
+    + Headers
+    
+            REFER : See common headers sesction
+            
++ Parameters
+    + id (required, Number, `23`)...Numeric `id` of the cart.
+
++ Response 204 (application/json)
+
+        {}
+        
 # Cart billing address [/carts/{id}/billingaddress]
 ### Retrieve a billing address [GET]
 + Request
