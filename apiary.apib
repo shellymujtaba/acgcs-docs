@@ -2209,7 +2209,10 @@ Perform CRUD operations on cart with basic metadata.
         }
 
 ### Update a cart [PUT]
-Adds a line item to the cart. If a line item of type SUBSCRIPTION already exists in the cart this operation will result in a replace as no more than one subscription is allowed.
+Adds a line item to the cart.
+Here are some key points about cart:
+* If a line item of type SUBSCRIPTION already exists in the cart this operation will result in a replace as no more than one subscription is allowed.
+
 + Request
 
     + Headers
