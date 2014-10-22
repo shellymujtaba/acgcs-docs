@@ -1167,7 +1167,7 @@ The API to get the upload server for uploading the files
         "server": "storagealpha.squidplatform.com"
     }
 
-#Upload [/files/upload]
+#Upload File [/files/upload]
 If the file is sent as a application/gzip and unzip parameter is = true, it will be unzipped and id will be returned for each constituent file within the zip. 
 In case of gzipped files, file name extension will be utilized to determine the file type (e.g. stl or obj). 
 In case of base64 encoded files, file name extension will be utilized to determine file type (e.g stl or obj).
@@ -1205,6 +1205,16 @@ In case of base64 encoded files, file name extension will be utilized to determi
             {
                 "files":[{"name":"data.aceb", "file_id":"123334"},{"name":"model.gzip.carmodel.obj", "file_id":"123335"},{"name":"model.gzip.carmodel.mtl", "file_id":"123336"},{"name":"outputs.csv", "file_id":"123337"}]
             }
+            
+#Download Server [/server/download]
+The API to get the upload server for uploading the files
+### Download server [GET]
++ Request
+
++ Response 200
+    {
+        "server": "storagealpha.squidplatform.com"
+    }            
             
 #Download [/files/download{?file_ids,asset_id}]
 Download a specific file or set of files.
