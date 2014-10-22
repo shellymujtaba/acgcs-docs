@@ -1164,6 +1164,10 @@ The API to get the upload server for uploading the files
     + Header
         X-AFC: FJKB32
         X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Response 200
+    {
+        "server": "storagealpha.squidplatform.com"
+    }
 
 #Upload [/files/upload]
 If the file is sent as a application/gzip and unzip parameter is = true, it will be unzipped and id will be returned for each constituent file within the zip. 
