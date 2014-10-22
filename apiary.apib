@@ -1160,12 +1160,14 @@ Of course in order to add a file to an asset, it must be uploaded first. The api
 #Upload Server [/server/upload]
 The API to get the upload server for uploading the files
 ### Upload server [GET]
++ Request
+
 + Response 200
     {
         "server": "storagealpha.squidplatform.com"
     }
 
-#Upload File [/files/upload]
+#Upload [/files/upload]
 If the file is sent as a application/gzip and unzip parameter is = true, it will be unzipped and id will be returned for each constituent file within the zip. 
 In case of gzipped files, file name extension will be utilized to determine the file type (e.g. stl or obj). 
 In case of base64 encoded files, file name extension will be utilized to determine file type (e.g stl or obj).
