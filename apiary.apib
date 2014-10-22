@@ -1162,9 +1162,8 @@ Download a specific file or set of files from an asset
 ### Download [GET]
 + Request
     + Header
-            
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 # Group Files
 Files are "second class" citizens in the Cloud Services ecosystem. As explained in the Assets api introduction: Within the 3d modeling/printing eco-system it is often hard to model a complete creation and workflow with a single file. Hence a file by itself has little meaning without the context of the asset it belongs to. 
@@ -1209,13 +1208,12 @@ In case of base64 encoded files, file name extension will be utilized to determi
                 "files":[{"name":"data.aceb", "file_id":"123334"},{"name":"model.gzip.carmodel.obj", "file_id":"123335"},{"name":"model.gzip.carmodel.mtl", "file_id":"123336"},{"name":"outputs.csv", "file_id":"123337"}]
             }
             
-#Download [/files/download]
-If the file is sent as a application/gzip and unzip parameter is = true, it will be unzipped and id will be returned for each constituent file within the zip. 
-In case of gzipped files, file name extension will be utilized to determine the file type (e.g. stl or obj). 
-In case of base64 encoded files, file name extension will be utilized to determine file type (e.g stl or obj).
+#Downloads [/files/download{?file_ids}]
+Download a specific file or set of files from an asset.
 
 + Parameters
-    + unzip (optional,String, `false`)...Indicate if the zip file should be unzipped and each constituent files be treated as an individual file. Default is false. 
+    + id (required, String `23244422`)... Asset id
+    + file_ids (required,String `1233233,1333233`) ...Comma seperated list of file ids. If more than one file is specified, the download will be a zip
 
 ### Upload files [POST]
 
