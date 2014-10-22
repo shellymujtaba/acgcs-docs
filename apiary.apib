@@ -1215,36 +1215,14 @@ Download a specific file or set of files from an asset.
     + id (required, String `23244422`)... Asset id
     + file_ids (required,String `1233233,1333233`) ...Comma seperated list of file ids. If more than one file is specified, the download will be a zip
 
-### Upload files [POST]
+### Download files [GET]
 
 + Request
     + Header
-            
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-            Content-type: multipart/form-data; boundary="---abc123"
-                
-    + Body
-    
-            ---abc123
-            Content-Disposition: form-data; name="aceb"; filename="data.aceb"
-            Content-Type: application/octet-stream
-            ... file data here ...
-            ---abc123
-            Content-Disposition: form-data; name="dome"; filename="model.gzip"
-            Content-Type: application/gzip
-            ... file data here ...
-            ---abc123
-            Content-Disposition: form-data; name="acmo"; filename="outputs.csv"
-            Content-Type: base64
-            ... file data here ...
-            ---abc123
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Response 200
-
-            {
-                "files":[{"name":"data.aceb", "file_id":"123334"},{"name":"model.gzip.carmodel.obj", "file_id":"123335"},{"name":"model.gzip.carmodel.mtl", "file_id":"123336"},{"name":"outputs.csv", "file_id":"123337"}]
-            }            
 
 #Group Members
 This group of operations provides information on the member. A member is a user who signs up or logs into Cloud Services eco-system.
