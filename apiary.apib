@@ -1153,18 +1153,6 @@ Operations to manage status posts on an asset. Status posts are updates to the p
     + status_post_id (required,String, `234567,334562`)...Comma seperated list of status posts to be deleted from this asset.
 + Response 204
 
-# Downloads [/assets/{id}/download{?file_ids}]
-Download a specific file or set of files from an asset
-+ Parameters
-    + id (required, String `23244422`)... Asset id
-    + file_ids (required,String `1233233,1333233`) ...Comma seperated list of file ids. If more than one file is specified, the download will be a zip
-
-### Download [GET]
-+ Request
-    + Header
-        X-AFC: FJKB32
-        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-
 # Group Files
 Files are "second class" citizens in the Cloud Services ecosystem. As explained in the Assets api introduction: Within the 3d modeling/printing eco-system it is often hard to model a complete creation and workflow with a single file. Hence a file by itself has little meaning without the context of the asset it belongs to. 
 Of course in order to add a file to an asset, it must be uploaded first. The api operations below provide various ways of uploading a file and recieving a file id which can then be used to associate file with an asset. 
