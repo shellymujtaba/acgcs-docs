@@ -1171,7 +1171,8 @@ The API to get the upload server for uploading the files
 If the file is sent as a application/gzip and unzip parameter is = true, it will be unzipped and id will be returned for each constituent file within the zip. 
 In case of gzipped files, file name extension will be utilized to determine the file type (e.g. stl or obj). 
 In case of base64 encoded files, file name extension will be utilized to determine file type (e.g stl or obj).
-Please use the server for the file upload received from the upload server API.
+
+Note: Please use the server for the file upload received from the upload server API.
 
 + Parameters
     + unzip (optional,String, `false`)...Indicate if the zip file should be unzipped and each constituent files be treated as an individual file. Default is false. 
@@ -1218,7 +1219,9 @@ The API to get the download server for uploading the files
     }            
             
 #Download File [/files/download{?file_ids,asset_id}]
-Download a specific file or set of files. Please use the server for the file download received from the download server API.
+Download a specific file or set of files. 
+
+Note: Please use the server for the file download received from the download server API.
 
 + Parameters
     + file_ids (required,String `1233233,1333233`) ...Comma seperated list of file ids. If more than one file is specified, the download will be a zip
