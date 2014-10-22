@@ -1208,12 +1208,12 @@ In case of base64 encoded files, file name extension will be utilized to determi
                 "files":[{"name":"data.aceb", "file_id":"123334"},{"name":"model.gzip.carmodel.obj", "file_id":"123335"},{"name":"model.gzip.carmodel.mtl", "file_id":"123336"},{"name":"outputs.csv", "file_id":"123337"}]
             }
             
-#Downloads [/files/download{?file_ids}]
+#Downloads [/files/download{?file_ids}{?asset_id}]
 Download a specific file or set of files from an asset.
 
 + Parameters
-    + id (required, String `23244422`)... Asset id
     + file_ids (required,String `1233233,1333233`) ...Comma seperated list of file ids. If more than one file is specified, the download will be a zip
+    + asset_id (optional, String `23244422`)... Asset id
 
 ### Download files [GET]
 
