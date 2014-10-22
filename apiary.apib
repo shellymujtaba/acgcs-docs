@@ -1208,6 +1208,45 @@ In case of base64 encoded files, file name extension will be utilized to determi
             {
                 "files":[{"name":"data.aceb", "file_id":"123334"},{"name":"model.gzip.carmodel.obj", "file_id":"123335"},{"name":"model.gzip.carmodel.mtl", "file_id":"123336"},{"name":"outputs.csv", "file_id":"123337"}]
             }
+            
+#Download [/files/download]
+If the file is sent as a application/gzip and unzip parameter is = true, it will be unzipped and id will be returned for each constituent file within the zip. 
+In case of gzipped files, file name extension will be utilized to determine the file type (e.g. stl or obj). 
+In case of base64 encoded files, file name extension will be utilized to determine file type (e.g stl or obj).
+
++ Parameters
+    + unzip (optional,String, `false`)...Indicate if the zip file should be unzipped and each constituent files be treated as an individual file. Default is false. 
+
+### Upload files [POST]
+
++ Request
+    + Header
+            
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            Content-type: multipart/form-data; boundary="---abc123"
+                
+    + Body
+    
+            ---abc123
+            Content-Disposition: form-data; name="aceb"; filename="data.aceb"
+            Content-Type: application/octet-stream
+            ... file data here ...
+            ---abc123
+            Content-Disposition: form-data; name="dome"; filename="model.gzip"
+            Content-Type: application/gzip
+            ... file data here ...
+            ---abc123
+            Content-Disposition: form-data; name="acmo"; filename="outputs.csv"
+            Content-Type: base64
+            ... file data here ...
+            ---abc123
+
++ Response 200
+
+            {
+                "files":[{"name":"data.aceb", "file_id":"123334"},{"name":"model.gzip.carmodel.obj", "file_id":"123335"},{"name":"model.gzip.carmodel.mtl", "file_id":"123336"},{"name":"outputs.csv", "file_id":"123337"}]
+            }            
 
 #Group Members
 This group of operations provides information on the member. A member is a user who signs up or logs into Cloud Services eco-system.
