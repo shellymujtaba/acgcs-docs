@@ -258,7 +258,6 @@ Operations to perform CRUD operations on an asset with basic metadata. Additiona
     }
 }
 
-
 ### Create a new asset[POST]
 + Request
     + Header
@@ -354,7 +353,6 @@ This api is a starting point to display galleries, perform free-form searches. D
 
 ## List all Assets [GET]
  
-
 + Response 200 (application/json)
         
   {
@@ -457,7 +455,7 @@ Note: The key should be unique within the asset. Using the same key in POST will
     "_link": "/assets/1495894/customdata"
 }
 
-### retrieve a shop asset custom data[GET]
+### Retrieve asset custom data[GET]
 + Request
     + Header
         X-AFC: FJKB32
@@ -476,7 +474,7 @@ Note: The key should be unique within the asset. Using the same key in POST will
     ]
 }
 
-### Delete an asset custom data[DELETE]
+### Delete asset custom data[DELETE]
 + Request
     + Header
         X-AFC: FJKB32
@@ -505,7 +503,7 @@ Operations to add preview files to this asset. These operations are used to add 
     "_link": "/assets/1495894/previews"
 }
 
-### retrieve a shop asset previews[GET]
+### Retrieve asset previews[GET]
 + Request
     + Header
             X-AFC: FJKB32
@@ -527,7 +525,7 @@ Operations to add preview files to this asset. These operations are used to add 
     ]
 }
 
-### Delete an asset previews[DELETE]
+### Delete asset previews[DELETE]
 + Request
     + Header
             X-AFC: FJKB32
