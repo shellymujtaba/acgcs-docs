@@ -2272,7 +2272,7 @@ When invoked  without any parameter, the phone number on file is verified. Other
             Content-type:application/x-www-form-urlencoded
 
 + Parameters
-    + phone_number (required, string, `100`)... Requested phone number verification
+    + phone_number (optional, string, `4151234567`)... Requested phone number verification. If present, payout info is updated.
     
 + Response 201
 
@@ -2290,7 +2290,7 @@ When invoked  without any parameter, the email address on file is verified. Othe
             Content-type:application/x-www-form-urlencoded
 
 + Parameters
-    + email_address (required, string, `100`)... Requested email address verification
+    + email_address (optional, string, `someone@autodesk.com`)... Requested email address verification. If present, payout info is updated.
     
 + Response 201
 
