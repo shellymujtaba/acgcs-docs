@@ -2256,19 +2256,43 @@ For a first time payout request, all fields are mandatory.
     + corporation_type (optional, string, `PERSONAL`)...
     + tin (optional, string, `abcdef1234`)...
 
-+ Response 200
++ Response 201
 
 ##Phone Verification [/shops/{shop_id}/payouts/phoneVerification]
 Creates phone verification request for the payout.
 
 ### Create phone verification [POST]
-When invoked  without any parameter, the phone number on file is verified.
+When invoked  without any parameter, the phone number on file is verified. Otherwise, the phone number in the request is verified and the payout info is updated with this phone.
+
++ Request
+    + Header
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            Content-type:application/x-www-form-urlencoded
+
++ Parameters
+    + phone_number (required, string, `100`)... Requested phone number verification
+    
++ Response 201
 
 ##Email Verification [/shops/{shop_id}/payouts/emailVerification]
 Creates email verification request for the payout.
 
 ### Create email verification [POST]
-When invoked  without any parameter, the email address on file is verified.
+When invoked  without any parameter, the email address on file is verified. Otherwise, the email address in the request is verified and the payout info is updated with this email.
+
++ Request
+    + Header
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            Content-type:application/x-www-form-urlencoded
+
++ Parameters
+    + email_address (required, string, `100`)... Requested email address verification
+    
++ Response 201
 
 ##Sales [/shops/{shop_id}/sales]
 Retrieve non-pending sales history. Restricts order line items to only those sold by the seller since an order may have multiple line items from multiple sellers.
