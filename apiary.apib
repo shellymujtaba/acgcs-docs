@@ -2259,7 +2259,7 @@ For a first time payout request, all fields are mandatory.
 + Response 201
 
 ##Phone Verification [/shops/{shop_id}/payouts/phoneVerification]
-Creates phone verification request for the payout.
+Creates a phone verification request for the shops payout info.
 
 ### Create phone verification [POST]
 When invoked  without any parameter, the phone number on file is verified. Otherwise, the phone number in the request is verified and the payout info is updated with this phone.
@@ -2272,12 +2272,12 @@ When invoked  without any parameter, the phone number on file is verified. Other
             Content-type:application/x-www-form-urlencoded
 
 + Parameters
-    + phone_number (optional, string, `4151234567`)... Requested phone number verification. If present, payout info is updated.
+    + phone_number (optional, string, `4151234567`)... Phone number for verification. If present, shops payout info is updated.
     
 + Response 201
 
 ##Email Verification [/shops/{shop_id}/payouts/emailVerification]
-Creates email verification request for the payout.
+Creates an email verification request for the shops payout info.
 
 ### Create email verification [POST]
 When invoked  without any parameter, the email address on file is verified. Otherwise, the email address in the request is verified and the payout info is updated with this email.
@@ -2290,7 +2290,7 @@ When invoked  without any parameter, the email address on file is verified. Othe
             Content-type:application/x-www-form-urlencoded
 
 + Parameters
-    + email_address (optional, string, `someone@autodesk.com`)... Requested email address verification. If present, payout info is updated.
+    + email_address (optional, string, `someone@autodesk.com`)... Email address for verification. If present, shops payout info is updated.
     
 + Response 201
 
