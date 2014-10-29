@@ -1447,6 +1447,8 @@ Returns the list of users following this member.
 Retrieve this members assets. Depending on the context this operation may return both public and private assets i.e if the logged in member is requesting his/her own assets, private assets will also be returned
 + Parameter 
     + id (required, String , `123446`)...Member id
+    + limit (optional, number, `20`)...number of results per page
+    + offset (optional, Number, `60`) ...This offsets the start of each page by the number specified.
 
 ### Retrive member assets [GET]
 
