@@ -258,6 +258,7 @@ Operations to perform CRUD operations on an asset with basic metadata. Additiona
     }
 }
 
+
 ### Create a new asset[POST]
 + Request
     + Header
@@ -353,6 +354,7 @@ This api is a starting point to display galleries, perform free-form searches. D
 
 ## List all Assets [GET]
  
+
 + Response 200 (application/json)
         
   {
@@ -455,7 +457,7 @@ Note: The key should be unique within the asset. Using the same key in POST will
     "_link": "/assets/1495894/customdata"
 }
 
-### Retrieve asset custom data[GET]
+### retrieve a shop asset custom data[GET]
 + Request
     + Header
         X-AFC: FJKB32
@@ -474,7 +476,7 @@ Note: The key should be unique within the asset. Using the same key in POST will
     ]
 }
 
-### Delete asset custom data[DELETE]
+### Delete an asset custom data[DELETE]
 + Request
     + Header
         X-AFC: FJKB32
@@ -503,7 +505,7 @@ Operations to add preview files to this asset. These operations are used to add 
     "_link": "/assets/1495894/previews"
 }
 
-### Retrieve asset previews[GET]
+### retrieve a shop asset previews[GET]
 + Request
     + Header
             X-AFC: FJKB32
@@ -525,7 +527,7 @@ Operations to add preview files to this asset. These operations are used to add 
     ]
 }
 
-### Delete asset previews[DELETE]
+### Delete an asset previews[DELETE]
 + Request
     + Header
             X-AFC: FJKB32
@@ -1530,7 +1532,7 @@ Retrieve this members assets. Depending on the context this operation may return
                             "artist_id":2345678,
                             "media_type_id":23,
                             "current_result":1,
-                            "mesh":yes,
+                            "mesh":true,
                             "associated_file_directory_path":"2011\/04\/25__11_19_17\/tt_0000.jpg251cdd82-cdfb-4397-913a-738096e71046small-1.jpg",
                             "asset_id":592540
                          }
@@ -1542,8 +1544,7 @@ Retrieve this members assets. Depending on the context this operation may return
                         "offset":39,
                         "_link":"/member/20280723/assets?limit=26",
                         "_link_prev":"/member/20280723/assets?limit=26&offset=26",
-                        "_link_next":"/member/20280723/assets?limit=26&offset=39",
-                   
+                        "_link_next":"/member/20280723/assets?limit=26&offset=39"
                 }
   
 
@@ -1982,11 +1983,11 @@ Guest session results in only the public shop data to be returned. Offline shops
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             Content-type:application/x-www-form-urlencoded
 + Parameters
-    + name (required, String, `New Shop Name`) ...Shop Name
-    + banner_file_id (required, Number, `550123`)...File id of the uploaded banner image
-    + current_portfolio_url (required, String, `http://dev.squidplatform.net`) ...Portfolio url
-    + current_sales_url (required, String, `http://dev.squidplatform.net`) ...Sales url
-    + shop_status (required, Number, `0`) ...Shop status
+    + name (optional, String, `New Shop Name`) ...Shop Name
+    + banner_file_id (optional, Number, `550123`)...File id of the uploaded banner image
+    + current_portfolio_url (optional, String, `http://dev.squidplatform.net`) ...Portfolio url
+    + current_sales_url (optional, String, `http://dev.squidplatform.net`) ...Sales url
+    + shop_status (optional, Number, `0`) ...Shop status
 
 + Response 200 (application/json)
     + Body
@@ -2254,43 +2255,8 @@ For a first time payout request, all fields are mandatory.
     + corporation_type (optional, string, `PERSONAL`)...
     + tin (optional, string, `abcdef1234`)...
 
-+ Response 201
++ Response 200
 
-##Phone Verification [/shops/{shop_id}/payouts/phoneVerification]
-Creates a phone verification request for the shops payout info.
-
-### Create phone verification [POST]
-When invoked  without any parameter, the phone number on file is verified. Otherwise, the phone number in the request is verified and the payout info is updated with this phone.
-
-+ Request
-    + Header
-    
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-            Content-type:application/x-www-form-urlencoded
-
-+ Parameters
-    + phone_number (optional, string, `4151234567`)... Phone number for verification. If present, shops payout info is updated.
-    
-+ Response 201
-
-##Email Verification [/shops/{shop_id}/payouts/emailVerification]
-Creates an email verification request for the shops payout info.
-
-### Create email verification [POST]
-When invoked  without any parameter, the email address on file is verified. Otherwise, the email address in the request is verified and the payout info is updated with this email.
-
-+ Request
-    + Header
-    
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-            Content-type:application/x-www-form-urlencoded
-
-+ Parameters
-    + email_address (optional, string, `someone@autodesk.com`)... Email address for verification. If present, shops payout info is updated.
-    
-+ Response 201
 
 ##Sales [/shops/{shop_id}/sales]
 Retrieve non-pending sales history. Restricts order line items to only those sold by the seller since an order may have multiple line items from multiple sellers.
