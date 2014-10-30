@@ -1982,11 +1982,11 @@ Guest session results in only the public shop data to be returned. Offline shops
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             Content-type:application/x-www-form-urlencoded
 + Parameters
-    + name (optional, String, `New Shop Name`) ...Shop Name
-    + banner_file_id (optional, Number, `550123`)...File id of the uploaded banner image
-    + current_portfolio_url (optional, String, `http://dev.squidplatform.net`) ...Portfolio url
-    + current_sales_url (optional, String, `http://dev.squidplatform.net`) ...Sales url
-    + shop_status (optional, Number, `0`) ...Shop status
+    + name (required, String, `New Shop Name`) ...Shop Name
+    + banner_file_id (required, Number, `550123`)...File id of the uploaded banner image
+    + current_portfolio_url (required, String, `http://dev.squidplatform.net`) ...Portfolio url
+    + current_sales_url (required, String, `http://dev.squidplatform.net`) ...Sales url
+    + shop_status (required, Number, `0`) ...Shop status
 
 + Response 200 (application/json)
     + Body
