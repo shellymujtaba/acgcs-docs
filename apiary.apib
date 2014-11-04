@@ -270,7 +270,7 @@ Operations to perform CRUD operations on an asset with basic metadata. Additiona
     + title (required, String, `Alien`) ...Asset title
     + description (required, String, `Mint colored alien`) ...title description
     + tags (required, String, `alien,sci-fi,fantasy`) ... comma seperated list of tags
-    + media_type (Required, Number, `12`)...Determines the concrete type of an asset. Full media type list is provided in the introduction.
+    + media_type_id (Required, Number, `12`)...Determines the concrete type of an asset. Full media type list is provided in the introduction.
     + software (Required, Number, `12`)...Determines the Application of an asset. Please contact to DEV team to obtain your Software id.
     + publish (optional, Boolean, `false`) ... publish to gallery
     + progress_status (optional, Number, `1`) ...progress status <br> Options:<br> 0:in progress<br>1:complete
@@ -349,7 +349,8 @@ This api is a starting point to display galleries, perform free-form searches. D
     + description (optional, Boolean, `false`)...Return description of asset till 150 characters in results
     + project_status (optional, Number, `1`)...Get result with project status. pass 1 for completed or 0 for in-progress.<br> Options: 0 or 1
     + parent_assets (optional, Number, `588383`)...Pass parent asset Id and get its corresponding child assets.
-    + child_assets (optional, Number, `588383`)...Pass parent asset Id and get its corresponding child assets.
+    + media_type_ids (optional, String, `1,2,41,42`)...Limit results based on a comma-separated list of media type ids.
+    + child_assets (optional, Number, `588383`)...Pass child asset Id and get its corresponding child assets.
     + include_mature (optional, Boolean, `false`)...Result will include asset marked as mature.
 
 ## List all Assets [GET]
