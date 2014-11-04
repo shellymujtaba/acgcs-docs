@@ -2324,7 +2324,7 @@ Here are some key points about cart:
 * Cart is different for each <a href="/reference/appendices">ECommerceAffiliates</a>.
 Exp: Sketchbook, Pixlr and Ciruits are under different <a href="/reference/appendices">ECommerceAffiliates</a> so for single user there will be different carts for each of these apps.
 
-# Cart [/carts/{id}]
+# Cart [/carts]
 Perform CRUD operations on cart with basic metadata.
 
 ### Retrieve a cart [GET]
@@ -2336,7 +2336,6 @@ Perform CRUD operations on cart with basic metadata.
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             Content-Type: application/x-www-form-urlencoded
 + Parameters
-    + id (required,Number,`23`)...Numeric `id` of the cart to perform action with.
     + type (required,String,`ESTORE|MARKETPLACE`)...String `type` of the cart to perform action with.
 + Response 200 (application/json)
 
