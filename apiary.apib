@@ -2336,7 +2336,8 @@ Perform CRUD operations on cart with basic metadata.
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             Content-Type: application/x-www-form-urlencoded
 + Parameters
-    + id (required,Number,`23`)...Numeric `id` of the cart to perform action with. 
+    + id (required,Number,`23`)...Numeric `id` of the cart to perform action with.
+    + type (required,String,`ESTORE|MARKETPLACE`)...String `type` of the cart to perform action with.
 + Response 200 (application/json)
 
         {
@@ -2353,6 +2354,7 @@ Perform CRUD operations on cart with basic metadata.
         "shipping_method": "2 Day",
         "shipping_address_id": 400083,
         "billing_address_id": 400110,
+        "type": "ESTORE",
         "line_items": [
             {
                 "id": 298,
