@@ -1664,6 +1664,32 @@ Retrieves member's subscription history in cronologically descending order. Each
                 "_link_next":"/member/20280723/subscriptions?limit=26&offset=39"
             }
 
+# Credits [/members/{id}/credits]
+Retrieves member's credits accumulated over time.
+
++ Parameter 
+    + id (required, Number , `123446`)...Member id
+
+    
+### Retrieve member's credits information [GET]
+
+
++ Header
+            
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Response 200 (application/json)
+
+            {
+                member_id: 20704754
+                total_promotional_credit: 100
+                total_purchased_credit: 100
+                total_sales_credit: 123.45
+                total_payout: 50.54
+                total_purchased_with_credit: 0
+            }      
+
 # OrderHistory [/members/{id}/orderhistory]
 ### Retrieve member's purchases [GET]
 Get all the purchases made by the member.
