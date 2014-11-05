@@ -2334,9 +2334,10 @@ Perform CRUD operations on cart with basic metadata.
     
             X-AFC: SB1ON1
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-            Content-Type: application/x-www-form-urlencoded
+
 + Parameters
-    + type (required,String,`ESTORE|MARKETPLACE`)...String `type` of the cart to perform action with.
+    + type (optional,String,`ESTORE|MARKETPLACE`)...String `type` of the cart to perform action with.
+    
 + Response 200 (application/json)
 
         {
@@ -2828,16 +2829,17 @@ Transfers a cart from a guest session to current logged in member
 
         {}
         
-# Cart billing address [/carts/{id}/billingaddress]
+# Cart billing address [/carts/billingaddress]
 ### Retrieve a billing address [GET]
 + Request
 
     + Headers
     
-            REFER : See common headers sesction
-            
+            X-AFC: SB1ON1
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
 + Parameters
-    + id (required, Number, `23`)...Numeric `id` of the cart.
+    + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE`)...String `type` of the cart to perform action with.
 
 + Response 200 (application/json)
 
@@ -2863,9 +2865,11 @@ Transfers a cart from a guest session to current logged in member
 
     + Headers
     
-            REFER : See common headers sesction
+            X-AFC: SB1ON1
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             
 + Parameters
+    + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE`)...String `type` of the cart to perform action with.
     + id (required, Number, `23`)...If this is an existing address from existing member profile, you can pass the id of address to set that as shipping address for this cart. An existing address can be retrieved from GET Cart/ShippingAddress API or GET Cart API
     + name (required, string, `23`)...If this is NOT an update, name is a required parameter.
     + address1 (required, string, `23`)...If this is NOT an update, address1 is a required parameter.
@@ -2896,16 +2900,17 @@ Transfers a cart from a guest session to current logged in member
         "is_residential": true
         }
         
-# Cart shipping address [/carts/{id}/shippingaddress]
+# Cart shipping address [/carts/shippingaddress]
 ### Retrieve a shipping address [GET]
 + Request
 
     + Headers
     
-            REFER : See common headers sesction
+            X-AFC: SB1ON1
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             
 + Parameters
-    + id (required, Number, `23`)...Numeric `id` of the cart.
+    + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE`)...String `type` of the cart to perform action with.
 
 + Response 200 (application/json)
 
@@ -2926,17 +2931,18 @@ Transfers a cart from a guest session to current logged in member
         }
         
 ### Update a shipping address [PUT]
-Update a shiiping address for a cart. Sample url is
-https://www.123dapp.com/API/V1/Cart/ShippingAddress?address1=1%20Market&postalCode=12345&city=san&state=CA&countryCode=US&name=foo
+Update a shipping address for a cart. Sample url is
+https://www.123dapp.com/api/v2/cart/shippingaddress?address1=1%20Market&postalCode=12345&city=san&state=CA&countryCode=US&name=foo
 
 + Request
 
     + Headers
     
-            REFER : See common headers sesction
+            X-AFC: SB1ON1
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             
 + Parameters
-    + id (required, Number, `23`)...If this is an existing address from existing member profile, you can pass the id of address to set that as shipping address for this cart. An existing address can be retrieved from GET Cart/ShippingAddress API or GET Cart API
+    + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE`)...String `type` of the cart to perform action with.
     + name (required, string, `23`)...If this is NOT an update, name is a required parameter.
     + address1 (required, string, `23`)...If this is NOT an update, address1 is a required parameter.
     + city (required, string, `23`)...If this is NOT an update, city is a required parameter.
