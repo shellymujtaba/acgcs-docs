@@ -2830,14 +2830,14 @@ SecureSession is a required header for this API.
             
 + Parameters
     + id (optional, Number, `23`)...Numeric `id` of the cart. This is required if 'prevcard' is false.
-    + encryptedcreditcard (optional, string, `sdadhabduahysd67adaiudabidyad354t`)...Encrypted value of credit card returned by ServiceProvider. This is required if 'prevcard' is false.
-    + encryptedcvv (optional, string, `sdadhabduahysd67adaiudabidyad354t`)...Encrypted value of cvv returned by ServiceProvider. This is required if 'prevcard' is false.
-    + expmonth (optional, Number, `03`)...Expiry month of CreditCard mentioned. This is required if 'prevcard' is false.
-    + expyear (optional, Number, `18`)...Expiry year of CreditCard mentioned. This is required if 'prevcard' is false.
+    + encrypted_card_number (optional, string, `sdadhabduahysd67adaiudabidyad354t`)...Encrypted value of credit card returned by ServiceProvider. This is required if 'prevcard' is false.
+    + encrypted_cvv (optional, string, `sdadhabduahysd67adaiudabidyad354t`)...Encrypted value of cvv returned by ServiceProvider. This is required if 'prevcard' is false.
+    + expiration_month (optional, Number, `03`)...Expiry month of CreditCard mentioned. This is required if 'prevcard' is false.
+    + expiration_year (optional, Number, `18`)...Expiry year of CreditCard mentioned. This is required if 'prevcard' is false.
     + name (optional, string, `John Taylor`)...Expiry year of CreditCard mentioned. This is required if 'prevcard' is false.
-    + cardtype (required, string, `VISA`)...Card type
-    + cardlastfourdigit (required, string, `1111`)...Expiry year of CreditCard mentioned.
-    + prevcard (required, boolean, `true`)...Expiry year of CreditCard mentioned.
+    + card_type (required, string, `VISA`)...Card type
+    + card_last_four_digits (required, string, `1111`)...Expiry year of CreditCard mentioned.
+    + previous_card (required, boolean, `true`)...Expiry year of CreditCard mentioned.
 
 + Response 200 (application/json)
 
