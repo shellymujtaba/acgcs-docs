@@ -2115,94 +2115,193 @@ Retrieve and update assets for sale. An asset can be removed from the shop via a
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
-    + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
+    + limit (optional, Number,`1`)...Number of results to return in each page. Default: 10.
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
 
 + Response 200 (application/json)
 
             {
-                "assets":
-                        [
-                            {
-                            "is_featured":false,
-                            "comment_count":0,
-                            "member_small_avatar":"http:\/\/dev.squidplatform.net\/images\/v22\/member\/default_avatar.png",
-                            "asset_name":"tissue box",
-                            "thumb_path_prefix":"http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
-                            "is_online_viewer_available":true,
-                            "is_member_favorite":false,
-                            "favorite_count":1,
-                            "progress_status":1,
-                            "referenced_assets_count" : 0,
-                            "referenced_by_count" : 0,
-                             "referenced_asset_thumb" : "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/2012/12/13__09_57_54/hand.jpgf18ed964-0998-4f43-a165-c0f5c650ec08small.jpg",
-                              "date_published":"april 26, 2011 00:11:57",
-                            "keydata":{
-                               "keyfilefolder":[
-                                  {
-                                     "filefolder":[
-                                        {
-                                           "id":5113474
-                                        }
-                                     ],
-                                     "key":"viewerfiles"
-                                  },
-                                  {
-                                     "filefolder":[
-                                        {
-                                           "name":"10325_tissue box_v2_max2010_it2.stl",
-                                           "id":5337164.0,
-                                           "modeltocentimeters":-1.0
-                                        },
-                                        {
-                                           "name":"10325_tissue box_v2_max2010_it2.stl",
-                                           "id":5341121.0,
-                                           "modeltocentimeters":-1.0
-                                        },
-                                        {
-                                           "name":"5113474.stl",
-                                           "id":5376472.0,
-                                           "modeltocentimeters":-1.0
-                                        }
-                                     ],
-                                     "key":"stlfiles"
-                                  }
-                               ]
+                "count": 5,
+                "limit": 1,
+                "offset": 3,
+                "_link": "/shops/7/assets?limit=1&offset=3",
+                "_link_prev": "/shops/7/assets?limit=1&offset=2",
+                "_link_next": "/shops/7/assets?limit=1&offset=4",
+                "shop_assets": [
+                    {
+                        "asset": {
+                            "ASSET_ID": 588450,
+                            "ASSET_NAME": "DIN 2448",
+                            "IS_GALLERY_ASSET": true,
+                            "MEDIA_TYPE_ID": 21,
+                            "FILE_SIZE": 0,
+                            "PRICE": 0,
+                            "KEYWORDS": "Pipe DIN2448",
+                            "DESCRIPTION": "Pipe",
+                            "DOWNLOAD_COUNT": 0,
+                            "IS_ONLINE_VIEWER_AVAILABLE": false,
+                            "LANGUAGE": "en",
+                            "REGION": "",
+                            "SOFTWARE": 9,
+                            "PARENT_ASSET_ID": "",
+                            "IS_PREMIUM_ASSET": false,
+                            "PROGRESS_STATUS": 1,
+                            "DELIVERY_MEDIA": "",
+                            "CATEGORYID1": "",
+                            "CATEGORYID2": "",
+                            "CATEGORY1": "",
+                            "CATEGORY2": "",
+                            "RATING_COUNT": 0,
+                            "RATING_AVERAGE": 0,
+                            "RATING_RESULT": 0,
+                            "ASSET_STATUS_CODE": 0,
+                            "MEDIA_TYPE": "Supporting Parts",
+                            "VIEWCOUNT": 0,
+                            "COMMENT_COUNT": 0,
+                            "EXTENSIONS": {
+                                "EXTENSION": []
                             },
-                            "canonical_seo_url":"http:\/\/dev.squidplatform.net\/123c-3d-model\/tissue-box\/592540",
-                            "artist_name":"autodesk",
-                            "asset_image":"2011\/04\/25__11_19_17\/tt_0000.jpg251cdd82-cdfb-4397-913a-738096e71046small-1.jpg",
-                            "rating":0.0,
-                            "format_name_long":"multiple ( .stl, .123c )",
-                            "count_rating":0,
-                            "price":0.0,
-                            "seo_template":"123c-3d-model tissue-box",
-                            "current_page":1,
-                            "asset_ext_name":"scenes & props",
-                            "model_type":"part",
-                            "file_size":1690664,
-                            "download_count":3008,
-                            "format_name_short":"stl 123c",
-                            "is_gallery_asset":true,
-                            "artist_avatar":"http:\/\/dev.squidplatform.net\/images\/v22\/member\/default_avatar.png",
-                            "artist_id":2345678,
-                            "media_type_id":23,
-                            "current_result":1,
-                            "mesh":true,
-                            "associated_file_directory_path":"2011\/04\/25__11_19_17\/tt_0000.jpg251cdd82-cdfb-4397-913a-738096e71046small-1.jpg",
-                            "asset_id":592540
-                         }
-                        ]
-                    ,
-                        "count":260,
-                        "pages":20,
-                        "limit":13,
-                        "offset":39,
-                        "_link":"/shops/20280723/assets?limit=26",
-                        "_link_prev":"/shops/20280723/assets?limit=26&offset=26",
-                        "_link_next":"/shops/20280723/assets?limit=26&offset=39"
-                   
-                }
+                            "MODEL_TYPE": 1,
+                            "FILEFORMATS": {
+                                "FILEFORMAT": ""
+                            },
+                            "ARTIST": {
+                                "LOCATION": "",
+                                "AVATAR": "http://alpha.squidplatform.com/Images/v23/Member/default_avatar.png",
+                                "DESCRIPTION": "",
+                                "ARTIST_ID": 20268792,
+                                "ARTIST_NAME": "Autodesk"
+                            },
+                            "CANONICAL_SEO_URL": "http://alpha.squidplatform.com/dwg-3D-Model/DIN-2448/588450",
+                            "DOWNLOADFILES": {
+                                "DOWNLOADFILE": []
+                            },
+                            "THUMBNAILS": {
+                                "THUMBNAIL": [
+                                    {
+                                        "FILEITEMID": 4633949,
+                                        "THUMBNAILTYPE": 1,
+                                        "THUMB_1200": "http://alpha.squidplatform.com/Images/v23/FullPreview/ThumbnailGradient1200.jpg",
+                                        "THUMB_800": "http://alpha.squidplatform.com/Images/v23/FullPreview/ThumbnailGradient800.jpg",
+                                        "THUMB_600": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-perspectiveView.jpg61c7a51b-c546-4750-ab1b-f70e05be101dLarge.jpg",
+                                        "LARGE": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-perspectiveView.jpg61c7a51b-c546-4750-ab1b-f70e05be101dLarge.jpg",
+                                        "THUMB_256": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-perspectiveView.jpg61c7a51b-c546-4750-ab1b-f70e05be101dMedium2.jpg",
+                                        "MEDIUM2": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-perspectiveView.jpg61c7a51b-c546-4750-ab1b-f70e05be101dMedium2.jpg",
+                                        "THUMB_128": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-perspectiveView.jpg61c7a51b-c546-4750-ab1b-f70e05be101dMedium.jpg",
+                                        "MEDIUM": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-perspectiveView.jpg61c7a51b-c546-4750-ab1b-f70e05be101dMedium.jpg",
+                                        "THUMB_90": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-perspectiveView.jpg61c7a51b-c546-4750-ab1b-f70e05be101dPetite.jpg",
+                                        "PETITE": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-perspectiveView.jpg61c7a51b-c546-4750-ab1b-f70e05be101dPetite.jpg",
+                                        "THUMB_64": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-perspectiveView.jpg61c7a51b-c546-4750-ab1b-f70e05be101dSmall.jpg",
+                                        "SMALL": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-perspectiveView.jpg61c7a51b-c546-4750-ab1b-f70e05be101dSmall.jpg",
+                                        "ORIGINAL": "http://alpha.squidplatform.com/Images/v23/FullPreview/large/NoPicture.png",
+                                        "CAPTION": "",
+                                        "DESCRIPTION": ""
+                                    },
+                                    {
+                                        "FILEITEMID": 4633955,
+                                        "THUMBNAILTYPE": 1,
+                                        "THUMB_1200": "http://alpha.squidplatform.com/Images/v23/FullPreview/ThumbnailGradient1200.jpg",
+                                        "THUMB_800": "http://alpha.squidplatform.com/Images/v23/FullPreview/ThumbnailGradient800.jpg",
+                                        "THUMB_600": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-frontView.jpgfecbd4dc-ba0a-4c7f-8edf-75d5ae707f62Large.jpg",
+                                        "LARGE": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-frontView.jpgfecbd4dc-ba0a-4c7f-8edf-75d5ae707f62Large.jpg",
+                                        "THUMB_256": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-frontView.jpgfecbd4dc-ba0a-4c7f-8edf-75d5ae707f62Medium2.jpg",
+                                        "MEDIUM2": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-frontView.jpgfecbd4dc-ba0a-4c7f-8edf-75d5ae707f62Medium2.jpg",
+                                        "THUMB_128": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-frontView.jpgfecbd4dc-ba0a-4c7f-8edf-75d5ae707f62Medium.jpg",
+                                        "MEDIUM": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-frontView.jpgfecbd4dc-ba0a-4c7f-8edf-75d5ae707f62Medium.jpg",
+                                        "THUMB_90": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-frontView.jpgfecbd4dc-ba0a-4c7f-8edf-75d5ae707f62Petite.jpg",
+                                        "PETITE": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-frontView.jpgfecbd4dc-ba0a-4c7f-8edf-75d5ae707f62Petite.jpg",
+                                        "THUMB_64": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-frontView.jpgfecbd4dc-ba0a-4c7f-8edf-75d5ae707f62Small.jpg",
+                                        "SMALL": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-frontView.jpgfecbd4dc-ba0a-4c7f-8edf-75d5ae707f62Small.jpg",
+                                        "ORIGINAL": "http://alpha.squidplatform.com/Images/v23/FullPreview/large/NoPicture.png",
+                                        "CAPTION": "",
+                                        "DESCRIPTION": ""
+                                    },
+                                    {
+                                        "FILEITEMID": 4633960,
+                                        "THUMBNAILTYPE": 1,
+                                        "THUMB_1200": "http://alpha.squidplatform.com/Images/v23/FullPreview/ThumbnailGradient1200.jpg",
+                                        "THUMB_800": "http://alpha.squidplatform.com/Images/v23/FullPreview/ThumbnailGradient800.jpg",
+                                        "THUMB_600": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-rightView.jpg2586848d-d2d9-4809-81db-0cf915b6e536Large.jpg",
+                                        "LARGE": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-rightView.jpg2586848d-d2d9-4809-81db-0cf915b6e536Large.jpg",
+                                        "THUMB_256": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-rightView.jpg2586848d-d2d9-4809-81db-0cf915b6e536Medium2.jpg",
+                                        "MEDIUM2": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-rightView.jpg2586848d-d2d9-4809-81db-0cf915b6e536Medium2.jpg",
+                                        "THUMB_128": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-rightView.jpg2586848d-d2d9-4809-81db-0cf915b6e536Medium.jpg",
+                                        "MEDIUM": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-rightView.jpg2586848d-d2d9-4809-81db-0cf915b6e536Medium.jpg",
+                                        "THUMB_90": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-rightView.jpg2586848d-d2d9-4809-81db-0cf915b6e536Petite.jpg",
+                                        "PETITE": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-rightView.jpg2586848d-d2d9-4809-81db-0cf915b6e536Petite.jpg",
+                                        "THUMB_64": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-rightView.jpg2586848d-d2d9-4809-81db-0cf915b6e536Small.jpg",
+                                        "SMALL": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-rightView.jpg2586848d-d2d9-4809-81db-0cf915b6e536Small.jpg",
+                                        "ORIGINAL": "http://alpha.squidplatform.com/Images/v23/FullPreview/large/NoPicture.png",
+                                        "CAPTION": "",
+                                        "DESCRIPTION": ""
+                                    },
+                                    {
+                                        "FILEITEMID": 4633966,
+                                        "THUMBNAILTYPE": 1,
+                                        "THUMB_1200": "http://alpha.squidplatform.com/Images/v23/FullPreview/ThumbnailGradient1200.jpg",
+                                        "THUMB_800": "http://alpha.squidplatform.com/Images/v23/FullPreview/ThumbnailGradient800.jpg",
+                                        "THUMB_600": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-wireframePerspective.jpg58f9e609-9873-41d2-be65-2130f56075b3Large.jpg",
+                                        "LARGE": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-wireframePerspective.jpg58f9e609-9873-41d2-be65-2130f56075b3Large.jpg",
+                                        "THUMB_256": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-wireframePerspective.jpg58f9e609-9873-41d2-be65-2130f56075b3Medium2.jpg",
+                                        "MEDIUM2": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-wireframePerspective.jpg58f9e609-9873-41d2-be65-2130f56075b3Medium2.jpg",
+                                        "THUMB_128": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-wireframePerspective.jpg58f9e609-9873-41d2-be65-2130f56075b3Medium.jpg",
+                                        "MEDIUM": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-wireframePerspective.jpg58f9e609-9873-41d2-be65-2130f56075b3Medium.jpg",
+                                        "THUMB_90": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-wireframePerspective.jpg58f9e609-9873-41d2-be65-2130f56075b3Petite.jpg",
+                                        "PETITE": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-wireframePerspective.jpg58f9e609-9873-41d2-be65-2130f56075b3Petite.jpg",
+                                        "THUMB_64": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-wireframePerspective.jpg58f9e609-9873-41d2-be65-2130f56075b3Small.jpg",
+                                        "SMALL": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-wireframePerspective.jpg58f9e609-9873-41d2-be65-2130f56075b3Small.jpg",
+                                        "ORIGINAL": "http://alpha.squidplatform.com/Images/v23/FullPreview/large/NoPicture.png",
+                                        "CAPTION": "",
+                                        "DESCRIPTION": ""
+                                    }
+                                ]
+                            },
+                            "TEXTURESFILES": {
+                                "TEXTURESFILE": []
+                            },
+                            "EVALUATIONFILES": {
+                                "EVALUATIONFILE": []
+                            },
+                            "EXTRAFILES": {
+                                "EXTRAFILE": []
+                            },
+                            "PATCHFILES": {
+                                "PATCHFILE": []
+                            },
+                            "DERIVATIVEFILES": {
+                                "DERIVATIVEFILE": []
+                            },
+                            "IS_DOWNLOAD_ASSET": false,
+                            "STATUS_POST_COUNT": 0,
+                            "IS_MEMBER_FAVORITE": false,
+                            "USED_IN_PROJECT_COUNT": 0,
+                            "FAVORITED_BY": [],
+                            "FAVORITE_COUNT": 0,
+                            "CHILD_ASSET_COUNT": 0,
+                            "KEYDATA": {
+                                "KEYFILEFOLDER": []
+                            },
+                            "REFERENCED_ASSETS": [],
+                            "DATE_SUBMITTED": "November 06, 2014 13:31:05",
+                            "REVIEWS": {
+                                "REVIEW": []
+                            },
+                            "IS_AUTHORIZED_DOWNLOAD": true,
+                            "MESH": false,
+                            "IS_DELETED": false,
+                            "IS_REPURCHASABLE": false,
+                            "IS_STORE_ASSET": false,
+                            "IS_REVIEWABLE": false,
+                            "VERSION": 1
+                        },
+                        "product_price": {
+                            "total_price": 0.23
+                        },
+                        "shop_id": 7,
+                        "for_sale": true
+                    }
+                ]
+            }
 
 ### Update shop asset [PUT]
 Setting a private asset "for sale" results in asset state changed to public.
@@ -2215,12 +2314,437 @@ Setting a private asset "for sale" results in asset state changed to public.
             Content-type:application/x-www-form-urlencoded
 
 + Parameters
-    + asset_id (required, Number, `234566`)...Asset id
-    + asset_price (optional, Number, `12.99`)...Set asset price
+    + asset_id (required, Number, `588452`)...Asset id
+    + asset_price (optional, Number, `5.99`)...Set asset price
     + for_sale (optional, Boolean, `true`)... Mark asset for sale
 
 + Response 200
-       [Asset][] 
+
+            {
+                "asset": {
+                    "ASSET_ID": 588452,
+                    "ASSET_NAME": "DIN 59 370 S",
+                    "IS_GALLERY_ASSET": true,
+                    "MEDIA_TYPE_ID": 21,
+                    "FILE_SIZE": 3170242,
+                    "PRICE": 0,
+                    "KEYWORDS": "Angle Steel DIN 59 370",
+                    "DESCRIPTION": "Angle Steel",
+                    "DOWNLOAD_COUNT": 2,
+                    "IS_ONLINE_VIEWER_AVAILABLE": false,
+                    "LANGUAGE": "en",
+                    "REGION": "US",
+                    "SOFTWARE": 0,
+                    "PARENT_ASSET_ID": "",
+                    "IS_PREMIUM_ASSET": false,
+                    "PROGRESS_STATUS": 1,
+                    "DELIVERY_MEDIA": "",
+                    "CATEGORYID1": "",
+                    "CATEGORYID2": "",
+                    "CATEGORY1": "",
+                    "CATEGORY2": "",
+                    "RATING_COUNT": 0,
+                    "RATING_AVERAGE": 0,
+                    "RATING_RESULT": 0,
+                    "ASSET_STATUS_CODE": 0,
+                    "MEDIA_TYPE": "Supporting Parts",
+                    "VIEWCOUNT": 1,
+                    "COMMENT_COUNT": 0,
+                    "EXTENSIONS": {
+                        "EXTENSION": [
+                            {
+                                "TITLE": "Standard",
+                                "VALUE": "",
+                                "DATATYPE": 1,
+                                "FORMNAME": "Standard"
+                            },
+                            {
+                                "TITLE": "Standard Organization",
+                                "VALUE": "",
+                                "DATATYPE": 1,
+                                "FORMNAME": "Standard Organization"
+                            },
+                            {
+                                "TITLE": "Manufacturer",
+                                "VALUE": "",
+                                "DATATYPE": 1,
+                                "FORMNAME": "Manufacturer"
+                            },
+                            {
+                                "TITLE": "Standard Revision",
+                                "VALUE": "",
+                                "DATATYPE": 1,
+                                "FORMNAME": "Standard Revision"
+                            }
+                        ]
+                    },
+                    "MODEL_TYPE": 1,
+                    "FILEFORMATS": {
+                        "FILEFORMAT": [
+                            {
+                                "FILEID": 4634011,
+                                "SIZE": 126736,
+                                "FILEDATE": "April, 09 2011 01:49:46",
+                                "MODELTOCENTIMETERS": 0,
+                                "ID": 188,
+                                "VERSION": "",
+                                "NAME": "Autodesk 3D Models (.dwg)"
+                            },
+                            {
+                                "FILEID": 4634017,
+                                "SIZE": 126767,
+                                "FILEDATE": "April, 09 2011 01:49:50",
+                                "MODELTOCENTIMETERS": 0,
+                                "ID": 188,
+                                "VERSION": "",
+                                "NAME": "Autodesk 3D Models (.dwg)"
+                            },
+                            {
+                                "FILEID": 4634024,
+                                "SIZE": 126768,
+                                "FILEDATE": "April, 09 2011 01:49:54",
+                                "MODELTOCENTIMETERS": 0,
+                                "ID": 188,
+                                "VERSION": "",
+                                "NAME": "Autodesk 3D Models (.dwg)"
+                            },
+                            {
+                                "FILEID": 4634031,
+                                "SIZE": 126833,
+                                "FILEDATE": "April, 09 2011 01:49:57",
+                                "MODELTOCENTIMETERS": 0,
+                                "ID": 188,
+                                "VERSION": "",
+                                "NAME": "Autodesk 3D Models (.dwg)"
+                            },
+                            {
+                                "FILEID": 4634037,
+                                "SIZE": 126705,
+                                "FILEDATE": "April, 09 2011 01:50:01",
+                                "MODELTOCENTIMETERS": 0,
+                                "ID": 188,
+                                "VERSION": "",
+                                "NAME": "Autodesk 3D Models (.dwg)"
+                            },
+                            {
+                                "FILEID": 4634042,
+                                "SIZE": 126833,
+                                "FILEDATE": "April, 09 2011 01:50:05",
+                                "MODELTOCENTIMETERS": 0,
+                                "ID": 188,
+                                "VERSION": "",
+                                "NAME": "Autodesk 3D Models (.dwg)"
+                            },
+                            {
+                                "FILEID": 4634048,
+                                "SIZE": 126992,
+                                "FILEDATE": "April, 09 2011 01:50:08",
+                                "MODELTOCENTIMETERS": 0,
+                                "ID": 188,
+                                "VERSION": "",
+                                "NAME": "Autodesk 3D Models (.dwg)"
+                            },
+                            {
+                                "FILEID": 4634054,
+                                "SIZE": 126736,
+                                "FILEDATE": "April, 09 2011 01:50:12",
+                                "MODELTOCENTIMETERS": 0,
+                                "ID": 188,
+                                "VERSION": "",
+                                "NAME": "Autodesk 3D Models (.dwg)"
+                            },
+                            {
+                                "FILEID": 4634060,
+                                "SIZE": 126865,
+                                "FILEDATE": "April, 09 2011 01:50:16",
+                                "MODELTOCENTIMETERS": 0,
+                                "ID": 188,
+                                "VERSION": "",
+                                "NAME": "Autodesk 3D Models (.dwg)"
+                            },
+                            {
+                                "FILEID": 4634066,
+                                "SIZE": 126833,
+                                "FILEDATE": "April, 09 2011 01:50:19",
+                                "MODELTOCENTIMETERS": 0,
+                                "ID": 188,
+                                "VERSION": "",
+                                "NAME": "Autodesk 3D Models (.dwg)"
+                            },
+                            {
+                                "FILEID": 4634072,
+                                "SIZE": 126801,
+                                "FILEDATE": "April, 09 2011 01:50:22",
+                                "MODELTOCENTIMETERS": 0,
+                                "ID": 188,
+                                "VERSION": "",
+                                "NAME": "Autodesk 3D Models (.dwg)"
+                            },
+                            {
+                                "FILEID": 4634077,
+                                "SIZE": 126801,
+                                "FILEDATE": "April, 09 2011 01:50:25",
+                                "MODELTOCENTIMETERS": 0,
+                                "ID": 188,
+                                "VERSION": "",
+                                "NAME": "Autodesk 3D Models (.dwg)"
+                            },
+                            {
+                                "FILEID": 4634083,
+                                "SIZE": 126865,
+                                "FILEDATE": "April, 09 2011 01:50:28",
+                                "MODELTOCENTIMETERS": 0,
+                                "ID": 188,
+                                "VERSION": "",
+                                "NAME": "Autodesk 3D Models (.dwg)"
+                            },
+                            {
+                                "FILEID": 4634089,
+                                "SIZE": 126801,
+                                "FILEDATE": "April, 09 2011 01:50:30",
+                                "MODELTOCENTIMETERS": 0,
+                                "ID": 188,
+                                "VERSION": "",
+                                "NAME": "Autodesk 3D Models (.dwg)"
+                            },
+                            {
+                                "FILEID": 4634100,
+                                "SIZE": 126833,
+                                "FILEDATE": "April, 09 2011 01:50:37",
+                                "MODELTOCENTIMETERS": 0,
+                                "ID": 188,
+                                "VERSION": "",
+                                "NAME": "Autodesk 3D Models (.dwg)"
+                            },
+                            {
+                                "FILEID": 4634106,
+                                "SIZE": 126737,
+                                "FILEDATE": "April, 09 2011 01:50:40",
+                                "MODELTOCENTIMETERS": 0,
+                                "ID": 188,
+                                "VERSION": "",
+                                "NAME": "Autodesk 3D Models (.dwg)"
+                            },
+                            {
+                                "FILEID": 4634112,
+                                "SIZE": 126768,
+                                "FILEDATE": "April, 09 2011 01:50:43",
+                                "MODELTOCENTIMETERS": 0,
+                                "ID": 188,
+                                "VERSION": "",
+                                "NAME": "Autodesk 3D Models (.dwg)"
+                            },
+                            {
+                                "FILEID": 4634117,
+                                "SIZE": 126801,
+                                "FILEDATE": "April, 09 2011 01:50:47",
+                                "MODELTOCENTIMETERS": 0,
+                                "ID": 188,
+                                "VERSION": "",
+                                "NAME": "Autodesk 3D Models (.dwg)"
+                            },
+                            {
+                                "FILEID": 4634122,
+                                "SIZE": 126865,
+                                "FILEDATE": "April, 09 2011 01:50:50",
+                                "MODELTOCENTIMETERS": 0,
+                                "ID": 188,
+                                "VERSION": "",
+                                "NAME": "Autodesk 3D Models (.dwg)"
+                            },
+                            {
+                                "FILEID": 4634127,
+                                "SIZE": 126833,
+                                "FILEDATE": "April, 09 2011 01:50:52",
+                                "MODELTOCENTIMETERS": 0,
+                                "ID": 188,
+                                "VERSION": "",
+                                "NAME": "Autodesk 3D Models (.dwg)"
+                            },
+                            {
+                                "FILEID": 4634132,
+                                "SIZE": 126769,
+                                "FILEDATE": "April, 09 2011 01:50:55",
+                                "MODELTOCENTIMETERS": 0,
+                                "ID": 188,
+                                "VERSION": "",
+                                "NAME": "Autodesk 3D Models (.dwg)"
+                            },
+                            {
+                                "FILEID": 4634137,
+                                "SIZE": 126801,
+                                "FILEDATE": "April, 09 2011 01:50:58",
+                                "MODELTOCENTIMETERS": 0,
+                                "ID": 188,
+                                "VERSION": "",
+                                "NAME": "Autodesk 3D Models (.dwg)"
+                            },
+                            {
+                                "FILEID": 4634142,
+                                "SIZE": 126801,
+                                "FILEDATE": "April, 09 2011 01:51:02",
+                                "MODELTOCENTIMETERS": 0,
+                                "ID": 188,
+                                "VERSION": "",
+                                "NAME": "Autodesk 3D Models (.dwg)"
+                            },
+                            {
+                                "FILEID": 4634147,
+                                "SIZE": 126865,
+                                "FILEDATE": "April, 09 2011 01:51:06",
+                                "MODELTOCENTIMETERS": 0,
+                                "ID": 188,
+                                "VERSION": "",
+                                "NAME": "Autodesk 3D Models (.dwg)"
+                            },
+                            {
+                                "FILEID": 4634152,
+                                "SIZE": 126833,
+                                "FILEDATE": "April, 09 2011 01:51:09",
+                                "MODELTOCENTIMETERS": 0,
+                                "ID": 188,
+                                "VERSION": "",
+                                "NAME": "Autodesk 3D Models (.dwg)"
+                            }
+                        ]
+                    },
+                    "ARTIST": {
+                        "LOCATION": "",
+                        "AVATAR": "http://alpha.squidplatform.com/Images/v23/Member/default_avatar.png",
+                        "DESCRIPTION": "",
+                        "ARTIST_ID": 20268792,
+                        "ARTIST_NAME": "Autodesk"
+                    },
+                    "CANONICAL_SEO_URL": "http://alpha.squidplatform.com/dwg-3D-Model/DIN-59-370-S/588452",
+                    "DOWNLOADFILES": {
+                        "DOWNLOADFILE": []
+                    },
+                    "THUMBNAILS": {
+                        "THUMBNAIL": [
+                            {
+                                "FILEITEMID": 4634163,
+                                "THUMBNAILTYPE": 1,
+                                "THUMB_1200": "http://alpha.squidplatform.com/Images/v23/FullPreview/ThumbnailGradient1200.jpg",
+                                "THUMB_800": "http://alpha.squidplatform.com/Images/v23/FullPreview/ThumbnailGradient800.jpg",
+                                "THUMB_600": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 59 370 S-perspectiveView.jpg1d95f648-d1f4-4299-9c79-7c9b9d172c6cLarge.jpg",
+                                "LARGE": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 59 370 S-perspectiveView.jpg1d95f648-d1f4-4299-9c79-7c9b9d172c6cLarge.jpg",
+                                "THUMB_256": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 59 370 S-perspectiveView.jpg1d95f648-d1f4-4299-9c79-7c9b9d172c6cMedium2.jpg",
+                                "MEDIUM2": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 59 370 S-perspectiveView.jpg1d95f648-d1f4-4299-9c79-7c9b9d172c6cMedium2.jpg",
+                                "THUMB_128": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 59 370 S-perspectiveView.jpg1d95f648-d1f4-4299-9c79-7c9b9d172c6cMedium.jpg",
+                                "MEDIUM": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 59 370 S-perspectiveView.jpg1d95f648-d1f4-4299-9c79-7c9b9d172c6cMedium.jpg",
+                                "THUMB_90": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 59 370 S-perspectiveView.jpg1d95f648-d1f4-4299-9c79-7c9b9d172c6cPetite.jpg",
+                                "PETITE": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 59 370 S-perspectiveView.jpg1d95f648-d1f4-4299-9c79-7c9b9d172c6cPetite.jpg",
+                                "THUMB_64": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 59 370 S-perspectiveView.jpg1d95f648-d1f4-4299-9c79-7c9b9d172c6cSmall.jpg",
+                                "SMALL": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 59 370 S-perspectiveView.jpg1d95f648-d1f4-4299-9c79-7c9b9d172c6cSmall.jpg",
+                                "ORIGINAL": "http://alpha.squidplatform.com/Images/v23/FullPreview/large/NoPicture.png",
+                                "CAPTION": "",
+                                "DESCRIPTION": ""
+                            },
+                            {
+                                "FILEITEMID": 4634169,
+                                "THUMBNAILTYPE": 1,
+                                "THUMB_1200": "http://alpha.squidplatform.com/Images/v23/FullPreview/ThumbnailGradient1200.jpg",
+                                "THUMB_800": "http://alpha.squidplatform.com/Images/v23/FullPreview/ThumbnailGradient800.jpg",
+                                "THUMB_600": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 59 370 S-frontView.jpg1aad6bb6-8819-45eb-acb6-279dc63f4d5bLarge.jpg",
+                                "LARGE": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 59 370 S-frontView.jpg1aad6bb6-8819-45eb-acb6-279dc63f4d5bLarge.jpg",
+                                "THUMB_256": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 59 370 S-frontView.jpg1aad6bb6-8819-45eb-acb6-279dc63f4d5bMedium2.jpg",
+                                "MEDIUM2": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 59 370 S-frontView.jpg1aad6bb6-8819-45eb-acb6-279dc63f4d5bMedium2.jpg",
+                                "THUMB_128": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 59 370 S-frontView.jpg1aad6bb6-8819-45eb-acb6-279dc63f4d5bMedium.jpg",
+                                "MEDIUM": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 59 370 S-frontView.jpg1aad6bb6-8819-45eb-acb6-279dc63f4d5bMedium.jpg",
+                                "THUMB_90": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 59 370 S-frontView.jpg1aad6bb6-8819-45eb-acb6-279dc63f4d5bPetite.jpg",
+                                "PETITE": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 59 370 S-frontView.jpg1aad6bb6-8819-45eb-acb6-279dc63f4d5bPetite.jpg",
+                                "THUMB_64": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 59 370 S-frontView.jpg1aad6bb6-8819-45eb-acb6-279dc63f4d5bSmall.jpg",
+                                "SMALL": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 59 370 S-frontView.jpg1aad6bb6-8819-45eb-acb6-279dc63f4d5bSmall.jpg",
+                                "ORIGINAL": "http://alpha.squidplatform.com/Images/v23/FullPreview/large/NoPicture.png",
+                                "CAPTION": "",
+                                "DESCRIPTION": ""
+                            },
+                            {
+                                "FILEITEMID": 4634175,
+                                "THUMBNAILTYPE": 1,
+                                "THUMB_1200": "http://alpha.squidplatform.com/Images/v23/FullPreview/ThumbnailGradient1200.jpg",
+                                "THUMB_800": "http://alpha.squidplatform.com/Images/v23/FullPreview/ThumbnailGradient800.jpg",
+                                "THUMB_600": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 59 370 S-rightView.jpg63bd2fe3-ca12-44a5-bc93-f92b4252ec09Large.jpg",
+                                "LARGE": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 59 370 S-rightView.jpg63bd2fe3-ca12-44a5-bc93-f92b4252ec09Large.jpg",
+                                "THUMB_256": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 59 370 S-rightView.jpg63bd2fe3-ca12-44a5-bc93-f92b4252ec09Medium2.jpg",
+                                "MEDIUM2": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 59 370 S-rightView.jpg63bd2fe3-ca12-44a5-bc93-f92b4252ec09Medium2.jpg",
+                                "THUMB_128": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 59 370 S-rightView.jpg63bd2fe3-ca12-44a5-bc93-f92b4252ec09Medium.jpg",
+                                "MEDIUM": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 59 370 S-rightView.jpg63bd2fe3-ca12-44a5-bc93-f92b4252ec09Medium.jpg",
+                                "THUMB_90": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 59 370 S-rightView.jpg63bd2fe3-ca12-44a5-bc93-f92b4252ec09Petite.jpg",
+                                "PETITE": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 59 370 S-rightView.jpg63bd2fe3-ca12-44a5-bc93-f92b4252ec09Petite.jpg",
+                                "THUMB_64": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 59 370 S-rightView.jpg63bd2fe3-ca12-44a5-bc93-f92b4252ec09Small.jpg",
+                                "SMALL": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 59 370 S-rightView.jpg63bd2fe3-ca12-44a5-bc93-f92b4252ec09Small.jpg",
+                                "ORIGINAL": "http://alpha.squidplatform.com/Images/v23/FullPreview/large/NoPicture.png",
+                                "CAPTION": "",
+                                "DESCRIPTION": ""
+                            },
+                            {
+                                "FILEITEMID": 4634181,
+                                "THUMBNAILTYPE": 1,
+                                "THUMB_1200": "http://alpha.squidplatform.com/Images/v23/FullPreview/ThumbnailGradient1200.jpg",
+                                "THUMB_800": "http://alpha.squidplatform.com/Images/v23/FullPreview/ThumbnailGradient800.jpg",
+                                "THUMB_600": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 59 370 S-wireframePerspective.jpg2090ad79-cbf6-499c-a48a-cc164d02728fLarge.jpg",
+                                "LARGE": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 59 370 S-wireframePerspective.jpg2090ad79-cbf6-499c-a48a-cc164d02728fLarge.jpg",
+                                "THUMB_256": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 59 370 S-wireframePerspective.jpg2090ad79-cbf6-499c-a48a-cc164d02728fMedium2.jpg",
+                                "MEDIUM2": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 59 370 S-wireframePerspective.jpg2090ad79-cbf6-499c-a48a-cc164d02728fMedium2.jpg",
+                                "THUMB_128": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 59 370 S-wireframePerspective.jpg2090ad79-cbf6-499c-a48a-cc164d02728fMedium.jpg",
+                                "MEDIUM": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 59 370 S-wireframePerspective.jpg2090ad79-cbf6-499c-a48a-cc164d02728fMedium.jpg",
+                                "THUMB_90": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 59 370 S-wireframePerspective.jpg2090ad79-cbf6-499c-a48a-cc164d02728fPetite.jpg",
+                                "PETITE": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 59 370 S-wireframePerspective.jpg2090ad79-cbf6-499c-a48a-cc164d02728fPetite.jpg",
+                                "THUMB_64": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 59 370 S-wireframePerspective.jpg2090ad79-cbf6-499c-a48a-cc164d02728fSmall.jpg",
+                                "SMALL": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 59 370 S-wireframePerspective.jpg2090ad79-cbf6-499c-a48a-cc164d02728fSmall.jpg",
+                                "ORIGINAL": "http://alpha.squidplatform.com/Images/v23/FullPreview/large/NoPicture.png",
+                                "CAPTION": "",
+                                "DESCRIPTION": ""
+                            }
+                        ]
+                    },
+                    "TEXTURESFILES": {
+                        "TEXTURESFILE": []
+                    },
+                    "EVALUATIONFILES": {
+                        "EVALUATIONFILE": []
+                    },
+                    "EXTRAFILES": {
+                        "EXTRAFILE": []
+                    },
+                    "PATCHFILES": {
+                        "PATCHFILE": []
+                    },
+                    "DERIVATIVEFILES": {
+                        "DERIVATIVEFILE": []
+                    },
+                    "IS_DOWNLOAD_ASSET": true,
+                    "STATUS_POST_COUNT": 0,
+                    "IS_MEMBER_FAVORITE": false,
+                    "USED_IN_PROJECT_COUNT": 0,
+                    "FAVORITED_BY": [
+                        "ओंकार"
+                    ],
+                    "FAVORITE_COUNT": 1,
+                    "CHILD_ASSET_COUNT": 0,
+                    "KEYDATA": {
+                        "KEYFILEFOLDER": []
+                    },
+                    "REFERENCED_ASSETS": [],
+                    "DATE_SUBMITTED": "April 09, 2011 01:51:27",
+                    "REVIEWS": {
+                        "REVIEW": []
+                    },
+                    "IS_AUTHORIZED_DOWNLOAD": true,
+                    "MESH": false,
+                    "IS_DELETED": false,
+                    "IS_REPURCHASABLE": false,
+                    "IS_STORE_ASSET": false,
+                    "IS_REVIEWABLE": false,
+                    "VERSION": 1
+                },
+                "product_price": {
+                    "total_price": 5.99
+                },
+                "shop_id": 7,
+                "for_sale": true
+            }
 
 
 ##Payouts [/shops/{shop_id}/payouts]
