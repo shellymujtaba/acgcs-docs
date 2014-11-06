@@ -2069,35 +2069,30 @@ Lists all shops associated with the logged in member (Currently only one shop al
 + Parameters
     + member_id (optional, Number,`1234567890`)... Used only when member is guest or a given member wants to see another members shop. This only returns public shops.
     + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
-    + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
+    + offset (optional, Number, `0`)...This offsets the start of each page by the number specified. Default: 0.
 
 + Response 200 (application/json)
     + Body
     
             {
-              "shops": [
-                {
-                  "shop_id": 1234567890,
-                  "member_id": 1234567890,
-                  "name": "Hello Shop",
-                  "banner_file_id": 512123,
-                  "current_portfolio_url": "http://dev.squidplatform.net",
-                  "current_sales_url": "http://dev.squidplatform.net",
-                  "shop_status": 1,
-                  "shop_approval_status": "APPROVED",
-                  "shop_denial_reason": null,
-                  "pending_total": 40.12,
-                  "total_sales": 9.99,
-                  "total_payout": 4.49
-                }
-              ],
-              "count": 260,
-              "pages": 20,
-              "limit": 13,
-              "offset": 39,
-              "_link": "/shops/20280723/sales?limit=26",
-              "_link_prev": "/shops/20280723/sales?limit=26&offset=26",
-              "_link_next": "/shops/20280723/sales?limit=26&offset=39"
+                "count": 1,
+                "limit": 20,
+                "offset": 0,
+                "_link": "/shops?limit=20&offset=0",
+                "shops": [
+                    {
+                        "name": "Mert's Updated Shop",
+                        "modified": "November 03, 2014 13:28:39",
+                        "shop_id": 7,
+                        "member_id": 20707021,
+                        "banner_file_id": 999999,
+                        "current_portfolio_url": "http://alpha.squidplatform.com/portfolio",
+                        "current_sales_url": "newUrl",
+                        "shop_status": 1,
+                        "shop_approval_status": "PENDING",
+                        "shop_denial_reason": ""
+                    }
+                ]
             }
 
 
