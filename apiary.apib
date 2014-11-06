@@ -1414,7 +1414,9 @@ Returns the list of users following this member.
 
 ### Adds member to another member's following [PUT]
 + Parameter 
-    + id (required, String , `123446`)... The logged in member will be added to this member's following  
+    + id (required, Number , `123446`)... The logged in Member id 
+    + publisher_id (required, Number , `123446`)... The logged in member will be added to this member's/publisher following  
+    
 
 + Request
 
@@ -1429,7 +1431,8 @@ Returns the list of users following this member.
 
 ### Removes member from another member's following [DELETE]
 + Parameter 
-    + id (required, String , `123446`)... The logged in member will be removed from this member's following  
+    + id (required, Number , `123446`)... The logged in Member id 
+    + publisher_id (required, Number , `123446`)... The logged in member will be added to this member's/publisher following   
 
 + Request
 
