@@ -2362,120 +2362,120 @@ Perform CRUD operations on cart with basic metadata.
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
-    + type (optional,String,`ESTORE|MARKETPLACE`)...String `type` of the cart to perform action with.
+    + cart_type (optional,String,`ESTORE|MARKETPLACE`)...String `type` of the cart to perform action with.
     
 + Response 200 (application/json)
 
         {
-        "id": 90,
-        "modified": "February 24, 2014 05:26:46",
-        "currency": "USD",
-        "total": 1078,
-        "offer_total": 1078,
-        "tax": "",
-        "discount": 1078,
-        "subtotal": 1078,
-        "line_item_subtotal": 2008.99,
-        "shipping_price": 147.01,
-        "shipping_method": "2 Day",
-        "shipping_address_id": 400083,
-        "billing_address_id": 400110,
-        "type": "ESTORE",
-        "line_items": [
-            {
-                "id": 298,
-                "created": "February 25, 2014 12:08:35",
-                "modified": "February 25, 2014 12:08:35",
-                "quantity": 1,
-                "price": 9.99,
-                "offer_price": 9.99,
-                "product_id": 3,
-                "product_type": "SUBSCRIPTION",
-                "parent_id": "",
-                "parent_ids": [],
-                "data": "",
-                "name": "1-month Premium Membership",
-                "description": "Your 1-month Premium membership includes an Instructables Pro account, unlimited premium model downloads from the 123D Content Library, and the ability to create 2D layouts (.dwg) from 123D Design models.",
-                "thumbnail": "Global/premium-membership-monthly.png"
-            },
-            {
-                "id": 639,
-                "created": "March 19, 2014 07:14:13",
-                "modified": "March 19, 2014 07:14:13",
-                "quantity": 1,
-                "price": 1999,
-                "offer_price": 1999,
-                "product_id": 1,
-                "product_type": "PHYSICAL",
-                "parent_id": "",
-                "parent_ids": [],
-                "data": "",
-                "name": " 123D Makerbot Replicator 2",
-                "description": " 123D Makerbot Replicator 2 item",
-                "thumbnail": ""
-            },
-            {
-                "id": 640,
-                "created": "March 19, 2014 07:14:37",
-                "modified": "March 19, 2014 08:12:40",
-                "quantity": 1,
-                "price": 3.99,
-                "offer_price": 3.99,
-                "product_id": 3,
-                "product_type": "SHIPPING",
-                "parent_id": 639,
-                "parent_ids": [639],
-                "status":"PRICE",
-                "selected_option" : {
-                    "id": "P2",
-                    "shipper": "UPS",
-                    "name": "2 Day",
-                    "price": 3.99
+            "id": 2472,
+            "modified": "November 04, 2014 00:00:00",
+            "currency": "USD",
+            "total": 28.36,
+            "tax": "",
+            "coupons": [
+                {
+                    "code": "ILOVEYOU"
+                }
+            ],
+            "affiliate": "",
+            "offer_total": 28.36,
+            "discount": -1.59,
+            "subtotal": 28.36,
+            "lineitem_subtotal": 25,
+            "shipping_price": 4.95,
+            "shipping_method": "",
+            "shipping_address_id": 593860,
+            "billing_address_id": "",
+            "member_id": 20704112,
+            "shipment_grouping_method": "MINIMUM_SHIPMENTS",
+            "type": "ESTORE",
+            "line_items": [
+                {
+                    "@class": "com.autodesk.ecommerce.model.v2.cart.LineItemV2",
+                    "id": 7522,
+                    "created": "November 04, 2014 00:00:00",
+                    "modified": "November 05, 2014 00:00:00",
+                    "quantity": 1,
+                    "price": 25,
+                    "data": "{\"status\":\"\",\"availabilities\":\"\",\"options\":\"\",\"lead_date\":\"\",\"selected_option\":\"\"}",
+                    "name": "Circuit Scribe Lite Kit",
+                    "description": "LITE KIT: Our Lite Kit has everything you need to get started with Circuit Scribe. It comes with one Conductive Ink Pen, one LED module, and two coin cell batteries.",
+                    "thumbnail": "",
+                    "offer_price": 25,
+                    "shipping_endpoint": "http://staging.orders.electroninks.com/api/ADSK/ShippingOptions/",
+                    "product_id": 29,
+                    "product_type": "PHYSICAL",
+                    "parent_id": "",
+                    "parent_ids": [],
+                    "vendor_display_name": "Electroninks, Inc"
                 },
-     
-                "options": [
-                    {
-                        "id": "P2",
-                        "shipper": "UPS",
-                        "name": "2 Day",
-                        "price": 3.99
-                    },
-                    {
-                        "id": "P3",
-                        "shipper": "UPS",
-                        "name": "1 Day",
-                        "price": 3.99
+                {
+                    "@class": "com.autodesk.ecommerce.model.v2.cart.ShippingLineItemV2",
+                    "id": 7523,
+                    "created": "November 04, 2014 00:00:00",
+                    "modified": "November 05, 2014 00:00:00",
+                    "quantity": 1,
+                    "price": 4.95,
+                    "data": "{\"status\":\"PRICE\",\"availabilities\":[{\"name\":\"Lite Kit\",\"id\":\"29\",\"in_stock\":true,\"stock_quantity\":9001,\"lead_days\":7}],\"options\":[{\"shipper\":\"Economy\",\"id\":\"1\",\"name\":\"3-7 days\",\"price\":4.95,\"insurance\":0.00}],\"lead_date\":7,\"selected_option\":{\"shipper\":\"Economy\",\"id\":\"1\",\"name\":\"3-7 days\",\"price\":4.95,\"insurance\":0.00,\"needs_insurance\":false}}",
+                    "name": "Shipping",
+                    "description": "Shipping item",
+                    "thumbnail": "",
+                    "status": "PRICE",
+                    "options": [
+                        {
+                            "shipper": "Economy",
+                            "id": "1",
+                            "name": "3-7 days",
+                            "price": 4.95,
+                            "insurance": 0
+                        }
+                    ],
+                    "availabilities": [
+                        {
+                            "name": "Lite Kit",
+                            "id": "29",
+                            "in_stock": true,
+                            "stock_quantity": 9001,
+                            "lead_days": 7
+                        }
+                    ],
+                    "offer_price": 4.95,
+                    "shipping_endpoint": "",
+                    "product_id": 3,
+                    "product_type": "SHIPPING",
+                    "parent_id": 7522,
+                    "parent_ids": [
+                        7522
+                    ],
+                    "vendor_display_name": "Electroninks, Inc",
+                    "bundle_id": "",
+                    "lead_date": 7,
+                    "selected_option": {
+                        "shipper": "Economy",
+                        "id": "1",
+                        "name": "3-7 days",
+                        "price": 4.95,
+                        "insurance": 0,
+                        "needs_insurance": false
                     }
-                 
-                ],
-                "availabilities":"",
-                "data": "{\"SHIPPING_METHOD_ID\":\"\",\"SHIPPER_INFO\":\"\",\"SHIPPING_METHOD_NAME\":\"2 Day\"}",
-                "name": "Shipping",
-                "description": "Shipping item",
-                "thumbnail": ""
-            }
-        ],
-        "coupons": [
-            {
-                "code": "HUGOBOSS"
-            }
-        ]
+                }
+            ]
         }
 
 ### Delete a cart [DELETE]
-Deletes the cart of the logged in user or guest. After this call, a call to GET /cart will return an empty cart. Returns an empty json object if successful otherwise an error object.
+Delete the cart of the logged in user or guest. After this call, a call to GET /cart will return an empty cart. Returns an empty json object if successful otherwise an error object.
 
 + Request
 
     + Headers
     
-            REFER : See common headers sesction
+            X-AFC: SB1ON1
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             
 + Parameters
-    + id (required,Number,`23`)...Numeric `id` of the cart to perform action with.
+    + cart_type (optional,String,`ESTORE|MARKETPLACE`)...String `type` of the cart to perform action with. Default value is 'ESTORE'.
 
 + Response 204 (application/json)
-        {}
 
 # Cart line items [/carts/lineitems/{id}]
 Line items are part of carts. Cart can contain 'n' line items. User can perform various CRUD operations on line items.
