@@ -3270,7 +3270,7 @@ example: http://CurieUrl.com/Cart/LineItem?line_item_id=123456
         ]
         }
         
-# Cart buynow [/carts/{id}/buynow]
+# Cart buynow [/carts/buynow]
 Returns a url of the custom BuyNow Page. The  buynow_url page displays the cart and asks the users for their payment details as well as shows the place order button. The buynow_url page is specific to afc code and can be customized via a template. The template and needed resources (css, images) are managed by the client applications. Ask the platform commerce team for the initial template setup. Client application are responsible to display this url as they see fit (iframe or popup).
 SecureSession is a required header for this API.
 
@@ -3282,7 +3282,7 @@ SecureSession is a required header for this API.
             REFER : See common headers sesction
             
 + Parameters
-    + id (required, Number, `23`)...Numeric `id` of the cart.
+    + cart_type (optional, string, `ESTORE`)...Cart type. Valid values are ESTORE, MARKETPLACE.
 
 + Response 200 (application/json)
 
