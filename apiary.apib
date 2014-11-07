@@ -3348,7 +3348,7 @@ SecureSession is a required header for this API.
             REFER : See common headers sesction
             
 + Parameters
-    + id (optional, Number, `23`)...Numeric `id` of the cart. This is required if 'prevcard' is false.
+    + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE`)...String `type` of the cart to perform action with.
     + encrypted_card_number (optional, string, `sdadhabduahysd67adaiudabidyad354t`)...Encrypted value of credit card returned by ServiceProvider. This is required if 'prevcard' is false.
     + encrypted_cvv (optional, string, `sdadhabduahysd67adaiudabidyad354t`)...Encrypted value of cvv returned by ServiceProvider. This is required if 'prevcard' is false.
     + expiration_month (optional, Number, `03`)...Expiry month of CreditCard mentioned. This is required if 'prevcard' is false.
