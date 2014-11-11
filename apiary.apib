@@ -3413,6 +3413,8 @@ Get the billing address of the cart given in parameters (default to ESTORE cart)
         }
 
 ### Update a billing address [PUT]
+Update a shipping address for a cart. Returns the address that was added. If this was a new address then the "id" field in response can be used to refer to this address for later updates.
+Sample url is https://www.123dapp.com/api/v2/cart/billingaddress?address1=1%20Market&postalCode=12345&city=san&state=CA&countryCode=US&name=foo
 
 + Request
 
@@ -3423,12 +3425,12 @@ Get the billing address of the cart given in parameters (default to ESTORE cart)
             
 + Parameters
     + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE`)...String `type` of the cart to perform action with.
-    + id (required, Number)...The Id is required for updates only.
+    + id (optional, Number)...If this is an existing address from existing member profile, you can pass the id of address to set that as shipping address for this cart.
     + name (required, string, `Carl Bass`)...If this is NOT an update, name is a required parameter.
     + address1 (required, string, `Pier 9`)...If this is NOT an update, address1 is a required parameter.
     + city (required, string, `San Francisco`)...If this is NOT an update, city is a required parameter.
     + country_code (required, string, `us`)...If this is NOT an update, countryCode is a required parameter. http://www.bluesnap.com/integrationguide/WordManual/Appendix%20B%20Country%20Codes.htm
-    + company (optional, string, `Autodesk`)...company
+    + company (optional, string, `Autodesk`)...Company
     + address2 (optional, string, `The Embarcadero`)...Second line in address field
     + postal_code (optional, string, `94111`)...Zip or postal code
     + state (optional, string, `CA`)...State. http://www.bluesnap.com/integrationguide/default.htm?bluesnap_web_services.htm#WordManual/Appendix C State and Province.htm%3FTocPath%3DWeb%20Services%7CAppendices%7C_____3
@@ -3485,8 +3487,8 @@ Get the shipping address of the cart given in parameters (default to ESTORE cart
         }
         
 ### Update a shipping address [PUT]
-Update a shipping address for a cart. Sample url is
-https://www.123dapp.com/api/v2/cart/shippingaddress?address1=1%20Market&postalCode=12345&city=san&state=CA&countryCode=US&name=foo
+Update a shipping address for a cart. Returns the address that was added. If this was a new address then the "id" field in response can be used to refer to this address for later updates.
+Sample url is https://www.123dapp.com/api/v2/cart/shippingaddress?address1=1%20Market&postalCode=12345&city=san&state=CA&countryCode=US&name=foo
 
 + Request
 
@@ -3497,7 +3499,7 @@ https://www.123dapp.com/api/v2/cart/shippingaddress?address1=1%20Market&postalCo
             
 + Parameters
     + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE`)...String `type` of the cart to perform action with.
-    + id (required, Number)...The Id is required for updates only.
+    + id (optional, Number)...If this is an existing address from existing member profile, you can pass the id of address to set that as shipping address for this cart.
     + name (required, string, `Carl Bass`)...If this is NOT an update, name is a required parameter.
     + address1 (required, string, `Pier 9`)...If this is NOT an update, address1 is a required parameter.
     + city (required, string, `San Francisco`)...If this is NOT an update, city is a required parameter.
