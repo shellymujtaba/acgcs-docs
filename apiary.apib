@@ -1564,6 +1564,8 @@ Member like operations
     + id (required, Number , `123446`)...Member id
     + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
+    + sort_by (optional, String, `date, total like count`)...Order search results based on a specific attribute
+    + sort_order (optional, String, `asc, desc`)...Direction of ordered search results based on value of sort_by 
 
     
 ### Retrieve member liked assets [GET]
@@ -1717,11 +1719,8 @@ Get all the purchases made by the member.
 
         {
         "count": 260,
-        "limit": 2,
-        "offset": 2,
-        "_link": "/members/20364550/orderhistory?limit=2&offset=2",
-        "_link_prev":"/members/20364550/orderhistory?limit=2&offset=0",
-        "_link_next":"/members/20364550/orderhistory?limit=2&offset=4",
+        "limit": 13,
+        "offset": 39,
         "orders": [
             {
                 "order_id": 3944327,
@@ -1792,7 +1791,7 @@ Get all the purchases made by the member.
                         "reference_number": "b66d9f26-02b7-4bc4-9fac-f3a43189e578",
                         "type": "SUBSCRIPTION",
                         "tracking_url": "",
-                        "estimated_shipping_date": "September 29, 2014 00:00:00"
+                        "estimated_shipping_date": "2014-10-01 00:00:00"
                     }
                 ]
             },
