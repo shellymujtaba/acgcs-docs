@@ -1564,8 +1564,8 @@ Member like operations
     + id (required, Number , `123446`)...Member id
     + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
-    + sort_by (optional, String, `date, total like count`)...Order search results based on a specific attribute
-    + sort_order (optional, String, `asc, desc`)...Direction of ordered search results based on value of sort_by 
+    + sort_by (optional, String, `date, total`)...Order search results based on a specific attribute. Default: total. <br>Note: total will sort the results by number of likes, where as date will sort the results by liked timestamp.
+    + sort_order (optional, String, `asc, desc`)...Direction of ordered search results based on value of sort_by. Default: asc.
 
     
 ### Retrieve member liked assets [GET]
