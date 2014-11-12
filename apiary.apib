@@ -2298,13 +2298,8 @@ Retrieve the list of assets for sale. An asset can be removed from the shop via 
                 ]
             }
 
-##Assets [/shops/{shop_id}/assets/{asset_id}]
-Update an asset using its id.
 
-+ Parameters
-    + shop_id (required, Number, `20280723`)...Shop id
-
-### Update shop asset [PUT]
+### Update shop asset [PUT /shops/{shop_id}/assets/{asset_id}]
 Setting a private asset "for sale" results in asset state changed to public.
 
 + Request
