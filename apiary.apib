@@ -1717,158 +1717,147 @@ Get all the purchases made by the member.
 
 + Response 200 (application/json)
 
-        {
-        "count": 260,
-        "limit": 13,
-        "offset": 39,
-        "orders": [
-            {
-                "order_id": 3944327,
-                "order_cart": {
-                    "currency": "USD",
-                    "order_items": [
-                        {
-                            "name": "Shipping",
-                            "product_id": 3,
-                            "product_type": "SHIPPING",
-                            "subtotal": 12.32,
-                            "quantity": 1
-                        },
-                        {
-                            "name": "Sales Tax",
-                            "product_id": 8,
-                            "product_type": "SUBSCRIPTION",
-                            "subtotal": 9.46,
-                            "quantity": 1
-                        },
-                        {
-                            "name": "Developer Kit",
-                            "product_id": 10,
-                            "product_type": "PHYSICAL",
-                            "subtotal": 105,
-                            "quantity": 1
-                        }
+        {  
+           "count":305,
+           "limit":2,
+           "offset":4,
+           "_link":"/members/20364550/orderhistory?limit=2&offset=4",
+           "_link_prev":"/members/20364550/orderhistory?limit=2&offset=2",
+           "_link_next":"/members/20364550/orderhistory?limit=2&offset=6",
+           "orders":[  
+              {  
+                 "order_id":3983565,
+                 "order_cart":{  
+                    "currency":"USD",
+                    "tax":0.00,
+                    "order_items":[  
+                       {  
+                          "name":"1-year Premium Membership",
+                          "subtotal":99.99,
+                          "quantity":1,
+                          "product_id":4,
+                          "product_type":"SUBSCRIPTION"
+                       },
+                       {  
+                          "name":"Tax",
+                          "subtotal":0.00,
+                          "quantity":1,
+                          "product_id":46,
+                          "product_type":"TAX"
+                       }
                     ],
-                    "tax": 0,
-                    "tax_rate": 0,
-                    "total": 126.78
-                },
-                "order_invoices": [
-                    {
-                        "invoice_id": "1008813674",
-                        "url": "https://sandbox.bluesnap.com/jsp/show_invoice.jsp?ref=4E5D9A69F0C17B1F82804D068FF925A1",
-                        "order_transactions": [
-                            {
-                                "status": "Approved",
-                                "created_date": "September 23, 2014 00:00:00",
-                                "amount": 126.78,
-                                "currency": "USD",
-                                "payment_method": "Credit Card",
-                                "payment_detail": {
-                                    "mask": "1111",
-                                    "card_type": "Visa",
-                                    "expiration_month": 10,
-                                    "expiration_year": 2019
-                                },
-                                "invoice_contact_info": {
-                                    "first_name": "chaitanya",
-                                    "last_name": "chaitanya",
-                                    "email": "chaitya25@yahoo.com",
-                                    "address": "1 Market",
-                                    "city": "san  francisco",
-                                    "state": "CA",
-                                    "zip": "94105",
-                                    "country": "us",
-                                    "phone": ""
-                                }
-                            }
-                        ]
+                    "tax_rate":0,
+                    "total":99.99
+                 },
+                 "order_invoices":[  
+                    {  
+                       "url":"https://sandbox.bluesnap.com/jsp/show_invoice.jsp?ref=4ABEE983586E5EB070625709D7CC13C1",
+                       "invoice_id":"1008923396",
+                       "order_transactions":[  
+                          {  
+                             "status":"Approved",
+                             "amount":99.99,
+                             "currency":"USD",
+                             "created_date":"November 12, 2014 00:00:00",
+                             "payment_method":"Credit Card",
+                             "payment_detail":{  
+                                "mask":"1111",
+                                "card_type":"Visa",
+                                "expiration_month":7,
+                                "expiration_year":2019
+                             },
+                             "invoice_contact_info":{  
+                                "email":"plastic.production.user@gmail.com",
+                                "address":"1497 9th Ave",
+                                "city":"San Francisco",
+                                "state":"CA",
+                                "zip":"94122",
+                                "country":"us",
+                                "phone":"",
+                                "first_name":"TestMember",
+                                "last_name":"TestMember"
+                             }
+                          }
+                       ]
                     }
-                ],
-                "order_fulfillments": [
-                    {
-                        "status": "IN_PROGRESS",
-                        "reference_number": "b66d9f26-02b7-4bc4-9fac-f3a43189e578",
-                        "type": "SUBSCRIPTION",
-                        "tracking_url": "",
-                        "estimated_shipping_date": "September 19, 2014 00:00:00"
+                 ],
+                 "order_fulfillments":[  
+                    {  
+                       "status":"COMPLETE",
+                       "reference_number":"",
+                       "type":"SUBSCRIPTION",
+                       "tracking_url":"",
+                       "estimated_shipping_date":""
                     }
-                ]
-            },
-            {
-                "order_id": 3943041,
-                "order_cart": {
-                    "currency": "USD",
-                    "order_items": [
-                        {
-                            "name": " 123D Makerbot Replicator 2",
-                            "product_id": 1,
-                            "product_type": "PHYSICAL",
-                            "subtotal": 1999,
-                            "quantity": 1
-                        },
-                        {
-                            "name": "Shipping",
-                            "product_id": 3,
-                            "product_type": "SHIPPING",
-                            "subtotal": 180.4,
-                            "quantity": 1
-                        },
-                        {
-                            "name": "Sales Tax",
-                            "product_id": 8,
-                            "product_type": "SUBSCRIPTION",
-                            "subtotal": 179.92,
-                            "quantity": 1
-                        }
+                 ]
+              },
+              {  
+                 "order_id":3983529,
+                 "order_cart":{  
+                    "currency":"USD",
+                    "tax":0.00,
+                    "order_items":[  
+                       {  
+                          "name":"1-year Premium Membership",
+                          "subtotal":99.99,
+                          "quantity":1,
+                          "product_id":4,
+                          "product_type":"SUBSCRIPTION"
+                       },
+                       {  
+                          "name":"Tax",
+                          "subtotal":0.00,
+                          "quantity":1,
+                          "product_id":46,
+                          "product_type":"TAX"
+                       }
                     ],
-                    "tax": 0,
-                    "tax_rate": 0,
-                    "total": 2359.32
-                },
-                "order_invoices": [
-                    {
-                        "invoice_id": "1008807042",
-                        "url": "https://sandbox.bluesnap.com/jsp/show_invoice.jsp?ref=356F479AD204AD0CCF749389AFFE78EE",
-                        "order_transactions": [
-                            {
-                                "status": "Approved",
-                                "created_date": "September 19, 2014 00:00:00",
-                                "amount": 2359.32,
-                                "currency": "USD",
-                                "payment_method": "Credit Card",
-                                "payment_detail": {
-                                    "mask": "1111",
-                                    "card_type": "Visa",
-                                    "expiration_month": 10,
-                                    "expiration_year": 2019
-                                },
-                                "invoice_contact_info": {
-                                    "first_name": "chaitanya",
-                                    "last_name": "chaitanya",
-                                    "email": "chaitya25@yahoo.com",
-                                    "address": "1 Market",
-                                    "city": "san francisco",
-                                    "state": "CA",
-                                    "zip": "94105",
-                                    "country": "us",
-                                    "phone": ""
-                                }
-                            }
-                        ]
+                    "tax_rate":0,
+                    "total":99.99
+                 },
+                 "order_invoices":[  
+                    {  
+                       "url":"https://sandbox.bluesnap.com/jsp/show_invoice.jsp?ref=4ABEE983586E5EB01C2984D5A847589C",
+                       "invoice_id":"1008923360",
+                       "order_transactions":[  
+                          {  
+                             "status":"Approved",
+                             "amount":99.99,
+                             "currency":"USD",
+                             "created_date":"November 12, 2014 00:00:00",
+                             "payment_method":"Credit Card",
+                             "payment_detail":{  
+                                "mask":"1111",
+                                "card_type":"Visa",
+                                "expiration_month":7,
+                                "expiration_year":2019
+                             },
+                             "invoice_contact_info":{  
+                                "email":"plastic.production.user@gmail.com",
+                                "address":"1497 9th Ave",
+                                "city":"San Francisco",
+                                "state":"CA",
+                                "zip":"94122",
+                                "country":"us",
+                                "phone":"",
+                                "first_name":"TestMember",
+                                "last_name":"TestMember"
+                             }
+                          }
+                       ]
                     }
-                ],
-                "order_fulfillments": [
-                    {
-                        "status": "IN_PROGRESS",
-                        "reference_number": "0000157439",
-                        "type": "SUBSCRIPTION",
-                        "tracking_url": "",
-                        "estimated_shipping_date": "September 19, 2014 00:00:00"
+                 ],
+                 "order_fulfillments":[  
+                    {  
+                       "status":"COMPLETE",
+                       "reference_number":"",
+                       "type":"SUBSCRIPTION",
+                       "tracking_url":"",
+                       "estimated_shipping_date":""
                     }
-                ]
-            }
-        ]
+                 ]
+              }
+           ]
         }
 
 # Group Auth
