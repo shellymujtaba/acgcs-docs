@@ -1692,12 +1692,14 @@ Retrieves member's marketplace credits and payouts accumulated over time.
 + Response 200 (application/json)
 
             {
-                member_id: 20704754
-                total_promotional_credit: 100
-                total_purchased_credit: 100
-                total_sales_credit: 123.45
-                total_payout: 50.54
-                total_purchased_with_credit: 0
+                member_id: 20704754,
+                total_promotional_credit: 100,
+                total_purchased_credit: 100,
+                total_sales_credit: 123.45,
+                total_payout: 50.54,
+                total_purchased_with_sales_credit: 0,
+                total_purchased_with_promotional_credit: 0,
+                total_purchased_with_purchased_credit: 0
             }      
 
 # OrderHistory [/members/{id}/orderhistory]
