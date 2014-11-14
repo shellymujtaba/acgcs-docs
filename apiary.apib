@@ -2870,13 +2870,17 @@ Retrieve non-pending sales history. Restricts order line items to only those sol
 Cart is nothing but a shopping basket where user can put digital or physical items.
 Here are some key points about cart:
 * Cart is created for guest user as well as for login user.
+* Cart is of type ESTORE or MARKETPLACE.
 * Cart is different for each <a href="/reference/appendices">ECommerceAffiliates</a>.
 Exp: Sketchbook, Pixlr and Ciruits are under different <a href="/reference/appendices">ECommerceAffiliates</a> so for single user there will be different carts for each of these apps.
+* Cart can be different for each affiliate code (X-AFC in header). Please contact cloud service team if affiliate code specific cart is needed.
 
 # Cart [/carts]
 Perform CRUD operations on cart with basic metadata.
 
 ### Retrieve a cart [GET]
+Return ESTORE or MARKETPLACE cart for a guest user or login user. Return empty JSON if cart doesn't exist.
+
 + Request
     
     + Headers
@@ -2885,61 +2889,190 @@ Perform CRUD operations on cart with basic metadata.
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
-    + cart_type (optional,String,`ESTORE|MARKETPLACE`)...String `type` of the cart to perform action with.
+    + cart_type (optional,String,`ESTORE|MARKETPLACE`)...String `type` of the cart to perform action with. Default value is ESTORE.
     
 + Response 200 (application/json)
 
         {
-            "id": 2472,
-            "modified": "November 04, 2014 00:00:00",
+            "id": 2913,
+            "modified": "November 13, 2014 00:00:00",
             "currency": "USD",
-            "total": 28.36,
+            "total": 8643.96,
             "tax": "",
-            "coupons": [
-                {
-                    "code": "ILOVEYOU"
-                }
-            ],
+            "coupons": [],
             "affiliate": "",
-            "offer_total": 28.36,
-            "discount": -1.59,
-            "subtotal": 28.36,
-            "lineitem_subtotal": 25,
-            "shipping_price": 4.95,
+            "offer_total": 8643.96,
+            "discount": "",
+            "subtotal": 8643.96,
+            "lineitem_subtotal": 8426,
+            "shipping_price": 217.96,
             "shipping_method": "",
-            "shipping_address_id": 593860,
-            "billing_address_id": "",
+            "shipping_address_id": 593899,
+            "billing_address_id": 594037,
             "member_id": 20704112,
             "shipment_grouping_method": "MINIMUM_SHIPMENTS",
             "type": "ESTORE",
             "line_items": [
                 {
                     "@class": "com.autodesk.ecommerce.model.v2.cart.LineItemV2",
-                    "id": 7522,
-                    "created": "November 04, 2014 00:00:00",
-                    "modified": "November 05, 2014 00:00:00",
+                    "id": 8187,
+                    "created": "November 13, 2014 00:00:00",
+                    "modified": "November 13, 2014 00:00:00",
                     "quantity": 1,
-                    "price": 25,
-                    "data": "{\"status\":\"\",\"availabilities\":\"\",\"options\":\"\",\"lead_date\":\"\",\"selected_option\":\"\"}",
-                    "name": "Circuit Scribe Lite Kit",
-                    "description": "LITE KIT: Our Lite Kit has everything you need to get started with Circuit Scribe. It comes with one Conductive Ink Pen, one LED module, and two coin cell batteries.",
+                    "price": 1579,
+                    "data": "",
+                    "name": "MakerBot Mini Starter Pack",
+                    "description": "MB Mini Starter Pack (Web)",
                     "thumbnail": "",
-                    "offer_price": 25,
-                    "shipping_endpoint": "http://staging.orders.electroninks.com/api/ADSK/ShippingOptions/",
-                    "product_id": 29,
+                    "offer_price": 1579,
+                    "shipping_endpoint": "http://alpha.squidplatform.com/API/V1/Arvato/ShippingOptions",
+                    "product_id": 38,
                     "product_type": "PHYSICAL",
                     "parent_id": "",
                     "parent_ids": [],
-                    "vendor_display_name": "Electroninks, Inc"
+                    "vendor_display_name": "Arvato",
+                    "lead_date": ""
+                },
+                {
+                    "@class": "com.autodesk.ecommerce.model.v2.cart.LineItemV2",
+                    "id": 8189,
+                    "created": "November 13, 2014 00:00:00",
+                    "modified": "November 13, 2014 00:00:00",
+                    "quantity": 2,
+                    "price": 6786,
+                    "data": "",
+                    "name": "MakerBot Replicator 5th Generation Starter Pack",
+                    "description": "MB Rep 5th Gen Starter Pack (Web)",
+                    "thumbnail": "",
+                    "offer_price": 6786,
+                    "shipping_endpoint": "http://alpha.squidplatform.com/API/V1/Arvato/ShippingOptions",
+                    "product_id": 39,
+                    "product_type": "PHYSICAL",
+                    "parent_id": "",
+                    "parent_ids": [],
+                    "vendor_display_name": "Arvato",
+                    "lead_date": ""
+                },
+                {
+                    "@class": "com.autodesk.ecommerce.model.v2.cart.LineItemV2",
+                    "id": 8211,
+                    "created": "November 13, 2014 00:00:00",
+                    "modified": "November 13, 2014 00:00:00",
+                    "quantity": 1,
+                    "price": 55,
+                    "data": "",
+                    "name": "Maker Kit",
+                    "description": "Maker Kit",
+                    "thumbnail": "",
+                    "offer_price": 55,
+                    "shipping_endpoint": "http://staging.orders.electroninks.com/api/ADSK/ShippingOptions/",
+                    "product_id": 9,
+                    "product_type": "PHYSICAL",
+                    "parent_id": "",
+                    "parent_ids": [],
+                    "vendor_display_name": "Electroninks, Inc",
+                    "lead_date": 17
+                },
+                {
+                    "@class": "com.autodesk.ecommerce.model.v2.cart.LineItemV2",
+                    "id": 8214,
+                    "created": "November 13, 2014 00:00:00",
+                    "modified": "November 13, 2014 00:00:00",
+                    "quantity": 1,
+                    "price": 6,
+                    "data": "",
+                    "name": "9V Battery Adapter (includes 9V battery)",
+                    "description": "9V Battery Adapter (includes 9V battery), $5 without",
+                    "thumbnail": "",
+                    "offer_price": 6,
+                    "shipping_endpoint": "http://staging.orders.electroninks.com/api/ADSK/ShippingOptions/",
+                    "product_id": 12,
+                    "product_type": "PHYSICAL",
+                    "parent_id": "",
+                    "parent_ids": [],
+                    "vendor_display_name": "Electroninks, Inc",
+                    "lead_date": 7
                 },
                 {
                     "@class": "com.autodesk.ecommerce.model.v2.cart.ShippingLineItemV2",
-                    "id": 7523,
-                    "created": "November 04, 2014 00:00:00",
-                    "modified": "November 05, 2014 00:00:00",
+                    "id": 8220,
+                    "created": "November 13, 2014 00:00:00",
+                    "modified": "November 13, 2014 00:00:00",
                     "quantity": 1,
-                    "price": 4.95,
-                    "data": "{\"status\":\"PRICE\",\"availabilities\":[{\"name\":\"Lite Kit\",\"id\":\"29\",\"in_stock\":true,\"stock_quantity\":9001,\"lead_days\":7}],\"options\":[{\"shipper\":\"Economy\",\"id\":\"1\",\"name\":\"3-7 days\",\"price\":4.95,\"insurance\":0.00}],\"lead_date\":7,\"selected_option\":{\"shipper\":\"Economy\",\"id\":\"1\",\"name\":\"3-7 days\",\"price\":4.95,\"insurance\":0.00,\"needs_insurance\":false}}",
+                    "price": 206.72,
+                    "data": "{\"status\":\"PRICE\",\"availabilities\":[{\"name\":\"\",\"id\":\"MP05925KT1\",\"in_stock\":true,\"stock_quantity\":853,\"lead_days\":0},{\"name\":\"\",\"id\":\"MP05825KT1\",\"in_stock\":true,\"stock_quantity\":844,\"lead_days\":0}],\"options\":[{\"shipper\":\"UPS\",\"id\":\"M4\",\"name\":\"UPS Ground\",\"price\":206.72,\"insurance\":108.90},{\"shipper\":\"UPS\",\"id\":\"MN\",\"name\":\"UPS 2nd Day Air\",\"price\":1047.48,\"insurance\":108.90},{\"shipper\":\"UPS\",\"id\":\"MI\",\"name\":\"UPS Next Day Air\",\"price\":1523.26,\"insurance\":108.90}],\"lead_date\":0,\"selected_option\":{\"shipper\":\"UPS\",\"id\":\"M4\",\"name\":\"UPS Ground\",\"price\":206.72,\"insurance\":108.90,\"needs_insurance\":false}}",
+                    "name": "Shipping",
+                    "description": "Shipping Item",
+                    "thumbnail": "",
+                    "status": "PRICE",
+                    "options": [
+                        {
+                            "shipper": "UPS",
+                            "id": "M4",
+                            "name": "UPS Ground",
+                            "price": 206.72,
+                            "insurance": 108.9
+                        },
+                        {
+                            "shipper": "UPS",
+                            "id": "MN",
+                            "name": "UPS 2nd Day Air",
+                            "price": 1047.48,
+                            "insurance": 108.9
+                        },
+                        {
+                            "shipper": "UPS",
+                            "id": "MI",
+                            "name": "UPS Next Day Air",
+                            "price": 1523.26,
+                            "insurance": 108.9
+                        }
+                    ],
+                    "availabilities": [
+                        {
+                            "name": "",
+                            "id": "MP05925KT1",
+                            "in_stock": true,
+                            "stock_quantity": 853,
+                            "lead_days": 0
+                        },
+                        {
+                            "name": "",
+                            "id": "MP05825KT1",
+                            "in_stock": true,
+                            "stock_quantity": 844,
+                            "lead_days": 0
+                        }
+                    ],
+                    "offer_price": 206.72,
+                    "shipping_endpoint": "",
+                    "product_id": 45,
+                    "product_type": "SHIPPING",
+                    "parent_id": 8187,
+                    "parent_ids": [
+                        8187,
+                        8189
+                    ],
+                    "vendor_display_name": "Arvato",
+                    "lead_date": 0,
+                    "bundle_id": "",
+                    "selected_option": {
+                        "shipper": "UPS",
+                        "id": "M4",
+                        "name": "UPS Ground",
+                        "price": 206.72,
+                        "insurance": 108.9,
+                        "needs_insurance": false
+                    }
+                },
+                {
+                    "@class": "com.autodesk.ecommerce.model.v2.cart.ShippingLineItemV2",
+                    "id": 8221,
+                    "created": "November 13, 2014 00:00:00",
+                    "modified": "November 13, 2014 00:00:00",
+                    "quantity": 1,
+                    "price": 11.24,
+                    "data": "{\"status\":\"PRICE\",\"availabilities\":[{\"name\":\"Maker Kit\",\"id\":\"9\",\"in_stock\":true,\"stock_quantity\":9001,\"lead_days\":17},{\"name\":\"9V Battery Adapter\",\"id\":\"12\",\"in_stock\":true,\"stock_quantity\":9002,\"lead_days\":7}],\"options\":[{\"shipper\":\"Economy\",\"id\":\"1\",\"name\":\"3-7 days\",\"price\":11.24,\"insurance\":0.00}],\"lead_date\":17,\"selected_option\":{\"shipper\":\"Economy\",\"id\":\"1\",\"name\":\"3-7 days\",\"price\":11.24,\"insurance\":0.00,\"needs_insurance\":false}}",
                     "name": "Shipping",
                     "description": "Shipping item",
                     "thumbnail": "",
@@ -2949,35 +3082,43 @@ Perform CRUD operations on cart with basic metadata.
                             "shipper": "Economy",
                             "id": "1",
                             "name": "3-7 days",
-                            "price": 4.95,
+                            "price": 11.24,
                             "insurance": 0
                         }
                     ],
                     "availabilities": [
                         {
-                            "name": "Lite Kit",
-                            "id": "29",
+                            "name": "Maker Kit",
+                            "id": "9",
                             "in_stock": true,
                             "stock_quantity": 9001,
+                            "lead_days": 17
+                        },
+                        {
+                            "name": "9V Battery Adapter",
+                            "id": "12",
+                            "in_stock": true,
+                            "stock_quantity": 9002,
                             "lead_days": 7
                         }
                     ],
-                    "offer_price": 4.95,
+                    "offer_price": 11.24,
                     "shipping_endpoint": "",
                     "product_id": 3,
                     "product_type": "SHIPPING",
-                    "parent_id": 7522,
+                    "parent_id": 8211,
                     "parent_ids": [
-                        7522
+                        8211,
+                        8214
                     ],
                     "vendor_display_name": "Electroninks, Inc",
+                    "lead_date": 17,
                     "bundle_id": "",
-                    "lead_date": 7,
                     "selected_option": {
                         "shipper": "Economy",
                         "id": "1",
                         "name": "3-7 days",
-                        "price": 4.95,
+                        "price": 11.24,
                         "insurance": 0,
                         "needs_insurance": false
                     }
@@ -2986,7 +3127,7 @@ Perform CRUD operations on cart with basic metadata.
         }
 
 ### Delete a cart [DELETE]
-Delete the cart of the logged in user or guest. After this call, a call to GET /cart will return an empty cart. Returns an empty json object if successful otherwise an error object.
+Delete the cart of the logged in user or guest. After this call, a call to GET /cart will return an empty json. Returns an empty json object if successful otherwise an error object.
 
 + Request
 
@@ -2999,13 +3140,14 @@ Delete the cart of the logged in user or guest. After this call, a call to GET /
     + cart_type (optional,String,`ESTORE|MARKETPLACE`)...String `type` of the cart to perform action with. Default value is 'ESTORE'.
 
 + Response 204 (application/json)
+        {}
 
 # Cart line items [/carts/lineitems/{id}]
-Line items are part of carts. Cart can contain 'n' line items. User can perform various CRUD operations on line items.
+Line items are items within carts. Cart can contain 'n' line items. User can perform various CRUD operations on line items.
 
     
 ### Update a cart line item [PUT]
-Adds a line item to the cart or updates exisiting one of same type and product id. Returns the updated tenant specific cart (as identified by afc header) for a member or guest session with LineItems, and total price. Additionally returns the new/updated line item in the "updated" field. 
+Adds a line item to the cart or updates exisiting one of same type and product id. Returns the updated tenant specific cart (as identified by afc header) for a member or guest session with lineItems, and total price. Additionally returns the new/updated line item in the "updated" field. 
 Here are some key points about cart:
 * If a line item of type SUBSCRIPTION already exists in the cart this operation will result in a replace as no more than one subscription is allowed.
 
