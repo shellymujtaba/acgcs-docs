@@ -2896,6 +2896,94 @@ Return ESTORE or MARKETPLACE cart for a guest user or login user. Return empty J
 
 + Parameters
     + cart_type (optional,String,`ESTORE|MARKETPLACE`)...String `type` of the cart to perform action with. Default value is ESTORE.
+
++ Response 200 (application/json)
+
+        {
+            "id": 2824,
+            "modified": "November 11, 2014 00:00:00",
+            "currency": "USD",
+            "total": 8.21,
+            "tax": "",
+            "coupons": [],
+            "affiliate": "",
+            "offer_total": 8.21,
+            "discount": "",
+            "subtotal": 8.21,
+            "lineitem_subtotal": 8.21,
+            "shipping_price": 0,
+            "shipping_method": "",
+            "shipping_address_id": "",
+            "billing_address_id": "",
+            "member_id": 20704112,
+            "shipment_grouping_method": "MINIMUM_SHIPMENTS",
+            "type": "MARKETPLACE",
+            "line_items": [
+                {
+                    "@class": "com.autodesk.ecommerce.model.v2.cart.LineItemV2",
+                    "id": 7972,
+                    "created": "November 11, 2014 00:00:00",
+                    "modified": "November 11, 2014 00:00:00",
+                    "quantity": 1,
+                    "price": 5.99,
+                    "data": "",
+                    "name": "DIN 59 370 S",
+                    "description": "",
+                    "thumbnail": "",
+                    "offer_price": 5.99,
+                    "shipping_endpoint": "",
+                    "product_id": 588452,
+                    "product_type": "DIGITAL",
+                    "parent_id": "",
+                    "parent_ids": [],
+                    "vendor_display_name": "",
+                    "lead_date": "",
+                    "shop_id": 7
+                },
+                {
+                    "@class": "com.autodesk.ecommerce.model.v2.cart.LineItemV2",
+                    "id": 8210,
+                    "created": "November 13, 2014 00:00:00",
+                    "modified": "November 13, 2014 00:00:00",
+                    "quantity": 1,
+                    "price": 0.23,
+                    "data": "",
+                    "name": "DIN 2448",
+                    "description": "",
+                    "thumbnail": "",
+                    "offer_price": 0.23,
+                    "shipping_endpoint": "",
+                    "product_id": 588450,
+                    "product_type": "DIGITAL",
+                    "parent_id": "",
+                    "parent_ids": [],
+                    "vendor_display_name": "",
+                    "lead_date": "",
+                    "shop_id": 7
+                },
+                {
+                    "@class": "com.autodesk.ecommerce.model.v2.cart.LineItemV2",
+                    "id": 8625,
+                    "created": "November 18, 2014 00:00:00",
+                    "modified": "November 18, 2014 00:00:00",
+                    "quantity": 1,
+                    "price": 1.99,
+                    "data": "",
+                    "name": "DIN 1850-3 V",
+                    "description": "",
+                    "thumbnail": "",
+                    "offer_price": 1.99,
+                    "shipping_endpoint": "",
+                    "product_id": 588443,
+                    "product_type": "DIGITAL",
+                    "parent_id": "",
+                    "parent_ids": [],
+                    "vendor_display_name": "",
+                    "lead_date": "",
+                    "shop_id": 5
+                }
+            ]
+        }
     
 + Response 200 (application/json)
 
