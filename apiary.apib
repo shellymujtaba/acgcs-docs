@@ -3025,7 +3025,8 @@ Return ESTORE or MARKETPLACE cart for a guest user or login user. Return empty J
                     "parent_id": "",
                     "parent_ids": [],
                     "vendor_display_name": "Arvato",
-                    "lead_date": ""
+                    "lead_date": "",
+                    "shop_id": ""
                 },
                 {
                     "@class": "com.autodesk.ecommerce.model.v2.cart.LineItemV2",
@@ -3045,7 +3046,8 @@ Return ESTORE or MARKETPLACE cart for a guest user or login user. Return empty J
                     "parent_id": "",
                     "parent_ids": [],
                     "vendor_display_name": "Arvato",
-                    "lead_date": ""
+                    "lead_date": "",
+                    "shop_id": ""
                 },
                 {
                     "@class": "com.autodesk.ecommerce.model.v2.cart.LineItemV2",
@@ -3065,7 +3067,8 @@ Return ESTORE or MARKETPLACE cart for a guest user or login user. Return empty J
                     "parent_id": "",
                     "parent_ids": [],
                     "vendor_display_name": "Electroninks, Inc",
-                    "lead_date": 17
+                    "lead_date": 17,
+                    "shop_id": ""
                 },
                 {
                     "@class": "com.autodesk.ecommerce.model.v2.cart.LineItemV2",
@@ -3085,7 +3088,8 @@ Return ESTORE or MARKETPLACE cart for a guest user or login user. Return empty J
                     "parent_id": "",
                     "parent_ids": [],
                     "vendor_display_name": "Electroninks, Inc",
-                    "lead_date": 7
+                    "lead_date": 7,
+                    "shop_id": ""
                 },
                 {
                     "@class": "com.autodesk.ecommerce.model.v2.cart.ShippingLineItemV2",
@@ -3236,14 +3240,16 @@ Delete the cart of the logged in user or guest. After this call, a call to GET /
 + Response 204 (application/json)
         {}
 
-# Cart line items [/carts/lineitems/{id}]
+# Cart line items [/carts/lineitems]
 Line items are items within carts. Cart can contain 'n' line items. User can perform various CRUD operations on line items.
 
     
 ### Update a cart line item [PUT]
-Adds a line item to the cart or updates exisiting one of same type and product id. Returns the updated tenant specific cart (as identified by afc header) for a member or guest session with lineItems, and total price. Additionally returns the new/updated line item in the "updated" field. 
+Add a line item to the cart or update exisiting one of same type and product id. Return the updated tenant specific cart (as identified by afc header) for a member or guest session with lineItems, and total price. Additionally return the new/updated line item in the "updated" field. 
 Here are some key points about cart:
 * If a line item of type SUBSCRIPTION already exists in the cart this operation will result in a replace as no more than one subscription is allowed.
+* LineItem will be added to the cart of the same type. ESTORE line item will be added to ESTORE cart and MARKETPLACE line item will be added to MARKETPLACE cart. No need to pass cart_type in the call.
+* This call is not allowed to update the price on shipping line item.
 
 |description|HTTP|code
 |----|----|----
@@ -3259,7 +3265,9 @@ Here are some key points about cart:
 
     + Headers
     
-            REFER : See common headers sesction
+            X-AFC: SB1ON1
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            
 + Parameters
     + id (required, Number, `23`)...Numeric `id` of the lineitem to perform action with.
     + product_id (required, string, `SUBSCRIPTION`)...(Currently Supported: SUBSCRIPTION | PHYSICAL | BUNDLE).
