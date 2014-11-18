@@ -3274,15 +3274,15 @@ Here are some key points about cart:
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             
 + Parameters
-    + id (required, Number, `23`)...Numeric `id` of the lineitem to perform action with.
-    + product_id (required, string, `SUBSCRIPTION`)...(Currently Supported: SUBSCRIPTION | PHYSICAL | BUNDLE).
-    If the product_type and product_id parameters of this call are equal to those of an existing line item then quantity is going to be increased. The only exception to this rule is with SUBSCRIPTION types which are not allowed more than once in the cart.
-    + quantity (optional, Number,`20`)...default is 1
-    + unit_price (optional, Number,`20`)...Price in cents, i.e. for a price of 2.99 USD clients should send 299. If price is being overridden a hash_key and timestamp are required as additional parameters. 
-    + data (optional, Json,`20`)...A JSON String that can be used with spool or shipping. Set this parameter to a DATA Json object.
-    + parent_id (optional, Number,`2`)...(can be used if product_type=PHYSICAL). Sets the line item parent id. To be used with makerbot spools. To add multiple parents use the parameter parent_id multiple times in the request parameters i.e. "parent_id=1&parent_id=2&parent_id=3"
+    + product_id (optional, Number, `23`)...Numeric `id` of the product to be added in the cart. Required if line_item_id does not present.
+    + product_type (optional, string, `SUBSCRIPTION`)...(Currently Supported: SUBSCRIPTION | PHYSICAL | BUNDLE | DIGITAL).  Required if line_item_id does not present.
+    If the product_type and product_id parameters of this call are equal to those of an existing line item then quantity is going to be increased. The only exception to this rule is with SUBSCRIPTION types which are not allowed more than one in the cart.
+    + quantity (optional, Number,`20`)...quantity of the line item being added in cart. Default is 1
+    + unit_price (optional, Number,`20.99`)...Price in dollars, i.e. for a price of 2.99 USD clients should send 2.99. If price is being overridden a hash_key and timestamp are required as additional parameters. Please contact cloud service team first for the usage of unit_price.
+    + data (optional, Json,`{"key":"value"}`)...A JSON String which is saved against the line item and which is retrieved through get carts api. It can be used with spool or shipping. Set this parameter to a DATA Json object.
+    + parent_id (optional, Number,`2`)...(can be used if product_type=PHYSICAL). Sets the line item parent id. It is used with makerbot spools. To add multiple parents use the parameter parent_id multiple times in the request parameters i.e. "parent_id=1&parent_id=2&parent_id=3"
     + line_item_id (optional, Number,`20`)...If present then the operation is considered an UPDATE to an existing line item. If present following parameters will replace existing values in the line item:
-        * quantity : replaces the existing line item quantity.
+        * quantity : replaces the existing line item quantity instead of increasing the quantity.
         * parent_id: replaces the existing parent(s) of this line item.
         * unit_price: replaces existing unit price
         * data: replaces existing data field
@@ -3403,8 +3403,7 @@ Here are some key points about cart:
         }
 
 ### Delete a cart line item [DELETE]
-Deletes the line item. Also deletes all the cart coupons if any coupon does not apply after the line item is deleted. Returns the updated tenant specific cart (as identified by afc header) for a member or guest session with LineItems, coupons and total price.
-example: http://CurieUrl.com/Cart/LineItem?line_item_id=123456
+Deletes the line item from the cart. Also deletes all the cart coupons if any coupon does not apply after the line item is deleted. Returns the updated tenant specific cart (as identified by afc header and line item) for a member or guest session with LineItems, coupons and total price.
 
 |description|HTTP|code
 |----|----|----
@@ -3414,10 +3413,11 @@ example: http://CurieUrl.com/Cart/LineItem?line_item_id=123456
 
     + Headers
     
-            REFER : See common headers sesction
+            X-AFC: SB1ON1
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             
 + Parameters
-    + id (required, Number, `23`)...Numeric `id` of the line item to perform action with.
+    + line_item_id (required, Number, `23`)...Numeric `id` of the line item to perform action with.
 
 + Response 200 (application/json)
 
@@ -3517,7 +3517,7 @@ example: http://CurieUrl.com/Cart/LineItem?line_item_id=123456
         }
         
 # Cart buynow [/carts/buynow]
-Returns a url of the custom BuyNow Page. The  buynow_url page displays the cart and asks the users for their payment details as well as shows the place order button. The buynow_url page is specific to afc code and can be customized via a template. The template and needed resources (css, images) are managed by the client applications. Ask the platform commerce team for the initial template setup. Client application are responsible to display this url as they see fit (iframe or popup).
+Returns a url of the custom BuyNow Page. The buynow_url page displays the cart and asks the users for their payment details as well as shows the place order button. The buynow_url page is specific to afc code and can be customized via a template. The template and needed resources (css, images) are managed by the client applications. Ask the cloud service commerce team for the initial template setup. Client application are responsible to display this url as they see fit (iframe or popup).
 SecureSession is a required header for this API.
 
 ### Retrieve a buynow page link [GET]
@@ -3525,7 +3525,9 @@ SecureSession is a required header for this API.
 
     + Headers
     
-            REFER : See common headers sesction
+            X-AFC: SB1ON1
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            X-Secure-Session: ECASR7DN20SNJMLLI
             
 + Parameters
     + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE`)...String `type` of the cart to perform action with.
@@ -3591,7 +3593,9 @@ SecureSession is a required header for this API.
 
     + Headers
     
-            REFER : See common headers sesction
+            X-AFC: SB1ON1
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            X-Secure-Session: ECASR7DN20SNJMLLI
             
 + Parameters
     + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE`)...String `type` of the cart to perform action with.
@@ -3612,14 +3616,15 @@ SecureSession is a required header for this API.
         }
 
 # Cart transfer [/carts/{id}/transfer]
-### Transfer cart from gues to user [POST]
+### Transfer cart from guest to user [POST]
 Transfers a cart from a guest session to current logged in member
 + Request
 
     + Headers
     
-            REFER : See common headers section
-            
+            X-AFC: SB1ON1
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
 + Parameters
     + id (required, Number, `23`)...Numeric `id` of the cart.
 
@@ -3775,7 +3780,38 @@ Sample url is https://www.123dapp.com/api/v2/cart/shippingaddress?address1=1%20M
         "is_residential": true
         }
      
+# Cart shipping options [/carts/shippingoptions]
+### Update shipping option [PUT]
+Set/Update user selected shipping options for one or more shipping line items in the cart and choose whether insurance is needed for shipping. This API call has to be used on shipping line items with their STATUS field set to "PRICE". This call changes the cart shipping line items. The field PRICE will be set to the price of the selected option and SELECTED_OPTION will be set to the chosen object.
++ Request
 
+    + Headers
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            
++ Parameters
+    + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE`)...String `type` of the cart to perform action with.
+    + shipping_options (required, JSON, '[{"SHIPPING_LINE_ITEM_ID": 641,"SHIPPING_METHOD_ID" : "M1"},{"SHIPPING_LINE_ITEM_ID": 645,"NEEDS_INSURANCE" : true}]')
+
++ Response 200 (application/json)
+
+        {       
+        "id": 12,
+        "member_id": 121212,
+        "address_type": "SHIPPING_ADDRESS",
+        "name": "testMember",
+        "company": "Spark",
+        "address1": "1 Market",
+        "address2": "6th floor",
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94105",
+        "country_code": "US",
+        "telephone": "415-765-7654",
+        "is_residential": true
+        }
+        
 
 #Group Admin
 These admin operations require admin privilege for logged in user.
