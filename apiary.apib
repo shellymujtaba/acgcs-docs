@@ -3792,7 +3792,7 @@ Set/Update user selected shipping options for one or more shipping line items in
             
 + Parameters
     + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE`)...String `type` of the cart to perform action with.
-    + shipping_options (required, JSON, `[{"shipping_line_item_id": 8220,"shipping_method_id" : "MN"},{"shipping_line_item_id": 8221,"needs_insurance" : true}]`)...JSON `JSON Array` of shipping line items and corresponding shipping option, selected by the user. Every element of JSON array MUST contain shipping_line_item_id and at least one of shipping_method or needs_insurance fields:
+    + shipping_options (required, JSON, `[{"shipping_line_item_id": 8220,"shipping_method_id" : "MN"},{"shipping_line_item_id": 8221,"needs_insurance" : true}]`)...JSON `JSON Array` of shipping line items and corresponding shipping option, selected by the user. Every element of JSON array MUST contain shipping_line_item_id and at least one of shipping_method or needs_insurance fields.
         * shipping_line_item_id : id of the system generated shipping line item when one or more physical items are added to the cart.
         * shipping_method_id : id of a shipping method provided by the system for given shipping option.
         * needs_insurance : true or false. True if user would like to choose insurance for this shipping line item. Default is false.
