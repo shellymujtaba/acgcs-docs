@@ -1935,7 +1935,7 @@ Returns a guest session ID.   Guest sessions expire after 4 hours of inactivity.
 This group of operations works on shops. A shop is a core entity in marketplace eco-system. A seller needs to establish a shop in order to start selling assets.
 
 ##Shops [/shops]
-Creating new shops and listing all shops associated to the currently logged in member.
+Operations for shop creation and retrieval.
 
 ### Create a new shop [POST]
 
@@ -1976,6 +1976,10 @@ Creating new shops and listing all shops associated to the currently logged in m
             }
 
 ### List shops [GET]
+List shops for a given user. If the user is logged in, retrieve all shops.
+If using a Gest Session and member_id is specified in parameters, returned
+only the shops that are online and approved.
+
 + Request
     + Header
     
@@ -2013,7 +2017,8 @@ Creating new shops and listing all shops associated to the currently logged in m
 
 
 ##Shop [/shops/{shop_id}]
-CRUD operations on a shop (get, update, and delete only). Requesting a shop via POST causes the shop to be placed in the approval queue. DELETE shop brings the shop offline, but members can still access previously purchased products from the shop.
+CRUD operations on a shop (see above for POST). Requesting a shop via POST causes the shop to be placed in the approval queue.
+DELETE shop brings the shop offline, but members can still access previously purchased products from the shop.
 
 + Parameters
     + shop_id (required, Number, `1234567890`)...Shop id
