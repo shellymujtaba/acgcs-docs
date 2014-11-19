@@ -3253,7 +3253,7 @@ Line items are items within carts. Cart can contain 'n' line items. User can per
 Add a line item to the cart or update exisiting one of same type and product id. Return the updated tenant specific cart (as identified by afc header) for a member or guest session with lineItems, and total price. Additionally return the new/updated line item in the "updated" field. 
 Here are some key points about cart:
 * If a line item of type SUBSCRIPTION already exists in the cart this operation will result in a replace as no more than one subscription is allowed.
-* LineItem will be added to the cart of the same type. ESTORE line item will be added to ESTORE cart and MARKETPLACE line item will be added to MARKETPLACE cart. No need to pass cart_type in the call.
+* LineItem will be added to the cart of the same type. <a href="/reference/appendices">ESTORE line item</a> will be added to ESTORE cart and MARKETPLACE line item will be added to MARKETPLACE cart. cart_type is not required in the call.
 * This call is not allowed to update the price on shipping line item.
 
 |description|HTTP|code
@@ -3627,6 +3627,7 @@ Transfers a cart from a guest session to current logged in member
 
 + Parameters
     + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE`)...String `type` of the cart to perform action with.
+    + guest_session (required,String,`0000000-5F02-4133-BE38-ED61ACD29108`)...String `guest session` associated with the cart to perform action with.
 
 + Response 204 (application/json)
 
