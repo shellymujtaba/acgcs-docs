@@ -4993,11 +4993,8 @@ Delete a coupon. Returns the updated cart (as identified by afc header and cart 
 These admin operations require admin privilege for logged in user.
 
 
-##Shops [/admin/shops/{shop_id}]
-Retrieve shops, update shop approval/denial status.
-
-+ Parameters
-    + shop_id (required, Number, `1234567890`)...Shop id
+##Shops [/admin/shops]
+Retrieve shops according to the parameters passed in the query.
 
 ### Retrieve shops [GET]
 
@@ -5008,9 +5005,10 @@ Retrieve shops, update shop approval/denial status.
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
+    + shop_id (optional, Number, `1234567890`)...Shop id
     + member_id (optional, Number,`1234567890`)... Search members shops.
-    + start_date (optional, Date, `10-12-2013`) ...Limit results to those requested/created after a given date (mm-dd-yyyy format) 
-    + end_date (optional, Date, `10-13-2013`)...Limit results to those requested/created before a given date (M-d-yyyy format)
+    + start_date (optional, Date, `10-12-2013`) ...Limit results to those requested/created on or after a given date (mm-dd-yyyy format) 
+    + end_date (optional, Date, `10-13-2013`)...Limit results to those requested/created on or before a given date (M-d-yyyy format)
     + include_pending (optional, Boolean, `true`) ...Include pending shops
     + include_denied (optional, Boolean, `false`) ...Include denied shops
     + include_approved (optional, Boolean, `false`) ...Include approved shops
@@ -5046,6 +5044,10 @@ Retrieve shops, update shop approval/denial status.
               "_link_next": "/admin/shops?limit=26&offset=39"
             }
 
+
+##Shop [/admin/shops/{shop_id}]
+Update a shop based on the parameters in the query.
+
 ### Update a shop [PUT]
 
 + Request
@@ -5056,6 +5058,7 @@ Retrieve shops, update shop approval/denial status.
             Content-type:application/x-www-form-urlencoded
     
 + Parameters
+    + shop_id (required, Number, `1234567890`)...Shop id
     + name (optional, String, `New Shop Name`) ...Shop Name
     + banner_file_id (optional, Number, `550123`)...File id of the uploaded banner image
     + current_portfolio_url (optional, String, `http://dev.squidplatform.net`) ...Portfolio url
@@ -5076,7 +5079,7 @@ Retrieve shops, update shop approval/denial status.
                 "current_sales_url": "http://dev.squidplatform.net",
                 "shop_status": 0,
                 "shop_approval_status": "DENIED",
-                "shop_denial_reason": FRAUD,
+                "shop_denial_reason": "FRAUD",
                 "pending_total": 0,
                 "total_sales": 0,
                 "total_payout": 0
