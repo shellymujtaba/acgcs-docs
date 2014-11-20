@@ -5085,6 +5085,57 @@ Update a shop based on the parameters in the query.
                 "total_payout": 0
             }
 
+## Shop Assets [/admin/shops/assets]
+
+### Retrieve shop assets according to the query parameters [GET]
+
++ Request
+    + Header
+            
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+//TODO
+    + shop_id (optional, Number, `1234567890`)...Shop id
+    + member_id (optional, Number,`1234567890`)... Search members shops.
+    + start_date (optional, Date, `10-12-2013`) ...Limit results to those requested/created on or after a given date (mm-dd-yyyy format) 
+    + end_date (optional, Date, `10-13-2013`)...Limit results to those requested/created on or before a given date (M-d-yyyy format)
+    + include_pending (optional, Boolean, `true`) ...Include pending shops
+    + include_denied (optional, Boolean, `false`) ...Include denied shops
+    + include_approved (optional, Boolean, `false`) ...Include approved shops
+    + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
+    + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
+
++ Response 200 (application/json)
+    + Body
+    
+            {
+              "shops": [
+                {
+                  "shop_id": 1234567890,
+                  "member_id": 1234567890,
+                  "name": "Hello Shop",
+                  "banner_file_id": 512123,
+                  "current_portfolio_url": "http://dev.squidplatform.net",
+                  "current_sales_url": "http://dev.squidplatform.net",
+                  "shop_status": 1,
+                  "shop_approval_status": "APPROVED",
+                  "shop_denial_reason": null,
+                  "pending_total": 40.12,
+                  "total_sales": 9.99,
+                  "total_payout": 4.49
+                }
+              ],
+              "count": 260,
+              "pages": 20,
+              "limit": 13,
+              "offset": 39,
+              "_link": "/admin/shops?limit=26",
+              "_link_prev": "/admin/shops?limit=26&offset=26",
+              "_link_next": "/admin/shops?limit=26&offset=39"
+            }
+
 
 ##Payouts [/admin/payouts/{payout_id}]
 Retrieve payouts and approve/deny payout requests. Approving a payout places it to the payout queue.
