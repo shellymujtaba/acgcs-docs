@@ -5006,7 +5006,7 @@ Retrieve shops according to the parameters passed in the query.
 
 + Parameters
     + shop_id (optional, Number, `1234567890`)...Shop id
-    + member_id (optional, Number,`1234567890`)... Search members shops.
+    + member_id (optional, Number,`1234567890`)... Search shop by member id.
     + start_date (optional, Date, `10-12-2013`) ...Limit results to those requested/created on or after a given date (mm-dd-yyyy format) 
     + end_date (optional, Date, `10-13-2013`)...Limit results to those requested/created on or before a given date (M-d-yyyy format)
     + include_pending (optional, Boolean, `true`) ...Include pending shops
@@ -5096,7 +5096,7 @@ Update a shop based on the parameters in the query.
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
-//TODO
+
     + shop_id (optional, Number, `1234567890`)...Shop id
     + member_id (optional, Number,`1234567890`)... Search members shops.
     + start_date (optional, Date, `10-12-2013`) ...Limit results to those requested/created on or after a given date (mm-dd-yyyy format) 
@@ -5111,29 +5111,186 @@ Update a shop based on the parameters in the query.
     + Body
     
             {
-              "shops": [
-                {
-                  "shop_id": 1234567890,
-                  "member_id": 1234567890,
-                  "name": "Hello Shop",
-                  "banner_file_id": 512123,
-                  "current_portfolio_url": "http://dev.squidplatform.net",
-                  "current_sales_url": "http://dev.squidplatform.net",
-                  "shop_status": 1,
-                  "shop_approval_status": "APPROVED",
-                  "shop_denial_reason": null,
-                  "pending_total": 40.12,
-                  "total_sales": 9.99,
-                  "total_payout": 4.49
-                }
-              ],
-              "count": 260,
-              "pages": 20,
-              "limit": 13,
-              "offset": 39,
-              "_link": "/admin/shops?limit=26",
-              "_link_prev": "/admin/shops?limit=26&offset=26",
-              "_link_next": "/admin/shops?limit=26&offset=39"
+                "count": 5,
+                "limit": 1,
+                "offset": 3,
+                "_link": "/admin/shops/assets?shop_id=7&limit=1&offset=3",
+                "_link_prev": "/admin/shops/assets?shop_id=7&limit=1&offset=2",
+                "_link_next": "/admin/shops/assets?shop_id=7&limit=1&offset=4",
+                "shop_assets": [
+                    {
+                        "asset": {
+                            "ASSET_ID": 588450,
+                            "ASSET_NAME": "DIN 2448",
+                            "IS_GALLERY_ASSET": true,
+                            "MEDIA_TYPE_ID": 21,
+                            "FILE_SIZE": 0,
+                            "PRICE": 0,
+                            "KEYWORDS": "Pipe DIN2448",
+                            "DESCRIPTION": "Pipe",
+                            "DOWNLOAD_COUNT": 0,
+                            "IS_ONLINE_VIEWER_AVAILABLE": false,
+                            "LANGUAGE": "en",
+                            "REGION": "",
+                            "SOFTWARE": 9,
+                            "PARENT_ASSET_ID": "",
+                            "IS_PREMIUM_ASSET": false,
+                            "PROGRESS_STATUS": 1,
+                            "DELIVERY_MEDIA": "",
+                            "CATEGORYID1": "",
+                            "CATEGORYID2": "",
+                            "CATEGORY1": "",
+                            "CATEGORY2": "",
+                            "RATING_COUNT": 0,
+                            "RATING_AVERAGE": 0,
+                            "RATING_RESULT": 0,
+                            "ASSET_STATUS_CODE": 0,
+                            "MEDIA_TYPE": "Supporting Parts",
+                            "VIEWCOUNT": 0,
+                            "COMMENT_COUNT": 0,
+                            "EXTENSIONS": {
+                                "EXTENSION": []
+                            },
+                            "MODEL_TYPE": 1,
+                            "FILEFORMATS": {
+                                "FILEFORMAT": ""
+                            },
+                            "ARTIST": {
+                                "LOCATION": "",
+                                "AVATAR": "http://alpha.squidplatform.com/Images/v23/Member/default_avatar.png",
+                                "DESCRIPTION": "",
+                                "ARTIST_ID": 20268792,
+                                "ARTIST_NAME": "Autodesk"
+                            },
+                            "CANONICAL_SEO_URL": "http://alpha.squidplatform.com/dwg-3D-Model/DIN-2448/588450",
+                            "DOWNLOADFILES": {
+                                "DOWNLOADFILE": []
+                            },
+                            "THUMBNAILS": {
+                                "THUMBNAIL": [
+                                    {
+                                        "FILEITEMID": 4633949,
+                                        "THUMBNAILTYPE": 1,
+                                        "THUMB_1200": "http://alpha.squidplatform.com/Images/v23/FullPreview/ThumbnailGradient1200.jpg",
+                                        "THUMB_800": "http://alpha.squidplatform.com/Images/v23/FullPreview/ThumbnailGradient800.jpg",
+                                        "THUMB_600": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-perspectiveView.jpg61c7a51b-c546-4750-ab1b-f70e05be101dLarge.jpg",
+                                        "LARGE": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-perspectiveView.jpg61c7a51b-c546-4750-ab1b-f70e05be101dLarge.jpg",
+                                        "THUMB_256": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-perspectiveView.jpg61c7a51b-c546-4750-ab1b-f70e05be101dMedium2.jpg",
+                                        "MEDIUM2": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-perspectiveView.jpg61c7a51b-c546-4750-ab1b-f70e05be101dMedium2.jpg",
+                                        "THUMB_128": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-perspectiveView.jpg61c7a51b-c546-4750-ab1b-f70e05be101dMedium.jpg",
+                                        "MEDIUM": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-perspectiveView.jpg61c7a51b-c546-4750-ab1b-f70e05be101dMedium.jpg",
+                                        "THUMB_90": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-perspectiveView.jpg61c7a51b-c546-4750-ab1b-f70e05be101dPetite.jpg",
+                                        "PETITE": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-perspectiveView.jpg61c7a51b-c546-4750-ab1b-f70e05be101dPetite.jpg",
+                                        "THUMB_64": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-perspectiveView.jpg61c7a51b-c546-4750-ab1b-f70e05be101dSmall.jpg",
+                                        "SMALL": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-perspectiveView.jpg61c7a51b-c546-4750-ab1b-f70e05be101dSmall.jpg",
+                                        "ORIGINAL": "http://alpha.squidplatform.com/Images/v23/FullPreview/large/NoPicture.png",
+                                        "CAPTION": "",
+                                        "DESCRIPTION": ""
+                                    },
+                                    {
+                                        "FILEITEMID": 4633955,
+                                        "THUMBNAILTYPE": 1,
+                                        "THUMB_1200": "http://alpha.squidplatform.com/Images/v23/FullPreview/ThumbnailGradient1200.jpg",
+                                        "THUMB_800": "http://alpha.squidplatform.com/Images/v23/FullPreview/ThumbnailGradient800.jpg",
+                                        "THUMB_600": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-frontView.jpgfecbd4dc-ba0a-4c7f-8edf-75d5ae707f62Large.jpg",
+                                        "LARGE": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-frontView.jpgfecbd4dc-ba0a-4c7f-8edf-75d5ae707f62Large.jpg",
+                                        "THUMB_256": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-frontView.jpgfecbd4dc-ba0a-4c7f-8edf-75d5ae707f62Medium2.jpg",
+                                        "MEDIUM2": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-frontView.jpgfecbd4dc-ba0a-4c7f-8edf-75d5ae707f62Medium2.jpg",
+                                        "THUMB_128": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-frontView.jpgfecbd4dc-ba0a-4c7f-8edf-75d5ae707f62Medium.jpg",
+                                        "MEDIUM": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-frontView.jpgfecbd4dc-ba0a-4c7f-8edf-75d5ae707f62Medium.jpg",
+                                        "THUMB_90": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-frontView.jpgfecbd4dc-ba0a-4c7f-8edf-75d5ae707f62Petite.jpg",
+                                        "PETITE": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-frontView.jpgfecbd4dc-ba0a-4c7f-8edf-75d5ae707f62Petite.jpg",
+                                        "THUMB_64": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-frontView.jpgfecbd4dc-ba0a-4c7f-8edf-75d5ae707f62Small.jpg",
+                                        "SMALL": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-frontView.jpgfecbd4dc-ba0a-4c7f-8edf-75d5ae707f62Small.jpg",
+                                        "ORIGINAL": "http://alpha.squidplatform.com/Images/v23/FullPreview/large/NoPicture.png",
+                                        "CAPTION": "",
+                                        "DESCRIPTION": ""
+                                    },
+                                    {
+                                        "FILEITEMID": 4633960,
+                                        "THUMBNAILTYPE": 1,
+                                        "THUMB_1200": "http://alpha.squidplatform.com/Images/v23/FullPreview/ThumbnailGradient1200.jpg",
+                                        "THUMB_800": "http://alpha.squidplatform.com/Images/v23/FullPreview/ThumbnailGradient800.jpg",
+                                        "THUMB_600": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-rightView.jpg2586848d-d2d9-4809-81db-0cf915b6e536Large.jpg",
+                                        "LARGE": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-rightView.jpg2586848d-d2d9-4809-81db-0cf915b6e536Large.jpg",
+                                        "THUMB_256": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-rightView.jpg2586848d-d2d9-4809-81db-0cf915b6e536Medium2.jpg",
+                                        "MEDIUM2": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-rightView.jpg2586848d-d2d9-4809-81db-0cf915b6e536Medium2.jpg",
+                                        "THUMB_128": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-rightView.jpg2586848d-d2d9-4809-81db-0cf915b6e536Medium.jpg",
+                                        "MEDIUM": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-rightView.jpg2586848d-d2d9-4809-81db-0cf915b6e536Medium.jpg",
+                                        "THUMB_90": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-rightView.jpg2586848d-d2d9-4809-81db-0cf915b6e536Petite.jpg",
+                                        "PETITE": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-rightView.jpg2586848d-d2d9-4809-81db-0cf915b6e536Petite.jpg",
+                                        "THUMB_64": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-rightView.jpg2586848d-d2d9-4809-81db-0cf915b6e536Small.jpg",
+                                        "SMALL": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-rightView.jpg2586848d-d2d9-4809-81db-0cf915b6e536Small.jpg",
+                                        "ORIGINAL": "http://alpha.squidplatform.com/Images/v23/FullPreview/large/NoPicture.png",
+                                        "CAPTION": "",
+                                        "DESCRIPTION": ""
+                                    },
+                                    {
+                                        "FILEITEMID": 4633966,
+                                        "THUMBNAILTYPE": 1,
+                                        "THUMB_1200": "http://alpha.squidplatform.com/Images/v23/FullPreview/ThumbnailGradient1200.jpg",
+                                        "THUMB_800": "http://alpha.squidplatform.com/Images/v23/FullPreview/ThumbnailGradient800.jpg",
+                                        "THUMB_600": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-wireframePerspective.jpg58f9e609-9873-41d2-be65-2130f56075b3Large.jpg",
+                                        "LARGE": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-wireframePerspective.jpg58f9e609-9873-41d2-be65-2130f56075b3Large.jpg",
+                                        "THUMB_256": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-wireframePerspective.jpg58f9e609-9873-41d2-be65-2130f56075b3Medium2.jpg",
+                                        "MEDIUM2": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-wireframePerspective.jpg58f9e609-9873-41d2-be65-2130f56075b3Medium2.jpg",
+                                        "THUMB_128": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-wireframePerspective.jpg58f9e609-9873-41d2-be65-2130f56075b3Medium.jpg",
+                                        "MEDIUM": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-wireframePerspective.jpg58f9e609-9873-41d2-be65-2130f56075b3Medium.jpg",
+                                        "THUMB_90": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-wireframePerspective.jpg58f9e609-9873-41d2-be65-2130f56075b3Petite.jpg",
+                                        "PETITE": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-wireframePerspective.jpg58f9e609-9873-41d2-be65-2130f56075b3Petite.jpg",
+                                        "THUMB_64": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-wireframePerspective.jpg58f9e609-9873-41d2-be65-2130f56075b3Small.jpg",
+                                        "SMALL": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 2448-wireframePerspective.jpg58f9e609-9873-41d2-be65-2130f56075b3Small.jpg",
+                                        "ORIGINAL": "http://alpha.squidplatform.com/Images/v23/FullPreview/large/NoPicture.png",
+                                        "CAPTION": "",
+                                        "DESCRIPTION": ""
+                                    }
+                                ]
+                            },
+                            "TEXTURESFILES": {
+                                "TEXTURESFILE": []
+                            },
+                            "EVALUATIONFILES": {
+                                "EVALUATIONFILE": []
+                            },
+                            "EXTRAFILES": {
+                                "EXTRAFILE": []
+                            },
+                            "PATCHFILES": {
+                                "PATCHFILE": []
+                            },
+                            "DERIVATIVEFILES": {
+                                "DERIVATIVEFILE": []
+                            },
+                            "IS_DOWNLOAD_ASSET": false,
+                            "STATUS_POST_COUNT": 0,
+                            "IS_MEMBER_FAVORITE": false,
+                            "USED_IN_PROJECT_COUNT": 0,
+                            "FAVORITED_BY": [],
+                            "FAVORITE_COUNT": 0,
+                            "CHILD_ASSET_COUNT": 0,
+                            "KEYDATA": {
+                                "KEYFILEFOLDER": []
+                            },
+                            "REFERENCED_ASSETS": [],
+                            "DATE_SUBMITTED": "November 06, 2014 13:31:05",
+                            "REVIEWS": {
+                                "REVIEW": []
+                            },
+                            "IS_AUTHORIZED_DOWNLOAD": true,
+                            "MESH": false,
+                            "IS_DELETED": false,
+                            "IS_REPURCHASABLE": false,
+                            "IS_STORE_ASSET": false,
+                            "IS_REVIEWABLE": false,
+                            "VERSION": 1
+                        },
+                        "product_price": {
+                            "total_price": 0.23
+                        },
+                        "shop_id": 7,
+                        "for_sale": true
+                    }
+                ]
             }
 
 
