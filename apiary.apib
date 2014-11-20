@@ -4989,11 +4989,11 @@ Delete a coupon. Returns the updated cart (as identified by afc header and cart 
             ]
         }
 
-#Group Admin
+# Group Admin
 These admin operations require admin privilege for logged in user.
 
 
-##Shops [/admin/shops{?shop_id,member_id,member_name,member_email,start_date,end_date,include_pending,include_denied,include_approved,limit,offset}]
+## Shops [/admin/shops{?shop_id,member_id,member_name,member_email,start_date,end_date,include_pending,include_denied,include_approved,limit,offset}]
 Retrieve shops according to the query parameters.
 
 ### Retrieve shops [GET]
@@ -5047,7 +5047,7 @@ Retrieve shops according to the query parameters.
             }
 
 
-##Shop [/admin/shops/{shop_id}]
+## Shop [/admin/shops/{shop_id}]
 Update a shop based on the parameters in the query.
 
 ### Update a shop [PUT]
@@ -5087,7 +5087,7 @@ Update a shop based on the parameters in the query.
                 "total_payout": 0
             }
 
-## Shop Assets [/admin/shops/assets]
+## Shop Assets [/admin/shops/assets{?shop_id,member_id,member_name,member_email,start_date,end_dateinclude_pending,include_denied,include_approved,for_sale_only,limit,offset}]
 
 ### Retrieve assets for sales according to the query parameters [GET]
 
@@ -5108,9 +5108,9 @@ Update a shop based on the parameters in the query.
     + include_pending (optional, Boolean, `true`)... Include pending shops
     + include_denied (optional, Boolean, `false`)... Include denied shops
     + include_approved (optional, Boolean, `false`)... Include approved shops
-    + ifor_sale_only (optional, Boolean, `true`)... Include for sale assets only. Set to false to get all shop assets. Default to `true`.
-    + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
-    + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
+    + for_sale_only (optional, Boolean, `true`)... Include for sale assets only. Set to false to get all shop assets. Default to `true`.
+    + limit (optional, Number,`20`)... Number of results to return in each page. Default: 10.
+    + offset (optional, Number, `3`)... This offsets the start of each page by the number specified. Default: 0.
 
 + Response 200 (application/json)
     + Body
@@ -5299,7 +5299,7 @@ Update a shop based on the parameters in the query.
             }
 
 
-##Payouts [/admin/payouts/{payout_id}]
+## Payouts [/admin/payouts/{payout_id}]
 Retrieve payouts and approve/deny payout requests. Approving a payout places it to the payout queue.
     
 
