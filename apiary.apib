@@ -4732,9 +4732,12 @@ Change the price or for sale status of a shop asset.
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
-    + asset_id (required, Number, `1234567890`)... Asset id.
-    + price (optional, Number, `5.99`)... Asset price.
-    
+    + asset_id (required, Number, `588452`)... Asset id
+    + asset_price (optional, Number, `5.99`)... Set asset price
+    + for_sale (optional, Boolean, `true`)... Change for sale status of the asset (for sale / not for sale)
+    + asset_name (optional, String, `Esoteric Bolt`)... Update the asset title/name.
+    + description (optional, String, `Must have for mind bending games`)... Update the description of the asset.
+    + keywords (optional, String, `engineering,bolt,mechanics`)... Update the asset tags/keywords.
 
 + Response 200 (application/json)
 
