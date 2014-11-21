@@ -4720,6 +4720,91 @@ Update a shop based on the parameters in the query.
                 ]
             }
 
+
+## Shop Asset [/admin/shops/assets/{asset_id}]
+Change the price or for sale status of a shop asset.
+
+### Update a shop asset [PUT]
++ Request
+    + Header
+            
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + asset_id (required, Number, `1234567890`)... Asset id.
+    + price (optional, Number, `5.99`)... Asset price.
+    
+
++ Response 200 (application/json)
+
+            {
+                "asset": {
+                    "price": 0,
+                    "keywords": "",
+                    "language": "en",
+                    "region": "",
+                    "software": 9,
+                    "artist": {
+                        "location": "",
+                        "avatar": "http://alpha.squidplatform.com/Images/v23/Member/default_avatar.png",
+                        "description": "",
+                        "artist_name": ""
+                    },
+                    "mesh": false,
+                    "asset_id": 1495839,
+                    "asset_name": "Regression V2 Asset",
+                    "is_gallery_asset": false,
+                    "description": "",
+                    "download_count": 0,
+                    "is_online_viewer_available": false,
+                    "parent_asset_id": "",
+                    "is_premium": false,
+                    "progress_status": 1,
+                    "delivery_media": "",
+                    "rating_count": 0,
+                    "rating_average": 0,
+                    "rating_result": 0,
+                    "asset_status_code": 2,
+                    "media_type": "General Media",
+                    "model_type": 1,
+                    "canonical_seo_url": "http://alpha.squidplatform.com/Model/ModelName/1495839",
+                    "is_download_asset": true,
+                    "status_post_count": 0,
+                    "is_member_favorite": false,
+                    "used_in_project_count": 0,
+                    "favorited_by": [],
+                    "favorite_count": 0,
+                    "child_asset_count": 0,
+                    "date_submitted": "October 10, 2014 07:38:22",
+                    "purchase_date": "",
+                    "_link": "",
+                    "thumbnails": [
+                        {
+                            "caption": "",
+                            "description": "",
+                            "file_id": 0,
+                            "thumb_path_prefix": "",
+                            "is_primary": false
+                        }
+                    ],
+                    "referenced_assets": [],
+                    "is_authorized_download": false,
+                    "is_deleted": false,
+                    "is_repurchasable": false,
+                    "is_store_asset": false,
+                    "is_reviewable": false,
+                    "file_formats": [],
+                    "key_data": {}
+                },
+                "product_price": {
+                    "total_price": 4.99
+                },
+                "shop_id": 8,
+                "for_sale": false
+            }
+
+
 ## Payouts [/admin/payouts/{payout_id}]
 Retrieve payouts and approve/deny payout requests. Approving a payout places it to the payout queue.
     
