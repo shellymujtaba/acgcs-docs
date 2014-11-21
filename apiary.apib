@@ -4863,6 +4863,26 @@ Retrieve members according to query parameters.
             }
 
 
+## Member [/admin/members/{member_id}]
+Update the status of a user to quarantine/block him from purchasing/selling.
+
+### Update a shop asset [PUT]
++ Request
+    + Header
+            
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + member_id (required, Number, `123123`)... Shop id
+    + TBD (optional, String, `TBD`)... Change the status of the user.
+
++ Response 200 (application/json)
+
+            {
+                "status" : "tbd"
+            }
+
 ## Payouts [/admin/payouts/{payout_id}]
 Retrieve payouts and approve/deny payout requests. Approving a payout places it to the payout queue.
     
