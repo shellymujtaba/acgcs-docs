@@ -4826,6 +4826,8 @@ Retrieve members according to query parameters.
     + member_id (optional, Number,`1234567890`)... Search by member id.
     + member_name (optional, String, `Joe Schmoe`)... Search by member name.
     + member_email (optional, String, `donaldduck@dysney.com`)... Search by member email address.
+    + limit (optional, Number,`20`)... Number of results to return in each page. Default: 10.
+    + offset (optional, Number, `3`)... This offsets the start of each page by the number specified. Default: 0.
 
 + Response 200 (application/json)
     + Body
@@ -4834,7 +4836,7 @@ Retrieve members according to query parameters.
                 "count": 1,
                 "limit": 20,
                 "offset": 0,
-                "_link": "/shops/8/assets?limit=20&offset=0",
+                "_link": "/admin/members?member_name='Ronald Regan'&limit=20&offset=0",
                 "members": [
                     {
                         "member":{  
