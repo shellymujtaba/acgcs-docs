@@ -4524,7 +4524,7 @@ Delete a coupon. Returns the updated cart (as identified by afc header and cart 
 These admin operations require admin privilege for logged in user.
 
 
-## Shops [/admin/shops{?shop_id,member_id,member_name,member_email,start_date,end_date,include_pending,include_denied,include_approved,limit,offset}]
+## Shops [/admin/shops{?shop_id,member_id,start_date,end_date,include_pending,include_denied,include_approved,limit,offset}]
 Retrieve shops according to the query parameters.
 
 ### Retrieve shops [GET]
@@ -4538,8 +4538,6 @@ Retrieve shops according to the query parameters.
 + Parameters
     + shop_id (optional, Number, `1234567890`)... Search by shop id
     + member_id (optional, Number,`1234567890`)... Search by member id.
-    + member_name (optional, String, `"Joe Schmoe"`)... Search by member name.
-    + member_email (optional, String, `donaldduck@dysney.com`)... Search by member email address.
     + start_date (optional, Date, `10-12-2013`) ...Limit results to shops modified on or after a given date (mm-dd-yyyy format) 
     + end_date (optional, Date, `10-13-2013`)...Limit results to shops modified on or before a given date (M-d-yyyy format)
     + include_pending (optional, Boolean, `true`) ...Include pending shops
@@ -4618,7 +4616,7 @@ Update a shop based on the parameters in the query.
                 "total_payout": 0
             }
 
-## Shop Assets [/admin/shops/assets{?shop_id,member_id,member_name,member_email,start_date,end_dateinclude_pending,include_denied,include_approved,for_sale_only,limit,offset}]
+## Shop Assets [/admin/shops/assets{?shop_id,member_id,start_date,end_dateinclude_pending,include_denied,include_approved,for_sale_only,limit,offset}]
 Retrieve the assets for sales according to the query parameters.
 
 ### Retrieve assets [GET]
@@ -4633,8 +4631,6 @@ Retrieve the assets for sales according to the query parameters.
 
     + shop_id (optional, Number, `1234567890`)... Search by shop id
     + member_id (optional, Number,`1234567890`)... Search by member id.
-    + member_name (optional, String, `Joe Schmoe`)... Search by member name.
-    + member_email (optional, String, `donaldduck@dysney.com`)... Search by member email address.
     + start_date (optional, Date, `10-12-2013`)... Limit results to shop modified on or after a given date (MM-dd-yyyy format) 
     + end_date (optional, Date, `10-13-2013`)... Limit results to shop modified on or before a given date (MM-dd-yyyy format)
     + include_pending (optional, Boolean, `true`)... Include pending shops
