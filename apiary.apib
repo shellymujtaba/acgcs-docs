@@ -4813,7 +4813,7 @@ Update / Add an asset to a shop. Some of the asset properties can be modified fr
 ## Members [/admin/members{?member_id,member_name,member_email}]
 Retrieve members according to query parameters.
 
-### Retrieve member [GET]
+### Retrieve members [GET]
 
 + Request
     + Header
@@ -4836,31 +4836,30 @@ Retrieve members according to query parameters.
                 "count": 1,
                 "limit": 20,
                 "offset": 0,
-                "_link": "/admin/members?member_name='Ronald Regan'&limit=20&offset=0",
+                "_link": "/admin/members?member_name='jsmith'&limit=20&offset=0",
                 "members": [
                     {
-                        "member":{  
-                          "type_id":0,
-                          "id":20280723,
-                          "profile":{
-                             "description":"i am great!",
-                             "find_me":{
-                                "twitter":"http:\/\/www.twitter.com\/jsmith",
-                                "facebook":"http:\/\/www.facebook.com\/jsmith"
-                             },
-                             "avatar_path":"http:\/\/dev.squidplatform.net\/preview\/2011\/11\/11__09_47_18\/ponoko-dowloadable-design.jpg846476b8-bb22-4e8c-be2e-65366de168c6.jpg",
-                             "location":"usa"
-                          },   
-                          "name":"jsmith",
-                          "screen_name":"jsmith",
-                          "comments":23,
-                          "likes":2,
-                          "follows":12,
-                          "following":3,
-                          "publish":2,
-                          "locale":"en_us"
-                       }
+                        "type_id":0,
+                        "id":20280723,
+                        "profile":{
+                         "description":"i am great!",
+                         "find_me":{
+                            "twitter":"http:\/\/www.twitter.com\/jsmith",
+                            "facebook":"http:\/\/www.facebook.com\/jsmith"
+                         },
+                         "avatar_path":"http:\/\/dev.squidplatform.net\/preview\/2011\/11\/11__09_47_18\/ponoko-dowloadable-design.jpg846476b8-bb22-4e8c-be2e-65366de168c6.jpg",
+                         "location":"usa"
+                        },   
+                        "name":"jsmith",
+                        "screen_name":"jsmith",
+                        "comments":23,
+                        "likes":2,
+                        "follows":12,
+                        "following":3,
+                        "publish":2,
+                        "locale":"en_us"
                     }
+                ]
             }
 
 
