@@ -4721,8 +4721,8 @@ Update a shop based on the parameters in the query.
             }
 
 
-## Shop Asset [/admin/shops/assets/{asset_id}]
-Change the price or for sale status of a shop asset.
+## Shop Asset [/admin/shops/{shop_id}/assets/{asset_id}]
+Update / Add an asset to a shop. Some of the asset properties can be modified from this REST API, including the asset name, description, and keywords (tags).
 
 ### Update a shop asset [PUT]
 + Request
@@ -4732,7 +4732,8 @@ Change the price or for sale status of a shop asset.
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
-    + asset_id (required, Number, `588452`)... Asset id
+    + shop_id (required, Number, `123123`)... Shop id
+    + asset_id (required, Number, `536546`)... Asset id
     + asset_price (optional, Number, `5.99`)... Set asset price
     + for_sale (optional, Boolean, `true`)... Change for sale status of the asset (for sale / not for sale)
     + asset_name (optional, String, `Esoteric Bolt`)... Update the asset name / title.
