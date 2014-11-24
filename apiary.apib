@@ -4544,7 +4544,7 @@ Retrieve shops according to the query parameters.
     + start_date (optional, Date, `10-12-2013`)... Limit results to shops modified on or after a given date (mm-dd-yyyy format).
     + end_date (optional, Date, `10-13-2013`)... Limit results to shops modified on or before a given date (M-d-yyyy format).
     + approval_status = `PENDING` (optional, String, `PENDING,DENIED`)... Search by approval status, which can be PENDING, DENIED, or APPROVED.
-    + sort_by (optional, String, ``)...
+    + sort_by = `MODIFIED_DATE` (optional, String, `CREATED_DATE`)... Returned results sorted by specific properties.
     + sort_order = `DESC` (optional, String, `ASC|DESC`)... Sort order for the results.
     + limit (optional, Number,`20`)... Number of results to return in each page. Default: 10.
     + offset (optional, Number, `3`)... This offsets the start of each page by the number specified. Default: 0.
@@ -4620,7 +4620,7 @@ Update a shop based on the parameters in the query.
             }
 
 ## Shop Assets [/admin/shops/assets{?shop_id,member_id,start_date,end_dateinclude_pending,include_denied,include_approved,for_sale_only,limit,offset}]
-Retrieve the assets for sales according to the query parameters.
+Retrieve the assets for sales according to the query parameters. The default will retrieve the latest assets for sale sorted with most recent at the top.
 
 ### Retrieve assets [GET]
 
@@ -4640,7 +4640,7 @@ Retrieve the assets for sales according to the query parameters.
     + start_date (optional, Date, `10-12-2013`)... Limit results to assets published for sale on or after (MM-dd-yyyy format) 
     + end_date (optional, Date, `10-13-2013`)... Limit results to assets published for sale on or before a given date (MM-dd-yyyy format)
     + for_sale_only = `true` (optional, Boolean, `true`)... Include for sale assets only. Set to false for all shop assets.
-    + sort_by (optional, String, ``)...
+    + sort_by = `MODIFIED_DATE` (optional, String, `CREATED_DATE`)... Returned results sorted by specific properties.
     + sort_order = `DESC` (optional, String, `ASC|DESC`)... Sort order for the results.
     + limit (optional, Number,`20`)... Number of results to return in each page. Default: 10.
     + offset (optional, Number, `3`)... This offsets the start of each page by the number specified. Default: 0.
