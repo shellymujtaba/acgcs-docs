@@ -4524,7 +4524,7 @@ Delete a coupon. Returns the updated cart (as identified by afc header and cart 
 These admin operations require admin privilege for logged in user.
 
 
-## Shops [/admin/shops{?shop_id,member_id,member_name,member_email,store_name,start_date,end_date,approval_status,limit,offset}]
+## Shops [/admin/shops{?shop_id,member_id,member_name,member_email,store_name,start_date,end_date,approval_status,sort_by, sort_order,limit,offset}]
 Retrieve shops according to the query parameters.
 
 ### Retrieve shops [GET]
@@ -4540,7 +4540,7 @@ Retrieve shops according to the query parameters.
     + member_id (optional, Number,`1234567890`)... Search by member id.
     + member_name (optional, String, `John`)... Search by member name, can include wildcards (`John*`).
     + member_email (optional, String, `mickey.mouse@dysney.com`)... Search by member email.
-    + store_name (optional, String, `Uber Shop`)... Search by shop name.
+    + shop_name (optional, String, `Uber Shop`)... Search by shop name.
     + start_date (optional, Date, `10-12-2013`)... Limit results to shops modified on or after a given date (mm-dd-yyyy format).
     + end_date (optional, Date, `10-13-2013`)... Limit results to shops modified on or before a given date (M-d-yyyy format).
     + approval_status = `PENDING` (optional, String, `PENDING,DENIED`)... Search by approval status, which can be PENDING, DENIED, or APPROVED.
@@ -4619,7 +4619,7 @@ Update a shop based on the parameters in the query.
                 "total_payout": 0
             }
 
-## Shop Assets [/admin/shops/assets{?shop_id,member_id,start_date,end_dateinclude_pending,include_denied,include_approved,for_sale_only,limit,offset}]
+## Shop Assets [/admin/shops/assets{?shop_id,member_id,member_name,member_email,shop_name,start_date,end_date,for_sale_only,sort_by,sort_order,limit,offset}]
 Retrieve the assets for sales according to the query parameters. The default will retrieve the latest assets for sale sorted with most recent at the top.
 
 ### Retrieve assets [GET]
@@ -4636,7 +4636,7 @@ Retrieve the assets for sales according to the query parameters. The default wil
     + member_id (optional, Number,`1234567890`)... Search by member id.
     + member_name (optional, String, `John`)... Search by member name, can include wildcards (`John*`).
     + member_email (optional, String, `mickey.mouse@dysney.com`)... Search by member email.
-    + store_name (optional, String, `Uber Shop`)... Search by shop name.
+    + shop_name (optional, String, `Uber Shop`)... Search by shop name.
     + start_date (optional, Date, `10-12-2013`)... Limit results to assets published for sale on or after (MM-dd-yyyy format) 
     + end_date (optional, Date, `10-13-2013`)... Limit results to assets published for sale on or before a given date (MM-dd-yyyy format)
     + for_sale_only = `true` (optional, Boolean, `true`)... Include for sale assets only. Set to false for all shop assets.
