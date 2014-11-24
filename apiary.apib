@@ -1951,10 +1951,10 @@ Operations for shop creation and retrieval.
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             Content-type:application/x-www-form-urlencoded
 + Parameters
-    + name (required, String, `Hello Shop`) ...Shop Name
-    + banner_file_id (required, Number, `512123`)...File id of the uploaded banner image [See Uplaod file section](http://docs.acgcs.apiary.io/reference/files/upload-file/upload-files)
-    + current_portfolio_url (required, String, `http://dev.squidplatform.net`) ...Portfolio url
-    + current_sales_url (required, String, `http://dev.squidplatform.net`) ...Sales url
+    + name (required, String, `Hello Shop`)... Shop Name
+    + banner_file_url (required, String, `https://aws-file-server/resources/image.png`)... Full path of the uploaded banner image [See Upload file section](http://docs.acgcs.apiary.io/reference/files/upload-file/upload-files)
+    + current_portfolio_url (required, String, `http://dev.squidplatform.net`)... Portfolio url
+    + current_sales_url (required, String, `http://dev.squidplatform.net`)... Sales url
 
 + Response 201 (application/json)
 
@@ -1964,7 +1964,7 @@ Operations for shop creation and retrieval.
                 "shop_id": 1234567890,
                 "member_id": 1234567890,
                 "name": "Hello Shop",
-                "banner_file_id": 512123,
+                "banner_file_url": "https://aws-file-server/resources/image.png",
                 "current_portfolio_url": "http://dev.squidplatform.net",
                 "current_sales_url": "http://dev.squidplatform.net",
                 "shop_status": 1,
@@ -2005,7 +2005,7 @@ only the shops that are online and approved.
                         "modified": "November 03, 2014 13:28:39",
                         "shop_id": 7,
                         "member_id": 20707021,
-                        "banner_file_id": 999999,
+                        "banner_file_url": "https://aws-file-server/resources/image.png",
                         "current_portfolio_url": "http://alpha.squidplatform.com/portfolio",
                         "current_sales_url": "newUrl",
                         "shop_status": 1,
@@ -2031,7 +2031,7 @@ DELETE shop brings the shop offline, but members can still access previously pur
               "shop_id": 1234567890,
               "member_id": 1234567890,
               "name": "Hello Shop",
-              "banner_file_id": 512123,
+              "banner_file_url": "https://aws-file-server/resources/image.png",
               "current_portfolio_url": "http://dev.squidplatform.net",
               "current_sales_url": "http://dev.squidplatform.net",
               "shop_status": 1,
@@ -2063,10 +2063,10 @@ Guest session results in only the public shop data to be returned. Offline shops
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             Content-type:application/x-www-form-urlencoded
 + Parameters
-    + name (optional, String, `New Shop Name`) ...Shop Name
-    + banner_file_id (optional, Number, `550123`)...File id of the uploaded banner image
-    + current_portfolio_url (optional, String, `http://dev.squidplatform.net`) ...Portfolio url
-    + current_sales_url (optional, String, `http://dev.squidplatform.net`) ...Sales url
+    + name (optional, String, `New Shop Name`)... Shop Name
+    + banner_file_url (optional, String, `https://aws-file-server/resources/image.png`)... Full URL of the uploaded banner image
+    + current_portfolio_url (optional, String, `http://dev.squidplatform.net`)... Portfolio url
+    + current_sales_url (optional, String, `http://dev.squidplatform.net`)... Sales url
     + shop_status (optional, Number, `0`) ...Shop status
 
 + Response 200 (application/json)
@@ -2076,7 +2076,7 @@ Guest session results in only the public shop data to be returned. Offline shops
                 "shop_id": 1234567890,
                 "member_id": 1234567890,
                 "name": "New Shop Name",
-                "banner_file_id": 550123,
+                "banner_file_url": "https://aws-file-server/resources/image.png",
                 "current_portfolio_url": "http://dev.squidplatform.net",
                 "current_sales_url": "http://dev.squidplatform.net",
                 "shop_status": 0,
@@ -2102,7 +2102,7 @@ Guest session results in only the public shop data to be returned. Offline shops
 Retrieve the list of assets for sale. An asset can be removed from the shop via an update request.
 
 + Parameters
-    + shop_id (required, Number, `20280723`)...Shop id
+    + shop_id (required, Number, `20280723`)... Shop id
 
 ### Retrieve shop assets [GET]
 + Request
@@ -2112,8 +2112,8 @@ Retrieve the list of assets for sale. An asset can be removed from the shop via 
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
-    + limit (optional, Number,`1`)...Number of results to return in each page. Default: 10.
-    + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
+    + limit (optional, Number,`1`)... Number of results to return in each page. Default: 10.
+    + offset (optional, Number, `3`)... This offsets the start of each page by the number specified. Default: 0.
 
 + Response 200 (application/json)
 
@@ -2208,8 +2208,8 @@ Setting a private asset "for sale" results in asset state changed to public.
             Content-type:application/x-www-form-urlencoded
 
 + Parameters
-    + asset_id (required, Number, `588452`)...Asset id
-    + asset_price (optional, Number, `5.99`)...Set asset price
+    + asset_id (required, Number, `588452`)... Asset id
+    + asset_price (optional, Number, `5.99`)... Set asset price
     + for_sale (optional, Boolean, `true`)... Mark asset for sale
 
 + Response 200
