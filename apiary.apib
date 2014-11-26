@@ -3330,7 +3330,7 @@ Sample url is https://www.123dapp.com/api/v2/cart/shippingaddress?address1=1%20M
         "is_residential": true
         }
      
-# Cart shipping options [/carts/shippingOptions]
+##Cart shipping options [/carts/shippingOptions]
 ### Update shipping option [PUT]
 Update user selected shipping options for one or more shipping line items in the cart and choose whether insurance is needed for shipping. This API call has to be used on shipping line items with their `status` field set to "PRICE". This call changes the cart shipping line items. The field `price` will be set to the price of the selected option and `selected_option` will be set to the chosen object.
 + Request
@@ -3556,7 +3556,7 @@ Update user selected shipping options for one or more shipping line items in the
             ]
         }
         
-# Cart shipment grouping method [/carts/shipmentGroupingMethods]
+##Cart shipment grouping method [/carts/shipmentGroupingMethods]
 ### Update shipment grouping method [PUT]
 Update how the shipments for multiple physical items should be grouped together. Default method is MINIMUM_SHIPMENTS. Setting already selected method has no effect on the cart.
 + Request
@@ -3934,7 +3934,7 @@ Update how the shipments for multiple physical items should be grouped together.
             }
         }
 
-# Cart coupons [/carts/coupons]
+##Cart coupons [/carts/coupons]
 ### Add coupon [PUT]
 Apply a coupon. Returns the updated cart (as identified by afc header and cart type) for a member or guest session with lineItems, applied coupons and total price.
 
