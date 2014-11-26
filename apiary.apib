@@ -1606,9 +1606,9 @@ Member like operations
     
 ### Retrieve member liked assets [GET]
 
++ Request
+    + Header
 
-+ Header
-            
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
@@ -1651,7 +1651,7 @@ Member like operations
                 "_link_next":"/member/20280723/likes?limit=26&offset=39"
             }
             
-# Subscriptions [/members/{id}/subscriptions]
+## Subscriptions [/members/{id}/subscriptions]
 Retrieves member's subscription history in cronologically descending order. Each subscription has associated event type. List of possible event types are as follows
 
 **CREATE:**
@@ -1678,8 +1678,8 @@ Retrieves member's subscription history in cronologically descending order. Each
     
 ### Retrieve member's subscription history [GET]
 
-
-+ Header
++ Request
+    + Header
             
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
@@ -1719,8 +1719,8 @@ Retrieves member's marketplace credits and payouts accumulated over time.
     
 ### Retrieve member's credits information [GET]
 
-
-+ Header
++ Request
+    + Header
             
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
@@ -1746,7 +1746,8 @@ Get all the purchases made by the member.
 
     + Headers
     
-            REFER : See common headers sesction
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             
 + Parameters
     + id (required, Number, `2345689`)...Numeric `id` of the member.
@@ -1923,7 +1924,8 @@ Here are the general steps:
     + send_create (optional, Boolean, `false`)...This param will help in knowing whether the member is getting registered with particular affiliate id. Values= true/false. Default is false
     + send_first_login (optional, Boolean, `false`)...This param will decide whether the member has logged in first time or not. values=true/false. Default is false
     + oauth_asynch (optional, Boolean, `false`)...This param is used to save your oxygen oauth info to marketplace asynchronously. values = true/false. Default is true
-    + authorization_code(optional, String, `false`)...This parameter is used to send COPPA authorization code to Oxygen login when Moderator tries to login using verification link in the email.Default is null or empty.
+    + authorization_code (optional, String, `false`)...This parameter is used to send COPPA authorization code to Oxygen login when Moderator tries to login using verification link in the email.Default is null or empty.
+
 + Response 302 
     
     + Header
@@ -1947,7 +1949,8 @@ Authenticate the token returned by /member/login call to recieve a session id
 ## Guest Session [/login/session]
 Returns a guest session ID.   Guest sessions expire after 4 hours of inactivity.
 
-+ Header
++ Request
+    + Header
             
             X-AFC: FJKB32
 
