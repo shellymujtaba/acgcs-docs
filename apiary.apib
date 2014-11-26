@@ -1,7 +1,7 @@
 FORMAT: 1A
 HOST: https://www.123dapp.com/api/v2
 
-# Cloud Services V2 API
+#Cloud Services V2 API
 This is version 2 of ACG cloud services api's. If you are looking for older version 1 - please refer to https://confluence.123dapp.com/display/ADSK/Marketplace+APIs
 
 #URL
@@ -38,7 +38,7 @@ We'll respond with one of the following status codes.
 |`429`        | Rate limit exceeded, try again later.
 |`500`        | Server error.
 
-# Errors
+#Errors
 Any 4xx and 5xx response is an error. 
 In addition to the http code we will return additional information in the response payload as follows:  
 
@@ -71,10 +71,10 @@ During api creation we follow these standards: -
 
 #Appendices
 
-## ECommerceAffiliate
+##ECommerceAffiliate
 ECommerceAffiliate is group of affiliates which share same behaviour like checkout pages. A case in a point is 123d and ciruits are under same ECommerceAffiliates.
 
-## Product IDs for Cart
+##Product IDs for Cart
 ### Product IDs for 123D
 |product_id|product_type|description|comments
 |----|----|----|----
@@ -137,12 +137,12 @@ ECommerceAffiliate is group of affiliates which share same behaviour like checko
 |----|----|----|----
 |49|PHYSICAL|Ember Printer|SPARK
 
-# Group Assets
+#Group Assets
 An asset is the top level storage construct for cloud services. An asset can be thought of as a project or a folder with metadata. The asset contains 1..n files, metadata elements and references to other assets or even external links. 
 Within the 3d modeling/printing eco-system it is often hard to model a complete creation and workflow with a single file (for example: a model may consist of obj, mtl, texture files) - Asset provides an aggregation point for several related files and metadata elements to fully represent a creation, its various transformations, translations and references. 
 The operations listed below provide a full set of activities which can be performed against an asset. 
 
-## Asset [/assets/{id}]
+##Asset [/assets/{id}]
 Operations to perform CRUD operations on an asset with basic metadata. Additional operation sets will populate this asset with constituent files, additional metadata etc. 
 
 + Model (application/json)
