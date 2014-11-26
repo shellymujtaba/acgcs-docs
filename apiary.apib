@@ -4951,6 +4951,26 @@ The list stores ISO code, country name, and an approved for commerce flag.
 + Response 200 (application/json)
 
             {
+                "countries": [
+                    {
+                        "country_iso_code": "CA",
+                        "country_name": "Canada",
+                        "approved": true
+                    },
+                    {
+                        "country_iso_code": "US",
+                        "country_name": "United States of America",
+                        "approved": true
+                    }
+                ],
+                "count": 2,
+                "pages": 1,
+                "limit": 10,
+                "offset": 0,
+                "_link": "/admin/countries?approved=true",
+                "_link_prev": "/admin/countries?approved=true",
+                "_link_next": "/admin/countries?approved=true",
+                
             }
 
 ### Create Country [POST]
