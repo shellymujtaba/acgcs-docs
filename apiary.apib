@@ -57,7 +57,7 @@ All api calls require the following headers:
 **X-Session**: A guest or member session. See Auth section on how to generate a guest/member session. Access to various api's depends on the type of session. 
 For example - guest session will provide access to ready only public api's such as /assets. While member session will provide access to write apis and also extended information for /member api.  
 
-**X-AFC**: Unique identifier assigned to your application. It is very important to use the AFC assigned to your application and not re-use AFC's across apps as this creates issues in debugging and analytics. 
+**X-AFC**: Unique identifier assigned to your enendiceslication. It is very important to use the AFC assigned to your application and not re-use AFC's across apps as this creates issues in debugging and analytics. 
 
 #Standards
 During api creation we follow these standards: -
@@ -67,6 +67,9 @@ During api creation we follow these standards: -
  4. For api's that return paged result we always return _link_prev and _link_next values.  
  5. All times are in GMT with format "April 09, 2011 07:27:54"
  6. All api end points strive to be nouns vs verbs. The http method (POST/GET/PUT/DELETE) determines the action to be performed e.g GET /api/v1/asset vs /api/v1/get_asset.
+
+#Frederic Test
+This is a test
 
 #Group Appendices
 
