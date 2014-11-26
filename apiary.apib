@@ -139,7 +139,7 @@ An asset is the top level storage construct for cloud services. An asset can be 
 Within the 3d modeling/printing eco-system it is often hard to model a complete creation and workflow with a single file (for example: a model may consist of obj, mtl, texture files) - Asset provides an aggregation point for several related files and metadata elements to fully represent a creation, its various transformations, translations and references. 
 The operations listed below provide a full set of activities which can be performed against an asset. 
 
-# Asset [/assets/{id}]
+## Asset [/assets/{id}]
 Operations to perform CRUD operations on an asset with basic metadata. Additional operation sets will populate this asset with constituent files, additional metadata etc. 
 
 + Model (application/json)
@@ -334,7 +334,7 @@ Operations to perform CRUD operations on an asset with basic metadata. Additiona
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
 + Response 204
 
-# Assets  [/assets{?q,page_size,page_num,start_date,end_date,thumbnail_index,file_type_list,exclude_keywords,asset_ids,sort_by,sort_order,display_filter,exclude_artist_ids,include_artist_ids,project_status,description,parent_assets,child_hidden_keys,media_type_ids,include_mature}]
+## Assets  [/assets{?q,page_size,page_num,start_date,end_date,thumbnail_index,file_type_list,exclude_keywords,asset_ids,sort_by,sort_order,display_filter,exclude_artist_ids,include_artist_ids,project_status,description,parent_assets,child_hidden_keys,media_type_ids,include_mature}]
 This api is a starting point to display galleries, perform free-form searches. Different filtering options allow searching by specific contained file type, keywords, publish dates, curation state (featured, popular) etc. 
 + Parameters
     + q (optional, String, `cars+cat`) ...list of keywords to search against
@@ -443,7 +443,7 @@ This api is a starting point to display galleries, perform free-form searches. D
     ]
 }
 
-# Asset Custom Data [/assets/{id}/customdata]
+## Asset Custom Data [/assets/{id}/customdata]
 Operations to add custom data to this asset. These operations are useful to add any asset specific custom data to the asset e.g tenant specific asset data useful for display purpose.
 
 Note: The key should be unique within the asset. Using the same key in POST will overwrite the existing data if any.
@@ -491,7 +491,7 @@ Note: The key should be unique within the asset. Using the same key in POST will
     + keys (required, String, `key1,key2`)...Comma seperated list of custom data keys to be deleted from this asset.
 + Response 204
 
-# Asset Previews [/assets/{id}/previews]
+## Asset Previews [/assets/{id}/previews]
 Operations to add preview files to this asset. These operations are used to add any asset preview files to the asset e.g asset promotional downloads.
 
 + Parameters
@@ -544,7 +544,7 @@ Operations to add preview files to this asset. These operations are used to add 
     
 + Response 204
 
-# Asset References [/assets/{id}/references]
+## Asset References [/assets/{id}/references]
 Operations to link other assets to this asset. These operations are useful to aggregate related assets together e.g Model of a car may consist of several assets : wheels, body, engine etc.
 
 + Parameters
@@ -615,7 +615,7 @@ Operations to link other assets to this asset. These operations are useful to ag
     + asset_ids (required,String, `234567,334562`)...Comma seperated list of assets references to be deleted from this asset.
 + Response 204
 
-# Asset Referenced [/assets/{id}/referenced]
+## Asset Referenced [/assets/{id}/referenced]
 This operation will return a list of assets where this asset is referenced.
 
 ### Retrieve assets referencing this asset [GET]
@@ -630,44 +630,45 @@ This operation will return a list of assets where this asset is referenced.
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified.
 
 + Response 200 (application/json)
-{
-    "count": 23,
-    "offset": 20,
-    "limit": 10,
-    "_link": "/asset/1260467/references?limit=10&offset=1",
-    "_link_prev": "/asset/1260467/references?limit=10&offset=10",
-    "_link_next": "/asset/1260467/references?limit=10&offset=30",
-    "referenced_assets": [
-        {
-            "_link": "/asset/588362",
-            "thumbnails": [
-                {
-                    "id": 2232333,
-                    "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
-                    "is_primary": false,
-                    "caption": "thumbnail caption",
-                    "description": "thumbnail description"
-                },
-                {
-                    "id": 13224244,
-                    "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
-                    "is_primary": true,
-                    "caption": "thumbnail caption",
-                    "description": "thumbnail description"
-                }
-            ],
-            "reference_added_date": "April 09, 2011 07:27:54",
-            "description": "publishing test.",
-            "media_type": 2,
-            "asset_name": "cylinders",
-            "asset_id": 588362,
-            "is_premium_asset": false,
-            "canonical_seo_url": "http://alpha.squidplatform.com/obj-catch/rn-building-2/1135545"
-        }
-    ]
-}
+
+            {
+                "count": 23,
+                "offset": 20,
+                "limit": 10,
+                "_link": "/asset/1260467/references?limit=10&offset=1",
+                "_link_prev": "/asset/1260467/references?limit=10&offset=10",
+                "_link_next": "/asset/1260467/references?limit=10&offset=30",
+                "referenced_assets": [
+                    {
+                        "_link": "/asset/588362",
+                        "thumbnails": [
+                            {
+                                "id": 2232333,
+                                "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
+                                "is_primary": false,
+                                "caption": "thumbnail caption",
+                                "description": "thumbnail description"
+                            },
+                            {
+                                "id": 13224244,
+                                "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
+                                "is_primary": true,
+                                "caption": "thumbnail caption",
+                                "description": "thumbnail description"
+                            }
+                        ],
+                        "reference_added_date": "April 09, 2011 07:27:54",
+                        "description": "publishing test.",
+                        "media_type": 2,
+                        "asset_name": "cylinders",
+                        "asset_id": 588362,
+                        "is_premium_asset": false,
+                        "canonical_seo_url": "http://alpha.squidplatform.com/obj-catch/rn-building-2/1135545"
+                    }
+                ]
+            }
  
-# Asset Sources [/assets/{id}/sources]
+## Asset Sources [/assets/{id}/sources]
 Add files which constitute the "source" for this asset, this can include virtually any file type - 
 all major 3d formats will be automatically translated into a print ready STL format, which will be available in through the asset translations api. 
 Adding the sources will usually be a starting point for storing an asset in cloud services storage - subsequent tranformation operations can then be performed on these source files. 
@@ -683,10 +684,12 @@ Adding the sources will usually be a starting point for storing an asset in clou
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
     + file_ids (required,String, `123456,234345`) ...Comma seperated list of files to be added as sources to this asset. The operation will automatically populate the file type based on previously uploaded file's mime type. 
+
 + Response 201 (application/json)
-    {
-        "_link":"/assets/234566/sources"
-    }
+
+            {
+                "_link":"/assets/234566/sources"
+            }
 
 ### Retrieve asset sources[GET]
 + Request
@@ -721,7 +724,7 @@ Adding the sources will usually be a starting point for storing an asset in clou
     + file_ids (required,String, `234567,334562`)...Comma seperated list of files  to be deleted from this assets source.
 + Response 204
 
-# Asset Thumbnails [/assets/{id}/thumbnails]
+## Asset Thumbnails [/assets/{id}/thumbnails]
 Add files as representational thumbnails for this asset. The thumbnails can include photographs of printed asset or rendered images of the 3d model. The thumbnail files should be atleast 1200x1200 px resolution. These thumbnails will be utilized by applications while displaying galleries or asset details.
 We will auto generate various sizes from this thumbnail:  
 * Small(64)  
@@ -751,9 +754,10 @@ Note: The PUT updates the thumbnail metadata such as caption, description, thumb
     + thumbnails (required, JSON, `[{"id": "123456","caption": "thumbnail caption","description": "thumbnail description","is_primary": true},{"id": "123457","caption": "thumbnail caption 2","description": "thumbnail description 2","is_primary": false},{"id": "123458","caption": "thumbnail caption 2","description": "thumbnail description 2","is_primary": false}]`) ...JSON list of files to be added as thumbnails to this asset. The file must be of mime type PNG or JPG/JPEG.  
     + async (optional, Boolean, `true`)...Whether thumbnails should be generated asynchronously
 + Response 201 (application/json)
-    {
-        "_link":"/assets/234566/thumbnails"
-    }
+
+            {
+                "_link":"/assets/234566/thumbnails"
+            }
 
 ### Retrieve asset thumbnails[GET]
 + Request
@@ -762,24 +766,25 @@ Note: The PUT updates the thumbnail metadata such as caption, description, thumb
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Response 200 (application/json)
-{
-    "thumbnails": [
-        {
-            "id": 123456,
-            "caption": "thumbnail caption",
-            "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
-            "description": "thumbnail description",
-            "is_primary": true
-        },
-        {
-            "id": 123457,
-            "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
-            "caption": "thumbnail caption 2",
-            "description": "thumbnail description 2",
-            "is_primary": false
-        }
-    ]
-}
+
+            {
+                "thumbnails": [
+                    {
+                        "id": 123456,
+                        "caption": "thumbnail caption",
+                        "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
+                        "description": "thumbnail description",
+                        "is_primary": true
+                    },
+                    {
+                        "id": 123457,
+                        "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
+                        "caption": "thumbnail caption 2",
+                        "description": "thumbnail description 2",
+                        "is_primary": false
+                    }
+                ]
+            }
 
 ### Delete an asset thumbnails[DELETE]
 + Request
@@ -792,7 +797,7 @@ Note: The PUT updates the thumbnail metadata such as caption, description, thumb
 + Response 204
     
 
-# Asset External Links [/assets/{id}/links]
+## Asset External Links [/assets/{id}/links]
 All references to external artifacts such as blog posts, videos, photos etc.
 
 + Parameters
@@ -807,9 +812,10 @@ All references to external artifacts such as blog posts, videos, photos etc.
 + Parameters
     + links (required,JSON, `[{"type": "VIDEO","references": [{"id": "5423906829345","title": "title","description": "title","embedWidget": "<iframe width=\"854\" height=\"510\" src=\"//www.youtube.com/embed/wQ3nCa2_f88\" frameborder=\"0\"></iframe>"}]},{"type": "LINK","references": [{"id": "54239097944f1","title": "link","description": "title","url": "https://www.youtube.com/watch?v=wQ3nCa2_f88"}]}]`) ...JSON list of links along with their types. Valid types include: VIDEO, IMAGE, INSTRUCTABLES, LINK, AUDIO, OTHERS 
 + Response 201 (application/json)
-    {
-        "_link":"/assets/234566/links"
-    }
+
+            {
+                "_link":"/assets/234566/links"
+            }
 
 ### Retrieve asset links[GET]
 + Request
@@ -818,32 +824,33 @@ All references to external artifacts such as blog posts, videos, photos etc.
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Response 200 (application/json)
-{
-    "links": [
-        {
-            "type": "VIDEO",
-            "references": [
-                {
-                    "id": "5423906829345",
-                    "title": "title",
-                    "description": "title",
-                    "embedWidget": "<iframe width=\"854\" height=\"510\" src=\"//www.youtube.com/embed/wQ3nCa2_f88\" frameborder=\"0\"></iframe>"
-                }
-            ]
-        },
-        {
-            "type": "LINK",
-            "references": [
-                {
-                    "id": "54239097944f1",
-                    "title": "link",
-                    "description": "title",
-                    "url": "https://www.youtube.com/watch?v=wQ3nCa2_f88"
-                }
-            ]
-        }
-    ]
-}
+
+            {
+                "links": [
+                    {
+                        "type": "VIDEO",
+                        "references": [
+                            {
+                                "id": "5423906829345",
+                                "title": "title",
+                                "description": "title",
+                                "embedWidget": "<iframe width=\"854\" height=\"510\" src=\"//www.youtube.com/embed/wQ3nCa2_f88\" frameborder=\"0\"></iframe>"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "LINK",
+                        "references": [
+                            {
+                                "id": "54239097944f1",
+                                "title": "link",
+                                "description": "title",
+                                "url": "https://www.youtube.com/watch?v=wQ3nCa2_f88"
+                            }
+                        ]
+                    }
+                ]
+            }
 
 ### Delete an asset link [DELETE]
 + Request
@@ -853,7 +860,7 @@ All references to external artifacts such as blog posts, videos, photos etc.
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Response 204
 
-# Asset Translations [/assets/{id}/translations]
+## Asset Translations [/assets/{id}/translations]
 This api will be used by backend services to update translations for various uploaded files including source files, tranformation files etc. 
 
 + Parameters
@@ -868,9 +875,10 @@ This api will be used by backend services to update translations for various upl
 + Parameters
     + translations (required,JSON, `[{"inputFileItemId": "5358536","outputFileItemId": "5358536","outputFileUrl": "","outputFileType": "","outputFileName": ""},{"inputFileItemId": "5358536","outputFileItemId": "5358536","outputFileUrl": "","outputFileType": "","outputFileName": ""}]`) ...JSON list of source file id along with translated file id and type of translation performed. 
 + Response 201 (application/json)
-    {
-        "_link":"/assets/234566/translations"
-    }
+
+            {
+                "_link":"/assets/234566/translations"
+            }
 
 ### Retrieve translations [GET]
 + Request
@@ -879,27 +887,28 @@ This api will be used by backend services to update translations for various upl
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Response 200 (application/json)
-{
-    "translations": [
-        {
-            "inputFileItemId": "5358536",
-            "outputFileItemId": "5358536",
-            "outputFileUrl": "https://s3.amazonaws.com/123d_online_file_cache_prod/MARKETPLACE/1206348/16448602/bolts",
-            "outputFileType": "BOLT"
-        },
-        {
-            "inputFileItemId": "5358536",
-            "outputFileItemId": "5358536",
-            "outputFileName": "shopping_cart.stl",
-            "outputFileType": "STL"
-        },
-        {
-            "inputFileItemId": "5358536",
-            "outputFileItemId": "5049748",
-            "outputFileType": "Viewable"
-        }
-    ]
-}
+
+            {
+                "translations": [
+                    {
+                        "inputFileItemId": "5358536",
+                        "outputFileItemId": "5358536",
+                        "outputFileUrl": "https://s3.amazonaws.com/123d_online_file_cache_prod/MARKETPLACE/1206348/16448602/bolts",
+                        "outputFileType": "BOLT"
+                    },
+                    {
+                        "inputFileItemId": "5358536",
+                        "outputFileItemId": "5358536",
+                        "outputFileName": "shopping_cart.stl",
+                        "outputFileType": "STL"
+                    },
+                    {
+                        "inputFileItemId": "5358536",
+                        "outputFileItemId": "5049748",
+                        "outputFileType": "Viewable"
+                    }
+                ]
+            }
 
 ### Update the translations [PUT]
 + Request
@@ -910,9 +919,10 @@ This api will be used by backend services to update translations for various upl
 + Parameters
     + translations (required,JSON, `{[{"source":123422,"translation":3453434,"type":"STL}]}`) ...JSON list of source file id along with translated file id and type of translation performed. 
 + Response 204 (application/json)
-    {
-        "_link":"/assets/234566/translations"
-    }
+
+            {
+                "_link":"/assets/234566/translations"
+            }
 
 ### Delete an asset translation [DELETE]
 + Request
@@ -924,7 +934,7 @@ This api will be used by backend services to update translations for various upl
     + translations (required,String, `3453434,123422`)...Comma seperated list of translated file ids which should be removed.
 + Response 204 (application/json)
 
-# Asset Likes [/assets/{id}/likes]
+## Asset Likes [/assets/{id}/likes]
 This operation is basically a toggle - calling PUT operation repeteadly will set/unset like state for this member on this asset.
 + Parameters
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
@@ -971,14 +981,14 @@ This operation is basically a toggle - calling PUT operation repeteadly will set
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Response 200 (application/json)
-    {
-        "count":52,
-        "is_member_like":true,
-        "_link":"/assets/234566/likes"
-    }
+            {
+                "count":52,
+                "is_member_like":true,
+                "_link":"/assets/234566/likes"
+            }
     
 
-# Asset Comments [/assets/{id}/comments]
+## Asset Comments [/assets/{id}/comments]
 Operations to manage comments on an asset
 
 
@@ -996,10 +1006,10 @@ Operations to manage comments on an asset
     + in_reply_to (optional, String, `11323333`)...id of comment for which this comment is a reply
 + Response 201 (application/json)
     
-       {
-            "link":"/assets/234566/comments",
-            "comment_id":"adaee1233"
-        }
+           {
+                "link":"/assets/234566/comments",
+                "comment_id":"adaee1233"
+            }
 
 ### Retrieve asset comments[GET]
 + Request
@@ -1013,32 +1023,33 @@ Operations to manage comments on an asset
     + sort_order (optional, String, `asc, desc`)...Direction of ordered search results based on comment added. Default: asc.
 
 + Response 200 (application/json)
-{
-    "count": 260,
-    "limit": 13,
-    "offset": 39,
-    "_link": "/assets/234566/comments?limit=26",
-    "_link_prev": "/assets/234566/comments?limit=26&offset=26",
-    "_link_next": "/assets/234566/comments?limit=26&offset=39",
-    "comments": [
-        {
-            "member_id": 20288416,
-            "member_small_avatar": "https://dev.squidplatform.net/images/v22/member/default_avatar.png",
-            "member_name": "amol tulaskar",
-            "body": "api test reply comment to comment",
-            "comment_id": "cmdm35wh3y8vx42",
-            "timestamp": "April 09, 2011 07:27:54",
-            "in_reply_to": {
-                "member_id": 20288416,
-                "member_small_avatar": "https://dev.squidplatform.net/images/v22/member/default_avatar.png",
-                "member_name": "amol tulaskar",
-                "body": "api original comment",
-                "comment_id": "cmdm35wh3y8vx42",
-                "timestamp": "April 09, 2011 07:27:54"
+
+            {
+                "count": 260,
+                "limit": 13,
+                "offset": 39,
+                "_link": "/assets/234566/comments?limit=26",
+                "_link_prev": "/assets/234566/comments?limit=26&offset=26",
+                "_link_next": "/assets/234566/comments?limit=26&offset=39",
+                "comments": [
+                    {
+                        "member_id": 20288416,
+                        "member_small_avatar": "https://dev.squidplatform.net/images/v22/member/default_avatar.png",
+                        "member_name": "amol tulaskar",
+                        "body": "api test reply comment to comment",
+                        "comment_id": "cmdm35wh3y8vx42",
+                        "timestamp": "April 09, 2011 07:27:54",
+                        "in_reply_to": {
+                            "member_id": 20288416,
+                            "member_small_avatar": "https://dev.squidplatform.net/images/v22/member/default_avatar.png",
+                            "member_name": "amol tulaskar",
+                            "body": "api original comment",
+                            "comment_id": "cmdm35wh3y8vx42",
+                            "timestamp": "April 09, 2011 07:27:54"
+                        }
+                    }
+                ]
             }
-        }
-    ]
-}
           
 
 ### Update a comment[PUT]
@@ -1051,9 +1062,10 @@ Operations to manage comments on an asset
     + comment (required,String, `encoded comment text`) ...any 3rd party links in comments will be encoded, to reference external links use /assets/{id}/links apis 
     + comment_id (required, String, `123aaddq33`)...id of comment to be updated
 + Response 200 (application/json)
-    {
-        "_link":"/assets/234566/comments"
-    }
+
+            {
+                "_link":"/assets/234566/comments"
+            }
     
 
 ### Delete an asset comments[DELETE]
@@ -1066,7 +1078,7 @@ Operations to manage comments on an asset
     + comment_id (required,String, `123aaddq33`)...id of comment to be deleted from this asset.
 + Response 204
 
-# Asset Flag [/assets/{id}/flags]
+## Asset Flag [/assets/{id}/flags]
 Flag an asset along with reason for flagging. This operation is a no-op if an asset has already been flagged by this member.
 
 ### Flag an asset [PUT]
@@ -1081,7 +1093,7 @@ Flag an asset along with reason for flagging. This operation is a no-op if an as
     + comment (optional , String, `optional user comments`) ...additional user comments 
 + Response 204
 
-# Asset Status Posts [/assets/{id}/status]
+## Asset Status Posts [/assets/{id}/status]
 Operations to manage status posts on an asset. Status posts are updates to the progress of an asset made by the author. e.g "Finished textures today".  
 
 + Parameters
@@ -1098,10 +1110,10 @@ Operations to manage status posts on an asset. Status posts are updates to the p
     
 + Response 201 (application/json)
     
-       {
-            "status_post_id":"adaee1233",
-            "_link":"/assets/234566/status?id=adaeee1233"
-        }
+           {
+                "status_post_id":"adaee1233",
+                "_link":"/assets/234566/status?id=adaeee1233"
+            }
 
 ### Retrieve asset status posts[GET]
 + Request
@@ -1167,15 +1179,16 @@ Operations to manage status posts on an asset. Status posts are updates to the p
 Files are "second class" citizens in the Cloud Services ecosystem. As explained in the Assets api introduction: Within the 3d modeling/printing eco-system it is often hard to model a complete creation and workflow with a single file. Hence a file by itself has little meaning without the context of the asset it belongs to. 
 Of course in order to add a file to an asset, it must be uploaded first. The api operations below provide various ways of uploading a file and recieving a file id which can then be used to associate file with an asset. 
 
-#Upload Server [/server/upload]
+##Upload Server [/server/upload]
 The API to get the upload server for uploading the files
 ### Upload server [GET]
 + Request
 
 + Response 200
-    {
-        "server": "storagealpha.squidplatform.com"
-    }
+
+            {
+                "server": "storagealpha.squidplatform.com"
+            }
 
 #Upload File [/files/upload]
 If the file is sent as a application/gzip and unzip parameter is = true, it will be unzipped and id will be returned for each constituent file within the zip. 
@@ -1218,17 +1231,18 @@ Note: Please use the server for the file upload received from the upload server 
                 "files":[{"name":"data.aceb", "file_id":"123334"},{"name":"model.gzip.carmodel.obj", "file_id":"123335"},{"name":"model.gzip.carmodel.mtl", "file_id":"123336"},{"name":"outputs.csv", "file_id":"123337"}]
             }
             
-#Download Server [/server/download]
+##Download Server [/server/download]
 The API to get the download server for uploading the files
 ### Download server [GET]
 + Request
 
 + Response 200
-    {
-        "server": "storagealpha.squidplatform.com"
-    }            
+
+            {
+                "server": "storagealpha.squidplatform.com"
+            }            
             
-#Download File [/files/download{?file_ids,asset_id}]
+##Download File [/files/download{?file_ids,asset_id}]
 Download a specific file or set of files. 
 
 Note: Please use the server for the file download received from the download server API.
@@ -1241,8 +1255,9 @@ Note: Please use the server for the file download received from the download ser
 
 + Request
     + Header
-        X-AFC: FJKB32
-        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Response 200
 
@@ -1311,7 +1326,7 @@ Manage public information about a member.
                 "_link":"/member/20280723"
             }
 
-# Follows [/members/{id}/follows]
+## Follows [/members/{id}/follows]
 Returns the list of users this member follows.
 
 + Parameters
@@ -1364,7 +1379,7 @@ Returns the list of users this member follows.
             
 
 
-# Following [/members/{id}/following]
+## Following [/members/{id}/following]
 Returns the list of users following this member.
 
 ### Retrieve member following [GET]
@@ -1453,7 +1468,7 @@ Returns the list of users following this member.
 
 
 
-# Assets [/members/{id}/assets]
+## Assets [/members/{id}/assets]
 Retrieve this members assets. Depending on the context this operation may return both public and private assets i.e if the logged in member is requesting his/her own assets, private assets will also be returned
 + Parameter 
     + id (required, Number , `123446`)...Member id
@@ -1471,7 +1486,8 @@ Retrieve this members assets. Depending on the context this operation may return
 
 ### Retrive member assets [GET]
 
-+ Header
++ Request
+    + Header
             
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
@@ -1562,7 +1578,7 @@ Retrieve this members assets. Depending on the context this operation may return
                 }
   
 
-# Likes [/members/{id}/likes]
+## Likes [/members/{id}/likes]
 Member like operations
 
 + Parameter 
@@ -1675,7 +1691,7 @@ Retrieves member's subscription history in cronologically descending order. Each
                 "_link_next":"/member/20280723/subscriptions?limit=26&offset=39"
             }
 
-# Credits [/members/{id}/credits]
+## Credits [/members/{id}/credits]
 Retrieves member's marketplace credits and payouts accumulated over time.  
 *Types of Credit*  
 1. Sales Credit: Credit earned throug sales. This credit can be paid out or used to purchase goods in marketplace.  
@@ -1707,7 +1723,7 @@ Retrieves member's marketplace credits and payouts accumulated over time.
                 "total_purchased_with_purchased_credit": 0
             } 
 
-# OrderHistory [/members/{id}/orderhistory]
+## OrderHistory [/members/{id}/orderhistory]
 ### Retrieve member's purchases [GET]
 Get all the purchases made by the member.
 
@@ -1869,7 +1885,7 @@ Get all the purchases made by the member.
 
 # Group Auth
 
-# Login [/login]
+## Login [/login]
 Authorization is done through an "oauth-like" 3 legged process for web applications and a slightly modified 2 legged process for desktop/mobile apps.  
 Here are the general steps:  
 1. Client application calls the /login end point to begin login workflow  
@@ -1899,7 +1915,7 @@ Here are the general steps:
         
             Location: "https://myapp.com/relative_path?token_key=12313232333"
 
-# Authenticate Token [/login/authenticatetoken]
+## Authenticate Token [/login/authenticatetoken]
 Authenticate the token returned by /member/login call to recieve a session id
 
 ### Retrieve session from token [GET] 
@@ -1913,7 +1929,7 @@ Authenticate the token returned by /member/login call to recieve a session id
 
      
         
-# Guest Session [/login/session]
+## Guest Session [/login/session]
 Returns a guest session ID.   Guest sessions expire after 4 hours of inactivity.
 
 + Header
@@ -2419,7 +2435,7 @@ Here are some key points about cart:
 Exp: Sketchbook, Pixlr and Ciruits are under different <a href="/reference/appendices">ECommerceAffiliates</a> so for single user there will be different carts for each of these apps.
 * Cart can be different for each affiliate code (X-AFC in header). Please contact cloud service team if affiliate code specific cart is needed.
 
-# Cart [/carts]
+##Cart [/carts]
 Perform CRUD operations on cart with basic metadata.
 
 ### Retrieve a cart [GET]
@@ -2778,7 +2794,7 @@ Delete the cart of the logged in user or guest. After this call, a call to GET /
 + Response 204 (application/json)
         {}
 
-# Cart line items [/carts/lineitems]
+##Cart line items [/carts/lineitems]
 Line items are items within carts. Cart can contain 'n' line items. User can perform various CRUD operations on line items.
 
     
@@ -3049,7 +3065,7 @@ Deletes the line item from the cart. Also deletes all the cart coupons if any co
         ]
         }
         
-# Cart buynow [/carts/buynow]
+##Cart buynow [/carts/buynow]
 Returns a url of the custom BuyNow Page. The buynow_url page displays the cart and asks the users for their payment details as well as shows the place order button. The buynow_url page is specific to afc code and can be customized via a template. The template and needed resources (css, images) are managed by the client applications. Ask the cloud service commerce team for the initial template setup. Client application are responsible to display this url as they see fit (iframe or popup).
 SecureSession is a required header for this API.
 
@@ -3148,7 +3164,7 @@ SecureSession is a required header for this API.
           "name":"john mathew"
         }
 
-# Cart transfer [/carts/transfer]
+##Cart transfer [/carts/transfer]
 ### Transfer cart from guest to user [POST]
 Transfers a cart from a guest session to current logged in member
 + Request
@@ -3166,7 +3182,7 @@ Transfers a cart from a guest session to current logged in member
 
         {}
         
-# Cart billing address [/carts/billingaddress]
+##Cart billing address [/carts/billingaddress]
 ### Retrieve a billing address [GET]
 Get the billing address of the cart given in parameters (default to ESTORE cart)
 + Request
@@ -3240,7 +3256,7 @@ Sample url is https://www.123dapp.com/api/v2/cart/billingaddress?address1=1%20Ma
         "is_residential": true
         }
         
-# Cart shipping address [/carts/shippingaddress]
+##Cart shipping address [/carts/shippingaddress]
 ### Retrieve a shipping address [GET]
 Get the shipping address of the cart given in parameters (default to ESTORE cart)
 + Request
