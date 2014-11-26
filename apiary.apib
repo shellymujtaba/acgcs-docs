@@ -5007,6 +5007,7 @@ The approved flag is set to true for all countries we do commerce with.
             }
 
 ### Create Country [POST]
+Add a country supported by the payment service provider.
 
 + Request
     + Header
@@ -5028,9 +5029,11 @@ The approved flag is set to true for all countries we do commerce with.
             }
 
 ## Country [/admin/countries/{country_iso_code}]
-Modify or delete a country from the list.
+Get or modify countries by ISO code.
 
 ### Update Country [PUT]
+Update the approval status or name of the country.
+
 + Request
     + Header
     
@@ -5051,6 +5054,7 @@ Modify or delete a country from the list.
             }
 
 ### Delete Country [DELETE]
+Remove the country, which is no longer supported by our service payment provider.
 
 + Request
     + Header
