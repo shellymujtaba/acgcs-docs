@@ -4963,7 +4963,7 @@ Retrieve payouts and approve/deny payout requests. Approving a payout places it 
             }
 
 ## Countries [/admin/countries{?sort_by,sort_order,approved_only,limit,offset}]
-Retrieve and add entries to the list of countries supported by our payment service provider (Blue Snap).
+CRUD operations Retrieve and add entries to the list of countries supported by our payment service provider (Blue Snap).
 The countries are keyed by ISO code, and only the countries supported by our PSP exists in the table.
 The approved flag is set to true for all countries we do commerce with.
 
@@ -4988,14 +4988,14 @@ Retrieve countries according to the query parameters.
             {
                 "countries": [
                     {
+                        "approved": 1,
                         "country_iso_code": "CA",
-                        "country_name": "Canada",
-                        "approved": true
+                        "country_name": "Canada"
                     },
                     {
+                        "approved": 1,
                         "country_iso_code": "US",
                         "country_name": "United States of America",
-                        "approved": true
                     }
                 ],
                 "count": 2,
@@ -5029,7 +5029,7 @@ Add a country supported by the payment service provider.
                 "approved": true
             }
 
-## Country [/admin/countries/{country_iso_code}]
+## Country [/admin/countries{?country_iso_code}]
 Get or modify countries by ISO code.
 
 ### Update Country [PUT]
