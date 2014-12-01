@@ -5010,6 +5010,10 @@ Retrieve countries according to the query parameters.
 ### Create Country [POST]
 Add a country supported by the payment service provider.
 
+|description|HTTP|code
+|----|----|----
+|Country already exists|400 Bad Request|3400
+
 + Request
     + Header
     
@@ -5035,6 +5039,10 @@ Get or modify countries by ISO code.
 ### Update Country [PUT]
 Update the approval status or name of the country.
 
+|description|HTTP|code
+|----|----|----
+|Country not found|400 Bad Request|3401
+
 + Request
     + Header
     
@@ -5056,6 +5064,10 @@ Update the approval status or name of the country.
 
 ### Delete Country [DELETE]
 Remove the country, which is no longer supported by our service payment provider.
+
+|description|HTTP|code
+|----|----|----
+|Country not found|400 Bad Request|3401
 
 + Request
     + Header
