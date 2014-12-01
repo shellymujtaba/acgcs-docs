@@ -1482,6 +1482,57 @@ Returns the list of users following this member.
 
 + Response 204 (application/json)
 
+## Member Activity Stream [/members/{id}/useractivity]
+Returns the list of users this member follows.
+
++ Parameters
+    + id (required,String, `20280723`)...Member id
+    + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
+    + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
+
+### Retrieves list this member follows [GET]
++ Request
+    + Header
+            
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Response 200 (application/json)
+
+            {
+                "count":260,
+                "limit":13,
+                "offset":39,
+                "_link":"/members/20280723/follows?limit=26",
+                "_link_prev":"/members/20280723/follows?limit=26&offset=26",
+                "_link_next":"/members/20280723/follows?limit=26&offset=39",
+                "members":[
+                    {   
+                        "followings": 3,
+                        "followers": 1,
+                        "likes": 0,
+                        "publish": 1,
+                        "total_comments": 0,
+                        "member_id": 20704527,
+                        "member_small_avatar": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Alpha/2014/07/11__06_27_59/actor.jpgd00f729d-1c9d-11e4-8fb8-22000b20990c.jpg",
+                        "member_name": "somi",
+                        "_link":"/members/123133"
+                    },
+                    {
+                        "followings": 1,
+                        "followers": 0,
+                        "likes": 0,
+                        "publish": 0,
+                        "total_comments": 0,
+                        "member_id": 20705124,
+                        "member_small_avatar": "http://alpha.squidplatform.com/Images/v23/Member/default_avatar.png",
+                        "member_name": "testprofile16 testprofile16",
+                        "_link":"/members/123134"
+                    }
+                ]
+                        
+            }
+            
 
 
 ## Assets [/members/{id}/assets]
