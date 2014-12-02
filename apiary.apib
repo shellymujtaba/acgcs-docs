@@ -5073,6 +5073,41 @@ Retrieve countries according to the query parameters.
 + Response 200 (application/json)
 
             {
+                "count": 228,
+                "limit": 5,
+                "offset": 0,
+                "_link": "/admin/countries?sort_by=ISO_CODE&limit=5&offset=0",
+                "_link_next": "/admin/countries?sort_by=ISO_CODE&limit=5&offset=5",
+                "countries": [
+                    {
+                        "approved": 1,
+                        "country_iso_code": "AD",
+                        "country_name": "Andorra"
+                    },
+                    {
+                        "approved": 1,
+                        "country_iso_code": "AE",
+                        "country_name": "United Arab Emirates"
+                    },
+                    {
+                        "approved": 1,
+                        "country_iso_code": "AF",
+                        "country_name": "Afghanistan"
+                    },
+                    {
+                        "approved": 1,
+                        "country_iso_code": "AG",
+                        "country_name": "Antigua and Barbuda"
+                    },
+                    {
+                        "approved": 1,
+                        "country_iso_code": "AI",
+                        "country_name": "Anguilla"
+                    }
+                ]
+            }
+
+            {
                 "countries": [
                     {
                         "approved": 1,
