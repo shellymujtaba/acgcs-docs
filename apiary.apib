@@ -5128,9 +5128,9 @@ Add a country supported by the payment service provider.
 + Response 200 (application/json)
 
             {
-                "country_iso_code": "CA",
-                "country_name": "Canada",
-                "approved": true
+                "approved": 1,
+                "country_iso_code": "AI",
+                "country_name": "Anguilla"
             }
 
 ## Country [/admin/countries{?country_iso_code}]
@@ -5157,10 +5157,11 @@ Update the approval status or name of the country.
 + Response 200 (application/json)
 
             {
-                "country_iso_code": "CA",
-                "country_name": "Canada",
-                "approved": true
+                "approved": 1,
+                "country_iso_code": "AI",
+                "country_name": "Anguilla"
             }
+
 
 ### Delete Country [DELETE]
 Remove the country, which is no longer supported by our service payment provider.
