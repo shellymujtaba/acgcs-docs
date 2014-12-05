@@ -4654,7 +4654,7 @@ Retrieve shops according to the query parameters.
 The default parameters will retrieve the latest `PENDING` shops with most recent at the top.
 
 ### Retrieve shops [GET]
-The followig parameters are mutually exclusive and get the following priority: shop_id, member_id, member_name, member_email, shop_name
+The followig parameters are mutually exclusive and get the following priority: shop_id, member_id, member_name, member_email, shop_name.
 
 + Request
     + Header
@@ -4782,10 +4782,10 @@ Update a shop based on the parameters in the query.
 
 ## Shop Assets [/admin/shops/assets{?shop_id,member_id,member_name,member_email,shop_name,start_date,end_date,for_sale_only,sort_by,sort_order,limit,offset}]
 Retrieve the assets for sales according to the query parameters.
-The request expect at least one of the following parameters: shop_id, member_id, member_name, member_email, or store name.
 The default will retrieve the latest assets for sale sorted with most recent at the top.
 
 ### Retrieve assets [GET]
+The followig parameters are mutually exclusive and get the following priority: shop_id, member_id, member_name, member_email, shop_name.
 
 + Request
     + Header
@@ -4803,7 +4803,7 @@ The default will retrieve the latest assets for sale sorted with most recent at 
     + start_date (optional, Date, `December, 12 2014 07:23:45`)... Limit results to shops modified on or after a given date ("MMMM, dd yyyy HH:mm:ss" format).
     + end_date (optional, Date, `December, 14 2014 07:23:45`)... Limit results to shops modified on or before a given date ("MMMM, dd yyyy HH:mm:ss" format).
     + for_sale_only = `true` (optional, Boolean, `true`)... Include for sale assets only. Set to false for all shop assets.
-    + sort_by = `PUBLISHED_DATE` (optional, String, `FEATURED_DATE`)... Sort results according to filter: `FEATURED_DATE,FEATURED`.
+    + sort_by = `FOR_SALE_DATE` (optional, String, `FOR_SALE_DATE`)... Sort results according to filter: `FEATURED_DATE, FOR_SALE_DATE`.
     + sort_order = `DESC` (optional, String, `DESC`)... Sort order for the results: `ASC` or `DESC`.
     + limit (optional, Number,`20`)... Number of results to return in each page. Default: 10.
     + offset (optional, Number, `3`)... This offsets the start of each page by the number specified. Default: 0.
