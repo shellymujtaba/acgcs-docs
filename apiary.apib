@@ -4781,7 +4781,7 @@ Update a shop based on the parameters in the query.
             }
 
 ## Shop Assets [/admin/shops/assets{?shop_id,member_id,member_name,member_email,shop_name,start_date,end_date,for_sale_only,sort_by,sort_order,limit,offset}]
-Retrieve the assets for sales according to the query parameters.
+Retrieve the assets for sales according to the query parameters. Only the assets for the APPROVED and ONLINE shops are returned.
 The default will retrieve the latest assets for sale sorted with most recent at the top.
 
 ### Retrieve assets [GET]
