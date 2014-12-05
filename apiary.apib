@@ -4651,10 +4651,10 @@ These admin operations require admin privilege for logged in user.
 
 ## Shops [/admin/shops{?shop_id,member_id,member_name,member_email,store_name,start_date,end_date,approval_status,sort_by,sort_order,limit,offset}]
 Retrieve shops according to the query parameters.
-The request expect at least one of the following parameters: shop_id, member_id, member_name, member_email, or store name.
 The default parameters will retrieve the latest `PENDING` shops with most recent at the top.
 
 ### Retrieve shops [GET]
+The followig parameters are mutually exclusive and get the following priority: shop_id, member_id, member_name, member_email, shop_name
 
 + Request
     + Header
