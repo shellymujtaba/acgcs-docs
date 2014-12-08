@@ -1492,15 +1492,13 @@ Returns the activity stream for this member.
 
 + Parameters
     + id (required,String, `20280723`)...Member id
-    + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
+    + limit (optional, Number,`20`)...Number of results to return in each page. Default: 20.
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
     + user_type (optional, Number, `1`)...User type for which you want activities. Default : 1 (self), 1 : self, 2 : followed_users This is bit wise. So you want activities of self and followed_users then pass (1 bitwise OR 2 i.e. 3)
     + activity_type (required, String, `UPDATE,_COMMENT,COMMENT`)...Activity type of which you want activities. Following is the list of activityies UPDATE,PUBLISH,FEATURE,CONTEST_FINALIST,CONTEST_WINNER,COMMENT,_COMMENT,FOLLOW,_FOLLOW,LIKE, _LIKE, COMMENT_UPDATE, _COMMENT_UPDATE
     + media_type_id (optional, String, `5,23`)...Limit results based on media type ids (See ??? for valid values for media_type_id)
-    + file_ids (optional, boolean, `true`)...By default FALSE. If TRUE returns hidden data associated with assets.
-    + hidden_keys (optional, string, `viewerFiles,stlfiles,photoscenes`)...This is a comma separated list of keys representing the hidden data associated with the assets. This parameter has effect only when file_ids option is set to TRUE.
-    + all_asset_images (optional, boolean, `TRUE`)...By default FALSE. If set to TRUE, returns all the asset images as a list.
-    + activity_type_info (optional, boolean, `true`)...This flag will bring additional activity information such as comment body etc.
+    + asset_custom_data (optional, boolean, `true`)...By default FALSE. If TRUE returns hidden data associated with assets.
+    + asset_custom_data_keys (optional, string, `viewerFiles,stlfiles,photoscenes`)...This is a comma separated list of keys representing the hidden data associated with the assets. This parameter has effect only when file_ids option is set to TRUE.
     
 ### Retrieves member activity stream [GET]
 + Request
