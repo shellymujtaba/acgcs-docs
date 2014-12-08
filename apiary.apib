@@ -1496,7 +1496,7 @@ Returns the activity stream for this member.  Activities include updates, items 
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
     + user_type (optional, Number, `1`)...User type for which you want activities. Default : 1 (self), 1 : self, 2 : followed_users This is bit wise. So you want activities of self and followed_users then pass (1 bitwise OR 2 i.e. 3)
     + activity_type (required, String, `UPDATE,_COMMENT,COMMENT`)...Activity type of which you want activities. Following is the list of activities UPDATE,PUBLISH,FEATURE,CONTEST_FINALIST,CONTEST_WINNER,COMMENT,_COMMENT,FOLLOW,_FOLLOW,LIKE, _LIKE, COMMENT_UPDATE, _COMMENT_UPDATE
-    + media_type_id (optional, String, `5,23`)...Limit results based on media type ids (See ??? for valid values for media_type_id)
+    + media_type_id (optional, String, `5,23`)...Limit results based on media type ids. Full media type list is provided in the introduction.
     + asset_custom_data (optional, boolean, `true`)...By default FALSE. If TRUE returns hidden data associated with assets.
     + asset_custom_data_keys (optional, string, `viewerFiles,stlfiles,photoscenes`)...This is a comma separated list of keys representing the hidden data associated with the assets. This parameter has effect only when file_ids option is set to TRUE.
     
