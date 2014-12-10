@@ -4676,32 +4676,31 @@ The followig filters are mutually exclusive and get the following priority: shop
     + Body
     
             {
-              "shops": [
-                {
-                  "shop_id": 1234567890,
-                  "member_id": 1234567890,
-                  "name": "Hello Shop",
-                  "banner_file_id": "55555555",
-                  "banner_file_url": "https://aws-file-server/resources/image.png",
-                  "current_portfolio_url": "http://dev.squidplatform.net",
-                  "current_sales_url": "http://dev.squidplatform.net",
-                  "shop_status": 1,
-                  "shop_approval_status": "APPROVED",
-                  "shop_denial_reason": null,
-                  "pending_total": 40.12,
-                  "total_sales": 9.99,
-                  "total_payout": 4.49
-                }
-              ],
-              "count": 260,
-              "pages": 20,
-              "limit": 13,
-              "offset": 39,
-              "_link": "/admin/shops?limit=26",
-              "_link_prev": "/admin/shops?limit=26&offset=26",
-              "_link_next": "/admin/shops?limit=26&offset=39"
+                "count": 1,
+                "limit": 20,
+                "offset": 0,
+                "_link": "/admin/shops?approval_status=DENIED,APPROVED,PENDING&regression=true&member_name=%commerce%&limit=20&offset=0",
+                "shops": [
+                    {
+                        "shop": {
+                            "name": "Modified Shop",
+                            "shop_id": 13,
+                            "member_id": 20707167,
+                            "banner_file_id": 87654321,
+                            "current_portfolio_url": "https://frederic.io/myubersite.html",
+                            "current_sales_url": "https://frederic.io/mygreatshop.html",
+                            "shop_status": 0,
+                            "shop_approval_status": "PENDING",
+                            "commerce_affiliate_id": 1,
+                            "modified_date": "December 10, 2014 18:57:09",
+                            "created_date": "November 25, 2014 22:21:35",
+                            "admin_modified_date": ""
+                        },
+                        "member_name": "ecommerce ecommerce",
+                        "member_email": "ecommerce@regression.alpha"
+                    }
+                ]
             }
-
 
 ## Shop [/admin/shops/{shop_id}]
 
