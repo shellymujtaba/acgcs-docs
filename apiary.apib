@@ -270,9 +270,11 @@ Operations to perform CRUD operations on an asset with basic metadata. Additiona
 ### Create a new asset[POST]
 
 + Request (application/x-www-form-urlencoded)
-    + Header
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            
 + Parameters
     + title (required, String, `Alien`) ...Asset title
     + description (required, String, `Mint colored alien`) ...title description
@@ -292,12 +294,11 @@ Operations to perform CRUD operations on an asset with basic metadata. Additiona
         }
 
 ### Retrieve an asset [GET]
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-            Content-type:application/x-www-form-urlencoded
 + Parameters
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
     + referenced_assets (optional, Number, `true`) ...When true referenced assets will be returned as an array sorted in descending order of the time when they were added.<br>Default: false
@@ -308,7 +309,8 @@ Operations to perform CRUD operations on an asset with basic metadata. Additiona
 
 ### Update an asset[PUT]
 + Request (application/x-www-form-urlencoded)
-    + Header
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
@@ -329,8 +331,8 @@ Operations to perform CRUD operations on an asset with basic metadata. Additiona
            
 ### Delete an asset [DELETE]
 + Request (application/x-www-form-urlencoded)
+    + Headers
     
-    + Header
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
@@ -364,8 +366,8 @@ This api is a starting point to display galleries, perform free-form searches. D
 ## List all Assets [GET]
 
 + Request (application/x-www-form-urlencoded)
+    + Headers
     
-    + Header
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             
@@ -463,8 +465,8 @@ Note: The key should be unique within the asset. Using the same key in POST will
 + Parameters
     + custom_data (required, String, `{"custom_data": [{"key": "key1","data": "<Any custom data. Escaped json in case of JSON custom data>"},{"key": "key2","data": "<Any custom data. Escaped json in case of JSON custom data>"}]}`)...Key-Value pair of custom data JSON.
 + Request (application/x-www-form-urlencoded)
+    + Headers
     
-    + Header
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Response 201 (application/json)
@@ -474,8 +476,8 @@ Note: The key should be unique within the asset. Using the same key in POST will
             }
 
 ### retrieve a shop asset custom data[GET]
-+ Request
-    + Header
++ Request (application/x-www-form-urlencoded)
+    + Headers
     
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
@@ -496,8 +498,8 @@ Note: The key should be unique within the asset. Using the same key in POST will
             }
 
 ### Delete an asset custom data[DELETE]
-+ Request
-    + Header
++ Request (application/x-www-form-urlencoded)
+    + Headers
     
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
@@ -515,8 +517,8 @@ Operations to add preview files to this asset. These operations are used to add 
 + Parameters
     + file_ids (required, String, `16804696,16804697`)...Comma seperated list of file ids received after uploading the files.
 
-+ Request
-    + Header
++ Request (application/x-www-form-urlencoded)
+    + Headers
     
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
@@ -528,8 +530,8 @@ Operations to add preview files to this asset. These operations are used to add 
             }
 
 ### retrieve a shop asset previews[GET]
-+ Request
-    + Header
++ Request (application/x-www-form-urlencoded)
+    + Headers
     
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
@@ -552,8 +554,8 @@ Operations to add preview files to this asset. These operations are used to add 
             }
 
 ### Delete an asset previews[DELETE]
-+ Request
-    + Header
++ Request (application/x-www-form-urlencoded)
+    + Headers
     
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
@@ -581,9 +583,9 @@ Operations to link other assets to this asset. These operations are useful to ag
 + Parameters
     + limit (optional, number, `20`)...number of results per page. Default: 10
     + offset (optional, Number, `60`) ...This offsets the start of each page by the number specified.  
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Response 200 (application/json)
@@ -626,9 +628,9 @@ Operations to link other assets to this asset. These operations are useful to ag
             }
 
 ### Delete an asset reference[DELETE]
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
@@ -639,9 +641,9 @@ Operations to link other assets to this asset. These operations are useful to ag
 This operation will return a list of assets where this asset is referenced.
 
 ### Retrieve assets referencing this asset [GET]
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
@@ -697,9 +699,9 @@ Adding the sources will usually be a starting point for storing an asset in clou
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
 
 ### Create a new source within the asset[POST] 
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
@@ -712,9 +714,9 @@ Adding the sources will usually be a starting point for storing an asset in clou
             }
 
 ### Retrieve asset sources[GET]
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Response 200 (application/json)
@@ -735,9 +737,9 @@ Adding the sources will usually be a starting point for storing an asset in clou
             }
 
 ### Delete an asset source[DELETE]
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
@@ -765,9 +767,9 @@ Note: The PUT updates the thumbnail metadata such as caption, description, thumb
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
 
 ### Create a new thumbnail within the asset[POST] 
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
@@ -780,9 +782,9 @@ Note: The PUT updates the thumbnail metadata such as caption, description, thumb
             }
 
 ### Retrieve asset thumbnails[GET]
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Response 200 (application/json)
@@ -807,9 +809,9 @@ Note: The PUT updates the thumbnail metadata such as caption, description, thumb
             }
 
 ### Delete an asset thumbnails[DELETE]
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
@@ -824,9 +826,9 @@ All references to external artifacts such as blog posts, videos, photos etc.
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
 
 ### Create a new link within the asset [POST] 
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
@@ -838,9 +840,9 @@ All references to external artifacts such as blog posts, videos, photos etc.
             }
 
 ### Retrieve asset links[GET]
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Response 200 (application/json)
@@ -873,9 +875,9 @@ All references to external artifacts such as blog posts, videos, photos etc.
             }
 
 ### Delete an asset link [DELETE]
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Response 204
@@ -887,9 +889,9 @@ This api will be used by backend services to update translations for various upl
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
 
 ### Create new translations within the asset [POST] 
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
@@ -901,9 +903,9 @@ This api will be used by backend services to update translations for various upl
             }
 
 ### Retrieve translations [GET]
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Response 200 (application/json)
@@ -931,9 +933,9 @@ This api will be used by backend services to update translations for various upl
             }
 
 ### Update the translations [PUT]
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
@@ -941,9 +943,9 @@ This api will be used by backend services to update translations for various upl
 + Response 200 (application/json)
 
 ### Delete an asset translation [DELETE]
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
@@ -956,9 +958,9 @@ This operation is basically a toggle - calling PUT operation repeteadly will set
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
 
 ### Retrieve total like count and list of favoriters[GET]
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
@@ -991,9 +993,9 @@ This operation is basically a toggle - calling PUT operation repeteadly will set
         }
 
 ### Update like state for a member [PUT]
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Response 200 (application/json)
@@ -1013,9 +1015,9 @@ Operations to manage comments on an asset
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
 
 ### Create new comment within an asset[POST] 
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
@@ -1029,9 +1031,9 @@ Operations to manage comments on an asset
             }
 
 ### Retrieve asset comments[GET]
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
@@ -1070,9 +1072,9 @@ Operations to manage comments on an asset
           
 
 ### Update a comment[PUT]
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
@@ -1086,9 +1088,9 @@ Operations to manage comments on an asset
     
 
 ### Delete an asset comments[DELETE]
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
@@ -1099,9 +1101,9 @@ Operations to manage comments on an asset
 Flag an asset along with reason for flagging. This operation is a no-op if an asset has already been flagged by this member.
 
 ### Flag an asset [PUT]
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
@@ -1117,9 +1119,9 @@ Operations to manage status posts on an asset. Status posts are updates to the p
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
 
 ### Create a new status post within an asset[POST] 
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
@@ -1133,9 +1135,9 @@ Operations to manage status posts on an asset. Status posts are updates to the p
             }
 
 ### Retrieve asset status posts[GET]
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
@@ -1165,9 +1167,9 @@ Operations to manage status posts on an asset. Status posts are updates to the p
           
 
 ### Update a status post[PUT]
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
@@ -1184,9 +1186,9 @@ Operations to manage status posts on an asset. Status posts are updates to the p
     
 
 ### Delete an asset status post[DELETE]
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
@@ -1252,9 +1254,9 @@ Note: Please use the server for the file upload received from the upload server 
 ##Download Server [/server/download]
 The API to get the download server for uploading the files
 ### Download server [GET]
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
@@ -1275,8 +1277,8 @@ Note: Please use the server for the file download received from the download ser
 
 ### Download files [GET]
 
-+ Request
-    + Header
++ Request (application/x-www-form-urlencoded)
+    + Headers
     
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
@@ -1294,9 +1296,9 @@ Manage public information about a member.
     + id (required,Number, `20280723`)...Member id
 
 ### Retrieve a member [GET]
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Response 200 (application/json)
@@ -1326,9 +1328,9 @@ Manage public information about a member.
             }
 
 ### Update a member [PUT]
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
@@ -1357,9 +1359,9 @@ Returns the list of users this member follows.
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
 
 ### Retrieves list this member follows [GET]
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
@@ -1410,9 +1412,9 @@ Returns the list of users following this member.
     + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
 
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
@@ -1447,10 +1449,9 @@ Returns the list of users following this member.
     + publisher_id (required, Number , `123446`)... The logged in member will be added to this member's/publisher following  
     
 
-+ Request
-
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
@@ -1462,10 +1463,9 @@ Returns the list of users following this member.
     + id (required, Number , `123446`)... The logged in Member id 
     + publisher_id (required, Number , `123446`)... The logged in member will be added to this member's/publisher following   
 
-+ Request
-
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
@@ -1485,9 +1485,9 @@ Returns the activity stream for this member.  Activities include updates, items 
     + asset_custom_data_keys (optional, string, `viewerFiles,stlfiles,photoscenes`)...This is a comma separated list of keys representing the hidden data associated with the assets. This parameter has effect only when file_ids option is set to TRUE.
     
 ### Retrieves member activity stream [GET]
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
@@ -1552,9 +1552,9 @@ Retrieve this members assets. Depending on the context this operation may return
 
 ### Retrive member assets [GET]
 
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Response 200 (application/json)
@@ -1657,9 +1657,9 @@ Member like operations
     
 ### Retrieve member liked assets [GET]
 
-+ Request
-    + Header
-
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
@@ -1729,9 +1729,9 @@ Retrieves member's subscription history in cronologically descending order. Each
     
 ### Retrieve member's subscription history [GET]
 
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
@@ -1770,9 +1770,9 @@ Retrieves member's marketplace credits and payouts accumulated over time.
     
 ### Retrieve member's credits information [GET]
 
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
@@ -1793,8 +1793,7 @@ Retrieves member's marketplace credits and payouts accumulated over time.
 ### Retrieve member's purchases [GET]
 Get all the purchases made by the member.
 
-+ Request
-
++ Request (application/x-www-form-urlencoded)
     + Headers
     
             X-AFC: FJKB32
@@ -1988,6 +1987,11 @@ Here are the general steps:
 Authenticate the token returned by /member/login call to recieve a session id
 
 ### Retrieve session from token [GET] 
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
     + login_secret (required, String, `sse34211322424424`)...login secret provided to application during AFC creation process
     + token_key (required, String, `12313232333`)...token key returned in login method
@@ -2002,9 +2006,9 @@ Authenticate the token returned by /member/login call to recieve a session id
 ## Guest Session [/login/session]
 Returns a guest session ID.   Guest sessions expire after 4 hours of inactivity.
 
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
 
 ### Retrieve Guest session [GET]
@@ -2030,12 +2034,11 @@ Operations for shop creation and retrieval.
 |Member already has a shop or requested one|400 Bad Request|3301|Existing shop id
 
 
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-            Content-type:application/x-www-form-urlencoded
 + Parameters
     + name (required, String, `Hello Shop`)... Shop Name
     + banner_file_id (required, Number, `55555555`)... File id of the uploaded banner image [See Upload file section](http://docs.acgcs.apiary.io/reference/files/upload-file/upload-files)
@@ -2067,8 +2070,8 @@ List shops for a given user. If the user is logged in, retrieve all shops.
 If using a Gest Session and member_id is specified in parameters, returned
 only the shops that are online and approved.
 
-+ Request
-    + Header
++ Request (application/x-www-form-urlencoded)
+    + Headers
     
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
@@ -2134,9 +2137,9 @@ DELETE shop brings the shop offline, but members can still access previously pur
 ### Retrieve a shop [GET]
 Guest session results in only the public shop data to be returned. Offline shops and non-public information about a shop such as approval status, denial, etc. are filtered out.
 
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
     
@@ -2144,12 +2147,11 @@ Guest session results in only the public shop data to be returned. Offline shops
         [Shop][] 
 
 ### Update a shop [PUT]
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-            Content-type:application/x-www-form-urlencoded
 + Parameters
     + name (optional, String, `New Shop Name`)... Shop Name
     + banner_file_id (optional, Number, `55555555`)... File id of the uploaded banner image
@@ -2178,8 +2180,8 @@ Guest session results in only the public shop data to be returned. Offline shops
 
 
 ### Delete a shop [DELETE]
-+ Request
-    + Header
++ Request (application/x-www-form-urlencoded)
+    + Headers
     
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
@@ -2194,8 +2196,8 @@ Retrieve the list of assets for sale. An asset can be removed from the shop via 
     + shop_id (required, Number, `20280723`)... Shop id
 
 ### Retrieve shop assets [GET]
-+ Request
-    + Header
++ Request (application/x-www-form-urlencoded)
+    + Headers
     
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
@@ -2289,12 +2291,11 @@ Update the asset of a shop.
 ### Update shop asset [PUT]
 Setting a private asset "for sale" results in asset state changed to public.
 
-+ Request
-    + Header
-            
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-            Content-type:application/x-www-form-urlencoded
 
 + Parameters
     + asset_id (required, Number, `588452`)... Asset id
@@ -2377,8 +2378,8 @@ Create payout request and retrieve payout history.
     + shop_id (required, Number, `20280723`)...Shop id
 
 ### Retrieve shop payout history [GET]
-+ Request
-    + Header
++ Request (application/x-www-form-urlencoded)
+    + Headers
     
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
@@ -2422,12 +2423,11 @@ Create payout request and retrieve payout history.
 ### Create payout request [POST]
 For a first time payout request, all fields are mandatory.
 
-+ Request
-    + Header
++ Request (application/x-www-form-urlencoded)
+    + Headers
     
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-            Content-type:application/x-www-form-urlencoded
 
 + Parameters
     + amount (required, number, `100`)... Requested payout amount
@@ -2448,12 +2448,11 @@ Creates a phone verification request for the shops payout info.
 ### Create phone verification [POST]
 When invoked  without any parameter, the phone number on file is verified. Otherwise, the phone number in the request is verified and the payout info is updated with this phone.
 
-+ Request
-    + Header
++ Request (application/x-www-form-urlencoded)
+    + Headers
     
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-            Content-type:application/x-www-form-urlencoded
 
 + Parameters
     + phone_number (optional, string, `4151234567`)... Phone number for verification. If present, shops payout info is updated.
@@ -2466,12 +2465,11 @@ Creates an email verification request for the shops payout info.
 ### Create email verification [POST]
 When invoked  without any parameter, the email address on file is verified. Otherwise, the email address in the request is verified and the payout info is updated with this email.
 
-+ Request
-    + Header
++ Request (application/x-www-form-urlencoded)
+    + Headers
     
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-            Content-type:application/x-www-form-urlencoded
 
 + Parameters
     + email_address (optional, string, `someone@autodesk.com`)... Email address for verification. If present, shops payout info is updated.
@@ -2486,8 +2484,8 @@ Retrieve non-pending sales history. Restricts order line items to only those sol
     + shop_id (required, Number, `20280723`)...Shop id
 
 ### Retrieve shop sales [GET]
-+ Request
-    + Header
++ Request (application/x-www-form-urlencoded)
+    + Headers
     
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
@@ -2548,11 +2546,10 @@ Perform CRUD operations on cart with basic metadata.
 ### Retrieve a cart [GET]
 Return ESTORE or MARKETPLACE cart for a guest user or login user. Return empty JSON if cart doesn't exist.
 
-+ Request
-    
++ Request (application/x-www-form-urlencoded)
     + Headers
     
-            X-AFC: SB1ON1
+            X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
@@ -2888,11 +2885,10 @@ Return ESTORE or MARKETPLACE cart for a guest user or login user. Return empty J
 ### Delete a cart [DELETE]
 Delete the cart of the logged in user or guest. After this call, a call to GET /cart will return an empty json. Returns an empty json object if successful otherwise an error object.
 
-+ Request
-
++ Request (application/x-www-form-urlencoded)
     + Headers
     
-            X-AFC: SB1ON1
+            X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             
 + Parameters
@@ -2922,11 +2918,10 @@ Here are some key points about cart:
 |Line Item not found in cart|400 Bad Request|3010
 |Physical item is out of stock.|400 Bad Request|3050
 
-+ Request
-
++ Request (application/x-www-form-urlencoded)
     + Headers
     
-            X-AFC: SB1ON1
+            X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             
 + Parameters
@@ -3065,11 +3060,10 @@ Deletes the line item from the cart. Also deletes all the cart coupons if any co
 |----|----|----
 |Line Item not found in cart|400 Bad Request|3010
 
-+ Request
-
++ Request (application/x-www-form-urlencoded)
     + Headers
     
-            X-AFC: SB1ON1
+            X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             
 + Parameters
@@ -3177,8 +3171,10 @@ Returns a url of the custom BuyNow Page. The buynow_url page displays the cart a
 SecureSession is a required header for this API.
 
 ### Retrieve a buynow page link [GET]
-+ Request
 
+
+ 
++ Request (application/x-www-form-urlencoded)
     + Headers
     
             X-AFC: SB1ON1
@@ -3245,7 +3241,7 @@ SecureSession is a required header for this API.
 |Date format should be dd-MMM-yy (01-Jan-01). Check input date fields and try again.|400 Bad Request|30001
 |From-date 'Fri Sep 28 00:00:00 EDT 2012' must be before to-date 'Tue Aug 28 00:00:00 EDT 2012'.|400 Bad Request|30001
 
-+ Request
++ Request (application/x-www-form-urlencoded)
 
     + Headers
     
@@ -3274,7 +3270,7 @@ SecureSession is a required header for this API.
 ##Cart transfer [/carts/transfer]
 ### Transfer cart from guest to user [POST]
 Transfers a cart from a guest session to current logged in member
-+ Request
++ Request (application/x-www-form-urlencoded)
 
     + Headers
     
@@ -3291,7 +3287,7 @@ Transfers a cart from a guest session to current logged in member
 ##Cart billing address [/carts/billingaddress]
 ### Retrieve a billing address [GET]
 Get the billing address of the cart given in parameters (default to ESTORE cart)
-+ Request
++ Request (application/x-www-form-urlencoded)
 
     + Headers
             
@@ -3323,7 +3319,7 @@ Get the billing address of the cart given in parameters (default to ESTORE cart)
 Update a shipping address for a cart. Returns the address that was added. If this was a new address then the "id" field in response can be used to refer to this address for later updates.
 Sample url is https://www.123dapp.com/api/v2/cart/billingaddress?address1=1%20Market&postalCode=12345&city=san&state=CA&countryCode=US&name=foo
 
-+ Request
++ Request (application/x-www-form-urlencoded)
 
     + Headers
     
@@ -3365,7 +3361,7 @@ Sample url is https://www.123dapp.com/api/v2/cart/billingaddress?address1=1%20Ma
 ##Cart shipping address [/carts/shippingaddress]
 ### Retrieve a shipping address [GET]
 Get the shipping address of the cart given in parameters (default to ESTORE cart)
-+ Request
++ Request (application/x-www-form-urlencoded)
 
     + Headers
     
@@ -3397,7 +3393,7 @@ Get the shipping address of the cart given in parameters (default to ESTORE cart
 Update a shipping address for a cart. Returns the address that was added. If this was a new address then the "id" field in response can be used to refer to this address for later updates.
 Sample url is https://www.123dapp.com/api/v2/cart/shippingaddress?address1=1%20Market&postalCode=12345&city=san&state=CA&countryCode=US&name=foo
 
-+ Request
++ Request  (application/x-www-form-urlencoded)
 
     + Headers
     
@@ -3439,7 +3435,7 @@ Sample url is https://www.123dapp.com/api/v2/cart/shippingaddress?address1=1%20M
 ##Cart shipping options [/carts/shippingOptions]
 ### Update shipping option [PUT]
 Update user selected shipping options for one or more shipping line items in the cart and choose whether insurance is needed for shipping. This API call has to be used on shipping line items with their `status` field set to "PRICE". This call changes the cart shipping line items. The field `price` will be set to the price of the selected option and `selected_option` will be set to the chosen object.
-+ Request
++ Request (application/x-www-form-urlencoded)
 
     + Headers
     
@@ -3665,7 +3661,7 @@ Update user selected shipping options for one or more shipping line items in the
 ##Cart shipment grouping method [/carts/shipmentGroupingMethods]
 ### Update shipment grouping method [PUT]
 Update how the shipments for multiple physical items should be grouped together. Default method is MINIMUM_SHIPMENTS. Setting already selected method has no effect on the cart.
-+ Request
++ Request (application/x-www-form-urlencoded)
 
     + Headers
     
@@ -4048,7 +4044,7 @@ Apply a coupon. Returns the updated cart (as identified by afc header and cart t
 |----|----|----
 |Coupon does not apply for this cart.|400 Bad Request|3000
 
-+ Request
++ Request (application/x-www-form-urlencoded)
 
     + Headers
     
@@ -4352,7 +4348,7 @@ Delete a coupon. Returns the updated cart (as identified by afc header and cart 
 |----|----|----
 |Coupon not found in cart.|400 Bad Request|3002
 
-+ Request
++ Request (application/x-www-form-urlencoded)
 
     + Headers
     
@@ -4655,7 +4651,7 @@ The default parameters will retrieve the latest `PENDING` shops with most recent
 ### Retrieve shops [GET]
 The followig filters are mutually exclusive and get the following priority: shop_id, member_id, member_name, member_email, shop_name.
 
-+ Request
++ Request (application/x-www-form-urlencoded)
     + Header
             
             X-AFC: FJKB32
@@ -4710,7 +4706,7 @@ The followig filters are mutually exclusive and get the following priority: shop
 ### Get a shop [GET]
 Retrieve a shop by shop id only.
 
-+ Request
++ Request (application/x-www-form-urlencoded)
     + Header
             
             X-AFC: FJKB32
@@ -4747,7 +4743,7 @@ Retrieve a shop by shop id only.
 ### Update a shop [PUT]
 Update a shop based on the parameters in the query.
 
-+ Request
++ Request (application/x-www-form-urlencoded)
     + Header
             
             X-AFC: FJKB32
@@ -4795,7 +4791,7 @@ The default will retrieve the latest assets for sale sorted with most recent at 
 ### Retrieve assets [GET]
 The followig filters are mutually exclusive and get the following priority: shop_id, member_id, member_name, member_email, shop_name.
 
-+ Request
++ Request (application/x-www-form-urlencoded)
     + Header
             
             X-AFC: FJKB32
@@ -4898,7 +4894,7 @@ The followig filters are mutually exclusive and get the following priority: shop
 Update / Add an asset to a shop. Some of the asset properties can be modified from this REST API, including the asset name, description, and keywords (tags).
 
 ### Update a shop asset [PUT]
-+ Request
++ Request (application/x-www-form-urlencoded)
     + Header
             
             X-AFC: FJKB32
@@ -4988,7 +4984,7 @@ CRUD operations for administrator to block users from purchasing.
 ### Retrieve member status [GET]
 Retrieve the list of statuses for the member specified in the query parameters.
 
-+ Request
++ Request (application/x-www-form-urlencoded)
     + Header
             
             X-AFC: FJKB32
@@ -5010,7 +5006,7 @@ Retrieve the list of statuses for the member specified in the query parameters.
 ### Update member status [PUT]
 Update the member status, which are passed as a list of commas separated strings. Right now only PURCHASE_BLOCKED is supported.
 
-+ Request
++ Request (application/x-www-form-urlencoded)
     + Header
             
             X-AFC: FJKB32
@@ -5026,7 +5022,7 @@ Update the member status, which are passed as a list of commas separated strings
 ### Delete member status [DELETE]
 Delete all status for member_id.
 
-+ Request
++ Request (application/x-www-form-urlencoded)
     + Header
             
             X-AFC: FJKB32
@@ -5043,7 +5039,7 @@ Retrieve payouts and approve/deny payout requests. Approving a payout places it 
     
 
 ### Retrieve payouts [GET]
-+ Request
++ Request (application/x-www-form-urlencoded)
     + Header
     
             X-AFC: FJKB32
@@ -5081,7 +5077,7 @@ Retrieve payouts and approve/deny payout requests. Approving a payout places it 
             }
             
 ### Update payout [PUT]
-+ Request
++ Request (application/x-www-form-urlencoded)
     + Header
     
             X-AFC: FJKB32
@@ -5114,7 +5110,7 @@ The approved flag is set to true for all countries we do commerce with.
 Retrieve countries according to the query parameters.
 This API is available to Guests, Members, and Administrators.
 
-+ Request
++ Request (application/x-www-form-urlencoded)
     + Header
     
             X-AFC: FJKB32
@@ -5171,7 +5167,7 @@ Add a country supported by the payment service provider.
 |----|----|----
 |Country already exists|400 Bad Request|3400
 
-+ Request
++ Request (application/x-www-form-urlencoded)
     + Header
     
             X-AFC: FJKB32
@@ -5200,7 +5196,7 @@ Update the approval status or name of the country.
 |----|----|----
 |Country not found|400 Bad Request|3401
 
-+ Request
++ Request (application/x-www-form-urlencoded)
     + Header
     
             X-AFC: FJKB32
@@ -5227,7 +5223,7 @@ Remove the country, which is no longer supported by our service payment provider
 |----|----|----
 |Country not found|400 Bad Request|3401
 
-+ Request
++ Request (application/x-www-form-urlencoded)
     + Header
     
             X-AFC: FJKB32
