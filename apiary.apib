@@ -268,11 +268,11 @@ Operations to perform CRUD operations on an asset with basic metadata. Additiona
 
 
 ### Create a new asset[POST]
-+ Request
+
++ Request (application/x-www-form-urlencoded)
     + Header
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-            Content-type:application/x-www-form-urlencoded
 + Parameters
     + title (required, String, `Alien`) ...Asset title
     + description (required, String, `Mint colored alien`) ...title description
@@ -307,12 +307,10 @@ Operations to perform CRUD operations on an asset with basic metadata. Additiona
         
 
 ### Update an asset[PUT]
-+ Request
++ Request (application/x-www-form-urlencoded)
     + Header
-            
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-            Content-type:application/x-www-form-urlencoded
 + Parameters
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
     + title (required, String, `Alien`) ...Asset title
@@ -330,12 +328,11 @@ Operations to perform CRUD operations on an asset with basic metadata. Additiona
             }
            
 ### Delete an asset [DELETE]
-+ Request
++ Request (application/x-www-form-urlencoded)
+    
     + Header
-            
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-            Content-type:application/x-www-form-urlencoded
 + Parameters
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
 + Response 204
@@ -465,9 +462,9 @@ Note: The key should be unique within the asset. Using the same key in POST will
 ### Create a new custom data entry within the asset[POST] 
 + Parameters
     + custom_data (required, String, `{"custom_data": [{"key": "key1","data": "<Any custom data. Escaped json in case of JSON custom data>"},{"key": "key2","data": "<Any custom data. Escaped json in case of JSON custom data>"}]}`)...Key-Value pair of custom data JSON.
-+ Request
++ Request (application/x-www-form-urlencoded)
+    
     + Header
-
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Response 201 (application/json)
