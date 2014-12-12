@@ -298,6 +298,7 @@ Operations to perform CRUD operations on an asset with basic metadata. Additiona
             
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            Content-type:application/x-www-form-urlencoded
 + Parameters
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
     + referenced_assets (optional, Number, `true`) ...When true referenced assets will be returned as an array sorted in descending order of the time when they were added.<br>Default: false
@@ -312,6 +313,7 @@ Operations to perform CRUD operations on an asset with basic metadata. Additiona
             
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            Content-type:application/x-www-form-urlencoded
 + Parameters
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
     + title (required, String, `Alien`) ...Asset title
@@ -334,6 +336,7 @@ Operations to perform CRUD operations on an asset with basic metadata. Additiona
             
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            Content-type:application/x-www-form-urlencoded
 + Parameters
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
 + Response 204
@@ -363,7 +366,13 @@ This api is a starting point to display galleries, perform free-form searches. D
     + include_mature (optional, Boolean, `false`)...Result will include asset marked as mature.
 
 ## List all Assets [GET]
- 
+
++ Request
+    + Header
+            
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            Content-type:application/x-www-form-urlencoded
 
 + Response 200 (application/json)
         
