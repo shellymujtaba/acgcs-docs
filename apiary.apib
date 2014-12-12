@@ -5000,6 +5000,8 @@ Retrieve the list of statuses for the member specified in the query parameters.
 
 
 ### Update member status [PUT]
+Update the member status, which are passed as a list of commas separated strings. Right now only PURCHASE_BLOCKED is supported.
+
 + Request
     + Header
             
@@ -5014,6 +5016,8 @@ Retrieve the list of statuses for the member specified in the query parameters.
             {}
 
 ### Delete member status [DELETE]
+Delete all status for member_id.
+
 + Request
     + Header
             
