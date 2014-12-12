@@ -4996,8 +4996,11 @@ Retrieve the list of statuses for the member specified in the query parameters.
 + Response 200 (application/json)
     + Body
     
-            ["PURCHASE_BLOCKED"]
-
+            {
+                "member_status": [
+                    "PURCHASE_BLOCKED"
+                ]
+            }
 
 ### Update member status [PUT]
 Update the member status, which are passed as a list of commas separated strings. Right now only PURCHASE_BLOCKED is supported.
