@@ -2153,6 +2153,7 @@ Guest session results in only the public shop data to be returned. Offline shops
     
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            X-Secure-Session: ABC1232324244
 + Parameters
     + name (optional, String, `New Shop Name`)... Shop Name
     + banner_file_id (optional, Number, `55555555`)... File id of the uploaded banner image
@@ -2186,6 +2187,7 @@ Guest session results in only the public shop data to be returned. Offline shops
     
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            X-Secure-Session: ABC1232324244
 
 + Response 204
 
@@ -2297,6 +2299,7 @@ Setting a private asset "for sale" results in asset state changed to public.
     
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            X-Secure-Session: ABC1232324244
 
 + Parameters
     + asset_id (required, Number, `588452`)... Asset id
@@ -2384,6 +2387,7 @@ Create payout request and retrieve payout history.
     
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+           
 
 + Parameters
     + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
@@ -2429,6 +2433,7 @@ For a first time payout request, all fields are mandatory.
     
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            X-Secure-Session: ABC1232324244
 
 + Parameters
     + amount (required, number, `100`)... Requested payout amount
