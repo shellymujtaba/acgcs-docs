@@ -4977,10 +4977,11 @@ Update / Add an asset to a shop. Some of the asset properties can be modified fr
             }
 
 
-## Members [/admin/members]
-TBD.
+## Member Status [/admin/members/{member_id}/status]
+CRUD operations for administrator to block users from purchasing.
 
-### Retrieve members [GET]
+### Retrieve member status [GET]
+Retrieve the list of statuses for the member specified in the query parameters.
 
 + Request
     + Header
@@ -4990,18 +4991,13 @@ TBD.
 
 + Parameters
 
-    + TBD (optional, Number,`1234567890`)... Search by member id.
+    + member_id (required, Number,`1234567890`)... Member id.
 
 + Response 200 (application/json)
     + Body
     
-            {
-                "status": "tbd"
-            }
+            ["PURCHASE_BLOCKED"]
 
-
-## Member [/admin/members/{member_id}]
-TBD (Update the status of a user to quarantine/block him from purchasing/selling).
 
 ### Update member status [PUT]
 + Request
@@ -5011,13 +5007,23 @@ TBD (Update the status of a user to quarantine/block him from purchasing/selling
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
-    + TBD (required, Number, `123123`)... Shop id
+    + member_id (required, Number,`1234567890`)... Member id.
 
 + Response 200 (application/json)
 
-            {
-                "status" : "tbd"
-            }
+            {}
+
+### Update member status [DELETE]
++ Request
+    + Header
+            
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + member_id (required, Number,`1234567890`)... Member id.
+
++ Response 204 (application/json)
 
 ## Payouts [/admin/payouts/{payout_id}]
 Retrieve payouts and approve/deny payout requests. Approving a payout places it to the payout queue.
