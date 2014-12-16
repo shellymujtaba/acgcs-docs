@@ -1988,6 +1988,7 @@ Here are the general steps:
 Authenticate the token returned by /member/login call to recieve a session id
 
 ### Retrieve session from token [GET] 
+
 + Request (application/x-www-form-urlencoded)
     + Headers
     
@@ -2003,24 +2004,29 @@ Authenticate the token returned by /member/login call to recieve a session id
             {"session":"2E709611-21ED-4C3B-85CB-F23B007E3334","secure_session":"2604B7D0408A16F3E2FA50E4AFFC318E","create":true,"first_login":true}
 
      
-        
+    
+  
+
 ## Guest Session [/session]
 Returns a guest session ID.   Guest sessions expire after 4 hours of inactivity.
+
+### Retrieve Guest session [GET]  
 
 + Request (application/x-www-form-urlencoded)
     + Headers
     
             X-AFC: FJKB32
 
-### Retrieve Guest session [GET]
-
 
 + Response 200 (application/json)
 
         {"session":"1213133-1213131131112"}
             
+            
 ## Session Valid [/session/valid]
 Checks whether session and secure session is valid or not.
+
+### Validate Session and Secure session [GET]
 
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -2030,12 +2036,12 @@ Checks whether session and secure session is valid or not.
     + session (required, String, `1213133-1213131131112`)... Session
     + secure_session (required, String, `ABCDEFGH1234PQR`)... Secure session
     
-### Validate Session and Secure session [GET]
+
 
 
 + Response 200 (application/json)
 
-        {"is_valid":"true"}
+        {"is_valid":"true", "is_secure_valid"::"true"}
 
 
 #Group Shops
