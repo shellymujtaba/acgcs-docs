@@ -2019,7 +2019,23 @@ Returns a guest session ID.   Guest sessions expire after 4 hours of inactivity.
 
         {"session":"1213133-1213131131112"}
             
+## Session Valid [/session/valid]
+Checks whether session and secure session is valid or not.
 
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
+            X-AFC: FJKB32
++ Parameters
+    + session (required, String, `1213133-1213131131112`)... Session
+    + secure_session (required, String, `ABCDEFGH1234PQR`)... Secure session
+    
+### Validate Session and Secure session [GET]
+
+
++ Response 200 (application/json)
+
+        {"is_valid":"true"}
 
 
 #Group Shops
