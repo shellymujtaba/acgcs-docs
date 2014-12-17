@@ -4785,6 +4785,28 @@ Delete a coupon. Returns the updated cart (as identified by afc header and cart 
             ]
         }
 
+### Get cart tax (INTERNAL CALL ONLY) [GET]
+Returns the tax of the cart (as identified by afc header and cart type) for a member. Should be called only after buynow url. 
+
++ Request (application/x-www-form-urlencoded)
+
+    + Headers
+    
+            X-AFC: FJKB32
+            X-Session: 1B5E9C51-0CAC-4CC1-B958-26D011FEA070
+            X-Secure-Session: 154123E6623EB26EF670CFAA65F5408D4BED09F0A7E7E2373644BE072B80875A
+
+            
++ Parameters
+    + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE`)...String `type` of the cart to perform action with.
+
++ Response 200 (application/json)
+
+        {
+          "currency":"USD",
+          "cart_tax":12.37
+        }
+
 # Group Admin
 These admin operations require admin privilege for logged in user.
 
