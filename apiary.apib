@@ -2090,9 +2090,9 @@ Operations for shop creation and retrieval.
             }
 
 ### List shops [GET]
-List shops for a given user. If the user is logged in, retrieve all shops.
-If using a Gest Session and member_id is specified in parameters, returned
-only the shops that are online and approved.
+List shops for a given user. If the user is logged in, and no member_id is specified, returns all shop information (public + private) for the logged in member's shop.
+
+If member_id parameter is present, then only the requested member's public shop information is returned. Note that for a guest session, the member_id parameter is required, since guests are not allowed to setup shops.
 
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -2101,7 +2101,7 @@ only the shops that are online and approved.
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
-    + member_id (optional, Number,`1234567890`)... Used only when member is guest or a given member wants to see another members shop. This only returns public shops.
+    + member_id (optional, Number,`1234567890`)... Used only when member is guest or a given member wants to see another members shop. This only returns public shops and is required for Guest sessions.
     + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
     + offset (optional, Number, `0`)...This offsets the start of each page by the number specified. Default: 0.
 
