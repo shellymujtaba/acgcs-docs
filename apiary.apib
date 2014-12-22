@@ -2090,9 +2090,9 @@ Operations for shop creation and retrieval.
             }
 
 ### List shops [GET]
-List shops for a given user. If the user is logged in, and no member_id is specified, returns all shop information (public + private) for the logged in member's shop.
+List shops for a given user. If the user is logged in, and no member_id is specified, returns all shop information (public + private) for the logged in member.
 
-If member_id parameter is present, then only the requested member's public shop information is returned. Note that for a guest session, the member_id parameter is required, since guests are not allowed to setup shops.
+If member_id parameter is present, then only this requested member's public shop information is returned. Note that for a guest session, the member_id parameter is required, since guests are not allowed to setup shops.
 
 + Request (application/x-www-form-urlencoded)
     + Headers
