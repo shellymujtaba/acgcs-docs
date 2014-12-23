@@ -2607,20 +2607,6 @@ When invoked  without any parameter, the phone number on file is verified. Other
 ##Email Verification [/shops/{shop_id}/payouts/emailVerification]
 Creates an email verification request for the shops payout info.
 
-### Create email verification [POST]
-When invoked  without any parameter, the email address on file is verified. Otherwise, the email address in the request is verified and the payout info is updated with this email.
-
-+ Request (application/x-www-form-urlencoded)
-    + Headers
-    
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-
-+ Parameters
-    + email_address (optional, string, `someone@autodesk.com`)... Email address for verification. If present, shops payout info is updated.
-    
-+ Response 201
-
 
 ##Sales [/shops/{shop_id}/sales]
 Retrieve non-pending sales history. Restricts order line items to only those sold by the seller since an order may have multiple line items from multiple sellers.
