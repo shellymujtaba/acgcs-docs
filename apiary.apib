@@ -2045,7 +2045,10 @@ Checks whether session and secure session is valid or not.
 
 
 #Group Shops
-This group of operations works on shops. A shop is a core entity in marketplace eco-system. A seller needs to establish a shop in order to start selling assets.
+This group of operations work on shops. A shop is a core entity in marketplace eco-system. A seller needs to establish a shop in order to start selling assets.
+
+* A shop needs to be reviewed once it is created (requested). The Shop Approval Status indicates the review status and is initially set to PENDING following a shop creation. Once the review is comlete this field gets updated to either APPROVED or DENIED.
+* The Shop Status field indicates whether the shop is online [1] (visible to others) or offline [0]. The DELETE operation can be utilized to bring a shop offline.
 
 ##Shops [/shops]
 Operations for shop creation and retrieval.
