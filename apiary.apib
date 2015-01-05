@@ -1761,9 +1761,11 @@ Retrieves member's subscription history in cronologically descending order. Each
 ## Credits [/members/{id}/credits]
 Retrieves member's marketplace credits and payouts accumulated over time.  
 *Types of Credit*  
-1. Sales Credit: Credit earned throug sales. This credit can be paid out or used to purchase goods in marketplace.  
+1. Sales Credit: Credit earned through sales. This credit can be paid out or used to purchase goods in marketplace.  
 2. Promotional Credit: Credit given through promotions (non withdrawable credit).  
 3. Purchased Credit: Credit purchased by the buyer. This credit can only be used to purchase goods in marketplace (non withdrawable credit).  
+
+API returns total accrued credits and total available credits (accrued - used) in each category.
 
 + Parameter 
     + id (required, Number , `123446`)...Member id
@@ -1781,6 +1783,9 @@ Retrieves member's marketplace credits and payouts accumulated over time.
 
             {
                 "member_id": 20704754,
+                "total_accrued_promotional_credit" : 200,
+                "total_accrued_purchased_credit" : 200,
+                "total_accrued_sales_credit" : 200,
                 "total_promotional_credit": 100,
                 "total_purchased_credit": 100,
                 "total_sales_credit": 123.45,
