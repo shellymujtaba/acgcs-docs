@@ -2053,7 +2053,7 @@ Checks whether session and secure session is valid or not.
 This group of operations work on shops. A shop is a core entity in marketplace eco-system. A seller needs to establish a shop in order to start selling assets.
 
 * A shop needs to be reviewed once it is created (requested). The Shop Approval Status indicates the review status and is initially set to PENDING following a shop creation. Once the review is complete, this field gets updated to either APPROVED or DENIED.
-* The Shop Status field indicates whether the shop is online(1) (i.e. visible to others) or offline(0). The DELETE operation can be utilized to bring a shop offline.
+* The Shop Status field indicates whether the shop is online (i.e. visible to others) or offline. The DELETE operation can be utilized to bring a shop offline.
 
 ##Shops [/shops]
 Operations for shop creation and retrieval.
@@ -2089,7 +2089,7 @@ Operations for shop creation and retrieval.
                 "banner_file_url": "https://aws-file-server/resources/image.png",
                 "current_portfolio_url": "http://dev.squidplatform.net",
                 "current_sales_url": "http://dev.squidplatform.net",
-                "shop_status": 1,
+                "shop_status": "ONLINE",
                 "shop_approval_status": "PENDING",
                 "shop_denial_reason": null,
                 "pending_total": 0,
@@ -2131,7 +2131,7 @@ If member_id parameter is present, then only this requested member's public shop
                         "banner_file_url": "https://aws-file-server/resources/image.png",
                         "current_portfolio_url": "http://alpha.squidplatform.com/portfolio",
                         "current_sales_url": "newUrl",
-                        "shop_status": 1,
+                        "shop_status": "ONLINE",
                         "shop_approval_status": "PENDING",
                         "shop_denial_reason": ""
                     }
@@ -2157,7 +2157,7 @@ DELETE shop brings the shop offline, but members can still access previously pur
               "banner_file_id": "55555555",
               "current_portfolio_url": "http://dev.squidplatform.net",
               "current_sales_url": "http://dev.squidplatform.net",
-              "shop_status": 1,
+              "shop_status": "ONLINE",
               "shop_approval_status": "APPROVED",
               "shop_denial_reason": null,
               "pending_total": 40.12,
@@ -2190,7 +2190,7 @@ Guest session results in only the public shop data to be returned. Offline shops
     + banner_file_id (optional, Number, `55555555`)... File id of the uploaded banner image
     + current_portfolio_url (optional, String, `http://dev.squidplatform.net`)... Portfolio url
     + current_sales_url (optional, String, `http://dev.squidplatform.net`)... Sales url
-    + shop_status (optional, Number, `0`) ...Shop status
+    + shop_status (optional, String, `ONLINE`) ...Shop status: ONLINE/OFFLINE
 
 + Response 200 (application/json)
     + Body
@@ -2203,7 +2203,7 @@ Guest session results in only the public shop data to be returned. Offline shops
                 "banner_file_url": "https://aws-file-server/resources/image.png",
                 "current_portfolio_url": "http://dev.squidplatform.net",
                 "current_sales_url": "http://dev.squidplatform.net",
-                "shop_status": 0,
+                "shop_status": "OFFLINE",
                 "shop_approval_status": "PENDING",
                 "shop_denial_reason": null,
                 "pending_total": 0,
@@ -4870,7 +4870,7 @@ The followig filters are mutually exclusive and get the following priority: shop
                             "banner_file_id": 87654321,
                             "current_portfolio_url": "https://frederic.io/myubersite.html",
                             "current_sales_url": "https://frederic.io/mygreatshop.html",
-                            "shop_status": 0,
+                            "shop_status": "OFFLINE",
                             "shop_approval_status": "PENDING",
                             "commerce_affiliate_id": 1,
                             "modified_date": "December 10, 2014 18:57:09",
@@ -4909,7 +4909,7 @@ Retrieve a shop by shop id only.
                     "banner_file_id": 1111,
                     "current_portfolio_url": "portfolio",
                     "current_sales_url": "sales",
-                    "shop_status": 1,
+                    "shop_status": "ONLINE",
                     "shop_approval_status": "DENIED",
                     "shop_denial_reason": "DUPLICATE",
                     "commerce_affiliate_id": 1,
@@ -4938,7 +4938,7 @@ Update a shop based on the parameters in the query.
     + banner_file_id (optional, Number, `55555555`)... File id of the uploaded banner image
     + current_portfolio_url (optional, String, `http://dev.squidplatform.net`) ...Portfolio url
     + current_sales_url (optional, String, `http://dev.squidplatform.net`) ...Sales url
-    + shop_status (optional, Number, `0`) ...Shop status
+    + shop_status (optional, String, `ONLINE`) ...Shop status: ONLINE/OFFLINE
     + shop_approval_status (optional, String, `PENDING|APPROVED|DENIED`)... Approval status of a shop.
     + shop_denial_reason (optional, String, `FRAUD|DUPLICATE`)... Shop denial reason
 
@@ -4953,7 +4953,7 @@ Update a shop based on the parameters in the query.
                     "banner_file_id": 1111,
                     "current_portfolio_url": "portfolio",
                     "current_sales_url": "sales",
-                    "shop_status": 1,
+                    "shop_status": "ONLINE",
                     "shop_approval_status": "DENIED",
                     "shop_denial_reason": "DUPLICATE",
                     "commerce_affiliate_id": 1,
