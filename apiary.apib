@@ -5161,6 +5161,72 @@ Update / Add an asset to a shop. Some of the asset properties can be modified fr
             }
 
 
+## Member Search [/admin/members/search]
+Search members on various input parameters.
+
++ Parameters
+    + email (optional, String, `jsmith@autodesk.com`)...Member email address
+    + id (optional, Number, `20280723`)...Member id
+    + name (optional, String, `John Smith`)...Member name
+    + created_on (optional, String, `2011-11-19`)... Member created date based search
+    + last_login (optional, String, `2014-12-29`)... Member last login based search
+    + provider (optional, String, `google`)...Member created through which provider. It can be social or through autodesk oxygen. (Currently supported: google | facebook | messanger | twitter | linkedin | yahoo | oxygen)
+    + sort_order (optional, String, `desc`)...Sort order.  (asc | desc)
+    + sort_by (optional, String, `email`)...Field to sort on.  (Possible fields: date | name | id | email) Default: name.
+    + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
+    + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
+
+### Retrieves list of members [GET]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Response 200 (application/json)
+
+            {
+                "count": 1516,
+                "limit": 3,
+                "offset": 10,
+                "_link": "/admin/members/search?sort_by=id&name=Smith&sort_order=asc&limit=3&offset=10",
+                "_link_prev": "/admin/members/search?sort_by=id&name=Smith&sort_order=asc&limit=3&offset=7",
+                "_link_next": "/admin/members/search?sort_by=id&name=Smith&sort_order=asc&limit=3&offset=13",
+                "members": [
+                    {
+                        "email": "thomass@theacesinc.com",
+                        "provider": "oxygen",
+                        "locale": "en_US",
+                        "name": "Thomas Smith",
+                        "ada_id": null,
+                        "login": "Thomas Smith",
+                        "id": 20292992,
+                        "type_id": 0
+                    },
+                    {
+                        "email": "ssmith@co.carver.mn.us",
+                        "provider": "oxygen",
+                        "locale": "en_US",
+                        "name": "Scott A. Smith",
+                        "ada_id": null,
+                        "login": "Scott A. Smith",
+                        "id": 20293105,
+                        "type_id": 0
+                    },
+                    {
+                        "email": "kyle-s-smith@msn.com",
+                        "provider": "oxygen",
+                        "locale": "en_US",
+                        "name": "kylesmith",
+                        "ada_id": null,
+                        "login": "kylesmith",
+                        "id": 20294986,
+                        "type_id": 0
+                    }
+                ]
+            }
+            
+
 ## Member Status [/admin/members/{member_id}/status]
 CRUD operations for administrator to block users from purchasing.
 
