@@ -2618,9 +2618,20 @@ When invoked  without any parameter, the phone number on file is verified. Other
     
 + Response 201
 
-##Email Verification [/shops/{shop_id}/payouts/emailVerification]
-Creates an email verification request for the shops payout info.
+### Retrieve Twilio voice [GET]
+To be used by Twilio. Need mocked response accessible from the internet.
 
++ Response 200 (text/xml)
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+    <Say voice="alice">
+        Hello from Autodesk. This is to confirm your phone for payouts.
+    </Say><Pause length="1"/>
+    <Say voice="alice">
+        To verify your phone number, please press one.
+    </Say>
+</Response>
 
 ##Sales [/shops/{shop_id}/sales]
 Retrieve non-pending sales history. Restricts order line items to only those sold by the seller since an order may have multiple line items from multiple sellers.
