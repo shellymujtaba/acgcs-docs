@@ -1222,7 +1222,9 @@ In case of base64 encoded files, file name extension will be utilized to determi
 Note: Please use the server for the file upload received from the upload server API.
 
 + Parameters
-    + unzip (optional,String, `false`)...Indicate if the zip file should be unzipped and each constituent files be treated as an individual file. Default is false. 
+    + unzip (optional,String, `false`)...Indicate if the zip file should be unzipped and each constituent files be treated as an individual file. Default is false.
+    + fileurl (optional,String, `null`)...URL of the file from where the file need to be retrived.(only works when filename parameteris passed alongwith)
+    + filename (optional,String, `null`)...name of the downloaded file from fileurl.
 
 ### Upload files [POST]
 
