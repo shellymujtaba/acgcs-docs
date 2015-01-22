@@ -2628,7 +2628,7 @@ To be used by Twilio. (Need mocked response accessible from the internet)
     <Say voice="alice" language="en-US">
         Hello from Autodesk.
     </Say><Pause length="1"/>
-    <Gather action="/verify" method="POST" numDigits="1">
+    <Gather action="/api/v2/shops/1/payouts/phoneVerification/verify" method="POST" numDigits="1">
         <Say voice="alice" language="en-US">
             To verify your phone number, please press one.
         </Say>
