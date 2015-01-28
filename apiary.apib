@@ -1120,6 +1120,21 @@ Flag an asset along with reason for flagging. This operation is a no-op if an as
     + comment (optional , String, `optional user comments`) ...additional user comments 
 + Response 204
 
+## Asset Feature [/assets/{id}/feature]
+Feature an asset. Sets featured status of an asset. Featuring adds the asset to featured list, while unfeaturing removes it from featured list.
+This is admin only functionality, hence must be invoked with Community ADMIN rights.
+
+### Feature an asset [PUT]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + feature_flag (String)...Options: true/false
++ Response 204
+
 ## Asset Status Posts [/assets/{id}/status]
 Operations to manage status posts on an asset. Status posts are updates to the progress of an asset made by the author. e.g "Finished textures today".  
 
