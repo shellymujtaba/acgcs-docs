@@ -1996,7 +1996,7 @@ Extend members subscription by specified period.
             X-Session: 00000000-8035-4F7E-90A3-066C5897AD57
             
 + Parameters
-    + hash (required, String, `asaskd6976324hbdgqe78du`)...Hash value is sha256hash combination of AFC+CURRENT TIME_STAMP IN GMT+SECURE CODE FOR AFC. Ref:http://www.convertstring.com/Hash/SHA256
+    + hash (required, String, `asaskd6976324hbdgqe78du`)...Hash value is sha256hash combination of AFC+CURRENT TIME_STAMP IN GMT+SECURE CODE FOR AFC. Ref:Java code function : DigestUtils.sha256Hex()
     + ts (required, String, `2015-01-23 15:00:00`)...Current time in GMT by which hash is generated.
     + subscription_ids (required, Number, `2345689,2345690`)...Subscription ids to be extended.
     + dates (optional, String, `2015-01-23 15:23:34,2015-01-25 15:23:34`)...New end date for subscriptions in YYYY-MM-DD HH:MM:SS format. If you find it difficult go for extend_by and period_names parameters.
