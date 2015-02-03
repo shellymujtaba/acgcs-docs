@@ -1985,6 +1985,25 @@ Get all the purchases made by the member.
            ]
         }
 
+## ExtendSubscription [/members/ExtendSubscription]
+### Extend members subscription by specified period [PUT]
+Extend members subscription by specified period.
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
+            X-AFC: FJKB32
+            X-Session: 00000000-8035-4F7E-90A3-066C5897AD57
+            
++ Parameters
+    + id (required, Number, `2345689`)...Numeric `id` of the member.
+    + limit (optional, Number, `4`)...Number of results per page.
+    + offset (optional, Number, `8`)...This offsets the start of each page by the number specified.
+
++ Response 200 (application/json)
+    {
+}
+
 # Group Auth
 
 ## Login [/login]
