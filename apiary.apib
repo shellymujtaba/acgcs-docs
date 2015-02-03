@@ -1996,9 +1996,10 @@ Extend members subscription by specified period.
             X-Session: 00000000-8035-4F7E-90A3-066C5897AD57
             
 + Parameters
-    + id (required, Number, `2345689`)...Numeric `id` of the member.
-    + limit (optional, Number, `4`)...Number of results per page.
-    + offset (optional, Number, `8`)...This offsets the start of each page by the number specified.
+    + subscription_ids (required, Number, `2345689,2345690`)...Subscription ids to be extended.
+    + dates (optional, String, `2015-01-23 15:23:34,2015-01-25 15:23:34`)...New end date for subscriptions in YYYY-MM-DD HH:MM:SS format. If you find it difficult go for extend_by and period_names parameters..
+    + extend_by (optional, Number, `3,12,1`)....
+    + period_names (optional, Number, `day,month,year`)...This offsets the start of each page by the number specified.
 
 + Response 200 (application/json)
     {
