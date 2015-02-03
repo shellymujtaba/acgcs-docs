@@ -1314,6 +1314,51 @@ Note: Please use the server for the file download received from the download ser
 
 + Response 200
 
+#File Access [/filesystem/publicurl]
+APIs to make files available using public url.
+
+### Make file public [POST]
+API to make private files to public files
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + fileids (required, String, `1234,5678`)...Comma separated list of file ids
+
++ Response 200 (application/json)
+    {}
+    
+### Retreive file public url [GET]    
+API to retreive the file public url.
+
+Note: The files must be made public using the POST before retreiving their public url.
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + fileids (required, String, `1234,5678`)...Comma separated list of file ids
+
++ Response 200 (application/json)
+    {}
+
+### Retreive file public url [DELETE]    
+API to delete a public file.
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + fileids (required, String, `1234,5678`)...Comma separated list of file ids
+
++ Response 200 (application/json)
 
 #Group Members
 This group of operations provides information on the member. A member is a user who signs up or logs into Cloud Services eco-system.
@@ -1327,9 +1372,9 @@ Manage public information about a member.
 ### Retrieve a member [GET]
 + Request (application/x-www-form-urlencoded)
     + Headers
-    
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
 + Response 200 (application/json)
 
             {
