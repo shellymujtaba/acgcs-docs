@@ -374,92 +374,93 @@ This api is a starting point to display galleries, perform free-form searches. D
 
 + Request (application/x-www-form-urlencoded)
     + Headers
-    
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             
 
 + Response 200 (application/json)
-        
+    {
+        "count": 260,
+        "limit": 13,
+        "offset": 39,
+        "_link": "/assets?q=abc&limit=26",
+        "_link_prev": "/assets?q=abc&limit=26&offset=26",
+        "_link_next": "/assets?q=abc&limit=26&offset=39",
+        "assets": [
             {
-                "count": 260,
-                "limit": 13,
-                "offset": 39,
-                "_link": "/assets?q=abc&limit=26",
-                "_link_prev": "/assets?q=abc&limit=26&offset=26",
-                "_link_next": "/assets?q=abc&limit=26&offset=39",
-                "assets": [
-                    {
-                        "is_featured": false,
-                        "comment_count": 0,
-                        "member_small_avatar": "http://dev.squidplatform.net/images/v22/member/default_avatar.png",
-                        "asset_name": "tissue box",
-                        "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
-                        "is_online_viewer_available": true,
-                        "is_member_favorite": false,
-                        "favorite_count": 1,
-                        "progress_status": 1,
-                        "referenced_assets_count": 0,
-                        "referenced_by_count": 0,
-                        "referenced_asset_thumb": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/2012/12/13__09_57_54/hand.jpgf18ed964-0998-4f43-a165-c0f5c650ec08small.jpg",
-                        "date_submitted": "april 26, 2011 00:11:57",
-                        "date_modified": "april 26, 2011 00:11:57",
-                        "key_data": {
-                            "keyfilefolder": [
+                "is_featured": false,
+                "comment_count": 0,
+                "member_small_avatar": "http://dev.squidplatform.net/images/v22/member/default_avatar.png",
+                "asset_name": "tissue box",
+                "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
+                "is_online_viewer_available": true,
+                "is_member_favorite": false,
+                "favorite_count": 1,
+                "progress_status": 1,
+                "referenced_assets_count": 0,
+                "referenced_by_count": 0,
+                "referenced_asset_thumb": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/2012/12/13__09_57_54/hand.jpgf18ed964-0998-4f43-a165-c0f5c650ec08small.jpg",
+                "date_submitted": "april 26, 2011 00:11:57",
+                "date_modified": "april 26, 2011 00:11:57",
+                "key_data": {
+                    "keyfilefolder": [
+                        {
+                            "filefolder": [
                                 {
-                                    "filefolder": [
-                                        {
-                                            "id": 5113474
-                                        }
-                                    ],
-                                    "key": "viewerfiles"
+                                    "id": 5113474
+                                }
+                            ],
+                            "key": "viewerfiles"
+                        },
+                        {
+                            "filefolder": [
+                                {
+                                    "name": "10325_tissue box_v2_max2010_it2.stl",
+                                    "id": 5337164,
+                                    "modeltocentimeters": -1
                                 },
                                 {
-                                    "filefolder": [
-                                        {
-                                            "name": "10325_tissue box_v2_max2010_it2.stl",
-                                            "id": 5337164,
-                                            "modeltocentimeters": -1
-                                        },
-                                        {
-                                            "name": "10325_tissue box_v2_max2010_it2.stl",
-                                            "id": 5341121,
-                                            "modeltocentimeters": -1
-                                        },
-                                        {
-                                            "name": "5113474.stl",
-                                            "id": 5376472,
-                                            "modeltocentimeters": -1
-                                        }
-                                    ],
-                                    "key": "stlfiles"
+                                    "name": "10325_tissue box_v2_max2010_it2.stl",
+                                    "id": 5341121,
+                                    "modeltocentimeters": -1
+                                },
+                                {
+                                    "name": "5113474.stl",
+                                    "id": 5376472,
+                                    "modeltocentimeters": -1
                                 }
-                            ]
-                        },
-                        "canonical_seo_url": "http://dev.squidplatform.net/123c-3d-model/tissue-box/592540",
-                        "artist_name": "autodesk",
-                        "asset_image": "2011/04/25__11_19_17/tt_0000.jpg251cdd82-cdfb-4397-913a-738096e71046small-1.jpg",
-                        "rating": 0,
-                        "format_name_long": "multiple ( .stl, .123c )",
-                        "count_rating": 0,
-                        "seo_template": "123c-3d-model tissue-box",
-                        "current_page": 1,
-                        "asset_ext_name": "scenes & props",
-                        "model_type": "part",
-                        "file_size": 1690664,
-                        "download_count": 3008,
-                        "format_name_short": "stl 123c",
-                        "is_gallery_asset": true,
-                        "artist_avatar": "http://dev.squidplatform.net/images/v22/member/default_avatar.png",
-                        "artist_id": 2345678,
-                        "media_type_id": 23,
-                        "current_result": 1,
-                        "mesh": true,
-                        "associated_file_directory_path": "2011/04/25__11_19_17/tt_0000.jpg251cdd82-cdfb-4397-913a-738096e71046small-1.jpg",
-                        "asset_id": 592540
-                    }
-                ]
+                            ],
+                            "key": "stlfiles"
+                        }
+                    ]
+                },
+                "canonical_seo_url": "http://dev.squidplatform.net/123c-3d-model/tissue-box/592540",
+                "artist_name": "autodesk",
+                "asset_image": "2011/04/25__11_19_17/tt_0000.jpg251cdd82-cdfb-4397-913a-738096e71046small-1.jpg",
+                "rating": 0,
+                "format_name_long": "multiple ( .stl, .123c )",
+                "count_rating": 0,
+                "seo_template": "123c-3d-model tissue-box",
+                "current_page": 1,
+                "asset_ext_name": "scenes & props",
+                "model_type": "part",
+                "file_size": 1690664,
+                "download_count": 3008,
+                "format_name_short": "stl 123c",
+                "is_gallery_asset": true,
+                "artist_avatar": "http://dev.squidplatform.net/images/v22/member/default_avatar.png",
+                "artist_id": 2345678,
+                "media_type_id": 23,
+                "current_result": 1,
+                "mesh": true,
+                "associated_file_directory_path": "2011/04/25__11_19_17/tt_0000.jpg251cdd82-cdfb-4397-913a-738096e71046small-1.jpg",
+                "asset_id": 592540,
+                "total_price": 1.99,
+                "shop_id": 5,
+                "is_for_sale": true
             }
+        ]
+    }
 
 ## Asset Custom Data [/assets/{id}/customdata]
 Operations to add custom data to this asset. These operations are useful to add any asset specific custom data to the asset e.g tenant specific asset data useful for display purpose.
