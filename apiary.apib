@@ -365,10 +365,10 @@ This api is a starting point to display galleries, perform free-form searches. D
     + media_type_ids (optional, String, `1,2,41,42`)...Limit results based on a comma-separated list of media type ids.
     + child_assets (optional, Number, `588383`)...Pass child asset Id and get its corresponding child assets.
     + include_mature (optional, Boolean, `false`)...Result will include asset marked as mature.
-    + for_sale (optional, Boolean , null)...Result will include asset which are for sale or for free.
-    + shop_ids (optional, String, null`)...Result will include asset from list of given shop Id's.
-    + min_price (optional, Number, `0`)...Result will include asset with price equal or greater.
-    + max_price (optional, Number, null`)...Result will include asset with price equal or Less.
+    + for_sale (optional, Boolean , `false`)...Result will include asset which are for sale or for free.
+    + shop_ids (optional, String, `123,567,987`)...Result will include asset from list of given shop Id's.
+    + min_price (optional, Number, `123`)...Result will include asset with price equal or greater.
+    + max_price (optional, Number, "546)...Result will include asset with price equal or Less.
 
 ## List all Assets [GET]
 
