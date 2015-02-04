@@ -490,27 +490,28 @@ Note: The key should be unique within the asset. Using the same key in POST will
         X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Response 200 (application/json)
-        {
-            "custom_data": [
-                {
-                    "key": "key1",
-                    "data": "{\"camera\": {\"eye\": [0.779605,-1.04071,-0.0150464],\"fov\": 0.959931,\"up\": [-0.00353075,0.00402574,0.999986],\"view\": [-0.659365,0.751804,-0.00535469]},\"version\": 1,\"world\": {\"front\": [0,-1,0],\"up\": [0,0,1]}}"
-                },
-                {
-                    "key": "key2",
-                    "data": "this is custom data"
-                }
-            ]
-        }
+    {
+        "custom_data": [
+            {
+                "key": "key1",
+                "data": "{\"camera\": {\"eye\": [0.779605,-1.04071,-0.0150464],\"fov\": 0.959931,\"up\": [-0.00353075,0.00402574,0.999986],\"view\": [-0.659365,0.751804,-0.00535469]},\"version\": 1,\"world\": {\"front\": [0,-1,0],\"up\": [0,0,1]}}"
+            },
+            {
+                "key": "key2",
+                "data": "this is custom data"
+            }
+        ]
+    }
 
 ### Delete an asset custom data[DELETE]
 + Request (application/x-www-form-urlencoded)
     + Headers
-    
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
 + Parameters
     + keys (required, String, `key1,key2`)...Comma seperated list of custom data keys to be deleted from this asset.
+    
 + Response 204
 
 ## Asset Previews [/assets/{id}/previews]
@@ -525,46 +526,41 @@ Operations to add preview files to this asset. These operations are used to add 
 
 + Request (application/x-www-form-urlencoded)
     + Headers
-    
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Response 201 (application/json)
-
-            {
-                "_link": "/assets/1495894/previews"
-            }
+        {
+            "_link": "/assets/1495894/previews"
+        }
 
 ### retrieve a shop asset previews[GET]
 + Request (application/x-www-form-urlencoded)
     + Headers
-    
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Response 200 (application/json)
-
-            {
-                "previews": [
-                    {
-                        "file_id": 16804696,
-                        "file_type": "",
-                        "_link": "api/v2/assets/1495897/download?file=16804696"
-                    },
-                    {
-                        "file_id": 16804697,
-                        "file_type": "",
-                        "_link": "api/v2/assets/1495897/download?file=16804697"
-                    }
-                ]
-            }
+        {
+            "previews": [
+                {
+                    "file_id": 16804696,
+                    "file_type": "",
+                    "_link": "api/v2/assets/1495897/download?file=16804696"
+                },
+                {
+                    "file_id": 16804697,
+                    "file_type": "",
+                    "_link": "api/v2/assets/1495897/download?file=16804697"
+                }
+            ]
+        }
 
 ### Delete an asset previews[DELETE]
 + Request (application/x-www-form-urlencoded)
     + Headers
-    
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
     + file_ids (required,String, `234567,334562`)...Comma seperated list of assets preview file ids to be deleted from this asset.
@@ -580,6 +576,7 @@ Operations to link other assets to this asset. These operations are useful to ag
 ### Create a new reference within the asset[POST] 
 + Parameters
     + asset_ids (required,String, `234567,334562`)...Comma seperated list of assets to be linked to this asset.
+    
 + Response 201 (application/json)
     {
         "_link":"/assets/234566/references"
