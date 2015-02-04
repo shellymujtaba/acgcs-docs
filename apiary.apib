@@ -1329,7 +1329,18 @@ API to make private files to public files
     + fileids (required, String, `1234,5678`)...Comma separated list of file ids
 
 + Response 200 (application/json)
-    {}
+{
+    "files": [
+        {
+            "file_id": 16812136,
+            "public_url": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Public/Alpha/16812136"
+        },
+        {
+            "file_id": 16812137,
+            "public_url": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Public/Alpha/16812137"
+        }
+    ]
+}
     
 ### Retreive file public url [GET]    
 API to retreive the file public url.
@@ -1345,7 +1356,18 @@ Note: The files must be made public using the POST before retreiving their publi
     + fileids (required, String, `1234,5678`)...Comma separated list of file ids
 
 + Response 200 (application/json)
-    {}
+{
+    "files": [
+        {
+            "file_id": 16812136,
+            "public_url": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Public/Alpha/16812136"
+        },
+        {
+            "file_id": 16812137,
+            "public_url": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Public/Alpha/16812137"
+        }
+    ]
+}
 
 ### Delete public file [DELETE]    
 API to delete public files.
