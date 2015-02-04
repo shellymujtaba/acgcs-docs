@@ -470,41 +470,38 @@ Note: The key should be unique within the asset. Using the same key in POST will
 + Parameters
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
 
-### Create a new custom data entry within the asset[POST] 
+### Create a new custom data entry within an asset [POST] 
 + Parameters
     + custom_data (required, String, `{"custom_data": [{"key": "key1","data": "<Any custom data. Escaped json in case of JSON custom data>"},{"key": "key2","data": "<Any custom data. Escaped json in case of JSON custom data>"}]}`)...Key-Value pair of custom data JSON.
 + Request (application/x-www-form-urlencoded)
     + Headers
-    
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
 + Response 201 (application/json)
+        {
+            "_link": "/assets/1495894/customdata"
+        }
 
-            {
-                "_link": "/assets/1495894/customdata"
-            }
-
-### retrieve a shop asset custom data[GET]
+### retrieve an asset custom data [GET]
 + Request (application/x-www-form-urlencoded)
     + Headers
-    
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Response 200 (application/json)
-
-            {
-                "custom_data": [
-                    {
-                        "key": "key1",
-                        "data": "{\"camera\": {\"eye\": [0.779605,-1.04071,-0.0150464],\"fov\": 0.959931,\"up\": [-0.00353075,0.00402574,0.999986],\"view\": [-0.659365,0.751804,-0.00535469]},\"version\": 1,\"world\": {\"front\": [0,-1,0],\"up\": [0,0,1]}}"
-                    },
-                    {
-                        "key": "key2",
-                        "data": "this is custom data"
-                    }
-                ]
-            }
+        {
+            "custom_data": [
+                {
+                    "key": "key1",
+                    "data": "{\"camera\": {\"eye\": [0.779605,-1.04071,-0.0150464],\"fov\": 0.959931,\"up\": [-0.00353075,0.00402574,0.999986],\"view\": [-0.659365,0.751804,-0.00535469]},\"version\": 1,\"world\": {\"front\": [0,-1,0],\"up\": [0,0,1]}}"
+                },
+                {
+                    "key": "key2",
+                    "data": "this is custom data"
+                }
+            ]
+        }
 
 ### Delete an asset custom data[DELETE]
 + Request (application/x-www-form-urlencoded)
