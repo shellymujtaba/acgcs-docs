@@ -1441,6 +1441,33 @@ Manage public information about a member.
             {
                 "_link":"/member/20280723"
             }
+            
+## Apps [/members/{id}/apps]            
+Retrieve this members apps.
+
++ Parameters
+    + id (required,String, `20280723`)...Member id
+    + limit (optional, Number,`20`)...Number of results to return in each page. Default: 20.
+    + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
+    + sort_by (optional, String, `date, name`)...Order search results based on a specific attribute. Default: name.
+    + sort_order (optional, String, `asc, desc`)...Direction of ordered search results based on value of sort_by. Default: asc 
+
+
+### Retrieve a member apps [GET]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Response 200 (application/json)
+
+### Remove a member apps [GET]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Response 204 (application/json)
 
 ## Follows [/members/{id}/follows]
 Returns the list of users this member follows.
