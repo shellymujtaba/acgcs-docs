@@ -2771,6 +2771,12 @@ Phone confirmation callback from Twilio
     
 + Response 200 (text/xml)
 
+<?xml version="1.0" encoding="UTF-8" ?>  
+<Response> 
+    <Say>Hello World</Say>
+    <Play>https://api.twilio.com/Cowbell.mp3</Play>
+</Response>
+
 ##Sales [/shops/{shop_id}/sales]
 Retrieve non-pending sales history. Restricts order line items to only those sold by the seller since an order may have multiple line items from multiple sellers.
 
