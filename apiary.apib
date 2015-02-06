@@ -5687,6 +5687,49 @@ Remove the country, which is no longer supported by our service payment provider
 
 + Response 204
 
+# Group Utility
+Utility APIs.
+
+
+## Ip to Address [/iptoaddress{?ip}]
+Retrieve location according to ip address.
+
+### Retrieve address [GET]
+
++ Request (application/x-www-form-urlencoded)
+    + Header
+            
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + ip (required, String, `108.168.255.243`)... ip address.
+    
++ Response 200 (application/json)
+            
+            {
+                "id": 0,
+                "name": "",
+                "company": "",
+                "address1": "",
+                "address2": "",
+                "city": "Dallas",
+                "telephone": "",
+                "latitude": 32.9299,
+                "longitude": -96.8353,
+                "continent": "North America",
+                "country": "United States",
+                "timeZone": "America/Chicago",
+                "metroCode": 623,
+                "locale": "",
+                "member_id": 0,
+                "address_type": "USER_ADDRESS",
+                "state": "Texas",
+                "postal_code": "75244",
+                "country_code": "US",
+                "is_residential": true
+            }
+
 # Group Contests
 
 ## Contests [/contests{?app_ids,limit,offset}]
