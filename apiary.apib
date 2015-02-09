@@ -5734,6 +5734,8 @@ Retrieve location according to ip address.
 
 ## Contests [/contests{?app_ids,limit,offset}]
 
+Retreive all the contests for the given app id.
+
 ### Get Contests [GET]
 
 Note: Please contact the Cloud Services team to get your App Id.
@@ -5786,3 +5788,45 @@ Note: Please contact the Cloud Services team to get your App Id.
         }
     ]
 }
+
+## Contest [/contests/{id}]
+
+Retreive contest by contest Id.
+
+### Get Contests by Id [GET]
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + id (required, Number, `12`) ...Contest Id
+    
++ Response 200 (application/json)
+    {
+        "app_id": 1,
+        "body": "We always want to see the dessert menu.",
+        "closed_for_entries": "April 09, 2011 07:27:54",
+        "closed_for_judging": "April 09, 2011 07:27:54",
+        "entries": {
+            "count": 1
+        },
+        "finalized": true,
+        "id": "VRUT847H8EV6R6A",
+        "open_for_entries": "April 09, 2011 07:27:54",
+        "open_for_judging": "April 09, 2011 07:27:54",
+        "prizes": [
+            {
+                "gift": {
+                    "title": "Grand Prize (1)",
+                    "description": "<strong>GRAND PRIZE (1 Winner)</strong><br />\r\n<br />\r\nOne Grand Prize winner will receive an iPad 2 with 16GB and WiFi. Winner will also receive an Instructables Prize Pack.",
+                    "value": "$424.00"
+                },
+                "number_of_winners": 1,
+                "prize_level": "Grand Prize"
+            }
+        ],
+        "square_file": "F8EA4W3H8EYZG5T",
+        "title": "Dessert Contest"
+    }
