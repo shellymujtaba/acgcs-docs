@@ -6107,9 +6107,9 @@ Retreive all the winners of a contest
 
 ## Member Contest Entries [/contest/{contest_id}/members/{member_id}]
 
-Retreive all the contest entries by a member
-
 ### Get Member Contest Entries [GET]
+
+Retreive all the contest entries by a member
 
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -6163,6 +6163,36 @@ Retreive all the contest entries by a member
         }
     ]
 }
+
+### Enter or Exit Contest [POST]
+
+Member entry or exit a contest.
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + contest_id (required, Number, `12342`) ...Contest Id
+    + member_id (required, Number, `12342`) ...Member Id
+    + asset_id (required, Number, `342532`) ...Asset for the contest
+    + action (optional, boolean, `true`) ...Flag to enter or exit a contest. Default: true
+    + country (required, String, `US`) ...Country code. Options: <br/>
+            "US", //USA
+            "CA", //Canada(excluding Quebec)
+            "GB", //UNITED KINGDOM
+            "CN", //China
+            "BE", //Belgium
+            "NL", //the Netherlands
+            "AU", //Australia
+            "CO", //COLOMBIA
+            "DE", //Germany
+            "CH", //Switzerland
+            "NO", //Norway
+            "IN", //India
+            "DK" //Denmark
+    + hide (optional, boolean, `true`) ...If hide=true is passed, the asset will not be shown to the public until contest submission period is over. Default: false
 
 ## Member Contest Votes [/contest/{contest_id}/members/{member_id}/vote]
 
