@@ -6268,3 +6268,32 @@ Retrieve all the entries in a contest which are voted by the member.
     
 + Response 201
 
+## Member Gifts [/contest/{contest_id}/members/{member_id}/gift]
+
+### Accept/Deny contest gift [POST]
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + contest_id (required, Number, `12342`) ...Contest Id
+    + member_id (required, Number, `12342`) ...Member Id
+    + gift_assignment_id (required, Number, `12342`) ...Gift assignment Id
+    + accepted (required, boolean, `true`) Accept or deny the gift. Default: true
+    + name (optional, String, `John`) Gift recepient's name. Required if gift accepted.
+    + address1 (optional, String, `John`) Gift recepient's name. Required if gift accepted.
+    + address2 (optional, String, `John`) Gift recepient's name.
+    + city (optional, String, `John`) Gift recepient's name. 
+    + state (optional, String, `John`) Gift recepient's name. 
+    + zip (optional, String, `John`) Gift recepient's name. 
+    + country (optional, String, `John`) Gift recepient's name. 
+    + phone (optional, String, `John`) Gift recepient's name. 
+    + name (optional, String, `John`) Gift recepient's name.
+
+   
+
++ Response 200 (application/json)
+
+ Required if gift accepted.Required if gift accepted.Required if gift accepted.Required if gift accepted.Required if gift accepted.Required if gift accepted. Required if gift accepted.
