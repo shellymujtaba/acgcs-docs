@@ -5848,6 +5848,66 @@ Retreive all the contests won by a member.
 
 + Response 200 (application/json)
 
-
+{
+    "count": 23,
+    "limit": 10,
+    "offset": 5,
+    "_link": "/contests/members/{member_id}/winnings?app_id=1,8&limit=10&offset=10",
+    "_link_prev": "/contests/members/{member_id}/winnings?app_id=1,8&limit=10&offset=0",
+    "_link_next": "/contests/members/{member_id}/winnings?app_id=1,8&limit=10&offset=20",
+    "contests": [
+        {
+            "author": "Plastic",
+            "author_id": 20278501,
+            "country": "US",
+            "gift_accepted": true,
+            "gift_accepted_date": "April 09, 2011 07:27:54",
+            "gift_assignment_id": "DE8ERWWHAPP03G8",
+            "gift_shipped": false,
+            "id": 657526,
+            "name": "testing create assetskxklqxilm",
+            "url": "http://alpha.squidplatform.com/FullPreview/Index.cfm/ID/657526",
+            "user_vote": false,
+            "thumbnails": [
+                {
+                    "file_id": 5401170,
+                    "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45"
+                }
+            ],
+            "contest": {
+                "app_id": 1,
+                "body": "We always want to see the dessert menu.",
+                "closed_for_entries": "April 09, 2011 07:27:54",
+                "closed_for_judging": "April 09, 2011 07:27:54",
+                "entries": {
+                    "count": 1
+                },
+                "finalized": true,
+                "id": "VRUT847H8EV6R6A",
+                "open_for_entries": "April 09, 2011 07:27:54",
+                "open_for_judging": "April 09, 2011 07:27:54",
+                "prizes": [
+                    {
+                        "gift": {
+                            "title": "Grand Prize",
+                            "description": "<strong>GRAND PRIZE (1 Winner)</strong><br />\r\n<br />\r\nOne Grand Prize winner will receive an iPad 2 with 16GB and WiFi. Winner will also receive an Instructables Prize Pack.",
+                            "value": "$335.00"
+                        },
+                        "number_of_winners": 1,
+                        "prize_level": "Grand Prize"
+                    }
+                ],
+                "square_file": "F8EA4W3H8EYZG5T",
+                "title": "Dessert Contest"
+            },
+            "gift": {
+                "description": "One Grand Prize winner will receive a French Oven.",
+                "title": "Grand Prize",
+                "value": "$335.00"
+            },
+            "prizeLevel": "GRAND"
+        }
+    ]
+}
 
 
