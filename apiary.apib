@@ -6164,3 +6164,60 @@ Retreive all the contest entries by a member
     ]
 }
 
+## Member Contest Votes [/contest/{contest_id}/members/{member_id}/vote]
+
+Retreive all the entries which member has voted
+
+### Get Member voted Contest Entry [GET]
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + contest_id (required, Number, `12342`) ...Contest Id
+    + member_id (required, Number, `12342`) ...Member Id
+    + limit (optional, number, `20`)...number of results per page
+    + offset (optional, Number, `60`) ...This offsets the start of each page by the number specified. 
+
++ Response 200 (application/json)
+
+{
+    "count": 23,
+    "limit": 10,
+    "offset": 5,
+    "_link": "/contest/{contest_id}/members/{member_id}/vote?limit=10&offset=10",
+    "_link_prev": "/contest/{contest_id}/members/{member_id}/vote?limit=10&offset=0",
+    "_link_next": "/contest/{contest_id}/members/{member_id}/vote?limit=10&offset=20",
+    "entries": [
+        {
+            "author": "Plastic",
+            "author_id": 20278501,
+            "id": 657526,
+            "name": "testing create assetskxklqxilm",
+            "url": "http://alpha.squidplatform.com/FullPreview/Index.cfm/ID/657526",
+            "user_vote": true,
+            "thumbnails": [
+                {
+                    "file_id": 5401170,
+                    "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45"
+                }
+            ]
+        },
+        {
+            "author": "Plastic",
+            "author_id": 20278501,
+            "id": 657526,
+            "name": "testing create assetskxklqxilm",
+            "url": "http://alpha.squidplatform.com/FullPreview/Index.cfm/ID/657526",
+            "user_vote": true,
+            "thumbnails": [
+                {
+                    "file_id": 5401170,
+                    "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45"
+                }
+            ]
+        }
+    ]
+}
