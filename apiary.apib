@@ -5486,6 +5486,22 @@ Delete all status for member_id.
 
 + Response 204 (application/json)
 
+## Members [/admin/members/{id}]
+
+### Delete a member [DELETE]
+Delete a member from the database, and associated items such as assets, likes, follows, comments, etc.
++ Request (application/x-www-form-urlencoded)
+    + Header
+            
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + member_id (required, Number,`1234567890`)... Member id.
+    + reason (optional, String, `Member requested deletion`)... Reason for deletion
+
++ Response 204 (application/json)
+
 
 ## Payouts [/admin/payouts/{payout_id}]
 Retrieve payouts and approve/deny payout requests. Approving a payout places it to the payout queue.
