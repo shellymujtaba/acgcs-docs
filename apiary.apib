@@ -1321,7 +1321,7 @@ API to make private files to public files
         X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
-    + fileids (required, String, `1234,5678`)...Comma separated list of file ids
+    + file_ids (required, String, `1234,5678`)...Comma separated list of file ids
 
 + Response 200 (application/json)
 {
@@ -1348,7 +1348,7 @@ Note: The files must be made public using the POST before retreiving their publi
         X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
-    + fileids (required, String, `1234,5678`)...Comma separated list of file ids
+    + file_ids (required, String, `1234,5678`)...Comma separated list of file ids
 
 + Response 200 (application/json)
 {
@@ -1373,9 +1373,30 @@ API to delete public files.
         X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
-    + fileids (required, String, `1234,5678`)...Comma separated list of file ids
+    + file_ids (required, String, `1234,5678`)...Comma separated list of file ids
 
 + Response 200 (application/json)
+
+# File Details [/filesystem/{id}]
+
+### Get File details [GET]
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + file_id (required, Number, `1234`)...File Id
+
++ Response 200 (application/json)
+
+{
+    "file_id": 16812136,
+    "md5sum": "751f4a84fd44e7e411747588d20b33ee",
+    "size": 1361408,
+    "public_url": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Public/Alpha/16812136"
+}
 
 #Group Members
 This group of operations provides information on the member. A member is a user who signs up or logs into Cloud Services eco-system.
@@ -1421,10 +1442,10 @@ Manage public information about a member.
 ### Update a member [PUT]
 + Request (application/x-www-form-urlencoded)
     + Headers
-    
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-            X-Secure-Session: ECASR7DN20SNJMLLI
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+        X-Secure-Session: ECASR7DN20SNJMLLI
+
 + Parameters
     + name (optional, String, `jsmith new`)...Member name - this must be unique otherwise the method will return 400 error with suggested alternatives
     + screen_name (optional, String, `jsmith new`)...Member screen name 
