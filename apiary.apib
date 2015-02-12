@@ -6104,39 +6104,71 @@ Retrieve all the winners of a contest
 
 + Parameters
     + contest_id (required, Number, `12342`) ...Contest Id
-    + limit (optional, number, `20`)...number of results per page
-    + offset (optional, Number, `60`) ...This offsets the start of each page by the number specified. 
 
 + Response 200 (application/json)
 
 {
-    "count": 23,
-    "limit": 10,
-    "offset": 5,
-    "_link": "/contests/{contest_id}/winners?limit=10&offset=10",
-    "_link_prev": "/contests/{contest_id}/winners?limit=10&offset=0",
-    "_link_next": "/contests/{contest_id}/winners?limit=10&offset=20",
     "prizes": [
         {
             "gift": {
-                "description": "One Grand Prize winner will receive a <a href=\"http://www.amazon.com/Le-Creuset-Signature-Enameled-Cast-Iron/dp/B0076NOI7A/ref=dp_ob_title_kitchen\">Le Creuset Signature Enameled Cast-Iron 7-1/4-Quart Round French Oven</a> in choice of color (cherry, carribean, cassis, dijon, dune, fennel, flame, marseille) and an Instructables prize pack including an Instructables robot apron.",
-                "title": "Grand Prize",
-                "value": "$335.00"
+                "title": "Catch Contest Grand",
+                "description": "Catch Contest GrandCatch Contest Grand",
+                "value": "$100.00"
             },
+            "prize_level": "Grand Prize",
             "number_of_winners": 1,
-            "prize_level": "GRAND",
             "winners": [
                 {
-                    "author": "Plastic",
-                    "author_id": 20278501,
-                    "id": 657526,
-                    "name": "testing create assetskxklqxilm",
-                    "url": "http://alpha.squidplatform.com/FullPreview/Index.cfm/ID/657526",
+                    "id": 1543858,
+                    "author": "deleteusertest4",
+                    "name": "sdca",
+                    "url": "http://alpha.squidplatform.com/Project/sdca/1543858",
+                    "author_id": 20707580,
                     "user_vote": false,
                     "thumbnails": [
                         {
-                            "file_id": 5401170,
-                            "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45"
+                            "caption": "",
+                            "description": "",
+                            "file_id": 16812159,
+                            "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Alpha/2015/01/28__01_38_33/statueoflib.jpge01bfa16-add8-11e4-b61b-22000b181262",
+                            "is_primary": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "gift": {
+                "title": "Catch Contest Second",
+                "description": "Catch Contest Second",
+                "value": "$10.00"
+            },
+            "prize_level": "Second Prize",
+            "number_of_winners": 10,
+            "winners": [
+                {
+                    "id": 1547425,
+                    "author": "QAautomation657 207",
+                    "name": "FlowerTest",
+                    "url": "http://alpha.squidplatform.com/Catch/FlowerTest/1547425",
+                    "author_id": 20706166,
+                    "user_vote": false,
+                    "thumbnails": []
+                },
+                {
+                    "id": 1543854,
+                    "author": "deletemembertest007",
+                    "name": "testr delete",
+                    "url": "http://alpha.squidplatform.com/Project/testr-delete/1543854",
+                    "author_id": 20707576,
+                    "user_vote": false,
+                    "thumbnails": [
+                        {
+                            "caption": "",
+                            "description": "",
+                            "file_id": 16812153,
+                            "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Alpha/2015/01/28__01_38_33/cartoon.jpgad514be5-adcf-11e4-b61b-22000b181262",
+                            "is_primary": true
                         }
                     ]
                 }
