@@ -6176,6 +6176,105 @@ Retrieve all the winners of a contest
     ]
 }
 
+## Member Entries [/contests/members/{member_id}]
+
+### Get Member Entries [GET]
+
+Retrieve all the member contest entries for given Apps
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + member_id (required, Number, `12342`) ...Member Id
+    + app_ids (required, String, `5,14,20`) ...List of App Ids
+    + limit (optional, number, `20`)...number of results per page
+    + offset (optional, Number, `60`) ...This offsets the start of each page by the number specified. 
+
++ Response 200 (application/json)
+
+{
+    "count": 2,
+    "limit": 10,
+    "offset": 0,
+    "_link": "/contests/members/20707580?app_ids=2,5&limit=10&offset=0",
+    "entries": [
+        {
+            "id": 1543858,
+            "name": "sdca",
+            "author": "deleteusertest4",
+            "country": "IN",
+            "author_id": 20707580,
+            "gift_assignment_id": "D3216W6I61NFSK0",
+            "gift_accepted": false,
+            "gift_shipped": false,
+            "thumbnails": [
+                {
+                    "caption": "",
+                    "description": "",
+                    "file_id": 16812159,
+                    "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Alpha/2015/01/28__01_38_33/statueoflib.jpge01bfa16-add8-11e4-b61b-22000b181262",
+                    "is_primary": true
+                }
+            ],
+            "prize_level": "GRAND",
+            "contest": {
+                "id": "VTB5MY7I5XIDZK2",
+                "title": "New_Contest_API_1",
+                "body": "New_Contest_API_1",
+                "finalized": true,
+                "entries": {
+                    "count": 10
+                },
+                "open_for_entries": "January 01, 2015 00:00:00",
+                "closed_for_entries": "February 01, 2015 23:59:59",
+                "open_for_judging": "February 05, 2015 00:00:00",
+                "closed_for_judging": "February 09, 2015 23:59:59",
+                "software": "5"
+            },
+            "gift": {
+                "title": "Catch Contest Grand",
+                "description": "Catch Contest GrandCatch Contest Grand",
+                "value": "$100.00"
+            }
+        },
+        {
+            "id": 1543858,
+            "name": "sdca",
+            "author": "deleteusertest4",
+            "country": "US",
+            "author_id": 20707580,
+            "gift_accepted": false,
+            "gift_shipped": false,
+            "thumbnails": [
+                {
+                    "caption": "",
+                    "description": "",
+                    "file_id": 16812159,
+                    "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Alpha/2015/01/28__01_38_33/statueoflib.jpge01bfa16-add8-11e4-b61b-22000b181262",
+                    "is_primary": true
+                }
+            ],
+            "contest": {
+                "id": "V1BDJ3YI5XIDZKG",
+                "title": "Catch Contest",
+                "body": "New_Contest_API_3",
+                "finalized": false,
+                "entries": {
+                    "count": 3
+                },
+                "open_for_entries": "January 01, 2015 00:00:00",
+                "closed_for_entries": "February 28, 2015 23:59:59",
+                "open_for_judging": "July 17, 2015 00:00:00",
+                "closed_for_judging": "August 29, 2015 23:59:59",
+                "software": "5"
+            }
+        }
+    ]
+}
+
 ## Member Contest Entries [/contests/{contest_id}/members/{member_id}]
 
 ### Get Member Contest Entries [GET]
@@ -6266,6 +6365,8 @@ Member entry or exit a contest.
     + hide (optional, boolean, `true`) ...If hide=true is passed, the asset will not be shown to the public until contest submission period is over. Default: false
 
 + Response 201
+
+
 
 ## Member Contest Votes [/contests/{contest_id}/members/{member_id}/votes]
 
