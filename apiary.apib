@@ -2282,12 +2282,20 @@ Checks whether session and secure session is valid or not.
     + session (required, String, `1213133-1213131131112`)... Session
     + secure_session (required, String, `ABCDEFGH1234PQR`)... Secure session
     
+## Delete Session [/session]
+Deletes logged in session.
 
+### Delete logged in session [DELETE]
 
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
+            X-AFC: FJKB32
+            X-SESSION: 00000000-B872-4DB5-BAB8-9A4AF61B5B0A
 
-+ Response 200 (application/json)
++ Response 204 (application/json)
 
-        {"is_valid":"true", "is_secure_valid"::"true"}
+        {}
 
 
 #Group Shops
