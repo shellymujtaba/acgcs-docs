@@ -2249,7 +2249,7 @@ Authenticate the token returned by /member/login call to recieve a session id
 
             {"session":"2E709611-21ED-4C3B-85CB-F23B007E3334","secure_session":"2604B7D0408A16F3E2FA50E4AFFC318E","create":true,"first_login":true}
 
-## Guest Session [/session]
+## Session [/session]
 Returns a guest session ID.   Guest sessions expire after 4 hours of inactivity.
 
 ### Retrieve Guest session [GET]  
@@ -2264,6 +2264,18 @@ Returns a guest session ID.   Guest sessions expire after 4 hours of inactivity.
 
         {"session":"1213133-1213131131112"}
             
+Returns a guest session ID.   Guest sessions expire after 4 hours of inactivity.
+
+### Delete logged in session [DELETE]
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
+            X-AFC: FJKB32
+            X-SESSION: 00000000-B872-4DB5-BAB8-9A4AF61B5B0A
+
++ Response 204
+       
             
 ## Session Valid [/session/valid]
 Checks whether session and secure session is valid or not.
@@ -2277,13 +2289,6 @@ Checks whether session and secure session is valid or not.
 + Parameters
     + session (required, String, `1213133-1213131131112`)... Session
     + secure_session (required, String, `ABCDEFGH1234PQR`)... Secure session
-    
-
-
-## Delete Session [/session]
-
-
-
 
 
 #Group Shops
