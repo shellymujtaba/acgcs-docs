@@ -2666,8 +2666,8 @@ Update the asset of a shop.
     + shop_id (required, Number, `20280723`)...Shop id
 
 ### Update shop asset [PUT]
-Setting a private asset "for sale" results in asset state changed to public.
-
+Setting a private asset "for sale" results in asset state changed to public. Please note that an asset cannot be put for sale until the seller has completed tax witholding information.  
+If the member attempts to set an asst for sale without tax informtion and error would be returned
 + Request (application/x-www-form-urlencoded)
     + Headers
     
@@ -2761,6 +2761,15 @@ Setting a private asset "for sale" results in asset state changed to public.
                 "is_reviewable": false,
                 "file_formats": [],
                 "key_data": {}
+            }
+            
++ Response 400 (application/json)
+            {
+                "code": 34026,
+                "status": 400,
+                "message": "Tax information is not available for the seller. | URL Parameters:asset_price=4.99&for_sale=true | URL Parameters:asset_price=4.99&for_sale=true",
+                "data": {},
+                "error_id": "bb2e264c-ed53-401e-9a2e-acfacb4feb44"
             }
 
 
