@@ -1137,7 +1137,8 @@ This is admin only functionality, hence must be invoked with Community ADMIN rig
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
-    + feature_flag (String)...Options: true/false
+    + feature_flag (Required, Boolean, `true`)...Options: true/false
+    + software (Required, Number, `31`)...Indicate the Application in which this asset has to be featured. 
 + Response 204
 
 ## Asset Status Posts [/assets/{id}/status]
