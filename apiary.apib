@@ -1964,6 +1964,7 @@ Retrieves member's marketplace credits and payouts accumulated over time.
 1. Sales Credit: Credit earned through sales. This credit can be paid out or used to purchase goods in marketplace.  
 2. Promotional Credit: Credit given through promotions (non withdrawable credit).  
 3. Purchased Credit: Credit purchased by the buyer. This credit can only be used to purchase goods in marketplace (non withdrawable credit).  
+4. Shipping Credit : Credit earned through shipping of physical products sold on marketplace.
 
 API returns total accrued credits and total available credits (accrued - used) in each category.
 
@@ -1992,7 +1993,8 @@ API returns total accrued credits and total available credits (accrued - used) i
                 "total_payout": 50.54,
                 "total_purchased_with_sales_credit": 0,
                 "total_purchased_with_promotional_credit": 0,
-                "total_purchased_with_purchased_credit": 0
+                "total_purchased_with_purchased_credit": 0,
+                "total_accrued_shipping_credit" : 0
             } 
 
 ## OrderHistory [/members/{id}/orderhistory]
