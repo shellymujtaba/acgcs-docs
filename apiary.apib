@@ -1144,7 +1144,7 @@ This is admin only functionality, hence must be invoked with Community ADMIN rig
 + Response 204
 
 ## Comment Flag [/assets/{id}/comments/{commentid}/flags]
-Flag an asset along with reason for flagging. This operation is a no-op if an asset has already been flagged by this member.
+Flag an comment along with reason for flagging. This will bring this comment to the attention of a site admin. If the user is in ADMIN role, the comment referenced will immediately be placed in QUARANTINE status for review by a site admin. 
 
 ### Flag an comment [PUT]
 + Request (application/x-www-form-urlencoded)
@@ -1154,8 +1154,8 @@ Flag an asset along with reason for flagging. This operation is a no-op if an as
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
-    + reason (optional, String, `INAPPROPRIATE`)...Options: INAPPROPRIATE, COPYRIGHT, QUALITY
-    + comment (optional , String, `optional user comments`) ...additional user comments 
+    + type (required, String, `INAPPROPRIATE`)...Options: SPAM, INAPPROPRIATE, NOT_NICE
+    + commentid (required,String, `123aaddq33`)...id of comment to be flagged from this asset.
 + Response 204
 
 ## Asset Status Posts [/assets/{id}/status]
