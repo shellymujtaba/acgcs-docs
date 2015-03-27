@@ -2865,6 +2865,7 @@ For a first time payout request, all fields are mandatory.
 
 ##Phone Verification [/shops/{shop_id}/phone]
 A seller must have a verified phone number on file before requesting a payout.
+Otherwise the request for payout will fail.
 
 ### Create phone verification [POST]
 When invoked  without any parameter, the phone number on file is verified.
