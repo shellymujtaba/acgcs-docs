@@ -2864,7 +2864,7 @@ For a first time payout request, all fields are mandatory.
 + Response 201
 
 ##Phone Verification [/shops/{shop_id}/phone]
-Creates a phone verification request for the shops payout info.
+Phone verification is required before a seller can request a payout.
 
 ### Create phone verification [POST]
 When invoked  without any parameter, the phone number on file is verified.
@@ -2883,7 +2883,7 @@ Otherwise, the phone number in the request is verified and the payout info is up
 + Response 201
 
 ### Retrieve phone verification status [GET]
-Return the phone verification status and phone number on file. If the member of the shop has
+Return the phone verification object., which includes the status. If the member of the shop has
 not initiated a phone verification request, the query return an empty object.
 
 + Request (application/x-www-form-urlencoded)
