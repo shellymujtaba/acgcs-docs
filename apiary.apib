@@ -5356,9 +5356,91 @@ Retrieve the assets given the filters passed as parameters.
 
 
 ## Shop Asset [/admin/shops/{shop_id}/assets/{asset_id}]
-Update / Add an asset to a shop. Some of the asset properties can be modified from this REST API, including the asset name, description, and keywords (tags).
+Allow the retrieval and modification of shop asset specific properties.
+
+### Get a shop asset [GET]
+
++ Request (application/x-www-form-urlencoded)
+    + Header
+            
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + shop_id (required, Number, `123123`)... Shop id
+    + asset_id (required, Number, `536546`)... Asset id
+
++ Response 200 (application/json)
+
+            {
+                "asset": {
+                    "price": 0,
+                    "keywords": "",
+                    "language": "en",
+                    "region": "",
+                    "software": 9,
+                    "artist": {
+                        "location": "",
+                        "avatar": "http://alpha.squidplatform.com/Images/v23/Member/default_avatar.png",
+                        "description": "",
+                        "artist_name": ""
+                    },
+                    "mesh": false,
+                    "asset_id": 1495839,
+                    "asset_name": "Regression V2 Asset",
+                    "is_gallery_asset": false,
+                    "description": "",
+                    "download_count": 0,
+                    "is_online_viewer_available": false,
+                    "parent_asset_id": "",
+                    "is_premium": false,
+                    "progress_status": 1,
+                    "delivery_media": "",
+                    "rating_count": 0,
+                    "rating_average": 0,
+                    "rating_result": 0,
+                    "asset_status_code": 2,
+                    "media_type": "General Media",
+                    "model_type": 1,
+                    "is_download_asset": true,
+                    "status_post_count": 0,
+                    "is_member_favorite": false,
+                    "used_in_project_count": 0,
+                    "favorited_by": [],
+                    "favorite_count": 0,
+                    "child_asset_count": 0,
+                    "date_submitted": "October 10, 2014 07:38:22",
+                    "purchase_date": "",
+                    "_link": "",
+                    "thumbnails": [
+                        {
+                            "caption": "",
+                            "description": "",
+                            "file_id": 0,
+                            "thumb_path_prefix": "",
+                            "is_primary": false
+                        }
+                    ],
+                    "referenced_assets": [],
+                    "is_authorized_download": false,
+                    "is_deleted": false,
+                    "is_repurchasable": false,
+                    "is_store_asset": false,
+                    "is_reviewable": false,
+                    "file_formats": [],
+                    "key_data": {}
+                },
+                "product_price": {
+                    "total_price": 4.99
+                },
+                "shop_id": 8,
+                "for_sale": false
+            }
+
 
 ### Update a shop asset [PUT]
+Add / Update the shop asset.
+
 + Request (application/x-www-form-urlencoded)
     + Header
             
