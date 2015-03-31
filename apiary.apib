@@ -2676,7 +2676,13 @@ Update the asset of a shop.
 
 ### Update shop asset [PUT]
 Setting a private asset "for sale" results in asset state changed to public. Please note that an asset cannot be put for sale until the seller has completed tax witholding information.  
-If the member attempts to set an asst for sale without tax informtion and error would be returned
+If the member attempts to set an asset for sale without tax informtion and error would be returned. 
+A physical asset cannot be put for sale without shop shipping information and product fulfillment information.
+
+|Message|HTTP Status Code|Error Code|Data
+|----|----|----|----
+|Member already has a shop or requested one|400 Bad Request|3301|Existing shop id
+
 + Request (application/x-www-form-urlencoded)
     + Headers
     
@@ -2686,9 +2692,13 @@ If the member attempts to set an asst for sale without tax informtion and error 
 
 + Parameters
     + asset_id (required, Number, `588452`)... Asset id
-    + asset_price (required, Number, `5.99`)... Set asset price
+    + asset_price (required, Number, `5.99`)... Sets asset price
     + for_sale (optional, Boolean, `true`)... Mark asset for sale. Default: false
     + product_type (optional, String, `PHYSICAL`)... Sets the product type for added asset. This parameter is ONLY required if asset is being added for the first time. Supported values are (PHYSICAL,DIGITAL) Default : ""
+    + vendor_sku (optional, String, `sku123`)... Sets the vendor sku id
+    + is_available (optional, Boolean, `true`)... Sets the stock availability for asset. This parameter is ONLY used if product type is physical. This information is required when the asset is put on sale. 
+    + lead_in_days (optional, Number, `3`)... Sets in how many days the asset will be shipped to customers after purchase. This parameter is ONLY used if product type is physical. This information is required before the asset is put on sale. 
+
 
 + Response 200
 
