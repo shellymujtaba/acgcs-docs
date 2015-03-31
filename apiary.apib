@@ -2681,7 +2681,20 @@ A physical asset cannot be put for sale without shop shipping information and pr
 
 |Message|HTTP Status Code|Error Code|Data
 |----|----|----|----
-|Member already has a shop or requested one|400 Bad Request|3301|Existing shop id
+|This Product type is not supported for shop asset|400 Bad Request|34035|
+|Given asset id does not exist|400 Bad Request|103|
+|Suspended assets cannot be added to a shop|400 Bad Request|3306|
+|You do not have access to this asset|400 Bad Request|3305|
+|You do not have access to this shop|400 Bad Request|3309|
+|Product type is required when new asset is added to shop|400 Bad Request|34034|
+|Product price is required when new asset is added to shop|400 Bad Request|34036|
+|Tax information is not available for the seller.|400 Bad Request|34026|
+|No shop found|400 Bad Request|3300|
+|Shop status is invalid|400 Bad Request|3310|
+|Shop address is required for product for sale|400 Bad Request|34039|
+|Information is missing for product for sale|400 Bad Request|34037|Missing parameter: is_available, lead_in_days, package_weight, package_length, package_height, package_width, delivery_company
+|This Product price is missing|400 Bad Request|34038|
+
 
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -2698,6 +2711,11 @@ A physical asset cannot be put for sale without shop shipping information and pr
     + vendor_sku (optional, String, `sku123`)... Sets the vendor sku id
     + is_available (optional, Boolean, `true`)... Sets the stock availability for asset. This parameter is ONLY used if product type is physical. This information is required when the asset is put on sale. 
     + lead_in_days (optional, Number, `3`)... Sets in how many days the asset will be shipped to customers after purchase. This parameter is ONLY used if product type is physical. This information is required before the asset is put on sale. 
+    + package_weight (optional, Number, `1.99`)... Sets the weight of the package which is shipped to customer after customer buys the physical asset. This parameter is ONLY used if product type is physical. This information is required before the asset is put on sale. Unit is LB
+    + package_length (optional, Number, `49.99`)... Sets the length of the package which is shipped to customer after customer buys the physical asset. This parameter is ONLY used if product type is physical. This information is required before the asset is put on sale. Unit is inch
+    + package_height (optional, Number, `39.99`)... Sets the height of the package which is shipped to customer after customer buys the physical asset. This parameter is ONLY used if product type is physical. This information is required before the asset is put on sale. Unit is inch
+    + package_width (optional, Number, `19.99`)... Sets the width of the package which is shipped to customer after customer buys the physical asset. This parameter is ONLY used if product type is physical. This information is required before the asset is put on sale. Unit is inch
+    + delivery_company (optional, String, `UPS,USPS,FEDEX`)... Sets the delivery company of the package. Comma separated list of the shippers. This parameter is ONLY used if product type is physical. This information is required before the asset is put on sale.
 
 
 + Response 200
@@ -2781,6 +2799,7 @@ A physical asset cannot be put for sale without shop shipping information and pr
             }
 
 + Response 400 (application/json)
+
             {
                 "code": 34026,
                 "status": 400,
@@ -2789,6 +2808,58 @@ A physical asset cannot be put for sale without shop shipping information and pr
                 "error_id": "bb2e264c-ed53-401e-9a2e-acfacb4feb44"
             }
 
+##Shipping information [/shops/{shop_id}/shippinginformation]
+Add/Update the shipping information of a shop.
+
+### Update shop shipping information [POST]
+Add/Update the shipping information of a shop. This must be set before putting a physical product on sale. 
+
+|Message|HTTP Status Code|Error Code|Data
+|----|----|----|----
+|Invalid address|400 Bad Request|30012|
+|No shop found|400 Bad Request|3300|
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            X-Secure-Session: ABC1232324244
+
++ Parameters
+    + shop_id (required, Number, `20280723`)...Shop id
+    + delivery_company (optional, String, `UPS,USPS,FEDEX`)... The delivery company of the package. Comma separated list of the shippers. This parameter is ONLY used if product type is physical. This information is required before the asset is put on sale.
+    + id (optional, Number)...If this is an existing address from existing member profile, you can pass the id of address to set that as shipping address for this cart.
+    + name (required, string, `Carl Bass`)...If this is NOT an update, name is a required parameter.
+    + address1 (required, string, `Pier 9`)...If this is NOT an update, address1 is a required parameter.
+    + city (required, string, `San Francisco`)...If this is NOT an update, city is a required parameter.
+    + country_code (required, string, `us`)...If this is NOT an update, countryCode is a required parameter. http://www.bluesnap.com/integrationguide/WordManual/Appendix%20B%20Country%20Codes.htm
+    + company (optional, string, `Autodesk Inc.`)...Company
+    + address2 (optional, string, `The Embarcadero`)...Second line in address field
+    + postal_code (optional, string, `94111`)...Zip or postal code
+    + state (optional, string, `CA`)...State. http://www.bluesnap.com/integrationguide/default.htm?bluesnap_web_services.htm#WordManual/Appendix C State and Province.htm%3FTocPath%3DWeb%20Services%7CAppendices%7C_____3
+    + telephone (optional, string, `415-356-0700`)...Telephone number
+    + is_residential (optional, string, `false`)...True if this address is residential false otherwise.
+
+
++ Response 200
+
+            {
+              "id": 1,
+              "shop_id": 12,
+              "member_id": 121212,
+              "delivery_company": "UPS,FEDEX",
+              "name": "Carl Bass",
+              "company": "Autodesk Inc.",
+              "address1": "Pier 9",
+              "address2": "The Embarcadero",
+              "city": "San Francisco",
+              "state": "CA",
+              "postal_code": "94111",
+              "country_code": "US",
+              "telephone": "415-356-0700",
+              "is_residential": false
+            }
 
 ##Payouts [/shops/{shop_id}/payouts]
 Create payout request and retrieve payout history.
