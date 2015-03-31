@@ -1568,7 +1568,7 @@ Member apps operations
 Returns the list of users this member follows.
 
 + Parameters
-    + id (required,String, `20280723`)...Member id
+    + id (required,Number, `20280723`)...Member id
     + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
 
@@ -1622,7 +1622,7 @@ Returns the list of users following this member.
 
 ### Retrieve member following [GET]
 + Parameters
-    + id (required,String, `20280723`)...Member id
+    + id (required,Number, `20280723`)...Member id
     + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
 
@@ -1689,7 +1689,7 @@ Returns the list of users following this member.
 Returns the activity stream for this member.  Activities include updates, items published, features, contest finalists and winners, comments and comment updates, followers and followees, and likes.
 
 + Parameters
-    + id (required,String, `20280723`)...Member id
+    + id (required,Number, `20280723`)...Member id
     + limit (optional, Number,`20`)...Number of results to return in each page. Default: 20.
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
     + user_type (optional, Number, `1`)...User type for which you want activities. Default : 1 (self), 1 : self, 2 : followed_users This is bit wise. So you want activities of self and followed_users then pass (1 bitwise OR 2 i.e. 3)
