@@ -152,121 +152,140 @@ Operations to perform CRUD operations on an asset with basic metadata. Additiona
 
     + Body
     
-            {
-                "_link": "/asset/630595",
-                "artist": {
-                    "artist_name": "tim",
-                    "avatar": "",
-                    "description": "",
-                    "location": ""
+{
+    "_link": "/asset/630595",
+    "artist": {
+        "artist_name": "tim",
+        "avatar": "",
+        "description": "",
+        "location": ""
+    },
+    "asset_id": 630595,
+    "asset_name": "timproduct",
+    "asset_status_code": 0,
+    "date_submitted": "April 09, 2011 07:27:54",
+    "delivery_media": "download only",
+    "description": "this is a test",
+    "used_in_project_count": 0,
+    "child_asset_count": 2,
+    "download_count": 0,
+    "favorited_by": [],
+    "favorite_count": 0,
+    "view_count": 15,
+    "file_formats": [
+        {
+            "file_id": 5401172,
+            "id": 999,
+            "name": "other ( see notes )",
+            "size": 326560,
+            "md5sum": "2553c3b793e66c10ff1a044fd017169d",
+            "version": "",
+            "file_name": "mesh.obj"
+        }
+    ],
+    "is_authorized_download": true,
+    "is_deleted": false,
+    "is_download_asset": true,
+    "progress_status": 1,
+    "is_member_favorite": false,
+    "is_gallery_asset": true,
+    "is_online_viewer_available": false,
+    "is_premium": false,
+    "is_repurchasable": false,
+    "is_reviewable": false,
+    "is_store_asset": false,
+    "keywords": "test",
+    "language": " ",
+    "model_type": 1,
+    "media_type": "3d models",
+    "status_post_count": 27,
+    "parent_asset_id": "",
+    "purchase_date": "",
+    "mesh": true,
+    "region": " ",
+    "software": 9,
+    "thumbnails": [
+        {
+            "file_id": 123456,
+            "caption": "thumbnail caption",
+            "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
+            "description": "thumbnail description",
+            "is_primary": true
+        },
+        {
+            "file_id": 123457,
+            "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
+            "caption": "thumbnail caption 2",
+            "description": "thumbnail description 2",
+            "is_primary": false
+        }
+    ],
+    "referenced_assets": [
+        {
+            "_link": "/asset/588362",
+            "thumbnails": [
+                {
+                    "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
+                    "is_primary": false
                 },
-                "asset_id": 630595,
-                "asset_name": "timproduct",
-                "asset_status_code": 0,
-                "date_submitted": "April 09, 2011 07:27:54",
-                "delivery_media": "download only",
-                "description": "this is a test",
-                "used_in_project_count": 0,
-                "child_asset_count": 2,
-                "download_count": 0,
-                "favorited_by": [],
-                "favorite_count": 0,
-                "view_count": 15,
-                "file_formats": [
-                    {
-                        "file_id": 5401172,
-                        "id": 999,
-                        "name": "other ( see notes )",
-                        "size": 326560,
-                        "md5sum": "2553c3b793e66c10ff1a044fd017169d",
-                        "version": "",
-                        "file_name": "mesh.obj"
-                    }
-                ],
-                "is_authorized_download": true,
-                "is_deleted": false,
-                "is_download_asset": true,
-                "progress_status": 1,
-                "is_member_favorite": false,
-                "is_gallery_asset": true,
-                "is_online_viewer_available": false,
-                "is_premium": false,
-                "is_repurchasable": false,
-                "is_reviewable": false,
-                "is_store_asset": false,
-                "keywords": "test",
-                "language": " ",
-                "model_type": 1,
-                "media_type": "3d models",
-                "status_post_count": 27,
-                "parent_asset_id": "",
-                "purchase_date": "",
-                "mesh": true,
-                "region": " ",
-                "software": 9,
-                "thumbnails": [
-                    {
-                        "file_id": 123456,
-                        "caption": "thumbnail caption",
-                        "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
-                        "description": "thumbnail description",
-                        "is_primary": true
-                    },
-                    {
-                        "file_id": 123457,
-                        "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
-                        "caption": "thumbnail caption 2",
-                        "description": "thumbnail description 2",
-                        "is_primary": false
-                    }
-                ],
-                "referenced_assets": [
-                    {
-                        "_link": "/asset/588362",
-                        "thumbnails": [
-                            {
-                                "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
-                                "is_primary": false
-                            },
-                            {
-                                "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
-                                "is_primary": true
-                            }
-                        ],
-                        "reference_added_date": "April 09, 2011 07:27:54",
-                        "description": "publishing test.",
-                        "media_type": 2,
-                        "asset_name": "cylinders",
-                        "asset_id": 588362,
-                        "is_premium_asset": false
-                    }
-                ],
-                "key_data": {
-                    "viewerfiles": [
-                        {
-                            "id": 5113474
-                        }
-                    ],
-                    "stlfiles": [
-                        {
-                            "name": "10325_tissue box_v2_max2010_it2.stl",
-                            "id": 5337164,
-                            "modeltocentimeters": -1
-                        },
-                        {
-                            "name": "10325_tissue box_v2_max2010_it2.stl",
-                            "id": 5341121,
-                            "modeltocentimeters": -1
-                        },
-                        {
-                            "name": "5113474.stl",
-                            "id": 5376472,
-                            "modeltocentimeters": -1
-                        }
-                    ]
+                {
+                    "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
+                    "is_primary": true
                 }
+            ],
+            "reference_added_date": "April 09, 2011 07:27:54",
+            "description": "publishing test.",
+            "media_type": 2,
+            "asset_name": "cylinders",
+            "asset_id": 588362,
+            "is_premium_asset": false
+        }
+    ],
+    "extended_data": {
+        "mainFileThumbnails": [],
+        "translations": [
+            {
+                "inputFileItemId": 5358536,
+                "outputFileItemId": 5358536,
+                "outputFileUrl": "",
+                "outputFileType": "",
+                "outputFileName": ""
+            },
+            {
+                "inputFileItemId": 5358536,
+                "outputFileItemId": 5358536,
+                "outputFileUrl": "",
+                "outputFileType": "",
+                "outputFileName": ""
             }
-
+        ],
+        "key2": "<Any custom data. Escaped json in case of JSON custom data>",
+        "links": [
+            {
+                "type": "LINK",
+                "references": [
+                    {
+                        "id": "54239097944f1",
+                        "title": "link",
+                        "description": "title",
+                        "url": "https://www.youtube.com/watch?v=wQ3nCa2_f88"
+                    }
+                ]
+            },
+            {
+                "type": "VIDEO",
+                "references": [
+                    {
+                        "id": 5423906829345,
+                        "title": "title",
+                        "description": "title",
+                        "embedWidget": "<iframe width=\"854\" height=\"510\" src=\"//www.youtube.com/embed/wQ3nCa2_f88\" frameborder=\"0\"></iframe>"
+                    }
+                ]
+            }
+        ]
+    }
+}
 
 ### Create a new asset[POST]
 
