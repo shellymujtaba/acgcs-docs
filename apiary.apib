@@ -5353,74 +5353,141 @@ Retrieve the assets given the filters passed as parameters.
 + Response 200 (application/json)
     + Body
     
-            {
-                "count": 1,
-                "limit": 20,
-                "offset": 0,
-                "_link": "/shops/8/assets?limit=20&offset=0",
-                "assets": [
-                    {
-                        "asset": {
-                            "price": 0,
-                            "keywords": "",
-                            "language": "en",
-                            "region": "",
-                            "software": 9,
-                            "artist": {
-                                "location": "",
-                                "avatar": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Alpha/2014/11/17__23_33_51/regression_avatar.jpg6c55149e-710f-11e4-b61b-22000b181262.jpg",
-                                "description": "",
-                                "artist_name": "developmentuser"
-                            },
-                            "mesh": false,
-                            "asset_id": 1495839,
-                            "asset_name": "Regression V2 Asset",
-                            "is_gallery_asset": false,
-                            "description": "description of asset",
-                            "download_count": 0,
-                            "is_online_viewer_available": false,
-                            "parent_asset_id": "",
-                            "is_premium": false,
-                            "progress_status": 1,
-                            "delivery_media": "",
-                            "asset_status_code": 2,
-                            "media_type": "Project",
-                            "model_type": 1,
-                            "is_download_asset": false,
-                            "status_post_count": 0,
-                            "is_member_favorite": false,
-                            "used_in_project_count": 0,
-                            "favorited_by": [],
-                            "favorite_count": 0,
-                            "child_asset_count": 0,
-                            "date_submitted": "November 20, 2014 21:51:57",
-                            "purchase_date": "",
-                            "_link": "",
-                            "thumbnails": [
-                                {
-                                    "caption": "",
-                                    "description": "",
-                                    "file_id": 0,
-                                    "thumb_path_prefix": "",
-                                    "is_primary": false
-                                }
-                            ],
-                            "referenced_assets": [],
-                            "is_authorized_download": false,
-                            "is_deleted": false,
-                            "is_repurchasable": false,
-                            "is_store_asset": false,
-                            "is_reviewable": false,
-                            "file_formats": [],
-                            "key_data": {}
-                        },
-                        "product_price": {
-                            "total_price": 4.99
-                        },
-                        "shop_id": 8,
-                        "for_sale": true
-                    }
-                ]
+            {  
+               "count":17,
+               "limit":2,
+               "offset":0,
+               "_link":"/admin/shops/assets?limit=2&offset=0",
+               "_link_next":"/admin/shops/assets?limit=2&offset=2",
+               "assets":[  
+                  {  
+                     "keywords":"Cowboy Hut Strand beach",
+                     "language":"en",
+                     "region":"",
+                     "software":9,
+                     "artist":{  
+                        "location":"",
+                        "avatar":"http://alpha.squidplatform.com/Images/v23/Member/default_avatar.png",
+                        "description":"",
+                        "artist_id":20707167,
+                        "artist_name":"ecommerce"
+                     },
+                     "mesh":false,
+                     "asset_id":1065897,
+                     "asset_name":"DO NOT REMOVE. shop api regression test",
+                     "is_gallery_asset":true,
+                     "description":"directly from da beach :)",
+                     "download_count":0,
+                     "is_online_viewer_available":false,
+                     "parent_asset_id":"",
+                     "is_premium":false,
+                     "progress_status":1,
+                     "delivery_media":"",
+                     "asset_status_code":0,
+                     "media_type":"Catch",
+                     "view_count":0,
+                     "model_type":1,
+                     "is_download_asset":false,
+                     "status_post_count":0,
+                     "is_member_favorite":false,
+                     "used_in_project_count":0,
+                     "favorited_by":[  
+                     ],
+                     "favorite_count":0,
+                     "child_asset_count":0,
+                     "date_submitted":"April 03, 2015 02:20:38",
+                     "date_modified":"",
+                     "total_price":4.99,
+                     "shop_id":13,
+                     "is_for_sale":true,
+                     "purchase_date":"",
+                     "_link":"",
+                     "thumbnails":[  
+                        {  
+                           "caption":"",
+                           "description":"",
+                           "file_id":13954751,
+                           "thumb_path_prefix":"https://static.spark.autodesk.com/2012/11/30__18_36_02/icon.png9ad3822b-d61a-462a-9042-5b0a4e61e35d",
+                           "is_primary":true
+                        }
+                     ],
+                     "referenced_assets":[  
+                     ],
+                     "file_formats":[  
+                     ],
+                     "key_data":{  
+                     },
+                     "is_authorized_download":true,
+                     "is_deleted":false,
+                     "is_repurchasable":false,
+                     "is_store_asset":false,
+                     "is_reviewable":false
+                  },
+                  {  
+                     "keywords":"",
+                     "language":"en",
+                     "region":"",
+                     "software":9,
+                     "artist":{  
+                        "location":"",
+                        "avatar":"http://alpha.squidplatform.com/Images/v23/Member/default_avatar.png",
+                        "description":"",
+                        "artist_id":20707793,
+                        "artist_name":"ecommerceTestUserWithTax"
+                     },
+                     "mesh":false,
+                     "asset_id":1560129,
+                     "asset_name":"test_sho_tax",
+                     "is_gallery_asset":true,
+                     "description":"test",
+                     "download_count":0,
+                     "is_online_viewer_available":false,
+                     "parent_asset_id":"",
+                     "is_premium":false,
+                     "progress_status":1,
+                     "delivery_media":"",
+                     "asset_status_code":0,
+                     "media_type":"Catch_Mobile",
+                     "view_count":0,
+                     "model_type":1,
+                     "is_download_asset":false,
+                     "status_post_count":0,
+                     "is_member_favorite":false,
+                     "used_in_project_count":0,
+                     "favorited_by":[  
+            
+                     ],
+                     "favorite_count":0,
+                     "child_asset_count":0,
+                     "date_submitted":"April 03, 2015 02:20:38",
+                     "date_modified":"",
+                     "total_price":4.99,
+                     "shop_id":22,
+                     "is_for_sale":true,
+                     "purchase_date":"",
+                     "_link":"",
+                     "thumbnails":[  
+                        {  
+                           "caption":"",
+                           "description":"",
+                           "file_id":0,
+                           "thumb_path_prefix":"",
+                           "is_primary":false
+                        }
+                     ],
+                     "referenced_assets":[  
+                     ],
+                     "file_formats":[  
+                     ],
+                     "key_data":{  
+                     },
+                     "is_authorized_download":true,
+                     "is_deleted":false,
+                     "is_repurchasable":false,
+                     "is_store_asset":false,
+                     "is_reviewable":false
+                  }
+               ]
             }
 
 
