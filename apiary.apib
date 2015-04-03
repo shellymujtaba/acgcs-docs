@@ -497,7 +497,7 @@ Note: The key should be unique within the asset. Using the same key in POST will
             "_link": "/assets/1495894/customdata"
         }
 
-### retrieve an asset custom data [GET]
+### Retrieve an asset custom data [GET]
 + Request (application/x-www-form-urlencoded)
     + Headers
         X-AFC: FJKB32
@@ -548,7 +548,7 @@ Operations to add preview files to this asset. These operations are used to add 
             "_link": "/assets/1495894/previews"
         }
 
-### retrieve an asset previews [GET]
+### Retrieve an asset previews [GET]
 + Request (application/x-www-form-urlencoded)
     + Headers
         X-AFC: FJKB32
@@ -1404,7 +1404,7 @@ API to make private files to public files
 ### Retrieve file public url [GET]    
 API to retrieve the file public url.
 
-Note: The files must be made public using the POST before retreiving their public url.
+Note: The files must be made public using the POST before retrieving their public url.
 
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -1585,7 +1585,7 @@ Returns the list of users this member follows.
     + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
 
-### Retrieves list this member follows [GET]
+### Retrieve members this member follows [GET]
 + Request (application/x-www-form-urlencoded)
     + Headers
     
@@ -1711,7 +1711,7 @@ Returns the activity stream for this member.  Activities include updates, items 
     + asset_custom_data (optional, boolean, `true`)...By default FALSE. If TRUE returns hidden data associated with assets.
     + asset_custom_data_keys (optional, string, `viewerFiles,stlfiles,photoscenes`)...This is a comma separated list of keys representing the hidden data associated with the assets. This parameter has effect only when file_ids option is set to TRUE.
     
-### Retrieves member activity stream [GET]
+### Retrieve member activity stream [GET]
 + Request (application/x-www-form-urlencoded)
     + Headers
     
@@ -1927,7 +1927,7 @@ Member like operations
             }
             
 ## Subscriptions [/members/{id}/subscriptions]
-Retrieves member's subscription history in cronologically descending order. Each subscription has associated event type. List of possible event types are as follows
+Retrieve member's subscription history in cronologically descending order. Each subscription has associated event type. List of possible event types are as follows
 
 **CREATE:**
     User purchased subscription for the first time.
@@ -5687,7 +5687,7 @@ Search members on various input parameters.
     + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
 
-### Retrieves list of members [GET]
+### Retrieve list of members [GET]
 + Request (application/x-www-form-urlencoded)
     + Headers
 
