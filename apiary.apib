@@ -2599,7 +2599,7 @@ Retrieve the list of assets for sale. An asset can be removed from the shop via 
                         "is_store_asset": false,
                         "is_reviewable": false,
                         "file_formats": [],
-                        "key_data": {}
+                        "extended_data": {}
                     },
                     {
                         "keywords": "Pipe DIN2448",
@@ -2676,7 +2676,7 @@ Retrieve the list of assets for sale. An asset can be removed from the shop via 
                         "is_store_asset": false,
                         "is_reviewable": false,
                         "file_formats": [],
-                        "key_data": {}
+                        "extended_data": {}
                     }
                 ]
             }
@@ -2808,7 +2808,7 @@ A physical asset cannot be put for sale without shop shipping information and pr
                 "is_store_asset": false,
                 "is_reviewable": false,
                 "file_formats": [],
-                "key_data": {}
+                "extended_data": {}
             }
 
 + Response 400 (application/json)
@@ -5428,8 +5428,7 @@ Retrieve the assets given the filters passed as parameters.
                      ],
                      "file_formats":[  
                      ],
-                     "key_data":{  
-                     },
+                     "extended_data":{},
                      "is_authorized_download":true,
                      "is_deleted":false,
                      "is_repurchasable":false,
@@ -5492,7 +5491,7 @@ Retrieve the assets given the filters passed as parameters.
                      ],
                      "file_formats":[  
                      ],
-                     "key_data":{  
+                     "extended_data":{  
                      },
                      "is_authorized_download":true,
                      "is_deleted":false,
@@ -5579,9 +5578,7 @@ Allow the retrieval and modification of shop asset specific properties.
                "file_formats":[  
             
                ],
-               "key_data":{  
-            
-               },
+               "extended_data":{},
                "is_authorized_download":true,
                "is_deleted":false,
                "is_repurchasable":false,
@@ -5666,9 +5663,7 @@ Add / Update the shop asset.
                "file_formats":[  
             
                ],
-               "key_data":{  
-            
-               },
+               "extended_data":{},
                "is_authorized_download":true,
                "is_deleted":false,
                "is_repurchasable":false,
