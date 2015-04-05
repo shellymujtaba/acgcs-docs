@@ -2382,10 +2382,9 @@ Operations for shop creation and retrieval.
                 "total_payout": 0
             }
 
-### List shops [GET]
-List shops for a given user. If the user is logged in, and no member_id is specified, returns all shop information (public + private) for the logged in member.
-
-If member_id parameter is present, then only this requested member's public shop information is returned. Note that for a guest session, the member_id parameter is required, since guests are not allowed to setup shops.
+### Retrieve shops [GET]
+Search shops according to query parameters. Only public information is returned, unless the logged in user is
+an administator or searches with his own member_id. In the case, payout information is returned in the shop object.
 
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -2394,7 +2393,7 @@ If member_id parameter is present, then only this requested member's public shop
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
-    + member_id (optional, Number,`1234567890`)... Used only when member is guest or a given member wants to see another members shop. This only returns public shops and is required for Guest sessions.
+    + member_id (optional, Number,`1234567890`)... Narrow the search for a specific member.
     + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
     + offset (optional, Number, `0`)...This offsets the start of each page by the number specified. Default: 0.
 
