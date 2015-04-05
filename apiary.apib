@@ -2393,9 +2393,14 @@ an administator or searches with his own member_id. In the case, payout informat
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
-    + member_id (optional, Number,`1234567890`)... Narrow the search for a specific member.
-    + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
-    + offset (optional, Number, `0`)...This offsets the start of each page by the number specified. Default: 0.
+    + member_id (optional, Number,`1234567890`)... Search by member id.
+    + shop_name (optional, String, `Uber Shop`)... Search by shop name.
+    + start_date (optional, Date, `December, 12 2014 07:23:45`)... Limit results to shops created/modified on or after a given date ("MMMM, dd yyyy HH:mm:ss" format).
+    + end_date (optional, Date, `December, 12 2014 07:23:45`)... Limit results to shops created/modified on or before a given date ("MMMM, dd yyyy HH:mm:ss" format).
+    + sort_by = `MODIFIED_DATE` (optional, String, `CREATED_DATE`)... Sort results according to filter: `CREATED_DATE,MODIFIED_DATE`.
+    + sort_order = `DESC` (optional, String, `DESC`)... Sort order for the results: `ASC` or `DESC`.
+    + limit (optional, Number,`20`)... Number of results to return in each page. Default: 10.
+    + offset (optional, Number, `3`)... This offsets the start of each page by the number specified. Default: 0.
 
 + Response 200 (application/json)
     + Body
