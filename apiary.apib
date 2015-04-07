@@ -2368,7 +2368,12 @@ Operations for shop creation and retrieval.
 |Message|HTTP Status Code|Error Code|Data
 |----|----|----|----
 |Member already has a shop or requested one|400 Bad Request|3301|Existing shop id
-
+|Shop name is too long. Maximum allowed length is 250|400 Bad Request|3313|
+|Shop title is too long. Maximum allowed length is 250|400 Bad Request|3314|
+|Shop description is too long. Maximum allowed length is 3500|400 Bad Request|3315|
+|Missing shop custom data key|400 Bad Request|3316|
+|Missing shop custom data value|400 Bad Request|3317|
+|Shop custom data value must be valid JSON|400 Bad Request|3318|
 
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -2381,6 +2386,11 @@ Operations for shop creation and retrieval.
     + banner_file_id (optional, Number, `55555555`)... File id of the uploaded banner image [See Upload file section](http://docs.acgcs.apiary.io/reference/files/upload-file/upload-files)
     + current_portfolio_url (required, String, `http://dev.squidplatform.net`)... Portfolio url
     + current_sales_url (required, String, `http://dev.squidplatform.net`)... Sales url
+    + title (optional, String, `shopTitle`)... title. Must be less than 256 characters.
+    + description (optional, String, `This is the best shop`)... shop description. Must be less than 3500 characters.
+    + custom_data_key (optional, String, `color`)... custom data key
+    + custom_data_value (optional, JSON, `{"background":["yellow","black"],"content":"white"}`)... custom data value. Must be valid JSON
+
 
 + Response 201 (application/json)
 
