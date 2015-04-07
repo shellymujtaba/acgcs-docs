@@ -2400,6 +2400,8 @@ Operations for shop creation and retrieval.
                 "shop_id": 1234567890,
                 "member_id": 1234567890,
                 "name": "Hello Shop",
+                "title": "shopTitle",
+                "description": "This is the best shop",
                 "banner_file_id": "55555555",
                 "banner_file_url": "https://aws-file-server/resources/image.png",
                 "current_portfolio_url": "http://dev.squidplatform.net",
@@ -2409,7 +2411,32 @@ Operations for shop creation and retrieval.
                 "shop_denial_reason": null,
                 "pending_total": 0,
                 "total_sales": 0,
-                "total_payout": 0
+                "total_payout": 0,
+                "custom_data": [
+                    {
+                        "key": "key1",
+                        "value": {
+                            "1": 2
+                        }
+                    },
+                    {
+                        "key": "key2",
+                        "value": {
+                            "1": 44
+                        }
+                    },
+                    {
+                        "key": "color",
+                        "value": {
+                            "background": [
+                                "yellow",
+                                "black"
+                            ],
+                            "content": "white"
+                        }
+                    }
+                ]
+                
             }
 
 ### Retrieve shops [GET]
@@ -2443,6 +2470,8 @@ an administator or searches with his own member_id. In the case, payout informat
                 "shops": [
                     {
                         "name": "Mert's Updated Shop",
+                        "title": "shopTitle",
+                        "description": "This is the best shop",                        
                         "modified": "November 03, 2014 13:28:39",
                         "shop_id": 7,
                         "member_id": 20707021,
@@ -2452,7 +2481,31 @@ an administator or searches with his own member_id. In the case, payout informat
                         "current_sales_url": "newUrl",
                         "shop_status": "ONLINE",
                         "shop_approval_status": "PENDING",
-                        "shop_denial_reason": ""
+                        "shop_denial_reason": "",
+                        "custom_data": [
+                            {
+                                "key": "key1",
+                                "value": {
+                                    "1": 2
+                                }
+                            },
+                            {
+                                "key": "key2",
+                                "value": {
+                                    "1": 44
+                                }
+                            },
+                            {
+                                "key": "color",
+                                "value": {
+                                    "background": [
+                                        "yellow",
+                                        "black"
+                                    ],
+                                    "content": "white"
+                                }
+                            }
+                        ]
                     }
                 ]
             }
@@ -2469,19 +2522,45 @@ CRUD operations on a shop (see above for POST). Requesting a shop via POST cause
     + Body
 
             {
-              "shop_id": 1234567890,
-              "member_id": 1234567890,
-              "name": "Hello Shop",
-              "banner_file_id": "55555555",
-              "banner_file_url": "https://aws-file-server/resources/image.png",
-              "current_portfolio_url": "http://dev.squidplatform.net",
-              "current_sales_url": "http://dev.squidplatform.net",
-              "shop_status": "ONLINE",
-              "shop_approval_status": "APPROVED",
-              "shop_denial_reason": null,
-              "pending_total": 40.12,
-              "total_sales": 9.99,
-              "total_payout": 4.49
+                "shop_id": 1234567890,
+                "member_id": 1234567890,
+                "name": "Hello Shop",
+                "title": "shopTitle",
+                "description": "This is the best shop",
+                "banner_file_id": "55555555",
+                "banner_file_url": "https://aws-file-server/resources/image.png",
+                "current_portfolio_url": "http://dev.squidplatform.net",
+                "current_sales_url": "http://dev.squidplatform.net",
+                "shop_status": "ONLINE",
+                "shop_approval_status": "PENDING",
+                "shop_denial_reason": null,
+                "pending_total": 0,
+                "total_sales": 0,
+                "total_payout": 0,
+                "custom_data": [
+                    {
+                        "key": "key1",
+                        "value": {
+                            "1": 2
+                        }
+                    },
+                    {
+                        "key": "key2",
+                        "value": {
+                            "1": 44
+                        }
+                    },
+                    {
+                        "key": "color",
+                        "value": {
+                            "background": [
+                                "yellow",
+                                "black"
+                            ],
+                            "content": "white"
+                        }
+                    }
+                ]
             }
 
 
@@ -2498,6 +2577,16 @@ Guest session results in only the public shop data to be returned. Offline shops
         [Shop][] 
 
 ### Update a shop [PUT]
+
+|Message|HTTP Status Code|Error Code|Data
+|----|----|----|----
+|Shop name is too long. Maximum allowed length is 250|400 Bad Request|3313|
+|Shop title is too long. Maximum allowed length is 250|400 Bad Request|3314|
+|Shop description is too long. Maximum allowed length is 3500|400 Bad Request|3315|
+|Missing shop custom data key|400 Bad Request|3316|
+|Missing shop custom data value|400 Bad Request|3317|
+|Shop custom data value must be valid JSON|400 Bad Request|3318|
+
 + Request (application/x-www-form-urlencoded)
     + Headers
     
@@ -2510,6 +2599,11 @@ Guest session results in only the public shop data to be returned. Offline shops
     + current_portfolio_url (optional, String, `http://dev.squidplatform.net`)... Portfolio url
     + current_sales_url (optional, String, `http://dev.squidplatform.net`)... Sales url
     + shop_status (optional, String, `ONLINE`) ...Shop status: ONLINE/OFFLINE
+    + title (optional, String, `shopTitle`)... title. Must be less than 256 characters.
+    + description (optional, String, `This is the best shop`)... shop description. Must be less than 3500 characters.
+    + custom_data_key (optional, String, `color`)... custom data key
+    + custom_data_value (optional, JSON, `{"background":["yellow","black"],"content":"white"}`)... custom data value. Must be valid JSON
+
 
 + Response 200 (application/json)
     + Body
@@ -2517,17 +2611,43 @@ Guest session results in only the public shop data to be returned. Offline shops
             {
                 "shop_id": 1234567890,
                 "member_id": 1234567890,
-                "name": "New Shop Name",
+                "name": "Hello Shop",
+                "title": "shopTitle",
+                "description": "This is the best shop",
                 "banner_file_id": "55555555",
                 "banner_file_url": "https://aws-file-server/resources/image.png",
                 "current_portfolio_url": "http://dev.squidplatform.net",
                 "current_sales_url": "http://dev.squidplatform.net",
-                "shop_status": "OFFLINE",
+                "shop_status": "ONLINE",
                 "shop_approval_status": "PENDING",
                 "shop_denial_reason": null,
                 "pending_total": 0,
                 "total_sales": 0,
-                "total_payout": 0
+                "total_payout": 0,
+                "custom_data": [
+                    {
+                        "key": "key1",
+                        "value": {
+                            "1": 2
+                        }
+                    },
+                    {
+                        "key": "key2",
+                        "value": {
+                            "1": 44
+                        }
+                    },
+                    {
+                        "key": "color",
+                        "value": {
+                            "background": [
+                                "yellow",
+                                "black"
+                            ],
+                            "content": "white"
+                        }
+                    }
+                ]
             }
 
 
@@ -5271,6 +5391,8 @@ The followig filters are mutually exclusive and get the following priority: shop
                     {
                         "shop": {
                             "name": "Modified Shop",
+                            "title": "shopTitle",
+                            "description": "This is the best shop",
                             "shop_id": 13,
                             "member_id": 20707167,
                             "banner_file_id": 87654321,
@@ -5281,7 +5403,31 @@ The followig filters are mutually exclusive and get the following priority: shop
                             "commerce_affiliate_id": 1,
                             "modified_date": "December 10, 2014 18:57:09",
                             "created_date": "November 25, 2014 22:21:35",
-                            "admin_modified_date": ""
+                            "admin_modified_date": "",
+                            "custom_data": [
+                                {
+                                    "key": "key1",
+                                    "value": {
+                                        "1": 2
+                                    }
+                                },
+                                {
+                                    "key": "key2",
+                                    "value": {
+                                        "1": 44
+                                    }
+                                },
+                                {
+                                    "key": "color",
+                                    "value": {
+                                        "background": [
+                                            "yellow",
+                                            "black"
+                                        ],
+                                        "content": "white"
+                                    }
+                                }
+                            ]
                         },
                         "member_name": "ecommerce ecommerce",
                         "member_email": "ecommerce@regression.alpha"
@@ -5310,6 +5456,8 @@ Retrieve a shop by shop id only.
             {
                 "shop": {
                     "name": "Joe's Shop",
+                    "title": "shopTitle",
+                    "description": "This is the best shop",
                     "shop_id": 1,
                     "member_id": 20707020,
                     "banner_file_id": 1111,
@@ -5322,7 +5470,31 @@ Retrieve a shop by shop id only.
                     "admin_modified_by_id": 20707167,
                     "modified_date": "December 10, 2014 23:00:53",
                     "created_date": "November 18, 2014 22:21:35",
-                    "admin_modified_date": "December 10, 2014 23:00:53"
+                    "admin_modified_date": "December 10, 2014 23:00:53",
+                    "custom_data": [
+                        {
+                            "key": "key1",
+                            "value": {
+                                "1": 2
+                            }
+                        },
+                        {
+                            "key": "key2",
+                            "value": {
+                                "1": 44
+                            }
+                        },
+                        {
+                            "key": "color",
+                            "value": {
+                                "background": [
+                                    "yellow",
+                                    "black"
+                                ],
+                                "content": "white"
+                            }
+                        }
+                    ]
                 },
                 "member_name": "chaitanya tapaswi1011",
                 "member_email": "chaitanya.tapaswi1011@gmail.com"
@@ -5330,6 +5502,15 @@ Retrieve a shop by shop id only.
 
 ### Update a shop [PUT]
 Update a shop based on the parameters in the query.
+
+|Message|HTTP Status Code|Error Code|Data
+|----|----|----|----
+|Shop name is too long. Maximum allowed length is 250|400 Bad Request|3313|
+|Shop title is too long. Maximum allowed length is 250|400 Bad Request|3314|
+|Shop description is too long. Maximum allowed length is 3500|400 Bad Request|3315|
+|Missing shop custom data key|400 Bad Request|3316|
+|Missing shop custom data value|400 Bad Request|3317|
+|Shop custom data value must be valid JSON|400 Bad Request|3318|
 
 + Request (application/x-www-form-urlencoded)
     + Header
@@ -5355,6 +5536,8 @@ Update a shop based on the parameters in the query.
                 "shop": {
                     "name": "Joe's Shop",
                     "shop_id": 1,
+                    "title": "shopTitle",
+                    "description": "This is the best shop",
                     "member_id": 20707020,
                     "banner_file_id": 1111,
                     "current_portfolio_url": "portfolio",
@@ -5366,7 +5549,31 @@ Update a shop based on the parameters in the query.
                     "admin_modified_by_id": 20707167,
                     "modified_date": "December 10, 2014 23:00:53",
                     "created_date": "November 18, 2014 22:21:35",
-                    "admin_modified_date": "December 10, 2014 23:00:53"
+                    "admin_modified_date": "December 10, 2014 23:00:53",
+                    "custom_data": [
+                        {
+                            "key": "key1",
+                            "value": {
+                                "1": 2
+                            }
+                        },
+                        {
+                            "key": "key2",
+                            "value": {
+                                "1": 44
+                            }
+                        },
+                        {
+                            "key": "color",
+                            "value": {
+                                "background": [
+                                    "yellow",
+                                    "black"
+                                ],
+                                "content": "white"
+                            }
+                        }
+                    ]
                 },
                 "member_name": "chaitanya tapaswi1011",
                 "member_email": "chaitanya.tapaswi1011@gmail.com"
