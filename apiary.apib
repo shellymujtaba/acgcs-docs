@@ -2374,7 +2374,6 @@ Operations for shop creation and retrieval.
 |Shop description is too long. Maximum allowed length is 3500|400 Bad Request|3315|
 |Missing shop custom data key|400 Bad Request|3316|
 |Missing shop custom data value|400 Bad Request|3317|
-|Shop custom data value must be valid JSON|400 Bad Request|3318|
 
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -2390,7 +2389,7 @@ Operations for shop creation and retrieval.
     + title (optional, String, `shopTitle`)... title. Must be less than 256 characters.
     + description (optional, String, `This is the best shop`)... shop description. Must be less than 3500 characters.
     + custom_data_key (optional, String, `color`)... custom data key
-    + custom_data_value (optional, JSON, `{"background":["yellow","black"],"content":"white"}`)... custom data value. Must be valid JSON
+    + custom_data_value (optional, JSON, `{"background":["yellow","black"],"content":"white"}`)... custom data value.
 
 
 + Response 201 (application/json)
@@ -2574,7 +2573,6 @@ Guest session results in only the public shop data to be returned. Offline shops
 |Shop description is too long. Maximum allowed length is 3500|400 Bad Request|3315|
 |Missing shop custom data key|400 Bad Request|3316|
 |Missing shop custom data value|400 Bad Request|3317|
-|Shop custom data value must be valid JSON|400 Bad Request|3318|
 
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -2591,7 +2589,7 @@ Guest session results in only the public shop data to be returned. Offline shops
     + title (optional, String, `shopTitle`)... title. Must be less than 256 characters.
     + description (optional, String, `This is the best shop`)... shop description. Must be less than 3500 characters.
     + custom_data_key (optional, String, `color`)... custom data key
-    + custom_data_value (optional, JSON, `{"background":["yellow","black"],"content":"white"}`)... custom data value. Must be valid JSON
+    + custom_data_value (optional, JSON, `{"background":["yellow","black"],"content":"white"}`)... custom data value.
 
 
 + Response 200 (application/json)
@@ -5499,7 +5497,6 @@ Update a shop based on the parameters in the query.
 |Shop description is too long. Maximum allowed length is 3500|400 Bad Request|3315|
 |Missing shop custom data key|400 Bad Request|3316|
 |Missing shop custom data value|400 Bad Request|3317|
-|Shop custom data value must be valid JSON|400 Bad Request|3318|
 
 + Request (application/x-www-form-urlencoded)
     + Header
@@ -5517,6 +5514,10 @@ Update a shop based on the parameters in the query.
     + shop_status (optional, String, `ONLINE`) ...Shop status: ONLINE/OFFLINE
     + shop_approval_status (optional, String, `PENDING|APPROVED|DENIED`)... Approval status of a shop.
     + shop_denial_reason (optional, String, `FRAUD|DUPLICATE`)... Shop denial reason
+    + title (optional, String, `shopTitle`)... title. Must be less than 256 characters.
+    + description (optional, String, `This is the best shop`)... shop description. Must be less than 3500 characters.
+    + custom_data_key (optional, String, `color`)... custom data key
+    + custom_data_value (optional, JSON, `{"background":["yellow","black"],"content":"white"}`)... custom data value.
 
 + Response 200 (application/json)
     + Body
