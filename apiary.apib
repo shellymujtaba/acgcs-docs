@@ -2415,7 +2415,7 @@ Operations for shop creation and retrieval.
                 "custom_data": [
                     {
                         "key": "color",
-                        "value": {
+                        "data": {
                             "background": [
                                 "yellow",
                                 "black"
@@ -2473,19 +2473,19 @@ an administator or searches with his own member_id. In the case, payout informat
                         "custom_data": [
                             {
                                 "key": "key1",
-                                "value": {
+                                "data": {
                                     "1": 2
                                 }
                             },
                             {
                                 "key": "key2",
-                                "value": {
+                                "data": {
                                     "1": 44
                                 }
                             },
                             {
                                 "key": "color",
-                                "value": {
+                                "data": {
                                     "background": [
                                         "yellow",
                                         "black"
@@ -2528,19 +2528,19 @@ CRUD operations on a shop (see above for POST). Requesting a shop via POST cause
                 "custom_data": [
                     {
                         "key": "key1",
-                        "value": {
+                        "data": {
                             "1": 2
                         }
                     },
                     {
                         "key": "key2",
-                        "value": {
+                        "data": {
                             "1": 44
                         }
                     },
                     {
                         "key": "color",
-                        "value": {
+                        "data": {
                             "background": [
                                 "yellow",
                                 "black"
@@ -2614,19 +2614,19 @@ Guest session results in only the public shop data to be returned. Offline shops
                 "custom_data": [
                     {
                         "key": "key1",
-                        "value": {
+                        "data": {
                             "1": 2
                         }
                     },
                     {
                         "key": "key2",
-                        "value": {
+                        "data": {
                             "1": 44
                         }
                     },
                     {
                         "key": "color",
-                        "value": {
+                        "data": {
                             "background": [
                                 "yellow",
                                 "black"
@@ -2636,6 +2636,39 @@ Guest session results in only the public shop data to be returned. Offline shops
                     }
                 ]
             }
+
+## Shop Custom Data [/shops/{id}/customdata]
+Operations to add custom data to this shop. These operations are useful to add any shop specific custom data to the shop
+
+Note: The key should be unique within the shop. Using the same key in POST will overwrite the existing data if any.
+
++ Parameters
+    + id (required,Number,`12`)...Numeric `id` of the shop to perform action with. 
+
+### Create a new custom data entry within a shop [POST] 
++ Parameters
+    + custom_data (required, String, `{"custom_data": [{"key": "key1","data": "<Any custom data. Escaped json in case of JSON custom data>"},{"key": "key2","data": "<Any custom data. Escaped json in case of JSON custom data>"}]}`)...Key-Value pair of custom data JSON.
++ Request (application/x-www-form-urlencoded)
+    + Headers
+        
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            X-Secure-Session: 87B30A4BCB94B9955BE4CBF3C1865FDC00B117C3CA30E674AAA1E3B45563A978
+
++ Response 204
+
+### Delete an asset custom data[DELETE]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+        
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            X-Secure-Session: 87B30A4BCB94B9955BE4CBF3C1865FDC00B117C3CA30E674AAA1E3B45563A978
+
++ Parameters
+    + keys (required, String, `key1,key2`)...Comma seperated list of custom data keys to be deleted from this shop.
+    
++ Response 204
 
 
 ##Assets [/shops/{shop_id}/assets]
@@ -2650,6 +2683,7 @@ Retrieve the list of assets for sale. An asset can be removed from the shop via 
     
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            X-Secure-Session: 87B30A4BCB94B9955BE4CBF3C1865FDC00B117C3CA30E674AAA1E3B45563A978
 
 + Parameters
     + limit (optional, Number,`1`)... Number of results to return in each page. Default: 10.
@@ -5394,19 +5428,19 @@ The followig filters are mutually exclusive and get the following priority: shop
                             "custom_data": [
                                 {
                                     "key": "key1",
-                                    "value": {
+                                    "data": {
                                         "1": 2
                                     }
                                 },
                                 {
                                     "key": "key2",
-                                    "value": {
+                                    "data": {
                                         "1": 44
                                     }
                                 },
                                 {
                                     "key": "color",
-                                    "value": {
+                                    "data": {
                                         "background": [
                                             "yellow",
                                             "black"
@@ -5543,19 +5577,19 @@ Update a shop based on the parameters in the query.
                     "custom_data": [
                         {
                             "key": "key1",
-                            "value": {
+                            "data": {
                                 "1": 2
                             }
                         },
                         {
                             "key": "key2",
-                            "value": {
+                            "data": {
                                 "1": 44
                             }
                         },
                         {
                             "key": "color",
-                            "value": {
+                            "data": {
                                 "background": [
                                     "yellow",
                                     "black"
