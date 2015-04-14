@@ -3159,28 +3159,6 @@ at the same time.
     
 + Response 201
 
-### Retrieve member verification status [GET]
-Return the member verification object, which includes the phone verification status and paypal email address on record. If the member of the shop has
-not initiated a phone verification request or never added a paypal email, the query return an empty object.
-
-+ Request (application/x-www-form-urlencoded)
-    + Headers
-    
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-            X-Secure-Session: ABC1232324244
-
-+ Response 200
-
-            {  
-               "id":6,
-               "member_id":20707020,
-               "phone_number":"14153204620",
-               "phone_status":"VERIFIED",
-               "paypal_email":"member@domain.com"
-            }
-
-
 ### Update member paypal email address [PUT]
 Update the PayPal email address on record.
 
@@ -3193,6 +3171,28 @@ Update the PayPal email address on record.
 
 + Parameters
     + paypal_email (optional , string, `member@domain.com`)... PayPal email where to send payments to sellers
+
++ Response 200
+
+            {  
+               "id":6,
+               "member_id":20707020,
+               "phone_number":"14153204620",
+               "phone_status":"VERIFIED",
+               "paypal_email":"member@domain.com"
+            }
+
+
+### Retrieve member verification status [GET]
+Return the member verification object, which includes the phone verification status and paypal email address on record. If the member of the shop has
+not initiated a phone verification request or never added a paypal email, the query return an empty object.
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            X-Secure-Session: ABC1232324244
 
 + Response 200
 
