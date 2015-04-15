@@ -3146,8 +3146,7 @@ Otherwise the request for payout will fail.
 ### Initiate phone verification [POST]
 When invoked  without any parameter, the phone number on file is verified.
 Otherwise, the phone number in the request is verified and the member info
-is updated with this phone. For convenience, a PayPal email can be passed
-at the same time.
+is updated with this phone and the paypal email address (if passed).
 
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -3162,8 +3161,11 @@ at the same time.
     
 + Response 201
 
-### Update member paypal email address [PUT]
-Update or add the PayPal email address on record.
+### Update member verification [PUT]
+Update the member verification information. If a new phone number is passed,
+the information on record is updated and the phone verification kicks in asynchronously.
+The phone status will return with PENDING until the member answers his phone.
+To initiate another phone request, use POST without any phone number.
 
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -3173,6 +3175,7 @@ Update or add the PayPal email address on record.
             X-Secure-Session: ABC1232324244
 
 + Parameters
+    + phone_number (optional, string, `4151234567`)... Phone number for verification. If present, shops payout info is updated.
     + paypal_email (optional , string, `member@domain.com`)... PayPal email where to send payments to sellers
 
 + Response 200
