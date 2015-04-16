@@ -2300,8 +2300,8 @@ Here are the general steps:
     + oauth_asynch (optional, Boolean, `false`)...This param is used to save your oxygen oauth info to marketplace asynchronously. values = true/false. Default is true
     + authorization_code (optional, String, `false`)...This parameter is used to send COPPA authorization code to Oxygen login when Moderator tries to login using verification link in the email.Default is null or empty.
     + send_opt_in (optional, Boolean, `false`)...This param is used to know opt in selected by user while registration. You will get the response in url as opt_in = true/false depending on opt in along with token key.
-    + social_providers (optional, String, `FB, GO, YH`)...This param is used to show a specific set of social providers' sign-on options.  Uses a list of comma-separated provider two-letter codes, i.e. (
-    FB, GO, YH, TW, LN, WL, DA).  If parameter is missing, then all providers' sign-on options are shown.
+    + social_providers (optional, String, `FB,GO,YH`)...This parameter is used to show a specific set of social providers' sign-on options.  Uses a list of comma-separated provider two-letter codes, wihtout spaces, i.e. (
+    FB,GO,YH,TW,LN,WL,DA).  If parameter is missing, then all providers' sign-on options are shown.
     + css_query_param (optional, String, `version%3D1%26app%3Dtest`)...This param is used to append query parameter in css url, so that you can invalidate your css cache.
 
 + Response 302 
