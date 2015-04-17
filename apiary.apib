@@ -6687,6 +6687,76 @@ Retrieve all the contest entries
     ]
 }
 
+### Get Contest Entries As Asset Data [GET]
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + contest_id (required, Number, `12342`) ...Contest Id
+    + finalists (optional, boolean, `true`) ...Return only finalists entries if true
+    + hide (optional, String, `true`)...Include or exclude hidden files. If 'true', only hidden files are returned, if 'false', only non-hidden, if 'all' then all hidden and un-hidden files are returned.  If no hide parameter is given, 'all' is used.  Asset data is in same format as asset search api.
+    + limit (optional, number, `20`)...number of results per page
+    + offset (optional, Number, `60`) ...This offsets the start of each page by the number specified. 
+    
++ Response 200 (application/json)
+
+{
+    "count": 10,
+    "limit": 1,
+    "offset": 2,
+    "_link": "/contests/v75kpm9i7ggbli9/assets?finalists=false&limit=1&offset=2",
+    "_link_prev": "/contests/v75kpm9i7ggbli9/assets?finalists=false&limit=1&offset=1",
+    "assets": [
+        {
+            "mesh": false,
+            "asset_id": 1360396,
+            "comment_count": 0,
+            "member_small_avatar": "http://alpha.squidplatform.com/Images/v23/Member/default_avatar.png",
+            "asset_name": "FlowerTest",
+            "thumb_path_prefix": "http://alpha.squidplatform.com/Images/v23/FullPreview/small/NoPicture.png",
+            "favorite_count": 0,
+            "progress_status": 1,
+            "referenced_assets_count": 0,
+            "date_submitted": "August 13, 2014 01:46:28",
+            "view_count": 0,
+            "referenced_by_count": 0,
+            "asset_image": "",
+            "artist_name": "QAautomation689 207",
+            "referenced_asset_thumb": "",
+            "format_name_long": "Other ( See Notes )",
+            "current_page": 0,
+            "seo_template": "Catch%20FlowerTest",
+            "asset_ext_name": "Catch_Mobile",
+            "model_type": "Part",
+            "file_size": 93416,
+            "featured_date": "",
+            "download_count": 0,
+            "format_name_short": "oth",
+            "artist_avatar": "http://alpha.squidplatform.com/Images/v23/Member/default_avatar.png",
+            "artist_id": 20706597,
+            "media_type_id": 28,
+            "current_result": 0,
+            "associated_file_directory_path": "",
+            "software": 7,
+            "total_price": 0,
+            "shop_id": "",
+            "is_for_sale": false,
+            "is_online_viewer_available": false,
+            "is_gallery_asset": true,
+            "is_mature": false,
+            "date_modified": "August 13, 2014 05:53:30",
+            "is_app_featured": false,
+            "app_featured_date": "",
+            "is_featured": false,
+            "is_member_favorite": false,
+            "extended_data": {}
+        }
+    ]
+}
+
 ## Contest Winners [/contests/{contest_id}/winners]
 
 Retrieve all the winners of a contest
