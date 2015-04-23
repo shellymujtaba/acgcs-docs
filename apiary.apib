@@ -5903,6 +5903,9 @@ Allow the retrieval and modification of shop asset specific properties.
 
 ### Update a shop asset [PUT]
 Add / Update the shop asset.
+Setting a private asset "for sale" results in asset state changed to public. Please note that an asset cannot be put for sale until the seller has completed tax witholding information.  
+If the member attempts to set an asset for sale without tax informtion and error would be returned. 
+A physical asset cannot be put for sale without shop shipping information and product fulfillment information.
 
 |Message|HTTP Status Code|Error Code|Data
 |----|----|----|----
