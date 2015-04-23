@@ -5904,6 +5904,23 @@ Allow the retrieval and modification of shop asset specific properties.
 ### Update a shop asset [PUT]
 Add / Update the shop asset.
 
+|Message|HTTP Status Code|Error Code|Data
+|----|----|----|----
+|This Product type is not supported for shop asset|400 Bad Request|34035|
+|Given asset id does not exist|400 Bad Request|103|
+|Suspended assets cannot be added to a shop|400 Bad Request|3306|
+|You do not have access to this asset|400 Bad Request|3305|
+|You do not have access to this shop|400 Bad Request|3309|
+|Product type is required when new asset is added to shop|400 Bad Request|34034|
+|Product price is required when new asset is added to shop|400 Bad Request|34036|
+|Tax information is not available for the seller.|400 Bad Request|34026|
+|No shop found|400 Bad Request|3300|
+|Shop status is invalid|400 Bad Request|3310|
+|Shop address is required for product for sale|400 Bad Request|34039|
+|Information is missing for product for sale|400 Bad Request|34037|Missing parameter: is_available, lead_in_days, package_weight, package_length, package_height, package_width, delivery_company
+|This Product price is missing|400 Bad Request|34038|
+
+
 + Request (application/x-www-form-urlencoded)
     + Header
             
@@ -5915,6 +5932,15 @@ Add / Update the shop asset.
     + asset_id (required, Number, `536546`)... Asset id
     + asset_price (optional, Number, `5.99`)... Set asset price
     + for_sale (optional, Boolean, `true`)... Change for sale status of the asset (for sale / not for sale)
+    + product_type (optional, String, `PHYSICAL`)... Sets the product type for added asset. This parameter is ONLY required if asset is being added for the first time. Supported values are (PHYSICAL,DIGITAL) Default : ""
+    + vendor_sku (optional, String, `sku123`)... Sets the vendor sku id
+    + is_available (optional, Boolean, `true`)... Sets the stock availability for asset. This parameter is ONLY used if product type is physical. This information is required when the asset is put on sale. 
+    + lead_in_days (optional, Number, `3`)... Sets in how many days the asset will be shipped to customers after purchase. This parameter is ONLY used if product type is physical. This information is required before the asset is put on sale. 
+    + package_weight (optional, Number, `1.99`)... Sets the weight of the package which is shipped to customer after customer buys the physical asset. This parameter is ONLY used if product type is physical. This information is required before the asset is put on sale. Unit is LB
+    + package_length (optional, Number, `49.99`)... Sets the length of the package which is shipped to customer after customer buys the physical asset. This parameter is ONLY used if product type is physical. This information is required before the asset is put on sale. Unit is inch
+    + package_height (optional, Number, `39.99`)... Sets the height of the package which is shipped to customer after customer buys the physical asset. This parameter is ONLY used if product type is physical. This information is required before the asset is put on sale. Unit is inch
+    + package_width (optional, Number, `19.99`)... Sets the width of the package which is shipped to customer after customer buys the physical asset. This parameter is ONLY used if product type is physical. This information is required before the asset is put on sale. Unit is inch
+    + delivery_company (optional, String, `UPS,USPS,FEDEX`)... Sets the delivery company of the package. Comma separated list of the shippers. This parameter is ONLY used if product type is physical. This information is required before the asset is put on sale.
 
 + Response 200 (application/json)
 
