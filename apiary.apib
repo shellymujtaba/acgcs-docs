@@ -6192,12 +6192,13 @@ Retrieve payouts and approve/deny payout requests. Approving a payout places it 
             }
 
 ## Countries [/admin/countries{?sort_by,sort_order,approved_only,limit,offset}]
-CRUD operations Retrieve and add entries to the list of countries supported by our payment service provider (Blue Snap).
-The countries are keyed by ISO code, and only the countries supported by our PSP exists in the table.
+Manage the list of countries supported by our payment service provider (Blue Snap).
+The countries are keyed by ISO code (2 letters), and only the countries supported by our PSP exists in the table.
 The approved flag is set to true for all countries we do commerce with.
 
 ### Retrieve Countries [GET]
 Retrieve countries according to the query parameters.
+Specify a limit greater than 250 if you want to get all supported countries in 1 call.
 This API is available to Guests, Members, and Administrators.
 
 + Request (application/x-www-form-urlencoded)
