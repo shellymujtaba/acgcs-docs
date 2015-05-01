@@ -2608,7 +2608,7 @@ Guest session results in only the public shop data to be returned. Offline shops
     + description (optional, String, `This is the best shop`)... shop description. Must be less than 3500 characters.
     + custom_data_key (optional, String, `color`)... custom data key
     + custom_data_value (optional, JSON, `{"background":["yellow","black"],"content":"white"}`)... custom data value.
-
+    + submit_request (optional, String, `true`)...Whether this shop will be submitted for approval. If 'true' and the shop is in WAIT_LISTED status, an email will be sent to administrator for notification.
 
 + Response 200 (application/json)
     + Body
