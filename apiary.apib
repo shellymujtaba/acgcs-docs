@@ -3671,8 +3671,8 @@ Here are some key points about cart:
         * parent_id: replaces the existing parent(s) of this line item.
         * unit_price: replaces existing unit price
         * data: replaces existing data field
-    + hash_key (optional, string, `AHFDHS56GFTSR67tfgdjst564a`)... required if unit_price present. How to generate hash <TODO>
-    + timestamp (optional, String,`2014-08-14 18:55:59`)...required if unit_price present. YYYY-MM-DD HH:mm:ss
+    + hash_key (optional, string, `AHFDHS56GFTSR67tfgdjst564a`)... required if unit_price present. Hash value is sha256hash combination of AFC+CURRENT TIME_STAMP IN GMT+SECURE CODE FOR AFC. Ref:Java code function : DigestUtils.sha256Hex(). Please contact cloud service team for secure code.
+    + timestamp (optional, String,`2014-08-14 18:55:59`)...required if unit_price present. Current time in GMT by which hash is generated. Format: YYYY-MM-DD HH:mm:ss
 + Response 200 (application/json)
 
         {
