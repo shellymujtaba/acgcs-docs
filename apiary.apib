@@ -1558,8 +1558,22 @@ name, email, locale and avatar
     + facebook (optional, String, `http://www.facebook.com/jsmith`)...Member facebook link
     + twitter (optional, String, `http://www.twitter.com/jsmith`)...Member twitter link
     + personal (optional, String, ``)...Member personal link
-    + locale (optional, String, `en_US`)... Valid locale in in format <language>_<COUNTRY> 
+    + locale (optional, String, `en_US`)... Valid locale in in format: &lt;language&gt;_&lt;COUNTRY&gt;
     + avatar (optional, String, `123456`)...File id which represents the member avatar. Also see file upload operations
+    + company (optional, String, `Sun Microsystems, Inc.`)...Company name
+    + company_website (optional, String, `http://www.oracle.com/us/sun/index.htm`)...Company's website
+    + industry (optional, String, `Enterprise Software Products`)...Company's industry
+    + address1 (optional, String, `520 Oracle Parkway`)...Member profile's address line 1
+    + address2 (optional, String, `3rd Floor`)...Member profile's address line 2
+    + city (optional, String, `Redwood City`)...Member profile's city
+    + state (optional, String, `CA`)...Member profile's state
+    + postal_code (optional, String, `94065`)...Member profile's postal code
+    + country_code (optional, String, `US`)...Member profile's country code.  Alpha-2 character code.  e.g., see <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements">List of valid ISO 3166 codes</a>
+    + timezone (optional, String, `GMT+08:00`)...Time zone.  Format: GMT+/-XX:XX.  Examples: GMT+03:00 GMT-11:00 GMT+23:15 GMT+00:00
+    + phone_home (optional, String, `123456789012345`)...Member profile's home phone number. Valid entries are spaces and #.-()0123456789
+    + phone_mobile (optional, String, `1(800) 555-1212`)...Member profile's mobile phone number. Valid entries are spaces and #.-()0123456789
+    + phone_work (optional, String, `213.456.789#1`)...Member profile's work phone number. Valid entries are spaces and #.-()0123456789
+    + phone_work_extension (optional, String, `123456`)...Member profile's work phone extension. Valid entries are numeric only:0123456789
 + Response 200 (application/json)
 
             {
@@ -7152,7 +7166,7 @@ Retrieve all the entries in a contest which are voted by the member.
     + member_id (required, Number, `12342`) ...Member Id
     + gift_assignment_id (required, Number, `12342`) ...Gift assignment Id
     + accepted (required, boolean, `true`) ...Accept or deny the gift. Default: true
-    + name (optional, String, `John`) ...Gift recepient's name. Required if gift accepted.
+    + name (optional, String, `John`) ...Gift receipient's name. Required if gift accepted.
     + address1 (optional, String, `1234`) ...Address line 1. Required if gift accepted.
     + address2 (optional, String, `4534`) ...Address line 2.
     + city (optional, String, `Las Vegas`) ...City. 
