@@ -3193,7 +3193,7 @@ No spaces or any other characters than digits are permitted and can have a maxim
             X-Secure-Session: ABC1232324244
 
 + Parameters
-    + phone_number (optional, string, `+4151234567`)... Phone number for verification (E.164). If present, shops payout info is updated.
+    + phone_number (optional, string, `+4151234567`)... Phone number for verification (E.164 format). If present, shops payout info is updated.
     + paypal_email (optional , string, `member@domain.com`)... PayPal email where to send payments to sellers
     
 + Response 201
@@ -3212,7 +3212,7 @@ To initiate another phone request, use POST without any phone number.
             X-Secure-Session: ABC1232324244
 
 + Parameters
-    + phone_number (optional, string, `4151234567`)... Phone number for verification (E.164). If present, shops payout info is updated.
+    + phone_number (optional, string, `4151234567`)... Phone number for verification (E.164 format). If present, shops payout info is updated.
     + paypal_email (optional , string, `member@domain.com`)... PayPal email where to send payments to sellers
 
 + Response 200
