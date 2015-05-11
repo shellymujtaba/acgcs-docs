@@ -3181,6 +3181,10 @@ When invoked  without any parameter, the phone number on file is verified.
 Otherwise, the phone number in the request is verified and the member info
 is updated with this phone and the paypal email address (if passed).
 
+When supplied, the phone number must be formatted using E.164 (http://en.wikipedia.org/wiki/E.164).
+i.e. the phone number must start with a '+', followed by the country code and the phone number (indlucing area code).
+No spaces or any other characters than digits are permitted and can have a maximum of 15 digits total.
+
 + Request (application/x-www-form-urlencoded)
     + Headers
     
@@ -3189,7 +3193,7 @@ is updated with this phone and the paypal email address (if passed).
             X-Secure-Session: ABC1232324244
 
 + Parameters
-    + phone_number (optional, string, `4151234567`)... Phone number for verification. If present, shops payout info is updated.
+    + phone_number (optional, string, `+4151234567`)... Phone number for verification (E.164). If present, shops payout info is updated.
     + paypal_email (optional , string, `member@domain.com`)... PayPal email where to send payments to sellers
     
 + Response 201
@@ -3208,7 +3212,7 @@ To initiate another phone request, use POST without any phone number.
             X-Secure-Session: ABC1232324244
 
 + Parameters
-    + phone_number (optional, string, `4151234567`)... Phone number for verification. If present, shops payout info is updated.
+    + phone_number (optional, string, `4151234567`)... Phone number for verification (E.164). If present, shops payout info is updated.
     + paypal_email (optional , string, `member@domain.com`)... PayPal email where to send payments to sellers
 
 + Response 200
