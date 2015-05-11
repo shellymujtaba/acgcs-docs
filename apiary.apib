@@ -3176,14 +3176,14 @@ For a first time payout request, all fields are mandatory.
 A seller must have a verified phone number on file and a paypal email address before requesting a payout.
 Otherwise the request for payout will fail.
 
+When supplied, the phone number must be formatted using E.164 (http://en.wikipedia.org/wiki/E.164).
+i.e. the phone number must start with a '+', followed by the country code and the phone number (indlucing area code).
+No spaces or any other characters than digits are permitted and can have a maximum of 15 digits total.
+
 ### Initiate member verification [POST]
 When invoked  without any parameter, the phone number on file is verified.
 Otherwise, the phone number in the request is verified and the member info
 is updated with this phone and the paypal email address (if passed).
-
-When supplied, the phone number must be formatted using E.164 (http://en.wikipedia.org/wiki/E.164).
-i.e. the phone number must start with a '+', followed by the country code and the phone number (indlucing area code).
-No spaces or any other characters than digits are permitted and can have a maximum of 15 digits total.
 
 + Request (application/x-www-form-urlencoded)
     + Headers
