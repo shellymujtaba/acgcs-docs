@@ -3154,7 +3154,8 @@ Create payout request and retrieve payout history.
             }
             
 ### Create payout request [POST]
-For a first time payout request, all fields are mandatory.
+The payout requests require that the member has a verified phone number and a PayPal email on file.
+See the Shops / Member Verification section for details.
 
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -3165,13 +3166,6 @@ For a first time payout request, all fields are mandatory.
 
 + Parameters
     + amount (required, number, `100`)... Requested payout amount
-    + paypal_email (optional, string, `sample@autodesk.com`)...
-    + payout_address (optional, string, `Pier 9, San Francisco, CA`)... 
-    + verified_phone (optional, string, `415-1230000`)...
-    + facebook_id (optional, string, `1234abcd`)...
-    + entity_name (optional, string, `entity`)...
-    + corporation_type (optional, string, `PERSONAL`)...
-    + tin (optional, string, `abcdef1234`)...
 
 + Response 201
 
