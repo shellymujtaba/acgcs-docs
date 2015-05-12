@@ -3157,6 +3157,16 @@ Create payout request and retrieve payout history.
 The payout requests require that the member has a verified phone number and a PayPal email on file.
 See the Shops / Member Verification section for details.
 
+|Message|HTTP Status Code|Error Code|Data
+|----|----|----|----
+|You are not authorized to request payout for this shop|400 Bad Request|34070|
+|Shop id is missing|400 Bad Request|3308|
+|Payout amount should be a positive value|400 Bad Request|34071|
+|You do not have enough payout available for this request|400 Bad Request|34015|
+|No phone number on record for this member|400 Bad Request|3501|
+|This phone number has not been verified|400 Bad Request|3502|
+|No PayPal email address on record for this member|400 Bad Request|3503|
+
 + Request (application/x-www-form-urlencoded)
     + Headers
     
