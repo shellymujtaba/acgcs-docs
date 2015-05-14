@@ -1402,6 +1402,30 @@ Note: Please use the server for the file download received from the download ser
 
 + Response 200
 
+##Download File Path [/files/download/path{?file_ids,asset_id}]
+Get direct download path for specific file or set of files. 
+and the validity of the URL in seconds.
+
+Note: Please use the server for the file download received from the download server API.
+
++ Parameters
+    + file_ids (required,String `1233233,1333233`) ...Comma seperated list of file ids. If more than one file is specified, the download will be a zip
+    + asset_id (optional, String `23244422`)... Asset id
+
+### Download files path [GET]
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Response 200 (application/json)
+{
+    "download_url": "http://s3.amazonaws.com/files?signatures=25kbj234jkh234h",
+    "Validity": 300
+}
+
 #File Access [/filesystem/publicurl]
 APIs to make files available using public url.
 
