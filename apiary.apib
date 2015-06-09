@@ -562,6 +562,8 @@ Note: The key should be unique within the asset. Using the same key in POST will
 ## Asset Previews [/assets/{id}/previews]
 Operations to add preview files to this asset. These operations are used to add any asset preview files to the asset e.g asset promotional downloads.
 
+Note: The PUT API will update the preview files in the order in which they are passed.
+
 + Parameters
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
 
