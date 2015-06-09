@@ -765,6 +765,8 @@ Add files which constitute the "source" for this asset, this can include virtual
 all major 3d formats will be automatically translated into a print ready STL format, which will be available in through the asset translations api. 
 Adding the sources will usually be a starting point for storing an asset in cloud services storage - subsequent tranformation operations can then be performed on these source files. 
 
+Note: The PUT API will update the sources in the order in which they are passed.
+
 + Parameters
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
 
@@ -793,8 +795,6 @@ Adding the sources will usually be a starting point for storing an asset in clou
 + Parameters
     + file_ids (required, String, `123456,234345`) ...Comma seperated list of new files to be added as sources to this asset. The operation will automatically populate the file type based on previously uploaded file's mime type. 
     + old_file_ids (required, String, `123456,234345`) ...Comma seperated list of old files within the asset.
-
-Note: sdafasdf    
 
 + Response 201 (application/json)
 
