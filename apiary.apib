@@ -367,7 +367,6 @@ Operations to perform CRUD operations on an asset with basic metadata. Additiona
     + publish (optional, Boolean, `false`) ... publish to gallery
     + progress_status (optional, Number, `1`) ...progress status <br> Options:<br> 0:in progress<br>1:complete
     + parent_asset_id (optional, String, `12345`) ...Parent Asset Id
-    + version (optional, String, `1.15`) ...Version from which this update is made to the asset.
     
 + Response 200 (application/json)
 
@@ -385,6 +384,25 @@ Operations to perform CRUD operations on an asset with basic metadata. Additiona
 + Parameters
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
 + Response 204
+
+##Asset Versions [/assets/{id}/versions]
+Operations to create and retrieve asset versions.
+
+### Create new major Asset version[POST]
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Response 201 (application/json)
+
+    {
+        "asset_version": "2.00",
+        "member_id": 123456,
+        "asset_version_datetime": "April 26, 2011 00:11:57"
+    }
 
 ## Assets  [/assets{?q,start_date,end_date,thumbnail_index,file_type_list,exclude_keywords,asset_ids,sort_by,sort_order,display_filter,exclude_artist_ids,include_artist_ids,include_member_ids,progress_status,description,parent_assets,child_hidden_keys,media_type_ids,include_mature,limit,offset,child_assets}]
 This api is a starting point to display galleries, perform free-form searches. Different filtering options allow searching by specific contained file type, keywords, publish dates, curation state (featured, popular) etc. 
@@ -526,9 +544,6 @@ Note: The key should be unique within the asset. Using the same key in POST will
         }
 
 ### Retrieve an asset custom data [GET]
-+ Parameters
-    + version (optional,double,`1.15`)...Asset version
-
 + Request (application/x-www-form-urlencoded)
     + Headers
         X-AFC: FJKB32
@@ -562,8 +577,6 @@ Note: The key should be unique within the asset. Using the same key in POST will
 ## Asset Previews [/assets/{id}/previews]
 Operations to add preview files to this asset. These operations are used to add any asset preview files to the asset e.g asset promotional downloads.
 
-Note: The PUT API will update the preview files in the order in which they are passed.
-
 + Parameters
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
 
@@ -581,25 +594,7 @@ Note: The PUT API will update the preview files in the order in which they are p
             "_link": "/assets/1495894/previews"
         }
 
-### Update preview within the asset [PUT] 
-+ Parameters
-    + file_ids (required, String, `16804696,16804697`)...Comma seperated list of new file ids received after uploading the files.
-    + old_file_ids (required, String, `16804698,16804699`)...Comma seperated list of old file ids already present as previews within the asset.
-
-+ Request (application/x-www-form-urlencoded)
-    + Headers
-        X-AFC: FJKB32
-        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-
-+ Response 201 (application/json)
-        {
-            "_link": "/assets/1495894/previews"
-        }
-
 ### Retrieve an asset previews [GET]
-+ Parameters
-    + version (optional,double,`1.15`)...Asset version
-
 + Request (application/x-www-form-urlencoded)
     + Headers
         X-AFC: FJKB32
@@ -767,8 +762,6 @@ Add files which constitute the "source" for this asset, this can include virtual
 all major 3d formats will be automatically translated into a print ready STL format, which will be available in through the asset translations api. 
 Adding the sources will usually be a starting point for storing an asset in cloud services storage - subsequent tranformation operations can then be performed on these source files. 
 
-Note: The PUT API will update the source files in the order in which they are passed.
-
 + Parameters
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
 
@@ -786,28 +779,8 @@ Note: The PUT API will update the source files in the order in which they are pa
             {
                 "_link":"/assets/234566/sources"
             }
-            
-### Update source within the asset[PUT]
-
-+ Request (application/x-www-form-urlencoded)
-    + Headers
-    
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-+ Parameters
-    + file_ids (required, String, `123456,234345`) ...Comma seperated list of new files to be added as sources to this asset. The operation will automatically populate the file type based on previously uploaded file's mime type. 
-    + old_file_ids (required, String, `123456,234345`) ...Comma seperated list of old files within the asset.
-
-+ Response 201 (application/json)
-
-            {
-                "_link":"/assets/234566/sources"
-            }            
 
 ### Retrieve asset sources[GET]
-+ Parameters
-    + version (optional,double,`1.15`)...Asset version
-
 + Request (application/x-www-form-urlencoded)
     + Headers
     
@@ -879,25 +852,7 @@ Note: The PUT updates the thumbnail metadata such as caption, description, thumb
                 "_link":"/assets/234566/thumbnails"
             }
 
-### Update thumbnail within the asset[PUT] 
-+ Request (application/x-www-form-urlencoded)
-    + Headers
-    
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-+ Parameters
-    + thumbnails (required, JSON, `[{"id": "123456","old_id": "34567","caption": "thumbnail caption","description": "thumbnail description","is_primary": true},{"id": "123457","old_id": "34568","caption": "thumbnail caption 2","description": "thumbnail description 2","is_primary": false},{"id": "123458","old_id": "34569","caption": "thumbnail caption 2","description": "thumbnail description 2","is_primary": false}]`) ...JSON list of files to be updated as thumbnails to this asset. The file must be of mime type PNG or JPG/JPEG.  
-    
-+ Response 201 (application/json)
-
-            {
-                "_link":"/assets/234566/thumbnails"
-            }
-
 ### Retrieve asset thumbnails[GET]
-+ Parameters
-    + version (optional,double,`1.15`)...Asset version
-    
 + Request (application/x-www-form-urlencoded)
     + Headers
     
@@ -956,9 +911,6 @@ All references to external artifacts such as blog posts, videos, photos etc.
             }
 
 ### Retrieve asset links[GET]
-+ Parameters
-    + version (optional,double,`1.15`)...Asset version
-    
 + Request (application/x-www-form-urlencoded)
     + Headers
     
