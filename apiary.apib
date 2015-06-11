@@ -665,6 +665,21 @@ Operations to add preview files to this asset. These operations are used to add 
             ]
         }
 
+### Update preview within the asset [PUT] 
++ Parameters
+    + file_ids (required, String, `16804696,16804697`)...Comma seperated list of new file ids received after uploading the files.
+    + old_file_ids (required, String, `16804698,16804699`)...Comma seperated list of old file ids within the asset.
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Response 201 (application/json)
+        {
+            "_link": "/assets/1495894/previews"
+        }
+
 ### Delete an asset previews [DELETE]
 + Request (application/x-www-form-urlencoded)
     + Headers
