@@ -837,6 +837,22 @@ Adding the sources will usually be a starting point for storing an asset in clou
             {
                 "_link":"/assets/234566/sources"
             }
+            
+### Update source within the asset[PUT] 
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + file_ids (required,String, `123456,234345`) ...Comma seperated list of old files to be added as sources to this asset. The operation will automatically populate the file type based on previously uploaded file's mime type. 
+    + old_file_ids (required,String, `123456,234345`) ...Comma seperated list of new files to be added as sources to this asset.
+
++ Response 201 (application/json)
+
+            {
+                "_link":"/assets/234566/sources"
+            }            
 
 ### Retrieve asset sources[GET]
 + Parameters
