@@ -3384,8 +3384,38 @@ Retrieve sales' history for a shop. Restricts order line items to only those sol
                       "sales_tax_credit": 13.00
                     }
                   ]
-                }
-              ],
+                }],
+              "billing_address":
+                {       
+                "id": 10,
+                "member_id": 101010,
+                "address_type": "BILLING_ADDRESS",
+                "name": "testMember",
+                "company": "Spark",
+                "address1": "1 Market",
+                "address2": "4th floor",
+                "city": "San Francisco",
+                "state": "CA",
+                "postal_code": "94105",
+                "country_code": "US",
+                "telephone": "415-507-5000",
+                "is_residential": true
+                },
+              "shipping_address": {
+                "id": 10,
+                "member_id": 101010,
+                "address_type": "SHIPPING_ADDRESS",
+                "name": "testMember",
+                "company": "Spark",
+                "address1": "1 Market",
+                "address2": "4th floor",
+                "city": "San Francisco",
+                "state": "CA",
+                "postal_code": "94105",
+                "country_code": "US",
+                "telephone": "415-507-5000",
+                "is_residential": true
+              },
               "count": 260,
               "pages": 20,
               "limit": 13,
