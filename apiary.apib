@@ -3383,6 +3383,37 @@ Retrieve non-pending sales history. Restricts order line items to only those sol
               "_link_next": "/shops/20280723/sales?limit=26&offset=39"
             }
             
+##Tax [/shops/{shop_id}/tax]
+Sellers will specify the tax rate (in %age) for a given State/Zipcodes at the shop level. Sales tax for physical items will be calcalated based on shipping address. Sales tax for digital items will be calculated based on billing address.
+
++ Parameters
+    + shop_id (required, Number, `20280723`)...Shop id
+
+### Add shop sales [POST]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            X-Secure-Session: ABC1232324244
+
++ Parameters
+    + address_type (required, String,`STATE`)...value: ZIP|STATE.
+    + address_value (required, String, `CA`)...zip code or state abbreviation
+    + tax_rate (required, Integer, `925`)...Rate is specified as integer to avoid floating point issues. So 925=9.25%
+    + apply_tax_to_shipping (optional, String, `true`)...If this is a physical line item, seller will specify if shop tax rate applies to the product shipping fee. Default: true
+
++ Response 200 (application/json)
+
+        {
+            "shopId": 10,
+            "addressType": "ZIP",
+            "addressValue": "94105",
+            "taxRate": 925,
+            "applyTaxToShipping": false
+        }
+        
+        
 #Group Carts
 Cart is nothing but a shopping basket where user can put digital or physical items.
 Here are some key points about cart:
