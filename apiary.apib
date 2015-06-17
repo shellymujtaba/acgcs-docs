@@ -3356,17 +3356,20 @@ Retrieve sales' history for a shop. Restricts order line items to only those sol
               "sales": [
                 {
                   "order_id": 234567890,
-                  "sale_total": 220,
                   "sale_total_quantity": 3,
+                  "sale_total": 220,
                   "sales_date": "July, 02 2014 16:34:00",
                   "sale_status": "PROCESSED",
                   "sale_items": [
                     {
-                      "name": "Developer Kit",
-                      "asset_id": 592540,
-                      "asset_type": "KIT",
-                      "subtotal": 10,
-                      "quantity": 1
+                      "product_name": "Developer Kit",
+                      "product_id": 592540,
+                      "product_type": "KIT",
+                      "quantity": 1,
+                      "unit_price": 10,
+                      "sales_price": 10.50,
+                      "sales_credit": 7.00,
+                      "sales_tax_credit": 0.50
                     },
                     {
                       "name": "3D Print",
