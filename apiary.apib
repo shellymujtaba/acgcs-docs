@@ -6294,6 +6294,65 @@ Delete a member from the database, and associated items such as assets, likes, f
 
 + Response 204 (application/json)
 
+## Members [/admin/members/oxygen/{oxygenid}]
+
+### Retrieve Member Information from Oxygen Id [GET]
+Get Member details by passing oxygen id. This api is hash based and timestamp has window of 180 mins.
+
++ Parameters
+    + member_code (required, Number,`ABCD34DEBJ`)... Member code.This should be Hex encode of admin member id and timestamp concatenated with pound sign. Pattern is Hex.encode(12345678#2015-06-22 11:15:55)
+    + ts (required, String, `2015-06-22 11:15:55`)... timestamp 
+    + hash (required, String, `b97cbb9c6a7c7c9a1b016897cb76744a6c3c1cf9175e9bcd1c98d12eff79fffe`)... Hash Code. This should be SHA256 of afc code, membcer code, timestamp and shared secret. SHA256(afc+member_code+timestamp+shared_secret).
+    + afc (required, String, `AB1ON1`)... Affiliate code.
+    
++ Response 200 (application/json)
+
+            {
+               "member":{  
+                  "type_id": 0,
+                  "id": 20280723,
+                  "profile": {
+                     "location":"usa",
+                     "description":"i am great!",
+                     "company": "ABC Co., Inc.",
+                     "address": {
+                         "address1": "address1-55",
+                         "address2": "address2-55",
+                         "city": "city55",
+                         "state": "MA",
+                         "postal_code": "90255",
+                         "country_code": "SJ"
+                     },
+                     "industry": "Engineering Services Providers",
+                     "avatar_path":"http://static.spark.autodesk.com/Images/Member/default_avatar.png",
+                     "find_me":{
+                        "twitter":"http:\/\/www.twitter.com\/jsmith",
+                        "facebook":"http:\/\/www.facebook.com\/jsmith",
+                        "github":"http:\/\/www.github.com\/jsmith",
+                        "linkedin":"http:\/\/www.linkedin.com\/in\/jsmith"
+                     },
+                     "company_website": "http:\/\/www.companyabc.com\/us\/en\/index.htm",
+                     "job_title": "Database Engineer",
+                     "phone_home": "123456789012345",
+                     "phone_mobile": [
+                                     "9975401990",
+                                     "9028174408"
+                     ],
+                     "phone_work": "213.456.789#1",
+                     "phone_work_extension": "123456"
+                  },   
+                  "name": "jsmith",
+                  "comments": 23,
+                  "likes": 2,
+                  "follows": 12,
+                  "following": 3,
+                  "publish": 2,
+                  "locale": "en_US",
+                  "shop_id": 1234567890,
+                  "first_name": "John",
+                  "last_name": "Smith"
+               }
+            }
 
 ## Payouts [/admin/payouts/{payout_id}]
 Retrieve payouts and approve/deny payout requests. Approving a payout places it to the payout queue.
