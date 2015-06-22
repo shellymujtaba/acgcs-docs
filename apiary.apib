@@ -3383,6 +3383,7 @@ Sellers will specify the tax rate (in %age) for a given State/Zipcodes at the sh
     + shop_id (required, Number, `20280723`)...Shop id
 
 ### Add shop tax [POST]
+If tax rate already exists for input address, the call will update the tax rate.
 + Request (application/x-www-form-urlencoded)
     + Headers
     
@@ -3399,13 +3400,59 @@ Sellers will specify the tax rate (in %age) for a given State/Zipcodes at the sh
 + Response 200 (application/json)
 
         {
-            "shopId": 10,
-            "addressType": "ZIP",
-            "addressValue": "94105",
-            "taxRate": 925,
-            "applyTaxToShipping": false
+            "shop_id": 10,
+            "address_type": "ZIP",
+            "address_value": "94105",
+            "tax_rate": 925,
+            "apply_tax_to_shipping": false
         }
-        
+
+### Retrieve shop tax [GET]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            X-Secure-Session: 87B30A4BCB94B9955BE4CBF3C1865FDC00B117C3CA30E674AAA1E3B45563A978
+
++ Parameters
+    + address_type (required, String,`STATE`)...value: ZIP|STATE.
+    + address_value (required, String, `CA`)...zip code or state abbreviation
+    + limit (optional, Number,`1`)... Number of results to return in each page. Default: 10.
+    + offset (optional, Number, `3`)... This offsets the start of each page by the number specified. Default: 0.
+
+    
++ Response 200 (application/json)
+
+            {
+                "count": 2,
+                "limit": 1,
+                "offset": 0,
+                "_link": "/shops/10/tax?limit=1&offset=0",
+                "_link_next": "/shops/10/tax?limit=1&offset=1",
+                "tax": [
+                    {
+                        "shop_id": 10,
+                        "address_type": "STATE",
+                        "address_value": "CA",
+                        "tax_rate": 20000,
+                        "apply_tax_to_shipping": false
+                    }
+                ]
+            }        
+
+### Delete shop tax[DELETE]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+        X-Secure-Session: 87B30A4BCB94B9955BE4CBF3C1865FDC00B117C3CA30E674AAA1E3B45563A978
+
++ Parameters
+    + address_type (required, String,`STATE`)...value: ZIP|STATE.
+    + address_value (required, String, `CA`)...zip code or state abbreviation
+    
++ Response 204
         
 #Group Carts
 Cart is nothing but a shopping basket where user can put digital or physical items.
