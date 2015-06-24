@@ -3302,7 +3302,7 @@ not initiated a phone verification request or never added a paypal email, the qu
             }
 
 
-##Sales [/shops/{shop_id}/sales]
+##Sales [/shops/{shop_id}/sales{?start_date,end_date,order_status,product_type,limit,offset}]
 Retrieve sales' history for a shop. Restricts order line items to only those sold by the seller of shop_id since an order may have multiple line items from multiple sellers.
 
 + Parameters
@@ -3318,8 +3318,8 @@ Retrieve sales' history for a shop. Restricts order line items to only those sol
 + Parameters
     + start_date (optional, Date, `December, 12 2014 07:23:45`)... Limit results to orders created on or after start_date ("MMMM, dd yyyy HH:mm:ss" format).
     + end_date (optional, Date, `December, 14 2014 07:23:45`)... Limit results to orders creataed on or before end_date ("MMMM, dd yyyy HH:mm:ss" format).
-    + order_status (optional, String, )... When specified, return only orders with given status. Values can be (IN_PROGRESS, COMPLETE, CANCELED, ON_HOLD, CLOSED, FAILED, DECLINE). Returns all orders if not specified.
-    + product_type (optional, String, 'PHYSICAL')...Return only sales for DIGITAL or PHYSICAL products. Returns all products if not specified.
+    + order_status (optional, String, `IN_PROGRESS`)... When specified, return only orders with given status. Values can be: IN_PROGRESS, COMPLETE, CANCELED, ON_HOLD, CLOSED, FAILED, DECLINE. Returns all orders if not specified.
+    + product_type (optional, String, `PHYSICAL`)...Return only sales for DIGITAL or PHYSICAL products. Returns all products if not specified.
     + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
 
