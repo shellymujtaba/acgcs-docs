@@ -6225,7 +6225,7 @@ A physical asset cannot be put for sale without shop shipping information and pr
             }
 
 
-##Sales [/admin/shops/sales{?shop_id,start_date,end_date,order_status,product_type,limit,offset}]
+##Shop Sales [/admin/shops/sales{?shop_id,start_date,end_date,order_status,product_type,limit,offset}]
 Retrieve sales' history according to filters.
 
 ### Retrieve shop sales [GET]
@@ -6520,8 +6520,8 @@ Get Member details by passing oxygen id. This api is hash based and timestamp ha
 
 
 ## Members Orders [/admin/members/orders{?member_id,shop_id,shop_name,fulfillment_status,vendor,start_date,end_date,limit,offset,order_by}]
-### Retrieve orders according to search filters [GET]
-Get all the purchases made by the member.
+### Retrieve orders [GET]
+Search all the orders according to parameters.
 
 + Request (application/x-www-form-urlencoded)
     + Headers
