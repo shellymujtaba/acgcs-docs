@@ -6225,7 +6225,7 @@ A physical asset cannot be put for sale without shop shipping information and pr
             }
 
 
-## Members Orders [/admin/members/orders{?member_id,shop_id,shop_name,fulfillment_status,vendor,from_date,to_date,limit,offset,order_by}]
+## Members Orders [/admin/members/orders{?member_id,shop_id,shop_name,fulfillment_status,vendor,start_date,end_date,limit,offset,order_by}]
 ### Retrieve orders according to search filters [GET]
 Get all the purchases made by the member.
 
@@ -6241,7 +6241,9 @@ Get all the purchases made by the member.
     + shop_id (optional, Number, `2345689`)... Filters out order items that are not from shop_id
     + shop_name (optional, String `Joe's`)... Filters out order items that are not from shop_name
     + fulfillment_status (optional, String, `IN_PROGRESS`)... Status of the orders: IN_PROGRESS, COMPLETE, CANCELED, ON_HOLD, CLOSED, FAILED, DECLINE. Omitting the parametesr returns all orders.
-    + vendor (optional, String, `Makerbot`)... 
+    + vendor (optional, String, `Makerbot`)... Filters out order items that don't have their vendor display name set to "vendor".
+    + start_date (optional, Date, `2014-12-11`)... Limit results to orders made on or after start_date ("yyyy-dd-MM" format).
+    + end_date (optional, Date, `2015-01-02`)... Limit results to orders made on or before end_date ("yyyy-dd-MM" format).
     + limit (optional, Number, `4`)...Number of results per page.
     + offset (optional, Number, `8`)...This offsets the start of each page by the number specified.
 
