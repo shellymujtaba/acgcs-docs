@@ -3302,7 +3302,7 @@ not initiated a phone verification request or never added a paypal email, the qu
             }
 
 
-##Sales [/shops/{shop_id}/sales{?start_date,end_date,order_status,product_type,limit,offset}]
+##Sales [/shops/{shop_id}/sales{?start_date,end_date,order_status,product_type,limit,offset,sort_order}]
 Retrieve sales' history for a shop. Restricts order line items to only those sold by the seller of shop_id since an order may have multiple line items from multiple sellers.
 
 + Parameters
@@ -3322,6 +3322,7 @@ Retrieve sales' history for a shop. Restricts order line items to only those sol
     + product_type (optional, String, `PHYSICAL`)...Return only sales for DIGITAL or PHYSICAL products. Returns all products if not specified.
     + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
+    + sort_order (optional, String, `DESC`)... Sort order for display orders: ASC or DESC. Default: DESC.
 
 + Response 200 (application/json)
 
