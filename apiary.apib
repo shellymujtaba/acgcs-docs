@@ -6238,7 +6238,8 @@ Get all the purchases made by the member.
             
 + Parameters
     + member_id (optional, Number, `2345689`)... Get results for a specific buyer by ID.
-    + shop_id (optional, Number, `123`)... Get results for orders with at least one product from shop_id.
+    + fulfillment_status (optional, String, `IN_PROGRESS`)... Status of the orders: IN_PROGRESS, COMPLETE, CANCELED, ON_HOLD, CLOSED, FAILED, DECLINE. Omitting the parametesr returns all orders.
+    + vendor (optional, String, `Makerbot`)... 
     + limit (optional, Number, `4`)...Number of results per page.
     + offset (optional, Number, `8`)...This offsets the start of each page by the number specified.
 
