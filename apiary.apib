@@ -6520,7 +6520,7 @@ Get Member details by passing oxygen id. This api is hash based and timestamp ha
             }
 
 
-## Members Orders [/admin/members/orders{?member_id,fulfillment_status,start_date,end_date,limit,offset,order_by}]
+## Members Orders [/admin/members/orders{?member_id,fulfillment_status,start_date,end_date,limit,offset,sort_order}]
 ### Retrieve orders [GET]
 Search all the orders according to parameters.
 
@@ -6538,6 +6538,7 @@ Search all the orders according to parameters.
     + end_date (optional, Date, `2015-01-02`)... Limit results to orders made on or before end_date ("yyyy-dd-MM" format).
     + limit (optional, Number, `4`)...Number of results per page.
     + offset (optional, Number, `8`)...This offsets the start of each page by the number specified.
+    + sort_order (optional, String, `DESC`)... Sort order for display orders: ASC or DESC. Default: DESC.
 
 + Response 200 (application/json)
 
