@@ -6237,7 +6237,9 @@ Get all the purchases made by the member.
             X-Secure-Session: 87B30A4BCB94B9955BE4CBF3C1865FDC00B117C3CA30E674AAA1E3B45563A978
             
 + Parameters
-    + member_id (optional, Number, `2345689`)... Get results for a specific buyer by ID.
+    + member_id (optional, Number, `2345689`)... Get orders of member_id.
+    + shop_id (optional, Number, `2345689`)... Filters out order items that are not from shop_id
+    + shop_name (optional, String `Joe's`)... Filters out order items that are not from shop_name
     + fulfillment_status (optional, String, `IN_PROGRESS`)... Status of the orders: IN_PROGRESS, COMPLETE, CANCELED, ON_HOLD, CLOSED, FAILED, DECLINE. Omitting the parametesr returns all orders.
     + vendor (optional, String, `Makerbot`)... 
     + limit (optional, Number, `4`)...Number of results per page.
