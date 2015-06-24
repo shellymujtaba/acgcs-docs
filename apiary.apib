@@ -6224,174 +6224,6 @@ A physical asset cannot be put for sale without shop shipping information and pr
                "is_reviewable":false
             }
 
-
-## Members Orders [/admin/members/orders{?member_id,shop_id,shop_name,fulfillment_status,vendor,start_date,end_date,limit,offset,order_by}]
-### Retrieve orders according to search filters [GET]
-Get all the purchases made by the member.
-
-+ Request (application/x-www-form-urlencoded)
-    + Headers
-    
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-            X-Secure-Session: 87B30A4BCB94B9955BE4CBF3C1865FDC00B117C3CA30E674AAA1E3B45563A978
-            
-+ Parameters
-    + member_id (optional, Number, `2345689`)... Get orders of member_id.
-    + shop_id (optional, Number, `2345689`)... Filters out order items that are not from shop_id
-    + shop_name (optional, String `Joe's`)... Filters out order items that are not from shop_name
-    + fulfillment_status (optional, String, `IN_PROGRESS`)... Status of the orders: IN_PROGRESS, COMPLETE, CANCELED, ON_HOLD, CLOSED, FAILED, DECLINE. Omitting the parametesr returns all orders.
-    + vendor (optional, String, `Makerbot`)... Filters out order items that don't have their vendor display name set to "vendor".
-    + start_date (optional, Date, `2014-12-11`)... Limit results to orders made on or after start_date ("yyyy-dd-MM" format).
-    + end_date (optional, Date, `2015-01-02`)... Limit results to orders made on or before end_date ("yyyy-dd-MM" format).
-    + limit (optional, Number, `4`)...Number of results per page.
-    + offset (optional, Number, `8`)...This offsets the start of each page by the number specified.
-
-+ Response 200 (application/json)
-
-        {  
-           "count":305,
-           "limit":2,
-           "offset":4,
-           "_link":"/members/20364550/orderhistory?limit=2&offset=4",
-           "_link_prev":"/members/20364550/orderhistory?limit=2&offset=2",
-           "_link_next":"/members/20364550/orderhistory?limit=2&offset=6",
-           "orders":[  
-              {  
-                 "order_id":3983565,
-                 "order_cart":{  
-                    "currency":"USD",
-                    "tax":0.00,
-                    "order_items":[  
-                       {  
-                          "name":"1-year Premium Membership",
-                          "subtotal":99.99,
-                          "quantity":1,
-                          "product_id":4,
-                          "product_type":"SUBSCRIPTION"
-                       },
-                       {  
-                          "name":"Tax",
-                          "subtotal":0.00,
-                          "quantity":1,
-                          "product_id":46,
-                          "product_type":"TAX"
-                       }
-                    ],
-                    "tax_rate":0,
-                    "total":99.99
-                 },
-                 "order_invoices":[  
-                    {  
-                       "url":"https://sandbox.bluesnap.com/jsp/show_invoice.jsp?ref=4ABEE983586E5EB070625709D7CC13C1",
-                       "invoice_id":"1008923396",
-                       "order_transactions":[  
-                          {  
-                             "status":"Approved",
-                             "amount":99.99,
-                             "currency":"USD",
-                             "created_date":"November 12, 2014 00:00:00",
-                             "payment_method":"Credit Card",
-                             "payment_detail":{  
-                                "mask":"1111",
-                                "card_type":"Visa",
-                                "expiration_month":7,
-                                "expiration_year":2019
-                             },
-                             "invoice_contact_info":{  
-                                "email":"plastic.production.user@gmail.com",
-                                "address":"1497 9th Ave",
-                                "city":"San Francisco",
-                                "state":"CA",
-                                "zip":"94122",
-                                "country":"us",
-                                "phone":"",
-                                "first_name":"TestMember",
-                                "last_name":"TestMember"
-                             }
-                          }
-                       ]
-                    }
-                 ],
-                 "order_fulfillments":[  
-                    {  
-                       "status":"COMPLETE",
-                       "reference_number":"",
-                       "type":"SUBSCRIPTION",
-                       "tracking_url":"",
-                       "estimated_shipping_date":"November 12, 2014 00:00:00"
-                    }
-                 ]
-              },
-              {  
-                 "order_id":3983529,
-                 "order_cart":{  
-                    "currency":"USD",
-                    "tax":0.00,
-                    "order_items":[  
-                       {  
-                          "name":"1-year Premium Membership",
-                          "subtotal":99.99,
-                          "quantity":1,
-                          "product_id":4,
-                          "product_type":"SUBSCRIPTION"
-                       },
-                       {  
-                          "name":"Tax",
-                          "subtotal":0.00,
-                          "quantity":1,
-                          "product_id":46,
-                          "product_type":"TAX"
-                       }
-                    ],
-                    "tax_rate":0,
-                    "total":99.99
-                 },
-                 "order_invoices":[  
-                    {  
-                       "url":"https://sandbox.bluesnap.com/jsp/show_invoice.jsp?ref=4ABEE983586E5EB01C2984D5A847589C",
-                       "invoice_id":"1008923360",
-                       "order_transactions":[  
-                          {  
-                             "status":"Approved",
-                             "amount":99.99,
-                             "currency":"USD",
-                             "created_date":"November 12, 2014 00:00:00",
-                             "payment_method":"Credit Card",
-                             "payment_detail":{  
-                                "mask":"1111",
-                                "card_type":"Visa",
-                                "expiration_month":7,
-                                "expiration_year":2019
-                             },
-                             "invoice_contact_info":{  
-                                "email":"plastic.production.user@gmail.com",
-                                "address":"1497 9th Ave",
-                                "city":"San Francisco",
-                                "state":"CA",
-                                "zip":"94122",
-                                "country":"us",
-                                "phone":"",
-                                "first_name":"TestMember",
-                                "last_name":"TestMember"
-                             }
-                          }
-                       ]
-                    }
-                 ],
-                 "order_fulfillments":[  
-                    {  
-                       "status":"COMPLETE",
-                       "reference_number":"",
-                       "type":"SUBSCRIPTION",
-                       "tracking_url":"",
-                       "estimated_shipping_date":"November 12, 2014 00:00:00"
-                    }
-                 ]
-              }
-           ]
-        }
-
 ## Member Search [/admin/members/search]
 Search members on various input parameters.
 
@@ -6588,6 +6420,175 @@ Get Member details by passing oxygen id. This api is hash based and timestamp ha
                   "last_name": "Smith"
                }
             }
+
+
+## Members Orders [/admin/members/orders{?member_id,shop_id,shop_name,fulfillment_status,vendor,start_date,end_date,limit,offset,order_by}]
+### Retrieve orders according to search filters [GET]
+Get all the purchases made by the member.
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            X-Secure-Session: 87B30A4BCB94B9955BE4CBF3C1865FDC00B117C3CA30E674AAA1E3B45563A978
+            
++ Parameters
+    + member_id (optional, Number, `2345689`)... Get orders of member_id.
+    + shop_id (optional, Number, `2345689`)... Filters out order items that are not from shop_id
+    + shop_name (optional, String `Joe's`)... Filters out order items that are not from shop_name
+    + fulfillment_status (optional, String, `IN_PROGRESS`)... Status of the orders: IN_PROGRESS, COMPLETE, CANCELED, ON_HOLD, CLOSED, FAILED, DECLINE. Omitting the parametesr returns all orders.
+    + vendor (optional, String, `Makerbot`)... Filters out order items that don't have their vendor display name set to "vendor".
+    + start_date (optional, Date, `2014-12-11`)... Limit results to orders made on or after start_date ("yyyy-dd-MM" format).
+    + end_date (optional, Date, `2015-01-02`)... Limit results to orders made on or before end_date ("yyyy-dd-MM" format).
+    + limit (optional, Number, `4`)...Number of results per page.
+    + offset (optional, Number, `8`)...This offsets the start of each page by the number specified.
+
++ Response 200 (application/json)
+
+        {  
+           "count":305,
+           "limit":2,
+           "offset":4,
+           "_link":"/members/20364550/orderhistory?limit=2&offset=4",
+           "_link_prev":"/members/20364550/orderhistory?limit=2&offset=2",
+           "_link_next":"/members/20364550/orderhistory?limit=2&offset=6",
+           "orders":[  
+              {  
+                 "order_id":3983565,
+                 "order_cart":{  
+                    "currency":"USD",
+                    "tax":0.00,
+                    "order_items":[  
+                       {  
+                          "name":"1-year Premium Membership",
+                          "subtotal":99.99,
+                          "quantity":1,
+                          "product_id":4,
+                          "product_type":"SUBSCRIPTION"
+                       },
+                       {  
+                          "name":"Tax",
+                          "subtotal":0.00,
+                          "quantity":1,
+                          "product_id":46,
+                          "product_type":"TAX"
+                       }
+                    ],
+                    "tax_rate":0,
+                    "total":99.99
+                 },
+                 "order_invoices":[  
+                    {  
+                       "url":"https://sandbox.bluesnap.com/jsp/show_invoice.jsp?ref=4ABEE983586E5EB070625709D7CC13C1",
+                       "invoice_id":"1008923396",
+                       "order_transactions":[  
+                          {  
+                             "status":"Approved",
+                             "amount":99.99,
+                             "currency":"USD",
+                             "created_date":"November 12, 2014 00:00:00",
+                             "payment_method":"Credit Card",
+                             "payment_detail":{  
+                                "mask":"1111",
+                                "card_type":"Visa",
+                                "expiration_month":7,
+                                "expiration_year":2019
+                             },
+                             "invoice_contact_info":{  
+                                "email":"plastic.production.user@gmail.com",
+                                "address":"1497 9th Ave",
+                                "city":"San Francisco",
+                                "state":"CA",
+                                "zip":"94122",
+                                "country":"us",
+                                "phone":"",
+                                "first_name":"TestMember",
+                                "last_name":"TestMember"
+                             }
+                          }
+                       ]
+                    }
+                 ],
+                 "order_fulfillments":[  
+                    {  
+                       "status":"COMPLETE",
+                       "reference_number":"",
+                       "type":"SUBSCRIPTION",
+                       "tracking_url":"",
+                       "estimated_shipping_date":"November 12, 2014 00:00:00"
+                    }
+                 ]
+              },
+              {  
+                 "order_id":3983529,
+                 "order_cart":{  
+                    "currency":"USD",
+                    "tax":0.00,
+                    "order_items":[  
+                       {  
+                          "name":"1-year Premium Membership",
+                          "subtotal":99.99,
+                          "quantity":1,
+                          "product_id":4,
+                          "product_type":"SUBSCRIPTION"
+                       },
+                       {  
+                          "name":"Tax",
+                          "subtotal":0.00,
+                          "quantity":1,
+                          "product_id":46,
+                          "product_type":"TAX"
+                       }
+                    ],
+                    "tax_rate":0,
+                    "total":99.99
+                 },
+                 "order_invoices":[  
+                    {  
+                       "url":"https://sandbox.bluesnap.com/jsp/show_invoice.jsp?ref=4ABEE983586E5EB01C2984D5A847589C",
+                       "invoice_id":"1008923360",
+                       "order_transactions":[  
+                          {  
+                             "status":"Approved",
+                             "amount":99.99,
+                             "currency":"USD",
+                             "created_date":"November 12, 2014 00:00:00",
+                             "payment_method":"Credit Card",
+                             "payment_detail":{  
+                                "mask":"1111",
+                                "card_type":"Visa",
+                                "expiration_month":7,
+                                "expiration_year":2019
+                             },
+                             "invoice_contact_info":{  
+                                "email":"plastic.production.user@gmail.com",
+                                "address":"1497 9th Ave",
+                                "city":"San Francisco",
+                                "state":"CA",
+                                "zip":"94122",
+                                "country":"us",
+                                "phone":"",
+                                "first_name":"TestMember",
+                                "last_name":"TestMember"
+                             }
+                          }
+                       ]
+                    }
+                 ],
+                 "order_fulfillments":[  
+                    {  
+                       "status":"COMPLETE",
+                       "reference_number":"",
+                       "type":"SUBSCRIPTION",
+                       "tracking_url":"",
+                       "estimated_shipping_date":"November 12, 2014 00:00:00"
+                    }
+                 ]
+              }
+           ]
+        }
+
 
 ## Payouts [/admin/payouts/{payout_id}]
 Retrieve payouts and approve/deny payout requests. Approving a payout places it to the payout queue.
