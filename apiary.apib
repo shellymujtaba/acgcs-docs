@@ -2197,6 +2197,47 @@ Retrieve member's subscription history in cronologically descending order. Each 
                 "_link_next":"/member/20280723/subscriptions?limit=26&offset=39"
             }
 
+## Addresses [/members/{id}/address]
+Returns a list of addresses associated with a logged-in or guest member.
+
+### Retrieve member's addresses [GET]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + id (required,String, `551308`)...Existing address id
+    + address_type (optional, String, `SHIPPING_ADDRESS,SELLER_ADDRESS,BILLING_ADDRESS`)...Comma separated list of type of address (no spaces). Default: if this param is ommitted : All addresses for this member or guest will be returned.
+    + limit (optional, Number,`20`)...Number of results to return in each page. Default: 20.
+    + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
+
++ Response 200 (application/json)
+
+{
+   "count":1,
+   "limit":20,
+   "offset":0,
+   "_link":"/members/20707750/address?address_type=SHIPPING_ADDRESS,SELLER_ADDRESS&limit=20&offset=0",
+   "addresses":[
+      {
+         "id":551308,
+         "name":"Firstname Lastname",
+         "company":"Company Name Inc.",
+         "address1":"241 Davis Ave.",
+         "address2":"",
+         "city":"Anaheim",
+         "telephone":"5105551212",
+         "member_id":0,
+         "address_type":"SHIPPING_ADDRESS",
+         "state":"CA",
+         "postal_code":"94001",
+         "country_code":"US",
+         "is_residential":true
+      }
+   ]
+}
+
 ## Credits [/members/{id}/credits]
 Retrieves member's marketplace credits and payouts accumulated over time.  
 *Types of Credit*  
