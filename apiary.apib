@@ -2199,6 +2199,14 @@ Retrieve member's subscription history in cronologically descending order. Each 
 
 ## Addresses [/members/{id}/address]
 Returns a list of addresses associated with a logged-in or guest member.
+Type of Address (`address_type`) values:
+    *SHIPPING_ADDRESS, BILLING_ADDRESS,
+    VAR_ADDRESS, VENDOR_ADDRESS,
+    CORP_ACCOUNT_ADDRESS, BUSINESS_CONTACT_ADDRESS,
+    FULFILMENT_HOUSE_ADDRESS, CUSTOMER_ADDRESS,
+    PAYMENT_ADDRESS*
+    
+    Default: SHIPPING_ADDRESS
 
 ### Retrieve member's addresses [GET]
 + Request (application/x-www-form-urlencoded)
@@ -2236,6 +2244,44 @@ Returns a list of addresses associated with a logged-in or guest member.
          "is_residential":true
       }
    ]
+}
+
+### Create or update member's address [PUT]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + id (required,String, `551308`)...Address id to be updated.
+    + address_type (optional, String, `SHIPPING_ADDRESS,SELLER_ADDRESS,BILLING_ADDRESS`)...Comma separated list of type of address (no spaces). Default: if this param is ommitted : All addresses for this member or guest will be returned.
+    + name (required, String, `Firstname Lastname`)...If this is NOT an update, name is a required parameter.
+    + address1 (required, String, `123 Some St.`)...If this is NOT an update, address1 is a required parameter.
+    + address2 (optional, String, `Apt. 1A`)...Second line in address field
+    + city (required, String, `Hercules`)...If this is NOT an update, city is a required parameter.
+    + state (optional, String, `CA`)...State
+    + country_code (required, String, `US`)...If this is NOT an update, countrycode is a required parameter.
+    + telephone (optional, String, `8005551212`)...Telephone number.
+    + company (optional, String, `Company Inc.`)...Company name.
+    + is_residential (optional, String, `true`)...true if this address is residential, false otherwise.
+    + postal_code (optional, String, `94547`)...Zip or postal code    + limit (optional, Number,`20`)...Number of results to return in each page. Default: 20.
+    + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
+
++ Response 200 (application/json)
+{
+    "id": 7686,
+    "name": "Firstname Lastname",
+    "company": "Company Inc.",
+    "address1": "123 Some St.",
+    "address2": "Apt. 1A",
+    "city": "Hercules",
+    "telephone": "8005551212",
+    "member_id": 0,
+    "address_type": "SHIPPING_ADDRESS",
+    "state": "CA",
+    "postal_code": "94547",
+    "country_code": "US",
+    "is_residential": true
 }
 
 ## Credits [/members/{id}/credits]
@@ -6584,148 +6630,158 @@ Search all the orders according to parameters.
 
 + Response 200 (application/json)
 
-        {  
-           "count":305,
-           "limit":2,
-           "offset":4,
-           "_link":"/members/20364550/orderhistory?limit=2&offset=4",
-           "_link_prev":"/members/20364550/orderhistory?limit=2&offset=2",
-           "_link_next":"/members/20364550/orderhistory?limit=2&offset=6",
-           "orders":[  
-              {  
-                 "order_id":3983565,
-                 "order_cart":{  
-                    "currency":"USD",
-                    "tax":0.00,
-                    "order_items":[  
-                       {  
-                          "name":"1-year Premium Membership",
-                          "subtotal":99.99,
-                          "quantity":1,
-                          "product_id":4,
-                          "product_type":"SUBSCRIPTION"
-                       },
-                       {  
-                          "name":"Tax",
-                          "subtotal":0.00,
-                          "quantity":1,
-                          "product_id":46,
-                          "product_type":"TAX"
-                       }
-                    ],
-                    "tax_rate":0,
-                    "total":99.99
-                 },
-                 "order_invoices":[  
-                    {  
-                       "url":"https://sandbox.bluesnap.com/jsp/show_invoice.jsp?ref=4ABEE983586E5EB070625709D7CC13C1",
-                       "invoice_id":"1008923396",
-                       "order_transactions":[  
-                          {  
-                             "status":"Approved",
-                             "amount":99.99,
-                             "currency":"USD",
-                             "created_date":"November 12, 2014 00:00:00",
-                             "payment_method":"Credit Card",
-                             "payment_detail":{  
-                                "mask":"1111",
-                                "card_type":"Visa",
-                                "expiration_month":7,
-                                "expiration_year":2019
-                             },
-                             "invoice_contact_info":{  
-                                "email":"plastic.production.user@gmail.com",
-                                "address":"1497 9th Ave",
-                                "city":"San Francisco",
-                                "state":"CA",
-                                "zip":"94122",
-                                "country":"us",
-                                "phone":"",
-                                "first_name":"TestMember",
-                                "last_name":"TestMember"
-                             }
-                          }
-                       ]
+            {
+              "count": 3482,
+              "limit": 2,
+              "offset": 0,
+              "_link": "/admin/members/orders?limit=2&offset=0",
+              "_link_next": "/admin/members/orders?limit=2&offset=2",
+              "member_orders": [
+                {
+                  "order_id": 7221,
+                  "member_id": 20708735,
+                  "psp_reference_number": "d19c99ed-d9eb-4928-a171-6bcce6bbbd97",
+                  "psp_order_number": "",
+                  "fulfillment_reference_number": "",
+                  "order_status": "COMPLETE",
+                  "order_date": "June 26, 2015 23:11:08",
+                  "order_completed_date": "",
+                  "shipment_tracking_url": "",
+                  "shipping_date": "",
+                  "ipn_type": "CHARGE",
+                  "original_psp_reference_number": "",
+                  "store_type": "MARKETPLACE",
+                  "credit_card_type": "",
+                  "credit_card_last_four_digits": "",
+                  "total_quantity": 2,
+                  "subtotal_price": 5,
+                  "total_sales_tax": 0,
+                  "total_sales_credit_used": 5,
+                  "total_price": 0,
+                  "member_order_items": [
+                    {
+                      "quantity": 1,
+                      "product_id": 1265550,
+                      "product_name": "DO NOT REMOVE. For regression test",
+                      "product_type": "DIGITAL",
+                      "unit_price": 5,
+                      "subtotal_price": 5,
+                      "sales_credit_used": 5,
+                      "total_price": 0
+                    },
+                    {
+                      "quantity": 1,
+                      "product_id": 69,
+                      "product_name": "Tax",
+                      "product_type": "TAX",
+                      "unit_price": 0,
+                      "subtotal_price": 0,
+                      "sales_credit_used": 0,
+                      "total_price": 0
                     }
-                 ],
-                 "order_fulfillments":[  
-                    {  
-                       "status":"COMPLETE",
-                       "reference_number":"",
-                       "type":"SUBSCRIPTION",
-                       "tracking_url":"",
-                       "estimated_shipping_date":"November 12, 2014 00:00:00"
+                  ],
+                  "billing_address": {
+                    "id": 780664,
+                    "name": "Kentucky State University's",
+                    "company": "",
+                    "address1": "400 E Main St",
+                    "address2": "",
+                    "city": "Frankfort",
+                    "telephone": "(502) 597-6000",
+                    "member_id": 20708735,
+                    "address_type": "BILLING_ADDRESS",
+                    "state": "KY",
+                    "postal_code": "40601",
+                    "country_code": "US",
+                    "is_residential": false
+                  }
+                },
+                {
+                  "order_id": 7211,
+                  "member_id": 20708865,
+                  "psp_reference_number": "1010143227",
+                  "psp_order_number": "4588411",
+                  "fulfillment_reference_number": "",
+                  "order_status": "COMPLETE",
+                  "order_date": "June 26, 2015 23:07:32",
+                  "order_completed_date": "",
+                  "shipment_tracking_url": "",
+                  "shipping_date": "",
+                  "ipn_type": "CHARGE",
+                  "original_psp_reference_number": "",
+                  "store_type": "MARKETPLACE",
+                  "credit_card_type": "VISA",
+                  "credit_card_last_four_digits": "1111",
+                  "total_quantity": 3,
+                  "subtotal_price": 85.68,
+                  "total_sales_tax": 8.57,
+                  "total_sales_credit_used": 0,
+                  "total_price": 94.25,
+                  "member_order_items": [
+                    {
+                      "quantity": 1,
+                      "product_id": 1650237,
+                      "product_name": "regression test MP",
+                      "product_type": "PHYSICAL",
+                      "unit_price": 50,
+                      "subtotal_price": 50,
+                      "sales_credit_used": 0,
+                      "total_price": 50
+                    },
+                    {
+                      "quantity": 1,
+                      "product_id": 400004,
+                      "product_name": "SHIPPING",
+                      "product_type": "SHIPPING",
+                      "unit_price": 35.68,
+                      "subtotal_price": 35.68,
+                      "sales_credit_used": 0,
+                      "total_price": 35.68
+                    },
+                    {
+                      "quantity": 1,
+                      "product_id": 69,
+                      "product_name": "Tax",
+                      "product_type": "TAX",
+                      "unit_price": 8.57,
+                      "subtotal_price": 8.57,
+                      "sales_credit_used": 0,
+                      "total_price": 8.57
                     }
-                 ]
-              },
-              {  
-                 "order_id":3983529,
-                 "order_cart":{  
-                    "currency":"USD",
-                    "tax":0.00,
-                    "order_items":[  
-                       {  
-                          "name":"1-year Premium Membership",
-                          "subtotal":99.99,
-                          "quantity":1,
-                          "product_id":4,
-                          "product_type":"SUBSCRIPTION"
-                       },
-                       {  
-                          "name":"Tax",
-                          "subtotal":0.00,
-                          "quantity":1,
-                          "product_id":46,
-                          "product_type":"TAX"
-                       }
-                    ],
-                    "tax_rate":0,
-                    "total":99.99
-                 },
-                 "order_invoices":[  
-                    {  
-                       "url":"https://sandbox.bluesnap.com/jsp/show_invoice.jsp?ref=4ABEE983586E5EB01C2984D5A847589C",
-                       "invoice_id":"1008923360",
-                       "order_transactions":[  
-                          {  
-                             "status":"Approved",
-                             "amount":99.99,
-                             "currency":"USD",
-                             "created_date":"November 12, 2014 00:00:00",
-                             "payment_method":"Credit Card",
-                             "payment_detail":{  
-                                "mask":"1111",
-                                "card_type":"Visa",
-                                "expiration_month":7,
-                                "expiration_year":2019
-                             },
-                             "invoice_contact_info":{  
-                                "email":"plastic.production.user@gmail.com",
-                                "address":"1497 9th Ave",
-                                "city":"San Francisco",
-                                "state":"CA",
-                                "zip":"94122",
-                                "country":"us",
-                                "phone":"",
-                                "first_name":"TestMember",
-                                "last_name":"TestMember"
-                             }
-                          }
-                       ]
-                    }
-                 ],
-                 "order_fulfillments":[  
-                    {  
-                       "status":"COMPLETE",
-                       "reference_number":"",
-                       "type":"SUBSCRIPTION",
-                       "tracking_url":"",
-                       "estimated_shipping_date":"November 12, 2014 00:00:00"
-                    }
-                 ]
-              }
-           ]
-        }
+                  ],
+                  "billing_address": {
+                    "id": 780650,
+                    "name": "Frederic Loranger",
+                    "company": "Autodesk",
+                    "address1": "1 Market Street",
+                    "address2": "",
+                    "city": "San Francisco",
+                    "telephone": "415-671-8284",
+                    "member_id": 20708865,
+                    "address_type": "BILLING_ADDRESS",
+                    "state": "CA",
+                    "postal_code": "94111",
+                    "country_code": "US",
+                    "is_residential": false
+                  },
+                  "shipping_address": {
+                    "id": 780651,
+                    "name": "Frederic Loranger",
+                    "company": "Autodesk",
+                    "address1": "Pier 9",
+                    "address2": "",
+                    "city": "San Francisco",
+                    "telephone": "(415) 507-5000",
+                    "member_id": 20708865,
+                    "address_type": "SHIPPING_ADDRESS",
+                    "state": "CA",
+                    "postal_code": "94111",
+                    "country_code": "US",
+                    "is_residential": false
+                  }
+                }
+              ]
+            }
 
 
 ## Payouts [/admin/payouts/{payout_id}]
