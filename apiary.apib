@@ -6716,6 +6716,59 @@ Manage coupons that can be issued to buyers to get discount on selected SKUs. Th
 
 ### Create Coupon [POST]
 
+Create a new coupon.
+
+Add a country supported by the payment service provider.
+
+|description|HTTP|code
+|----|----|----
+|||
+
++ Request (application/x-www-form-urlencoded)
+    + Header
+   
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + name (required, String, `50_OFF`)... User friendly unique name for the coupon.
+    + description (required, String, `50% discount on SKUs`)... Description for the coupon.
+    + discount_type (required, USD|PERCENT, `PERCENT`)... Type of discount. Absolute dollar amount or percentage value.
+
++ Response 200 (application/json)
+
+            {
+                "name": "baf60923-fd7b-4f14-8056-7622f973e990",
+                "description": "testDesc",
+                "id": 49,
+                "codes": [
+                    {
+                        "code": "4cbc4fa7-7db8-42b1-8ff6-a984640c52be",
+                        "coupon_id": 49,
+                        "used_count": 0
+                    },
+                    {
+                        "code": "400f4f85-ca73-4134-bba9-aab7d0d4dff4",
+                        "coupon_id": 49,
+                        "used_count": 0
+                    }
+                ],
+                "discount_amount": 10,
+                "usage_limit_per_code": 1,
+                "once_per_member": true,
+                "used_count": 0,
+                "discount_type": "USD",
+                "created_date": "June 29, 2015 21:57:40",
+                "last_modified_date": "June 29, 2015 21:57:40",
+                "create_by_member_id": 20708730,
+                "last_modified_by_member_id": 20708730,
+                "coupon_status": "ISSUED",
+                "products": [
+                    2
+                ],
+                "effective_from_date": "June 29, 2015 00:00:00",
+                "effective_to_date": "July 09, 2015 00:00:00"
+            }
 
 # Group Utility
 Utility APIs.
