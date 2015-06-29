@@ -6608,7 +6608,7 @@ Get Member details by passing oxygen id. This api is hash based and timestamp ha
             }
 
 
-## Members Orders [/admin/members/orders{?member_id,fulfillment_status,start_date,end_date,limit,offset,sort_order}]
+## Members Orders [/admin/members/orders{?member_id,store_type,fulfillment_status,start_date,end_date,limit,offset,sort_order}]
 ### Retrieve orders [GET]
 Search all the orders according to parameters.
 
@@ -6621,6 +6621,7 @@ Search all the orders according to parameters.
             
 + Parameters
     + member_id (optional, Number, `2345689`)... Get orders of member_id.
+    + store_type (optional, String, `MARKETPLACE`)... Filter by store type (`MARKETPLACE, `ESTORE`). Returns all orders if not specified.
     + fulfillment_status (optional, String, `IN_PROGRESS`)... Status of the orders: IN_PROGRESS, COMPLETE, CANCELED, ON_HOLD, CLOSED, FAILED, DECLINE. Omitting the parametesr returns all orders.
     + start_date (optional, Date, `2014-12-11`)... Limit results to orders made on or after start_date ("yyyy-dd-MM" format).
     + end_date (optional, Date, `2015-01-02`)... Limit results to orders made on or before end_date ("yyyy-dd-MM" format).
