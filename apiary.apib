@@ -6744,7 +6744,12 @@ Add a country supported by the payment service provider.
     + discount_type (required, USD|PERCENT, `PERCENT`)... Type of discount. Absolute dollar amount or percentage value.
     + discount_amount (required, Number, `10.00`)... Numeric value for discount amount.
     + usage_limit_per_code (required, Number, `5`)... Maximum number of times a code can be used by buyers.
-
+    + once_per_member (required, Boolean, `true`)... Set to true if coupon can only be used once by a member.
+    + effective_from_date (required, Date, `2015-06-27 00:00:00`)... Start date from which coupon can be used.
+    + effective_to_date (required, Date, `2015-06-27 00:00:00`)... Coupon expiration date.
+    + apply_to_product (required, String, `1,23`)... Comma separated list of SKU IDs, that coupon can be used for.
+    + code (required, String, `MHTFRKLKLK,KJALKSJLASJ`) ... Comma separated list of UNIQUE coupon codes for this coupon. 
+    
 + Response 200 (application/json)
 
             {
