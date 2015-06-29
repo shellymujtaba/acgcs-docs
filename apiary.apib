@@ -6742,6 +6742,8 @@ Add a country supported by the payment service provider.
     + name (required, String, `50_OFF`)... User friendly unique name for the coupon.
     + description (required, String, `50% discount on SKUs`)... Description for the coupon.
     + discount_type (required, USD|PERCENT, `PERCENT`)... Type of discount. Absolute dollar amount or percentage value.
+    + discount_amount (required, Number, `10.00`)... Numeric value for discount amount.
+    + usage_limit_per_code (required, Number, `5`)... Maximum number of times a code can be used by buyers.
 
 + Response 200 (application/json)
 
