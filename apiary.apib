@@ -3454,78 +3454,164 @@ Shop ID is optional for admin to retrieve all sales regardless of shop ID.
 + Response 200 (application/json)
 
             {
+              "count": 3192,
+              "limit": 2,
+              "offset": 15,
+              "_link": "/shops/sales?limit=2&offset=15",
+              "_link_prev": "/shops/sales?limit=2&offset=13",
+              "_link_next": "/shops/sales?limit=2&offset=17",
               "sales": [
                 {
-                  "order_id": 234567890,
-                  "total_quantity": 3,
-                  "total_sales_price": 243.50,
-                  "total_sales_credit": 154.00,
-                  "tota_sales_tax_credit": 13.50,
-                  "sales_date": "July, 02 2014 16:34:00",
-                  "sale_status": "PROCESSED",
+                  "order_fulfillment_id": 7482,
+                  "member_id": 20708735,
+                  "psp_reference_number": "482ae1ab-1260-4012-9982-ab5e9ef9a99f",
+                  "fulfillment_reference_number": "",
+                  "order_status": "COMPLETE",
+                  "order_start_date": "June 30, 2015 12:10:24",
+                  "order_completed_date": "June 30, 2015 12:10:24",
+                  "order_last_checked_date": "",
+                  "shipment_tracking_url": "",
+                  "shipping_date": "",
+                  "psp_order_number": "",
+                  "ipn_type": "REFUND",
+                  "original_psp_reference_number": "482ae1ab-1260-4012-9982-ab5e9ef9a99f",
+                  "store_type": "MARKETPLACE",
+                  "total_quantity": 1,
+                  "total_sales": -100,
+                  "total_sales_credit": -70,
+                  "total_tax_credit": 0,
+                  "billing_address": {
+                    "id": 792947,
+                    "name": "Kentucky State University's",
+                    "company": "Autodesk",
+                    "address1": "400 E Main St",
+                    "address2": "",
+                    "city": "Frankfort",
+                    "telephone": "(502) 597-6000",
+                    "member_id": 20708735,
+                    "address_type": "BILLING_ADDRESS",
+                    "state": "KY",
+                    "postal_code": "40601",
+                    "country_code": "US",
+                    "is_residential": false
+                  },
+                  "shipping_address": {
+                    "id": 792946,
+                    "name": "Frederic Loranger",
+                    "company": "Autodesk",
+                    "address1": "Pier 9",
+                    "address2": "",
+                    "city": "San Francisco",
+                    "telephone": "(415) 507-5000",
+                    "member_id": 20708735,
+                    "address_type": "SHIPPING_ADDRESS",
+                    "state": "CA",
+                    "postal_code": "94111",
+                    "country_code": "US",
+                    "is_residential": false
+                  },
                   "sale_items": [
                     {
-                      "product_name": "Developer Kit",
-                      "product_id": 592540,
-                      "product_type": "PYSICAL",
                       "quantity": 1,
-                      "unit_price": 10,
-                      "sales_price": 10.50,
-                      "sales_credit": 7.00,
-                      "sales_tax_credit": 0.50
-                    },
+                      "product_id": 1573269,
+                      "seller_member_id": 20707813,
+                      "product_type": "PHYSICAL",
+                      "shop_id": 27,
+                      "product_name": "DO NOT REMOVE Regression test",
+                      "fulfillment_handler": "20707813",
+                      "unit_price": -100,
+                      "total_sales": -100,
+                      "sales_credit": -70,
+                      "tax_credit": 0
+                    }
+                  ],
+                  "fulfillment_items": []
+                },
+                {
+                  "order_fulfillment_id": 7481,
+                  "member_id": 20708735,
+                  "psp_reference_number": "482ae1ab-1260-4012-9982-ab5e9ef9a99f",
+                  "fulfillment_reference_number": "",
+                  "order_status": "COMPLETE",
+                  "order_start_date": "June 30, 2015 12:09:55",
+                  "order_completed_date": "",
+                  "order_last_checked_date": "June 30, 2015 22:41:30",
+                  "shipment_tracking_url": "",
+                  "shipping_date": "",
+                  "psp_order_number": "",
+                  "ipn_type": "CHARGE",
+                  "original_psp_reference_number": "",
+                  "store_type": "MARKETPLACE",
+                  "total_quantity": 1,
+                  "total_sales": 100,
+                  "total_sales_credit": 70,
+                  "total_tax_credit": 0,
+                  "billing_address": {
+                    "id": 792947,
+                    "name": "Kentucky State University's",
+                    "company": "Autodesk",
+                    "address1": "400 E Main St",
+                    "address2": "",
+                    "city": "Frankfort",
+                    "telephone": "(502) 597-6000",
+                    "member_id": 20708735,
+                    "address_type": "BILLING_ADDRESS",
+                    "state": "KY",
+                    "postal_code": "40601",
+                    "country_code": "US",
+                    "is_residential": false
+                  },
+                  "shipping_address": {
+                    "id": 792946,
+                    "name": "Frederic Loranger",
+                    "company": "Autodesk",
+                    "address1": "Pier 9",
+                    "address2": "",
+                    "city": "San Francisco",
+                    "telephone": "(415) 507-5000",
+                    "member_id": 20708735,
+                    "address_type": "SHIPPING_ADDRESS",
+                    "state": "CA",
+                    "postal_code": "94111",
+                    "country_code": "US",
+                    "is_residential": false
+                  },
+                  "sale_items": [
                     {
-                      "product_name": "3D Print",
-                      "product_id": 592541,
-                      "product_type": "PYSICAL",
-                      "quantity": 2,
-                      "unit_price": 105,
-                      "sales_price": 233.00,
-                      "sales_credit": 147.00,
-                      "sales_tax_credit": 13.00
+                      "quantity": 1,
+                      "product_id": 1573269,
+                      "seller_member_id": 20707813,
+                      "product_type": "PHYSICAL",
+                      "shop_id": 27,
+                      "product_name": "DO NOT REMOVE Regression test",
+                      "fulfillment_handler": "20707813",
+                      "unit_price": 100,
+                      "total_sales": 100,
+                      "sales_credit": 70,
+                      "tax_credit": 0
+                    }
+                  ],
+                  "fulfillment_items": [
+                    {
+                      "shipper": "UPS",
+                      "order_fulfillment_id": 7481,
+                      "fulfillment_handler": "20707813",
+                      "vendor_customer_id": "20708735",
+                      "vendor_reference_number": "72c934b0-9df5-4e23-bff6-c0bcda8484b7",
+                      "error_code": "",
+                      "error_message": "",
+                      "fulfillment_status": "IN_PROGRESS",
+                      "tracking_number": "",
+                      "tracking_url": "",
+                      "shipping_method": "UPS Next Day Air",
+                      "estimated_shipping_date": ""
                     }
                   ]
-                }],
-              "billing_address":
-                {       
-                "id": 10,
-                "member_id": 101010,
-                "address_type": "BILLING_ADDRESS",
-                "name": "testMember",
-                "company": "Spark",
-                "address1": "1 Market",
-                "address2": "4th floor",
-                "city": "San Francisco",
-                "state": "CA",
-                "postal_code": "94105",
-                "country_code": "US",
-                "telephone": "415-507-5000",
-                "is_residential": true
-                },
-              "shipping_address": {
-                "id": 10,
-                "member_id": 101010,
-                "address_type": "SHIPPING_ADDRESS",
-                "name": "testMember",
-                "company": "Spark",
-                "address1": "1 Market",
-                "address2": "4th floor",
-                "city": "San Francisco",
-                "state": "CA",
-                "postal_code": "94105",
-                "country_code": "US",
-                "telephone": "415-507-5000",
-                "is_residential": true
-              },
-              "count": 260,
-              "pages": 20,
-              "limit": 13,
-              "offset": 39,
-              "_link": "/shops/20280723/sales?limit=26",
-              "_link_prev": "/shops/20280723/sales?limit=26&offset=26",
-              "_link_next": "/shops/20280723/sales?limit=26&offset=39"
-            }
-            
+                }
+              ]
+            }            
+
+
 ##Tax [/shops/{shop_id}/tax]
 Sellers will specify the tax rate (in %age) for a given State/Zipcodes at the shop level. Sales tax for physical items will be calcalated based on buyer shipping address. Sales tax for digital items will be calculated based on buyer billing address.
 
