@@ -6780,6 +6780,7 @@ Add a country supported by the payment service provider.
    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            X-Secure-Session : cc33b7e56319409c3bda251c9dcda3a331b914cdc0f6d4716ccbc4a2e5fd09d2
 
 + Parameters
     + name (required, String, `50_OFF`)... User friendly unique name for the coupon.
@@ -6835,6 +6836,7 @@ Search all coupons.
    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            X-Secure-Session : cc33b7e56319409c3bda251c9dcda3a331b914cdc0f6d4716ccbc4a2e5fd09d2
 
 + Parameters
     + name (optional, String, `50_OFF`)... Coupon name to search for
@@ -6931,6 +6933,7 @@ Get a single coupon by unique id
    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            X-Secure-Session : cc33b7e56319409c3bda251c9dcda3a331b914cdc0f6d4716ccbc4a2e5fd09d2
 
 + Response 200 (application/json)
         
@@ -6965,6 +6968,19 @@ Get a single coupon by unique id
             "effective_to_date": "June 27, 2015 15:00:00",
             "discount_amount": 10
         }
+
+### Delete Coupon by id [DELETE]
+
+Delete a single coupon by unique id
+
++ Request (application/x-www-form-urlencoded)
+    + Header
+   
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            X-Secure-Session : cc33b7e56319409c3bda251c9dcda3a331b914cdc0f6d4716ccbc4a2e5fd09d2
+
++ Response 204 (application/json)
 
 # Group Utility
 Utility APIs.
