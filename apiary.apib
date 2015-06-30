@@ -6772,6 +6772,8 @@ Add a country supported by the payment service provider.
 |Product doesn't exist|400|3020
 |This coupon already exists|400|34704
 |This coupon code already exists|400|34705
+|Coupon Name/Coupon Description/Coupon code too long|400|165
+|CCoupon amount cannot exceed maximum allowed value|400|34709
 
 + Request (application/x-www-form-urlencoded)
     + Header
@@ -6800,12 +6802,10 @@ Add a country supported by the payment service provider.
                 "codes": [
                     {
                         "code": "4cbc4fa7-7db8-42b1-8ff6-a984640c52be",
-                        "coupon_id": 49,
                         "used_count": 0
                     },
                     {
                         "code": "400f4f85-ca73-4134-bba9-aab7d0d4dff4",
-                        "coupon_id": 49,
                         "used_count": 0
                     }
                 ],
@@ -6862,12 +6862,10 @@ Search all coupons.
                     "codes": [
                         {
                             "code": "test34",
-                            "coupon_id": 34,
                             "used_count": 0
                         },
                         {
                             "code": " 768",
-                            "coupon_id": 34,
                             "used_count": 0
                         }
                     ],
@@ -6895,12 +6893,10 @@ Search all coupons.
                     "codes": [
                         {
                             "code": "foo",
-                            "coupon_id": 32,
                             "used_count": 0
                         },
                         {
                             "code": " bar",
-                            "coupon_id": 32,
                             "used_count": 0
                         }
                     ],
