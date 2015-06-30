@@ -2246,14 +2246,14 @@ Type of Address (`address_type`) values:
    ]
 }
 
-### Create or update member's address [PUT]
+### Create a new member address [POST]
 + Request (application/x-www-form-urlencoded)
     + Headers
         X-AFC: FJKB32
         X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
-    + address_id (required,String, `551308`)...Address id to be updated.
+    + address_id (required,String, `551308`)...Existing address id to be updated.
     + address_type (optional, String, `SHIPPING_ADDRESS,SELLER_ADDRESS,BILLING_ADDRESS`)...Comma separated list of type of address (no spaces). Default: if this param is ommitted : All addresses for this member or guest will be returned.
     + name (required, String, `Firstname Lastname`)...If this is NOT an update, name is a required parameter.
     + address1 (required, String, `123 Some St.`)...If this is NOT an update, address1 is a required parameter.
@@ -2261,6 +2261,44 @@ Type of Address (`address_type`) values:
     + city (required, String, `Hercules`)...If this is NOT an update, city is a required parameter.
     + state (optional, String, `CA`)...State
     + country_code (required, String, `US`)...If this is NOT an update, countrycode is a required parameter.
+    + telephone (optional, String, `8005551212`)...Telephone number.
+    + company (optional, String, `Company Inc.`)...Company name.
+    + is_residential (optional, String, `true`)...true if this address is residential, false otherwise.
+    + postal_code (optional, String, `94547`)...Zip or postal code    + limit (optional, Number,`20`)...Number of results to return in each page. Default: 20.
+    + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
+
++ Response 200 (application/json)
+{
+    "id": 7686,
+    "name": "Firstname Lastname",
+    "company": "Company Inc.",
+    "address1": "123 Some St.",
+    "address2": "Apt. 1A",
+    "city": "Hercules",
+    "telephone": "8005551212",
+    "member_id": 0,
+    "address_type": "SHIPPING_ADDRESS",
+    "state": "CA",
+    "postal_code": "94547",
+    "country_code": "US",
+    "is_residential": true
+}
+
+### Update an existing member address [PUT]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + address_id (required,String, `551308`)...Existing address id to be updated.
+    + address_type (optional, String, `SHIPPING_ADDRESS,SELLER_ADDRESS,BILLING_ADDRESS`)...Comma separated list of type of address (no spaces). Default: if this param is ommitted : All addresses for this member or guest will be returned.
+    + name (optional, String, `Firstname Lastname`)...If this is NOT an update, name is a required parameter.
+    + address1 (optional, String, `123 Some St.`)...If this is NOT an update, address1 is a required parameter.
+    + address2 (optional, String, `Apt. 1A`)...Second line in address field
+    + city (optional, String, `Hercules`)...If this is NOT an update, city is a required parameter.
+    + state (optional, String, `CA`)...State
+    + country_code (optional, String, `US`)...If this is NOT an update, countrycode is a required parameter.
     + telephone (optional, String, `8005551212`)...Telephone number.
     + company (optional, String, `Company Inc.`)...Company name.
     + is_residential (optional, String, `true`)...true if this address is residential, false otherwise.
