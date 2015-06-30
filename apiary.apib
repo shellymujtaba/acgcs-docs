@@ -2197,7 +2197,7 @@ Retrieve member's subscription history in cronologically descending order. Each 
                 "_link_next":"/member/20280723/subscriptions?limit=26&offset=39"
             }
 
-## Addresses [/members/{id}/address]
+## Addresses [/members/addresses/{address_id}]
 Returns a list of addresses associated with a logged-in or guest member.
 Type of Address (`address_type`) values:
     *SHIPPING_ADDRESS, BILLING_ADDRESS,
@@ -2215,7 +2215,7 @@ Type of Address (`address_type`) values:
         X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
-    + id (required,String, `551308`)...Existing address id
+    + address_id (required,String, `551308`)...Existing address id
     + address_type (optional, String, `SHIPPING_ADDRESS,SELLER_ADDRESS,BILLING_ADDRESS`)...Comma separated list of type of address (no spaces). Default: if this param is ommitted : All addresses for this member or guest will be returned.
     + limit (optional, Number,`20`)...Number of results to return in each page. Default: 20.
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
@@ -2226,7 +2226,7 @@ Type of Address (`address_type`) values:
    "count":1,
    "limit":20,
    "offset":0,
-   "_link":"/members/20707750/address?address_type=SHIPPING_ADDRESS,SELLER_ADDRESS&limit=20&offset=0",
+   "_link":"/members/address?address_type=SHIPPING_ADDRESS,SELLER_ADDRESS&limit=20&offset=0",
    "addresses":[
       {
          "id":551308,
@@ -2253,7 +2253,7 @@ Type of Address (`address_type`) values:
         X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
-    + id (required,String, `551308`)...Address id to be updated.
+    + address_id (required,String, `551308`)...Address id to be updated.
     + address_type (optional, String, `SHIPPING_ADDRESS,SELLER_ADDRESS,BILLING_ADDRESS`)...Comma separated list of type of address (no spaces). Default: if this param is ommitted : All addresses for this member or guest will be returned.
     + name (required, String, `Firstname Lastname`)...If this is NOT an update, name is a required parameter.
     + address1 (required, String, `123 Some St.`)...If this is NOT an update, address1 is a required parameter.
