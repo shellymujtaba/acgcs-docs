@@ -2255,16 +2255,17 @@ Type of Address (`address_type`) values:
 + Parameters
     + address_id (required,String, `551308`)...Existing address id to be updated.
     + address_type (optional, String, `SHIPPING_ADDRESS,SELLER_ADDRESS,BILLING_ADDRESS`)...Comma separated list of type of address (no spaces). Default: if this param is ommitted : All addresses for this member or guest will be returned.
-    + name (required, String, `Firstname Lastname`)...If this is NOT an update, name is a required parameter.
-    + address1 (required, String, `123 Some St.`)...If this is NOT an update, address1 is a required parameter.
-    + address2 (optional, String, `Apt. 1A`)...Second line in address field
-    + city (required, String, `Hercules`)...If this is NOT an update, city is a required parameter.
+    + name (required, String, `Firstname Lastname`)...Full name (not blank).
+    + address1 (required, String, `123 Some St.`)...First line in address field (not blank).
+    + address2 (optional, String, `Apt. 1A`)...Second line in address field.
+    + city (required, String, `Hercules`)...City (not blank).
     + state (optional, String, `CA`)...State
-    + country_code (required, String, `US`)...If this is NOT an update, countrycode is a required parameter.
+    + country_code (required, String, `US`)...Two character country code (not blank).
     + telephone (optional, String, `8005551212`)...Telephone number.
     + company (optional, String, `Company Inc.`)...Company name.
-    + is_residential (optional, String, `true`)...true if this address is residential, false otherwise.
-    + postal_code (optional, String, `94547`)...Zip or postal code    + limit (optional, Number,`20`)...Number of results to return in each page. Default: 20.
+    + is_residential (optional, String, `true`)...true if residential address, false otherwise.
+    + postal_code (optional, String, `94547`)...Zip or postal code
+    + limit (optional, Number,`20`)...Number of results to return in each page. Default: 20.
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
 
 + Response 201 (application/json)
@@ -2291,17 +2292,17 @@ Type of Address (`address_type`) values:
         X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
-    + address_id (required,String, `551308`)...Existing address id to be updated.
+    + address_id (required,String, `551308`)...Existing address id - to be updated.
     + address_type (optional, String, `SHIPPING_ADDRESS,SELLER_ADDRESS,BILLING_ADDRESS`)...Comma separated list of type of address (no spaces). Default: if this param is ommitted : All addresses for this member or guest will be returned.
-    + name (optional, String, `Firstname Lastname`)...If this is NOT an update, name is a required parameter.
-    + address1 (optional, String, `123 Some St.`)...If this is NOT an update, address1 is a required parameter.
-    + address2 (optional, String, `Apt. 1A`)...Second line in address field
-    + city (optional, String, `Hercules`)...If this is NOT an update, city is a required parameter.
+    + name (optional, String, `Firstname Lastname`)...Full name (not blank).
+    + address1 (optional, String, `123 Some St.`)...First line in address field (not blank).
+    + address2 (optional, String, `Apt. 1A`)...Second line in address field (not blank).
+    + city (optional, String, `Hercules`)...City (not blank).
     + state (optional, String, `CA`)...State
-    + country_code (optional, String, `US`)...If this is NOT an update, countrycode is a required parameter.
+    + country_code (optional, String, `US`)...Two character country code (not blank).
     + telephone (optional, String, `8005551212`)...Telephone number.
     + company (optional, String, `Company Inc.`)...Company name.
-    + is_residential (optional, String, `true`)...true if this address is residential, false otherwise.
+    + is_residential (optional, String, `true`)...true if residential address, false otherwise.
     + postal_code (optional, String, `94547`)...Zip or postal code    + limit (optional, Number,`20`)...Number of results to return in each page. Default: 20.
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
 
