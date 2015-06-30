@@ -6752,7 +6752,7 @@ Remove the country, which is no longer supported by our service payment provider
 
 + Response 204
 
-## Coupons NOT Ready [/admin/carts/coupons/{coupon_id}]
+## Coupons NOT Ready [/admin/carts/coupons]
 Manage coupons that can be issued to buyers to get discount on selected SKUs. This is ONLY applicable for Marketplace SKUs.
 
 ### Create Coupon [POST]
@@ -6919,6 +6919,8 @@ Search all coupons.
                 }
             ]
         }
+
+## Coupon NOT Ready [/admin/carts/coupons/{coupon_id}]
         
 ### Get Coupon by id [GET]
 
@@ -6930,8 +6932,6 @@ Get a single coupon by unique id
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
-+ Parameters
-    
 + Response 200 (application/json)
         
         {
