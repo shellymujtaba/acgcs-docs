@@ -6752,7 +6752,7 @@ Remove the country, which is no longer supported by our service payment provider
 
 + Response 204
 
-## Coupons NOT Ready [/admin/carts/coupons]
+## Coupons NOT Ready [/admin/carts/coupons/{coupon_id}]
 Manage coupons that can be issued to buyers to get discount on selected SKUs. This is ONLY applicable for Marketplace SKUs.
 
 ### Create Coupon [POST]
@@ -6826,7 +6826,7 @@ Add a country supported by the payment service provider.
                 "effective_to_date": "July 09, 2015 00:00:00"
             }
             
-### Search Coupons [POST]
+### Search Coupons [GET]
 
 Search all coupons.
 
@@ -6918,6 +6918,52 @@ Search all coupons.
                     "discount_amount": 10
                 }
             ]
+        }
+        
+### Get Coupon by id [GET]
+
+Get a single coupon by unique id
+
++ Request (application/x-www-form-urlencoded)
+    + Header
+   
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    
++ Response 200 (application/json)
+        
+        {
+            "name": "test11",
+            "description": "foo",
+            "id": 34,
+            "codes": [
+                {
+                    "code": "test34",
+                    "used_count": 0
+                },
+                {
+                    "code": " 768",
+                    "used_count": 0
+                }
+            ],
+            "usage_limit_per_code": 1,
+            "once_per_member": true,
+            "used_count": 0,
+            "discount_type": "USD",
+            "created_date": "June 25, 2015 15:09:03",
+            "last_modified_date": "June 25, 2015 15:09:03",
+            "create_by_member_id": 20704130,
+            "last_modified_by_member_id": 20704130,
+            "coupon_status": "ISSUED",
+            "products": [
+                10,
+                12
+            ],
+            "effective_from_date": "June 26, 2015 15:00:00",
+            "effective_to_date": "June 27, 2015 15:00:00",
+            "discount_amount": 10
         }
 
 # Group Utility
