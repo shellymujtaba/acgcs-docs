@@ -3429,7 +3429,7 @@ not initiated a phone verification request or never added a paypal email, the qu
             }
 
 
-##Sales [/shops/sales{?shop_id,start_date,end_date,order_status,product_type,limit,offset,sort_order}]
+##Sales [/shops/sales{?shop_id,start_date,end_date,order_status,product_type,fulfilled_by, limit,offset,sort_order}]
 Retrieve sales' history for a shop on Marketplace. Restricts order line items to only those sold by the seller of shop_id since an order may have multiple line items from multiple sellers.
 Shop ID is optional for admin to retrieve all sales regardless of shop ID.
 
@@ -3445,7 +3445,8 @@ Shop ID is optional for admin to retrieve all sales regardless of shop ID.
     + start_date (optional, Date, `2014-11-04`)... Limit results to orders created on or after start_date ("yyyy-dd-MM" format).
     + end_date (optional, Date, `2014-12-05`)... Limit results to orders creataed on or before end_date ("yyyy-dd-MM" format).
     + order_status (optional, String, `IN_PROGRESS`)... When specified, return only orders with given status. Values can be: IN_PROGRESS, COMPLETE, CANCELED, ON_HOLD, CLOSED, FAILED, DECLINE. Returns all orders if not specified.
-    + product_type (optional, String, `PHYSICAL`)...Return only sales for DIGITAL or PHYSICAL products. Returns all products if not specified.
+    + product_type (optional, String, `PHYSICAL`)... Return only sales for DIGITAL or PHYSICAL products. Returns all products if not specified.
+    + fulfilled_by (optional, String, `EInc`)... Return sales fulfilled by EInc. Returns sales regardless of fulfillment company.
     + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
     + sort_order (optional, String, `DESC`)... Sort order for display orders: ASC or DESC. Default: DESC.
