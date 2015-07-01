@@ -6843,8 +6843,6 @@ Manage coupons that can be issued to buyers to get discount on selected SKUs. Th
 
 Create a new coupon.
 
-Add a country supported by the payment service provider.
-
 |description|HTTP|code
 |----|----|----
 |Not authorized to add coupon|401|34702
@@ -6857,7 +6855,7 @@ Add a country supported by the payment service provider.
 |This coupon already exists|400|34704
 |This coupon code already exists|400|34705
 |Coupon Name/Coupon Description/Coupon code too long|400|165
-|CCoupon amount cannot exceed maximum allowed value|400|34709
+|Coupon amount cannot exceed maximum allowed value|400|34709
 
 + Request (application/x-www-form-urlencoded)
     + Header
@@ -7008,7 +7006,7 @@ Search all coupons.
 
 ## Coupon NOT Ready [/admin/carts/coupons/{coupon_id}]
         
-### Get Coupon by id [GET]
+### Get Coupon [GET]
 
 Get a single coupon by unique id
 
@@ -7053,7 +7051,78 @@ Get a single coupon by unique id
             "discount_amount": 10
         }
 
-### Delete Coupon by id [DELETE]
+### Update Coupon [POST]
+
+Update an existing copon.
+
+|description|HTTP|code
+|----|----|----
+|Not authorized to add/update coupon|401|34702
+|Coupon effective end date cannot be in the past|400|34700
+|Coupon effective end date cannot be in the past|400|34700
+|Coupon start date cannot be after end date|400|34701
+|Expiration date should be at least a day after from date|400|34703
+|Usage limit must be at least 1|400|34706
+|Product doesn't exist|400|3020
+|This coupon does not exist|400|34707
+|This coupon code already exists|400|34705
+|Coupon Name/Coupon Description/Coupon code too long|400|165
+|Coupon amount cannot exceed maximum allowed value|400|34709
+
++ Request (application/x-www-form-urlencoded)
+    + Header
+   
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            X-Secure-Session : cc33b7e56319409c3bda251c9dcda3a331b914cdc0f6d4716ccbc4a2e5fd09d2
+
++ Parameters
+    + name (optional, String, `50_OFF`)... User friendly unique name for the coupon.
+    + description (optional, String, `50% discount on SKUs`)... Description for the coupon.
+    + discount_type (optional, USD|PERCENT, `PERCENT`)... Type of discount. Absolute dollar amount or percentage value.
+    + discount_amount (optional, Number, `10.00`)... Numeric value for discount amount.
+    + usage_limit_per_code (optional, Number, `5`)... Maximum number of times a code can be used by buyers.
+    + once_per_member (optional, Boolean, `true`)... Set to true if coupon can only be used once by a member.
+    + effective_from_date (optional, Date, `2015-06-27 00:00:00`)... Start date from which coupon can be used.
+    + effective_to_date (optional, Date, `2015-06-27 00:00:00`)... Coupon expiration date.
+    + apply_to_product (optional, String, `1,23`)... Comma separated list of SKU IDs, that coupon can be used for.
+    + add_coupon_code (optional, String, `MHTFRKLKLK,KJALKSJLASJ`) ... Comma separated list of UNIQUE coupon codes to be added for this coupon. 
+    + remove_unused_codes (optional, Boolean, `true`)... Set to true to remove all unused codes from this coupon
+    
++ Response 200 (application/json)
+
+            {
+                "name": "baf60923-fd7b-4f14-8056-7622f973e990",
+                "description": "testDesc",
+                "id": 49,
+                "codes": [
+                    {
+                        "code": "4cbc4fa7-7db8-42b1-8ff6-a984640c52be",
+                        "used_count": 0
+                    },
+                    {
+                        "code": "400f4f85-ca73-4134-bba9-aab7d0d4dff4",
+                        "used_count": 0
+                    }
+                ],
+                "discount_amount": 10,
+                "usage_limit_per_code": 1,
+                "once_per_member": true,
+                "used_count": 0,
+                "discount_type": "USD",
+                "created_date": "June 29, 2015 21:57:40",
+                "last_modified_date": "June 29, 2015 21:57:40",
+                "create_by_member_id": 20708730,
+                "last_modified_by_member_id": 20708730,
+                "coupon_status": "ISSUED",
+                "products": [
+                    2
+                ],
+                "effective_from_date": "June 29, 2015 00:00:00",
+                "effective_to_date": "July 09, 2015 00:00:00"
+            }
+
+### Delete Coupon [DELETE]
 
 Delete a single coupon by unique id
 
