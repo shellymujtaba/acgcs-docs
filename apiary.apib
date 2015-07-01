@@ -1780,6 +1780,20 @@ name, email, locale and avatar
     + phone_mobile (optional, String, `1(800) 555-1212`)...Member profile's mobile phone number. Valid entries are spaces and #.-()0123456789
     + phone_work (optional, String, `213.456.789#1`)...Member profile's work phone number. Valid entries are spaces and #.-()0123456789
     + phone_work_extension (optional, String, `123456`)...Member profile's work phone extension. Valid entries are numeric only:0123456789
+    + newsletters (optional, String, `2,3,5`)...Comma-separated list of newsletters to subscribe/unsubscribe to.  (Use subscribe boolean parameter)
+    + subscribe (optional, String, `1`)... 0 to unsubscribe, 1 to subscribe. Use this with newsletters param list. Default `1`.
+    + preferences (optional, String, `{"commentFrequency":"AS_MADE", "messageFrequency":"AS_MADE", "subscriptionFrequency":"NONE"}`)...Email notifications for site activity. Must be valid JSON. When member is created, the default value is DAILY for each field.
+The same notification preferences will be used even for sending push notifications to users' devices.
+<br>
+ Fields:<br>
+-commentFrequency: (when someone comments on your content)<br>
+-messageFrequency: (when someone sends you a private message)<br>
+-subscriptionFrequency: (digest notifications about users you follow)<br>
+-featureFrequency: (when someone feature your content)(optional)<br>
+-watchlistFrequency: (optional)<br>
+-likeFrequency: (when someone likes on your content)(optional)
+<br>Possible Values:<br>
+-NONE<br>-AS_MADE<br>-HOURLY<br>-DAILY<br>-WEEKLY<br>
 + Response 200 (application/json)
 
             {
