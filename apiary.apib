@@ -2738,7 +2738,7 @@ Extend members subscription by specified period.
                 }
         ]
 
-## Private Messaging [/members/{id}/messages{?subject,body,message_id}]
+## Get messages [/members/{id}/messages]
 
 Fetch all the messages for a user. It is similar when you open gmail and you see all emails without body. You can see also IN/OUT/TRASH/DELETED/BLOCKED mails. This API provide "mailbox" option for that.
 ### Retrieve member Messages [GET]
@@ -2797,7 +2797,7 @@ Fetch all the messages for a user. It is similar when you open gmail and you see
         }
     ]
 }
-
+##Retrieve Message Details  [/members/{id}/messages/{messageid}]
 Get message by Id. Person A sends mail to B and B replies to A and then A again replies to B. Then passing last message's id will return whole thread.
 ### Retrieve Message Details [GET]
  
