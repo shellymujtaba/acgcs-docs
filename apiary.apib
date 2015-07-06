@@ -55,7 +55,7 @@ In addition to the http code we will return additional information in the respon
 All api calls require the following headers:  
 
 **X-Session**: A guest or member session. See Auth section on how to generate a guest/member session. Access to various api's depends on the type of session. 
-For example - guest session will provide access to ready only public api's such as /assets. While member session will provide access to write apis and also extended information for /member api.  
+For example - guest session will provide access to ready only public api's such as /assets. While member session will provide access to write apis and also Extend members subscription by specified period.information for /member api.  
 
 **X-AFC**: Unique identifier assigned to your enendiceslication. It is very important to use the AFC assigned to your application and not re-use AFC's across apps as this creates issues in debugging and analytics.  
 **X-Secure-Session**: Secure session is required for certain api calls which require updates to member profile or ecommerce transactions. **Secure session have a shorter life span (6 hrs). So in case an api returns 401 (unauthorized) response code - the applicaiton should prompt user to log in again**.  
@@ -2737,6 +2737,65 @@ Extend members subscription by specified period.
                         "reason":"Subscription not present."
                 }
         ]
+
+## Private Messaging [/members/{id}/messages{?subject,body,message_id}]
+### Private Messaging
+### Retrieve member Messages [GET]
+ Fetch all the messages for a user. It is similar when you open gmail and you see all emails. You can see also IN/OUT/TRASH/DELETED/BLOCKED mails. This API provide "mailbox" option for that.
++ Parameters
+    + id (required,Number, `20280723`)...Member id
+    + mailbox  (optional, String,`20`)...Option :- IN, OUT, TRASH, DELETED, BLOCKED. Default: IN.
+    + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
+    + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
+
++ Response 200 (application/json)
+
+{
+    "count": 28,
+    "limit": 2,
+    "offset": 0,
+    "_link": "/members/20704116/messages?limit=2&offset=0",
+    "_link_next": "/members/20704116/messages?limit=2&offset=2",
+    "messages": [
+        {
+            "subject": "hi...",
+            "thread_id": "XHFMVYDI3LCLYGC",
+            "sent_time": "2014-12-12 04:29:37",
+            "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
+            "sender_screen_id": 20707261,
+            "sender_screen_name": "qaautomationuser",
+            "recipient_screen_id": 20704116,
+            "recipient_screen_name": "sumanwan",
+            "profile_url": "http://alpha.squidplatform.com/MyCorner/qaautomationuser-20707261",
+            "message_id": "XHFMVYDI3LCLYGC",
+            "read_time": "",
+            "modifier_id": "",
+            "inreplyto": ""
+        },
+        {
+            "subject": "Good Day",
+            "thread_id": "X7ZFQEKI3LCLYGA",
+            "sent_time": "2014-12-12 04:26:05",
+            "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
+            "sender_screen_id": 20707261,
+            "sender_screen_name": "qaautomationuser",
+            "recipient_screen_id": 20704116,
+            "recipient_screen_name": "sumanwan",
+            "profile_url": "http://alpha.squidplatform.com/MyCorner/qaautomationuser-20707261",
+            "message_id": "X7ZFQEKI3LCLYGA",
+            "read_time": "",
+            "modifier_id": "",
+            "inreplyto": ""
+        }
+    ]
+}
 
 # Group Auth
 
