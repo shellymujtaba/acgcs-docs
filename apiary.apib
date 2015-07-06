@@ -2739,9 +2739,10 @@ Extend members subscription by specified period.
         ]
 
 ## Private Messaging [/members/{id}/messages{?subject,body,message_id}]
-### Private Messaging
+
+Fetch all the messages for a user. It is similar when you open gmail and you see all emails without body. You can see also IN/OUT/TRASH/DELETED/BLOCKED mails. This API provide "mailbox" option for that.
 ### Retrieve member Messages [GET]
- Fetch all the messages for a user. It is similar when you open gmail and you see all emails. You can see also IN/OUT/TRASH/DELETED/BLOCKED mails. This API provide "mailbox" option for that.
+ 
 + Parameters
     + id (required,Number, `20280723`)...Member id
     + mailbox  (optional, String,`20`)...Option :- IN, OUT, TRASH, DELETED, BLOCKED. Default: IN.
