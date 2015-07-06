@@ -3911,8 +3911,8 @@ If tax rate already exists for input address, the call will update the tax rate.
             X-Secure-Session: ABC1232324244
 
 + Parameters
-    + address_type (required, String,`STATE`)...value: ZIP|STATE.
-    + address_value (required, String, `CA`)...zip code or state abbreviation
+    + address_type (required, String,`STATE`)...value: ZIP|STATE|ZIP_RANGE. The priority of applying tax rate is ZIP > ZIP_RANGE > STATE
+    + address_value (required, String, `CA`)...If address_type is ZIP, address value is zip code such as 94105. For STATE, the value is state abbreviation like 'CA'. For ZIP_RANGE, the value is zip code range such as 94101-94105
     + tax_rate (required, Integer, `925`)...Rate is specified as integer to avoid floating point issues. So 925=9.25%
     + apply_tax_to_shipping (optional, String, `true`)...If this is a physical line item, seller will specify if shop tax rate applies to the product shipping fee. Default: true
 
