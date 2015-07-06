@@ -2745,7 +2745,7 @@ Extend members subscription by specified period.
 
 + Parameters
     + id (required,Number, `20280723`)...Member id
-    + mailbox  (optional, String,`20`)...Option :- IN, OUT, TRASH, DELETED, BLOCKED. Default: IN.
+    + mailbox  (optional, String,`IN`)...Option :- IN, OUT, TRASH, DELETED, BLOCKED. Default: IN.
     + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
 
@@ -2874,7 +2874,7 @@ Extend members subscription by specified period.
     + id (required,Number, `20280723`)...Member id
     + subject  (required,String`)...Subject of the message
     + body  (required,String`)...Body of the message
-    + recipient_id  (required,String`)...Id of the member to whom message need to be send
+    + recipient_id  (required,Number, `20280724`)...Id of the member to whom message need to be send
     
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -2896,7 +2896,7 @@ Extend members subscription by specified period.
     + message_id (required,String, `XWTWLL9H411A68F`)...Message id. (required if action is any one of the following : 
 read/delete/undelete/purge/block/unblock
     + action  (required,String`)...action = read/delete/undelete/purge/block/unblock. Purge : Only allowed on deleted messages.
-    + user_id  (required,Number, `20280723)...ID on which block/unblock action will take place
+    + user_id  (required,Number, `20280724)...member Id on which block/unblock action will take place
     
 + Request (application/x-www-form-urlencoded)
     + Headers
