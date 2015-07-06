@@ -2798,6 +2798,73 @@ Fetch all the messages for a user. It is similar when you open gmail and you see
     ]
 }
 
+Get message by Id. Person A sends mail to B and B replies to A and then A again replies to B. Then passing last message's id will return whole thread.
+### Retrieve Message Details [GET]
+ 
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Response 200 (application/json)
+{
+    "message_count_inthread": 3,
+    "messages": [
+        {
+            "subject": "Re:Re:Health",
+            "body": "Ok.GreatToHere",
+            "thread_id": "X79ZOI0H411A68D",
+            "sent_time": "2012-06-29 04:16:02",
+            "profile_image": "",
+            "sender_screen_id": 0,
+            "sender_screen_name": "xcvbvb",
+            "recipient_screen_id": 0,
+            "recipient_screen_name": "amoltul",
+            "profile_url": "",
+            "message_id": "X4FFNPTH411A68H",
+            "read_time": "",
+            "recipient_box": "IN",
+            "sender_box": "OUT",
+            "inreplyto": "XWTWLL9H411A68F"
+        },
+        {
+            "subject": "Re:Health",
+            "body": "IAmFine",
+            "thread_id": "X79ZOI0H411A68D",
+            "sent_time": "2012-06-29 04:13:25",
+            "profile_image": "",
+            "sender_screen_id": 0,
+            "sender_screen_name": "amoltul",
+            "recipient_screen_id": 0,
+            "recipient_screen_name": "xcvbvb",
+            "profile_url": "",
+            "message_id": "XWTWLL9H411A68F",
+            "read_time": "2012-06-29 07:01:24",
+            "recipient_box": "DELETED",
+            "sender_box": "OUT",
+            "inreplyto": "X79ZOI0H411A68D"
+        },
+        {
+            "subject": "TestSubject",
+            "body": "HowAreYou",
+            "thread_id": "X79ZOI0H411A68D",
+            "sent_time": "2012-06-29 04:09:23",
+            "profile_image": "",
+            "sender_screen_id": 0,
+            "sender_screen_name": "xcvbvb",
+            "recipient_screen_id": 0,
+            "recipient_screen_name": "amoltul",
+            "profile_url": "",
+            "message_id": "X79ZOI0H411A68D",
+            "read_time": "",
+            "recipient_box": "IN",
+            "sender_box": "OUT",
+            "inreplyto": ""
+        }
+    ]
+}
+
 # Group Auth
 
 ## Login [/login]
