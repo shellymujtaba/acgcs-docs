@@ -7420,6 +7420,41 @@ Delete a single coupon by unique id
 
 + Response 204 (application/json)
 
+## Refund [/admin/refunds]
+        
+### Post Refund [POST]
+
+Request a refund on an order
+
++ Request (application/json)
+        
+            {
+                "psp_reference_number": "62937889-05ee-46f3-b297-37a26ca42154",
+                "full_refund": "true",
+                "refund_reason": "test refund reason",
+                "cancel_subscription": "true",
+                "line_item_refunds": [
+                    {
+                        "product_id":1616403,
+                        "remove_access":"true",
+                        "silent_refund":"false"
+                    },
+                    {
+                        "product_id":1616404,
+                        "remove_access":"false",
+                        "silent_refund":"true"
+                    }
+                ]
+            }    
+
+    + Header
+   
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
+    
++ Response 204 (application/json)
+
 # Group Utility
 Utility APIs.
 
