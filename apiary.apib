@@ -1811,7 +1811,7 @@ This operation will return a list of members.  At least one parameter is require
 
 + Parameters
     + name (optional,String, `Smith`)...Member name
-    + description (optional,String, `Photography`)...Member description
+    + description (optional,String, `Photography`)...Member description, which must be at least 5 characters in length.
     + limit (optional, Number,`20`)...Number of results to return in each page. Default: 20.
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
 
@@ -1826,71 +1826,17 @@ This operation will return a list of members.  At least one parameter is require
     "members": [
         {
             "member": {
-                "comments": 0,
                 "id": 20212345,
-                "newsletters": {
-                    "newsletter": [
-                        {
-                            "frequency": "",
-                            "name": "Autodesk 123D Newsletter",
-                            "id": 1,
-                            "subscribed": 1
-                        },
-                        {
-                            "frequency": "",
-                            "name": "Autodesk 123D Artist Newsletter",
-                            "id": 2,
-                            "subscribed": 1
-                        },
-                        {
-                            "frequency": 3,
-                            "name": "Notifications",
-                            "id": 3,
-                            "subscribed": 1
-                        },
-                        {
-                            "frequency": "",
-                            "name": "General Spark Updates and Insights",
-                            "id": 4,
-                            "subscribed": 0
-                        },
-                        {
-                            "frequency": "",
-                            "name": "Spark Developer Updates and Insights",
-                            "id": 5,
-                            "subscribed": 0
-                        },
-                        {
-                            "frequency": "",
-                            "name": "Ember 3D Printer Updates and Insights",
-                            "id": 6,
-                            "subscribed": 0
-                        }
-                    ]
-                },
                 "profile": {
                     "location": "San Francisco, CA",
                     "description": "I do stuff with aerial photography, hyperspectral imaging and stuff with machines that go beep",
-                    "company": "",
-                    "industry": "",
                     "avatar_path": "https://static.spark.autodesk.com/2011/10/11__13_44_26/Photo-1.jpg37e.jpg",
                     "find_me": {
                         "twitter": "http://www.twitter.com/JSmith",
                         "personal": "www.SmithLighting.com"
-                    },
-                    "company_website": "",
-                    "job_title": ""
+                    }
                 },
-                "likes": 0,
-                "publish": 0,
-                "name": "John Smith",
-                "locale": "en_US",
-                "follows": 0,
-                "following": 0,
-                "type_id": 0,
-                "shop_id": "",
-                "first_name": "",
-                "last_name": ""
+                "name": "John Smith"
             }
         }
     ]
