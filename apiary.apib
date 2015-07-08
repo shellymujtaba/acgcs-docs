@@ -2717,7 +2717,7 @@ Retrieve all the messages for a member. The messages can be retrieved from vario
         {
             "subject": "hi...",
             "thread_id": "XHFMVYDI3LCLYGC",
-            "sent_time": "2014-12-12 04:29:37",
+            "sent_time": "July 06, 2015 14:34:11",
             "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
             "sender_screen_id": 20707261,
             "sender_screen_name": "qaautomationuser",
@@ -2732,7 +2732,7 @@ Retrieve all the messages for a member. The messages can be retrieved from vario
         {
             "subject": "Good Day",
             "thread_id": "X7ZFQEKI3LCLYGA",
-            "sent_time": "2014-12-12 04:26:05",
+            "sent_time": "July 06, 2015 14:34:11",
             "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
             "sender_screen_id": 20707261,
             "sender_screen_name": "qaautomationuser",
@@ -2769,7 +2769,7 @@ Get message by Id. Person A sends mail to B and B replies to A and then A again 
             "subject": "Re:Re:Health",
             "body": "Ok.GreatToHere",
             "thread_id": "X79ZOI0H411A68D",
-            "sent_time": "2012-06-29 04:16:02",
+            "sent_time": "July 06, 2015 14:34:11",
             "profile_image": "",
             "sender_screen_id": 0,
             "sender_screen_name": "xcvbvb",
@@ -2786,7 +2786,7 @@ Get message by Id. Person A sends mail to B and B replies to A and then A again 
             "subject": "Re:Health",
             "body": "IAmFine",
             "thread_id": "X79ZOI0H411A68D",
-            "sent_time": "2012-06-29 04:13:25",
+            "sent_time": "July 06, 2015 14:34:11",
             "profile_image": "",
             "sender_screen_id": 0,
             "sender_screen_name": "amoltul",
@@ -2794,7 +2794,7 @@ Get message by Id. Person A sends mail to B and B replies to A and then A again 
             "recipient_screen_name": "xcvbvb",
             "profile_url": "",
             "message_id": "XWTWLL9H411A68F",
-            "read_time": "2012-06-29 07:01:24",
+            "read_time": "July 06, 2015 14:34:11",
             "recipient_box": "DELETED",
             "sender_box": "OUT",
             "inreplyto": "X79ZOI0H411A68D"
@@ -2803,7 +2803,7 @@ Get message by Id. Person A sends mail to B and B replies to A and then A again 
             "subject": "TestSubject",
             "body": "HowAreYou",
             "thread_id": "X79ZOI0H411A68D",
-            "sent_time": "2012-06-29 04:09:23",
+            "sent_time": "July 06, 2015 14:34:11",
             "profile_image": "",
             "sender_screen_id": 0,
             "sender_screen_name": "xcvbvb",
@@ -2861,13 +2861,13 @@ read/delete/undelete/purge/block/unblock
 
 + Response 204 (application/json)
 
-### Reply Message [PUT]
+### Reply Message [POST][/members/{id}/messages/{messageId}/reply]
 
 Send new message to user. To send reply to existing mail thread use Member/Reply.
 
 + Parameters
     + id (required,Number, `20280723`)...Member id
-    + message_id (required,String, `XWTWLL9H411A68F`)...Message id. Id of the message to which reply has to be send. You will get this id through GET /messages or GET /messages/{messageId}.
+    + messageId (required,String, `XWTWLL9H411A68F`)...Message id. Id of the message to which reply has to be send. You will get this id through GET /messages or GET /messages/{messageId}.
     + subject  (required,String`)...Subject of the message
     + body  (required,String`)...Body of the message
     
