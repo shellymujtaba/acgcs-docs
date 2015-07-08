@@ -3750,34 +3750,34 @@ Shop ID is optional for admin to retrieve all sales regardless of shop ID.
 
 
             {
-              "count": 1461,
+              "count": 919,
               "limit": 1,
               "offset": 0,
-              "_link": "/shops/sales?order_status=IN_PROGRESS&limit=1&offset=0",
-              "_link_next": "/shops/sales?order_status=IN_PROGRESS&limit=1&offset=1",
-              "sales": [
+              "_link": "/shops/sales?shop=10&product_type=PHYSICAL&sort_order=DESC&order_status=IN_PROGRESS&limit=1&offset=0",
+              "_link_next": "/shops/sales?shop=10&product_type=PHYSICAL&sort_order=DESC&order_status=IN_PROGRESS&limit=1&offset=1",
+              "sale_orders": [
                 {
-                  "member_id": 20708865,
-                  "order_id": "1010217947",
+                  "member_id": 20708730,
+                  "order_id": "1010230485",
                   "order_status": "COMPLETE",
-                  "order_start_date": "July 07, 2015 23:31:13",
+                  "order_start_date": "July 08, 2015 23:19:52",
                   "order_completed_date": "",
-                  "order_last_checked_date": "July 07, 2015 23:31:17",
+                  "order_last_checked_date": "July 08, 2015 23:30:52",
                   "ipn_type": "CHARGE",
                   "total_quantity": 1,
-                  "total_sales": 50,
-                  "total_sales_credit": 35,
-                  "total_tax_credit": 7.5,
-                  "total_shipping_credit": 25,
+                  "total_sales": 10,
+                  "total_sales_credit": 0.5,
+                  "total_tax_credit": 0,
+                  "total_shipping_credit": 0,
                   "billing_address": {
-                    "id": 803149,
+                    "id": 803581,
                     "name": "Frederic Loranger",
                     "company": "Autodesk",
                     "address1": "1 Market Street",
                     "address2": "",
                     "city": "San Francisco",
                     "telephone": "415-671-8284",
-                    "member_id": 20708865,
+                    "member_id": 20708730,
                     "address_type": "BILLING_ADDRESS",
                     "state": "CA",
                     "postal_code": "94111",
@@ -3785,14 +3785,14 @@ Shop ID is optional for admin to retrieve all sales regardless of shop ID.
                     "is_residential": false
                   },
                   "shipping_address": {
-                    "id": 803150,
+                    "id": 803580,
                     "name": "Frederic Loranger",
                     "company": "Autodesk",
                     "address1": "Pier 9",
                     "address2": "",
                     "city": "San Francisco",
                     "telephone": "(415) 507-5000",
-                    "member_id": 20708865,
+                    "member_id": 20708730,
                     "address_type": "SHIPPING_ADDRESS",
                     "state": "CA",
                     "postal_code": "94111",
@@ -3802,51 +3802,37 @@ Shop ID is optional for admin to retrieve all sales regardless of shop ID.
                   "sale_items": [
                     {
                       "quantity": 1,
-                      "product_id": 1650237,
-                      "seller_member_id": 20708852,
+                      "product_id": 1681611,
+                      "seller_member_id": 20709076,
                       "product_type": "PHYSICAL",
-                      "shop_id": 42,
-                      "product_name": "regression test MP",
-                      "fulfillment_handler": "20708852",
-                      "unit_price": 50,
-                      "total_price": 50,
-                      "sales_credit": 35,
-                      "tax_credit": 5
-                    },
-                    {
-                      "quantity": 1,
-                      "product_id": 400004,
-                      "seller_member_id": 20708852,
-                      "product_type": "SHIPPING",
-                      "shop_id": "",
-                      "product_name": "SHIPPING",
-                      "fulfillment_handler": "20708852",
-                      "unit_price": 25,
-                      "total_price": 25,
-                      "sales_credit": 25,
-                      "tax_credit": 2.5
+                      "shop_id": 47,
+                      "product_name": "DO NOT REMOVE Regression Oshpark",
+                      "fulfillment_handler": "20709076",
+                      "unit_price": 10,
+                      "total_price": 10,
+                      "sales_credit": 0.5,
+                      "tax_credit": 0
                     }
                   ],
                   "fulfillment_items": [
                     {
-                      "shipper": "Regression Test - Shipping Profile1",
-                      "order_fulfillment_id": 8306,
-                      "fulfillment_handler": "20708852",
-                      "vendor_customer_id": "20708865",
-                      "vendor_reference_number": "c68608b4-0858-4130-955a-328f7a4dd586",
+                      "shipper": "Oshpark Default",
+                      "order_fulfillment_id": 8555,
+                      "fulfillment_handler": "20709076",
+                      "vendor_customer_id": "20708730",
+                      "vendor_reference_number": "297be216-d72e-4e5a-9bab-47cdd2b81b07",
                       "error_code": "",
                       "error_message": "",
                       "fulfillment_status": "IN_PROGRESS",
                       "tracking_number": "",
                       "tracking_url": "",
-                      "shipping_method": "Overnight",
+                      "shipping_method": "3",
                       "estimated_shipping_date": ""
                     }
                   ]
                 }
               ]
-            }
-            
+            }            
             
 ##Tax [/shops/{shop_id}/tax]
 Sellers will specify the tax rate (in %age) for a given State/Zipcodes/Zipcode range at the shop level. Sales tax for physical items will be calcalated based on buyer shipping address. Sales tax for digital items will be calculated based on buyer billing address.
