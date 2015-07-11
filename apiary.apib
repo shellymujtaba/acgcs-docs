@@ -7162,6 +7162,8 @@ Create a new coupon.
     + effective_to_date (optional, Date, `2015-06-27 00:00:00`)... Coupon expiration date.
     + apply_to_product (required, String, `1,23`)... Comma separated list of SKU IDs, that coupon can be used for.
     + code (required, String, `MHTFRKLKLK,KJALKSJLASJ`) ... Comma separated list of UNIQUE coupon codes for this coupon. 
+    + autodesk_shared_discount_percent (optional, Number, `100.00`)... Percentage value of discount amount that Autodesk eats. By default Autodesk eat all cost for discount(100%). Default: 100.00
+    + seller_shared_discount_percent (optional, Number, `0.00`)... Percentage value of discount amount that seller eats.
     
 + Response 200 (application/json)
 
@@ -7193,7 +7195,9 @@ Create a new coupon.
                     2
                 ],
                 "effective_from_date": "June 29, 2015 00:00:00",
-                "effective_to_date": "July 09, 2015 00:00:00"
+                "effective_to_date": "July 09, 2015 00:00:00",
+                "autodesk_shared_discount_percent": "100.00",
+                "seller_shared_discount_percent": "0.00"
             }
             
 ### Search Coupons [GET]
@@ -7255,7 +7259,9 @@ Search all coupons.
                     ],
                     "effective_from_date": "June 26, 2015 15:00:00",
                     "effective_to_date": "June 27, 2015 15:00:00",
-                    "discount_amount": 10
+                    "discount_amount": 10,
+                    "autodesk_shared_discount_percent": "100.00",
+                    "seller_shared_discount_percent": "0.00"
                 },
                 {
                     "name": "test910",
@@ -7286,7 +7292,9 @@ Search all coupons.
                     ],
                     "effective_from_date": "June 26, 2015 15:00:00",
                     "effective_to_date": "June 27, 2015 15:00:00",
-                    "discount_amount": 10
+                    "discount_amount": 10,
+                    "autodesk_shared_discount_percent": "100.00",
+                    "seller_shared_discount_percent": "0.00"
                 }
             ]
         }
@@ -7335,7 +7343,9 @@ Get a single coupon by unique id
             ],
             "effective_from_date": "June 26, 2015 15:00:00",
             "effective_to_date": "June 27, 2015 15:00:00",
-            "discount_amount": 10
+            "discount_amount": 10,
+            "autodesk_shared_discount_percent": "100.00",
+            "seller_shared_discount_percent": "0.00"
         }
 
 ### Update Coupon [PUT]
