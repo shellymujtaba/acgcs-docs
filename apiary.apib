@@ -3974,7 +3974,157 @@ If tax rate already exists for input address, the call will update the tax rate.
     + address_value (required, String, `CA`)...zip code or state abbreviation
     
 + Response 204
+
+##Shipping Profile [/shops/{shop_id}/shippingprofile]
+Sellers will specify the shipping profile at the shop level. Shipping cost for physical items will be calcalated based on buyer shipping address and shipping profile associated with physical products. If shop does not have shipping profile, then seller cannot publish any of physical assets for sale of that shop. The seller can always add physical assets, that are NOT for sale without shipping profile
+
++ Parameters
+    + shop_id (required, Number, `20280723`)...Shop id
+    
+### Retrieve shipping profile [GET]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            X-Secure-Session: 87B30A4BCB94B9955BE4CBF3C1865FDC00B117C3CA30E674AAA1E3B45563A978
+
++ Parameters
+    + limit (optional, Number,`1`)... Number of results to return in each page. Default: 10.
+    + offset (optional, Number, `3`)... This offsets the start of each page by the number specified. Default: 0.
+
+    
++ Response 200 (application/json)
+
+{
+    "count": 3,
+    "limit": 20,
+    "offset": 0,
+    "_link": "/shops/79/shippingprofile?limit=20&offset=0",
+    "shippingprofiles": [
+        {
+            "shippingprofile_id": 5,
+            "shop_id": 79,
+            "shippingprofile_name": "US Standarad",
+            "shippingprofile_description": "",
+            "shippingprofile_from_country": "US",
+            "shippingprofile_to_country": "US",
+            "shippingprofile_shipping_time": "2 days",
+            "shippingprofile_shipping_cost": 9,
+            "shippingprofile_additional_cost": 1.5,
+            "is_default_shipping_profile": true
+        },
+        {
+            "shippingprofile_id": 6,
+            "shop_id": 79,
+            "shippingprofile_name": "US Overnight",
+            "shippingprofile_description": "",
+            "shippingprofile_from_country": "US",
+            "shippingprofile_to_country": "US",
+            "shippingprofile_shipping_time": "1 day",
+            "shippingprofile_shipping_cost": 12,
+            "shippingprofile_additional_cost": "",
+            "is_default_shipping_profile": false
+        },
+        {
+            "shippingprofile_id": 12,
+            "shop_id": 79,
+            "shippingprofile_name": "US in a week",
+            "shippingprofile_description": "",
+            "shippingprofile_from_country": "US",
+            "shippingprofile_to_country": "US",
+            "shippingprofile_shipping_time": "5 days",
+            "shippingprofile_shipping_cost": 5,
+            "shippingprofile_additional_cost": "",
+            "is_default_shipping_profile": false
+        }
+    ]
+}
+
+### Add shipping profile [POST]
+If shop doesn't have shipping profile, then first shipping profile will be the default shipping profile for the shop and all the physical products of the shop will automatically assigned to default profile.
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            X-Secure-Session: ABC1232324244
+
++ Parameters
+    + name (required, String,`US Overnight`)...Shipping profile name
+    + description (optional, String,`US Overnight shipping profile`)...Shipping profile description
+    + from_country (required, String,`US`)...Shipping profile from country field. The value is iso code for country like 'US' for United States,'CA' for Canada.
+    + to_country (required, String,`US`)...Shipping profile to country field. The value is iso code for country like 'US' for United States,'CA' for Canada.
+    + shipping_time (required, String,`1 day`)...Shipping time for this shipping profile like 1 day or 2 days or 5 days.
+    + shipping_cost (required, Number,`10`)...Shipping cost for this shipping profile.
+    + additional_cost (required, Number,`5`)...Addional cost for this shipping profile.
+    + is_default (optional, String, `true`)...If is_default is true then this shipping profile will become the default shipping profile for the shop. So when you add physical product for this shop, the product will be associated to default profile automatically.
+
++ Response 200 (application/json)
+
+        {
+            "shippingprofile_id": 5,
+            "shop_id": 79,
+            "shippingprofile_name": "US Standarad",
+            "shippingprofile_description": "",
+            "shippingprofile_from_country": "US",
+            "shippingprofile_to_country": "US",
+            "shippingprofile_shipping_time": "2 days",
+            "shippingprofile_shipping_cost": 9,
+            "shippingprofile_additional_cost": 1.5,
+            "is_default_shipping_profile": true
+        }
         
+
+##Shipping Profile [/shops/{shop_id}/shippingprofile/{shippingprofile_id}]
++ Parameters
+    + shop_id (required, Number, `20280723`)...Shop id
+    + shippingprofile_id (required, Number, `10`)...Shipping Profile id
+    
+### Update shipping profile [PUT]
+The Seller can update shipping profile to Shop by chaning its name, shipping time, shipping cost or any other fields. The seller can also change default shipping profile of the shop by passing is_default=true. When seller pass is_default true for shipping profile then that shipping profile will become the default shipping profile for shop. The shop can have only one shipping profile at a time.
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            X-Secure-Session: ABC1232324244
+
++ Parameters
+    + name (optional, String,`US Overnight`)...Shipping profile name
+    + description (optional, String,`US Overnight shipping profile`)...Shipping profile description
+    + from_country (optional, String,`US`)...Shipping profile from country field. The value is iso code for country like 'US' for United States,'CA' for Canada.
+    + to_country (optional, String,`US`)...Shipping profile to country field. The value is iso code for country like 'US' for United States,'CA' for Canada.
+    + shipping_time (optional, String,`1 day`)...Shipping time for this shipping profile like 1 day or 2 days or 5 days.
+    + shipping_cost (optional, Number,`10`)...Shipping cost for this shipping profile.
+    + additional_cost (optional, Number,`5`)...Addional cost for this shipping profile.
+    + is_default (optional, String, `true`)...If is_default is true then this shipping profile will become the default shipping profile for the shop. So when you add physical product for this shop, the product will be associated to default profile automatically.
+
++ Response 200 (application/json)
+
+        {
+            "shippingprofile_id": 5,
+            "shop_id": 79,
+            "shippingprofile_name": "US Standarad",
+            "shippingprofile_description": "",
+            "shippingprofile_from_country": "US",
+            "shippingprofile_to_country": "US",
+            "shippingprofile_shipping_time": "2 days",
+            "shippingprofile_shipping_cost": 9,
+            "shippingprofile_additional_cost": 1.5,
+            "is_default_shipping_profile": true
+        }     
+
+### Delete shipping profile[DELETE]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+        X-AFC: FJKB32
+        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+        X-Secure-Session: 87B30A4BCB94B9955BE4CBF3C1865FDC00B117C3CA30E674AAA1E3B45563A978
+    
++ Response 204
+
 #Group Carts
 Cart is nothing but a shopping basket where user can put digital or physical items.
 Here are some key points about cart:
