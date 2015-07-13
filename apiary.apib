@@ -3786,6 +3786,7 @@ Shop ID is optional for admin to retrieve all sales regardless of shop ID.
     + end_date (optional, Date, `2014-12-05`)... Limit results to orders creataed on or before end_date ("yyyy-dd-MM" format).
     + product_type (optional, String, `DIGITAL`)... Limit results to either DIGITAL or PHYSICAL items. Shipping items are also returned when PHYSICAL is specified. No filtering if not specified.
     + order_status (optional, String, `IN_PROGRESS`)... When specified, return only orders with given status. Values can be: IN_PROGRESS, COMPLETE, CANCELED, ON_HOLD, CLOSED, FAILED, DECLINE. Returns all orders if not specified.
+    If the product_type is specified, only the orders containing this product type will be returned.
     + fulfilled_by (optional, String, `EInc`)... Return sales fulfilled by EInc. Returns sales regardless of fulfillment company.
     + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
