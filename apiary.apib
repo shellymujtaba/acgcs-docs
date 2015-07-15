@@ -3514,6 +3514,7 @@ A physical asset cannot be put for sale without product fulfillment information.
     + package_width (optional, Number, `19.99`)... Sets the width of the package which is shipped to customer after customer buys the physical asset. This parameter is ONLY used if product type is physical. This information is required before the asset is put on sale. Unit is inch
     + apply_tax (optional, Boolean, `true`)... Sets whether tax should be applied on a product. Default: true
     + shipping_profile (optional, Number, 1,2)...Sets the shipping profile on a product. Value can be single shipping profile id or comma seperated list of shipping profile ids.
+    + lead_in_days (optional, Number, 1)...Sets the lead in days for physical asset. The lead in days indicates number of days between order date and shipping date. Lead in days are required for putting physical asset before it is being put for sale. 
 
 
 + Response 200
