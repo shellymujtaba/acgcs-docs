@@ -1655,7 +1655,16 @@ This group of operations provides information on the marketplace APIS such as sh
     + JSON_String (required,String, `PLEASE SEE COMMENTS BELOW`)...You have to pass actual JSON string and set header to (application/JSON) in addition to default headers for cloud service API.
 <br><div class="parameterKey">JSON_String to set status to FAILED</div></h5>
 <br>{"status":"FAILED","errorCode":"B56GHSGFT","errorMessage":"We can not fulfil your order as items are out of stock."}
-<br>JSON to set status to COMPLETE
+<br><div class="parameterKey">JSON_String to set status to COMPLETE</div></h5>
+<br>{"status":"COMPLETE","shipping":{"shipper":"UPS","trackingURL":"http://www.fedex.com?mic=shsjknbsg7262gs","trackingNumber":"MKAHS6724FHAHAJG6"},"completionDate":"2015-07-17 14:30:00"}
+<br><div class="parameterKey">JSON_String to set status to CANCELED</div></h5>
+<br>If refund status is false
+<br>{"status":"CANCELED","cancellationDate":"2015-07-15 22:00:00","refund":"false","cancellationReason":"Product went offline since yesterday."}
+<br>If refund status is true then you have to pass refund data
+<br>{"status":"CANCELED","cancellationDate":"2015-07-15 22:00:00","refund":"true","cancellationReason":"Product went offline since yesterday.","refundData":"{\"psp_reference_number\":\"a262987-f37c-43f9-a86d-dcb8563601d7\",\"full_refund\": \"true\",\"refund_reason\": \"test refund reason\",\"line_item_refunds\": [{\"product_id\":1616403,\"remove_access\":\"true\",\"silent_refund\":\"false\"},{\"product_id\":1616404,\"remove_access\":\"false\",\"silent_refund\":\"true\"}]}"}
+<br><div class="parameterKey">JSON_String to set status to IN_PROGRESS|ON_HOLD|CLOSED_DECLINE/</div></h5>
+<br>{"status":"IN_PROGRESS"}
+
 + Request (application/x-www-form-urlencoded)
 + Response 200 (application/json)
 
