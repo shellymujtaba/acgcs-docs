@@ -1658,13 +1658,19 @@ This group of operations provides information on the marketplace APIS such as sh
 <br><br>If current status is COMPLETE | CLOSED | DECLINE | CANCELED then you can not set FAILED status.(ErrorCode : 34750 : Order status can not be modified.)
 <br><br><div class="parameterKey">JSON_String to set status to COMPLETE</div>
 <br>{"status":"COMPLETE","shipping":{"shipper":"UPS","trackingURL":"http://www.fedex.com?mic=shsjknbsg7262gs" ,"trackingNumber":"MKAHS6724FHAHAJG6"},"completionDate":"2015-07-17 14:30:00"}
+<br><br>If current status is CLOSED | DECLINE | CANCELED then you can not set COMPLETE status.(ErrorCode : 34750 : Order status can not be modified.)
 <br><br><div class="parameterKey">JSON_String to set status to CANCELED</div>
 <br><div class="parameterKey">-----If refund status is false</div>
 <br>{"status":"CANCELED","cancellationDate":"2015-07-15 22:00:00","refund":"false","cancellationReason":"Product went offline since yesterday."}
 <br><div class="parameterKey">-----If refund status is true then you have to pass refund data</div>
 <br>{"status":"CANCELED","cancellationDate":"2015-07-15 22:00:00","refund":"true","cancellationReason":"Product went offline since yesterday.","refundData":"{\"psp_reference_number\":\"a262987-f37c-43f9-a86d-dcb8563601d7\",\"full_refund\": \"true\",\"refund_reason\": \"test refund reason\",\"line_item_refunds\": [{\"product_id\":1616403,\"remove_access\":\"true\",\"silent_refund\":\"false\"},{\"product_id\":1616404,\"remove_access\":\"false\",\"silent_refund\":\"true\"}]}"}
+<br><br>If current status is COMPLETE | CLOSED | DECLINE | CANCELED then you can not set CANCELED status.(ErrorCode : 34750 : Order status can not be modified.)
 <br><br><div class="parameterKey">JSON_String to set status to IN_PROGRESS | ON_HOLD | CLOSED | DECLINE</div>
 <br>{"status":"IN_PROGRESS"}
+<br><br>If current status is COMPLETE | CLOSED | DECLINE | CANCELED then you can not set IN_PROGRESS status.(ErrorCode : 34750 : Order status can not be modified.)
+<br><br>If current status is COMPLETE | CLOSED | DECLINE | CANCELED | FAILED then you can not set ON_HOLD status.(ErrorCode : 34750 : Order status can not be modified.)
+<br><br>If current status is COMPLETE then you can not set CLOSED status.(ErrorCode : 34750 : Order status can not be modified.)
+<br><br>If current status is COMPLETE | CLOSED | DECLINE | CANCELED | FAILED then you can not set DECLINE status.(ErrorCode : 34750 : Order status can not be modified.)
 
 + Request (application/x-www-form-urlencoded)
     + Headers
