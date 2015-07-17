@@ -1652,7 +1652,9 @@ This group of operations provides information on the marketplace APIS such as sh
 ### Update an order status [POST]
 + Parameters
     + id (required,String, `b9a26297-38d2-4091-8882-620122bf0374`)...Vendor order reference number
-    + JSON_String (required, String, '{"status":"FAILED","errorCode":"B56GHSGFT","errorMessage":"We can not fulfil your order as items are out of stock."}')...Json string
+    + JSON_String (required, String, 'PLEASE SEE NOTES BELOW')...Json string
+
+You have to pass actual JSON string and header will be set to (application/JSON) in addition to default headers for cloud service API.
 + Request (application/x-www-form-urlencoded)
 + Response 200 (application/json)
 
