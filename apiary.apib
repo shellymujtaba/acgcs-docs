@@ -1655,6 +1655,7 @@ This group of operations provides information on the marketplace APIS such as sh
     + JSON_String (required,String,`json string`)...You have to pass actual JSON string and set header to (application/JSON) in addition to default headers for cloud service API.
 <br><br><div class="parameterKey">JSON_String to set status to FAILED</div>
 <br>{"status":"FAILED","errorCode":"B56GHSGFT","errorMessage":"We can not fulfil your order as items are out of stock."}
+<br><br>If current status is COMPLETE | CLOSED | DECLINE | CANCELED then you can not set FAILED status.(ErrorCode : 34750 : Order status can not be modified.)
 <br><br><div class="parameterKey">JSON_String to set status to COMPLETE</div>
 <br>{"status":"COMPLETE","shipping":{"shipper":"UPS","trackingURL":"http://www.fedex.com?mic=shsjknbsg7262gs" ,"trackingNumber":"MKAHS6724FHAHAJG6"},"completionDate":"2015-07-17 14:30:00"}
 <br><br><div class="parameterKey">JSON_String to set status to CANCELED</div>
