@@ -3290,6 +3290,7 @@ Guest session results in only the public shop data to be returned. Offline shops
 |Shop description is too long. Maximum allowed length is 3500|400 Bad Request|3315|
 |Missing shop custom data key|400 Bad Request|3316|
 |Missing shop custom data value|400 Bad Request|3317|
+|Tax information is not available for the seller.|400 Bad Request|34026|
 
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -3524,7 +3525,6 @@ A physical asset cannot be put for sale without product fulfillment information.
 |You do not have access to this shop|400 Bad Request|3309|
 |Product type is required when new asset is added to shop|400 Bad Request|34034|
 |Product price is required when new asset is added to shop|400 Bad Request|34036|
-|Tax information is not available for the seller.|400 Bad Request|34026|
 |No shop found|400 Bad Request|3300|
 |Shop status is invalid|400 Bad Request|3310|
 |Information is missing for product for sale|400 Bad Request|34037|Missing parameter: is_available, package_weight, package_length, package_height, package_width
@@ -3633,17 +3633,6 @@ A physical asset cannot be put for sale without product fulfillment information.
                 "file_formats": [],
                 "extended_data": {}
             }
-
-+ Response 400 (application/json)
-
-            {
-                "code": 34026,
-                "status": 400,
-                "message": "Tax information is not available for the seller. | URL Parameters:asset_price=4.99&for_sale=true | URL Parameters:asset_price=4.99&for_sale=true",
-                "data": {},
-                "error_id": "bb2e264c-ed53-401e-9a2e-acfacb4feb44"
-            }
-
 
 
 ##Payouts [/shops/{shop_id}/payouts]
@@ -6486,6 +6475,7 @@ Update a shop based on the parameters in the query.
 |Shop description is too long. Maximum allowed length is 3500|400 Bad Request|3315|
 |Missing shop custom data key|400 Bad Request|3316|
 |Missing shop custom data value|400 Bad Request|3317|
+|Tax information is not available for the seller.|400 Bad Request|34026|
 
 + Request (application/x-www-form-urlencoded)
     + Header
@@ -6557,6 +6547,18 @@ Update a shop based on the parameters in the query.
                 "member_name": "chaitanya tapaswi1011",
                 "member_email": "chaitanya.tapaswi1011@gmail.com"
             }
+            
++ Response 400 (application/json)
+
+            {
+                "code": 34026,
+                "status": 400,
+                "message": "Tax information is not available for the seller. | URL Parameters:asset_price=4.99&for_sale=true | URL Parameters:asset_price=4.99&for_sale=true",
+                "data": {},
+                "error_id": "bb2e264c-ed53-401e-9a2e-acfacb4feb44"
+            }
+
+
 
 ## Shop Assets [/admin/shops/assets{?shop_id,member_id,member_name,member_email,shop_name,start_date,end_date,for_sale_only,sort_by,sort_order,limit,offset}]
 Retrieve the assets for sales according to the query parameters. Only the assets for the APPROVED and ONLINE shops are returned.
@@ -6822,7 +6824,6 @@ A physical asset cannot be put for sale without shop shipping information and pr
 |You do not have access to this shop|400 Bad Request|3309|
 |Product type is required when new asset is added to shop|400 Bad Request|34034|
 |Product price is required when new asset is added to shop|400 Bad Request|34036|
-|Tax information is not available for the seller.|400 Bad Request|34026|
 |No shop found|400 Bad Request|3300|
 |Shop status is invalid|400 Bad Request|3310|
 |Shop address is required for product for sale|400 Bad Request|34039|
