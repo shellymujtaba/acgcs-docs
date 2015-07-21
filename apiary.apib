@@ -1892,9 +1892,11 @@ This operation will return a list of members.  At least one parameter is require
 
 + Parameters
     + name (optional,String, `Smith`)...Member name
-    + description (optional,String, `Photography`)...Member description, which must be at least 5 characters in length.
+    + description (optional,String, `Photography`)...Member description, which must be at least 3 characters in length.
     + limit (optional, Number,`20`)...Number of results to return in each page. Default: 20.
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
+    + sort_by (optional, String, `name`)...Indexed field to sort by.
+    + sort_order (optional, String, `asc`)...Sort order: ascending `asc` or descending `desc`.  Default asc.
 
 + Response 200 (application/json)
 
