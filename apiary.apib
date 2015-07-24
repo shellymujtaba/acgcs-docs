@@ -999,7 +999,10 @@ All references to external artifacts such as blog posts, videos, photos etc.
 + Parameters
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
 
-### Create a new link within the asset [POST] 
+### Create a new link within the asset [POST]
+
+Note: A UUID is saved against the link if no id is passed inside the link JSON.
+
 + Request (application/x-www-form-urlencoded)
     + Headers
     
