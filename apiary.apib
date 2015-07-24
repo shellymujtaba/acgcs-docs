@@ -1049,11 +1049,16 @@ All references to external artifacts such as blog posts, videos, photos etc.
             }
 
 ### Delete an asset link [DELETE]
+
 + Request (application/x-www-form-urlencoded)
     + Headers
     
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + link_ids (optional,String,`234566,142342FD65F`)...Comma separated list of link ids provided while creating the asset links.
+
 + Response 204
 
 ## Asset Translations [/assets/{id}/translations]
