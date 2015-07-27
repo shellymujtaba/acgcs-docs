@@ -460,7 +460,7 @@ This api is a starting point to display galleries, perform free-form searches. D
     + thumbnail_index (optional, Number, `1`)...Index of primary thumbnail image for results shown in THUMBNAIL_FILE (default is 1).<br>If thumbnail_index=2 is not available then it defaults to thumbnail_index=1.
     + file_type_list (optional, String, `obj`)...Limit results based on a comma-separated list of file types. Options: obj, stl, mtl
     + exclude_keywords (optional, String, `dog`)...Limit results based to those not associated with a list of keywords 
-    + asset_ids (optional, String, `123456+987654+456789` )...Limit results based on asset ID(s) 
+    + asset_ids (optional, String, `123456,987654,456789` )...Limit results based on asset ID(s) 
     + sort_by (optional, String,`asset_name`)...Order search results based on a specific attribute. <br> Options: asset_name, artist, date, favorite_count, favorite_count_strict,format, price, download_count.<br>Note: favorite_count_strict will sort the results strictly by number of likes, where as favorite_count will sort the results by popularity.
     + sort_order  (optional,String,`asc`)...Direction of ordered search results based on value of sort_by. <br> Options: asc, desc 
     + display_filter  (optional,String, `d`)...Show only Gallery or Featured items.<br>Options:<br>d: Gallery item with downloads <br>f: Featured items; <br>o: Online viewer enabled assets <br>Example: d, f, o, dfo, fo 
@@ -478,7 +478,7 @@ This api is a starting point to display galleries, perform free-form searches. D
     + min_price (optional, Number, `123`)...Result will include asset with price equal or greater.
     + max_price (optional, Number, `7623`)...Result will include asset with price equal or Less.
     + is_app_featured (optional, Boolean, `true`)...Result will include assets marked as featured at the app level.
-    + wildcard_search (optional, Boolean, `false`)...if true, CONTAINS search will be done. Example:- word 'car' will return results including car,oscar,boxcars,etc.
+    + wildcard_search (optional, Boolean, `false`)...if true, CONTAINS search will be done. Example: The word 'car' will return results which includes car, oscar, boxcars etc.
 
 ## List all Assets [GET]
 
