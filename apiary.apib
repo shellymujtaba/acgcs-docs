@@ -2987,6 +2987,17 @@ Here are the general steps:
 3. Once end user has logged in the end point redirects back to the relative_redirect_path specified by the client application along with a login token  
 4. The client application passes the token along with the login secret key to the /login/authenticatetoken end point to recieve a user session  
 
+Two letter code for social provider
+
+Facebook    FB
+Google      GO
+Yahoo       YH
+Twitter     TW
+LinkedIn    LN
+Microsoft   WL
+deviantART  DA
+Bosch       BO
+
 ### Login [GET]
 
 + Parameters
@@ -3015,16 +3026,6 @@ Here are the general steps:
     + Header
         
             Location: "https://myapp.com/relative_path?token_key=12313232333"
-
-## Two letter code for social provider
-    Facebook    FB
-    Google      GO
-    Yahoo       YH
-    Twitter     TW
-    LinkedIn    LN
-    Microsoft   WL
-    deviantART  DA
-    Bosch       BO
 
 
 ## Authenticate Token [/login/authenticatetoken]
