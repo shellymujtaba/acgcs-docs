@@ -3008,6 +3008,7 @@ Here are the general steps:
     FB,GO,YH,TW,LN,WL,DA).  If parameter is missing, then all providers' sign-on options are shown.
     + css_query_param (optional, String, `version%3D1%26app%3Dtest`)...This param is used to append query parameter in css url, so that you can invalidate your css cache.
     + moderator_id (optional, String, `8DT4LUZPVQUV`)...For COPPA enabled apps , they can pass moderator id to login which will help the child to auto link while creating a new user.
+    + auto_login (optional, Boolean, `false`)...This auto login works in conjunction with social_providers. This will directly open the social provider popup based on social providers value. If you will pass list of social provider then it will pick first valid social provider for auto login.
 
 + Response 302 
     
