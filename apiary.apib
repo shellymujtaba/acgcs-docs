@@ -3839,7 +3839,7 @@ Shop ID is optional for admin to retrieve all sales regardless of shop ID.
 
 + Parameters
     + shop_id (required, Number, `20280723`)...Shop id. Optional for administrator.
-    + order_id (optional, Number, `1234123456`)...Order Id to use as a filter for sales, which returns multiple records for orders that got refunded or charged back.
+    + order_id (optional, Number, `1234123456`)...Order Id to use as a filter for sales. It will return multiple records when orders are refunded or charged back.
     + start_date (optional, Date, `2014-11-04`)... Limit results to orders created on or after start_date ("yyyy-MM-dd" or "yyyy-MM-dd hh:mm:ss" formats).
     + end_date (optional, Date, `2014-12-05`)... Limit results to orders creataed on or before end_date ("yyyy-MM-dd" or "yyyy-MM-dd hh:mm:ss" formats).
     + product_type (optional, String, `DIGITAL`)... Limit results to either DIGITAL or PHYSICAL items. Shipping items are also returned when PHYSICAL is specified. No filtering if not specified.
