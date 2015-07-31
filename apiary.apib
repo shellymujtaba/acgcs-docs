@@ -5699,7 +5699,11 @@ Apply a coupon. Returns the updated cart (as identified by afc header and cart t
 
 |Message|HTTP Status Code|Error Code
 |----|----|----
-|Coupon does not apply for this cart.|400 Bad Request|3000
+|Coupon does not apply for this cart.(only for ESTORE)|400 Bad Request|3000
+|The coupon is invalid|400 Bad Request|34711
+|Coupon code expires|400 Bad Request|34714
+|Coupon code usage has exceeded the limit|400 Bad Request|34715
+|Member has already used this coupon code|400 Bad Request|34716
 
 + Request (application/x-www-form-urlencoded)
 
