@@ -3561,6 +3561,7 @@ A physical asset cannot be put for sale without product fulfillment information.
 |Shop status is invalid|400 Bad Request|3310|
 |Information is missing for product for sale|400 Bad Request|34037|Missing parameter: is_available, package_weight, package_length, package_height, package_width
 |This Product price is missing|400 Bad Request|34038|
+|A product with same vendor SKU already exists|400 Bad Request|34044|
 
 
 + Request (application/x-www-form-urlencoded)
@@ -3575,7 +3576,7 @@ A physical asset cannot be put for sale without product fulfillment information.
     + asset_price (required, Number, `5.99`)... Sets asset price
     + for_sale (optional, Boolean, `true`)... Mark asset for sale. Default: false
     + product_type (optional, String, `PHYSICAL`)... Sets the product type for added asset. This parameter is ONLY required if asset is being added for the first time. Supported values are (PHYSICAL,DIGITAL) Default : ""
-    + vendor_sku (optional, String, `sku123`)... Sets the vendor sku id
+    + vendor_sku (optional, String, `sku123`)... Sets the vendor sku id. This must be unique for this shop.
     + is_available (optional, Boolean, `true`)... Sets the stock availability for asset. This parameter is ONLY used if product type is physical. This information is required when the asset is put on sale. 
     + package_weight (optional, Number, `1.99`)... Sets the weight of the package which is shipped to customer after customer buys the physical asset. This parameter is ONLY used if product type is physical. This information is required before the asset is put on sale. Unit is LB
     + package_length (optional, Number, `49.99`)... Sets the length of the package which is shipped to customer after customer buys the physical asset. This parameter is ONLY used if product type is physical. This information is required before the asset is put on sale. Unit is inch
