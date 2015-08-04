@@ -1899,14 +1899,15 @@ The same notification preferences will be used even for sending push notificatio
                 "_link":"/member/20280723"
             }
             
-## Search [/members/search]
+## Search [/members/search{?name,description,limit,offset,sort_by,sort_order}]
 This operation will return a list of members.  At least one parameter is required.
 
 ### Search for members [GET]
 + Request (application/x-www-form-urlencoded)
     + Headers
-        X-AFC: FJKB32
-        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
     + name (optional,String, `Smith`)...Member name
@@ -1918,30 +1919,30 @@ This operation will return a list of members.  At least one parameter is require
 
 + Response 200 (application/json)
 
-{
-    "count": 34,
-    "limit": 1,
-    "offset": 0,
-    "_link": "/members/search?description=Photography&limit=1&offset=0",
-    "_link_next": "/members/search?description=Photography&limit=1&offset=1",
-    "members": [
         {
-            "member": {
-                "id": 20212345,
-                "profile": {
-                    "location": "San Francisco, CA",
-                    "description": "I do stuff with aerial photography, hyperspectral imaging and stuff with machines that go beep",
-                    "avatar_path": "https://static.spark.autodesk.com/2011/10/11__13_44_26/Photo-1.jpg37e.jpg",
-                    "find_me": {
-                        "twitter": "http://www.twitter.com/JSmith",
-                        "personal": "www.SmithLighting.com"
+            "count": 34,
+            "limit": 1,
+            "offset": 0,
+            "_link": "/members/search?description=Photography&limit=1&offset=0",
+            "_link_next": "/members/search?description=Photography&limit=1&offset=1",
+            "members": [
+                {
+                    "member": {
+                        "id": 20212345,
+                        "profile": {
+                            "location": "San Francisco, CA",
+                            "description": "I do stuff with aerial photography, hyperspectral imaging and stuff with machines that go beep",
+                            "avatar_path": "https://static.spark.autodesk.com/2011/10/11__13_44_26/Photo-1.jpg37e.jpg",
+                            "find_me": {
+                                "twitter": "http://www.twitter.com/JSmith",
+                                "personal": "www.SmithLighting.com"
+                            }
+                        },
+                        "name": "John Smith"
                     }
-                },
-                "name": "John Smith"
-            }
+                }
+            ]
         }
-    ]
-}
 
 ## Apps [/members/{id}/apps]
 Member apps operations
