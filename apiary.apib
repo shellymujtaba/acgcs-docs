@@ -489,8 +489,9 @@ This api is a starting point to display galleries, perform free-form searches. D
 
 + Request (application/x-www-form-urlencoded)
     + Headers
-        X-AFC: FJKB32
-        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             
 
 + Response 200 (application/json)
@@ -588,8 +589,9 @@ Note: The key should be unique within the asset. Using the same key in POST will
 
 + Request (application/x-www-form-urlencoded)
     + Headers
-        X-AFC: FJKB32
-        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Response 201 (application/json)
         {
@@ -603,8 +605,9 @@ Note: The key should be unique within the asset. Using the same key in POST will
 
 + Request (application/x-www-form-urlencoded)
     + Headers
-        X-AFC: FJKB32
-        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Response 200 (application/json)
     {
@@ -623,8 +626,9 @@ Note: The key should be unique within the asset. Using the same key in POST will
 ### Delete an asset custom data[DELETE]
 + Request (application/x-www-form-urlencoded)
     + Headers
-        X-AFC: FJKB32
-        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
     + keys (required, String, `key1,key2`)...Comma seperated list of custom data keys to be deleted from this asset.
@@ -643,8 +647,9 @@ Operations to add preview files to this asset. These operations are used to add 
 
 + Request (application/x-www-form-urlencoded)
     + Headers
-        X-AFC: FJKB32
-        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Response 201 (application/json)
         {
@@ -658,8 +663,9 @@ Operations to add preview files to this asset. These operations are used to add 
 
 + Request (application/x-www-form-urlencoded)
     + Headers
-        X-AFC: FJKB32
-        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Response 200 (application/json)
         {
@@ -690,8 +696,9 @@ Operations to add preview files to this asset. These operations are used to add 
 
 + Request (application/x-www-form-urlencoded)
     + Headers
-        X-AFC: FJKB32
-        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
+            X-AFC: FJKB32
+            X-Session: F56FF F-8035-4F7E-90A3-066C5897AD57
 
 + Response 201 (application/json)
         {
@@ -701,8 +708,9 @@ Operations to add preview files to this asset. These operations are used to add 
 ### Delete an asset previews [DELETE]
 + Request (application/x-www-form-urlencoded)
     + Headers
-        X-AFC: FJKB32
-        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
     + file_ids (required,String, `234567,334562`)...Comma seperated list of assets preview file ids to be deleted from this asset.
@@ -1573,8 +1581,9 @@ API to make private files to public files
 
 + Request (application/x-www-form-urlencoded)
     + Headers
-        X-AFC: FJKB32
-        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
     + file_ids (required, String, `1234,5678`)...Comma separated list of file ids
@@ -1604,8 +1613,9 @@ Note: The files must be made public using the POST before retrieving their publi
 
 + Request (application/x-www-form-urlencoded)
     + Headers
-        X-AFC: FJKB32
-        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
     + file_ids (required, String, `1234,5678`)...Comma separated list of file ids
@@ -1631,8 +1641,9 @@ API to delete public files.
 
 + Request (application/x-www-form-urlencoded)
     + Headers
-        X-AFC: FJKB32
-        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
     + file_ids (required, String, `1234,5678`)...Comma separated list of file ids
@@ -1647,8 +1658,9 @@ Note: The public url of the file is returned only if the file is made public.
 
 + Request (application/x-www-form-urlencoded)
     + Headers
-        X-AFC: FJKB32
-        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
     + file_id (required, Number, `1234`)...File Id
@@ -1692,10 +1704,11 @@ This group of operations provides information on the marketplace APIS such as sh
 
 + Request (application/x-www-form-urlencoded)
     + Headers
-        X-AFC: TC1ONA
-        X-SECURE-SESSION: BD715D557FE163EA68A3427DD4320942
-        X-SESSION: 6015771E-DD4E-421B-8EFA-2EA2B0761C8B
-        Content-Type: application/json
+
+            X-AFC: TC1ONA
+            X-SECURE-SESSION: BD715D557FE163EA68A3427DD4320942
+            X-SESSION: 6015771E-DD4E-421B-8EFA-2EA2B0761C8B
+            Content-Type: application/json
 
 + Response 200 (application/json)
 
@@ -2414,8 +2427,9 @@ Type of Address (`address_type`) values:
 ### Retrieve member's addresses [GET]
 + Request (application/x-www-form-urlencoded)
     + Headers
-        X-AFC: FJKB32
-        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
     + address_id (required,String, `551308`)...Existing address id
@@ -2452,8 +2466,9 @@ Type of Address (`address_type`) values:
 ### Create a new member address [POST]
 + Request (application/x-www-form-urlencoded)
     + Headers
-        X-AFC: FJKB32
-        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
     + address_id (required,String, `551308`)...Existing address id to be updated.
@@ -2491,8 +2506,9 @@ Type of Address (`address_type`) values:
 ### Update an existing member address [PUT]
 + Request (application/x-www-form-urlencoded)
     + Headers
-        X-AFC: FJKB32
-        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
     + address_id (required,String, `551308`)...Existing address id - to be updated.
@@ -4039,9 +4055,10 @@ If tax rate already exists for input address, the call will update the tax rate.
 ### Delete shop tax[DELETE]
 + Request (application/x-www-form-urlencoded)
     + Headers
-        X-AFC: FJKB32
-        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-        X-Secure-Session: 87B30A4BCB94B9955BE4CBF3C1865FDC00B117C3CA30E674AAA1E3B45563A978
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            X-Secure-Session: 87B30A4BCB94B9955BE4CBF3C1865FDC00B117C3CA30E674AAA1E3B45563A978
 
 + Parameters
     + address_type (required, String,`STATE`)...value: ZIP|STATE.
@@ -4193,9 +4210,10 @@ The Seller can update shipping profile to Shop by chaning its name, shipping tim
 ### Delete shipping profile[DELETE]
 + Request (application/x-www-form-urlencoded)
     + Headers
-        X-AFC: FJKB32
-        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-        X-Secure-Session: 87B30A4BCB94B9955BE4CBF3C1865FDC00B117C3CA30E674AAA1E3B45563A978
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            X-Secure-Session: 87B30A4BCB94B9955BE4CBF3C1865FDC00B117C3CA30E674AAA1E3B45563A978
     
 + Response 204
 
@@ -7768,8 +7786,9 @@ Note: Please contact the Cloud Services team to get your App Id.
 
 + Request (application/x-www-form-urlencoded)
     + Headers
-        X-AFC: FJKB32
-        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
     + app_ids (required, String, `12,14,15`) ...list of app ids
@@ -7823,8 +7842,9 @@ Retrieve contest details by contest Id.
 
 + Request (application/x-www-form-urlencoded)
     + Headers
-        X-AFC: FJKB32
-        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
     + id (required, Number, `12`) ...Contest Id
@@ -7865,8 +7885,9 @@ Retrieve all the contests won by a member.
 
 + Request (application/x-www-form-urlencoded)
     + Headers
-        X-AFC: FJKB32
-        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
     + member_id (required, Number, `12342`) ...Member Id
@@ -7946,8 +7967,9 @@ Retrieve all the contests won by an assets.
 
 + Request (application/x-www-form-urlencoded)
     + Headers
-        X-AFC: FJKB32
-        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
     + asset_id (required, Number, `12342`) ...Asset Id
