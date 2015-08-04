@@ -1714,8 +1714,9 @@ name, email, locale and avatar
 
 + Response 200 (application/json)
     + Headers
-        X-AFC: FJKB32
-        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
     + Body
 
@@ -1808,8 +1809,9 @@ name, email, locale and avatar
             
 + Response 200 (application/json)
     + Headers
-        X-AFC: FJKB32
-        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57 (Guest session)
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57 (Guest session)
 
     + Body
 
@@ -1850,9 +1852,10 @@ name, email, locale and avatar
 ### Update a member [PUT]
 + Request (application/x-www-form-urlencoded)
     + Headers
-        X-AFC: FJKB32
-        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-        X-Secure-Session: ECASR7DN20SNJMLLI
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            X-Secure-Session: ECASR7DN20SNJMLLI
 
 + Parameters
     + name (optional, String, `jsmith new`)...Member name - this must be unique otherwise the method will return 400 error with suggested alternatives
@@ -1950,8 +1953,9 @@ Member apps operations
 ### Retrieve a member apps [GET]
 + Request (application/x-www-form-urlencoded)
     + Headers
-        X-AFC: FJKB32
-        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
     + id (required,String, `20706644`)...Member id
@@ -1981,15 +1985,16 @@ Member apps operations
 ### Remove a member apps [DELETE]
 + Request (application/x-www-form-urlencoded)
     + Headers
-        X-AFC: FJKB32
-        X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
     + app_id (required,String, `4e2891b7-95e8-459c-bb75-61dc7754bd11`)...app id
 
 + Response 204 (application/json)
 
-## Follows [/members/{id}/follows]
+## Follows [/members/{id}/follows{?limit,offset}]
 Returns the list of users this member follows.
 
 + Parameters
