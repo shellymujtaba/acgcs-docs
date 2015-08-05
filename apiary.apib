@@ -7493,6 +7493,7 @@ Search all coupons.
     + name (optional, String, `50_OFF`)... Coupon name to search for. Name can be complete or partial name.
     + apply_to_product (optional, String, `1`)... SKU ID to search for applicable coupons
     + code (optional, String, `MHTFRKLKLKJ`) ... Coupon code to search for. Code can be complete or partial.
+    + coupon_status (optional, String, `ISSUED,DELETED`) ... Comma separated status of Coupon to search for. Available values include: ISSUED, DELETED. Default value = ISSUED.
     + sort_by (optional, CREATED_DATE|LAST_MODIFIED_DATE|EFFECTIVE_FROM_DATE|EFFECTIVE_TO_DATE, `EFFECTIVE_FROM_DATE`)... Sort coupon list by. Default value = CREATED_DATE
     + sort_order (optional, ASC|DESC, `ASC`)... Default value is DESC
     + limit (optional, Number, `10`)... Maximum number of coupons to return. Default value = 20
