@@ -13,9 +13,9 @@ Beta: https://beta-accounts.acg.autodesk.com/api/v2/login
 URL Structure is `https://{domain}/api/{version}/{resource}/{resourceId}`    
 All endpoints begin with /api/{version}/
 
-Production URL: https://api.acg.autodesk.com/api/v2  
-Beta URL: https://beta-api.acg.autodesk.com/api/v2  
-Example: https://beta-api.acg.autodesk.com/api/v2/assets/123456 
+Production URL: https://api.acg.autodesk.com/api/v2
+Beta URL: https://beta-api.acg.autodesk.com/api/v2
+Example: https://beta-api.acg.autodesk.com/api/v2/assets/123456
 
 #Verbs
 We use restful verbs.
@@ -6395,7 +6395,7 @@ Delete a coupon. Returns the updated cart (as identified by afc header and cart 
 These admin operations require admin privilege for logged in user.
 
 
-## Shops [/admin/shops{?shop_id,member_id,member_name,member_email,store_name,start_date,end_date,approval_status,sort_by,sort_order,limit,offset}]
+## Shops [/admin/shops{?shop_id,member_id,member_name,member_email,shop_name,store_name,start_date,end_date,approval_status,sort_by,sort_order,limit,offset}]
 Retrieve shops according to the query parameters.
 The default parameters will retrieve the latest `PENDING` shops with most recent at the top.
 
@@ -7001,7 +7001,7 @@ A physical asset cannot be put for sale without shop shipping information and pr
             }
 
 
-## Member Search [/admin/members/search]
+## Member Search [/admin/members/search{?email,id,name,created_on,last_login,provider,sort_order,sort_by,limit,offset}]
 Search members on various input parameters.
 
 + Parameters
@@ -7122,7 +7122,7 @@ Delete all status for member_id.
 
 + Response 204 (application/json)
 
-## Members [/admin/members/{id}]
+## Members [/admin/members/{member_id}{?reason}]
 
 ### Delete a member [DELETE]
 Delete a member from the database, and associated items such as assets, likes, follows, comments, etc.
@@ -7138,12 +7138,13 @@ Delete a member from the database, and associated items such as assets, likes, f
 
 + Response 204 (application/json)
 
-## Members Oxygen [/admin/members/oxygen/{oxygenid}]
+## Members Oxygen [/admin/members/oxygen/{oxygenid}{?member_code,ts,hash,afc}]
 
 ### Retrieve Member Information from Oxygen Id [GET]
 Get Member details by passing oxygen id. This api is hash based and timestamp has window of 180 mins.
 
 + Parameters
+    + oxygenid (required, Number,`116461678769132`)... Oxygen id
     + member_code (required, Number,`ABCD34DEBJ`)... Member code.This should be Hex encode of admin member id and timestamp concatenated with pound sign. Pattern is Hex.encode(12345678#2015-06-22 11:15:55)
     + ts (required, String, `2015-06-22 11:15:55`)... timestamp 
     + hash (required, String, `b97cbb9c6a7c7c9a1b016897cb76744a6c3c1cf9175e9bcd1c98d12eff79fffe`)... Hash Code. This should be SHA256 of afc code, membcer code, timestamp and shared secret. SHA256(afc+member_code+timestamp+shared_secret).
@@ -7895,7 +7896,7 @@ Retrieve contest details by contest Id.
             "title": "Dessert Contest"
         }
 
-## Member winning contests [/contests/members/{member_id}/winnings]
+## Member winning contests [/contests/members/{member_id}/winnings{?app_ids,limit,offset}]
 
 Retrieve all the contests won by a member.
 
@@ -7977,7 +7978,7 @@ Retrieve all the contests won by a member.
             ]
         }
 
-## Asset winning contests [/contests/assets/{asset_id}/winnings]
+## Asset winning contests [/contests/assets/{asset_id}/winnings{?limit,offset}]
 
 Retrieve all the contests won by an assets.
 
@@ -8058,7 +8059,7 @@ Retrieve all the contests won by an assets.
             ]
         }
 
-## Contest Entries [/contests/{contest_id}/entries]
+## Contest Entries [/contests/{contest_id}/entries{?finalists,hide,limit,offset}]
 
 Retrieve all the contest entries
 
@@ -8275,7 +8276,7 @@ Retrieve all the winners of a contest
             ]
         }
 
-## Member Entries [/contests/members/{member_id}]
+## Member Entries [/contests/members/{member_id}{?app_ids,limit,offset}]
 
 ### Get Member Entries [GET]
 
@@ -8375,7 +8376,7 @@ Retrieve all the member contest entries for given Apps
             ]
         }
 
-## Member Contest Entries [/contests/{contest_id}/members/{member_id}]
+## Member Contest Entries [/contests/{contest_id}/members/{member_id}{?entry_status,limit,offset,asset_id,action,country,hide}]
 
 ### Get Member Contest Entries [GET]
 
