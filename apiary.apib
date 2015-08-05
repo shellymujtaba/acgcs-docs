@@ -4103,50 +4103,50 @@ Sellers will specify the shipping profile at the shop level. Shipping cost for p
     
 + Response 200 (application/json)
 
-{
-    "count": 3,
-    "limit": 20,
-    "offset": 0,
-    "_link": "/shops/79/shippingprofile?limit=20&offset=0",
-    "shippingprofiles": [
         {
-            "shippingprofile_id": 5,
-            "shop_id": 79,
-            "shippingprofile_name": "US Standarad",
-            "shippingprofile_description": "",
-            "shippingprofile_from_country": "US",
-            "shippingprofile_to_country": "US",
-            "shippingprofile_shipping_time": "2 days",
-            "shippingprofile_shipping_cost": 9,
-            "shippingprofile_additional_cost": 1.5,
-            "is_default_shipping_profile": true
-        },
-        {
-            "shippingprofile_id": 6,
-            "shop_id": 79,
-            "shippingprofile_name": "US Overnight",
-            "shippingprofile_description": "",
-            "shippingprofile_from_country": "US",
-            "shippingprofile_to_country": "US",
-            "shippingprofile_shipping_time": "1 day",
-            "shippingprofile_shipping_cost": 12,
-            "shippingprofile_additional_cost": "",
-            "is_default_shipping_profile": false
-        },
-        {
-            "shippingprofile_id": 12,
-            "shop_id": 79,
-            "shippingprofile_name": "US in a week",
-            "shippingprofile_description": "",
-            "shippingprofile_from_country": "US",
-            "shippingprofile_to_country": "US",
-            "shippingprofile_shipping_time": "5 days",
-            "shippingprofile_shipping_cost": 5,
-            "shippingprofile_additional_cost": "",
-            "is_default_shipping_profile": false
+            "count": 3,
+            "limit": 20,
+            "offset": 0,
+            "_link": "/shops/79/shippingprofile?limit=20&offset=0",
+            "shippingprofiles": [
+                {
+                    "shippingprofile_id": 5,
+                    "shop_id": 79,
+                    "shippingprofile_name": "US Standarad",
+                    "shippingprofile_description": "",
+                    "shippingprofile_from_country": "US",
+                    "shippingprofile_to_country": "US",
+                    "shippingprofile_shipping_time": "2 days",
+                    "shippingprofile_shipping_cost": 9,
+                    "shippingprofile_additional_cost": 1.5,
+                    "is_default_shipping_profile": true
+                },
+                {
+                    "shippingprofile_id": 6,
+                    "shop_id": 79,
+                    "shippingprofile_name": "US Overnight",
+                    "shippingprofile_description": "",
+                    "shippingprofile_from_country": "US",
+                    "shippingprofile_to_country": "US",
+                    "shippingprofile_shipping_time": "1 day",
+                    "shippingprofile_shipping_cost": 12,
+                    "shippingprofile_additional_cost": "",
+                    "is_default_shipping_profile": false
+                },
+                {
+                    "shippingprofile_id": 12,
+                    "shop_id": 79,
+                    "shippingprofile_name": "US in a week",
+                    "shippingprofile_description": "",
+                    "shippingprofile_from_country": "US",
+                    "shippingprofile_to_country": "US",
+                    "shippingprofile_shipping_time": "5 days",
+                    "shippingprofile_shipping_cost": 5,
+                    "shippingprofile_additional_cost": "",
+                    "is_default_shipping_profile": false
+                }
+            ]
         }
-    ]
-}
 
 ### Add shipping profile [POST]
 If shop doesn't have shipping profile, then first shipping profile will be the default shipping profile for the shop and all the physical products of the shop will automatically assigned to default profile.
@@ -4597,7 +4597,7 @@ Delete the cart of the logged in user or guest. After this call, a call to GET /
     + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE`)...String `type` of the cart to perform action with.
 
 + Response 204 (application/json)
-        {}
+
 
 ##Cart line items [/carts/lineitems]
 Line items are items within carts. Cart can contain 'n' line items. User can perform various CRUD operations on line items.
@@ -7814,14 +7814,60 @@ Note: Please contact the Cloud Services team to get your App Id.
     
 + Response 200 (application/json)
 
-{
-    "count": 260,
-    "limit": 13,
-    "offset": 39,
-    "_link": "/contest?app_id=1,8&limit=10&offset=10",
-    "_link_prev": "/contest?app_id=1,8&limit=10&offset=0",
-    "_link_next": "/contest?app_id=1,8&limit=10&offset=20",
-    "contests": [
+        {
+            "count": 260,
+            "limit": 13,
+            "offset": 39,
+            "_link": "/contest?app_id=1,8&limit=10&offset=10",
+            "_link_prev": "/contest?app_id=1,8&limit=10&offset=0",
+            "_link_next": "/contest?app_id=1,8&limit=10&offset=20",
+            "contests": [
+                {
+                    "app_id": 1,
+                    "body": "We always want to see the dessert menu.",
+                    "closed_for_entries": "April 09, 2011 07:27:54",
+                    "closed_for_judging": "April 09, 2011 07:27:54",
+                    "entries": {
+                        "count": 1
+                    },
+                    "finalized": true,
+                    "id": "VRUT847H8EV6R6A",
+                    "open_for_entries": "April 09, 2011 07:27:54",
+                    "open_for_judging": "April 09, 2011 07:27:54",
+                    "prizes": [
+                        {
+                            "gift": {
+                                "title": "Grand Prize (1)",
+                                "description": "<strong>GRAND PRIZE (1 Winner)</strong><br />\r\n<br />\r\nOne Grand Prize winner will receive an iPad 2 with 16GB and WiFi. Winner will also receive an Instructables Prize Pack.",
+                                "value": "$424.00"
+                            },
+                            "number_of_winners": 1,
+                            "prize_level": "Grand Prize"
+                        }
+                    ],
+                    "square_file": "F8EA4W3H8EYZG5T",
+                    "title": "Dessert Contest"
+                }
+            ]
+        }
+
+## Contest Details [/contests/{id}]
+
+Retrieve contest details by contest Id.
+
+### Get Contest details by Id [GET]
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + id (required, Number, `12`) ...Contest Id
+    
++ Response 200 (application/json)
+
         {
             "app_id": 1,
             "body": "We always want to see the dessert menu.",
@@ -7848,51 +7894,6 @@ Note: Please contact the Cloud Services team to get your App Id.
             "square_file": "F8EA4W3H8EYZG5T",
             "title": "Dessert Contest"
         }
-    ]
-}
-
-## Contest Details [/contests/{id}]
-
-Retrieve contest details by contest Id.
-
-### Get Contest details by Id [GET]
-
-+ Request (application/x-www-form-urlencoded)
-    + Headers
-
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-
-+ Parameters
-    + id (required, Number, `12`) ...Contest Id
-    
-+ Response 200 (application/json)
-    {
-        "app_id": 1,
-        "body": "We always want to see the dessert menu.",
-        "closed_for_entries": "April 09, 2011 07:27:54",
-        "closed_for_judging": "April 09, 2011 07:27:54",
-        "entries": {
-            "count": 1
-        },
-        "finalized": true,
-        "id": "VRUT847H8EV6R6A",
-        "open_for_entries": "April 09, 2011 07:27:54",
-        "open_for_judging": "April 09, 2011 07:27:54",
-        "prizes": [
-            {
-                "gift": {
-                    "title": "Grand Prize (1)",
-                    "description": "<strong>GRAND PRIZE (1 Winner)</strong><br />\r\n<br />\r\nOne Grand Prize winner will receive an iPad 2 with 16GB and WiFi. Winner will also receive an Instructables Prize Pack.",
-                    "value": "$424.00"
-                },
-                "number_of_winners": 1,
-                "prize_level": "Grand Prize"
-            }
-        ],
-        "square_file": "F8EA4W3H8EYZG5T",
-        "title": "Dessert Contest"
-    }
 
 ## Member winning contests [/contests/members/{member_id}/winnings]
 
@@ -7914,67 +7915,67 @@ Retrieve all the contests won by a member.
 
 + Response 200 (application/json)
 
-{
-    "count": 23,
-    "limit": 10,
-    "offset": 5,
-    "_link": "/contests/members/{member_id}/winnings?app_id=1,8&limit=10&offset=10",
-    "_link_prev": "/contests/members/{member_id}/winnings?app_id=1,8&limit=10&offset=0",
-    "_link_next": "/contests/members/{member_id}/winnings?app_id=1,8&limit=10&offset=20",
-    "contests": [
         {
-            "author": "Plastic",
-            "author_id": 20278501,
-            "country": "US",
-            "gift_accepted": true,
-            "gift_accepted_date": "April 09, 2011 07:27:54",
-            "gift_assignment_id": "DE8ERWWHAPP03G8",
-            "gift_shipped": false,
-            "id": 657526,
-            "name": "testing create assetskxklqxilm",
-            "url": "http://alpha.squidplatform.com/FullPreview/Index.cfm/ID/657526",
-            "user_vote": false,
-            "thumbnails": [
+            "count": 23,
+            "limit": 10,
+            "offset": 5,
+            "_link": "/contests/members/{member_id}/winnings?app_id=1,8&limit=10&offset=10",
+            "_link_prev": "/contests/members/{member_id}/winnings?app_id=1,8&limit=10&offset=0",
+            "_link_next": "/contests/members/{member_id}/winnings?app_id=1,8&limit=10&offset=20",
+            "contests": [
                 {
-                    "file_id": 5401170,
-                    "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45"
-                }
-            ],
-            "contest": {
-                "app_id": 1,
-                "body": "We always want to see the dessert menu.",
-                "closed_for_entries": "April 09, 2011 07:27:54",
-                "closed_for_judging": "April 09, 2011 07:27:54",
-                "entries": {
-                    "count": 1
-                },
-                "finalized": true,
-                "id": "VRUT847H8EV6R6A",
-                "open_for_entries": "April 09, 2011 07:27:54",
-                "open_for_judging": "April 09, 2011 07:27:54",
-                "prizes": [
-                    {
-                        "gift": {
-                            "title": "Grand Prize",
-                            "description": "<strong>GRAND PRIZE (1 Winner)</strong><br />\r\n<br />\r\nOne Grand Prize winner will receive an iPad 2 with 16GB and WiFi. Winner will also receive an Instructables Prize Pack.",
-                            "value": "$335.00"
+                    "author": "Plastic",
+                    "author_id": 20278501,
+                    "country": "US",
+                    "gift_accepted": true,
+                    "gift_accepted_date": "April 09, 2011 07:27:54",
+                    "gift_assignment_id": "DE8ERWWHAPP03G8",
+                    "gift_shipped": false,
+                    "id": 657526,
+                    "name": "testing create assetskxklqxilm",
+                    "url": "http://alpha.squidplatform.com/FullPreview/Index.cfm/ID/657526",
+                    "user_vote": false,
+                    "thumbnails": [
+                        {
+                            "file_id": 5401170,
+                            "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45"
+                        }
+                    ],
+                    "contest": {
+                        "app_id": 1,
+                        "body": "We always want to see the dessert menu.",
+                        "closed_for_entries": "April 09, 2011 07:27:54",
+                        "closed_for_judging": "April 09, 2011 07:27:54",
+                        "entries": {
+                            "count": 1
                         },
-                        "number_of_winners": 1,
-                        "prize_level": "Grand Prize"
-                    }
-                ],
-                "square_file": "F8EA4W3H8EYZG5T",
-                "title": "Dessert Contest"
-            },
-            "gift": {
-                "description": "One Grand Prize winner will receive a French Oven.",
-                "title": "Grand Prize",
-                "value": "$335.00"
-            },
-            "prizeLevel": "GRAND"
+                        "finalized": true,
+                        "id": "VRUT847H8EV6R6A",
+                        "open_for_entries": "April 09, 2011 07:27:54",
+                        "open_for_judging": "April 09, 2011 07:27:54",
+                        "prizes": [
+                            {
+                                "gift": {
+                                    "title": "Grand Prize",
+                                    "description": "<strong>GRAND PRIZE (1 Winner)</strong><br />\r\n<br />\r\nOne Grand Prize winner will receive an iPad 2 with 16GB and WiFi. Winner will also receive an Instructables Prize Pack.",
+                                    "value": "$335.00"
+                                },
+                                "number_of_winners": 1,
+                                "prize_level": "Grand Prize"
+                            }
+                        ],
+                        "square_file": "F8EA4W3H8EYZG5T",
+                        "title": "Dessert Contest"
+                    },
+                    "gift": {
+                        "description": "One Grand Prize winner will receive a French Oven.",
+                        "title": "Grand Prize",
+                        "value": "$335.00"
+                    },
+                    "prizeLevel": "GRAND"
+                }
+            ]
         }
-    ]
-}
 
 ## Asset winning contests [/contests/assets/{asset_id}/winnings]
 
@@ -7995,67 +7996,67 @@ Retrieve all the contests won by an assets.
 
 + Response 200 (application/json)
 
-{
-    "count": 23,
-    "limit": 10,
-    "offset": 5,
-    "_link": "/contests/assets/{asset_id}/winnings?app_id=1,8&limit=10&offset=10",
-    "_link_prev": "/contests/assets/{asset_id}/winnings?app_id=1,8&limit=10&offset=0",
-    "_link_next": "/contests/assets/{asset_id}/winnings?app_id=1,8&limit=10&offset=20",
-    "contests": [
         {
-            "author": "Plastic",
-            "author_id": 20278501,
-            "country": "US",
-            "gift_accepted": true,
-            "gift_accepted_date": "April 09, 2011 07:27:54",
-            "gift_assignment_id": "DE8ERWWHAPP03G8",
-            "gift_shipped": false,
-            "id": 657526,
-            "name": "testing create assetskxklqxilm",
-            "url": "http://alpha.squidplatform.com/FullPreview/Index.cfm/ID/657526",
-            "user_vote": false,
-            "thumbnails": [
+            "count": 23,
+            "limit": 10,
+            "offset": 5,
+            "_link": "/contests/assets/{asset_id}/winnings?app_id=1,8&limit=10&offset=10",
+            "_link_prev": "/contests/assets/{asset_id}/winnings?app_id=1,8&limit=10&offset=0",
+            "_link_next": "/contests/assets/{asset_id}/winnings?app_id=1,8&limit=10&offset=20",
+            "contests": [
                 {
-                    "file_id": 5401170,
-                    "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45"
-                }
-            ],
-            "contest": {
-                "app_id": 1,
-                "body": "We always want to see the dessert menu.",
-                "closed_for_entries": "April 09, 2011 07:27:54",
-                "closed_for_judging": "April 09, 2011 07:27:54",
-                "entries": {
-                    "count": 1
-                },
-                "finalized": true,
-                "id": "VRUT847H8EV6R6A",
-                "open_for_entries": "April 09, 2011 07:27:54",
-                "open_for_judging": "April 09, 2011 07:27:54",
-                "prizes": [
-                    {
-                        "gift": {
-                            "title": "Grand Prize",
-                            "description": "<strong>GRAND PRIZE (1 Winner)</strong><br />\r\n<br />\r\nOne Grand Prize winner will receive an iPad 2 with 16GB and WiFi. Winner will also receive an Instructables Prize Pack.",
-                            "value": "$335.00"
+                    "author": "Plastic",
+                    "author_id": 20278501,
+                    "country": "US",
+                    "gift_accepted": true,
+                    "gift_accepted_date": "April 09, 2011 07:27:54",
+                    "gift_assignment_id": "DE8ERWWHAPP03G8",
+                    "gift_shipped": false,
+                    "id": 657526,
+                    "name": "testing create assetskxklqxilm",
+                    "url": "http://alpha.squidplatform.com/FullPreview/Index.cfm/ID/657526",
+                    "user_vote": false,
+                    "thumbnails": [
+                        {
+                            "file_id": 5401170,
+                            "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45"
+                        }
+                    ],
+                    "contest": {
+                        "app_id": 1,
+                        "body": "We always want to see the dessert menu.",
+                        "closed_for_entries": "April 09, 2011 07:27:54",
+                        "closed_for_judging": "April 09, 2011 07:27:54",
+                        "entries": {
+                            "count": 1
                         },
-                        "number_of_winners": 1,
-                        "prize_level": "Grand Prize"
-                    }
-                ],
-                "square_file": "F8EA4W3H8EYZG5T",
-                "title": "Dessert Contest"
-            },
-            "gift": {
-                "description": "One Grand Prize winner will receive a French Oven.",
-                "title": "Grand Prize",
-                "value": "$335.00"
-            },
-            "prizeLevel": "GRAND"
+                        "finalized": true,
+                        "id": "VRUT847H8EV6R6A",
+                        "open_for_entries": "April 09, 2011 07:27:54",
+                        "open_for_judging": "April 09, 2011 07:27:54",
+                        "prizes": [
+                            {
+                                "gift": {
+                                    "title": "Grand Prize",
+                                    "description": "<strong>GRAND PRIZE (1 Winner)</strong><br />\r\n<br />\r\nOne Grand Prize winner will receive an iPad 2 with 16GB and WiFi. Winner will also receive an Instructables Prize Pack.",
+                                    "value": "$335.00"
+                                },
+                                "number_of_winners": 1,
+                                "prize_level": "Grand Prize"
+                            }
+                        ],
+                        "square_file": "F8EA4W3H8EYZG5T",
+                        "title": "Dessert Contest"
+                    },
+                    "gift": {
+                        "description": "One Grand Prize winner will receive a French Oven.",
+                        "title": "Grand Prize",
+                        "value": "$335.00"
+                    },
+                    "prizeLevel": "GRAND"
+                }
+            ]
         }
-    ]
-}
 
 ## Contest Entries [/contests/{contest_id}/entries]
 
@@ -8077,44 +8078,44 @@ Retrieve all the contest entries
     
 + Response 200 (application/json)
 
-{
-    "count": 23,
-    "limit": 10,
-    "offset": 5,
-    "_link": "/contests/{contest_id}/entries?limit=10&offset=10",
-    "_link_prev": "/contests/{contest_id}/entries?limit=10&offset=0",
-    "_link_next": "/contests/{contest_id}/entries?limit=10&offset=20",
-    "entries": [
         {
-            "author": "Plastic",
-            "author_id": 20278501,
-            "id": 657526,
-            "name": "testing create assetskxklqxilm",
-            "url": "http://alpha.squidplatform.com/FullPreview/Index.cfm/ID/657526",
-            "user_vote": false,
-            "thumbnails": [
+            "count": 23,
+            "limit": 10,
+            "offset": 5,
+            "_link": "/contests/{contest_id}/entries?limit=10&offset=10",
+            "_link_prev": "/contests/{contest_id}/entries?limit=10&offset=0",
+            "_link_next": "/contests/{contest_id}/entries?limit=10&offset=20",
+            "entries": [
                 {
-                    "file_id": 5401170,
-                    "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45"
-                }
-            ]
-        },
-        {
-            "author": "Plastic",
-            "author_id": 20278501,
-            "id": 657526,
-            "name": "testing create assetskxklqxilm",
-            "url": "http://alpha.squidplatform.com/FullPreview/Index.cfm/ID/657526",
-            "user_vote": false,
-            "thumbnails": [
+                    "author": "Plastic",
+                    "author_id": 20278501,
+                    "id": 657526,
+                    "name": "testing create assetskxklqxilm",
+                    "url": "http://alpha.squidplatform.com/FullPreview/Index.cfm/ID/657526",
+                    "user_vote": false,
+                    "thumbnails": [
+                        {
+                            "file_id": 5401170,
+                            "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45"
+                        }
+                    ]
+                },
                 {
-                    "file_id": 5401170,
-                    "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45"
+                    "author": "Plastic",
+                    "author_id": 20278501,
+                    "id": 657526,
+                    "name": "testing create assetskxklqxilm",
+                    "url": "http://alpha.squidplatform.com/FullPreview/Index.cfm/ID/657526",
+                    "user_vote": false,
+                    "thumbnails": [
+                        {
+                            "file_id": 5401170,
+                            "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45"
+                        }
+                    ]
                 }
             ]
         }
-    ]
-}
 
 ### Get Contest Entries As Asset Data [GET]
 
@@ -8133,59 +8134,59 @@ Retrieve all the contest entries
     
 + Response 200 (application/json)
 
-{
-    "count": 10,
-    "limit": 1,
-    "offset": 2,
-    "_link": "/contests/v75kpm9i7ggbli9/assets?finalists=false&limit=1&offset=2",
-    "_link_prev": "/contests/v75kpm9i7ggbli9/assets?finalists=false&limit=1&offset=1",
-    "assets": [
         {
-            "mesh": false,
-            "asset_id": 1360396,
-            "comment_count": 0,
-            "member_small_avatar": "http://alpha.squidplatform.com/Images/v23/Member/default_avatar.png",
-            "asset_name": "FlowerTest",
-            "thumb_path_prefix": "http://alpha.squidplatform.com/Images/v23/FullPreview/small/NoPicture.png",
-            "favorite_count": 0,
-            "progress_status": 1,
-            "referenced_assets_count": 0,
-            "date_submitted": "August 13, 2014 01:46:28",
-            "view_count": 0,
-            "referenced_by_count": 0,
-            "asset_image": "",
-            "artist_name": "QAautomation689 207",
-            "referenced_asset_thumb": "",
-            "format_name_long": "Other ( See Notes )",
-            "current_page": 0,
-            "seo_template": "Catch%20FlowerTest",
-            "asset_ext_name": "Catch_Mobile",
-            "model_type": "Part",
-            "file_size": 93416,
-            "featured_date": "",
-            "download_count": 0,
-            "format_name_short": "oth",
-            "artist_avatar": "http://alpha.squidplatform.com/Images/v23/Member/default_avatar.png",
-            "artist_id": 20706597,
-            "media_type_id": 28,
-            "current_result": 0,
-            "associated_file_directory_path": "",
-            "software": 7,
-            "total_price": 0,
-            "shop_id": "",
-            "is_for_sale": false,
-            "is_online_viewer_available": false,
-            "is_gallery_asset": true,
-            "is_mature": false,
-            "date_modified": "August 13, 2014 05:53:30",
-            "is_app_featured": false,
-            "app_featured_date": "",
-            "is_featured": false,
-            "is_member_favorite": false,
-            "extended_data": {}
+            "count": 10,
+            "limit": 1,
+            "offset": 2,
+            "_link": "/contests/v75kpm9i7ggbli9/assets?finalists=false&limit=1&offset=2",
+            "_link_prev": "/contests/v75kpm9i7ggbli9/assets?finalists=false&limit=1&offset=1",
+            "assets": [
+                {
+                    "mesh": false,
+                    "asset_id": 1360396,
+                    "comment_count": 0,
+                    "member_small_avatar": "http://alpha.squidplatform.com/Images/v23/Member/default_avatar.png",
+                    "asset_name": "FlowerTest",
+                    "thumb_path_prefix": "http://alpha.squidplatform.com/Images/v23/FullPreview/small/NoPicture.png",
+                    "favorite_count": 0,
+                    "progress_status": 1,
+                    "referenced_assets_count": 0,
+                    "date_submitted": "August 13, 2014 01:46:28",
+                    "view_count": 0,
+                    "referenced_by_count": 0,
+                    "asset_image": "",
+                    "artist_name": "QAautomation689 207",
+                    "referenced_asset_thumb": "",
+                    "format_name_long": "Other ( See Notes )",
+                    "current_page": 0,
+                    "seo_template": "Catch%20FlowerTest",
+                    "asset_ext_name": "Catch_Mobile",
+                    "model_type": "Part",
+                    "file_size": 93416,
+                    "featured_date": "",
+                    "download_count": 0,
+                    "format_name_short": "oth",
+                    "artist_avatar": "http://alpha.squidplatform.com/Images/v23/Member/default_avatar.png",
+                    "artist_id": 20706597,
+                    "media_type_id": 28,
+                    "current_result": 0,
+                    "associated_file_directory_path": "",
+                    "software": 7,
+                    "total_price": 0,
+                    "shop_id": "",
+                    "is_for_sale": false,
+                    "is_online_viewer_available": false,
+                    "is_gallery_asset": true,
+                    "is_mature": false,
+                    "date_modified": "August 13, 2014 05:53:30",
+                    "is_app_featured": false,
+                    "app_featured_date": "",
+                    "is_featured": false,
+                    "is_member_favorite": false,
+                    "extended_data": {}
+                }
+            ]
         }
-    ]
-}
 
 ## Contest Winners [/contests/{contest_id}/winners]
 
@@ -8204,75 +8205,75 @@ Retrieve all the winners of a contest
 
 + Response 200 (application/json)
 
-{
-    "prizes": [
         {
-            "gift": {
-                "title": "Catch Contest Grand",
-                "description": "Catch Contest GrandCatch Contest Grand",
-                "value": "$100.00"
-            },
-            "prize_level": "Grand Prize",
-            "number_of_winners": 1,
-            "winners": [
+            "prizes": [
                 {
-                    "id": 1543858,
-                    "author": "deleteusertest4",
-                    "name": "sdca",
-                    "url": "http://alpha.squidplatform.com/Project/sdca/1543858",
-                    "author_id": 20707580,
-                    "user_vote": false,
-                    "thumbnails": [
+                    "gift": {
+                        "title": "Catch Contest Grand",
+                        "description": "Catch Contest GrandCatch Contest Grand",
+                        "value": "$100.00"
+                    },
+                    "prize_level": "Grand Prize",
+                    "number_of_winners": 1,
+                    "winners": [
                         {
-                            "caption": "",
-                            "description": "",
-                            "file_id": 16812159,
-                            "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Alpha/2015/01/28__01_38_33/statueoflib.jpge01bfa16-add8-11e4-b61b-22000b181262",
-                            "is_primary": true
+                            "id": 1543858,
+                            "author": "deleteusertest4",
+                            "name": "sdca",
+                            "url": "http://alpha.squidplatform.com/Project/sdca/1543858",
+                            "author_id": 20707580,
+                            "user_vote": false,
+                            "thumbnails": [
+                                {
+                                    "caption": "",
+                                    "description": "",
+                                    "file_id": 16812159,
+                                    "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Alpha/2015/01/28__01_38_33/statueoflib.jpge01bfa16-add8-11e4-b61b-22000b181262",
+                                    "is_primary": true
+                                }
+                            ]
                         }
                     ]
-                }
-            ]
-        },
-        {
-            "gift": {
-                "title": "Catch Contest Second",
-                "description": "Catch Contest Second",
-                "value": "$10.00"
-            },
-            "prize_level": "Second Prize",
-            "number_of_winners": 10,
-            "winners": [
-                {
-                    "id": 1547425,
-                    "author": "QAautomation657 207",
-                    "name": "FlowerTest",
-                    "url": "http://alpha.squidplatform.com/Catch/FlowerTest/1547425",
-                    "author_id": 20706166,
-                    "user_vote": false,
-                    "thumbnails": []
                 },
                 {
-                    "id": 1543854,
-                    "author": "deletemembertest007",
-                    "name": "testr delete",
-                    "url": "http://alpha.squidplatform.com/Project/testr-delete/1543854",
-                    "author_id": 20707576,
-                    "user_vote": false,
-                    "thumbnails": [
+                    "gift": {
+                        "title": "Catch Contest Second",
+                        "description": "Catch Contest Second",
+                        "value": "$10.00"
+                    },
+                    "prize_level": "Second Prize",
+                    "number_of_winners": 10,
+                    "winners": [
                         {
-                            "caption": "",
-                            "description": "",
-                            "file_id": 16812153,
-                            "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Alpha/2015/01/28__01_38_33/cartoon.jpgad514be5-adcf-11e4-b61b-22000b181262",
-                            "is_primary": true
+                            "id": 1547425,
+                            "author": "QAautomation657 207",
+                            "name": "FlowerTest",
+                            "url": "http://alpha.squidplatform.com/Catch/FlowerTest/1547425",
+                            "author_id": 20706166,
+                            "user_vote": false,
+                            "thumbnails": []
+                        },
+                        {
+                            "id": 1543854,
+                            "author": "deletemembertest007",
+                            "name": "testr delete",
+                            "url": "http://alpha.squidplatform.com/Project/testr-delete/1543854",
+                            "author_id": 20707576,
+                            "user_vote": false,
+                            "thumbnails": [
+                                {
+                                    "caption": "",
+                                    "description": "",
+                                    "file_id": 16812153,
+                                    "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Alpha/2015/01/28__01_38_33/cartoon.jpgad514be5-adcf-11e4-b61b-22000b181262",
+                                    "is_primary": true
+                                }
+                            ]
                         }
                     ]
                 }
             ]
         }
-    ]
-}
 
 ## Member Entries [/contests/members/{member_id}]
 
@@ -8294,85 +8295,85 @@ Retrieve all the member contest entries for given Apps
 
 + Response 200 (application/json)
 
-{
-    "count": 2,
-    "limit": 10,
-    "offset": 0,
-    "_link": "/contests/members/20707580?app_ids=2,5&limit=10&offset=0",
-    "entries": [
         {
-            "id": 1543858,
-            "name": "sdca",
-            "author": "deleteusertest4",
-            "country": "IN",
-            "author_id": 20707580,
-            "gift_assignment_id": "D3216W6I61NFSK0",
-            "gift_accepted": false,
-            "gift_shipped": false,
-            "thumbnails": [
+            "count": 2,
+            "limit": 10,
+            "offset": 0,
+            "_link": "/contests/members/20707580?app_ids=2,5&limit=10&offset=0",
+            "entries": [
                 {
-                    "caption": "",
-                    "description": "",
-                    "file_id": 16812159,
-                    "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Alpha/2015/01/28__01_38_33/statueoflib.jpge01bfa16-add8-11e4-b61b-22000b181262",
-                    "is_primary": true
-                }
-            ],
-            "prize_level": "GRAND",
-            "contest": {
-                "id": "VTB5MY7I5XIDZK2",
-                "title": "New_Contest_API_1",
-                "body": "New_Contest_API_1",
-                "finalized": true,
-                "entries": {
-                    "count": 10
+                    "id": 1543858,
+                    "name": "sdca",
+                    "author": "deleteusertest4",
+                    "country": "IN",
+                    "author_id": 20707580,
+                    "gift_assignment_id": "D3216W6I61NFSK0",
+                    "gift_accepted": false,
+                    "gift_shipped": false,
+                    "thumbnails": [
+                        {
+                            "caption": "",
+                            "description": "",
+                            "file_id": 16812159,
+                            "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Alpha/2015/01/28__01_38_33/statueoflib.jpge01bfa16-add8-11e4-b61b-22000b181262",
+                            "is_primary": true
+                        }
+                    ],
+                    "prize_level": "GRAND",
+                    "contest": {
+                        "id": "VTB5MY7I5XIDZK2",
+                        "title": "New_Contest_API_1",
+                        "body": "New_Contest_API_1",
+                        "finalized": true,
+                        "entries": {
+                            "count": 10
+                        },
+                        "open_for_entries": "January 01, 2015 00:00:00",
+                        "closed_for_entries": "February 01, 2015 23:59:59",
+                        "open_for_judging": "February 05, 2015 00:00:00",
+                        "closed_for_judging": "February 09, 2015 23:59:59",
+                        "software": "5"
+                    },
+                    "gift": {
+                        "title": "Catch Contest Grand",
+                        "description": "Catch Contest GrandCatch Contest Grand",
+                        "value": "$100.00"
+                    }
                 },
-                "open_for_entries": "January 01, 2015 00:00:00",
-                "closed_for_entries": "February 01, 2015 23:59:59",
-                "open_for_judging": "February 05, 2015 00:00:00",
-                "closed_for_judging": "February 09, 2015 23:59:59",
-                "software": "5"
-            },
-            "gift": {
-                "title": "Catch Contest Grand",
-                "description": "Catch Contest GrandCatch Contest Grand",
-                "value": "$100.00"
-            }
-        },
-        {
-            "id": 1543858,
-            "name": "sdca",
-            "author": "deleteusertest4",
-            "country": "US",
-            "author_id": 20707580,
-            "gift_accepted": false,
-            "gift_shipped": false,
-            "thumbnails": [
                 {
-                    "caption": "",
-                    "description": "",
-                    "file_id": 16812159,
-                    "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Alpha/2015/01/28__01_38_33/statueoflib.jpge01bfa16-add8-11e4-b61b-22000b181262",
-                    "is_primary": true
+                    "id": 1543858,
+                    "name": "sdca",
+                    "author": "deleteusertest4",
+                    "country": "US",
+                    "author_id": 20707580,
+                    "gift_accepted": false,
+                    "gift_shipped": false,
+                    "thumbnails": [
+                        {
+                            "caption": "",
+                            "description": "",
+                            "file_id": 16812159,
+                            "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Alpha/2015/01/28__01_38_33/statueoflib.jpge01bfa16-add8-11e4-b61b-22000b181262",
+                            "is_primary": true
+                        }
+                    ],
+                    "contest": {
+                        "id": "V1BDJ3YI5XIDZKG",
+                        "title": "Catch Contest",
+                        "body": "New_Contest_API_3",
+                        "finalized": false,
+                        "entries": {
+                            "count": 3
+                        },
+                        "open_for_entries": "January 01, 2015 00:00:00",
+                        "closed_for_entries": "February 28, 2015 23:59:59",
+                        "open_for_judging": "July 17, 2015 00:00:00",
+                        "closed_for_judging": "August 29, 2015 23:59:59",
+                        "software": "5"
+                    }
                 }
-            ],
-            "contest": {
-                "id": "V1BDJ3YI5XIDZKG",
-                "title": "Catch Contest",
-                "body": "New_Contest_API_3",
-                "finalized": false,
-                "entries": {
-                    "count": 3
-                },
-                "open_for_entries": "January 01, 2015 00:00:00",
-                "closed_for_entries": "February 28, 2015 23:59:59",
-                "open_for_judging": "July 17, 2015 00:00:00",
-                "closed_for_judging": "August 29, 2015 23:59:59",
-                "software": "5"
-            }
+            ]
         }
-    ]
-}
 
 ## Member Contest Entries [/contests/{contest_id}/members/{member_id}]
 
@@ -8395,44 +8396,44 @@ Retrieve all the contest entries by a member
 
 + Response 200 (application/json)
 
-{
-    "count": 23,
-    "limit": 10,
-    "offset": 5,
-    "_link": "/contest/{contest_id}/members/{member_id}?entry_status=final&limit=10&offset=10",
-    "_link_prev": "/contest/{contest_id}/members/{member_id}?entry_status=final&limit=10&offset=0",
-    "_link_next": "/contest/{contest_id}/members/{member_id}?entry_status=final&limit=10&offset=20",
-    "entries": [
         {
-            "author": "Plastic",
-            "author_id": 20278501,
-            "id": 657526,
-            "name": "testing create assetskxklqxilm",
-            "url": "http://alpha.squidplatform.com/FullPreview/Index.cfm/ID/657526",
-            "user_vote": false,
-            "thumbnails": [
+            "count": 23,
+            "limit": 10,
+            "offset": 5,
+            "_link": "/contest/{contest_id}/members/{member_id}?entry_status=final&limit=10&offset=10",
+            "_link_prev": "/contest/{contest_id}/members/{member_id}?entry_status=final&limit=10&offset=0",
+            "_link_next": "/contest/{contest_id}/members/{member_id}?entry_status=final&limit=10&offset=20",
+            "entries": [
                 {
-                    "file_id": 5401170,
-                    "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45"
-                }
-            ]
-        },
-        {
-            "author": "Plastic",
-            "author_id": 20278501,
-            "id": 657526,
-            "name": "testing create assetskxklqxilm",
-            "url": "http://alpha.squidplatform.com/FullPreview/Index.cfm/ID/657526",
-            "user_vote": false,
-            "thumbnails": [
+                    "author": "Plastic",
+                    "author_id": 20278501,
+                    "id": 657526,
+                    "name": "testing create assetskxklqxilm",
+                    "url": "http://alpha.squidplatform.com/FullPreview/Index.cfm/ID/657526",
+                    "user_vote": false,
+                    "thumbnails": [
+                        {
+                            "file_id": 5401170,
+                            "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45"
+                        }
+                    ]
+                },
                 {
-                    "file_id": 5401170,
-                    "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45"
+                    "author": "Plastic",
+                    "author_id": 20278501,
+                    "id": 657526,
+                    "name": "testing create assetskxklqxilm",
+                    "url": "http://alpha.squidplatform.com/FullPreview/Index.cfm/ID/657526",
+                    "user_vote": false,
+                    "thumbnails": [
+                        {
+                            "file_id": 5401170,
+                            "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45"
+                        }
+                    ]
                 }
             ]
         }
-    ]
-}
 
 ### Enter or Exit Contest [POST]
 
@@ -8489,44 +8490,44 @@ Retrieve all the entries in a contest which are voted by the member.
 
 + Response 200 (application/json)
 
-{
-    "count": 23,
-    "limit": 10,
-    "offset": 5,
-    "_link": "/contest/{contest_id}/members/{member_id}/vote?limit=10&offset=10",
-    "_link_prev": "/contest/{contest_id}/members/{member_id}/vote?limit=10&offset=0",
-    "_link_next": "/contest/{contest_id}/members/{member_id}/vote?limit=10&offset=20",
-    "entries": [
         {
-            "author": "Plastic",
-            "author_id": 20278501,
-            "id": 657526,
-            "name": "testing create assetskxklqxilm",
-            "url": "http://alpha.squidplatform.com/FullPreview/Index.cfm/ID/657526",
-            "user_vote": true,
-            "thumbnails": [
+            "count": 23,
+            "limit": 10,
+            "offset": 5,
+            "_link": "/contest/{contest_id}/members/{member_id}/vote?limit=10&offset=10",
+            "_link_prev": "/contest/{contest_id}/members/{member_id}/vote?limit=10&offset=0",
+            "_link_next": "/contest/{contest_id}/members/{member_id}/vote?limit=10&offset=20",
+            "entries": [
                 {
-                    "file_id": 5401170,
-                    "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45"
-                }
-            ]
-        },
-        {
-            "author": "Plastic",
-            "author_id": 20278501,
-            "id": 657526,
-            "name": "testing create assetskxklqxilm",
-            "url": "http://alpha.squidplatform.com/FullPreview/Index.cfm/ID/657526",
-            "user_vote": true,
-            "thumbnails": [
+                    "author": "Plastic",
+                    "author_id": 20278501,
+                    "id": 657526,
+                    "name": "testing create assetskxklqxilm",
+                    "url": "http://alpha.squidplatform.com/FullPreview/Index.cfm/ID/657526",
+                    "user_vote": true,
+                    "thumbnails": [
+                        {
+                            "file_id": 5401170,
+                            "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45"
+                        }
+                    ]
+                },
                 {
-                    "file_id": 5401170,
-                    "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45"
+                    "author": "Plastic",
+                    "author_id": 20278501,
+                    "id": 657526,
+                    "name": "testing create assetskxklqxilm",
+                    "url": "http://alpha.squidplatform.com/FullPreview/Index.cfm/ID/657526",
+                    "user_vote": true,
+                    "thumbnails": [
+                        {
+                            "file_id": 5401170,
+                            "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45"
+                        }
+                    ]
                 }
             ]
         }
-    ]
-}
 
 ### Vote a Contest Entry [POST]
 
