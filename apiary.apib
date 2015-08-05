@@ -1971,7 +1971,7 @@ This operation will return a list of members.  At least one parameter is require
             ]
         }
 
-## Apps [/members/{id}/apps]
+## Apps [/members/{id}/apps{?app_id,limit,offset,sort_by,sort_order}]
 Member apps operations
 
 ### Retrieve a member apps [GET]
@@ -2071,7 +2071,7 @@ Returns the list of users this member follows.
             
 
 
-## Following [/members/{id}/following]
+## Following [/members/{id}/following{?limit,offset,publisher_id}]
 Returns the list of users following this member.
 
 ### Retrieve member following [GET]
