@@ -2602,7 +2602,7 @@ API returns total accrued credits and total available credits (accrued - used) i
                 "total_purchased_with_sales_credit": 0
             } 
 
-## OrderHistory [/members/{id}/orderhistory]
+## OrderHistory [/members/{id}/orderhistory{?limit,offset}]
 ### Retrieve member's purchases [GET]
 Get all the purchases made by the member.
 
@@ -2820,7 +2820,7 @@ Extend members subscription by specified period.
                 }
         ]
 
-## Private Messaging [/members/{id}/messages]
+## Private Messaging [/members/{id}/messages{?mailbox,limit,offset,subject,body,recipient_id}]
 
 APIs for private messaging between members.
 
