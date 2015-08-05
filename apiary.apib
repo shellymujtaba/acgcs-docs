@@ -416,11 +416,11 @@ Operations to create and retrieve asset versions.
 
 + Response 201 (application/json)
 
-    {
-        "member_id": 20706907,
-        "asset_version_datetime": "May 29, 2015 00:21:37",
-        "asset_version": "2.00"
-    }
+        {
+            "member_id": 20706907,
+            "asset_version_datetime": "May 29, 2015 00:21:37",
+            "asset_version": "2.00"
+        }
 
 ### Retrieve all asset versions [GET]
 + Request (application/x-www-form-urlencoded)
@@ -430,29 +430,30 @@ Operations to create and retrieve asset versions.
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Response 200 (application/json)
-    {
-        "count": 3,
-        "limit": 20,
-        "offset": 0,
-        "_link": "/assets/1636040/versions?limit=20&offset=0",
-        "asset_versions": [
-            {
-                "member_id": 20706907,
-                "asset_version_datetime": "May 28, 2015 23:16:36",
-                "asset_version": "1.00"
-            },
-            {
-                "member_id": 20706907,
-                "asset_version_datetime": "May 28, 2015 23:17:18",
-                "asset_version": "1.01"
-            },
-            {
-                "member_id": 20706907,
-                "asset_version_datetime": "May 28, 2015 23:20:36",
-                "asset_version": "1.02"
-            }
-        ]
-    }
+
+        {
+            "count": 3,
+            "limit": 20,
+            "offset": 0,
+            "_link": "/assets/1636040/versions?limit=20&offset=0",
+            "asset_versions": [
+                {
+                    "member_id": 20706907,
+                    "asset_version_datetime": "May 28, 2015 23:16:36",
+                    "asset_version": "1.00"
+                },
+                {
+                    "member_id": 20706907,
+                    "asset_version_datetime": "May 28, 2015 23:17:18",
+                    "asset_version": "1.01"
+                },
+                {
+                    "member_id": 20706907,
+                    "asset_version_datetime": "May 28, 2015 23:20:36",
+                    "asset_version": "1.02"
+                }
+            ]
+        }
 
 ## Assets  [/assets{?q,start_date,end_date,thumbnail_index,file_type_list,exclude_keywords,asset_ids,sort_by,sort_order,display_filter,exclude_artist_ids,include_artist_ids,include_member_ids,progress_status,description,parent_assets,child_hidden_keys,media_type_ids,include_mature,limit,offset,child_assets}]
 This api is a starting point to display galleries, perform free-form searches. Different filtering options allow searching by specific contained file type, keywords, publish dates, curation state (featured, popular) etc. 
@@ -495,84 +496,85 @@ This api is a starting point to display galleries, perform free-form searches. D
             
 
 + Response 200 (application/json)
-    {
-        "count": 260,
-        "limit": 13,
-        "offset": 39,
-        "_link": "/assets?q=abc&limit=26",
-        "_link_prev": "/assets?q=abc&limit=26&offset=26",
-        "_link_next": "/assets?q=abc&limit=26&offset=39",
-        "assets": [
-            {
-                "is_featured": false,
-                "comment_count": 0,
-                "member_small_avatar": "http://dev.squidplatform.net/images/v22/member/default_avatar.png",
-                "asset_name": "tissue box",
-                "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
-                "is_online_viewer_available": true,
-                "is_member_favorite": false,
-                "favorite_count": 1,
-                "view_count": 15,
-                "progress_status": 1,
-                "referenced_assets_count": 0,
-                "referenced_by_count": 0,
-                "referenced_asset_thumb": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/2012/12/13__09_57_54/hand.jpgf18ed964-0998-4f43-a165-c0f5c650ec08small.jpg",
-                "date_submitted": "april 26, 2011 00:11:57",
-                "date_modified": "april 26, 2011 00:11:57",
-                "extended_data": {
-                    "stlfiles": [
-                        {
-                            "id": 5379733,
-                            "name": "4981102.stl",
-                            "ModelToCentimeters": -1
-                        },
-                        {
-                            "id": 5379735,
-                            "name": "4981101.stl",
-                            "ModelToCentimeters": -1
-                        }
-                    ],
-                    "viewerFiles": [
-                        {
-                            "id": 4981102
-                        },
-                        {
-                            "id": 4981101
-                        },
-                        {
-                            "id": 4981103
-                        }
-                    ]
-                },
-                "artist_name": "autodesk",
-                "asset_image": "2011/04/25__11_19_17/tt_0000.jpg251cdd82-cdfb-4397-913a-738096e71046small-1.jpg",
-                "format_name_long": "multiple ( .stl, .123c )",
-                "seo_template": "123c-3d-model tissue-box",
-                "current_page": 1,
-                "asset_ext_name": "scenes & props",
-                "model_type": "part",
-                "file_size": 1690664,
-                "download_count": 3008,
-                "format_name_short": "stl 123c",
-                "is_gallery_asset": true,
-                "artist_avatar": "http://dev.squidplatform.net/images/v22/member/default_avatar.png",
-                "artist_id": 2345678,
-                "media_type_id": 23,
-                "current_result": 1,
-                "mesh": true,
-                "associated_file_directory_path": "2011/04/25__11_19_17/tt_0000.jpg251cdd82-cdfb-4397-913a-738096e71046small-1.jpg",
-                "asset_id": 592540,
-                "total_price": 1.99,
-                "shop_id": 5,
-                "is_for_sale": true,
-                "software": 9,
-                "is_mature": true,
-                "app_featured_date" : "april 26, 2011 00:11:57",
-                "featured_date" : "april 26, 2011 00:11:57",
-                "is_app_featured" : true
-            }
-        ]
-    }
+
+        {
+            "count": 260,
+            "limit": 13,
+            "offset": 39,
+            "_link": "/assets?q=abc&limit=26",
+            "_link_prev": "/assets?q=abc&limit=26&offset=26",
+            "_link_next": "/assets?q=abc&limit=26&offset=39",
+            "assets": [
+                {
+                    "is_featured": false,
+                    "comment_count": 0,
+                    "member_small_avatar": "http://dev.squidplatform.net/images/v22/member/default_avatar.png",
+                    "asset_name": "tissue box",
+                    "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
+                    "is_online_viewer_available": true,
+                    "is_member_favorite": false,
+                    "favorite_count": 1,
+                    "view_count": 15,
+                    "progress_status": 1,
+                    "referenced_assets_count": 0,
+                    "referenced_by_count": 0,
+                    "referenced_asset_thumb": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/2012/12/13__09_57_54/hand.jpgf18ed964-0998-4f43-a165-c0f5c650ec08small.jpg",
+                    "date_submitted": "april 26, 2011 00:11:57",
+                    "date_modified": "april 26, 2011 00:11:57",
+                    "extended_data": {
+                        "stlfiles": [
+                            {
+                                "id": 5379733,
+                                "name": "4981102.stl",
+                                "ModelToCentimeters": -1
+                            },
+                            {
+                                "id": 5379735,
+                                "name": "4981101.stl",
+                                "ModelToCentimeters": -1
+                            }
+                        ],
+                        "viewerFiles": [
+                            {
+                                "id": 4981102
+                            },
+                            {
+                                "id": 4981101
+                            },
+                            {
+                                "id": 4981103
+                            }
+                        ]
+                    },
+                    "artist_name": "autodesk",
+                    "asset_image": "2011/04/25__11_19_17/tt_0000.jpg251cdd82-cdfb-4397-913a-738096e71046small-1.jpg",
+                    "format_name_long": "multiple ( .stl, .123c )",
+                    "seo_template": "123c-3d-model tissue-box",
+                    "current_page": 1,
+                    "asset_ext_name": "scenes & props",
+                    "model_type": "part",
+                    "file_size": 1690664,
+                    "download_count": 3008,
+                    "format_name_short": "stl 123c",
+                    "is_gallery_asset": true,
+                    "artist_avatar": "http://dev.squidplatform.net/images/v22/member/default_avatar.png",
+                    "artist_id": 2345678,
+                    "media_type_id": 23,
+                    "current_result": 1,
+                    "mesh": true,
+                    "associated_file_directory_path": "2011/04/25__11_19_17/tt_0000.jpg251cdd82-cdfb-4397-913a-738096e71046small-1.jpg",
+                    "asset_id": 592540,
+                    "total_price": 1.99,
+                    "shop_id": 5,
+                    "is_for_sale": true,
+                    "software": 9,
+                    "is_mature": true,
+                    "app_featured_date" : "april 26, 2011 00:11:57",
+                    "featured_date" : "april 26, 2011 00:11:57",
+                    "is_app_featured" : true
+                }
+            ]
+        }
 
 ## Asset Custom Data [/assets/{id}/customdata]
 Operations to add custom data to this asset. These operations are useful to add any asset specific custom data to the asset e.g tenant specific asset data useful for display purpose.
@@ -594,6 +596,7 @@ Note: The key should be unique within the asset. Using the same key in POST will
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Response 201 (application/json)
+
         {
             "_link": "/assets/1495894/customdata"
         }
@@ -610,18 +613,19 @@ Note: The key should be unique within the asset. Using the same key in POST will
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Response 200 (application/json)
-    {
-        "custom_data": [
-            {
-                "key": "key1",
-                "data": "{\"camera\": {\"eye\": [0.779605,-1.04071,-0.0150464],\"fov\": 0.959931,\"up\": [-0.00353075,0.00402574,0.999986],\"view\": [-0.659365,0.751804,-0.00535469]},\"version\": 1,\"world\": {\"front\": [0,-1,0],\"up\": [0,0,1]}}"
-            },
-            {
-                "key": "key2",
-                "data": "this is custom data"
-            }
-        ]
-    }
+
+        {
+            "custom_data": [
+                {
+                    "key": "key1",
+                    "data": "{\"camera\": {\"eye\": [0.779605,-1.04071,-0.0150464],\"fov\": 0.959931,\"up\": [-0.00353075,0.00402574,0.999986],\"view\": [-0.659365,0.751804,-0.00535469]},\"version\": 1,\"world\": {\"front\": [0,-1,0],\"up\": [0,0,1]}}"
+                },
+                {
+                    "key": "key2",
+                    "data": "this is custom data"
+                }
+            ]
+        }
 
 ### Delete an asset custom data[DELETE]
 + Request (application/x-www-form-urlencoded)
@@ -652,6 +656,7 @@ Operations to add preview files to this asset. These operations are used to add 
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Response 201 (application/json)
+
         {
             "_link": "/assets/1495894/previews"
         }
@@ -668,6 +673,7 @@ Operations to add preview files to this asset. These operations are used to add 
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Response 200 (application/json)
+
         {
             "previews": [
                 {
@@ -701,6 +707,7 @@ Operations to add preview files to this asset. These operations are used to add 
             X-Session: F56FF F-8035-4F7E-90A3-066C5897AD57
 
 + Response 201 (application/json)
+
         {
             "_link": "/assets/1495894/previews"
         }
@@ -728,9 +735,10 @@ Operations to link other assets to this asset. These operations are useful to ag
     + asset_ids (required,String, `234567,334562`)...Comma seperated list of assets to be linked to this asset.
     
 + Response 201 (application/json)
-    {
-        "_link":"/assets/234566/references"
-    }
+
+        {
+            "_link":"/assets/234566/references"
+        }
 
 ### Retrieve asset references[GET]
 + Parameters
@@ -1486,34 +1494,34 @@ Note: Please use the server for the file upload received from the upload server 
 
 + Response 200
 
-    {
-        "files": [
-            {
-                "name": "data.aceb",
-                "file_id": "123334",
-                "md5sum": "2354wfwsdf23r4efw",
-                "public_url": "http://server/path/123334"
-            },
-            {
-                "name": "model.gzip.carmodel.obj",
-                "file_id": "123335",
-                "md5sum": "2354wfwsdf23r4efw",
-                "public_url": "http://server/path/123334"
-            },
-            {
-                "name": "model.gzip.carmodel.mtl",
-                "file_id": "123336",
-                "md5sum": "2354wfwsdf23r4efw",
-                "public_url": "http://server/path/123334"
-            },
-            {
-                "name": "outputs.csv",
-                "file_id": "123337",
-                "md5sum": "2354wfwsdf23r4efw",
-                "public_url": "http://server/path/123334"
-            }
-        ]
-    }            
+        {
+            "files": [
+                {
+                    "name": "data.aceb",
+                    "file_id": "123334",
+                    "md5sum": "2354wfwsdf23r4efw",
+                    "public_url": "http://server/path/123334"
+                },
+                {
+                    "name": "model.gzip.carmodel.obj",
+                    "file_id": "123335",
+                    "md5sum": "2354wfwsdf23r4efw",
+                    "public_url": "http://server/path/123334"
+                },
+                {
+                    "name": "model.gzip.carmodel.mtl",
+                    "file_id": "123336",
+                    "md5sum": "2354wfwsdf23r4efw",
+                    "public_url": "http://server/path/123334"
+                },
+                {
+                    "name": "outputs.csv",
+                    "file_id": "123337",
+                    "md5sum": "2354wfwsdf23r4efw",
+                    "public_url": "http://server/path/123334"
+                }
+            ]
+        }
             
 ##Download Server [/server/download]
 The API to get the download server for uploading the files
@@ -1568,10 +1576,11 @@ Note: Please use the server for the file download received from the download ser
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Response 200 (application/json)
-{
-    "download_url": "http://s3.amazonaws.com/files?signatures=25kbj234jkh234h",
-    "validity": 300
-}
+
+        {
+            "download_url": "http://s3.amazonaws.com/files?signatures=25kbj234jkh234h",
+            "validity": 300
+        }
 
 #File Access [/filesystem/publicurl]
 APIs to make files available using public url.
@@ -1589,22 +1598,23 @@ API to make private files to public files
     + file_ids (required, String, `1234,5678`)...Comma separated list of file ids
 
 + Response 200 (application/json)
-{
-    "files": [
+
         {
-            "file_id": 16812136,
-            "md5sum": "751f4a84fd44e7e411747588d20b33ee",
-            "size": 326560,
-            "public_url": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Public/Alpha/16812136"
-        },
-        {
-            "file_id": 16812137,
-            "md5sum": "751f4a84fd44e7e411747588d20b33ee",
-            "size": 326560,
-            "public_url": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Public/Alpha/16812137"
+            "files": [
+                {
+                    "file_id": 16812136,
+                    "md5sum": "751f4a84fd44e7e411747588d20b33ee",
+                    "size": 326560,
+                    "public_url": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Public/Alpha/16812136"
+                },
+                {
+                    "file_id": 16812137,
+                    "md5sum": "751f4a84fd44e7e411747588d20b33ee",
+                    "size": 326560,
+                    "public_url": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Public/Alpha/16812137"
+                }
+            ]
         }
-    ]
-}
     
 ### Retrieve file public url [GET]    
 API to retrieve the file public url.
@@ -1621,20 +1631,21 @@ Note: The files must be made public using the POST before retrieving their publi
     + file_ids (required, String, `1234,5678`)...Comma separated list of file ids
 
 + Response 200 (application/json)
-{
-    "files": [
+
         {
-            "file_id": 16812136,
-            "md5sum": "751f4a84fd44e7e411747588d20b33ee",
-            "public_url": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Public/Alpha/16812136"
-        },
-        {
-            "file_id": 16812137,
-            "md5sum": "751f4a84fd44e7e411747588d20b33ee",
-            "public_url": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Public/Alpha/16812137"
+            "files": [
+                {
+                    "file_id": 16812136,
+                    "md5sum": "751f4a84fd44e7e411747588d20b33ee",
+                    "public_url": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Public/Alpha/16812136"
+                },
+                {
+                    "file_id": 16812137,
+                    "md5sum": "751f4a84fd44e7e411747588d20b33ee",
+                    "public_url": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Public/Alpha/16812137"
+                }
+            ]
         }
-    ]
-}
 
 ### Delete public file [DELETE]    
 API to delete public files.
@@ -1667,13 +1678,13 @@ Note: The public url of the file is returned only if the file is made public.
 
 + Response 200 (application/json)
 
-{
-    "file_id": 16812136,
-    "md5sum": "751f4a84fd44e7e411747588d20b33ee",
-    "size": 1361408,
-    "name": "viewable.stl",
-    "public_url": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Public/Alpha/16812136"
-}
+        {
+            "file_id": 16812136,
+            "md5sum": "751f4a84fd44e7e411747588d20b33ee",
+            "size": 1361408,
+            "name": "viewable.stl",
+            "public_url": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Public/Alpha/16812136"
+        }
 
 #Group Marketplace
 This group of operations provides information on the marketplace APIS such as shipping options, inventory checking, placing order, updating order etc.
@@ -2078,26 +2089,25 @@ Returns the list of users following this member.
 
 + Response 200 (application/json)
 
-{
-    "count": 1,
-    "limit": 20,
-    "offset": 0,
-    "_link": "/members/20364550/following?limit=20&offset=0",
-    "members": [
         {
-            "followings": 0,
-            "followers": 2,
-            "likes": 0,
-            "publish": 0,
-            "total_comments": 0,
-            "member_id": 20704650,
-            "member_small_avatar": "http://alpha.squidplatform.com/Images/v23/Member/default_avatar.png",
-            "member_name": "Plastic User2 (650)",
-            "_link": "/members/20704650"
+            "count": 1,
+            "limit": 20,
+            "offset": 0,
+            "_link": "/members/20364550/following?limit=20&offset=0",
+            "members": [
+                {
+                    "followings": 0,
+                    "followers": 2,
+                    "likes": 0,
+                    "publish": 0,
+                    "total_comments": 0,
+                    "member_id": 20704650,
+                    "member_small_avatar": "http://alpha.squidplatform.com/Images/v23/Member/default_avatar.png",
+                    "member_name": "Plastic User2 (650)",
+                    "_link": "/members/20704650"
+                }
+            ]
         }
-    ]
-}
-            
 
 
 ### Adds member to another member's following [PUT]
@@ -2439,29 +2449,29 @@ Type of Address (`address_type`) values:
 
 + Response 200 (application/json)
 
-{
-   "count":1,
-   "limit":20,
-   "offset":0,
-   "_link":"/members/address?address_type=SHIPPING_ADDRESS,SELLER_ADDRESS&limit=20&offset=0",
-   "addresses":[
-      {
-         "id":551308,
-         "name":"Firstname Lastname",
-         "company":"Company Name Inc.",
-         "address1":"241 Davis Ave.",
-         "address2":"",
-         "city":"Anaheim",
-         "telephone":"5105551212",
-         "member_id":0,
-         "address_type":"SHIPPING_ADDRESS",
-         "state":"CA",
-         "postal_code":"94001",
-         "country_code":"US",
-         "is_residential":true
-      }
-   ]
-}
+        {
+           "count":1,
+           "limit":20,
+           "offset":0,
+           "_link":"/members/address?address_type=SHIPPING_ADDRESS,SELLER_ADDRESS&limit=20&offset=0",
+           "addresses":[
+              {
+                 "id":551308,
+                 "name":"Firstname Lastname",
+                 "company":"Company Name Inc.",
+                 "address1":"241 Davis Ave.",
+                 "address2":"",
+                 "city":"Anaheim",
+                 "telephone":"5105551212",
+                 "member_id":0,
+                 "address_type":"SHIPPING_ADDRESS",
+                 "state":"CA",
+                 "postal_code":"94001",
+                 "country_code":"US",
+                 "is_residential":true
+              }
+           ]
+        }
 
 ### Create a new member address [POST]
 + Request (application/x-www-form-urlencoded)
@@ -2487,21 +2497,22 @@ Type of Address (`address_type`) values:
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
 
 + Response 201 (application/json)
-{
-    "id": 7686,
-    "name": "Firstname Lastname",
-    "company": "Company Inc.",
-    "address1": "123 Some St.",
-    "address2": "Apt. 1A",
-    "city": "Hercules",
-    "telephone": "8005551212",
-    "member_id": 0,
-    "address_type": "SHIPPING_ADDRESS",
-    "state": "CA",
-    "postal_code": "94547",
-    "country_code": "US",
-    "is_residential": true
-}
+
+        {
+            "id": 7686,
+            "name": "Firstname Lastname",
+            "company": "Company Inc.",
+            "address1": "123 Some St.",
+            "address2": "Apt. 1A",
+            "city": "Hercules",
+            "telephone": "8005551212",
+            "member_id": 0,
+            "address_type": "SHIPPING_ADDRESS",
+            "state": "CA",
+            "postal_code": "94547",
+            "country_code": "US",
+            "is_residential": true
+        }
 
 ### Update an existing member address [PUT]
 + Request (application/x-www-form-urlencoded)
@@ -2527,21 +2538,22 @@ Type of Address (`address_type`) values:
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
 
 + Response 200 (application/json)
-{
-    "id": 7686,
-    "name": "Firstname Lastname",
-    "company": "Company Inc.",
-    "address1": "123 Some St.",
-    "address2": "Apt. 1A",
-    "city": "Hercules",
-    "telephone": "8005551212",
-    "member_id": 0,
-    "address_type": "SHIPPING_ADDRESS",
-    "state": "CA",
-    "postal_code": "94547",
-    "country_code": "US",
-    "is_residential": true
-}
+
+        {
+            "id": 7686,
+            "name": "Firstname Lastname",
+            "company": "Company Inc.",
+            "address1": "123 Some St.",
+            "address2": "Apt. 1A",
+            "city": "Hercules",
+            "telephone": "8005551212",
+            "member_id": 0,
+            "address_type": "SHIPPING_ADDRESS",
+            "state": "CA",
+            "postal_code": "94547",
+            "country_code": "US",
+            "is_residential": true
+        }
 
 ## Credits [/members/{id}/credits]
 Retrieves member's marketplace credits and payouts accumulated over time.  
@@ -2765,9 +2777,9 @@ GET the URL, that can be iframe'd by the application. This form will allow user 
             
 + Response 200 (application/json)
 
-    {
-        "tax_url":"https://www.123dapp.com/API/V2/Members/20704754/tax/render?a=ID1ONA&b=F56FFEEF-8035-4F7E-90A3-066C5897AD57&c=20a79b98f7645dedc91afed7566e9a41f91ec108f574cce6da13802eccd282c4"
-    }
+        {
+            "tax_url":"https://www.123dapp.com/API/V2/Members/20704754/tax/render?a=ID1ONA&b=F56FFEEF-8035-4F7E-90A3-066C5897AD57&c=20a79b98f7645dedc91afed7566e9a41f91ec108f574cce6da13802eccd282c4"
+        }
     
 ## ExtendSubscription [/members/ExtendSubscription{?hash,ts,subscription_ids,dates,extend_by,period_names}]
 ### Extend members subscription by specified period [PUT]
@@ -2789,6 +2801,7 @@ Extend members subscription by specified period.
     
 
 + Response 200 (application/json)
+
         [
                 {
                         "subscriptionId":"5996168",
@@ -2830,45 +2843,45 @@ Retrieve all the messages for a member. The messages can be retrieved from vario
 
 + Response 200 (application/json)
 
-{
-    "count": 28,
-    "limit": 2,
-    "offset": 0,
-    "_link": "/members/20704116/messages?limit=2&offset=0",
-    "_link_next": "/members/20704116/messages?limit=2&offset=2",
-    "messages": [
         {
-            "subject": "hi...",
-            "thread_id": "XHFMVYDI3LCLYGC",
-            "sent_time": "July 06, 2015 14:34:11",
-            "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
-            "sender_screen_id": 20707261,
-            "sender_screen_name": "qaautomationuser",
-            "recipient_screen_id": 20704116,
-            "recipient_screen_name": "sumanwan",
-            "profile_url": "http://alpha.squidplatform.com/MyCorner/qaautomationuser-20707261",
-            "message_id": "XHFMVYDI3LCLYGC",
-            "read_time": "",
-            "modifier_id": "",
-            "inreplyto": ""
-        },
-        {
-            "subject": "Good Day",
-            "thread_id": "X7ZFQEKI3LCLYGA",
-            "sent_time": "July 06, 2015 14:34:11",
-            "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
-            "sender_screen_id": 20707261,
-            "sender_screen_name": "qaautomationuser",
-            "recipient_screen_id": 20704116,
-            "recipient_screen_name": "sumanwan",
-            "profile_url": "http://alpha.squidplatform.com/MyCorner/qaautomationuser-20707261",
-            "message_id": "X7ZFQEKI3LCLYGA",
-            "read_time": "",
-            "modifier_id": "",
-            "inreplyto": ""
+            "count": 28,
+            "limit": 2,
+            "offset": 0,
+            "_link": "/members/20704116/messages?limit=2&offset=0",
+            "_link_next": "/members/20704116/messages?limit=2&offset=2",
+            "messages": [
+                {
+                    "subject": "hi...",
+                    "thread_id": "XHFMVYDI3LCLYGC",
+                    "sent_time": "July 06, 2015 14:34:11",
+                    "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
+                    "sender_screen_id": 20707261,
+                    "sender_screen_name": "qaautomationuser",
+                    "recipient_screen_id": 20704116,
+                    "recipient_screen_name": "sumanwan",
+                    "profile_url": "http://alpha.squidplatform.com/MyCorner/qaautomationuser-20707261",
+                    "message_id": "XHFMVYDI3LCLYGC",
+                    "read_time": "",
+                    "modifier_id": "",
+                    "inreplyto": ""
+                },
+                {
+                    "subject": "Good Day",
+                    "thread_id": "X7ZFQEKI3LCLYGA",
+                    "sent_time": "July 06, 2015 14:34:11",
+                    "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
+                    "sender_screen_id": 20707261,
+                    "sender_screen_name": "qaautomationuser",
+                    "recipient_screen_id": 20704116,
+                    "recipient_screen_name": "sumanwan",
+                    "profile_url": "http://alpha.squidplatform.com/MyCorner/qaautomationuser-20707261",
+                    "message_id": "X7ZFQEKI3LCLYGA",
+                    "read_time": "",
+                    "modifier_id": "",
+                    "inreplyto": ""
+                }
+            ]
         }
-    ]
-}
 
 
 ### Retrieve Message Details [GET]
@@ -2885,62 +2898,63 @@ Get message by Id. Person A sends mail to B and B replies to A and then A again 
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Response 200 (application/json)
-{
-    "message_count_inthread": 3,
-    "messages": [
+
         {
-            "subject": "Re:Re:Health",
-            "body": "Ok.GreatToHere",
-            "thread_id": "X79ZOI0H411A68D",
-            "sent_time": "July 06, 2015 14:34:11",
-            "profile_image": "",
-            "sender_screen_id": 0,
-            "sender_screen_name": "xcvbvb",
-            "recipient_screen_id": 0,
-            "recipient_screen_name": "amoltul",
-            "profile_url": "",
-            "message_id": "X4FFNPTH411A68H",
-            "read_time": "",
-            "recipient_box": "IN",
-            "sender_box": "OUT",
-            "inreplyto": "XWTWLL9H411A68F"
-        },
-        {
-            "subject": "Re:Health",
-            "body": "IAmFine",
-            "thread_id": "X79ZOI0H411A68D",
-            "sent_time": "July 06, 2015 14:34:11",
-            "profile_image": "",
-            "sender_screen_id": 0,
-            "sender_screen_name": "amoltul",
-            "recipient_screen_id": 0,
-            "recipient_screen_name": "xcvbvb",
-            "profile_url": "",
-            "message_id": "XWTWLL9H411A68F",
-            "read_time": "July 06, 2015 14:34:11",
-            "recipient_box": "DELETED",
-            "sender_box": "OUT",
-            "inreplyto": "X79ZOI0H411A68D"
-        },
-        {
-            "subject": "TestSubject",
-            "body": "HowAreYou",
-            "thread_id": "X79ZOI0H411A68D",
-            "sent_time": "July 06, 2015 14:34:11",
-            "profile_image": "",
-            "sender_screen_id": 0,
-            "sender_screen_name": "xcvbvb",
-            "recipient_screen_id": 0,
-            "recipient_screen_name": "amoltul",
-            "profile_url": "",
-            "message_id": "X79ZOI0H411A68D",
-            "read_time": "",
-            "recipient_box": "IN",
-            "sender_box": "OUT",
-            "inreplyto": ""
+            "message_count_inthread": 3,
+            "messages": [
+                {
+                    "subject": "Re:Re:Health",
+                    "body": "Ok.GreatToHere",
+                    "thread_id": "X79ZOI0H411A68D",
+                    "sent_time": "July 06, 2015 14:34:11",
+                    "profile_image": "",
+                    "sender_screen_id": 0,
+                    "sender_screen_name": "xcvbvb",
+                    "recipient_screen_id": 0,
+                    "recipient_screen_name": "amoltul",
+                    "profile_url": "",
+                    "message_id": "X4FFNPTH411A68H",
+                    "read_time": "",
+                    "recipient_box": "IN",
+                    "sender_box": "OUT",
+                    "inreplyto": "XWTWLL9H411A68F"
+                },
+                {
+                    "subject": "Re:Health",
+                    "body": "IAmFine",
+                    "thread_id": "X79ZOI0H411A68D",
+                    "sent_time": "July 06, 2015 14:34:11",
+                    "profile_image": "",
+                    "sender_screen_id": 0,
+                    "sender_screen_name": "amoltul",
+                    "recipient_screen_id": 0,
+                    "recipient_screen_name": "xcvbvb",
+                    "profile_url": "",
+                    "message_id": "XWTWLL9H411A68F",
+                    "read_time": "July 06, 2015 14:34:11",
+                    "recipient_box": "DELETED",
+                    "sender_box": "OUT",
+                    "inreplyto": "X79ZOI0H411A68D"
+                },
+                {
+                    "subject": "TestSubject",
+                    "body": "HowAreYou",
+                    "thread_id": "X79ZOI0H411A68D",
+                    "sent_time": "July 06, 2015 14:34:11",
+                    "profile_image": "",
+                    "sender_screen_id": 0,
+                    "sender_screen_name": "xcvbvb",
+                    "recipient_screen_id": 0,
+                    "recipient_screen_name": "amoltul",
+                    "profile_url": "",
+                    "message_id": "X79ZOI0H411A68D",
+                    "read_time": "",
+                    "recipient_box": "IN",
+                    "sender_box": "OUT",
+                    "inreplyto": ""
+                }
+            ]
         }
-    ]
-}
 
 ### Send Message [POST]
 
@@ -2959,11 +2973,12 @@ Send new message to user.
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Response 201 (application/json)
-{
-    "thread_id": "XAWYZDDIBLUNXZY",
-    "message_id": "XAWYZDDIBLUNXZY",
-    "_link": "/members/20704116/messages/XAWYZDDIBLUNXZY"
-}
+
+        {
+            "thread_id": "XAWYZDDIBLUNXZY",
+            "message_id": "XAWYZDDIBLUNXZY",
+            "_link": "/members/20704116/messages/XAWYZDDIBLUNXZY"
+        }
 
 ### Put Message [PUT]
 
@@ -2974,7 +2989,7 @@ Mark message as read, delete, undelete, purge and mark user as block/unblock.
     + message_id (required,String, `XWTWLL9H411A68F`)...Message id. (required if action is any one of the following : 
 read/delete/undelete/purge/block/unblock
     + action  (required,String`)...action = read/delete/undelete/purge/block/unblock. Purge : Only allowed on deleted messages.
-    + user_id  (required,Number, `20280724)...member Id on which block/unblock action will take place
+    + user_id  (required,Number, `20280724`)...member Id on which block/unblock action will take place
     
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -3001,11 +3016,12 @@ Send new message to user. To send reply to existing mail thread use Member/Reply
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Response 201 (application/json)
-{
-    "thread_id": "XAWYZDDIBLUNXZY",
-    "message_id": "XN8QJH5IBLUNY08",
-    "_link": "/members/20704116/messages/XN8QJH5IBLUNY08"
-}
+
+        {
+            "thread_id": "XAWYZDDIBLUNXZY",
+            "message_id": "XN8QJH5IBLUNY08",
+            "_link": "/members/20704116/messages/XN8QJH5IBLUNY08"
+        }
 
 # Group Auth
 
