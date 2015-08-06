@@ -4994,7 +4994,6 @@ Transfers a cart from a guest session to current logged in member
           "coupons": ""
         }
 
-If a digital item is already purchased by customer, it will be removed from the cart. The status depends on whether the rest of the cart is empty or not.
         {
           "status": "EMPTY_CART",
           "message": "User 20704112 cannot buy the product since she already has access to the product",
@@ -5013,7 +5012,6 @@ If a digital item is already purchased by customer, it will be removed from the 
           "coupons": []
         }
 
-If a coupon in guest cart is not valid for the customer due to different reasons:
         {
           "status": "PARTIAL_WITH_COUPON",
           "message": "Member has already used this coupon code ",
@@ -5041,7 +5039,6 @@ If a coupon in guest cart is not valid for the customer due to different reasons
           ]
         }
 
-If a digital item is already purchased by customer, it will be removed from the cart. If a coupon is applied to this deleted item and the rest of cart is not empty, the coupon will be removed from the cart.
         {
           "status": "PARTIAL",
           "message": "User 20704112 cannot buy some of the product since she already has access to the product.Member has already used this coupon code ",
