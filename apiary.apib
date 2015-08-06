@@ -4985,7 +4985,73 @@ Transfers a cart from a guest session to current logged in member
     + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE`)...String `type` of the cart to perform action with.
     + guest_session (required,String,`0000000-5F02-4133-BE38-ED61ACD29108`)...String `guest session` associated with the cart to perform action with.
 
-+ Response 204 (application/json)
++ Response 200 (application/json)
+
+        {
+          "status": "COMPLETE",
+          "message": "",
+          "products": "",
+          "coupons": ""
+        }
+
+If a digital item is already purchased by customer, it will be removed from the cart. The status depends on whether the rest of the cart is empty or not.
+        {
+          "status": "EMPTY_CART",
+          "message": "User 20704112 cannot buy the product since she already has access to the product",
+          "products": [
+            1616403
+          ],
+          "coupons": []
+        }
+
+        {
+          "status": "PARTIAL",
+          "message": "User 20704112 cannot buy some of the product since she already has access to the product.",
+          "products": [
+            1616403
+          ],
+          "coupons": []
+        }
+
+If a coupon in guest cart is not valid for the customer due to different reasons:
+        {
+          "status": "PARTIAL_WITH_COUPON",
+          "message": "Member has already used this coupon code ",
+          "products": [],
+          "coupons": [
+            "123"
+          ]
+        }
+
+        {
+          "status": "PARTIAL_WITH_COUPON",
+          "message": "Coupon code expires ",
+          "products": [],
+          "coupons": [
+            "123"
+          ]
+        }
+
+        {
+          "status": "PARTIAL_WITH_COUPON",
+          "message": "Coupon code usage has exceeded the limit ",
+          "products": [],
+          "coupons": [
+            "123"
+          ]
+        }
+
+If a digital item is already purchased by customer, it will be removed from the cart. If a coupon is applied to this deleted item and the rest of cart is not empty, the coupon will be removed from the cart.
+        {
+          "status": "PARTIAL",
+          "message": "User 20704112 cannot buy some of the product since she already has access to the product.Member has already used this coupon code ",
+          "products": [
+            1616403
+          ],
+          "coupons": [
+            "123"
+          ]
+        }
         
 
 ##Cart billing address [/carts/billingaddress]
