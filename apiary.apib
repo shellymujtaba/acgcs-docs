@@ -2820,7 +2820,7 @@ Extend members subscription by specified period.
                 }
         ]
 
-## Private Messaging [/members/{id}/messages{?mailbox,limit,offset,subject,body,recipient_id}]
+## Private Messaging [/members/{id}/messages{?mailbox,limit,offset,subject,body,recipient_id,messageid,message_id,messageId,action,user_id}]
 
 APIs for private messaging between members.
 
@@ -3025,7 +3025,7 @@ Send new message to user. To send reply to existing mail thread use Member/Reply
 
 # Group Auth
 
-## Login [/login]
+## Login [/login{?afc,display,secure,relative_redirect_path,locale,register,ssl,social_redirect,meter_session,send_create,send_first_login,oauth_asynch,authorization_code,send_opt_in,social_providers,css_query_param,moderator_id,auto_login}]
 Authorization is done through an "oauth-like" 3 legged process for web applications and a slightly modified 2 legged process for desktop/mobile apps.  
 Here are the general steps:  
 1. Client application calls the /login end point to begin login workflow  
@@ -3073,7 +3073,7 @@ Here are the general steps:
             Location: "https://myapp.com/relative_path?token_key=12313232333"
 
 
-## Authenticate Token [/login/authenticatetoken]
+## Authenticate Token [/login/authenticatetoken{?login_secret,token_key,afc}]
 Authenticate the token returned by /member/login call to recieve a session id. The token generated is valid only for 1hr.
 
 ### Retrieve session from token [GET] 
