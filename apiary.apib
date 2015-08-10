@@ -3120,6 +3120,7 @@ Returns a guest session ID.   Guest sessions expire after 4 hours of inactivity.
             X-SESSION: 00000000-B872-4DB5-BAB8-9A4AF61B5B0A
 
 + Response 204
+
        
             
 ## Session Valid [/session/valid]
@@ -3135,6 +3136,12 @@ Checks whether session and secure session is valid or not.
     + session (required, String, `1213133-1213131131112`)... Session
     + secure_session (required, String, `ABCDEFGH1234PQR`)... Secure session
 
++ Response 200 (application/json)
+
+     {
+        "is_valid": true,
+        "is_secure_valid": false
+     }
 
 #Group Shops
 This group of operations work on shops. A shop is a core entity in marketplace eco-system. A seller needs to establish a shop in order to start selling assets.
