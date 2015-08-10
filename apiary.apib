@@ -639,7 +639,7 @@ Note: The key should be unique within the asset. Using the same key in POST will
     
 + Response 204
 
-## Asset Previews [/assets/{id}/previews]
+## Asset Previews [/assets/{id}/previews{?file_ids,version,old_file_ids}]
 Operations to add preview files to this asset. These operations are used to add any asset preview files to the asset e.g asset promotional downloads.
 
 + Parameters
@@ -724,7 +724,7 @@ Operations to add preview files to this asset. These operations are used to add 
     
 + Response 204
 
-## Asset References [/assets/{id}/references]
+## Asset References [/assets/{id}/references{?asset_ids,limit,offset}]
 Operations to link other assets to this asset. These operations are useful to aggregate related assets together e.g Model of a car may consist of several assets : wheels, body, engine etc.
 
 + Parameters
@@ -797,7 +797,7 @@ Operations to link other assets to this asset. These operations are useful to ag
     + asset_ids (required,String, `234567,334562`)...Comma seperated list of assets references to be deleted from this asset.
 + Response 204
 
-## Asset Referenced [/assets/{id}/referenced]
+## Asset Referenced [/assets/{id}/referenced{?limit,offset}]
 This operation will return a list of assets where this asset is referenced.
 
 ### Retrieve assets referencing this asset [GET]
@@ -849,7 +849,7 @@ This operation will return a list of assets where this asset is referenced.
                 ]
             }
  
-## Asset Sources [/assets/{id}/sources]
+## Asset Sources [/assets/{id}/sources{?file_ids,old_file_ids,version}]
 Add files which constitute the "source" for this asset, this can include virtually any file type - 
 all major 3d formats will be automatically translated into a print ready STL format, which will be available in through the asset translations api. 
 Adding the sources will usually be a starting point for storing an asset in cloud services storage - subsequent tranformation operations can then be performed on these source files. 
@@ -860,7 +860,7 @@ Adding the sources will usually be a starting point for storing an asset in clou
 ### Create a new source within the asset[POST] 
 + Request (application/x-www-form-urlencoded)
     + Headers
-    
+
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
@@ -933,7 +933,7 @@ Note: The update will replace the source files already added to the asset. The o
     + file_ids (required,String, `234567,334562`)...Comma seperated list of files  to be deleted from this assets source.
 + Response 204
 
-## Asset Thumbnails [/assets/{id}/thumbnails]
+## Asset Thumbnails [/assets/{id}/thumbnails{?thumbnails,async,thumbnail_ids}]
 Add files as representational thumbnails for this asset. The thumbnails can include photographs of printed asset or rendered images of the 3d model. The thumbnail files should be atleast 1200x1200 px resolution. These thumbnails will be utilized by applications while displaying galleries or asset details.
 We will auto generate various sizes from this thumbnail:  
 * Small(64)  
@@ -949,7 +949,7 @@ The thumbnail url prefix is available in asset response, the size post-fix and e
 Note: The PUT updates the thumbnail metadata such as caption, description, thumbnail data, ModelToCentimeters & Primary thumbnail flag for an already existing thumbnails for an asset.
 
 + Parameters
-    + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
+    + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with.
 
 ### Create a new thumbnail within the asset[POST] 
 + Request (application/x-www-form-urlencoded)
@@ -1018,7 +1018,7 @@ Note: The PUT updates the thumbnail metadata such as caption, description, thumb
 + Response 204
     
 
-## Asset External Links [/assets/{id}/links]
+## Asset External Links [/assets/{id}/links{?links,link_ids}]
 All references to external artifacts such as blog posts, videos, photos etc.
 
 + Parameters
@@ -1030,7 +1030,7 @@ Note: A UUID is saved against the link if no id is passed inside the link JSON.
 
 + Request (application/x-www-form-urlencoded)
     + Headers
-    
+
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
@@ -1159,7 +1159,7 @@ This api will be used by backend services to update translations for various upl
     + translations (required,String, `3453434,123422`)...Comma seperated list of translated file ids which should be removed.
 + Response 204 (application/json)
 
-## Asset Likes [/assets/{id}/likes]
+## Asset Likes [/assets/{id}/likes{?limit,offset,sort_order,follow_order}]
 This operation is basically a toggle - calling PUT operation repeteadly will set/unset like state for this member on this asset.
 + Parameters
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
