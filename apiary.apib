@@ -4872,6 +4872,78 @@ Deletes the line item from the cart. Also deletes all the cart coupons if any co
             }
         ]
         }
+
+## Cart line item price [/carts/lineitems/prices]
+
+### Get cart line items price [GET]
+Get price of cart line items in multiple currencies
+
+|description|HTTP|code
+|----|----|----
+|Comma separated values of product id and product types is missing.|400 Bad Request|3031
+|productIds and productTypes size must be same|400 Bad Request|3032
+|The ip address cannot be found|400 Bad Request|34030
+|Maxmind cannot get the address|400 Bad Request|34031
+|IP Address is invalid|400 Bad Request|34032
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            
++ Parameters
+    + product_ids (required, String, `14,15`)...Comma separated `id` of the product.
+    + product_types (required, String, `SUBSCRIPTION,SUBSCRIPTION`)...(Currently Supported: SUBSCRIPTION | PHYSICAL | BUNDLE | DIGITAL). Comma separated list. Required to be same size of product_ids.
+    + locales (optional, String,`es_ES,it_IT,zh_TW,ja_JP`)...Comma separated locale for member. Please use standard convention of 2 letter language and country code separated by underscore. If currency is not determined from locale, price will be return for "en_US" i.e in USD. Following currencies are supported right now: USD,AUD,CAD,CHF,EUR,GBP,JPY,RUB. Default value if neither locales and ip_addresses is provided: en_US
+    + ip_addresses (optional, String,`1.2.3.4,11.22.33.44`)...Comma separated ip address for member.
+
++ Response 200 (application/json)
+
+        [
+          {
+            "product_id": 14,
+            "product_type": "SUBSCRIPTION",
+            "currency": [
+              {
+                "currency": "JPY",
+                "symbol": "￥",
+                "price": 322
+              },
+              {
+                "currency": "USD",
+                "symbol": "USD",
+                "price": 2.99
+              },
+              {
+                "currency": "EUR",
+                "symbol": "€",
+                "price": 2.32
+              }
+            ]
+          },
+          {
+            "product_id": 15,
+            "product_type": "SUBSCRIPTION",
+            "currency": [
+              {
+                "currency": "JPY",
+                "symbol": "￥",
+                "price": 2694
+              },
+              {
+                "currency": "USD",
+                "symbol": "USD",
+                "price": 24.99
+              },
+              {
+                "currency": "EUR",
+                "symbol": "€",
+                "price": 19.4
+              }
+            ]
+          }
+        ]
         
 ## Cart buynow [/carts/buynow{?cart_type,promotion_code,encrypted_card_number,encrypted_cvv,lse,expiration_month,expiration_year,name,card_type,card_last_four_digits,previous_card}]
 Returns a url of the custom BuyNow Page. The buynow_url page displays the cart and asks the users for their payment details as well as shows the place order button. The buynow_url page is specific to afc code and can be customized via a template. The template and needed resources (css, images) are managed by the client applications. Ask the cloud service commerce team for the initial template setup. Client application are responsible to display this url as they see fit (iframe or popup).
