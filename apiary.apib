@@ -3803,7 +3803,7 @@ See the Shops / Member Verification section for details.
 
 + Response 201
 
-##Member Verification [/shops/{shop_id}/verification]
+##Member Verification [/shops/{shop_id}/verification{?phone_number,paypal_email}]
 A seller must have a verified phone number on file and a paypal email address before requesting a payout.
 Otherwise the request for payout will fail.
 
@@ -4010,7 +4010,7 @@ Shop ID is optional for admin to retrieve all sales regardless of shop ID.
             }
 
 
-##Tax [/shops/{shop_id}/tax]
+##Tax [/shops/{shop_id}/tax{?address_type,address_value,tax_rate,apply_tax_to_shipping,limit,offset}]
 Sellers will specify the tax rate (in %age) for a given State/Zipcodes/Zipcode range at the shop level. Sales tax for physical items will be calcalated based on buyer shipping address. Sales tax for digital items will be calculated based on buyer billing address.
 
 + Parameters
@@ -4089,7 +4089,7 @@ If tax rate already exists for input address, the call will update the tax rate.
     
 + Response 204
 
-##Shipping Profile [/shops/{shop_id}/shippingprofile]
+##Shipping Profile [/shops/{shop_id}/shippingprofile{?limit,offset,name,description,from_country,to_country,shipping_time,shipping_cost,additional_cost,is_default}]
 Sellers will specify the shipping profile at the shop level. Shipping cost for physical items will be calcalated based on buyer shipping address and shipping profile associated with physical products. If shop does not have shipping profile, then seller cannot publish any of physical assets for sale of that shop. The seller can always add physical assets, that are NOT for sale without shipping profile
 
 + Parameters
@@ -4190,7 +4190,7 @@ If shop doesn't have shipping profile, then first shipping profile will be the d
         }
         
 
-##Shipping Profile [/shops/{shop_id}/shippingprofile/{shippingprofile_id}]
+##Shipping Profile [/shops/{shop_id}/shippingprofile/{shippingprofile_id}{?name,description,from_country,to_country,shipping_time,shipping_cost,additional_cost,is_default}]
 + Parameters
     + shop_id (required, Number, `20280723`)...Shop id
     + shippingprofile_id (required, Number, `10`)...Shipping Profile id
