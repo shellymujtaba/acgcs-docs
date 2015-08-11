@@ -4249,7 +4249,7 @@ Here are some key points about cart:
 Exp: Sketchbook, Pixlr and Ciruits are under different <a href="/reference/appendices">ECommerceAffiliates</a> so for single user there will be different carts for each of these apps.
 * Cart can be different for each affiliate code (X-AFC in header). Please contact cloud service team if affiliate code specific cart is needed.
 
-##Cart [/carts]
+##Cart [/carts{?cart_type}]
 Perform CRUD operations on cart with basic metadata.
 
 ### Retrieve a cart [GET]
@@ -4606,10 +4606,10 @@ Delete the cart of the logged in user or guest. After this call, a call to GET /
 + Response 204 (application/json)
 
 
-##Cart line items [/carts/lineitems]
+##Cart line items [/carts/lineitems{?product_id,product_type,quantity,unit_price,data,parent_id,line_item_id,hash_key,timestamp}]
 Line items are items within carts. Cart can contain 'n' line items. User can perform various CRUD operations on line items.
 
-    
+
 ### Update a cart line item [PUT]
 Add a line item to the cart or update exisiting one of same type and product id. Return the updated tenant specific cart (as identified by afc header) for a member or guest session with lineItems, and total price. Additionally return the new/updated line item in the "updated" field. 
 Here are some key points about cart:
@@ -4876,7 +4876,7 @@ Deletes the line item from the cart. Also deletes all the cart coupons if any co
         ]
         }
         
-##Cart buynow [/carts/buynow]
+##Cart buynow [/carts/buynow{?cart_type,promotion_code,encrypted_card_number,encrypted_cvv,lse,expiration_month,expiration_year,name,card_type,card_last_four_digits,previous_card}]
 Returns a url of the custom BuyNow Page. The buynow_url page displays the cart and asks the users for their payment details as well as shows the place order button. The buynow_url page is specific to afc code and can be customized via a template. The template and needed resources (css, images) are managed by the client applications. Ask the cloud service commerce team for the initial template setup. Client application are responsible to display this url as they see fit (iframe or popup).
 SecureSession is a required header for this API.
 
