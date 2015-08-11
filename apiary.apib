@@ -4896,7 +4896,7 @@ Get price of cart line items in multiple currencies
     + product_ids (required, String, `14,15`)...Comma separated `id` of the product.
     + product_types (required, String, `SUBSCRIPTION,SUBSCRIPTION`)...(Currently Supported: SUBSCRIPTION | PHYSICAL | BUNDLE | DIGITAL). Comma separated list. Required to be same size of product_ids.
     + locales (optional, String,`es_ES,it_IT,zh_TW,ja_JP`)...Comma separated locale for member. Please use standard convention of 2 letter language and country code separated by underscore. If currency is not determined from locale, price will be return for "en_US" i.e in USD. Following currencies are supported right now: USD,AUD,CAD,CHF,EUR,GBP,JPY,RUB. Default value if neither locales and ip_addresses is provided: en_US
-    + ip_addresses (optional, String,`1.2.3.4,11.22.33.44`)...Comma separated ip address for member.
+    + ip_addresses (optional, String,`1.2.3.4,11.22.33.44`)...Comma separated ip address for member. locales will be ignored if ip_addresses is provided.
 
 + Response 200 (application/json)
 
