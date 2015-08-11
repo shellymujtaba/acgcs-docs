@@ -355,10 +355,9 @@ Operations to perform CRUD operations on an asset with basic metadata. Additiona
     + extended_data (optional, boolean, `true`) ...When true extended asset data such as asset links, custom data etc. will be returned <br>Default: false
     + version (optional, double, `1.15`) ...When passed returns this version of the asset.
 
-+ Response 200 (application/json)
++ Response 200
 
     [Asset][]
-        
 
 ### Update an asset[PUT]
 + Request (application/x-www-form-urlencoded)
@@ -380,7 +379,6 @@ Operations to perform CRUD operations on an asset with basic metadata. Additiona
 
             {
                 "_link":"/asset/269620"
-            
             }
            
 ### Delete an asset [DELETE]
@@ -3097,6 +3095,7 @@ Operation to get guest session and delete session. Get session always return gue
 
 
 ### Retrieve Guest session [GET]  
+Returns a guest session ID.   Guest sessions expire after 4 hours of inactivity.
 
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -3107,8 +3106,7 @@ Operation to get guest session and delete session. Get session always return gue
 + Response 200 (application/json)
 
         {"session":"1213133-1213131131112"}
-            
-Returns a guest session ID.   Guest sessions expire after 4 hours of inactivity.
+
 
 ### Delete logged in session [DELETE]
 
@@ -5205,13 +5203,13 @@ Sample url is https://www.123dapp.com/api/v2/cart/shippingaddress?address1=1%20M
         "is_residential": true
         }
      
-## Cart shipping options [/carts/shippingOptions]
+## Cart shipping options [/carts/shippingOptions{?cart_type,shipping_options}]
 ### Update shipping option [PUT]
 Update user selected shipping options for one or more shipping line items in the cart and choose whether insurance is needed for shipping. This API call has to be used on shipping line items with their `status` field set to "PRICE". This call changes the cart shipping line items. The field `price` will be set to the price of the selected option and `selected_option` will be set to the chosen object.
 + Request (application/x-www-form-urlencoded)
 
     + Headers
-    
+
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             
@@ -7422,7 +7420,7 @@ Add a country supported by the payment service provider.
                 "country_name": "Anguilla"
             }
 
-## Country [/admin/countries{?country_iso_code}]
+## Country [/admin/countries{?country_iso_code,approved,country_name}]
 Get or modify countries by ISO code.
 
 ### Update Country [PUT]
@@ -7434,7 +7432,7 @@ Update the approval status or name of the country.
 
 + Request (application/x-www-form-urlencoded)
     + Header
-    
+
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
