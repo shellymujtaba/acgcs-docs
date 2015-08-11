@@ -7470,7 +7470,7 @@ Remove the country, which is no longer supported by our service payment provider
 
 + Response 204
 
-## Coupons [/admin/carts/coupons]
+## Coupons [/admin/carts/coupons{?name,description,discount_type,discount_amount,usage_limit_per_code,once_per_member,effective_from_date,effective_to_date,apply_to_product,code,autodesk_shared_discount_percent,seller_shared_discount_percent,coupon_status,sort_by,sort_order,offset}]
 Manage coupons that can be issued to buyers to get discount on selected SKUs. This is ONLY applicable for Marketplace SKUs.
 
 ### Create Coupon [POST]
@@ -7493,7 +7493,7 @@ Create a new coupon.
 
 + Request (application/x-www-form-urlencoded)
     + Header
-   
+
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             X-Secure-Session : cc33b7e56319409c3bda251c9dcda3a331b914cdc0f6d4716ccbc4a2e5fd09d2
@@ -7647,7 +7647,7 @@ Search all coupons.
             ]
         }
 
-## Coupon [/admin/carts/coupons/{coupon_id}]
+## Coupon [/admin/carts/coupons/{coupon_id}{?name,description,discount_type,discount_amount,usage_limit_per_code,once_per_member,effective_from_date,effective_to_date,apply_to_product,add_coupon_code,remove_unused_codes,autodesk_shared_discount_percent,seller_shared_discount_percent}]
         
 ### Get Coupon [GET]
 
@@ -7655,7 +7655,7 @@ Get a single coupon by unique id
 
 + Request (application/x-www-form-urlencoded)
     + Header
-   
+
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             X-Secure-Session : cc33b7e56319409c3bda251c9dcda3a331b914cdc0f6d4716ccbc4a2e5fd09d2
@@ -7698,7 +7698,7 @@ Get a single coupon by unique id
 
 ### Update Coupon [PUT]
 
-Update an existing copon.
+Update an existing coupon.
 
 |description|HTTP|code
 |----|----|----
@@ -8541,7 +8541,7 @@ Member entry or exit a contest.
 
 
 
-## Member Contest Votes [/contests/{contest_id}/members/{member_id}/votes]
+## Member Contest Votes [/contests/{contest_id}/members/{member_id}/votes{?limit,offset,asset_id}]
 
 ### Get Member voted Contest Entry [GET]
 
@@ -8616,7 +8616,7 @@ Retrieve all the entries in a contest which are voted by the member.
     
 + Response 200
 
-## Member Gifts [/contests/{contest_id}/members/{member_id}/gifts]
+## Member Gifts [/contests/{contest_id}/members/{member_id}/gifts{?contest_id,member_id,gift_assignment_id,accepted,name,address1,address2,city,state,zip,country,phone,email,winner_notes}]
 
 ### Accept/Deny contest gift [POST]
 
