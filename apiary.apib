@@ -1536,7 +1536,7 @@ The API to get the download server for uploading the files
             {
                 "server": "storagealpha.squidplatform.com"
             }            
-            
+
 ## Download File [/files/download{?file_ids,asset_id}]
 Download a specific file or set of files. 
 
@@ -1581,7 +1581,7 @@ Note: Please use the server for the file download received from the download ser
             "validity": 300
         }
 
-#File Access [/filesystem/publicurl]
+## File Access [/filesystem/publicurl{?file_ids}]
 APIs to make files available using public url.
 
 ### Make file public [POST]
@@ -1660,7 +1660,7 @@ API to delete public files.
 
 + Response 204 (application/json)
 
-# File Details [/filesystem/{file_id}]
+## File Details [/filesystem/{file_id}]
 
 ### Get File details [GET]
 
@@ -1685,10 +1685,10 @@ Note: The public url of the file is returned only if the file is made public.
             "public_url": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Public/Alpha/16812136"
         }
 
-#Group Marketplace
+# Group Marketplace
 This group of operations provides information on the marketplace APIS such as shipping options, inventory checking, placing order, updating order etc.
 
-# Order [/marketplace/updateorder/{order_number}]
+## Order [/marketplace/updateorder/{order_number}{?id,JSON_String}]
 ### Update an order status [POST]
 + Parameters
     + id (required,String, `b9a26297-38d2-4091-8882-620122bf0374`)...Vendor order reference number
@@ -3122,7 +3122,7 @@ Returns a guest session ID.   Guest sessions expire after 4 hours of inactivity.
 
        
             
-## Session Valid [/session/valid]
+## Session Valid [/session/valid{?session,secure_session}]
 Checks whether session and secure session is valid or not.
 
 ### Validate Session and Secure session [GET]
@@ -3137,18 +3137,18 @@ Checks whether session and secure session is valid or not.
 
 + Response 200 (application/json)
 
-     {
+        {
         "is_valid": true,
         "is_secure_valid": true
-     }
+        }
 
-#Group Shops
+# Group Shops
 This group of operations work on shops. A shop is a core entity in marketplace eco-system. A seller needs to establish a shop in order to start selling assets.
 
 * A shop needs to be reviewed once it is created (requested). The Shop Approval Status indicates the review status and is initially set to PENDING following a shop creation. Once the review is complete, this field gets updated to either APPROVED or DENIED.
 * The Shop Status field indicates whether the shop is online (i.e. visible to others) or offline. The DELETE operation can be utilized to bring a shop offline.
 
-##Shops [/shops]
+## Shops [/shops{?name,banner_file_id,current_portfolio_url,current_sales_url,title,description,custom_data_key,custom_data_value}]
 Operations for shop creation and retrieval.
 
 ### Create a new shop [POST]
@@ -3164,7 +3164,7 @@ Operations for shop creation and retrieval.
 
 + Request (application/x-www-form-urlencoded)
     + Headers
-    
+
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             X-Secure-Session: ABC1232324244
