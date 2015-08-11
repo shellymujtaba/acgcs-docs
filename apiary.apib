@@ -1,15 +1,15 @@
 FORMAT: 1A
 HOST: https://www.123dapp.com/api/v2
 
-#Cloud Services V2 API
+# Cloud Services V2 API
 This is version 2 of ACG cloud services api's. If you are looking for older version 1 - please refer to https://confluence.123dapp.com/display/ADSK/Marketplace+APIs
 
-#URL For Login
+# URL For Login
 For login specifically use following end points. These end points are served from your nearest edge cache location and minimize load times for login dialogs:
 Production: https://accounts.acg.autodesk.com/api/v2/login  
 Beta: https://beta-accounts.acg.autodesk.com/api/v2/login
 
-#URL
+# URL
 URL Structure is `https://{domain}/api/{version}/{resource}/{resourceId}`    
 All endpoints begin with /api/{version}/
 
@@ -17,7 +17,7 @@ Production URL: https://api.acg.autodesk.com/api/v2
 Beta URL: https://beta-api.acg.autodesk.com/api/v2
 Example: https://beta-api.acg.autodesk.com/api/v2/assets/123456
 
-#Verbs
+# Verbs
 We use restful verbs.
 
 |Verb         | Description                                                                                               
@@ -27,7 +27,7 @@ We use restful verbs.
 | `PUT`       |  Used to update an item. Success returns 200 status code with updated json item in body.               
 | `DELETE`    |  Used to delete an item. Success returns 204 status code with no body.
 
-#Status Codes
+# Status Codes
 We'll respond with one of the following status codes.
 
 |Code       | Description 
@@ -43,7 +43,7 @@ We'll respond with one of the following status codes.
 |`429`        | Rate limit exceeded, try again later.
 |`500`        | Server error.
 
-#Errors
+# Errors
 Any 4xx and 5xx response is an error. 
 In addition to the http code we will return additional information in the response payload as follows:  
 
@@ -56,7 +56,7 @@ In addition to the http code we will return additional information in the respon
     }
 
 
-#Headers
+# Headers
 All api calls require the following headers:  
 
 **X-Session**: A guest or member session. See Auth section on how to generate a guest/member session. Access to various api's depends on the type of session. 
@@ -64,7 +64,7 @@ For example - guest session will provide access to ready only public api's such 
 
 **X-AFC**: Unique identifier assigned to your enendiceslication. It is very important to use the AFC assigned to your application and not re-use AFC's across apps as this creates issues in debugging and analytics.  
 **X-Secure-Session**: Secure session is required for certain api calls which require updates to member profile or ecommerce transactions. **Secure session have a shorter life span (6 hrs). So in case an api returns 401 (unauthorized) response code - the applicaiton should prompt user to log in again**.  
-#Standards
+# Standards
 During api creation we follow these standards: -
  1. All json key names are lower case.
  2. Multi word names are seperated by _ e.g member_id, asset_id etc.  
@@ -74,12 +74,12 @@ During api creation we follow these standards: -
  6. All api end points strive to be nouns vs verbs. The http method (POST/GET/PUT/DELETE) determines the action to be performed e.g GET /api/v1/asset vs /api/v1/get_asset.
 
 
-#Appendices
+# Appendices
 
-##ECommerceAffiliate
+## ECommerceAffiliate
 ECommerceAffiliate is group of affiliates which share same behaviour like checkout pages. A case in a point is 123d and ciruits are under same ECommerceAffiliates.
 
-##Product IDs for Cart
+## Product IDs for Cart
 ### Product IDs for 123D
 |product_id|product_type|description|comments
 |----|----|----|----
@@ -362,7 +362,7 @@ Operations to perform CRUD operations on an asset with basic metadata. Additiona
 ### Update an asset[PUT]
 + Request (application/x-www-form-urlencoded)
     + Headers
-    
+
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
@@ -1686,10 +1686,10 @@ Note: The public url of the file is returned only if the file is made public.
 # Group Marketplace
 This group of operations provides information on the marketplace APIS such as shipping options, inventory checking, placing order, updating order etc.
 
-## Order [/marketplace/updateorder/{order_number}{?id,JSON_String}]
+## Order [/marketplace/updateorder/{order_number}{?JSON_String}]
 ### Update an order status [POST]
 + Parameters
-    + id (required,String, `b9a26297-38d2-4091-8882-620122bf0374`)...Vendor order reference number
+    + order_number (required,String, `b9a26297-38d2-4091-8882-620122bf0374`)...Vendor order reference number
     + JSON_String (required,String,`json string`)...You have to pass actual JSON string and set header to (application/JSON) in addition to default headers for cloud service API.
 <br><br><div class="parameterKey">JSON_String to set status to FAILED</div>
 <br>{"status":"FAILED","errorCode":"B56GHSGFT","errorMessage":"We can not fulfil your order as items are out of stock."}
@@ -1710,13 +1710,12 @@ This group of operations provides information on the marketplace APIS such as sh
 <br><br>If current status is COMPLETE then you can not set CLOSED status.(ErrorCode : 34750 : Order status can not be modified.)
 <br><br>If current status is COMPLETE | CLOSED | DECLINE | CANCELED | FAILED then you can not set DECLINE status.(ErrorCode : 34750 : Order status can not be modified.)
 
-+ Request (application/x-www-form-urlencoded)
++ Request (application/json)
     + Headers
 
             X-AFC: TC1ONA
             X-SECURE-SESSION: BD715D557FE163EA68A3427DD4320942
             X-SESSION: 6015771E-DD4E-421B-8EFA-2EA2B0761C8B
-            Content-Type: application/json
 
 + Response 200 (application/json)
 
@@ -6555,7 +6554,6 @@ Retrieve a shop by shop id only.
 
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-            Content-type:application/x-www-form-urlencoded
     
 + Parameters
     + shop_id (required, Number, `1234567890`)...Shop id
@@ -6629,7 +6627,6 @@ Update a shop based on the parameters in the query.
             
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-            Content-type:application/x-www-form-urlencoded
     
 + Parameters
     + shop_id (required, Number, `1234567890`)...Shop id
