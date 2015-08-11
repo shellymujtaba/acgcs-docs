@@ -3288,7 +3288,7 @@ an administator or searches with his own member_id. In the case, payout informat
             }
 
 
-##Shop [/shops/{shop_id}]
+##Shop [/shops/{shop_id}{?name,banner_file_id,current_portfolio_url,current_sales_url,shop_status,title,description,custom_data_key,custom_data_value,submit_request}]
 CRUD operations on a shop (see above for POST). Requesting a shop via POST causes the shop to be placed in the approval queue.
 
 + Parameters
@@ -3432,7 +3432,7 @@ Guest session results in only the public shop data to be returned. Offline shops
                 ]
             }
 
-## Shop Custom Data [/shops/{id}/customdata]
+## Shop Custom Data [/shops/{id}/customdata{?custom_data,keys}]
 Operations to add/delete custom data to this shop. Custom data can be retrieved from GET shop API.
 
 Note: The key should be unique within the shop. Using the same key in POST will overwrite the existing data if any.
@@ -3467,7 +3467,7 @@ Note: The key should be unique within the shop. Using the same key in POST will 
 + Response 204
 
 
-##Assets [/shops/{shop_id}/assets]
+##Assets [/shops/{shop_id}/assets{?show_deleted,limit,offset}]
 Retrieve the list of assets for sale. An asset can be removed from the shop via an update request.
 
 + Parameters
