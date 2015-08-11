@@ -3148,7 +3148,7 @@ This group of operations work on shops. A shop is a core entity in marketplace e
 * A shop needs to be reviewed once it is created (requested). The Shop Approval Status indicates the review status and is initially set to PENDING following a shop creation. Once the review is complete, this field gets updated to either APPROVED or DENIED.
 * The Shop Status field indicates whether the shop is online (i.e. visible to others) or offline. The DELETE operation can be utilized to bring a shop offline.
 
-## Shops [/shops{?name,banner_file_id,current_portfolio_url,current_sales_url,title,description,custom_data_key,custom_data_value}]
+## Shops [/shops{?name,banner_file_id,current_portfolio_url,current_sales_url,title,description,custom_data_key,custom_data_value,member_id,shop_name,start_date,end_date,sort_by,sort_order,limit,offset}]
 Operations for shop creation and retrieval.
 
 ### Create a new shop [POST]
@@ -6473,7 +6473,7 @@ The followig filters are mutually exclusive and get the following priority: shop
 
 + Request (application/x-www-form-urlencoded)
     + Header
-            
+
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
@@ -6547,14 +6547,14 @@ The followig filters are mutually exclusive and get the following priority: shop
                 ]
             }
 
-## Shop [/admin/shops/{shop_id}]
+## Shop [/admin/shops/{shop_id}{?name,banner_file_id,current_portfolio_url,current_sales_url,shop_status,shop_approval_status,shop_denial_reason,title,description,custom_data_key,custom_data_value}]
 
 ### Get a shop [GET]
 Retrieve a shop by shop id only.
 
 + Request (application/x-www-form-urlencoded)
     + Header
-            
+
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             Content-type:application/x-www-form-urlencoded
