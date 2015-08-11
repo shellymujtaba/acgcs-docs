@@ -1441,18 +1441,18 @@ Operations to manage status posts on an asset. Status posts are updates to the p
 Files are "second class" citizens in the Cloud Services ecosystem. As explained in the Assets api introduction: Within the 3d modeling/printing eco-system it is often hard to model a complete creation and workflow with a single file. Hence a file by itself has little meaning without the context of the asset it belongs to. 
 Of course in order to add a file to an asset, it must be uploaded first. The api operations below provide various ways of uploading a file and recieving a file id which can then be used to associate file with an asset. 
 
-##Upload Server [/server/upload]
+## Upload Server [/server/upload]
 The API to get the upload server for uploading the files
 ### Upload server [GET]
 + Request (application/x-www-form-urlencoded)
 
 + Response 200
 
-            {
-                "server": "storagealpha.squidplatform.com"
-            }
+        {
+            "server": "storagealpha.squidplatform.com"
+        }
 
-#Upload File [/files/upload]
+## Upload File [/files/upload{?unzip,fileurl,filename,public,software}]
 If the file is sent as a application/gzip and unzip parameter is = true, it will be unzipped and id will be returned for each constituent file within the zip. 
 In case of gzipped files, file name extension will be utilized to determine the file type (e.g. stl or obj). 
 In case of base64 encoded files, file name extension will be utilized to determine file type (e.g stl or obj).
