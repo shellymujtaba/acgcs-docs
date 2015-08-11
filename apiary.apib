@@ -170,152 +170,152 @@ An asset is the top level storage construct for cloud services. An asset can be 
 Within the 3d modeling/printing eco-system it is often hard to model a complete creation and workflow with a single file (for example: a model may consist of obj, mtl, texture files) - Asset provides an aggregation point for several related files and metadata elements to fully represent a creation, its various transformations, translations and references. 
 The operations listed below provide a full set of activities which can be performed against an asset. 
 
-##Asset [/assets/{id}]
+## Asset [/assets/{id}{?asset_name,description,tags,media_type_id,software,publish,progress_status,parent_asset_id,id,referenced_assets,extended_data,version,asset_ids}]
 Operations to perform CRUD operations on an asset with basic metadata. Additional operation sets will populate this asset with constituent files, additional metadata etc. 
 
 + Model (application/json)
 
     + Body
     
-{
-    "_link": "/asset/630595",
-    "artist": {
-        "location": "",
-        "avatar": "https://static.spark.autodesk.com/90941782-f793-4373-9cd9-467eceedee67.jpg4ac36cf8-9715-11e4-b61b-22000b181262.jpg",
-        "description": "Software Engineer",
-        "artist_id": 20704116,
-        "artist_name": "tim s"
-    },
-    "asset_id": 630595,
-    "asset_name": "timproduct",
-    "asset_status_code": 0,
-    "date_submitted": "April 09, 2011 07:27:54",
-    "delivery_media": "download only",
-    "description": "this is a test",
-    "used_in_project_count": 0,
-    "child_asset_count": 2,
-    "download_count": 0,
-    "favorited_by": [],
-    "favorite_count": 0,
-    "view_count": 15,
-    "file_formats": [
-        {
-            "file_id": 5401172,
-            "id": 999,
-            "name": "other ( see notes )",
-            "size": 326560,
-            "md5sum": "2553c3b793e66c10ff1a044fd017169d",
-            "version": "",
-            "file_name": "mesh.obj"
-        }
-    ],
-    "is_authorized_download": true,
-    "is_deleted": false,
-    "is_download_asset": true,
-    "progress_status": 1,
-    "is_member_favorite": false,
-    "is_gallery_asset": true,
-    "is_online_viewer_available": false,
-    "is_premium": false,
-    "is_repurchasable": false,
-    "is_reviewable": false,
-    "is_store_asset": false,
-    "keywords": "test",
-    "language": " ",
-    "model_type": 1,
-    "media_type": "3d models",
-    "status_post_count": 27,
-    "parent_asset_id": "",
-    "date_modified": "April 09, 2011 07:27:54",
-    "purchase_date": "",
-    "mesh": true,
-    "region": " ",
-    "software": 9,
-    "is_for_sale" : true,
-    "shop_id" : 34,
-    "total_price" : 0,
-    "thumbnails": [
-        {
-            "file_id": 123456,
-            "caption": "thumbnail caption",
-            "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
-            "description": "thumbnail description",
-            "is_primary": true
-        },
-        {
-            "file_id": 123457,
-            "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
-            "caption": "thumbnail caption 2",
-            "description": "thumbnail description 2",
-            "is_primary": false
-        }
-    ],
-    "referenced_assets": [
-        {
-            "_link": "/asset/588362",
-            "thumbnails": [
-                {
-                    "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
-                    "is_primary": false
+            {
+                "_link": "/asset/630595",
+                "artist": {
+                    "location": "",
+                    "avatar": "https://static.spark.autodesk.com/90941782-f793-4373-9cd9-467eceedee67.jpg4ac36cf8-9715-11e4-b61b-22000b181262.jpg",
+                    "description": "Software Engineer",
+                    "artist_id": 20704116,
+                    "artist_name": "tim s"
                 },
-                {
-                    "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
-                    "is_primary": true
+                "asset_id": 630595,
+                "asset_name": "timproduct",
+                "asset_status_code": 0,
+                "date_submitted": "April 09, 2011 07:27:54",
+                "delivery_media": "download only",
+                "description": "this is a test",
+                "used_in_project_count": 0,
+                "child_asset_count": 2,
+                "download_count": 0,
+                "favorited_by": [],
+                "favorite_count": 0,
+                "view_count": 15,
+                "file_formats": [
+                    {
+                        "file_id": 5401172,
+                        "id": 999,
+                        "name": "other ( see notes )",
+                        "size": 326560,
+                        "md5sum": "2553c3b793e66c10ff1a044fd017169d",
+                        "version": "",
+                        "file_name": "mesh.obj"
+                    }
+                ],
+                "is_authorized_download": true,
+                "is_deleted": false,
+                "is_download_asset": true,
+                "progress_status": 1,
+                "is_member_favorite": false,
+                "is_gallery_asset": true,
+                "is_online_viewer_available": false,
+                "is_premium": false,
+                "is_repurchasable": false,
+                "is_reviewable": false,
+                "is_store_asset": false,
+                "keywords": "test",
+                "language": " ",
+                "model_type": 1,
+                "media_type": "3d models",
+                "status_post_count": 27,
+                "parent_asset_id": "",
+                "date_modified": "April 09, 2011 07:27:54",
+                "purchase_date": "",
+                "mesh": true,
+                "region": " ",
+                "software": 9,
+                "is_for_sale" : true,
+                "shop_id" : 34,
+                "total_price" : 0,
+                "thumbnails": [
+                    {
+                        "file_id": 123456,
+                        "caption": "thumbnail caption",
+                        "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
+                        "description": "thumbnail description",
+                        "is_primary": true
+                    },
+                    {
+                        "file_id": 123457,
+                        "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
+                        "caption": "thumbnail caption 2",
+                        "description": "thumbnail description 2",
+                        "is_primary": false
+                    }
+                ],
+                "referenced_assets": [
+                    {
+                        "_link": "/asset/588362",
+                        "thumbnails": [
+                            {
+                                "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
+                                "is_primary": false
+                            },
+                            {
+                                "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45",
+                                "is_primary": true
+                            }
+                        ],
+                        "reference_added_date": "April 09, 2011 07:27:54",
+                        "description": "publishing test.",
+                        "media_type": 2,
+                        "asset_name": "cylinders",
+                        "asset_id": 588362,
+                        "is_premium_asset": false
+                    }
+                ],
+                "extended_data": {
+                    "mainFileThumbnails": [],
+                    "translations": [
+                        {
+                            "inputFileItemId": 5358536,
+                            "outputFileItemId": 5358536,
+                            "outputFileUrl": "",
+                            "outputFileType": "",
+                            "outputFileName": ""
+                        },
+                        {
+                            "inputFileItemId": 5358536,
+                            "outputFileItemId": 5358536,
+                            "outputFileUrl": "",
+                            "outputFileType": "",
+                            "outputFileName": ""
+                        }
+                    ],
+                    "key2": "<Any custom data. Escaped json in case of JSON custom data>",
+                    "links": [
+                        {
+                            "type": "LINK",
+                            "references": [
+                                {
+                                    "id": "54239097944f1",
+                                    "title": "link",
+                                    "description": "title",
+                                    "url": "https://www.youtube.com/watch?v=wQ3nCa2_f88"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "VIDEO",
+                            "references": [
+                                {
+                                    "id": 5423906829345,
+                                    "title": "title",
+                                    "description": "title",
+                                    "embedWidget": "<iframe width=\"854\" height=\"510\" src=\"//www.youtube.com/embed/wQ3nCa2_f88\" frameborder=\"0\"></iframe>"
+                                }
+                            ]
+                        }
+                    ]
                 }
-            ],
-            "reference_added_date": "April 09, 2011 07:27:54",
-            "description": "publishing test.",
-            "media_type": 2,
-            "asset_name": "cylinders",
-            "asset_id": 588362,
-            "is_premium_asset": false
-        }
-    ],
-    "extended_data": {
-        "mainFileThumbnails": [],
-        "translations": [
-            {
-                "inputFileItemId": 5358536,
-                "outputFileItemId": 5358536,
-                "outputFileUrl": "",
-                "outputFileType": "",
-                "outputFileName": ""
-            },
-            {
-                "inputFileItemId": 5358536,
-                "outputFileItemId": 5358536,
-                "outputFileUrl": "",
-                "outputFileType": "",
-                "outputFileName": ""
             }
-        ],
-        "key2": "<Any custom data. Escaped json in case of JSON custom data>",
-        "links": [
-            {
-                "type": "LINK",
-                "references": [
-                    {
-                        "id": "54239097944f1",
-                        "title": "link",
-                        "description": "title",
-                        "url": "https://www.youtube.com/watch?v=wQ3nCa2_f88"
-                    }
-                ]
-            },
-            {
-                "type": "VIDEO",
-                "references": [
-                    {
-                        "id": 5423906829345,
-                        "title": "title",
-                        "description": "title",
-                        "embedWidget": "<iframe width=\"854\" height=\"510\" src=\"//www.youtube.com/embed/wQ3nCa2_f88\" frameborder=\"0\"></iframe>"
-                    }
-                ]
-            }
-        ]
-    }
-}
 
 ### Create a new asset[POST]
 
@@ -403,7 +403,7 @@ Operations to perform CRUD operations on an asset with basic metadata. Additiona
     + asset_ids (required,String,`234566,3545346,5654`)...Numeric id comma seperated list` of the assets to perform action with. 
 + Response 204
 
-##Asset Versions [/assets/{id}/versions]
+## Asset Versions [/assets/{id}/versions]
 Operations to create and retrieve asset versions.
 
 ### Create a new major Asset version[POST]
@@ -1523,7 +1523,7 @@ Note: Please use the server for the file upload received from the upload server 
             ]
         }
             
-##Download Server [/server/download]
+## Download Server [/server/download]
 The API to get the download server for uploading the files
 ### Download server [GET]
 + Request (application/x-www-form-urlencoded)
@@ -1538,7 +1538,7 @@ The API to get the download server for uploading the files
                 "server": "storagealpha.squidplatform.com"
             }            
             
-##Download File [/files/download{?file_ids,asset_id}]
+## Download File [/files/download{?file_ids,asset_id}]
 Download a specific file or set of files. 
 
 Note: Please use the server for the file download received from the download server API.
@@ -1557,7 +1557,7 @@ Note: Please use the server for the file download received from the download ser
 
 + Response 200
 
-##Download File Path [/files/download/path{?file_ids,asset_id}]
+## Download File Path [/files/download/path{?file_ids,asset_id}]
 Retrieve direct download path to a specific file or a set of files. 
 This is a more efficient way to download large files (Eg: files greater than 50MB) since it returns the direct download path to the file as against streaming it via the server.
 
@@ -3467,7 +3467,7 @@ Note: The key should be unique within the shop. Using the same key in POST will 
 + Response 204
 
 
-##Assets [/shops/{shop_id}/assets{?show_deleted,limit,offset}]
+## Assets [/shops/{shop_id}/assets{?show_deleted,limit,offset}]
 Retrieve the list of assets for sale. An asset can be removed from the shop via an update request.
 
 + Parameters
@@ -3582,7 +3582,7 @@ Retrieve the list of assets for sale. An asset can be removed from the shop via 
                 ]
             }
 
-##Asset [/shops/{shop_id}/assets/{asset_id}{?asset_price,for_sale,product_type,vendor_sku,is_available,package_weight,package_length,package_height,package_width,apply_tax,shipping_profile,lead_in_days}]
+## Asset [/shops/{shop_id}/assets/{asset_id}{?asset_price,for_sale,product_type,vendor_sku,is_available,package_weight,package_length,package_height,package_width,apply_tax,shipping_profile,lead_in_days}]
 Update the asset of a shop.
 
 + Parameters
@@ -4249,7 +4249,7 @@ Here are some key points about cart:
 Exp: Sketchbook, Pixlr and Ciruits are under different <a href="/reference/appendices">ECommerceAffiliates</a> so for single user there will be different carts for each of these apps.
 * Cart can be different for each affiliate code (X-AFC in header). Please contact cloud service team if affiliate code specific cart is needed.
 
-##Cart [/carts{?cart_type}]
+## Cart [/carts{?cart_type}]
 Perform CRUD operations on cart with basic metadata.
 
 ### Retrieve a cart [GET]
@@ -4606,7 +4606,7 @@ Delete the cart of the logged in user or guest. After this call, a call to GET /
 + Response 204 (application/json)
 
 
-##Cart line items [/carts/lineitems{?product_id,product_type,quantity,unit_price,data,parent_id,line_item_id,hash_key,timestamp}]
+## Cart line items [/carts/lineitems{?product_id,product_type,quantity,unit_price,data,parent_id,line_item_id,hash_key,timestamp}]
 Line items are items within carts. Cart can contain 'n' line items. User can perform various CRUD operations on line items.
 
 
@@ -4876,7 +4876,7 @@ Deletes the line item from the cart. Also deletes all the cart coupons if any co
         ]
         }
         
-##Cart buynow [/carts/buynow{?cart_type,promotion_code,encrypted_card_number,encrypted_cvv,lse,expiration_month,expiration_year,name,card_type,card_last_four_digits,previous_card}]
+## Cart buynow [/carts/buynow{?cart_type,promotion_code,encrypted_card_number,encrypted_cvv,lse,expiration_month,expiration_year,name,card_type,card_last_four_digits,previous_card}]
 Returns a url of the custom BuyNow Page. The buynow_url page displays the cart and asks the users for their payment details as well as shows the place order button. The buynow_url page is specific to afc code and can be customized via a template. The template and needed resources (css, images) are managed by the client applications. Ask the cloud service commerce team for the initial template setup. Client application are responsible to display this url as they see fit (iframe or popup).
 SecureSession is a required header for this API.
 
@@ -4978,7 +4978,7 @@ SecureSession is a required header for this API.
           "name":"john mathew"
         }
 
-##Cart transfer [/carts/transfer{?cart_type,guest_session,id,name,address1,city,country_code,company,address2,postal_code,state,telephone,is_residential}]
+## Cart transfer [/carts/transfer{?cart_type,guest_session,id,name,address1,city,country_code,company,address2,postal_code,state,telephone,is_residential}]
 ### Transfer cart from guest to user [POST]
 Transfers a cart from a guest session to current logged in member
 + Request (application/x-www-form-urlencoded)
@@ -5432,7 +5432,7 @@ Update user selected shipping options for one or more shipping line items in the
             ]
         }
         
-## Cart shipment grouping method [/carts/shipmentGroupingMethods]
+## Cart shipment grouping method [/carts/shipmentGroupingMethods{?cart_type,method}]
 ### Update shipment grouping method [PUT]
 Update how the shipments for multiple physical items should be grouped together. Default method is MINIMUM_SHIPMENTS. Setting already selected method has no effect on the cart.
 + Request (application/x-www-form-urlencoded)
@@ -5810,7 +5810,7 @@ Update how the shipments for multiple physical items should be grouped together.
             }
         }
 
-##Cart coupons [/carts/coupons]
+## Cart coupons [/carts/coupons{?cart_type,code}]
 ### Add coupon [PUT]
 Apply a coupon. Returns the updated cart (as identified by afc header and cart type) for a member or guest session with lineItems, applied coupons and total price.
 
@@ -6129,7 +6129,7 @@ Delete a coupon. Returns the updated cart (as identified by afc header and cart 
 + Request (application/x-www-form-urlencoded)
 
     + Headers
-    
+
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             
@@ -6418,8 +6418,8 @@ Delete a coupon. Returns the updated cart (as identified by afc header and cart 
             ]
         }
 
-##Cart tax [/carts/tax]
-###Get cart tax [GET]
+## Cart tax [/carts/tax{?cart_type}]
+### Get cart tax [GET]
 (INTERNAL CALL ONLY) Returns the tax of the cart (as identified by afc header and cart type) for a member. Should be called only after buynow url. 
 
 + Request (application/x-www-form-urlencoded)
@@ -6442,8 +6442,8 @@ Delete a coupon. Returns the updated cart (as identified by afc header and cart 
         }
 
 # Group Subscription
-##Member credit card [/members/creditcards]
-###Get member credit card [GET]
+## Member credit card [/members/creditcards]
+### Get member credit card [GET]
 (INTERNAL CALL ONLY) Return a list of credit card with last 4 digit number and card type.
 + Request (application/x-www-form-urlencoded)
 
