@@ -6708,6 +6708,9 @@ Retrieve a shop by shop id only.
 ### Update a shop [PUT]
 Update a shop based on the parameters in the query.
 
+Please note that a shop cannot be put ONLINE until the seller has completed his tax witholding information.  
+If the member attempts to set the shop ONLINE without tax information a 34026 error is returned.
+
 |Message|HTTP Status Code|Error Code|Data
 |----|----|----|----
 |Shop name is too long. Maximum allowed length is 250|400 Bad Request|3313|
@@ -7050,9 +7053,12 @@ Allow the retrieval and modification of shop asset specific properties.
 
 ### Update a shop asset [PUT]
 Add / Update the shop asset.
-Setting a private asset "for sale" results in asset state changed to public. Please note that an asset cannot be put for sale until the seller has completed tax witholding information.  
-If the member attempts to set an asset for sale without tax informtion and error would be returned. 
-A physical asset cannot be put for sale without shop shipping information and product fulfillment information.
+
+The shop asset forSale flag can be set to either true or flag regardless of the Shop status. It is meant to reflect the seller's intent and is controlled by the seller of the shop.
+
+Behind the scene: If the shop is OFFLINE, the assets are not going to show in the gallery and won't be available for purchase. If the shop is ONLINE, the assets are going to automatically show in the gallery when set for sale. Any change to the status of the shop (OFFLINE/ONLINE) triggers automatic update of the assets to hide/show them from the gallery.
+
+NOTE: A physical asset cannot be put for sale without product fulfillment information. 
 
 |Message|HTTP Status Code|Error Code|Data
 |----|----|----|----
