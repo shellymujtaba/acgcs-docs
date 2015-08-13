@@ -3357,6 +3357,9 @@ Guest session results in only the public shop data to be returned. Offline shops
 
 ### Update a shop [PUT]
 
+Please note that a shop cannot be put ONLINE until the seller has completed his tax witholding information.  
+If the member attempts to set the shop ONLINE without tax information a 34026 error is returned.
+
 |Message|HTTP Status Code|Error Code|Data
 |----|----|----|----
 |Shop name is too long. Maximum allowed length is 250|400 Bad Request|3313|
