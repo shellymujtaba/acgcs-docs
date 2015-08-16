@@ -1934,7 +1934,7 @@ This operation will return a list of members.  At least one parameter is require
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
-    + name (optional,String, `Smith`)...Member name
+    + name (optional,String, `Smith`)...Member name, which must be at least 1 character in length.
     + description (optional,String, `Photography`)...Member description, which must be at least 3 characters in length.
     + limit (optional, Number,`20`)...Number of results to return in each page. Default: 20.
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
@@ -1953,16 +1953,12 @@ This operation will return a list of members.  At least one parameter is require
                 {
                     "member": {
                         "id": 20212345,
+                        "name": "John Smith",
                         "profile": {
                             "location": "San Francisco, CA",
                             "description": "I do stuff with aerial photography, hyperspectral imaging and stuff with machines that go beep",
-                            "avatar_path": "https://static.spark.autodesk.com/2011/10/11__13_44_26/Photo-1.jpg37e.jpg",
-                            "find_me": {
-                                "twitter": "http://www.twitter.com/JSmith",
-                                "personal": "www.SmithLighting.com"
-                            }
-                        },
-                        "name": "John Smith"
+                            "avatar_path": "https://static.spark.autodesk.com/2011/10/11__13_44_26/Photo-1.jpg37e.jpg"
+                        }
                     }
                 }
             ]
