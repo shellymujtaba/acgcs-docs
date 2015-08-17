@@ -1723,7 +1723,7 @@ This group of operations provides information on the marketplace APIS such as sh
 #Group Members
 This group of operations provides information on the member. A member is a user who signs up or logs into Cloud Services eco-system.
 
-#Member [/members/{id}{?name,email,first_name,last_name,description,location,facebook,twitter,personal,locale,avatar,company,company_website,industry,address1,address2,city,state,postal_code,country_code,phone_home,phone_mobile,phone_work,phone_work_extension,newsletters,subscribe,preferences}]
+#Member [/members/{id}{?name,email,first_name,last_name,description,location,facebook,twitter,personal,locale,locale_language,locale_country,avatar,company,company_website,industry,address1,address2,city,state,postal_code,country_code,phone_home,phone_mobile,phone_work,phone_work_extension,newsletters,subscribe,preferences}]
 Manage public information about a member. To update a member secure session is required for following fields; 
 name, email, locale and avatar
 
@@ -1889,6 +1889,8 @@ name, email, locale and avatar
     + twitter (optional, String, `http://www.twitter.com/jsmith`)...Member twitter link
     + personal (optional, String, ``)...Member personal link
     + locale (optional, String, `en_US`)... Valid locale in in format: &lt;language&gt;_&lt;COUNTRY&gt;
+    + locale_language (optional, String, `es`)... Instead of using locale, this param sets only the languabe part of the locale.
+    + locale_country (optional, String, `CA`)... Instead of using locale, this param sets only the country part of the locale.
     + avatar (optional, String, `123456`)...File id which represents the member avatar. Also see file upload operations
     + company (optional, String, `Sunny International, Inc.`)...Company name
     + company_website (optional, String, `http://www.sunnyint.com/us/index.htm`)...Company's website
