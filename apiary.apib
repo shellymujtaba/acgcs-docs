@@ -7921,6 +7921,11 @@ Utility APIs.
 Retrieve location according to ip address.
 
 ### Retrieve address [GET]
+|Message|HTTP Status Code|Error Code|Data
+|----|----|----|----
+|The ip address cannot be found|400 Bad Request|34047|ip address
+|Maxmind cannot get the address|400 Bad Request|34031|ip address
+|IP Address is invalid|400 Bad Request|34032|ip address
 
 + Request (application/x-www-form-urlencoded)
     + Header
