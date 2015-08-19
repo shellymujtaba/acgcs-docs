@@ -2013,6 +2013,73 @@ Member apps operations
 
 + Response 204 (application/json)
 
+            
+## Preferences [/members/{id}/preferences{?namespace,empty_if_null,preference_name,preference_value,preference_names}]
+Member preference operations
+
+### Retrieve a members preferences [GET]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + id (required,String, `20706644`)...Member id
+    + namespace (required, Number,`123D`)...Namespace for these preferences.
+    + empty_if_null (optional, Number,`true`)...Return empty json, i.e. {}, if this is true, otherwise empty string. Default: false.
+
++ Response 200 (application/json)
+
+        {
+          "preferences": {
+            "significant_digits": "15",
+            "default_unit": "cm",
+            "ab-survey-3": {
+              "user_choice1": "c",
+              "user_choice1": "true"
+            },
+            "industry": "Architecture"
+          },
+          "namespace": "123D",
+          "last_modified": "August 11, 2015 21:04:44"
+        }
+
+### Save a members preference [PUT]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + id (required,String, `20706644`)...Member id
+    + namespace (required, Number,`123D`)...Namespace for these preferences.
+    + empty_if_null (optional, Number,`true`)...return empty json, i.e. {}, if this is true, otherwise empty string. Default: false.
+    + preference_name (optional, Number, `default_unit`)...The name of the preference.  Accepted characters: [a-ZA-Z0-9_-] (no spaces)
+    + preference_value (optional, String, `{"test": 10}`)...Value to save for given preference name. Either value or JSON String accepted.  Validated as JSON if previously saved as JSON.
+
++ Response 201 (application/json)
+
+        {
+          "_link": "/members/20708713/preferences"
+        }
+
+### Remove a members preferences [DELETE]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + id (required,String, `20706644`)...Member id
+    + namespace (required, Number,`123D`)...Namespace for these preferences.
+    + preference_names (optional, Number, `default_unit`)...Comma separated list of names to remove key and data from preferences.
+
++ Response 204 (application/json)
+
+
 ## Follows [/members/{id}/follows{?limit,offset}]
 Returns the list of users this member follows.
 
@@ -2063,7 +2130,6 @@ Returns the list of users this member follows.
                 ]
                         
             }
-            
 
 
 ## Following [/members/{id}/following{?limit,offset,publisher_id}]
@@ -7930,7 +7996,7 @@ Request a refund on an order
 Utility APIs.
 
 
-## Ip to Address [/utility/iptoaddress{?ip}]
+## IP to Address [/utility/iptoaddress{?ip}]
 Retrieve location according to ip address.
 
 ### Retrieve address [GET]
@@ -7947,7 +8013,7 @@ Retrieve location according to ip address.
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
-    + ip (required, String, `108.168.255.243`)... ip address.
+    + ip (optional, String, `108.168.255.243`)... ip address. If it is not provided or if the location cannot be found for the provided ip address, we'll look up location for caller's detected ip address. The detected IP of the caller will be returned in response.
     
 + Response 200 (application/json)
             
@@ -7971,7 +8037,8 @@ Retrieve location according to ip address.
                 "state": "Texas",
                 "postal_code": "75244",
                 "country_code": "US",
-                "is_residential": true
+                "is_residential": true,
+                "ip_address":"108.168.255.243"
             }
 
 # Group Contests
