@@ -3650,7 +3650,7 @@ Retrieve the list of assets for sale. An asset can be removed from the shop via 
                 ]
             }
 
-## Asset [/shops/{shop_id}/assets/{asset_id}{?asset_price,for_sale,product_type,vendor_sku,is_available,package_weight,package_length,package_height,package_width,apply_tax,shipping_profile,lead_in_days}]
+## Asset [/shops/{shop_id}/assets/{asset_id}{?asset_price,for_sale,product_type,vendor_sku,is_available,package_weight,package_length,package_height,package_width,unit_measure,unit_weight,apply_tax,shipping_profile,lead_in_days}]
 Update the asset of a shop.
 
 + Parameters
@@ -3697,6 +3697,8 @@ NOTE: A physical asset cannot be put for sale without product fulfillment inform
     + package_length (optional, Number, `49.99`)... Sets the length of the package which is shipped to customer after customer buys the physical asset. This parameter is ONLY used if product type is physical. This information is required before the asset is put on sale. Unit is inch
     + package_height (optional, Number, `39.99`)... Sets the height of the package which is shipped to customer after customer buys the physical asset. This parameter is ONLY used if product type is physical. This information is required before the asset is put on sale. Unit is inch
     + package_width (optional, Number, `19.99`)... Sets the width of the package which is shipped to customer after customer buys the physical asset. This parameter is ONLY used if product type is physical. This information is required before the asset is put on sale. Unit is inch
+    + unit_measure (optional, String, `cm`)... Sets unit for length, height and width. Default: mm
+    + unit_weight (optional, String, `kg`)... Sets unit for weight. Default: oz
     + apply_tax (optional, Boolean, `true`)... Sets whether tax should be applied on a product. Default: true
     + shipping_profile (optional, Number, `10` )... Sets the shipping profile on a product. Value can be single shipping profile id or comma seperated list of shipping profile ids. The shipping profile is mandatory before any putting physical asset for sale of the shop which uses generic fulfillment handler instead of third party fulfillment handlers like e-links, arduino etc.
     + lead_in_days (optional, Number, `1` )... Sets the lead in days for physical asset. The lead in days indicates number of days between order date and shipping date. The lead in days is mandatory before putting any physical asset for sale of the shop which uses generic fulfillment handler instead of third party fulfillment handlers like e-links, arduino etc.
@@ -3705,81 +3707,95 @@ NOTE: A physical asset cannot be put for sale without product fulfillment inform
 + Response 200
 
             {
-                "keywords": "Hex-Head Bolt DIN 931-1",
-                "language": "en",
-                "region": "",
-                "software": 9,
-                "artist": {
-                    "location": "",
-                    "avatar": "http://alpha.squidplatform.com/Images/v23/Member/default_avatar.png",
-                    "description": "",
-                    "artist_name": "mert cemiloglu 207"
+              "keywords": "tags",
+              "language": "en",
+              "region": "",
+              "software": 9,
+              "artist": {
+                "location": "",
+                "avatar": "",
+                "description": "",
+                "artist_id": 20704112,
+                "artist_name": "q z"
+              },
+              "mesh": false,
+              "asset_id": 1486028,
+              "asset_name": "create asset",
+              "is_gallery_asset": true,
+              "description": "test description",
+              "download_count": 0,
+              "is_online_viewer_available": false,
+              "parent_asset_id": "",
+              "is_premium": false,
+              "progress_status": 1,
+              "delivery_media": "",
+              "asset_status_code": 0,
+              "media_type": "123D_Design",
+              "view_count": 5,
+              "comment_count": 0,
+              "model_type": 1,
+              "is_download_asset": false,
+              "status_post_count": 0,
+              "is_member_favorite": false,
+              "used_in_project_count": 0,
+              "favorited_by": [],
+              "favorite_count": 0,
+              "child_asset_count": 0,
+              "date_submitted": "August 19, 2015 21:59:21",
+              "date_modified": "",
+              "total_price": 9.99,
+              "shop_id": 10,
+              "is_for_sale": true,
+              "purchase_date": "",
+              "_link": "",
+              "_link_version_prev": "",
+              "_link_version_next": "",
+              "thumbnails": [
+                {
+                  "caption": "",
+                  "description": "",
+                  "file_id": 0,
+                  "thumb_path_prefix": "http://static.spark.autodesk.com/Images/FullPreview/nopicture",
+                  "is_primary": false
+                }
+              ],
+              "referenced_assets": [],
+              "is_authorized_download": true,
+              "is_deleted": false,
+              "is_repurchasable": false,
+              "is_store_asset": false,
+              "is_reviewable": false,
+              "license_id": "",
+              "license_name": "",
+              "file_formats": [],
+              "extended_data": {},
+              "asset_version": "1.00",
+              "product_info": {
+                "id": 1486028,
+                "shipping_info": {
+                  "weight": 2.11,
+                  "length": 3.4,
+                  "height": 5.67,
+                  "width": 8.9,
+                  "product_id": 1486028,
+                  "shop_id": 10,
+                  "unit_measure": "mm",
+                  "unit_weight": "oz"
                 },
-                "mesh": false,
-                "asset_id": 588448,
-                "asset_name": "DIN 931-1 - replaced by DIN EN 24014",
-                "is_gallery_asset": true,
-                "description": "Hex-Head Bolt",
-                "download_count": 0,
-                "is_online_viewer_available": false,
-                "parent_asset_id": "",
-                "is_premium": false,
-                "progress_status": 1,
-                "delivery_media": "",
-                "asset_status_code": 0,
-                "media_type": "Supporting Parts",
-                "model_type": 1,
-                "is_download_asset": false,
-                "status_post_count": 0,
-                "is_member_favorite": false,
-                "used_in_project_count": 0,
-                "favorited_by": [],
-                "favorite_count": 0,
-                "child_asset_count": 0,
-                "date_submitted": "December 16, 2014 20:58:51",
-                "total_price": 82.21,
-                "shop_id": 7,
-                "is_for_sale": false,
-                "purchase_date": "",
-                "_link": "",
-                "thumbnails": [
-                    {
-                        "caption": "",
-                        "description": "",
-                        "file_id": 4633873,
-                        "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 931-1 - replaced by DIN EN 24014-perspectiveView.jpge5f9d268-e7eb-48e5-8786-c9aaa5c0bad5",
-                        "is_primary": true
-                    },
-                    {
-                        "caption": "",
-                        "description": "",
-                        "file_id": 4633880,
-                        "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 931-1 - replaced by DIN EN 24014-frontView.jpgb1fddd9a-aef5-404d-b62a-972d3f7df040",
-                        "is_primary": false
-                    },
-                    {
-                        "caption": "",
-                        "description": "",
-                        "file_id": 4633888,
-                        "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 931-1 - replaced by DIN EN 24014-rightView.jpgdd680769-d4c5-4d26-99ea-2afcb2cfa8ea",
-                        "is_primary": false
-                    },
-                    {
-                        "caption": "",
-                        "description": "",
-                        "file_id": 4633893,
-                        "thumb_path_prefix": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/2012/08/14__16_33_08/DIN 931-1 - replaced by DIN EN 24014-wireframePerspective.jpgcd192db7-c416-471d-a8d2-a3e6505d205d",
-                        "is_primary": false
-                    }
-                ],
-                "referenced_assets": [],
-                "is_authorized_download": true,
-                "is_deleted": false,
-                "is_repurchasable": false,
-                "is_store_asset": false,
-                "is_reviewable": false,
-                "file_formats": [],
-                "extended_data": {}
+                "shop_name": "DO NOT REMOVE. For regression test 测试",
+                "type": "PHYSICAL",
+                "store_type": "MARKETPLACE",
+                "vendor_sku_id": "1486028",
+                "lead_in_days": 10,
+                "shop_id": 10,
+                "total_price": 9.99,
+                "name": "create asset",
+                "description": "test description",
+                "for_sale": true,
+                "vendor_display_name": "",
+                "is_available": true,
+                "apply_tax": true
+              }
             }
 
 
@@ -7035,7 +7051,7 @@ Retrieve the assets given the filters passed as parameters.
             }
 
 
-## Shop Asset [/admin/shops/{shop_id}/assets/{asset_id}{?asset_price,for_sale,product_type,vendor_sku,is_available,package_weight,package_length,package_height,package_width,apply_tax}]
+## Shop Asset [/admin/shops/{shop_id}/assets/{asset_id}{?asset_price,for_sale,product_type,vendor_sku,is_available,package_weight,package_length,package_height,package_width,unit_measure,unit_weight,apply_tax}]
 Allow the retrieval and modification of shop asset specific properties.
 
 ### Get a shop asset [GET]
@@ -7162,75 +7178,103 @@ NOTE: A physical asset cannot be put for sale without product fulfillment inform
     + package_length (optional, Number, `49.99`)... Sets the length of the package which is shipped to customer after customer buys the physical asset. This parameter is ONLY used if product type is physical. This information is required before the asset is put on sale. Unit is inch
     + package_height (optional, Number, `39.99`)... Sets the height of the package which is shipped to customer after customer buys the physical asset. This parameter is ONLY used if product type is physical. This information is required before the asset is put on sale. Unit is inch
     + package_width (optional, Number, `19.99`)... Sets the width of the package which is shipped to customer after customer buys the physical asset. This parameter is ONLY used if product type is physical. This information is required before the asset is put on sale. Unit is inch
+    + unit_measure (optional, String, `cm`)... Sets unit for length, height and width. Default: mm
+    + unit_weight (optional, String, `kg`)... Sets unit for weight. Default: oz
     + apply_tax (optional, Boolean, `true`)... Sets whether tax should be applied on a product. Default: true
 
 + Response 200 (application/json)
 
 
-            {  
-               "keywords":"Cowboy Hut Strand beach",
-               "language":"en",
-               "region":"",
-               "software":9,
-               "artist":{  
-                  "location":"",
-                  "avatar":"http://alpha.squidplatform.com/Images/v23/Member/default_avatar.png",
-                  "description":"",
-                  "artist_id":20707167,
-                  "artist_name":"ecommerce"
-               },
-               "mesh":false,
-               "asset_id":1065897,
-               "asset_name":"DO NOT REMOVE. shop api regression test",
-               "is_gallery_asset":true,
-               "description":"directly from da beach :)",
-               "download_count":0,
-               "is_online_viewer_available":false,
-               "parent_asset_id":"",
-               "is_premium":false,
-               "progress_status":1,
-               "delivery_media":"",
-               "asset_status_code":0,
-               "media_type":"Catch",
-               "view_count":0,
-               "model_type":1,
-               "is_download_asset":false,
-               "status_post_count":0,
-               "is_member_favorite":false,
-               "used_in_project_count":0,
-               "favorited_by":[  
-            
-               ],
-               "favorite_count":0,
-               "child_asset_count":0,
-               "date_submitted":"April 03, 2015 02:14:16",
-               "date_modified":"",
-               "total_price":4.99,
-               "shop_id":13,
-               "is_for_sale":true,
-               "purchase_date":"",
-               "_link":"",
-               "thumbnails":[  
-                  {  
-                     "caption":"",
-                     "description":"",
-                     "file_id":13954751,
-                     "thumb_path_prefix":"https://static.spark.autodesk.com/2012/11/30__18_36_02/icon.png9ad3822b-d61a-462a-9042-5b0a4e61e35d",
-                     "is_primary":true
-                  }
-               ],
-               "referenced_assets":[  
-            
-               ],
-               "file_formats":[  
-            
-               ],
-               "extended_data":{},
-               "is_authorized_download":true,
-               "is_deleted":false,
-               "is_repurchasable":false,
-               "is_store_asset":false,
-               "is_reviewable":false
+            {
+              "keywords": "tags",
+              "language": "en",
+              "region": "",
+              "software": 9,
+              "artist": {
+                "location": "",
+                "avatar": "",
+                "description": "",
+                "artist_id": 20704112,
+                "artist_name": "q z"
+              },
+              "mesh": false,
+              "asset_id": 1486028,
+              "asset_name": "create asset",
+              "is_gallery_asset": true,
+              "description": "test description",
+              "download_count": 0,
+              "is_online_viewer_available": false,
+              "parent_asset_id": "",
+              "is_premium": false,
+              "progress_status": 1,
+              "delivery_media": "",
+              "asset_status_code": 0,
+              "media_type": "123D_Design",
+              "view_count": 5,
+              "comment_count": 0,
+              "model_type": 1,
+              "is_download_asset": false,
+              "status_post_count": 0,
+              "is_member_favorite": false,
+              "used_in_project_count": 0,
+              "favorited_by": [],
+              "favorite_count": 0,
+              "child_asset_count": 0,
+              "date_submitted": "August 19, 2015 21:59:21",
+              "date_modified": "",
+              "total_price": 9.99,
+              "shop_id": 10,
+              "is_for_sale": true,
+              "purchase_date": "",
+              "_link": "",
+              "_link_version_prev": "",
+              "_link_version_next": "",
+              "thumbnails": [
+                {
+                  "caption": "",
+                  "description": "",
+                  "file_id": 0,
+                  "thumb_path_prefix": "http://static.spark.autodesk.com/Images/FullPreview/nopicture",
+                  "is_primary": false
+                }
+              ],
+              "referenced_assets": [],
+              "is_authorized_download": true,
+              "is_deleted": false,
+              "is_repurchasable": false,
+              "is_store_asset": false,
+              "is_reviewable": false,
+              "license_id": "",
+              "license_name": "",
+              "file_formats": [],
+              "extended_data": {},
+              "asset_version": "1.00",
+              "product_info": {
+                "id": 1486028,
+                "shipping_info": {
+                  "weight": 2.11,
+                  "length": 3.4,
+                  "height": 5.67,
+                  "width": 8.9,
+                  "product_id": 1486028,
+                  "shop_id": 10,
+                  "unit_measure": "mm",
+                  "unit_weight": "oz"
+                },
+                "shop_name": "DO NOT REMOVE. For regression test 测试",
+                "type": "PHYSICAL",
+                "store_type": "MARKETPLACE",
+                "vendor_sku_id": "1486028",
+                "lead_in_days": 10,
+                "shop_id": 10,
+                "total_price": 9.99,
+                "name": "create asset",
+                "description": "test description",
+                "for_sale": true,
+                "vendor_display_name": "",
+                "is_available": true,
+                "apply_tax": true
+              }
             }
 
 
