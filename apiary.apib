@@ -5160,6 +5160,18 @@ SecureSession is a required header for this API.
 ## Cart transfer [/carts/transfer{?cart_type,guest_session,id,name,address1,city,country_code,company,address2,postal_code,state,telephone,is_residential}]
 ### Transfer cart from guest to user [POST]
 Transfers a cart from a guest session to current logged in member
+|description|HTTP|code
+|----|----|----
+|Guest with Session has no cart to transfer.|200|34900
+|User cannot buy the subscription since she already has it|200|34901
+|User cannot buy the product since she already has access to the product. The cart becomes empty.|200|34902
+|User cannot buy the product since she already has access to the product. Only partial cart is transferred|200|34903
+|Delete coupon because item is removed from cart|200|34904
+|Coupon code usage has exceeded the limit|200|34715
+|Coupon code expires|200|34714
+|Member has already used this coupon code|200|34716
+
+
 + Request (application/x-www-form-urlencoded)
 
     + Headers
@@ -5173,7 +5185,7 @@ Transfers a cart from a guest session to current logged in member
 
 + Response 200 (application/json)
 
-        {
+                {
           "status": "COMPLETE",
           "message": "",
           "products": "",
@@ -5181,14 +5193,15 @@ Transfers a cart from a guest session to current logged in member
           "error_id":""
         }
 
+
         {
           "status": "EMPTY_CART",
           "message": "Guest with Session: 0000000-5F02-4133-BE38-ED61ACD29108 has no cart to transfer.",
           "products": "",
           "coupons": "",
-          "error_id": 1
+          "error_id": [34900]
         }
-        
+
         {
           "status": "EMPTY_CART",
           "message": "User 20704112 cannot buy the subscription since she already has it",
@@ -5196,7 +5209,7 @@ Transfers a cart from a guest session to current logged in member
             14
           ],
           "coupons": [],
-          "error_id":2
+          "error_id":[34901]
         }
 
         {
@@ -5206,7 +5219,7 @@ Transfers a cart from a guest session to current logged in member
             1616403
           ],
           "coupons": [],
-          "error_id":3
+          "error_id":[34902]
         }
 
         {
@@ -5216,7 +5229,7 @@ Transfers a cart from a guest session to current logged in member
             1616403
           ],
           "coupons": [],
-          "error_id":4
+          "error_id":[34903]
         }
 
         {
@@ -5226,7 +5239,7 @@ Transfers a cart from a guest session to current logged in member
           "coupons": [
             "123"
           ],
-          "error_id":5
+          "error_id":[34716]
         }
 
         {
@@ -5236,7 +5249,7 @@ Transfers a cart from a guest session to current logged in member
           "coupons": [
             "123"
           ],
-          "error_id":5
+          "error_id":[34714]
         }
 
         {
@@ -5246,7 +5259,7 @@ Transfers a cart from a guest session to current logged in member
           "coupons": [
             "123"
           ],
-          "error_id":5
+          "error_id":[34715]
         }
 
         {
@@ -5258,7 +5271,22 @@ Transfers a cart from a guest session to current logged in member
           "coupons": [
             "123"
           ],
-          "error_id":4
+          "error_id":[34903,34716]
+        }
+
+        {
+          "status": "PARTIAL",
+          "message": "User 20704112 cannot buy some of the product since she already has access to the product.Delete coupon testcartcoupon because item is removed from cart ",
+          "error_codes": [
+            34903,
+            34907
+          ],
+          "products": [
+            1616403
+          ],
+          "coupons": [
+            "testcartcoupon"
+          ]
         }
 
         
