@@ -2204,11 +2204,14 @@ Returns the list of users following this member.
 
 + Response 204 (application/json)
 
-### Is member following another member [GET]
+## isFollowing [/members/{id}/isfollowing{?publisher_id}]
 This API will return a boolean response if a member is following another member
+
 + Parameter 
     + id (required, Number , `123446`)... The logged in Member id 
     + publisher_id (required, Number , `123446`)... publisher Id or member id.   
+
+### Is member following another member [GET]
 
 + Request (application/x-www-form-urlencoded)
     + Headers
