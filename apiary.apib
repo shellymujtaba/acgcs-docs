@@ -5156,7 +5156,26 @@ Transfers a cart from a guest session to current logged in member
           "status": "COMPLETE",
           "message": "",
           "products": "",
-          "coupons": ""
+          "coupons": "",
+          "error_id":""
+        }
+
+        {
+          "status": "EMPTY_CART",
+          "message": "Guest with Session: 0000000-5F02-4133-BE38-ED61ACD29108 has no cart to transfer.",
+          "products": "",
+          "coupons": "",
+          "error_id": 1
+        }
+        
+        {
+          "status": "EMPTY_CART",
+          "message": "User 20704112 cannot buy the subscription since she already has it",
+          "products": [
+            14
+          ],
+          "coupons": [],
+          "error_id":2
         }
 
         {
@@ -5165,7 +5184,8 @@ Transfers a cart from a guest session to current logged in member
           "products": [
             1616403
           ],
-          "coupons": []
+          "coupons": [],
+          "error_id":3
         }
 
         {
@@ -5174,7 +5194,8 @@ Transfers a cart from a guest session to current logged in member
           "products": [
             1616403
           ],
-          "coupons": []
+          "coupons": [],
+          "error_id":4
         }
 
         {
@@ -5183,7 +5204,8 @@ Transfers a cart from a guest session to current logged in member
           "products": [],
           "coupons": [
             "123"
-          ]
+          ],
+          "error_id":5
         }
 
         {
@@ -5192,7 +5214,8 @@ Transfers a cart from a guest session to current logged in member
           "products": [],
           "coupons": [
             "123"
-          ]
+          ],
+          "error_id":5
         }
 
         {
@@ -5201,7 +5224,8 @@ Transfers a cart from a guest session to current logged in member
           "products": [],
           "coupons": [
             "123"
-          ]
+          ],
+          "error_id":5
         }
 
         {
@@ -5212,8 +5236,10 @@ Transfers a cart from a guest session to current logged in member
           ],
           "coupons": [
             "123"
-          ]
+          ],
+          "error_id":4
         }
+
         
 
 ## Cart billing address [/carts/billingaddress{?cart_type,id,name,address1,city,country_code,company,address2,postal_code,state,telephone,is_residential}]
