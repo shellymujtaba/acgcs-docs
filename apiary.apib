@@ -7126,7 +7126,7 @@ Retrieve the assets given the filters passed as parameters.
             }
 
 
-## Shop Asset [/admin/shops/{shop_id}/assets/{asset_id}{?asset_price,for_sale,product_type,vendor_sku,is_available,package_weight,package_length,package_height,package_width,unit_measure,unit_weight,apply_tax}]
+## Shop Asset [/admin/shops/{shop_id}/assets/{asset_id}{?asset_price,product_type,vendor_sku,is_available,package_weight,package_length,package_height,package_width,unit_measure,unit_weight,apply_tax}]
 Allow the retrieval and modification of shop asset specific properties.
 
 ### Get a shop asset [GET]
@@ -7213,11 +7213,9 @@ Allow the retrieval and modification of shop asset specific properties.
 ### Update a shop asset [PUT]
 Add / Update the shop asset.
 
-The shop asset forSale flag can be set to either true or flag regardless of the Shop status. It is meant to reflect the seller's intent and is controlled by the seller of the shop.
+Change the asset property. The administrators canot change the for_sale flag of an asset since it reflects seller's intent.
 
-Behind the scene: If the shop is OFFLINE, the assets are not going to show in the gallery and won't be available for purchase. If the shop is ONLINE, the assets are going to automatically show in the gallery when set for sale. Any change to the status of the shop (OFFLINE/ONLINE) triggers automatic update of the assets to hide/show them from the gallery.
-
-NOTE: A physical asset cannot be put for sale without product fulfillment information. 
+If the shop is OFFLINE, the assets are not going to show in the gallery and won't be available for purchase. If the shop is ONLINE, the assets are going to automatically show in the gallery if the for_sale flag for this product is set to true. Any change to the status of the shop (OFFLINE/ONLINE) triggers automatic update of the assets to hide/show them from the gallery.
 
 |Message|HTTP Status Code|Error Code|Data
 |----|----|----|----
@@ -7245,7 +7243,6 @@ NOTE: A physical asset cannot be put for sale without product fulfillment inform
     + shop_id (required, Number, `123123`)... Shop id
     + asset_id (required, Number, `536546`)... Asset id
     + asset_price (optional, Number, `5.99`)... Set asset price
-    + for_sale (optional, Boolean, `true`)... Change for sale status of the asset (for sale / not for sale)
     + product_type (optional, String, `PHYSICAL`)... Sets the product type for added asset. This parameter is ONLY required if asset is being added for the first time. Supported values are (PHYSICAL,DIGITAL) Default : ""
     + vendor_sku (optional, String, `sku123`)... Sets the vendor sku id
     + is_available (optional, Boolean, `true`)... Sets the stock availability for asset. This parameter is ONLY used if product type is physical. This information is required when the asset is put on sale. 
