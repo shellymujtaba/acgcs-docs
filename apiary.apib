@@ -1697,11 +1697,11 @@ This group of operations provides information on the marketplace APIS such as sh
     + order_number (required,String, `b9a26297-38d2-4091-8882-620122bf0374`)...Vendor order reference number
     + JSON_String (required,String,`json string`)...You have to pass actual JSON string and set header to (application/JSON) in addition to default headers for cloud service API.
 <br><br><div class="parameterKey">JSON_String to set status to FAILED</div>
-<br>{"status":"FAILED","errorCode":"B56GHSGFT","errorMessage":"We can not fulfil your order as items are out of stock."}
+<br><br>status_skus is optional. If not mentioned all skus inside this order will have complete status otherwise status will set on each sku. If you are updaing entire order then only on email will be send an dif you update sku then mail will be send for group of skus.
+<br>{"status":"FAILED","error_code":"B56GHSGFT","error_message":"We can not fulfil your order as items are out of stock.","status_skus":[{"sku":"1503327"}]}
 <br><br>If current status is COMPLETE | CLOSED | DECLINE | CANCELED then you can not set FAILED status.(ErrorCode : 34750 : Order status can not be modified.)
 <br><br><div class="parameterKey">JSON_String to set status to COMPLETE</div>
 <br><br>{"status":"COMPLETE","shipping":{"shipper":"UPS","tracking_url":"http://www.fedex.com?mic=shsjknbsg7262gs" ,"tracking_number":"MKAHS6724FHAHAJG6"},"completion_date":"2015-07-17 14:30:00","status_skus":[{"sku":"12345"},{"sku":"34567"}]}
-<br><br>status_skus is optional. If not mentioned all skus inside this order will have complete status otherwise status will set on each sku. If you are updaing entire order then only on email will be send an dif you update sku then mail will be send for group of skus.
 <br><br>If current status is CLOSED | DECLINE | CANCELED then you can not set COMPLETE status.(ErrorCode : 34750 : Order status can not be modified.)
 <br><br><div class="parameterKey">JSON_String to set status to CANCELED</div>
 <br><div class="parameterKey">-----If refund status is false</div>
@@ -1710,12 +1710,16 @@ This group of operations provides information on the marketplace APIS such as sh
 <br>{"status":"CANCELED","cancellationDate":"2015-07-15 22:00:00","refund":"true","cancellationReason":"Product went offline since yesterday.","refundData":"{\"psp_reference_number\":\"a262987-f37c-43f9-a86d-dcb8563601d7\",\"full_refund\": \"true\",\"refund_reason\": \"test refund reason\",\"line_item_refunds\": [{\"product_id\":1616403,\"remove_access\":\"true\",\"silent_refund\":\"false\"},{\"product_id\":1616404,\"remove_access\":\"false\",\"silent_refund\":\"true\"}]}"}
 <br><br>If current status is COMPLETE | CLOSED | DECLINE | CANCELED then you can not set CANCELED status.(ErrorCode : 34750 : Order status can not be modified.)
 <br><br><div class="parameterKey">JSON_String to set status to IN_PROGRESS | ON_HOLD | CLOSED | DECLINE</div>
-<br>{"status":"IN_PROGRESS"}
+<br>{"status":"IN_PROGRESS","status_skus":[{"sku":"1503327"}]}
 <br><br>If current status is COMPLETE | CLOSED | DECLINE | CANCELED then you can not set IN_PROGRESS status.(ErrorCode : 34750 : Order status can not be modified.)
 <br><br>If current status is COMPLETE | CLOSED | DECLINE | CANCELED | FAILED then you can not set ON_HOLD status.(ErrorCode : 34750 : Order status can not be modified.)
 <br><br>If current status is COMPLETE then you can not set CLOSED status.(ErrorCode : 34750 : Order status can not be modified.)
 <br><br>If current status is COMPLETE | CLOSED | DECLINE | CANCELED | FAILED then you can not set DECLINE status.(ErrorCode : 34750 : Order status can not be modified.)
 
+<br><br>Errors
+<br>Code : 34024  : Empty or invalid payload sent for updating order.
+<br>Code : 34750  : Order status can not be modified.
+<br>
 + Request (application/json)
     + Headers
 
