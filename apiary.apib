@@ -1705,9 +1705,9 @@ This group of operations provides information on the marketplace APIS such as sh
 <br><br>If current status is CLOSED | DECLINE | CANCELED then you can not set COMPLETE status.(ErrorCode : 34750 : Order status can not be modified.)
 <br><br><div class="parameterKey">JSON_String to set status to CANCELED</div>
 <br><div class="parameterKey">-----If refund status is false</div>
-<br>{"status":"CANCELED","cancellationDate":"2015-07-15 22:00:00","refund":"false","cancellationReason":"Product went offline since yesterday."}
-<br><div class="parameterKey">-----If refund status is true then you have to pass refund data</div>
-<br>{"status":"CANCELED","cancellationDate":"2015-07-15 22:00:00","refund":"true","cancellationReason":"Product went offline since yesterday.","refundData":"{\"psp_reference_number\":\"a262987-f37c-43f9-a86d-dcb8563601d7\",\"full_refund\": \"true\",\"refund_reason\": \"test refund reason\",\"line_item_refunds\": [{\"product_id\":1616403,\"remove_access\":\"true\",\"silent_refund\":\"false\"},{\"product_id\":1616404,\"remove_access\":\"false\",\"silent_refund\":\"true\"}]}"}
+<br>{"status":"CANCELED","cancellation_reason":"fake","cancellation_date":"2015-06-08 00:00:00","refund":"false"}
+<br><div class="parameterKey">-----If refund status is true then you have to pass refund reason and should remove access.</div>
+<br>{"status":"CANCELED","cancellation_reason":"fake","cancellation_date":"2015-06-08 00:00:00","refund":"true","status_skus":[{"sku":1503327,"refund_reason":"nothing to mentione","remove_access":"false"}]}
 <br><br>If current status is COMPLETE | CLOSED | DECLINE | CANCELED then you can not set CANCELED status.(ErrorCode : 34750 : Order status can not be modified.)
 <br><br><div class="parameterKey">JSON_String to set status to IN_PROGRESS | ON_HOLD | CLOSED | DECLINE</div>
 <br>{"status":"IN_PROGRESS","status_skus":[{"sku":"1503327"}]}
