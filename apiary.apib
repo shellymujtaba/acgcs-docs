@@ -942,13 +942,14 @@ We will auto generate various sizes from this thumbnail:
 * Petite(90)  
 * Medium(128)  
 * Large(600)
-* HD(1200) 
+* HD(1200)
+* Original
 
 Images will be generated in both PNG and JPG formats. 
  
 The thumbnail url prefix is available in asset response, the size post-fix and extension can be appended to the prefix to recover the correct size.
 
-Note: The PUT updates the thumbnail metadata such as caption, description, thumbnail data, ModelToCentimeters & Primary thumbnail flag for an already existing thumbnails for an asset.
+Note: The PUT replaces the thumbnail which is already added to the asset.
 
 + Parameters
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with.
