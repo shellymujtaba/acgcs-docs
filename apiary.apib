@@ -1733,8 +1733,8 @@ This group of operations provides information on the marketplace APIS such as sh
 This group of operations provides information on the member. A member is a user who signs up or logs into Cloud Services eco-system.
 
 #Member [/members/{id}{?name,email,first_name,last_name,description,location,facebook,twitter,personal,locale,locale_language,locale_country,avatar,company,company_website,industry,address1,address2,city,state,postal_code,country_code,phone_home,phone_mobile,phone_work,phone_work_extension,newsletters,subscribe,preferences}]
-Manage public information about a member. To update a member secure session is required for following fields; 
-name, email, locale and avatar
+Manage public information about a member. To update a member secure session is required for following fields: 
+name, email, locale and avatar.  For some parameters, if you provide no value for a parameter, the current value will be erased (see table below). 
 
 + Parameters
     + id (required,Number, `20280723`)...Member id
@@ -1880,6 +1880,42 @@ name, email, locale and avatar
             }
 
 ### Update a member [PUT]
+|Parameter|min length|max length|Empty will erase*
+|----|----|----|----|----
+|name, first_name, last_name|3|255|No|
+|description|0|500|Yes|
+|location|0|64|Yes|
+|locale|1|20|Yes|
+|company_website|1|255|Yes|
+|phone_home, phone_mobile, phone_work|1|15|Yes|
+|phone_work_extension|1|10|Yes|
+|industry, job_title, company|1|50|Yes|
+|address1, address2, city|1|80|Yes|
+|state|1|20|Yes|
+|postal_code|1|16|Yes|
+|country_code|2|2|Yes|
+|facebook, twitter, github, linkedin, personal|1|300|Yes|
+
+*Empty will erase: means if you provide no value for a parameter, the current value will be erased, i.e. &company=&location=  would erase the current values for `company` and `location`
+
+|Message|HTTP Status Code|Error Code|Data
+|----|----|----|----
+|Member name is already taken|400 Bad Request|4001|
+|The email address is already taken|400 Bad Request|4002|
+|The preferences parameter must be valid JSON|400 Bad Request|4004|
+|The parameter subscribe must not be empty|400 Bad Request|40015|
+|The parameter preferences must not be empty|400 Bad Request|40017|
+|No parameters passed|400 Bad Request|40018|
+|The description field was too long. Maximum allowed length is 500|400 Bad Request|40020|
+|The location field was too long. Maximum allowed length is 64|400 Bad Request|40021|
+|The locale field was too long. Maximum allowed length is 20|400 Bad Request|40026|
+|The Member name must not be empty|400 Bad Request|40028|
+|The name must be between 3 and 255 characters in length|400 Bad Request|40029|
+|The Avatar Id is invalid|400 Bad Request|40031|
+|Invalid JSON|400 Bad Request|40051|
+|The parameter value was out of the acceptable range|400 Bad Request|40065|
+|Invalid parameter length|400 Bad Request|40066|
+
 + Request (application/x-www-form-urlencoded)
     + Headers
     
