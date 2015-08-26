@@ -951,6 +951,12 @@ The thumbnail url prefix is available in asset response, the size post-fix and e
 
 Note: The PUT replaces the thumbnail which is already added to the asset.
 
+*How to display the thumbnails?*
+The thumbnails can be displayed using the thumbnail path prefix fetched in the GET API and appending the size.
+Example: 
+http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45Small.jpg
+http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/dev/2012/06/06__16_12_42/tiger-large.jpga6379c35-4d07-45a7-b33f-93fd2c15ff45Original.jpg
+
 + Parameters
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with.
 
