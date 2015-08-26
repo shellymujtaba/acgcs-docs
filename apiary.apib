@@ -171,7 +171,7 @@ An asset is the top level storage construct for cloud services. An asset can be 
 Within the 3d modeling/printing eco-system it is often hard to model a complete creation and workflow with a single file (for example: a model may consist of obj, mtl, texture files) - Asset provides an aggregation point for several related files and metadata elements to fully represent a creation, its various transformations, translations and references. 
 The operations listed below provide a full set of activities which can be performed against an asset. 
 
-## Asset [/assets/{id}{?asset_name,description,tags,media_type_id,software,publish,progress_status,parent_asset_id,id,referenced_assets,extended_data,version,asset_ids}]
+## Asset [/assets/{id}{?asset_name,description,tags,media_type_id,software,publish,progress_status,parent_asset_id,id,referenced_assets,extended_data,version,asset_ids,license_id}]
 Operations to perform CRUD operations on an asset with basic metadata. Additional operation sets will populate this asset with constituent files, additional metadata etc. 
 
 + Model (application/json)
@@ -456,7 +456,7 @@ Operations to create and retrieve asset versions.
             ]
         }
 
-## Assets  [/assets{?q,limit,offset,start_date,end_date,thumbnail_index,ailable,file_type_list,exclude_keywords,asset_ids,sort_by,vorite_count_strict,rt,sort_order,display_filter,ewer,exclude_artist_ids,include_artist_ids,description,progress_status,parent_assets,media_type_ids,software,child_assets,include_mature,for_sale,shop_ids,min_price,max_price,is_app_featured,wildcard_search}]
+## Assets  [/assets{?q,limit,offset,start_date,end_date,thumbnail_index,ailable,file_type_list,exclude_keywords,asset_ids,sort_by,vorite_count_strict,rt,sort_order,display_filter,ewer,exclude_artist_ids,include_artist_ids,description,progress_status,parent_assets,media_type_ids,software,child_assets,include_mature,for_sale,shop_ids,min_price,max_price,is_app_featured,wildcard_search,license_ids,license_name}]
 This api is a starting point to display galleries, perform free-form searches. Different filtering options allow searching by specific contained file type, keywords, publish dates, curation state (featured, popular) etc. 
 + Parameters
     + q (optional, String, `cars+cat`) ...list of keywords to search against
@@ -1715,7 +1715,6 @@ This group of operations provides information on the marketplace APIS such as sh
 <br><br>If current status is COMPLETE | CLOSED | DECLINE | CANCELED | FAILED then you can not set ON_HOLD status.(ErrorCode : 34750 : Order status can not be modified.)
 <br><br>If current status is COMPLETE then you can not set CLOSED status.(ErrorCode : 34750 : Order status can not be modified.)
 <br><br>If current status is COMPLETE | CLOSED | DECLINE | CANCELED | FAILED then you can not set DECLINE status.(ErrorCode : 34750 : Order status can not be modified.)
-
 <br><br>Errors
 <br>Code : 34024  : Empty or invalid payload sent for updating order.
 <br>Code : 34750  : Order status can not be modified.
@@ -2260,9 +2259,10 @@ This API will return a boolean response if a member is following another member
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Response 200 (application/json)
-    { 
-        "follow_status": true 
-    }
+        
+        { 
+            "follow_status": true 
+        }
 
 ## Member Activity Stream [/members/{id}/useractivity{?limit,offset,user_type,activity_type,media_type_id,asset_custom_data,asset_custom_data_keys}]
 Returns the activity stream for this member.  Activities include updates, items published, features, contest finalists and winners, comments and comment updates, followers and followees, and likes.
