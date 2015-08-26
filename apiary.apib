@@ -1972,6 +1972,12 @@ The same notification preferences will be used even for sending push notificatio
 ## Search [/members/search{?name,description,limit,offset,sort_by,sort_order}]
 This operation will return a list of members.  At least one parameter is required.
 
+**Search Rules:**
+* Searches are case insensitive and match full or partial words for each search term in any order: Searching for "name=dav MIT” would return names such as "Dave Smith”, "david mitchell”, “Mitch Davis”, or “DAVY”.
+* Multiple search terms can be separated with spaces, for example "name=dave smith".  By default multiple terms generate an "OR" condition so "name=dave smith" returns names containing _either_ dave _or_ smith.
+* Enter AND to combine terms as in "name=dave AND smith", which returns only names containing _all_ terms. 
+* If you search by both parameters (name and description), only members who meet both search conditions (AND) will be returned.
+
 ### Search for members [GET]
 + Request (application/x-www-form-urlencoded)
     + Headers
