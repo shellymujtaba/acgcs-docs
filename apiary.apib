@@ -3988,6 +3988,15 @@ When invoked  without any parameter, the phone number on file is verified.
 Otherwise, the phone number in the request is verified and the member info
 is updated with this phone number and the paypal email address (if passed).
 
+|Message|HTTP Status Code|Error Code|Data
+|----|----|----|----
+|Shop not found|400 Bad Request|3300|
+|You do not have access to this shop|400 Bad Request|3309|
+|Phone number required to initiate member verification|400 Bad Request|3504|
+|The country code is missing from the phone number|400 Bad Request|3505|
+|The area code is missing from the phone number|400 Bad Request|3506|
+|The phone number is missing|400 Bad Request|3507|
+
 + Request (application/x-www-form-urlencoded)
     + Headers
     
@@ -4008,6 +4017,14 @@ Update the member verification information. If a new phone number is passed,
 the information on record is updated and the phone verification kicks in asynchronously.
 The phone status will return with PENDING until the member answers his phone.
 To initiate another phone request with the same number on file, use POST without any phone number.
+
+|Message|HTTP Status Code|Error Code|Data
+|----|----|----|----
+|Shop not found|400 Bad Request|3300|
+|You do not have access to this shop|400 Bad Request|3309|
+|The country code is missing from the phone number|400 Bad Request|3505|
+|The area code is missing from the phone number|400 Bad Request|3506|
+|The phone number is missing|400 Bad Request|3507|
 
 + Request (application/x-www-form-urlencoded)
     + Headers
