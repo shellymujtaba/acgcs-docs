@@ -3977,18 +3977,16 @@ See the Shops / Member Verification section for details.
 
 + Response 201
 
-##Member Verification [/shops/{shop_id}/verification{?phone_number,paypal_email}]
+##Member Verification [/shops/{shop_id}/verification{?country_code,area_code,phone_number,paypal_email}]
 A seller must have a verified phone number on file and a paypal email address before requesting a payout.
 Otherwise the request for payout will fail.
 
-When supplied, the phone number must be formatted using E.164 (http://en.wikipedia.org/wiki/E.164).
-i.e. the phone number must start with a '+', followed by the country code and the phone number (including area code).
-No spaces or any other characters are permitted (15 digits max).
+When supplied, the phone number must include a country code, an area code, and a local phone number (all digits).
 
 ### Initiate member verification [POST]
 When invoked  without any parameter, the phone number on file is verified.
 Otherwise, the phone number in the request is verified and the member info
-is updated with this phone and the paypal email address (if passed).
+is updated with this phone number and the paypal email address (if passed).
 
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -3998,7 +3996,9 @@ is updated with this phone and the paypal email address (if passed).
             X-Secure-Session: ABC1232324244
 
 + Parameters
-    + phone_number (optional, string, `+14151234567`)... Phone number for verification (E.164 format). If present, shops payout info is updated.
+    + country_code (optional, string, `1`)... Country code.
+    + area_code (optional, string, `415`)... Area code.
+    + phone_number (optional, string, `1234567`)... Local phone number without area code.
     + paypal_email (optional , string, `member@domain.com`)... PayPal email where to send payments to sellers
     
 + Response 201
@@ -4007,7 +4007,7 @@ is updated with this phone and the paypal email address (if passed).
 Update the member verification information. If a new phone number is passed,
 the information on record is updated and the phone verification kicks in asynchronously.
 The phone status will return with PENDING until the member answers his phone.
-To initiate another phone request, use POST without any phone number.
+To initiate another phone request with the same number on file, use POST without any phone number.
 
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -4017,7 +4017,9 @@ To initiate another phone request, use POST without any phone number.
             X-Secure-Session: ABC1232324244
 
 + Parameters
-    + phone_number (optional, string, `+14151234567`)... Phone number for verification (E.164 format). If present, shops payout info is updated.
+    + country_code (optional, string, `1`)... Country code.
+    + area_code (optional, string, `415`)... Area code.
+    + phone_number (optional, string, `1234567`)... Local phone number without area code.
     + paypal_email (optional , string, `member@domain.com`)... PayPal email where to send payments to sellers
 
 + Response 200
