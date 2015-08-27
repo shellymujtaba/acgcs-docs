@@ -1563,9 +1563,12 @@ Note:
 * timestamp used to create "hash" should be same as passed in "ts" parameter.
 * only one Fileitem id can be passed,at a time, when downloading with hash techinique.
 
+
 + Parameters
     + file_ids (required,String `1233233,1333233`) ...Comma seperated list of file ids. If more than one file is specified, the download will be a zip
     + asset_id (optional, String `23244422`)... Asset id
+    + ts (optional,string  2012-01-26 15:51:44)... timestamp in format 'YYYY-MM-DD HH:mm:ss'. to be used when app is downloading on behalf of a user
+    + hash(optional,String  942F52D6AECAA46993D8839639CE56FFEF1FFB7F92AC376647A6)... to be used when app is downloading on behalf of a user 
 
 ### Download files [GET]
 
