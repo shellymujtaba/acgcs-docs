@@ -1318,15 +1318,18 @@ Operations to manage comments on an asset
 + Response 204
 
 ## Asset Comments level [/assets/{id}/comments-level{?num_replies,comment_id,depth,limit,offset,sort_order}]
-Operations to manage comments on an asset
+Above comments API retuns comments in a flat structure with an “in_reply_to” field if there is a comment that is a reply to another comment. 
+Now this API will return comments in comment thread. so if there are several replies to an existing comment, they will all be under that individual comment.
 
-### Retrieve asset comments[GET]
+### Retrieve asset comments level[GET]
 + Request (application/x-www-form-urlencoded)
     + Headers
     
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
+    + num_replies (optional, Number,`3`)...Number of to top level comments. Default: 3.
+    + depth (optional, Number,`1`)...Depth indicates how many nested comments I go into. Default: 1.
     + limit (optional, Number,`20`)...Number of results to return in each page. Default: 20.
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
     + sort_order (optional, String, `asc, desc`)...Direction of ordered search results based on comment added. Default: asc.
