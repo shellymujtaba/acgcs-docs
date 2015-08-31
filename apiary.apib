@@ -1317,6 +1317,115 @@ Operations to manage comments on an asset
     + comment_id (required,String, `123aaddq33`)...id of comment to be deleted from this asset.
 + Response 204
 
+## Asset Comments level [/assets/{id}/comments-level{?num_replies,comment_id,depth,limit,offset,sort_order}]
+Operations to manage comments on an asset
+
+### Retrieve asset comments[GET]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + limit (optional, Number,`20`)...Number of results to return in each page. Default: 20.
+    + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
+    + sort_order (optional, String, `asc, desc`)...Direction of ordered search results based on comment added. Default: asc.
+
++ Response 200 (application/json)
+    {
+        "count": 4,
+        "limit": 20,
+        "offset": 0,
+        "_link": "/assets/1065855/comments-level?limit=20&offset=0",
+        "comments": [
+            {
+                "body": "Comment 1.0",
+                "member_small_avatar": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
+                "comment_id": "C85VA4CIBSXP04I",
+                "member_name": "",
+                "member_id": 20707424,
+                "total_replies": 3,
+                "replies": [
+                    {
+                        "body": "Comment 1.1",
+                        "member_small_avatar": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
+                        "comment_id": "C1DIL49IBSXP04Y",
+                        "member_name": "",
+                        "member_id": 20707424,
+                        "total_replies": 3,
+                        "_link": "/assets/1065855/comments-level/C1DIL49IBSXP04Y?limit=20&offset=0",
+                        "timestamp": "July 14, 2015 11:05:52"
+                    },
+                    {
+                        "body": "Comment 1.2",
+                        "member_small_avatar": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
+                        "comment_id": "CWQ0KQ2IBSXP052",
+                        "member_name": "",
+                        "member_id": 20707424,
+                        "total_replies": 2,
+                        "_link": "/assets/1065855/comments-level/CWQ0KQ2IBSXP052?limit=20&offset=0",
+                        "timestamp": "July 14, 2015 11:06:15"
+                    },
+                    {
+                        "body": "Comment 1.3",
+                        "member_small_avatar": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
+                        "comment_id": "CVJSM85IBSXP056",
+                        "member_name": "",
+                        "member_id": 20707424,
+                        "total_replies": 2,
+                        "_link": "/assets/1065855/comments-level/CVJSM85IBSXP056?limit=20&offset=0",
+                        "timestamp": "July 14, 2015 11:06:44"
+                    }
+                ],
+                "_link": "/assets/1065855/comments-level/C85VA4CIBSXP04I?limit=20&offset=0",
+                "timestamp": "July 14, 2015 11:03:21"
+            },
+            {
+                "body": "Comment 2.0",
+                "member_small_avatar": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
+                "comment_id": "CT7FU6XIBSXP04M",
+                "member_name": "",
+                "member_id": 20707424,
+                "total_replies": 0,
+                "_link": "/assets/1065855/comments-level/CT7FU6XIBSXP04M?limit=20&offset=0",
+                "timestamp": "July 14, 2015 11:03:42"
+            },
+            {
+                "body": "Comment 3.0",
+                "member_small_avatar": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
+                "comment_id": "CHXBN9ZIBSXP04Q",
+                "member_name": "",
+                "member_id": 20707424,
+                "total_replies": 0,
+                "_link": "/assets/1065855/comments-level/CHXBN9ZIBSXP04Q?limit=20&offset=0",
+                "timestamp": "July 14, 2015 11:04:25"
+            },
+            {
+                "body": "Comment 4.0",
+                "member_small_avatar": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
+                "comment_id": "CBGZFNBIBSXP04U",
+                "member_name": "",
+                "member_id": 20707424,
+                "total_replies": 1,
+                "replies": [
+                    {
+                        "body": "Comment 4.1",
+                        "member_small_avatar": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
+                        "comment_id": "CDMX7VVIBSXP06A",
+                        "member_name": "",
+                        "member_id": 20707424,
+                        "total_replies": 0,
+                        "_link": "/assets/1065855/comments-level/CDMX7VVIBSXP06A?limit=20&offset=0",
+                        "timestamp": "July 14, 2015 11:11:59"
+                    }
+                ],
+                "_link": "/assets/1065855/comments-level/CBGZFNBIBSXP04U?limit=20&offset=0",
+                "timestamp": "July 14, 2015 11:04:41"
+            }
+        ]
+    }
+
+
 ## Asset Flag [/assets/{id}/flags{?reason,comment}]
 Flag an asset along with reason for flagging. This operation is a no-op if an asset has already been flagged by this member.
 
