@@ -4258,6 +4258,10 @@ not initiated a phone verification request or never added a paypal email, the qu
 Retrieve sales' history for a shop on Marketplace. Restricts order line items to only those sold by the seller of shop_id since an order may have multiple line items from multiple sellers.
 Shop ID is optional for admin to retrieve all sales regardless of shop ID.
 
+Note about fulfillment_items : fulfillment_items section is only valid for orders containing physical item. Seller can update status of the entire order with multiple SKUs or update the status on every SKU. 
+If seller updates the status of entire order details of entire order can be retrieved from fulfillment_items section.
+If seller updates the status of each individual SKU in order then, fulfillment_skus section will provide the details at SKU level.
+
 ### Retrieve shop sales [GET]
 + Request (application/x-www-form-urlencoded)
     + Headers
