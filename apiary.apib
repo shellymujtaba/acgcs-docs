@@ -4429,6 +4429,13 @@ If seller updates the status of each individual SKU in order then, fulfillment_s
     If the product_type is specified along with the order_status, only the orders containing this product type will be returned.
     + fulfilled_by (optional, String, `EInc`)... Return sales fulfilled by EInc. Returns sales regardless of fulfillment company.
     + transaction_type (optional, String, `CHARGE`)... Limit results to orders with given transaction type. Values can be : CHARGE,CANCELLATION,CANCEL_ON_RENEWAL,CONTRACT_CHANGE,SUBSCRIPTION_REMINDER,RECURRING,PAYMENT_METHOD_UPDATED,PAYMENT_METHOD_UPDATE_FAILED,DECLINE,CC_CHARGE_FAILED,SUBSCRIPTION_CHARGE_FAILURE,CANCELLATION_REFUND,REFUND,CHARGEBACK
+    + silent_refund (optional, Boolean, `true`)... Limit results to orders containing silent refund. Silent refund will refund money to the buyer without any deductions from seller. If no value is provided orders with both silent and non silent refunds will be returned.
+    + min_product_price (optional, Number, `10.99`)... Limit results to orders containing products with higher price than this value.
+    + max_product_price (optional, Number, `10.99`)... Limit results to orders containing products with lower price than this value.
+    + psp_ref_number (optional, String, `1010722071`)... Limit results to orders with given order reference number. This is only applicable when orders are placed using credit cards that get processed using our payment service provider.
+    For orders placed using ONLY credits there is no psp_ref_number.
+    + original_psp_ref_number (optional, String, `1010722071`)... Limit results to orders with given order reference number. original_psp_ref_number is provided to link related orders together. For example when an order is placed and then refunded, refunded order will have original_psp_ref_number as original order's reference number.
+    This is only applicable when orders are placed using credit cards that get processed using our payment service provider. For orders placed using ONLY credits there is no psp_ref_number.
     + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
     + sort_order (optional, String, `DESC`)... Sort order for display orders: ASC or DESC. Default: DESC.
