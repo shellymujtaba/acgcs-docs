@@ -2534,10 +2534,12 @@ Returns the activity stream for this member.  Activities include updates, items 
             
 
 
-## Assets [/members/{id}/assets{?limit,offset,file_ids,sort_by,sort_order,asset_status,access_type,hidden_keys,file_type_list,file_type_ids,media_type_ids,software,app_used}]
+## Assets [/members/{id}/assets{?limit,offset,file_ids,sort_by,sort_order,asset_status,access_type,hidden_keys,file_type_list,file_type_ids,media_type_ids,software,app_used,q,use_wildcards}]
 Retrieve this members assets. Depending on the context this operation may return both public and private assets i.e if the logged in member is requesting his/her own assets, private assets will also be returned
-+ Parameter 
++ Parameter
     + id (required, Number , `123446`)...Member id
+    + q (optional, String, `robot`)... Keyword(s) to query fields by.  Fields queried include: name, description and tags.
+    + use_wildcards (optional, String, `true`)... If true, for a given `q` query, partial matches will be returned. Default: false
     + limit (optional, Number, `20`)...number of results per page
     + offset (optional, Number, `60`) ...This offsets the start of each page by the number specified.
     + file_ids (optional, boolean, `false`)...By default FALSE. If TRUE returns hidden data associated with assets.
