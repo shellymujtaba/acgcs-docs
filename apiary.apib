@@ -4436,6 +4436,9 @@ If seller updates the status of each individual SKU in order then, fulfillment_s
     For orders placed using ONLY credits there is no psp_ref_number.
     + original_psp_ref_number (optional, String, `1010722071`)... Limit results to orders with given order reference number. original_psp_ref_number is provided to link related orders together. For example when an order is placed and then refunded, refunded order will have original_psp_ref_number as original order's reference number.
     This is only applicable when orders are placed using credit cards that get processed using our payment service provider. For orders placed using ONLY credits there is no psp_ref_number.
+    + shop_name (optional, String, `Arduino Shop`)... Limit results to orders containing products from shop with matching name. This is a fuzzy match, so shop name need not be exact.
+    + shop_title (optional, String, `Arduino`)... Limit results to orders containing products from shop with matching title. This is a fuzzy match, so shop title need not be exact.
+    + vendor_sku (optional, String, `AKX00001`)... Limit results to orders containing products with given vendor sku. This is only applicable for physical orders. This is an exact match.
     + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
     + sort_order (optional, String, `DESC`)... Sort order for display orders: ASC or DESC. Default: DESC.
