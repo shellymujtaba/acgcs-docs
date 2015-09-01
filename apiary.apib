@@ -1906,6 +1906,7 @@ This group of operations provides information on the marketplace APIS such as sh
 <br><div class="parameterKey">-----If refund status is false</div>
 <br>{"status":"CANCELED","cancellation_reason":"fake","cancellation_date":"2015-06-08 00:00:00","refund":"false"}
 <br><div class="parameterKey">-----If refund status is true then you have to pass refund reason and should remove access.</div>
+<br>{"status":"CANCELED","cancellation_reason":"fake","cancellation_date":"2015-06-08 00:00:00","refund":"true","refund_reason":"I am going to refund","remove_access":"false"}
 <br>{"status":"CANCELED","cancellation_reason":"fake","cancellation_date":"2015-06-08 00:00:00","refund":"true","status_skus":[{"sku":1503327,"refund_reason":"nothing to mentione","remove_access":"false"}]}
 <br><br>If current status is COMPLETE | CLOSED | DECLINE | CANCELED then you can not set CANCELED status.(ErrorCode : 34750 : Order status can not be modified.)
 <br><br><div class="parameterKey">JSON_String to set status to IN_PROGRESS | ON_HOLD | CLOSED | DECLINE</div>
