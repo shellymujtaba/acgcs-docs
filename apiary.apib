@@ -4410,6 +4410,13 @@ Note about fulfillment_items : fulfillment_items section is only valid for order
 If seller updates the status of entire order details of entire order can be retrieved from fulfillment_items section.
 If seller updates the status of each individual SKU in order then, fulfillment_skus section will provide the details at SKU level.
 
+|Message|HTTP Status Code|Error Code|Data
+|----|----|----|----
+|Invalid or missing Parameter|400 Bad Request|122|
+|No shop found|400 Bad Request|3300|
+|You do not have access to this shop|401 Unauthorized Access|3309|
+|Not authorized to call this end-point|401 Unauthorized Access|141|
+
 ### Retrieve shop sales [GET]
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -4444,7 +4451,9 @@ If seller updates the status of each individual SKU in order then, fulfillment_s
     + buyer_name (optional, String, `John`)... Limit results to orders placed by given buyer's name. This is a fuzzy match, buyer name need not be exact.
     + buyer_city (optional, String, `San Francisco`)... Limit results to orders placed by given buyer's city.
     + buyer_state (optional, String, `CA`)... Limit results to orders placed by given buyer's state. For US orders state is a 2 letter code.
-    + buyer_country (optional, String, `US`)... Limit results to orders placed by given buyer's country. This is a fuzzy match, buyer name need not be exact.
+    + buyer_country (optional, String, `US`)... Limit results to orders placed by given buyer's country. Country must be a 2 letter ISO country code.
+    + tracking_number (optional, String, `12345677`)... Limit result to fulfilled order with given tracking number.
+    + q (optional, String, `Arduino John@gmail.com`)... This is a free form query accross all search fields. It will return all orders containing any of the keywords in the given query.
     + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
     + sort_order (optional, String, `DESC`)... Sort order for display orders: ASC or DESC. Default: DESC.
