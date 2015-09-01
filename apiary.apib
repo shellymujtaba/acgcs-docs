@@ -4401,6 +4401,154 @@ If seller updates the status of each individual SKU in order then, fulfillment_s
                 "DECLINE": 0
               }
             }
+    
+##Sales Search [/shops/sales/search{?shop_id,order_id,start_date,end_date,product_type,product_name,order_status,fulfilled_by,transaction_type,silent_refund,min_product_price,max_product_price,psp_ref_number,original_psp_ref_number,shop_name,shop_title,product_id,vendor_sku,buyer_id,buyer_email,buyer_name,buyer_city,buyer_state,buyer_country,tracking_number,q,limit,offset,sort_order}]
+Retrieve sales' history for a shop on Marketplace. Restricts order line items to only those sold by the seller of shop_id since an order may have multiple line items from multiple sellers.
+Shop ID is optional for admin to retrieve all sales regardless of shop ID.
+
+Note about fulfillment_items : fulfillment_items section is only valid for orders containing physical item. Seller can update status of the entire order with multiple SKUs or update the status on every SKU. 
+If seller updates the status of entire order details of entire order can be retrieved from fulfillment_items section.
+If seller updates the status of each individual SKU in order then, fulfillment_skus section will provide the details at SKU level.
+
+### Retrieve shop sales [GET]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + shop_id (required, Number, `20280723`)...Shop id. Optional for administrator.
+    + order_id (optional, Number, `1234123456`)...Order Id to use as a filter for sales. It will return multiple records when orders are refunded or charged back.
+    + start_date (optional, Date, `2014-11-04`)... Limit results to orders created on or after start_date ("yyyy-MM-dd" or "yyyy-MM-dd hh:mm:ss" formats).
+    + end_date (optional, Date, `2014-12-05`)... Limit results to orders creataed on or before end_date ("yyyy-MM-dd" or "yyyy-MM-dd hh:mm:ss" formats).
+    + product_type (optional, String, `DIGITAL`)... Limit results to either DIGITAL or PHYSICAL items. Shipping items are also returned when PHYSICAL is specified. No filtering if not specified.
+    + order_status (optional, String, `IN_PROGRESS`)... When specified, return only orders with given status. Values can be: IN_PROGRESS, COMPLETE, CANCELED, ON_HOLD, CLOSED, FAILED, DECLINE. Returns all orders if not specified.
+    If the product_type is specified along with the order_status, only the orders containing this product type will be returned.
+    + fulfilled_by (optional, String, `EInc`)... Return sales fulfilled by EInc. Returns sales regardless of fulfillment company.
+    + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
+    + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
+    + sort_order (optional, String, `DESC`)... Sort order for display orders: ASC or DESC. Default: DESC.
+
++ Response 200 (application/json)
+
+
+            {
+              "count": 15,
+              "limit": 1,
+              "offset": 4,
+              "_link": "/shops/sales?shop_id=10&limit=1&offset=4",
+              "_link_prev": "/shops/sales?shop_id=10&limit=1&offset=3",
+              "_link_next": "/shops/sales?shop_id=10&limit=1&offset=5",
+              "sale_orders": [
+                {
+                  "member_id": 20704113,
+                  "order_id": "c1137d28-27bb-42a3-829e-9ab5cda54a97",
+                  "order_status": "COMPLETE",
+                  "order_start_date": "May 22, 2015 21:35:47",
+                  "order_completed_date": "",
+                  "order_last_checked_date": "July 11, 2015 01:03:24",
+                  "ipn_type": "CHARGE",
+                  "total_quantity": 2,
+                  "total_sales": 19.98,
+                  "total_sales_credit": 13.99,
+                  "total_tax_credit": 0,
+                  "total_shipping_credit": 0,
+                  "billing_address": {
+                    "id": 748639,
+                    "name": "qi zheng",
+                    "company": "",
+                    "address1": "1 Market",
+                    "address2": "",
+                    "city": "san francisco",
+                    "telephone": "",
+                    "member_id": 20704113,
+                    "address_type": "BILLING_ADDRESS",
+                    "state": "CA",
+                    "postal_code": "94105",
+                    "country_code": "US",
+                    "is_residential": true
+                  },
+                  "shipping_address": {
+                    "id": 748640,
+                    "name": "qi zheng",
+                    "company": "",
+                    "address1": "1 Market",
+                    "address2": "",
+                    "city": "san francisco",
+                    "telephone": "",
+                    "member_id": 20704113,
+                    "address_type": "SHIPPING_ADDRESS",
+                    "state": "CA",
+                    "postal_code": "94105",
+                    "country_code": "US",
+                    "is_residential": true
+                  },
+                  "sale_items": [
+                    {
+                      "quantity": 2,
+                      "product_id": 1292013,
+                      "seller_member_id": 20704112,
+                      "product_type": "PHYSICAL",
+                      "shop_id": 10,
+                      "product_name": "created assets creating create",
+                      "fulfillment_handler": "20704112",
+                      "unit_price": 9.99,
+                      "total_price": 19.98,
+                      "sales_credit": 13.99,
+                      "tax_credit": 0
+                    }
+                  ],
+                  "fulfillment_items": [
+                    {
+                      "shipper": "UPS",
+                      "order_fulfillment_id": 4726,
+                      "fulfillment_handler": "20704112",
+                      "vendor_customer_id": "20704113",
+                      "vendor_reference_number": "0b5b3d9d-6a9e-4377-b3c8-bfa8adb9b01c",
+                      "error_code": "",
+                      "error_message": "",
+                      "fulfillment_status": "IN_PROGRESS",
+                      "tracking_number": "",
+                      "tracking_url": "",
+                      "shipping_method": "UPS Next Day Air",
+                      "estimated_shipping_date": "",
+                      "fulfillment_skus": [
+                        {
+                            "shipper": "",
+                            "vendor_sku": "1573269",
+                            "fulfillment_status": "IN_PROGRESS",
+                            "tracking_number": "",
+                            "tracking_url": "",
+                            "shipping_method": "",
+                            "update_reason": "",
+                            "modified_date": "September 01, 2015 10:13:54",
+                            "error_code": "",
+                            "error_message": ""
+                        }
+                        ]
+                    }
+                  ]
+                }
+              ],
+              "sale_info": {
+                "product_sold": 33,
+                "total_gross_sales": 419.75,
+                "total_product_sales": 419.75,
+                "total_shipping_credit": 0,
+                "total_sales_tax_credit": 0,
+                "total_sales_credit": 286.82
+              },
+              "shipment_info": {
+                "IN_PROGRESS": 12,
+                "COMPLETE": 0,
+                "CANCELED": 0,
+                "ON_HOLD": 0,
+                "CLOSED": 0,
+                "FAILED": 0,
+                "DECLINE": 0
+              }
+            }            
 
 
 ##Tax [/shops/{shop_id}/tax{?address_type,address_value,tax_rate,apply_tax_to_shipping,limit,offset}]
