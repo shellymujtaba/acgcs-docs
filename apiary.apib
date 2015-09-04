@@ -2758,7 +2758,7 @@ Retrieve member's subscription history in cronologically descending order. Each 
                 "_link_next":"/member/20280723/subscriptions?limit=26&offset=39"
             }
 
-## Subscriptions [/members/{id}/subscription{?product_id,new_product_id,auto_renew,next_payment,affiliate_code,ignore_cancellation_status}]]
+## Subscriptions [/members/{id}/subscription{?product_id,new_product_id,auto_renew,next_payment,affiliate_code,ignore_cancellation_status,hash,ts}]]
 ### Update member's subscription.[PUT]
 This is to update subscritpion
     
@@ -2777,6 +2777,8 @@ This is to update subscritpion
     + next_payment (optional, String, `2015-09-30 00:00:00`)...New end date for subscriptions in YYYY-MM-DD HH:MM:SS format.
     + affiliate_code (optional, String, `PA1ON1`)...Direction of ordered search results based on value of sort_by. Default: asc.
     + ignore_cancellation_status (optional,Boolean, `false|true`)...Direction of ordered search results based on value of sort_by. Default: asc.
+    + hash (required, String, `asaskd6976324hbdgqe78du`)...Hash value is sha256hash combination of AFC+CURRENT TIME_STAMP IN GMT+SECURE CODE FOR AFC. Ref:Java code function : DigestUtils.sha256Hex()
+    + ts (required, String, `2015-01-23 15:00:00`)...Current time in GMT by which hash is generated.
             
 + Response 200 (application/json)
 
