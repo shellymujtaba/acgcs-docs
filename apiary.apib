@@ -2971,6 +2971,11 @@ API returns total accrued credits and total available credits (accrued - used) i
 ### Retrieve member's purchases [GET]
 Get all the purchases made by the member.
 
+|Message|HTTP Status Code|Error Code|Data
+|----|----|----|----
+|ECommerce Affiliate not found|400 Bad Method Exception|3012|
+|You are not allowed to retrieve this member's order history|400 Unauthorized Exception|3013|
+
 + Request (application/x-www-form-urlencoded)
     + Headers
     
