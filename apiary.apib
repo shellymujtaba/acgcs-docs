@@ -1729,7 +1729,7 @@ The API to get the download server for uploading the files
                 "server": "storagealpha.squidplatform.com"
             }            
 
-## Download File [/files/download{?file_ids,asset_id}]
+## Download File [/files/download{?file_ids,asset_id,ts,hash}]
 Download a specific file or set of files. 
 
 In instances where affiliates need to download files without a logged in user (e.g., to download files on behalf of the user).Folow the the steps mentioned below.
@@ -2765,7 +2765,7 @@ Retrieve member's subscription history in cronologically descending order. Each 
 ## Subscriptions [/members/{id}/subscription{?product_id,new_product_id,auto_renew,next_payment,affiliate_code,ignore_cancellation_status,hash,ts}]
 ### Update member's subscription.[PUT]
 Update subscription with different parameters. You have to pass any one parameter at a time. So either pass new_product_id|auto_renew|next_payment,ignore_cancellation_status
-    
+
 + Request (application/x-www-form-urlencoded)
     + Headers
     
@@ -4456,7 +4456,7 @@ If seller updates the status of each individual SKU, each item in fulfillment_sk
               }
             }
     
-##Sales Search [/shops/sales/search{?shop_id,order_id,start_date,end_date,product_id,product_type,product_name,order_status,fulfilled_by,transaction_type,silent_refund,min_product_price,max_product_price,psp_ref_number,original_psp_ref_number,shop_name,shop_title,vendor_sku,buyer_id,buyer_email,buyer_name,buyer_city,buyer_state,buyer_country,tracking_number,q,limit,offset,sort_order}]
+##Sales Search [/shops/sales/search{?shop_id,order_id,start_placed_date,end_placed_date,start_fulfilled_date,end_fulfilled_date,product_id,product_type,product_name,order_status,fulfilled_by,transaction_type,silent_refund,min_product_price,max_product_price,psp_ref_number,original_psp_ref_number,shop_name,shop_title,vendor_sku,buyer_id,buyer_email,buyer_name,buyer_city,buyer_state,buyer_country,tracking_number,q,limit,offset,sort_order}]
 Search sales' history on Marketplace. Shop ID is optional for admins to retrieve all sales regardless of shop ID. For shop owner shop_id is required and shop owner can only search for orders within his/her shop. All search fields are optional. When more than 1 search field is passed we will assume that search is done with "AND", which means orders returned will have all the searched fields.
 
 Search results returned maynot return orders placed in last few minutes. If you want real time data please use /Shops/Sales API.
