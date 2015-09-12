@@ -736,7 +736,9 @@ Operations to link other assets to this asset. These operations are useful to ag
 
 ### Create a new reference within the asset[POST] 
 + Parameters
-    + asset_ids (required,String, `234567,334562`)...Comma seperated list of assets to be linked to this asset.
+    + asset_ids (required, String, `234567,334562`)...Comma seperated list of assets to be linked to this asset.
+    + insert_before (optional, Number, `234567`)...Previously added Asset Id as reference to this asset. All the new asset references in this request will be before this reference in the references order sequence.
+    + insert_after (optional, Number, `234567`)...Previously added Asset Id as reference to this asset. All the new asset references in this request will be after this reference in the references order sequence.
     
 + Response 201 (application/json)
 
