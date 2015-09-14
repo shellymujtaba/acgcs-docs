@@ -1185,6 +1185,80 @@ This api will be used by backend services to update translations for various upl
     + translations (required,String, `3453434,123422`)...Comma seperated list of translated file ids which should be removed.
 + Response 204 (application/json)
 
+## Asset Collaboration [/assets/{id}/roles]
+These API can be used to provide necessary roles to other member to work on the asset.
+
++ Parameters
+    + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
+
+### Create member permission on the asset [POST] 
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + member_id (required,Number,`234566`)...Id of the member to whom permissions has to be provided
+    + role_id (required,Number,`2`)...Role of the member on the Asset. We have 3 roles available: 2 (Asset Admin) <br> 
+    
++ Response 201 (application/json)
+
+            {
+                "_link":"/assets/234566/translations"
+            }
+
+### Retrieve translations [GET]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Response 200 (application/json)
+
+            {
+                "translations": [
+                    {
+                        "inputFileItemId": "5358536",
+                        "outputFileItemId": "5358536",
+                        "outputFileUrl": "https://s3.amazonaws.com/123d_online_file_cache_prod/MARKETPLACE/1206348/16448602/bolts",
+                        "outputFileType": "BOLT"
+                    },
+                    {
+                        "inputFileItemId": "5358536",
+                        "outputFileItemId": "5358536",
+                        "outputFileName": "shopping_cart.stl",
+                        "outputFileType": "STL"
+                    },
+                    {
+                        "inputFileItemId": "5358536",
+                        "outputFileItemId": "5049748",
+                        "outputFileType": "Viewable"
+                    }
+                ]
+            }
+
+### Update the translations [PUT]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + translations (required,JSON, `{[{"source":123422,"translation":3453434,"type":"STL}]}`) ...JSON list of source file id along with translated file id and type of translation performed. 
++ Response 200 (application/json)
+
+### Delete an asset translation [DELETE]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + translations (required,String, `3453434,123422`)...Comma seperated list of translated file ids which should be removed.
++ Response 204 (application/json)
+
+
+
 ## Asset Likes [/assets/{id}/likes{?limit,offset,sort_order,follow_order}]
 This operation is basically a toggle - calling PUT operation repeteadly will set/unset like state for this member on this asset.
 + Parameters
