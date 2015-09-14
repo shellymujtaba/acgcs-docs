@@ -1204,10 +1204,10 @@ These API can be used to provide necessary roles to other member to work on the 
 + Response 201 (application/json)
 
             {
-                "_link":"/assets/234566/translations"
+                "_link":"/assets/234566/roles"
             }
 
-### Retrieve translations [GET]
+### Retrieve asset roles [GET]
 + Request (application/x-www-form-urlencoded)
     + Headers
     
@@ -1215,27 +1215,34 @@ These API can be used to provide necessary roles to other member to work on the 
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Response 200 (application/json)
 
-            {
-                "translations": [
-                    {
-                        "inputFileItemId": "5358536",
-                        "outputFileItemId": "5358536",
-                        "outputFileUrl": "https://s3.amazonaws.com/123d_online_file_cache_prod/MARKETPLACE/1206348/16448602/bolts",
-                        "outputFileType": "BOLT"
-                    },
-                    {
-                        "inputFileItemId": "5358536",
-                        "outputFileItemId": "5358536",
-                        "outputFileName": "shopping_cart.stl",
-                        "outputFileType": "STL"
-                    },
-                    {
-                        "inputFileItemId": "5358536",
-                        "outputFileItemId": "5049748",
-                        "outputFileType": "Viewable"
-                    }
-                ]
-            }
+{
+    "members": [
+        {
+            "member_id": 20708761,
+            "role_id": 2,
+            "role_name": "asset_admin",
+            "date_added": "September 14, 2015 16:16:51"
+        },
+        {
+            "member_id": 20709428,
+            "role_id": 3,
+            "role_name": "asset_writer",
+            "date_added": "September 14, 2015 16:17:02"
+        },
+        {
+            "member_id": 20708732,
+            "role_id": 4,
+            "role_name": "asset_reader",
+            "date_added": "September 14, 2015 16:17:13"
+        },
+        {
+            "member_id": 20706524,
+            "role_id": 2,
+            "role_name": "asset_admin",
+            "date_added": "September 14, 2015 16:17:25"
+        }
+    ]
+}
 
 ### Update the translations [PUT]
 + Request (application/x-www-form-urlencoded)
