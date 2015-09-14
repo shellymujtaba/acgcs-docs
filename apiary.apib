@@ -1266,10 +1266,9 @@ These API can be used to provide necessary roles to other member to work on the 
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
-    + translations (required,String, `3453434,123422`)...Comma seperated list of translated file ids which should be removed.
+    + member_id (required,Number,`234566`)...Id of the member to whom permissions has to be provided
+
 + Response 204 (application/json)
-
-
 
 ## Asset Likes [/assets/{id}/likes{?limit,offset,sort_order,follow_order}]
 This operation is basically a toggle - calling PUT operation repeteadly will set/unset like state for this member on this asset.
