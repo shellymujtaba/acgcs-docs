@@ -1203,9 +1203,9 @@ These API can be used to provide necessary roles to other member to work on the 
     
 + Response 201 (application/json)
 
-            {
-                "_link":"/assets/234566/roles"
-            }
+{
+    "_link":"/assets/234566/roles"
+}
 
 ### Retrieve asset roles [GET]
 + Request (application/x-www-form-urlencoded)
@@ -1244,17 +1244,22 @@ These API can be used to provide necessary roles to other member to work on the 
     ]
 }
 
-### Update the translations [PUT]
+### Update asset member permission [PUT]
 + Request (application/x-www-form-urlencoded)
     + Headers
     
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
-    + translations (required,JSON, `{[{"source":123422,"translation":3453434,"type":"STL}]}`) ...JSON list of source file id along with translated file id and type of translation performed. 
-+ Response 200 (application/json)
+    + member_id (required,Number,`234566`)...Id of the member to whom permissions has to be provided
+    + role_id (required,Number,`2`)...Role of the member on the Asset.<br> We have 3 asset roles available:<br> 2 (Admin) <br> 3 (Writer) <br> 4 (Reader) <br>
+    
++ Response 201 (application/json)
+{
+    "_link":"/assets/234566/roles"
+}
 
-### Delete an asset translation [DELETE]
+### Delete asset member permission [DELETE]
 + Request (application/x-www-form-urlencoded)
     + Headers
     
