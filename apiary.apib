@@ -173,9 +173,9 @@ The operations listed below provide a full set of activities which can be perfor
 
 **Hash based API calls**
 
-All the Assets API below can be invoked by passing the hash value as a param for authentication.
+All the Assets API below can also be invoked by passing the hash value as a param for authentication.
 
-_Building the request:_
+_Dispatching the request:_
 * Use the guest session when calling the the API.
 * Pass timestamp parameter as "ts". Format: 'YYYY-MM-DD HH:mm:ss'. The timestamp should be within past 15 mins timeframe.
 * Pass hash parameter as "hash". This is generated using SHA-256 hash function combining Affiliate Code + Asset Id + Timestamp + Affiliate shared secret
