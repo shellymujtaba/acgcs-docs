@@ -2434,8 +2434,8 @@ _Dispatching the request:_
     + empty_if_null (optional, Number,`true`)...return empty json, i.e. {}, if this is true, otherwise empty string. Default: false.
     + preference_name (optional, Number, `default_unit`)...The name of the preference.  Accepted characters: [a-ZA-Z0-9_-] (no spaces)
     + preference_value (optional, String, `{"test": 10}`)...Value to save for given preference name. Either value or JSON String accepted.  Validated as JSON if previously saved as JSON.
-    + ts (optional, String, 2015-09-15 11:15:00 )... timestamp for hash validations
-    + hash (optional, String, "hashcode" )... SHA-256 coded value of AFC+memberID+timestamp+sharedSecret
+    + ts (optional, String, `2015-09-15 11:15:00`)...timestamp for hash validations.
+    + hash (optional, String, `hashstring`)... SHA-256 coded value of AFC+memberID+timestamp+sharedSecret
 
 + Response 201 (application/json)
 
