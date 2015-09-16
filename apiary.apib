@@ -179,7 +179,8 @@ _Building the request:_
 * Use Guest session when calling the the API.
 * Pass timestamp parameter as "ts". Format: 'YYYY-MM-DD HH:mm:ss'. The timestamp should be within past 15 mins timeframe.
 * Pass hash parameter as "hash". This is generated using SHA-256 hash function combining Affiliate Code + Asset Id + Timestamp + Affiliate shared secret
-Note: For Asset creation POST API, please use Member Id (Asset owner) instead of Asset Id for genrating the hash value.
+
+**_Note_**: For Asset creation POST API, please use Member Id (Asset owner) instead of Asset Id for genrating the hash value.
 
 ## Asset [/assets/{id}{?asset_name,description,tags,media_type_id,software,publish,progress_status,parent_asset_id,id,referenced_assets,extended_data,version,asset_ids,license_id,asset_taxonomy}]
 Operations to perform CRUD operations on an asset with basic metadata. Additional operation sets will populate this asset with constituent files, additional metadata etc. 
