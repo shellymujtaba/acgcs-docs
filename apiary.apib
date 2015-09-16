@@ -171,6 +171,17 @@ An asset is the top level storage construct for cloud services. An asset can be 
 Within the 3d modeling/printing eco-system it is often hard to model a complete creation and workflow with a single file (for example: a model may consist of obj, mtl, texture files) - Asset provides an aggregation point for several related files and metadata elements to fully represent a creation, its various transformations, translations and references. 
 The operations listed below provide a full set of activities which can be performed against an asset. 
 
+Hash based API calls
+
+All the Assets API below can be invoked by passing the hash value as a param.
+
+Building the request:
+* Use Guest session when calling the the API.
+* Pass timestamp parameter as "ts". Format: 'YYYY-MM-DD HH:mm:ss'. The timestamp should be within past 15 mins timeframe.
+* Pass hash parameter as "hash". This is generated using SHA-256 hash function combining Affiliate Code + Asset Id + Timestamp + Affiliate shared secret
+
+Note: For Asset creation POST API, please use Member Id (Asset owner) instead of Asset Id
+
 ## Asset [/assets/{id}{?asset_name,description,tags,media_type_id,software,publish,progress_status,parent_asset_id,id,referenced_assets,extended_data,version,asset_ids,license_id,asset_taxonomy}]
 Operations to perform CRUD operations on an asset with basic metadata. Additional operation sets will populate this asset with constituent files, additional metadata etc. 
 
@@ -1839,7 +1850,7 @@ Download a specific file or set of files.
 
 In instances where affiliates need to download files without a logged in user (e.g., to download files on behalf of the user).Folow the the steps mentioned below.
 
-Building a Request:-
+Building the Request:
 * Use Guest session when calling the the API.
 * Pass parameter "ts", which is Timestamp, Format is 'YYYY-MM-DD HH:mm:ss'.  Must be converted to GMT (no offset).  Must be within 15 minutes of the server's timestamp when call is made 
 * Pass Parameter "hash", which is generated via SHA-256 hash function of the affiliate code + asset ID + timestamp + shared secret.
