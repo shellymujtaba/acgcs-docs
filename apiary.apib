@@ -2384,15 +2384,6 @@ Member apps operations
             
 ## Preferences [/members/{id}/preferences{?namespace,empty_if_null,preference_name,preference_value,preference_names}]
 Member preference operations
-**Hash based API calls**
-
-save Member Preference API below can also be invoked by passing the hash value as a param for authentication.
-
-_Dispatching the request:_
-* Use the guest session when calling the the API.
-* Pass timestamp parameter as "ts". Format: 'YYYY-MM-DD HH:mm:ss'. The timestamp should be within past 15 mins timeframe.
-* Pass hash parameter as "hash". This is generated using SHA-256 hash function combining Affiliate Code + Member id + Timestamp + Affiliate shared secret
-
 
 ### Retrieve a members preferences [GET]
 + Request (application/x-www-form-urlencoded)
