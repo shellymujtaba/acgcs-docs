@@ -5040,11 +5040,6 @@ If shop doesn't have shipping profile, then first shipping profile will be the d
 + Parameters
     + name (required, String,`US Overnight`)...Shipping profile name
     + description (optional, String,`US Overnight shipping profile`)...Shipping profile description
-    + from_country (required, String,`US`)...Shipping profile from country field. The value is iso code for country like 'US' for United States,'CA' for Canada.
-    + to_country (required, String,`US`)...Shipping profile to country field. The value is iso code for country like 'US' for United States,'CA' for Canada.
-    + shipping_time (required, String,`1 day`)...Shipping time for this shipping profile like 1 day or 2 days or 5 days.
-    + shipping_cost (required, Number,`10`)...Shipping cost for this shipping profile.
-    + additional_cost (required, Number,`5`)...Addional cost for this shipping profile.
     + is_default (optional, String, `true`)...If is_default is true then this shipping profile will become the default shipping profile for the shop. So when you add physical product for this shop, the product will be associated to default profile automatically.
 
 + Response 200 (application/json)
@@ -5052,13 +5047,8 @@ If shop doesn't have shipping profile, then first shipping profile will be the d
         {
             "shippingprofile_id": 5,
             "shop_id": 79,
-            "shippingprofile_name": "US Standarad",
-            "shippingprofile_description": "",
-            "shippingprofile_from_country": "US",
-            "shippingprofile_to_country": "US",
-            "shippingprofile_shipping_time": "2 days",
-            "shippingprofile_shipping_cost": 9,
-            "shippingprofile_additional_cost": 1.5,
+            "shippingprofile_name": "Large Items Shipping profile",
+            "shippingprofile_description": "Large items shipping profile"
             "is_default_shipping_profile": true
         }
         
@@ -5081,11 +5071,6 @@ The Seller can update shipping profile to Shop by chaning its name, shipping tim
 + Parameters
     + name (optional, String,`US Overnight`)...Shipping profile name
     + description (optional, String,`US Overnight shipping profile`)...Shipping profile description
-    + from_country (optional, String,`US`)...Shipping profile from country field. The value is iso code for country like 'US' for United States,'CA' for Canada.
-    + to_country (optional, String,`US`)...Shipping profile to country field. The value is iso code for country like 'US' for United States,'CA' for Canada.
-    + shipping_time (optional, String,`1 day`)...Shipping time for this shipping profile like 1 day or 2 days or 5 days.
-    + shipping_cost (optional, Number,`10`)...Shipping cost for this shipping profile.
-    + additional_cost (optional, Number,`5`)...Addional cost for this shipping profile.
     + is_default (optional, String, `true`)...If is_default is true then this shipping profile will become the default shipping profile for the shop. So when you add physical product for this shop, the product will be associated to default profile automatically.
 
 + Response 200 (application/json)
@@ -5093,13 +5078,8 @@ The Seller can update shipping profile to Shop by chaning its name, shipping tim
         {
             "shippingprofile_id": 5,
             "shop_id": 79,
-            "shippingprofile_name": "US Standarad",
-            "shippingprofile_description": "",
-            "shippingprofile_from_country": "US",
-            "shippingprofile_to_country": "US",
-            "shippingprofile_shipping_time": "2 days",
-            "shippingprofile_shipping_cost": 9,
-            "shippingprofile_additional_cost": 1.5,
+            "shippingprofile_name": "Large items profile",
+            "shippingprofile_description": "Shipping profile for large items",
             "is_default_shipping_profile": true
         }     
 
