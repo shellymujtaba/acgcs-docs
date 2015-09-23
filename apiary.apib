@@ -5097,6 +5097,22 @@ A shipping profile encompasses all the rules and pricing associated with shippin
 * Countries to which the shipment will be delivered (1..n)
 * Set of shipping options and prices available for this set of destination countries (1..n)
 
++ Parameters
+    + shop_id (required, Number, `79`)...Shop id
+    + shippingprofile_id (required, Number, `10`)...Shipping Profile id
+    
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            X-Secure-Session: ABC1232324244
+
++ Parameters
+    + name (jsonString, String,`Json Input`)...JSON input string in the following format
+    <br>[{"destination_from_country":"US","destination_handling_fee":1.5, "destination_to_country":["US","CA","MX"],"shipping_options":[{"shippingoption_name":"2 Day Delivery",  "shipping_option_shipping_cost":9 }, {"shipping_option_name":"3 Day Delivery",  "shipping_option_shipping_cost":11}]}]
+
+
 
 
 #Group Carts
