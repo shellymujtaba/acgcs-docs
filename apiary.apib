@@ -5091,8 +5091,13 @@ The Seller can update shipping profile to Shop by chaning its name, shipping tim
     
 + Response 204
 
-## ShippingDestination [/test]
-A ship
+## Shipping Destination[/shops/{shop_id}/shippingprofile/{shippingprpfile_id}/shippingdestinationgroup{?jsonString}]
+A shipping profile encompasses all the rules and pricing associated with shipping for a given class of item in destination. A single shipping profile can have multiple shipping destinations but for a given to country can only be in a single destination item for profile. The seller can then associate a shipping profile with any number of products which fit the "large item" description. Similarly there may be another  shipping profile for "small items" which can be applied to smaller items. For example lets say there is a shipping profile for "Large Items" . This profile will include 1...n  sub profiles (destinations) with each desitnation line item indicating:
+* Country from where the shipment will originate (from_country)
+* Countries to which the shipment will be delivered (1..n)
+* Set of shipping options and prices available for this set of destination countries (1..n)
+
+
 
 #Group Carts
 Cart is nothing but a shopping basket where user can put digital or physical items.
