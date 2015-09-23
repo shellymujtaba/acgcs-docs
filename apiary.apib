@@ -5091,7 +5091,7 @@ The Seller can update shipping profile to Shop by chaning its name, shipping tim
     
 + Response 204
 
-## Shipping Destination [/shops/{shop_id}/shippingprofile/{shippingprpfile_id}/shippingdestinationgroup{?jsonString}]
+## Shipping Destination [/shops/{shop_id}/shippingprofile/{shippingprofile_id}/shippingdestinationgroup{?jsonString}]
 A shipping profile encompasses all the rules and pricing associated with shipping for a given class of item in destination. A single shipping profile can have multiple shipping destinations but for a given to country can only be in a single destination item for profile. The seller can then associate a shipping profile with any number of products which fit the "large item" description. Similarly there may be another  shipping profile for "small items" which can be applied to smaller items. For example lets say there is a shipping profile for "Large Items" . This profile will include 1...n  sub profiles (destinations) with each desitnation line item indicating:
 * Country from where the shipment will originate (from_country)
 * Countries to which the shipment will be delivered (1..n)
@@ -5101,6 +5101,8 @@ A shipping profile encompasses all the rules and pricing associated with shippin
     + shop_id (required, Number, `79`)...Shop id
     + shippingprofile_id (required, Number, `10`)...Shipping Profile id
     
+### Add Shipping destination[POST]
+    
 + Request (application/x-www-form-urlencoded)
     + Headers
     
@@ -5109,7 +5111,7 @@ A shipping profile encompasses all the rules and pricing associated with shippin
             X-Secure-Session: ABC1232324244
 
 + Parameters
-    + name (required, String,`jsonString`)...JSON input string in the following format
+    + jsonString (required, String,`jsonString`)...JSON input string in the following format
     <br>[{"destination_from_country":"US","destination_handling_fee":1.5, "destination_to_country":["US","CA","MX"],"shipping_options":[{"shippingoption_name":"2 Day Delivery",  "shipping_option_shipping_cost":9 }, {"shipping_option_name":"3 Day Delivery",  "shipping_option_shipping_cost":11}]}]
 
 
