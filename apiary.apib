@@ -4945,7 +4945,7 @@ If tax rate already exists for input address, the call will update the tax rate.
     
 + Response 204
 
-##Shipping Profile [/shops/{shop_id}/shippingprofile{?limit,offset,name,description,from_country,to_country,shipping_time,shipping_cost,additional_cost,is_default}]
+##Shipping Profile [/shops/{shop_id}/shippingprofile{?limit,offset,name,description,is_default}]
 Sellers will specify the shipping profile at the shop level. Shipping cost for physical items will be calcalated based on buyer shipping address and shipping profile associated with physical products. If shop does not have shipping profile, then seller cannot publish any of physical assets for sale of that shop. The seller can always add physical assets, that are NOT for sale without shipping profile
 
 + Parameters
@@ -4966,8 +4966,8 @@ Sellers will specify the shipping profile at the shop level. Shipping cost for p
     
 + Response 200 (application/json)
 
-        { 
-   "count":3,
+{ 
+   "count":1,
    "limit":20,
    "offset":0,
    "_link":"/shops/79/shippingprofile?limit=20&offset=0",
@@ -5014,12 +5014,10 @@ Sellers will specify the shipping profile at the shop level. Shipping cost for p
                   { 
                      "shippingoption_name":"2 Day Delivery",
                      "shipping_option_shipping_cost":10,
-                      
                   },
                   { 
                      "shipping_option_name":"3 Day Delivery",
                      "shipping_option_shipping_cost":12,
-                      
                   }
                ]
             }
@@ -5053,7 +5051,7 @@ If shop doesn't have shipping profile, then first shipping profile will be the d
         }
         
 
-##Shipping Profile [/shops/{shop_id}/shippingprofile/{shippingprofile_id}{?name,description,from_country,to_country,shipping_time,shipping_cost,additional_cost,is_default}]
+##Shipping Profile [/shops/{shop_id}/shippingprofile/{shippingprofile_id}{?name,description,is_default}]
 + Parameters
     + shop_id (required, Number, `20280723`)...Shop id
     + shippingprofile_id (required, Number, `10`)...Shipping Profile id
