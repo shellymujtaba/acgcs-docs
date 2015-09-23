@@ -4966,65 +4966,65 @@ Sellers will specify the shipping profile at the shop level. Shipping cost for p
     
 + Response 200 (application/json)
 
-{
-   "count":1,
-   "limit":20,
-   "offset":0,
-   "_link":"/shops/79/shippingprofile?limit=20&offset=0",
-   "shippingprofiles":[ 
-      { 
-         "shippingprofile_id":5,
-         "shop_id":79,
-         "shippingprofile_name":"Large Items",
-         "shippingprofile_description":"Profile for Large Items",
-         "is_default_shipping_profile":true,
-         "Destinations":[ 
+    {
+        "count":1,
+        "limit":20,
+        "offset":0,
+        "_link":"/shops/79/shippingprofile?limit=20&offset=0",
+        "shippingprofiles":[ 
             { 
-               "destination_id":234,
-               "destination_from_country":"US",
-               "destination_handling_fee":1.5,
-               "destination_to_country":[ 
-                  "US",
-                  "CA",
-                  "MX"
-               ],
-               "shipping_options":[ 
-                  { 
-                     "shippingoption_name":"2 Day Delivery",
-                     "shipping_option_shipping_cost":9
-                      
-                  },
-                  { 
-                     "shipping_option_name":"3 Day Delivery",
-                     "shipping_option_shipping_cost":11
-                      
-                  }
-               ]
-            },
-            { 
-               "destination_id":456,
-               "destination_from_country":"UK",
-               "destination_handling_fee":1.5,
-               "destination_to_country":[ 
-                  "UK",
-                  "IE",
-                  "FR"
-               ],
-               "shipping_options":[ 
-                  { 
-                     "shippingoption_name":"2 Day Delivery",
-                     "shipping_option_shipping_cost":10
-                  },
-                  { 
-                     "shipping_option_name":"3 Day Delivery",
-                     "shipping_option_shipping_cost":12
-                  }
-               ]
+                "shippingprofile_id":5,
+                "shop_id":79,
+                "shippingprofile_name":"Large Items",
+                "shippingprofile_description":"Profile for Large Items",
+                "is_default_shipping_profile":true,
+                "Destinations":[ 
+                    { 
+                       "destination_id":234,
+                       "destination_from_country":"US",
+                       "destination_handling_fee":1.5,
+                       "destination_to_country":[ 
+                          "US",
+                          "CA",
+                          "MX"
+                       ],
+                       "shipping_options":[ 
+                          { 
+                             "shippingoption_name":"2 Day Delivery",
+                             "shipping_option_shipping_cost":9
+                              
+                          },
+                          { 
+                             "shipping_option_name":"3 Day Delivery",
+                             "shipping_option_shipping_cost":11
+                              
+                          }
+                       ]
+                    },
+                    { 
+                       "destination_id":456,
+                       "destination_from_country":"UK",
+                       "destination_handling_fee":1.5,
+                       "destination_to_country":[ 
+                          "UK",
+                          "IE",
+                          "FR"
+                       ],
+                       "shipping_options":[ 
+                          { 
+                             "shippingoption_name":"2 Day Delivery",
+                             "shipping_option_shipping_cost":10
+                          },
+                          { 
+                             "shipping_option_name":"3 Day Delivery",
+                             "shipping_option_shipping_cost":12
+                          }
+                       ]
+                    }
+                ]
             }
-         ]
-      }
-   ]
-}
+        ]
+    }
 
 ### Add shipping profile [POST]
 If shop doesn't have shipping profile, then first shipping profile will be the default shipping profile for the shop and all the physical products of the shop will automatically assigned to default profile.
