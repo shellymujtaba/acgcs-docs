@@ -5152,7 +5152,7 @@ A shipping profile encompasses all the rules and pricing associated with shippin
 Cart is nothing but a shopping basket where user can put digital or physical items.
 Here are some key points about cart:
 * Cart is created for guest user as well as for login user.
-* Cart is of type ESTORE or MARKETPLACE.
+* Cart is of type ESTORE, MARKETPLACE, or MARKETPLACE_INSTANT.
 * Cart is different for each <a href="/reference/appendices">ECommerceAffiliates</a>.
 Exp: Sketchbook, Pixlr and Ciruits are under different <a href="/reference/appendices">ECommerceAffiliates</a> so for single user there will be different carts for each of these apps.
 * Cart can be different for each affiliate code (X-AFC in header). Please contact cloud service team if affiliate code specific cart is needed.
@@ -5161,7 +5161,7 @@ Exp: Sketchbook, Pixlr and Ciruits are under different <a href="/reference/appen
 Perform CRUD operations on cart with basic metadata.
 
 ### Retrieve a cart [GET]
-Return ESTORE or MARKETPLACE cart for a guest user or login user. Return empty JSON if cart doesn't exist.
+Return ESTORE, MARKETPLACE or MARKETPLACE_INSTANT cart for a guest user or login user. Return empty JSON if cart doesn't exist.
 
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -5170,7 +5170,7 @@ Return ESTORE or MARKETPLACE cart for a guest user or login user. Return empty J
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
-    + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE`)...String `type` of the cart to perform action with.
+    + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE|MARKETPLACE_INSTANT`)...String `type` of the cart to perform action with.
 
 + Response 200 (application/json)
 
@@ -5511,7 +5511,7 @@ Delete the cart of the logged in user or guest. After this call, a call to GET /
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             
 + Parameters
-    + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE`)...String `type` of the cart to perform action with.
+    + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE|MARKETPLACE_INSTANT`)...String `type` of the cart to perform action with.
 
 + Response 204 (application/json)
 
@@ -5524,7 +5524,8 @@ Line items are items within carts. Cart can contain 'n' line items. User can per
 Add a line item to the cart or update exisiting one of same type and product id. Return the updated tenant specific cart (as identified by afc header) for a member or guest session with lineItems, and total price. Additionally return the new/updated line item in the "updated" field. 
 Here are some key points about cart:
 * If a line item of type SUBSCRIPTION already exists in the cart this operation will result in a replace as no more than one subscription is allowed.
-* LineItem will be added to the cart of the same type. <a href="/reference/appendices">ESTORE line item</a> will be added to ESTORE cart and MARKETPLACE line item will be added to MARKETPLACE cart. cart_type is not required in the call.
+* LineItem will be added to the cart of the same type. <a href="/reference/appendices">ESTORE line item</a> will be added to ESTORE cart and MARKETPLACE line item will be added to MARKETPLACE cart. cart_type is not required in the call for ESTORE and MARKETPLACE.
+* Cart type is required when adding an item to a cart of type MARKETPLACE_INSTANT since the cart type cannot be deduced from the product type.
 * This call is not allowed to update the price on shipping line item.
 
 |description|HTTP|code
