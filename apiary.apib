@@ -5547,7 +5547,7 @@ Here are some key points about cart:
 + Parameters
     + product_id (optional, Number, `23`)...Numeric `id` of the product to be added in the cart. Required if line_item_id does not present.
     + product_type (optional, string, `SUBSCRIPTION`)...(Currently Supported: SUBSCRIPTION | PHYSICAL | BUNDLE | DIGITAL).  Required if line_item_id does not present. If the product_type and product_id parameters of this call are equal to those of an existing line item then quantity is going to be increased. The only exception to this rule is with SUBSCRIPTION types which are not allowed more than one in the cart.
-    + cart_type (optional, string, 'MARKETPLACE_INSTANT')... Required only if the items need to be added in the MARKETPLACE_INSTANT cart.
+    + cart_type (optional, string, `MARKETPLACE_INSTANT`)... Required only if the items need to be added in the MARKETPLACE_INSTANT cart.
     + quantity (optional, Number,`20`)...quantity of the line item being added in cart. Default is 1. Must be greater than 0.
     + unit_price (optional, Number,`20.99`)...Price in dollars, i.e. for a price of 2.99 USD clients should send 2.99. If price is being overridden a hash_key and timestamp are required as additional parameters. Please contact cloud service team first for the usage of unit_price.
     + data (optional, Json,`{"key":"value"}`)...A JSON String which is saved against the line item and which is retrieved through get carts api. It can be used with spool or shipping. Set this parameter to a DATA Json object.
