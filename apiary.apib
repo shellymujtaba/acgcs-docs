@@ -5875,7 +5875,7 @@ SecureSession is a required header for this API.
             X-Secure-Session: ECASR7DN20SNJMLLI
             
 + Parameters
-    + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE`)...String `type` of the cart to perform action with.
+    + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE|MARKETPLACE_INSTANT`)...String `type` of the cart to perform action with.
     + promotion_code = `ANY_THING_YOU_LIKE` (optional,String)...String `type` Use to track particular promotion.
 
 + Response 200 (application/json)
@@ -5944,7 +5944,7 @@ SecureSession is a required header for this API.
             X-Secure-Session: ECASR7DN20SNJMLLI
             
 + Parameters
-    + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE`)...String `type` of the cart to perform action with.
+    + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE|MARKETPLACE_INSTANT`)...String `type` of the cart to perform action with.
     + encrypted_card_number (optional, string, `sdadhabduahysd67adaiudabidyad354t`)...Encrypted value of credit card returned by ServiceProvider. This is required if 'prevcard' is false.
     + encrypted_cvv (optional, string, `sdadhabduahysd67adaiudabidyad354t`)...Encrypted value of cvv returned by ServiceProvider. This is required if 'prevcard' is false.
     + expiration_month (optional, Number, `03`)...Expiry month of CreditCard mentioned. This is required if 'prevcard' is false.
@@ -5985,7 +5985,7 @@ Transfers a cart from a guest session to current logged in member
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
-    + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE`)...String `type` of the cart to perform action with.
+    + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE|MARAKETPLACE_INSTANT`)...String `type` of the cart to perform action with.
     + guest_session (required,String,`0000000-5F02-4133-BE38-ED61ACD29108`)...String `guest session` associated with the cart to perform action with.
 
 + Response 200 (application/json)
@@ -6106,7 +6106,7 @@ Get the billing address of the cart given in parameters (default to ESTORE cart)
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
-    + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE`)...String `type` of the cart to perform action with.
+    + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE|MARKETPLACE_INSTANT`)...String `type` of the cart to perform action with.
 
 + Response 200 (application/json)
 
@@ -6138,7 +6138,7 @@ Sample url is https://www.123dapp.com/api/v2/cart/billingaddress?address1=1%20Ma
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             
 + Parameters
-    + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE`)...String `type` of the cart to perform action with.
+    + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE|MARKETPLACE_INSTANT`)...String `type` of the cart to perform action with.
     + id (optional, Number)...If this is an existing address from existing member profile, you can pass the id of address to set that as shipping address for this cart.
     + name (required, string, `Carl Bass`)...If this is NOT an update, name is a required parameter.
     + address1 (required, string, `Pier 9`)...If this is NOT an update, address1 is a required parameter.
@@ -6180,7 +6180,7 @@ Get the shipping address of the cart given in parameters (default to ESTORE cart
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             
 + Parameters
-    + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE`)...String `type` of the cart to perform action with.
+    + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE|MARKETPLACE_INSTANT`)...String `type` of the cart to perform action with.
 
 + Response 200 (application/json)
 
@@ -6229,7 +6229,7 @@ Sample url is https://www.123dapp.com/api/v2/cart/shippingaddress?address1=1%20M
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             
 + Parameters
-    + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE`)...String `type` of the cart to perform action with.
+    + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE|MARKETPLACE_INSTANT`)...String `type` of the cart to perform action with.
     + id (optional, Number)...If this is an existing address from existing member profile, you can pass the id of address to set that as shipping address for this cart.
     + name (required, string, `Carl Bass`)...If this is NOT an update, name is a required parameter.
     + address1 (required, string, `Pier 9`)...If this is NOT an update, address1 is a required parameter.
@@ -6271,7 +6271,7 @@ Update user selected shipping options for one or more shipping line items in the
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             
 + Parameters
-    + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE`)...String `type` of the cart to perform action with.
+    + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE|MARKETPLACE_INSTANT`)...String `type` of the cart to perform action with.
     + shipping_options (required, JSON, `[{"shipping_line_item_id": 8220,"shipping_method_id" : "MN"},{"shipping_line_item_id": 8221,"needs_insurance" : true}]`)...JSON `JSON Array` of shipping line items and corresponding shipping option, selected by the user. Every element of JSON array MUST contain shipping_line_item_id and at least one of shipping_method or needs_insurance fields.
         * shipping_line_item_id : id of the system generated shipping line item when one or more physical items are added to the cart.
         * shipping_method_id : id of a shipping method provided by the system for given shipping option.
@@ -6497,7 +6497,7 @@ Update how the shipments for multiple physical items should be grouped together.
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             
 + Parameters
-    + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE`)...String `type` of the cart to perform action with.
+    + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE|MARKETPLACE_INSTANT`)...String `type` of the cart to perform action with.
     + method (required, String, `FASTEST_DELIVERY|MINIMUM_SHIPMENTS`)...String `Shipment grouping method` selected by user.
         * FASTEST_DELIVERY : In this method, shipments for physical items fulfilled by a particular vendor, will be grouped according to their availability dates. Items that are available earlier will be shipped earlier.
         * MINIMUM_SHIPMENTS : In this method , all items fulfilled by a particular vendor are grouped under one shipping group, irrespective of their availability date. This way items that have latest availability date will drive the grouping of all line items in that group.
@@ -6884,7 +6884,7 @@ Apply a coupon. Returns the updated cart (as identified by afc header and cart t
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             
 + Parameters
-    + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE`)...String `type` of the cart to perform action with.
+    + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE|MARKETPLACE_INSTANT`)...String `type` of the cart to perform action with.
     + code (required, String, `SAVEBIG`)...String `coupon code` which is added in cart.
 
 + Response 200 (application/json)
@@ -7188,7 +7188,7 @@ Delete a coupon. Returns the updated cart (as identified by afc header and cart 
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             
 + Parameters
-    + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE`)...String `type` of the cart to perform action with.
+    + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE|MARKETPLACE_INSTANT`)...String `type` of the cart to perform action with.
     + code (required, String, `SAVEBIG`)...String `coupon code` which is deleted from cart.
 
 + Response 200 (application/json)
@@ -7486,7 +7486,7 @@ Delete a coupon. Returns the updated cart (as identified by afc header and cart 
 
             
 + Parameters
-    + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE`)...String `type` of the cart to perform action with.
+    + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE|MARKETPLACE_INSTANT`)...String `type` of the cart to perform action with.
 
 + Response 200 (application/json)
 
