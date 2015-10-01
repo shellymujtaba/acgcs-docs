@@ -5105,8 +5105,31 @@ A shipping profile encompasses all the rules and pricing associated with shippin
 ### Add Shipping destination[POST]
     
 + Request (application/x-www-form-urlencoded)
+
+[
+    {     
+        "destination_from_country":"US",
+        "destination_handling_fee":5,
+        "destination_to_country":[ 
+            "US",
+            "CA",
+            "MX"
+        ],
+       "shipping_options":[ 
+            { 
+                "shipping_option_name":"1 Day Delivery",
+                "shipping_option_shipping_cost":20          
+            },
+            { 
+                "shipping_option_name":"3 Day Delivery",
+                "shipping_option_shipping_cost":10          
+            }
+        ]
+    }
+]
+
+
     + Headers
-    
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             X-Secure-Session: ABC1232324244
