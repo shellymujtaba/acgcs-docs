@@ -5134,10 +5134,6 @@ A shipping profile encompasses all the rules and pricing associated with shippin
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             X-Secure-Session: ABC1232324244
 
-+ Parameters
-    + jsonString (required, String,`jsonString`)...JSON input string in the following format
-    <br>[{"destination_from_country":"US","destination_handling_fee":1.5, "destination_to_country":["US","CA","MX"],"shipping_options":[{"shippingoption_name":"2 Day Delivery",  "shipping_option_shipping_cost":9 }, {"shipping_option_name":"3 Day Delivery",  "shipping_option_shipping_cost":11}]}]
-
 + Response 200 (application/json)
     [{"destination_id":20,"destination_from_country":"US","destination_handling_fee":1.5, "destination_to_country":["US","CA","MX"],"shipping_options":[{"shippingoption_name":"2 Day Delivery",  "shipping_option_shipping_cost":9 }, {"shipping_option_name":"3 Day Delivery",  "shipping_option_shipping_cost":11}]}]
     
@@ -5172,10 +5168,6 @@ A shipping profile encompasses all the rules and pricing associated with shippin
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             X-Secure-Session: ABC1232324244
-
-+ Parameters
-    + jsonString1 (required, String,`jsonString`)...JSON input string in the following format
-    <br>[{"destination_id":20,"destination_from_country":"US","destination_handling_fee":1.5, "destination_to_country":["US","CA","MX"],"shipping_options":[{"shippingoption_name":"2 Day Delivery",  "shipping_option_shipping_cost":9 }, {"shipping_option_name":"3 Day Delivery",  "shipping_option_shipping_cost":11}]}]
 
 + Response 204
 
