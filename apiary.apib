@@ -3263,6 +3263,171 @@ Get all the purchases made by the member.
            ]
         }
         
+## OrderHistoryById [/members/{id}/orderhistorybypspid{?id,limit,offset}]
+### Retrieve member's purchases by purchase id[GET]
+Get purchase with order id.
+
+|Message|HTTP Status Code|Error Code|Data
+|----|----|----|----
+|You are not allowed to access member subscription history|401 Unauthorized Exception|3013|
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            
++ Parameters
+    + id (required, String, `123456`)...Numeric `id` of the order.
+    + limit (optional, Number, `4`)...Number of results per page.
+    + offset (optional, Number, `8`)...This offsets the start of each page by the number specified.
+
++ Response 200 (application/json)
+
+        {
+          "count": 1,
+          "limit": 20,
+          "offset": 0,
+          "_link": "/members/orderhistorybypspid?id=1011032221&page_size=2&limit=20&offset=0",
+          "orders": [
+            {
+              "order_id": 1011032221,
+              "order_cart": {
+                "id": "",
+                "currency": "USD",
+                "total": 9.99,
+                "tax": "",
+                "coupons": "",
+                "affiliate": 478,
+                "currency_symbol": "",
+                "discount": "",
+                "subtotal": 0,
+                "lineitem_subtotal": 0,
+                "shipping_method": "",
+                "shipping_address_id": "",
+                "billing_address_id": "",
+                "member_id": "",
+                "shipment_grouping_method": "MINIMUM_SHIPMENTS",
+                "type": "ESTORE",
+                "sales_credits": 0,
+                "promotional_credits": 0,
+                "purchased_credits": 0,
+                "sales_tax_credits": 0,
+                "shipping_credits": 0,
+                "modified": "October 03, 2015 05:48:25",
+                "offer_total": 9.99,
+                "shipping_price": 0,
+                "line_items": [
+                  {
+                    "@class": "com.autodesk.ecommerce.model.v2.cart.LineItemV2",
+                    "id": "",
+                    "quantity": 1,
+                    "data": "",
+                    "name": "1-month Premium Membership",
+                    "description": "",
+                    "thumbnail": "",
+                    "price": 9.99,
+                    "sub_total_price": "",
+                    "shipping_endpoint": "",
+                    "product_id": "",
+                    "product_type": "SUBSCRIPTION",
+                    "parent_id": "",
+                    "parent_ids": "",
+                    "vendor_display_name": "",
+                    "lead_date": "",
+                    "shop_id": "",
+                    "shop_name": "",
+                    "logo_file_id": "",
+                    "logo_file_url": "",
+                    "sales_tax": 0,
+                    "coupon_discount": 0,
+                    "modified": "",
+                    "created": "",
+                    "offer_price": 9.99
+                  },
+                  {
+                    "@class": "com.autodesk.ecommerce.model.v2.cart.LineItemV2",
+                    "id": "",
+                    "quantity": 1,
+                    "data": "",
+                    "name": "Tax",
+                    "description": "",
+                    "thumbnail": "",
+                    "price": 0,
+                    "sub_total_price": "",
+                    "shipping_endpoint": "",
+                    "product_id": "",
+                    "product_type": "TAX",
+                    "parent_id": "",
+                    "parent_ids": "",
+                    "vendor_display_name": "",
+                    "lead_date": "",
+                    "shop_id": "",
+                    "shop_name": "",
+                    "logo_file_id": "",
+                    "logo_file_url": "",
+                    "sales_tax": 0,
+                    "coupon_discount": 0,
+                    "modified": "",
+                    "created": "",
+                    "offer_price": 0
+                  }
+                ]
+              },
+              "shipping_address": "",
+              "billing_address": {
+                "id": 935993,
+                "name": "Carl Bass",
+                "company": "",
+                "address1": "111 MCINNIS PARKWAY",
+                "address2": "",
+                "city": "SAN RAFAEL",
+                "telephone": "",
+                "member_id": 20710216,
+                "address_type": "BILLING_ADDRESS",
+                "state": "CA",
+                "postal_code": "94903",
+                "country_code": "US",
+                "is_residential": true
+              },
+              "ipn_type": "CHARGE",
+              "order_invoices": [
+                {
+                  "url": "",
+                  "invoice_id": "1011032221",
+                  "order_transactions": [
+                    {
+                      "status": "Approved",
+                      "amount": 9.99,
+                      "currency": "USD",
+                      "payment_method": "Credit Card",
+                      "payment_detail": {
+                        "mask": "1111",
+                        "card_type": "VISA",
+                        "expiration_month": "",
+                        "expiration_year": ""
+                      },
+                      "invoice_contact_info": {
+                        "email": "carl@gmail.com",
+                        "address": "111 MCINNIS PARKWAY",
+                        "city": "SAN RAFAEL",
+                        "state": "CA",
+                        "zip": "94903",
+                        "country": "US",
+                        "phone": "",
+                        "first_name": "Carl",
+                        "last_name": "Bass"
+                      },
+                      "created_date": "October 02, 2015 22:48:25"
+                    }
+                  ]
+                }
+              ],
+              "order_fulfillments": []
+            }
+          ]
+        }
+
         
 ## Tax [/members/{id}/tax]
 ### Retrieve URL for tax form.[GET]
