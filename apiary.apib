@@ -2026,8 +2026,7 @@ This group of operations provides information on the marketplace APIS such as sh
 <br><br>{"status":"COMPLETE","shipping":{"shipper":"UPS","tracking_url":"http://www.fedex.com?mic=shsjknbsg7262gs" ,"tracking_number":"MKAHS6724FHAHAJG6"},"completion_date":"2015-07-17 14:30:00","status_skus":[{"sku":"12345"},{"sku":"34567"}]}
 <br><br>If current status is CLOSED | DECLINE | CANCELED then you can not set COMPLETE status.(ErrorCode : 34750 : Order status can not be modified.)
 <br><br><div class="parameterKey">JSON_String to set status to CANCELED</div>
-<br><div class="parameterKey">-----If refund status is false</div>
-<br>{"status":"CANCELED","cancellation_reason":"fake","cancellation_date":"2015-06-08 00:00:00","refund":"false"}
+<br><div class="parameterKey">-----It is not allowed that refund status is false. Refund is required when an order is canceled.</div>
 <br><div class="parameterKey">-----If refund status is true then you have to pass refund reason and should remove access.</div>
 <br>{"status":"CANCELED","cancellation_reason":"fake","cancellation_date":"2015-06-08 00:00:00","refund":"true","refund_reason":"I am going to refund","remove_access":"false"}
 <br>{"status":"CANCELED","cancellation_reason":"fake","cancellation_date":"2015-06-08 00:00:00","refund":"true","status_skus":[{"sku":1503327,"refund_reason":"nothing to mentione","remove_access":"false"}]}
