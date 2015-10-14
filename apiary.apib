@@ -4387,6 +4387,222 @@ Retrieve the list of assets for sale. An asset can be removed from the shop via 
                 }
               ]
             }
+            
+## Shipping Profile Assets [/shops/{shop_id}/assets/{shippingprofile_id}{?limit,offset}]
+Retrieve the list of assets of shops that uses specific shipping profile.
+
++ Parameters
+    + shop_id (required, Number, `20280723`)... Shop id
+    + shippingprofile_id (required, Number, 16)... Shipping Profile id
+
+### Retrieve shop assets that uses specific shipping profile[GET]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            X-Secure-Session: 87B30A4BCB94B9955BE4CBF3C1865FDC00B117C3CA30E674AAA1E3B45563A978
+
++ Parameters
+    + limit (optional, Number,`1`)... Number of results to return in each page. Default: 10.
+    + offset (optional, Number, `3`)... This offsets the start of each page by the number specified. Default: 0.
+
++ Response 200 (application/json)
+
+            {
+              "count": 2,
+              "limit": 20,
+              "offset": 0,
+              "_link": "/shops/27/assets?limit=20&offset=0",
+              "assets": [
+                {
+                  "keywords": "Project Artistic Useful Gadgets",
+                  "language": "en",
+                  "region": "",
+                  "software": 9,
+                  "artist": {
+                    "location": "",
+                    "avatar": "",
+                    "description": "",
+                    "artist_id": 20707813,
+                    "artist_name": "Chaitanya Tapaswi60002"
+                  },
+                  "mesh": false,
+                  "asset_id": 1573267,
+                  "asset_name": "Physical Product",
+                  "is_gallery_asset": true,
+                  "description": "Physical Product",
+                  "download_count": 0,
+                  "is_online_viewer_available": false,
+                  "parent_asset_id": "",
+                  "is_premium": false,
+                  "progress_status": 1,
+                  "delivery_media": "",
+                  "asset_status_code": 0,
+                  "media_type": "Project",
+                  "view_count": 0,
+                  "comment_count": 0,
+                  "model_type": 1,
+                  "is_download_asset": false,
+                  "status_post_count": 0,
+                  "is_member_favorite": false,
+                  "used_in_project_count": 0,
+                  "favorited_by": [],
+                  "favorite_count": 0,
+                  "child_asset_count": 0,
+                  "date_submitted": "September 21, 2015 20:14:31",
+                  "date_modified": "",
+                  "total_price": "",
+                  "shop_id": 27,
+                  "is_for_sale": true,
+                  "_link": "",
+                  "_link_version_prev": "",
+                  "_link_version_next": "",
+                  "thumbnails": [
+                    {
+                      "caption": "",
+                      "description": "",
+                      "file_id": 16815355,
+                      "thumb_path_prefix": "https://static.spark.autodesk.com/Alpha/2015/03/02__21_29_11/ScreenShot20150316at4.09.47PM.png764b1201-cd94-11e4-9a14-22000b2f0c4c",
+                      "is_primary": true
+                    }
+                  ],
+                  "referenced_assets": [],
+                  "asset_taxonomy": [],
+                  "is_purchased": false,
+                  "is_authorized_download": true,
+                  "is_deleted": false,
+                  "is_repurchasable": false,
+                  "is_store_asset": false,
+                  "is_reviewable": false,
+                  "featured_by_app": "",
+                  "app_featured_date": "",
+                  "is_featured": false,
+                  "featured_date": "",
+                  "license_id": "",
+                  "license_name": "",
+                  "file_formats": [],
+                  "extended_data": {},
+                  "asset_version": "1.00",
+                  "product_info": {
+                    "id": 1573267,
+                    "shop_name": "test",
+                    "type": "PHYSICAL",
+                    "store_type": "MARKETPLACE",
+                    "vendor_sku_id": "",
+                    "lead_in_days": "",
+                    "shop_id": 27,
+                    "total_price": "",
+                    "name": "Physical Product",
+                    "description": "Physical Product",
+                    "for_sale": true,
+                    "vendor_display_name": "",
+                    "is_available": false,
+                    "apply_tax": true,
+                    "shipping_profile_id": ""
+                  },
+                  "purchase_date": ""
+                },
+                {
+                  "keywords": "Project Gadgets Educational Gadgets",
+                  "language": "en",
+                  "region": "",
+                  "software": 9,
+                  "artist": {
+                    "location": "",
+                    "avatar": "",
+                    "description": "",
+                    "artist_id": 20707813,
+                    "artist_name": "Chaitanya Tapaswi60002"
+                  },
+                  "mesh": false,
+                  "asset_id": 1573269,
+                  "asset_name": "Physical Product",
+                  "is_gallery_asset": true,
+                  "description": "Physical Product",
+                  "download_count": 0,
+                  "is_online_viewer_available": false,
+                  "parent_asset_id": "",
+                  "is_premium": false,
+                  "progress_status": 1,
+                  "delivery_media": "",
+                  "asset_status_code": 0,
+                  "media_type": "Project",
+                  "view_count": 0,
+                  "comment_count": 0,
+                  "model_type": 1,
+                  "is_download_asset": false,
+                  "status_post_count": 0,
+                  "is_member_favorite": false,
+                  "used_in_project_count": 0,
+                  "favorited_by": [],
+                  "favorite_count": 0,
+                  "child_asset_count": 0,
+                  "date_submitted": "September 21, 2015 20:14:31",
+                  "date_modified": "",
+                  "total_price": 100,
+                  "shop_id": 27,
+                  "is_for_sale": true,
+                  "_link": "",
+                  "_link_version_prev": "",
+                  "_link_version_next": "",
+                  "thumbnails": [
+                    {
+                      "caption": "",
+                      "description": "",
+                      "file_id": 16815357,
+                      "thumb_path_prefix": "https://static.spark.autodesk.com/Alpha/2015/03/02__21_29_11/ScreenShot20150316at4.09.47PM.png5dc184d8-cd96-11e4-9a14-22000b2f0c4c",
+                      "is_primary": true
+                    }
+                  ],
+                  "referenced_assets": [],
+                  "asset_taxonomy": [],
+                  "is_purchased": false,
+                  "is_authorized_download": true,
+                  "is_deleted": false,
+                  "is_repurchasable": false,
+                  "is_store_asset": false,
+                  "is_reviewable": false,
+                  "featured_by_app": "",
+                  "app_featured_date": "",
+                  "is_featured": false,
+                  "featured_date": "",
+                  "license_id": "",
+                  "license_name": "",
+                  "file_formats": [],
+                  "extended_data": {},
+                  "asset_version": "1.00",
+                  "product_info": {
+                    "id": 1573269,
+                    "shipping_info": {
+                      "weight": 10,
+                      "length": 10,
+                      "height": 10,
+                      "width": 10,
+                      "product_id": 1573269,
+                      "shop_id": "",
+                      "unit_measure": "",
+                      "unit_weight": ""
+                    },
+                    "shop_name": "test",
+                    "type": "PHYSICAL",
+                    "store_type": "MARKETPLACE",
+                    "vendor_sku_id": "1573269",
+                    "lead_in_days": 1,
+                    "shop_id": 27,
+                    "total_price": 100,
+                    "name": "DO NOT REMOVE Regression test",
+                    "description": "DO NOT REMOVE Regression test",
+                    "for_sale": true,
+                    "vendor_display_name": "",
+                    "is_available": true,
+                    "apply_tax": true,
+                    "shipping_profile_id": 7
+                  },
+                  "purchase_date": ""
+                }
+              ]
+            }
 
 
 ## Asset [/shops/{shop_id}/assets/{asset_id}{?asset_price,for_sale,product_type,vendor_sku,is_available,package_weight,package_length,package_height,package_width,unit_measure,unit_weight,apply_tax,shipping_profile,lead_in_days}]
