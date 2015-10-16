@@ -184,7 +184,7 @@ _Dispatching the request:_
 
 **_Note_**: For Asset creation POST API, please use Member Id (Asset owner) instead of Asset Id for generating the hash value.
 
-## Asset [/assets/{id}{?asset_name,description,tags,media_type_id,software,publish,progress_status,parent_asset_id,id,referenced_assets,extended_data,version,asset_ids,license_id,asset_taxonomy}]
+## Asset [/assets/{id}{?asset_name,description,tags,media_type_id,software,publish,progress_status,parent_asset_id,id,referenced_assets,extended_data,version,asset_ids,license_id,asset_taxonomy,language,region}]
 Operations to perform CRUD operations on an asset with basic metadata. Additional operation sets will populate this asset with constituent files, additional metadata etc. 
 + parameters
      + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
@@ -363,7 +363,7 @@ Operations to perform CRUD operations on an asset with basic metadata. Additiona
             "asset_id":269620
         }
 
-### Retrieve an asset [GET /assets/{id}]
+### Retrieve an asset [GET]
 + Request (application/x-www-form-urlencoded)
     + Headers
     
@@ -403,7 +403,7 @@ Operations to perform CRUD operations on an asset with basic metadata. Additiona
                 "_link":"/asset/269620"
             }
            
-### Delete an asset [DELETE /assets/{id}]
+### Delete an asset [DELETE]
 + Request (application/x-www-form-urlencoded)
     + Headers
     
