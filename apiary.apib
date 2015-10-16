@@ -1202,7 +1202,7 @@ This api will be used by backend services to update translations for various upl
     + translations (required,String, `3453434,123422`)...Comma seperated list of translated file ids which should be removed.
 + Response 204 (application/json)
 
-## Asset Permission Roles [/assets/{id}/roles]
+## Asset Permission Roles [/assets/{id}/roles{?member_id,role_id}]
 This API can be used to provide necessary permissions to other members to work on the asset. There are 4 levels of permission:<br>
 1: Owner (Asset author) - This member can add other members as Asset Admin, Writer or Reader.<br>
 Note: Admins can be added by Asset Owner only.<br> 
