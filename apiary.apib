@@ -186,7 +186,9 @@ _Dispatching the request:_
 
 ## Asset [/assets/{id}{?asset_name,description,tags,media_type_id,software,publish,progress_status,parent_asset_id,id,referenced_assets,extended_data,version,asset_ids,license_id,asset_taxonomy}]
 Operations to perform CRUD operations on an asset with basic metadata. Additional operation sets will populate this asset with constituent files, additional metadata etc. 
-
++ parameters
+     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
+    
 + Model (application/json)
 
     + Body
@@ -331,7 +333,7 @@ Operations to perform CRUD operations on an asset with basic metadata. Additiona
                 }
             }
 
-### Create a new asset[POST]
+### Create a new asset[POST /assets]
 
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -368,7 +370,6 @@ Operations to perform CRUD operations on an asset with basic metadata. Additiona
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
-    + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
     + referenced_assets (optional, boolean, `true`) ...When true referenced assets will be returned as an array sorted in descending order of the time when they were added.<br>Default: false
     + extended_data (optional, boolean, `true`) ...When true extended asset data such as asset links, custom data etc. will be returned <br>Default: false
     + version (optional, double, `1.15`) ...When passed returns this version of the asset.
@@ -384,7 +385,6 @@ Operations to perform CRUD operations on an asset with basic metadata. Additiona
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
-    + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
     + asset_name (required, String, `Alien`) ...Asset title
     + description (required, String, `Mint colored alien`) ...title description
     + tags (required, String, `alien,sci-fi,fantasy`) ... comma seperated list of tags
@@ -409,11 +409,10 @@ Operations to perform CRUD operations on an asset with basic metadata. Additiona
     
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-+ Parameters
-    + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
+
 + Response 204
 
-### Delete multiple assets [DELETE]
+### Delete multiple assets [DELETE /assets/{asset_ids}]
 + Request (application/x-www-form-urlencoded)
     + Headers
     
