@@ -1237,36 +1237,36 @@ Note: Admins can be added by Asset Owner only.<br>
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Response 200 (application/json)
 
-{
-    "members": [
         {
-            "member_id": 20708761,
-            "role_id": 2,
-            "role_name": "asset_admin",
-            "date_added": "September 14, 2015 16:16:51"
-        },
-        {
-            "member_id": 20709428,
-            "role_id": 3,
-            "role_name": "asset_writer",
-            "date_added": "September 14, 2015 16:17:02"
-        },
-        {
-            "member_id": 20708732,
-            "role_id": 4,
-            "role_name": "asset_reader",
-            "date_added": "September 14, 2015 16:17:13"
-        },
-        {
-            "member_id": 20706524,
-            "role_id": 2,
-            "role_name": "asset_admin",
-            "date_added": "September 14, 2015 16:17:25"
+            "members": [
+                {
+                    "member_id": 20708761,
+                    "role_id": 2,
+                    "role_name": "asset_admin",
+                    "date_added": "September 14, 2015 16:16:51"
+                },
+                {
+                    "member_id": 20709428,
+                    "role_id": 3,
+                    "role_name": "asset_writer",
+                    "date_added": "September 14, 2015 16:17:02"
+                },
+                {
+                    "member_id": 20708732,
+                    "role_id": 4,
+                    "role_name": "asset_reader",
+                    "date_added": "September 14, 2015 16:17:13"
+                },
+                {
+                    "member_id": 20706524,
+                    "role_id": 2,
+                    "role_name": "asset_admin",
+                    "date_added": "September 14, 2015 16:17:25"
+                }
+            ]
         }
-    ]
-}
 
-### Update asset member permission [PUT]
+### Update asset member permission [PUT /assets/{id}/roles{?member_id,role_id}]
 + Request (application/x-www-form-urlencoded)
     + Headers
     
@@ -1277,11 +1277,12 @@ Note: Admins can be added by Asset Owner only.<br>
     + role_id (required,Number,`2`)...Role of the member on the Asset.<br> Options:<br> 2 (Admin) <br> 3 (Writer) <br> 4 (Reader) <br>
     
 + Response 201 (application/json)
-{
-    "_link":"/assets/234566/roles"
-}
+        
+        {
+            "_link":"/assets/234566/roles"
+        }
 
-### Delete asset member permission [DELETE]
+### Delete asset member permission [DELETE /assets/{id}/roles{?member_id}]
 + Request (application/x-www-form-urlencoded)
     + Headers
     
