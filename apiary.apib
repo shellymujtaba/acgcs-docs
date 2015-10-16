@@ -9351,7 +9351,7 @@ Request a refund on an order
 
 ## SignURL [/admin/signurl{?http_verb,url,owner}]
 Groups of Oxygen APIs can be called by third person on behalf of actual user. A case in a point is moderator approving children. Here a third person which is say super admin
-can approve children. In such cases you can use this API. Only COPPA_ADMIN(87000) can call this API. Contact CloudService team to get 
+can approve children. In such cases you can use this API. Only COPPA_ADMIN(87000) can call this API. Contact acg.platform.auth@autodesk.com to get 
 COPPA_ADMIN access.
 
 ### GET Sign URL [GET]
@@ -9364,13 +9364,13 @@ COPPA_ADMIN access.
 
 
 + Parameters
-    + owner (required, String,`DHSGBAVGF`)... OxygenID.Exp: In case of moderator approving children, moderator id is owner id.
-    + url (required, String, `https://your_signed_url`)... URL which you want to sign
+    + owner (required, String,`CV8BP9DX6ACH`)... OxygenID.Exp: In case of moderator approving children, moderator id is owner id.
+    + url (required, String, `https://accounts-staging.autodesk.com/api/coppa/v1/moderator/CV8BP9DX6ACH/children/approve`)... URL which you want to sign
     + http_verb (optional String, `GET/PUT/POST/DELETE`)... http method for which you want to sign your url. BBy default GET.
     
 + Response 200 (application/json)
             {
-                "signed_url": "https://your_signed_url?data=signed_data"
+                "signed_url": "https://accounts-staging.autodesk.com/api/coppa/v1/moderator/CV8BP9DX6ACH/children/approve?data=signed_data"
             }
 
 # Group Utility
