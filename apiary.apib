@@ -1560,7 +1560,7 @@ Now this API will return comments in comment thread. so if there are several rep
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
-    + commentid (String,`C85VA4CIBSXP04I`)...retrieve replies for a given comment id. For example. /api/v2/assets/1065855/comments-level/C85VA4CIBSXP04I
+    + comment_id (String,`C85VA4CIBSXP04I`)...retrieve replies for a given comment id. For example. /api/v2/assets/1065855/comments-level/C85VA4CIBSXP04I
     + num_replies (optional, Number,`3`)...Number of to top level comments. Default: 3.
     + depth (optional, Number,`1`)...Depth indicates how many nested comments I go into. Default: 1.
     + limit (optional, Number,`20`)...Number of results to return in each page. Default: 20.
@@ -2666,7 +2666,7 @@ Returns the activity stream for this member.  Activities include updates, items 
             
 
 
-## Assets [/members/{id}/assets{?limit,offset,file_ids,sort_by,sort_order,asset_status,access_type,hidden_keys,file_type_list,file_type_ids,media_type_ids,software,app_used,q,use_wildcards}]
+## Assets [/members/{id}/assets{?limit,offset,file_ids,sort_by,sort_order,asset_status,access_type,hidden_keys,file_type_list,file_type_ids,media_type_ids,software,app_used,q,use_wildcards,role_ids}]
 Retrieve this members assets. Depending on the context this operation may return both public and private assets i.e if the logged in member is requesting his/her own assets, private assets will also be returned
 + Parameter
     + id (required, Number , `123446`)...Member id
