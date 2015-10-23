@@ -2664,7 +2664,66 @@ Returns the activity stream for this member.  Activities include updates, items 
                 ]
             }
             
+## Multiple Members Activity Stream [/members/useractivity{?limit,offset,user_type,activity_type,media_type_id,asset_custom_data,asset_custom_data_keys}]
+Returns the activity stream for this member.  Activities include updates, items published, features, contest finalists and winners, comments and comment updates, followers and followees, and likes.
 
++ Parameters
+    + member_ids (required, Number, `121312,456456`)...Comma separated Member Ids 
+    + limit (optional, Number,`20`)...Number of results to return in each page. Default: 20.
+    + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
+    + activity_type (required, String, `UPDATE,_COMMENT,COMMENT`)...Activity type of which you want activities. Following is the list of activities UPDATE,PUBLISH,FEATURE,CONTEST_FINALIST,CONTEST_WINNER,COMMENT,_COMMENT,FOLLOW,_FOLLOW,LIKE, _LIKE, COMMENT_UPDATE, _COMMENT_UPDATE
+    + media_type_id (optional, String, `5,23`)...Limit results based on media type ids. Full media type list is provided in the introduction.
+    + asset_custom_data (optional, boolean, `true`)...By default FALSE. If TRUE returns hidden data associated with assets.
+    + asset_custom_data_keys (optional, string, `viewerFiles,stlfiles,photoscenes`)...This is a comma separated list of keys representing the hidden data associated with the assets. This parameter has effect only when file_ids option is set to TRUE.
+    
+### Retrieve member activity stream [GET]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Response 200 (application/json)
+
+            {
+                "count": 355,
+                "limit": 2,
+                "offset": 0,
+                "_link": "/members/20707166/useractivity?activity_type=_FOLLOW,_LIKE,&limit=2&offset=0",
+                "_link_next": "/members/20707166/useractivity?activity_type=_FOLLOW,_LIKE,&limit=2&offset=2",
+                "activity": [
+                    {
+                        "id": "U0DWVMXI4WKCM2J",
+                        "type": "_LIKE",
+                        "actor_avatar_path": "http://alpha.squidplatform.com/Images/v23/Member/default_avatar.png",
+                        "actor_id": 20669829,
+                        "actor_name": "Rahul Admin 12345678",
+                        "asset_description": "Amol description",
+                        "asset_id": 1272411,
+                        "asset_img_path": "http://alpha.squidplatform.com/Images/v23/FullPreview/small/NoPicture.png",
+                        "asset_name": "amol testing",
+                        "comment_count": 29,
+                        "is_member_favorite": false,
+                        "like_count": 5,
+                        "owner_avatar_path": "http://alpha.squidplatform.com/Images/v23/Member/default_avatar.png",
+                        "owner_id": 20707166,
+                        "owner_name": "community 207",
+                        "timestamp": "2015-01-15 01:06:31",
+                        "asset_media_type_id": 37
+                    },
+                    {
+                        "id": "U4UVZQUI4WKCM2O",
+                        "type": "_FOLLOW",
+                        "actor_avatar_path": "https://alpha.squidplatform.com/Images/v23/Member/default_avatar.png",
+                        "actor_id": 20704650,
+                        "actor_name": "Plastic User2 (650)",
+                        "owner_avatar_path": "http://alpha.squidplatform.com/Images/v23/Member/default_avatar.png",
+                        "owner_id": 20707166,
+                        "owner_name": "community 207",
+                        "timestamp": "2015-01-15 01:06:55"
+                    }
+                ]
+            }
 
 ## Assets [/members/{id}/assets{?limit,offset,file_ids,sort_by,sort_order,asset_status,access_type,hidden_keys,file_type_list,file_type_ids,media_type_ids,software,app_used,q,use_wildcards,role_ids}]
 Retrieve this members assets. Depending on the context this operation may return both public and private assets i.e if the logged in member is requesting his/her own assets, private assets will also be returned
