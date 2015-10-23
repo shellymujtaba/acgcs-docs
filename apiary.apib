@@ -3746,6 +3746,7 @@ Here are the general steps:
     + moderator_id (optional, String, `8DT4LUZPVQUV`)...For COPPA enabled apps , they can pass moderator id to login which will help the child to auto link while creating a new user.
     + auto_login (optional, Boolean, `false`)...This auto login works in conjunction with social_providers. This will directly open the social provider popup based on social providers value. If you will pass list of social provider then it will pick first valid social provider for auto login.
     + send_moderator_email (optional, Boolean, `true`)...The COPPA compliant apps can decide if an Identity application (Oxygen) should send an approval email to the moderator's email address provided by the child. By passing send_moderator_email parameter to login. Values= true/false. Default is true.
+    + parent_email (optional, String, `OPTIONAL`)...The COPPA compliant apps can decide if an Identity application (Oxygen) should show parent email text box or not. There are three options : REQUIRED|OPTIONAL|HIDDEN. By default option is REQUIRED.
     
 + Response 302 
     
