@@ -2725,7 +2725,7 @@ Returns the activity stream for this member.  Activities include updates, items 
                 ]
             }
 
-## Assets [/members/{id}/assets{?limit,offset,file_ids,sort_by,sort_order,asset_status,access_type,hidden_keys,file_type_list,file_type_ids,media_type_ids,software,app_used,q,use_wildcards,role_ids}]
+## Assets [/members/{id}/assets{?q,use_wildcards,limit,offset,sort_by,sort_order,asset_status,access_type,extended_data,hidden_keys,file_type_list,file_type_ids,media_type_ids,software,app_used,role_ids}]
 Retrieve this members assets. Depending on the context this operation may return both public and private assets i.e if the logged in member is requesting his/her own assets, private assets will also be returned
 + Parameter
     + id (required, Number , `123446`)...Member id
@@ -2733,12 +2733,12 @@ Retrieve this members assets. Depending on the context this operation may return
     + use_wildcards (optional, String, `true`)... If true, for a given `q` query, partial matches will be returned. Default: false
     + limit (optional, Number, `20`)...number of results per page
     + offset (optional, Number, `60`) ...This offsets the start of each page by the number specified.
-    + file_ids (optional, boolean, `false`)...By default FALSE. If TRUE returns hidden data associated with assets.
     + sort_by (optional, String, `date, date_modified, name, size , publicprivate`)...Order search results based on a specific attribute
     + sort_order (optional, String, `asc, desc`)...Direction of ordered search results based on value of sort_by 
     + asset_status (optional, String, `public, semi_public, private, all , premium, downloads`)...default is all. returns assets public/private/all based on value.
     + access_type (optional, String, `PREMIUM,PURCHASED`)... Returns PREMIUM/PURCHASED assets based on value. Dependency: asset_status=downloads  
-    + hidden_keys (optional, String, `boltFolderLocation, photoFileList`)...List of hidden keys comma separated. Dependency: file_ids=true
+    + extended_data (optional, boolean, `false`)...By default FALSE. If TRUE returns hidden data associated with assets.  (This was formerly called `file_ids`, which is now deprecated.)
+    + hidden_keys (optional, String, `boltFolderLocation, photoFileList`)...List of hidden keys comma separated. Dependency: extended_data=true
     + file_type_list (optional, String, `123d,obj`)...Limit results based on a comma-separated list of file types
     + file_type_ids (optional, Number, `1, 4`)...Limit results based on a list file types 
     + media_type_ids (optional, Number, `5, 7`)...Limit results based on media type. Multiple values can be sent as a comma separated list.
@@ -2777,6 +2777,38 @@ Retrieve this members assets. Depending on the context this operation may return
                     "referenced_asset_thumb": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/preview/2012/12/13__09_57_54/hand.jpgf18ed964-0998-4f43-a165-c0f5c650ec08small.jpg",
                     "date_published": "april 26, 2011 00:11:57",
                     "keydata": {
+                        "keyfilefolder": [
+                            {
+                                "filefolder": [
+                                    {
+                                        "id": 5113474
+                                    }
+                                ],
+                                "key": "viewerfiles"
+                            },
+                            {
+                                "filefolder": [
+                                    {
+                                        "name": "10325_tissue box_v2_max2010_it2.stl",
+                                        "id": 5337164,
+                                        "modeltocentimeters": -1
+                                    },
+                                    {
+                                        "name": "10325_tissue box_v2_max2010_it2.stl",
+                                        "id": 5341121,
+                                        "modeltocentimeters": -1
+                                    },
+                                    {
+                                        "name": "5113474.stl",
+                                        "id": 5376472,
+                                        "modeltocentimeters": -1
+                                    }
+                                ],
+                                "key": "stlfiles"
+                            }
+                        ]
+                    },
+                    "extended_data": {
                         "keyfilefolder": [
                             {
                                 "filefolder": [
@@ -2851,6 +2883,8 @@ Retrieve this members assets. Depending on the context this operation may return
             "_link_prev": "/members/20280723/assets?limit=26&offset=26",
             "_link_next": "/members/20280723/assets?limit=26&offset=39"
         }
+
+        Note: keydata field in response has been deprecated.  Use `extended_data` instead.
 
 ## Likes [/members/{id}/likes{?limit,offset,sort_by,sort_order}]
 Member like operations
