@@ -4750,6 +4750,7 @@ NOTE: A physical asset cannot be put for sale without product fulfillment inform
     + for_sale (optional, Boolean, `true`)... Mark asset for sale. Default: false
     + product_type (optional, String, `PHYSICAL`)... Sets the product type for added asset. This parameter is ONLY required if asset is being added for the first time. Supported values are (PHYSICAL,DIGITAL) Default : ""
     + vendor_sku (optional, String, `sku123`)... Sets the vendor sku id. This must be unique for this shop.
+    + vendor_display_name (optional, String, `Circuit step motor`)... Sets the vendor display name for the product. 
     + is_available (optional, Boolean, `true`)... Sets the stock availability for asset. This parameter is ONLY used if product type is physical. This information is required when the asset is put on sale. 
     + package_weight (optional, Number, `1.99`)... Sets the weight of the package which is shipped to customer after customer buys the physical asset. This parameter is ONLY used if product type is physical. This information is required before the asset is put on sale. Unit is LB
     + package_length (optional, Number, `49.99`)... Sets the length of the package which is shipped to customer after customer buys the physical asset. This parameter is ONLY used if product type is physical. This information is required before the asset is put on sale. Unit is inch
@@ -8467,7 +8468,7 @@ Retrieve the assets given the filters passed as parameters.
             }
 
 
-## Shop Asset [/admin/shops/{shop_id}/assets/{asset_id}{?asset_price,product_type,vendor_sku,is_available,package_weight,package_length,package_height,package_width,unit_measure,unit_weight,apply_tax}]
+## Shop Asset [/admin/shops/{shop_id}/assets/{asset_id}{?asset_price,product_type,vendor_sku,vendor_display_name,is_available,package_weight,package_length,package_height,package_width,unit_measure,unit_weight,apply_tax}]
 Allow the retrieval and modification of shop asset specific properties.
 
 ### Get a shop asset [GET]
@@ -8586,6 +8587,7 @@ If the shop is OFFLINE, the assets are not going to show in the gallery and won'
     + asset_price (optional, Number, `5.99`)... Set asset price
     + product_type (optional, String, `PHYSICAL`)... Sets the product type for added asset. This parameter is ONLY required if asset is being added for the first time. Supported values are (PHYSICAL,DIGITAL) Default : ""
     + vendor_sku (optional, String, `sku123`)... Sets the vendor sku id
+    + vendor_display_name (optional, String, `Circuit step motor`)... Sets the vendor display name for the product. 
     + is_available (optional, Boolean, `true`)... Sets the stock availability for asset. This parameter is ONLY used if product type is physical. This information is required when the asset is put on sale. 
     + package_weight (optional, Number, `1.99`)... Sets the weight of the package which is shipped to customer after customer buys the physical asset. This parameter is ONLY used if product type is physical. This information is required before the asset is put on sale. Unit is LB
     + package_length (optional, Number, `49.99`)... Sets the length of the package which is shipped to customer after customer buys the physical asset. This parameter is ONLY used if product type is physical. This information is required before the asset is put on sale. Unit is inch
