@@ -3027,6 +3027,41 @@ If customer have the subscription and that's already cancelled, the status will 
     "status": true
 }
 
+## Update Card [/members/{memberId}/updatecards{?"product_id,new_product_id,encrypted_credit_card,encrypted_cvv,exp_month,exp_year,name,phone,card_type,card_last_four_digit,store_type}] 
+### Get members card [GET]
+This API will return you a link which you can embed in an iframe. There are different cases where you can use this API as mentioned below:-
+
+ 
+
+    User buys a subscription (non appstore subscription) and want to attach a new card to the subscription.
+
+Make note that you will pass AFC, Session and SecureSession to API as header as usual. This API will create a link from the parameters provided by you.
+
+Example scenario:-
+
+    User buys a subscription of $9 for a month with card 4111 1111 1111 1111.
+    User's autorenew is true so at the end of a month above card will get charge with recurring price of $9.
+    But above card is going to expire in mid of the month OR user wants recurring charges to be charged on another card. So user will go for update card.
+    
+    
+
++ Parameter 
+    + memberId (Number , `123446`)...Member Id. In case 1 - user itself can cancel his/her subscription by passing his/her memberId in URL and valid session. In this case, no need to pass affiliate code.
+                                    In case 2 - Admin can cancel subscription for user. So, pass member Id of user in url and session of admin. Pass affiliate code of subscription to be cancelled.
+    + product_id (Number , `123446`)... Current product id to which user has subscribed.
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Response 200 (application/json)
+
+{
+    "update_card_url": "https://alpha-api.acg.autodesk.com:443/API/v2/members/20710581/views/updatecards?a=PA1ONA&b=2A20DCF2-AB4E-497F-AF3B-85C0FAEA5002&c=9A2D23A7C01237B95564813C0F9B35DF&product_id=5&new_product_id=0"
+}
+
 ## Subscriptions [/members/{id}/subscription{?product_id,new_product_id,auto_renew,next_payment,affiliate_code,ignore_cancellation_status,hash,ts}]
 ### Update member's subscription.[PUT]
 Update subscription with different parameters. You have to pass any one parameter at a time. So either pass new_product_id|auto_renew|next_payment,ignore_cancellation_status
@@ -3055,6 +3090,10 @@ Update subscription with different parameters. You have to pass any one paramete
             "info": "",
             "status": true
         }
+        
+## Update Card [/members/{memberId}/updatecards{?product_id,new_product_id,encrypted_credit_card,encrypted_cvv,exp_month}] 
+### Cancel member's subscription [PUT]
+
 ## Addresses [/members/addresses/{address_id}{?address_type,limit,offset,name,address1,address2,city,state,country_code,telephone,company,is_residential,postal_code}]
 Returns a list of addresses associated with a logged-in or guest member.
 Type of Address (`address_type`) values:
