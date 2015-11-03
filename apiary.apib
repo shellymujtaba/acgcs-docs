@@ -2996,6 +2996,29 @@ Retrieve member's subscription history in cronologically descending order. Each 
                 "_link_next":"/member/20280723/subscriptions?limit=26&offset=39"
             }
 
+### Cancel member's subscription [/{subscription}] [PUT]
+cancel a subscription. The subscription will be cancelled immediately but customer can still enjoy subscription until subscription period ends. The customer will get a cancellation email when this api is called.
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Response 200 (application/json)
+
+If customer doesn't have the subscription, the status will be false:
+{
+    "info": "",
+    "status": false
+}
+
+If customer have the subscription and that's already cancelled, the status will be false:
+{
+    "info": "Subscription is already cancelled.",
+    "status": true
+}
+
 ## Subscriptions [/members/{id}/subscription{?product_id,new_product_id,auto_renew,next_payment,affiliate_code,ignore_cancellation_status,hash,ts}]
 ### Update member's subscription.[PUT]
 Update subscription with different parameters. You have to pass any one parameter at a time. So either pass new_product_id|auto_renew|next_payment,ignore_cancellation_status
