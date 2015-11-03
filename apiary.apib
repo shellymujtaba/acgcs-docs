@@ -3114,6 +3114,19 @@ Example scenario:-
     "update_card_status": true
 }
 
+## Update card URL [/members/{id}/views/updatecards{?a,b,c}]
+### Get update card URL.[GET]
+This API does not require afc, session to be passed in header like other apis.
+
++ Parameter 
+    + a (required, String , `PA1ONA`)...affiliate code
+    + b (required, String,`2A20DCF2-AB4E-497F-AF3B-85C0FAEA5002`)...Session Id
+    + c (required, String,`9A2D23A7C01237B95564813C0F9B35DF`)...Secure Session Id
+
++ Response 200 (application/json)
+
+returns iframe code to be embedded in web page.
+
 ## Subscriptions [/members/{id}/subscription{?product_id,new_product_id,auto_renew,next_payment,affiliate_code,ignore_cancellation_status,hash,ts}]
 ### Update member's subscription.[PUT]
 Update subscription with different parameters. You have to pass any one parameter at a time. So either pass new_product_id|auto_renew|next_payment,ignore_cancellation_status
