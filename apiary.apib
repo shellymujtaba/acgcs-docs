@@ -3002,9 +3002,9 @@ cancel a subscription. The subscription will be cancelled immediately but custom
 
 
 + Parameter 
-    + memberId (Number , `123446`)...Member Id. In case 1 - user itself can cancel his/her subscription by passing his/her memberId in URL and valid session.
-                                    In case 2 - Admin can cancel subscription for user. So, pass member Id of user in url and session of admin. 
-    + id (optional, Number , `123446`)...Member ID of the customer whose subscription is canceled. This is used when an administrator cancels a subscription of a customer.
+    + memberId (Number , `123446`)...Member Id. In case 1 - user itself can cancel his/her subscription by passing his/her memberId in URL and valid session. In this case, no need to pass affiliate code.
+                                    In case 2 - Admin can cancel subscription for user. So, pass member Id of user in url and session of admin. Pass affiliate code of subscription to be cancelled.
+    + subscriptionId (Number , `123446`)...Subscription ID or product Id. You will get this from Member/Subscription API.
     + affiliate_code (optional, String , `PA1ONA`)....affiliate code for subscription to be canceled. This is used when an administrator cancels a subscription of a customer.
     
 + Request (application/x-www-form-urlencoded)
