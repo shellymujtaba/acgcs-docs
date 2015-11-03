@@ -3036,28 +3036,20 @@ Make note that you will pass AFC, Session and SecureSession to API as header as 
 A) User buys a subscription (non appstore subscription) and want to attach a new card to the subscription.
 
 Example scenario:-
+
 1. User buys a subscription of $9 for a month with card 4111 1111 1111 1111.
 2. User's autorenew is true so at the end of a month above card will get charge with recurring price of $9.
 3. But above card is going to expire in mid of the month OR user wants recurring charges to be charged on another card. So user will go for update card.
-    
-
-+ Parameter 
-    + memberId (Number , `123446`)...Member Id. In case 1 - user itself can cancel his/her subscription by passing his/her memberId in URL and valid session. In this case, no need to pass affiliate code.
-                                    In case 2 - Admin can cancel subscription for user. So, pass member Id of user in url and session of admin. Pass affiliate code of subscription to be cancelled.
-    + product_id (Number , `123446`)... Current product id to which user has subscribed.
+   Pass current product id to which user has subscribed.
 
 B) User wants to add card for future transactions like buying a new subscription or physical products
 
 Example scenario:-
+
 1. User buys a subscription of $9 for a month with card 4111 1111 1111 1111.
 2. User want to add card for future transaction like to buy physical product.
 3. Make note that once user uses card for a transaction it will get attached to that user and you can use that card for next transaction without entering card details. You can get all link cards with GET Member/CreditCards
-
-
-+ Parameter 
-    + memberId (Number , `123446`)...Member Id. In case 1 - user itself can cancel his/her subscription by passing his/her memberId in URL and valid session. In this case, no need to pass affiliate code.
-                                    In case 2 - Admin can cancel subscription for user. So, pass member Id of user in url and session of admin. Pass affiliate code of subscription to be cancelled.
-    + product_id (Number , `0`)... Pass 0 so that card will not be attached to subscription but will just get added.
+   Pass product_id as 0; so that card will not be attached to subscription but will just get added.
 
 C) User buys appstore subscription (non appstore subscription) and try to upgrade
 
@@ -3070,6 +3062,10 @@ Example scenario:-
       https://www.123dapp.com/API/v1/member/view/updatecard?a=PA1ON1&b=4A153B37-C270-4D9D-A9CA-FA37683FE70F&c=BD88AD19EC25E6624EBD5DCAEC370970&productid=3&newproductid=4
    5. Now just use this URL in iframe. 
    6. So here you are not calling GET Member/updatecard API.
+    
++ Parameter
+  + memberId (Number , `123446`)...Member Id.
+  + product_id (Number , `123446`)...Pass product Id as per cases above.
     
 + Request (application/x-www-form-urlencoded)
     + Headers
