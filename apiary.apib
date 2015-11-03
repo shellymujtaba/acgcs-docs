@@ -2996,12 +2996,14 @@ Retrieve member's subscription history in cronologically descending order. Each 
                 "_link_next":"/member/20280723/subscriptions?limit=26&offset=39"
             }
 
-## Cancel Subscription [/members/{id}/subscriptions/{subscriptionId}] 
+## Cancel Subscription [/members/{memberId}/subscriptions/{subscriptionId}] 
 ### Cancel member's subscription [PUT]
 cancel a subscription. The subscription will be cancelled immediately but customer can still enjoy subscription until subscription period ends. The customer will get a cancellation email when this api is called.
 
 
 + Parameter 
+    + memberId (Number , `123446`)...Member Id. In case 1 - user itself can cancel his/her subscription by passing his/her memberId in URL and valid session.
+                                    In case 2 - Admin can cancel subscription for user. So, pass member Id of user in url and session of admin. 
     + id (optional, Number , `123446`)...Member ID of the customer whose subscription is canceled. This is used when an administrator cancels a subscription of a customer.
     + affiliate_code (optional, String , `PA1ONA`)....affiliate code for subscription to be canceled. This is used when an administrator cancels a subscription of a customer.
     
