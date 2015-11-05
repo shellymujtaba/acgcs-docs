@@ -350,7 +350,7 @@ Operations to perform CRUD operations on an asset with basic metadata. Additiona
     + progress_status (optional, Number, `1`) ...progress status <br> Options:<br> 0:in progress<br>1:complete
     + parent_asset_id (optional, String, `12345`) ...Parent Asset Id
     + license_id (optional, String, `AFL-1.1`) ...Add license to the asset. For the list of available standard licenses, please refer - https://spdx.org/licenses. Please pass the value from the 'Identifier' column in the table.
-    + asset_taxonomy (optional, String, `[{"namespace":"Circuits","categories":["x/y/z"]},{"namespace":"Tinkercad","categories":["a/b/c","p/q/r"]}]`) ...App definied taxonomy for the asset. Please pass the JSON string as showing in the example. The taxonomy can have unlimited namespaces and a namespace can have unlimited catagories.
+    + asset_taxonomy (optional, String, `[{"namespace":"Circuits","categories":[{"name":"x/y/z","is_primary":false}},{"namespace":"Tinkercad","categories":[{"name":"a/b/c","is_primary":false},{"name":"p/q/r","is_primary":true}]}]`) ...App definied taxonomy for the asset. Please pass the JSON string as showing in the example. The taxonomy can have unlimited namespaces and a namespace can have unlimited catagories.
     + language (optional, String, `en`)...Language code
     + region (optional, String, `US`)...Country code
     + member_id (optional, Number, `4353345`)...Asset owner member Id. This should be passed only for the hash based API request.
