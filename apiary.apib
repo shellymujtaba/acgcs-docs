@@ -1771,6 +1771,8 @@ If the file is sent as a application/gzip and unzip parameter is = true, it will
 In case of gzipped files, file name extension will be utilized to determine the file type (e.g. stl or obj). 
 In case of base64 encoded files, file name extension will be utilized to determine file type (e.g stl or obj).
 
+**_Note:_** Please use the server for the file upload received from the upload server API.
+
 + Parameters
     + unzip (optional,String, `false`)...Indicate if the zip file should be unzipped and each constituent files be treated as an individual file. Default is false.
     + fileurl (optional,String, `http://xxxxxx.com/file`)...URL of the file from where the file need to be retrived.(only works when filename parameteris passed alongwith)
@@ -1780,10 +1782,8 @@ In case of base64 encoded files, file name extension will be utilized to determi
 
 ### Upload files [POST]
 
-**_Note:_** Please use the server for the file upload received from the upload server API.
-
-**_Steps_**
-1. Please call GET Upload Server API to retrieve the server host.
+**_Steps:_**<br>
+1. Please call GET Upload Server API to retrieve the server host.<br>
 2. User the server as the host in the POST Upload File API above.
 
 + Request
