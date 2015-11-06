@@ -184,6 +184,14 @@ _Dispatching the request:_
 
 **_Note_**: For Asset creation POST API, please use Member Id (Asset owner) instead of Asset Id for generating the hash value.
 
+**Asset Status**
+A Asset can have different statuses. The below table displays all the available statuses.
+|Parameter|min length|
+|----|----|
+|Public|0|
+|Private|2|
+|Deleted|1|
+
 ## Asset [/assets/{id}{?asset_name,description,tags,media_type_id,software,publish,progress_status,parent_asset_id,referenced_assets,extended_data,version,asset_ids,license_id,asset_taxonomy,language,region}]
 Operations to perform CRUD operations on an asset with basic metadata. Additional operation sets will populate this asset with constituent files, additional metadata etc. 
 + parameters
