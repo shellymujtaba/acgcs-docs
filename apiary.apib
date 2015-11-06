@@ -1889,13 +1889,16 @@ _Building the Request:_
 Retrieve direct download path to a specific file or a set of files. 
 This is a more efficient way to download large files (Eg: files greater than 50MB) since it returns the direct download path to the file as against streaming it via the server.
 
-Note: Please use the server for the file download received from the download server API.
-
 + Parameters
     + file_ids (required,String `1233233,1333233`) ...Comma seperated list of file ids. If more than one file is specified, the download file will be a zip file.
     + asset_id (optional, String `23244422`)... Asset id
 
 ### Download files path [GET]
+
+**_Steps:_**
+
+1. Please call <a href="http://docs.acgcs.apiary.io/#reference/files/download-server/upload-server">GET Download Server API</a> to retrieve the server.
+2. Use the server as the host in the GET Download File Path API above.
 
 + Request (application/x-www-form-urlencoded)
     + Headers
