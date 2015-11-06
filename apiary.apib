@@ -1771,8 +1771,6 @@ If the file is sent as a application/gzip and unzip parameter is = true, it will
 In case of gzipped files, file name extension will be utilized to determine the file type (e.g. stl or obj). 
 In case of base64 encoded files, file name extension will be utilized to determine file type (e.g stl or obj).
 
-**_Note:_** Please use the server for the file upload received from the upload server API.
-
 + Parameters
     + unzip (optional,String, `false`)...Indicate if the zip file should be unzipped and each constituent files be treated as an individual file. Default is false.
     + fileurl (optional,String, `http://xxxxxx.com/file`)...URL of the file from where the file need to be retrived.(only works when filename parameteris passed alongwith)
@@ -1865,8 +1863,6 @@ _Building the Request:_
 * Use Guest session when calling the the API.
 * Pass parameter "ts", which is Timestamp, Format is 'YYYY-MM-DD HH:mm:ss'.  Must be converted to GMT (no offset).  Must be within 15 minutes of the server's timestamp when call is made 
 * Pass Parameter "hash", which is generated via SHA-256 hash function of the affiliate code + asset ID + timestamp + shared secret.
-
-**_Note:_** Please use the server for the file download received from the download server API.
 
 + Parameters
     + file_ids (required, String, `1233233,1333233`) ...Comma seperated list of file ids. If more than one file is specified, the download will be a zip
