@@ -1305,7 +1305,7 @@ Note: Admins can be added by Asset Owner only.<br>
 ## Asset Likes [/assets/{id}/likes{?limit,offset,sort_order,follow_order}]
 This operation is basically a toggle - calling PUT operation repeteadly will set/unset like state for this member on this asset.
 
-**_Precondition:_** The Asset must be in published (public - 0) status. 
+**_Pre-condition:_** Asset must be in published (public - 0) status. 
 
 + Parameters
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
@@ -1367,6 +1367,7 @@ This operation is basically a toggle - calling PUT operation repeteadly will set
 ## Asset Comments [/assets/{id}/comments{?comment,comment_id,in_reply_to,limit,offset,sort_order}]
 Operations to manage comments on an asset
 
+**_Pre-condition:_** Asset must be in published (public - 0) status.
 
 + Parameters
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
@@ -1637,6 +1638,8 @@ Now this API will return comments in comment thread. so if there are several rep
 ## Asset Flag [/assets/{id}/flags{?reason,comment}]
 Flag an asset along with reason for flagging. This operation is a no-op if an asset has already been flagged by this member.
 
+**_Pre-condition:_** Asset must be in published (public - 0) status.
+
 ### Flag an asset [PUT]
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -1652,6 +1655,8 @@ Flag an asset along with reason for flagging. This operation is a no-op if an as
 ## Asset Feature [/assets/{id}/feature{?feature_flag,software}]
 Feature an asset. Sets featured status of an asset. Featuring adds the asset to featured list, while unfeaturing removes it from featured list.
 This is admin only functionality, hence must be invoked with Community ADMIN rights.
+
+**_Pre-condition:_** Asset must be in published (public - 0) status.
 
 ### Feature an asset [PUT]
 + Request (application/x-www-form-urlencoded)
