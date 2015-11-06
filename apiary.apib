@@ -1784,7 +1784,7 @@ In case of base64 encoded files, file name extension will be utilized to determi
 
 **_Steps:_**<br>
 1. Please call <a href="http://docs.acgcs.apiary.io/#reference/files/upload-server/upload-server">GET Upload Server API</a> to retrieve the server host.<br>
-2. User the server as the host in the POST Upload File API above.
+2. Use the server as the host in the POST Upload File API above.
 
 + Request
     + Header
@@ -1867,12 +1867,15 @@ _Building the Request:_
 
 **_Note:_** Please use the server for the file download received from the download server API.
 
-
 + Parameters
     + file_ids (required, String, `1233233,1333233`) ...Comma seperated list of file ids. If more than one file is specified, the download will be a zip
     + asset_id (optional, String, `23244422`)... Asset id
     + ts (optional,string, `2012-01-26 15:51:44`)... timestamp in format 'YYYY-MM-DD HH:mm:ss'. to be used when app is downloading on behalf of a user
     + hash (optional,String, `942F52D6AECAA46993D8839639CE56FFEF1FFB7F92AC376647A6`)... to be used when app is downloading on behalf of a user 
+
+**_Steps:_**<br>
+1. Please call <a href="http://docs.acgcs.apiary.io/#reference/files/download-server/upload-server">GET Download Server API</a> to retrieve the server host.<br>
+2. Use the server as the host in the GET Download File API above.
 
 ### Download files [GET]
 
