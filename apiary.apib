@@ -3041,17 +3041,17 @@ cancel a subscription. The subscription will be cancelled immediately but custom
 
 + Response 200 (application/json)
 
-If customer doesn't have the subscription, the status will be false:
-{
-    "info": "",
-    "status": false
-}
+        If customer doesn't have the subscription, the status will be false:
+        {
+            "info": "",
+            "status": false
+        }
 
-If customer have the subscription and that's already cancelled, the status will be false:
-{
-    "info": "Subscription is already cancelled.",
-    "status": true
-}
+        If customer have the subscription and that's already cancelled, the status will be false:
+        {
+            "info": "Subscription is already cancelled.",
+            "status": true
+        }
 
 ## Update Card [/members/{memberId}/updatecards{?product_id,new_product_id,encrypted_credit_card,encrypted_cvv,exp_month,exp_year,name,phone,card_type,card_last_four_digit,store_type}] 
 
@@ -3136,9 +3136,10 @@ Example scenario:-
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Response 201 (application/json)
-{
-    "update_card_status": true
-}
+
+        {
+            "update_card_status": true
+        }
 
 ## Update card URL [/members/{id}/views/updatecards{?a,b,c}]
 ### Get update card URL.[GET]
@@ -3151,7 +3152,7 @@ This API does not require afc, session to be passed in header like other apis.
 
 + Response 200 (application/json)
 
-returns iframe code to be embedded in web page.
+        returns iframe code to be embedded in web page.
 
 ## Subscriptions [/members/{id}/subscription{?product_id,new_product_id,auto_renew,next_payment,affiliate_code,ignore_cancellation_status,hash,ts}]
 ### Update member's subscription.[PUT]
@@ -4436,7 +4437,7 @@ Note: The key should be unique within the shop. Using the same key in POST will 
 + Response 204
 
 
-## Assets [/shops/{shop_id}/assets{?show_deleted,limit,offset}]
+## Assets [/shops/{shop_id}/assets{?show_deleted,limit,offset,shippingprofile_id,product_type}]
 Retrieve the list of assets for sale. An asset can be removed from the shop via an update request.
 
 + Parameters
@@ -4454,7 +4455,7 @@ Retrieve the list of assets for sale. An asset can be removed from the shop via 
     + show_deleted (optional,Boolean,`true`)... If true even deleted assets that are part of this shop will be returned. This flag is only applicable for shop owner or admin. Default : false.
     + limit (optional, Number,`1`)... Number of results to return in each page. Default: 10.
     + offset (optional, Number, `3`)... This offsets the start of each page by the number specified. Default: 0.
-    + shippingprofile_id (optional, Number, `16` )... Shipping Profile id. Retrieve the list of assets of shops that uses specific shipping profile. If `shipping_profile_id` is passed show_deleted flag will be ignored i.e only non deleted assets are returned for this. 
+    + shippingprofile_id (optional, Number, `16` )... Shipping Profile id. Retrieve the list of assets of shops that uses specific shipping profile. If `shippingprofile_id` is passed show_deleted flag will be ignored i.e only non deleted assets are returned for this. 
     + product_type (optional, String, `DIGITAL`)...filter by product type: DIGITAL|PHYSICAL
 + Response 200 (application/json)
 
