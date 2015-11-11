@@ -4454,7 +4454,8 @@ Retrieve the list of assets for sale. An asset can be removed from the shop via 
     + show_deleted (optional,Boolean,`true`)... If true even deleted assets that are part of this shop will be returned. This flag is only applicable for shop owner or admin. Default : false.
     + limit (optional, Number,`1`)... Number of results to return in each page. Default: 10.
     + offset (optional, Number, `3`)... This offsets the start of each page by the number specified. Default: 0.
-
+    + shippingprofile_id (optional, Number, `16` )... Shipping Profile id. Retrieve the list of assets of shops that uses specific shipping profile. If `shipping_profile_id` is passed show_deleted flag will be ignored i.e only non deleted assets are returned for this. 
+    + product_type (optional, String, `DIGITAL`)...filter by product type: DIGITAL|PHYSICAL
 + Response 200 (application/json)
 
             {
