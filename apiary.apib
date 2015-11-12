@@ -42,7 +42,7 @@ We'll respond with one of the following status codes.
 |`404`        | Not Found - resource doesn't exist.
 |`422`        | Unprocessable Entity - i.e. validation errors.
 |`429`        | Rate limit exceeded, try again later.
-|`500`        | Server error.
+|`500`        | Server error. There is nothing the app or user can do to recover from this. Correct response is to contact ACS for 500 errors. 
 
 # Errors
 Any 4xx and 5xx response is an error. 
