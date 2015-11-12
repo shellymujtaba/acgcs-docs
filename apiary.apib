@@ -2049,6 +2049,7 @@ This group of operations provides information on the marketplace APIS such as sh
 <br><br>If current status is COMPLETE | CLOSED | DECLINE | CANCELED then you can not set FAILED status.(ErrorCode : 34750 : Order status can not be modified.)
 <br><br><div class="parameterKey">JSON_String to set status to COMPLETE</div>
 <br><br>{"status":"COMPLETE","shipping":{"shipper":"UPS","tracking_url":"http://www.fedex.com?mic=shsjknbsg7262gs" ,"tracking_number":"MKAHS6724FHAHAJG6"},"completion_date":"2015-07-17 14:30:00","status_skus":[{"sku":"12345"},{"sku":"34567"}]}
+<br><br>The tracking_url is optional in the shipping payload.
 <br><br>If current status is CLOSED | DECLINE | CANCELED then you can not set COMPLETE status.(ErrorCode : 34750 : Order status can not be modified.)
 <br><br><div class="parameterKey">JSON_String to set status to CANCELED</div>
 <br><div class="parameterKey">-----It is not allowed that refund status is false. Refund is required when an order is canceled.</div>
