@@ -495,7 +495,7 @@ This api is a starting point to display galleries, perform free-form searches. D
     + file_type_list (optional, String, `obj`)...Limit results based on a comma-separated list of file types. Options: obj, stl, mtl
     + exclude_keywords (optional, String, `dog`)...Limit results based to those not associated with a list of keywords 
     + asset_ids (optional, String, `123456,987654,456789` )...Limit results based on asset ID(s) 
-    + sort_by (optional, String,`asset_name`)...Order search results based on a specific attribute. <br> Options:<br> asset_name<br> artist<br> date<br> date_modified<br> favorite_count<br> favorite_count_strict<br> format<br> price<br> download_count<br> featured_date<br> Note: favorite_count_strict will sort the results strictly by number of likes, where as favorite_count will sort the results by popularity.
+    + sort_by (optional, String,`asset_name`)...Order search results based on a specific attribute. <br> Options:<br> asset_name<br> artist<br> date<br> date_modified<br> favorite_count<br> favorite_count_strict<br> format<br> price<br> download_count<br> featured_date<br> **_Note:_** favorite_count_strict will sort the results strictly by number of likes, where as favorite_count will sort the results by popularity.
     + sort_order  (optional,String,`asc`)...Direction of ordered search results based on value of sort_by. <br> Options: asc, desc 
     + display_filter  (optional,String, `d`)...Show only Gallery or Featured items.<br>Options:<br>d: Gallery item with downloads <br>f: Featured items; <br>o: Online viewer enabled assets <br>Example: d, f, o, dfo, fo 
     + exclude_artist_ids (optional,Number, `2345678`)...Limit results based on member or artist ids.
@@ -610,7 +610,7 @@ This api is a starting point to display galleries, perform free-form searches. D
 ## Asset Custom Data [/assets/{id}/customdata{?custom_data,version,keys}]
 Operations to add custom data to this asset. These operations are useful to add any asset specific custom data to the asset e.g tenant specific asset data useful for display purpose.
 
-Note: The key should be unique within the asset. Using the same key in POST will overwrite the existing data if any.
+**_Note:_** The key should be unique within the asset. Using the same key in POST will overwrite the existing data if any.
 
 + Parameters
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
@@ -919,7 +919,7 @@ Adding the sources will usually be a starting point for storing an asset in clou
             
 ### Update source within the asset[PUT] 
 
-Note: The update will replace the source files already added to the asset. The old & new file ids list should be unique.
+**_Note:_** The update will replace the source files already added to the asset. The old & new file ids list should be unique.
 
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -992,7 +992,7 @@ Images will be generated in both PNG and JPG formats.
  
 The thumbnail url prefix is available in asset response, the size post-fix and extension can be appended to the prefix to recover the correct size.
 
-Note: The PUT replaces the thumbnail which is already added to the asset.
+**_Note:_** The PUT replaces the thumbnail which is already added to the asset.
 
 **How to display thumbnails?**<br>
 The thumbnails can be displayed using the thumbnail path prefix fetched in the GET API and appending the size.<br>
@@ -1078,7 +1078,7 @@ All references to external artifacts such as blog posts, videos, photos etc.
 
 ### Create a new link within the asset [POST]
 
-Note: A UUID is saved against the link if no id is passed inside the link JSON.
+**_Note:_** A UUID is saved against the link if no id is passed inside the link JSON.
 
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -1798,7 +1798,7 @@ In case of base64 encoded files, file name extension will be utilized to determi
 + Parameters
     + unzip (optional,String, `false`)...Indicate if the zip file should be unzipped and each constituent files be treated as an individual file. Default is false.
     + fileurl (optional,String, `http://xxxxxx.com/file`)...URL of the file from where the file need to be retrived.(only works when filename parameteris passed alongwith)
-    + filename (optional,String, `filename.jpg`)...name of the downloaded file from fileurl. <br/> Note: filename param is effective only if the file is uploaded using fileurl param
+    + filename (optional,String, `filename.jpg`)...name of the downloaded file from fileurl. <br/> **_Note:_** filename param is effective only if the file is uploaded using fileurl param
     + public (optional,String, `false`)...Indicate if the file should have URL which can be accessed without restrictions. Default is false.
     + software (optional,Number, `31`)...Indicate the Application used to upload file. 
 
@@ -1974,7 +1974,7 @@ API to make private files to public files
 ### Retrieve file public url [GET]    
 API to retrieve the file public url.
 
-Note: The files must be made public using the POST before retrieving their public url.
+**_Note:_** The files must be made public using the POST before retrieving their public url.
 
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -2020,7 +2020,7 @@ API to delete public files.
 
 ### Get File details [GET]
 
-Note: The public url of the file is returned only if the file is made public.
+**_Note:_** The public url of the file is returned only if the file is made public.
 
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -2917,7 +2917,7 @@ Retrieve this members assets. Depending on the context this operation may return
             "_link_next": "/members/20280723/assets?limit=26&offset=39"
         }
 
-        Note: keydata field in response has been deprecated.  Use `extended_data` instead.
+**_Note:_** keydata field in response has been deprecated.  Use `extended_data` instead.
 
 ## Likes [/members/{id}/likes{?limit,offset,sort_by,sort_order}]
 Member like operations
@@ -2926,7 +2926,7 @@ Member like operations
     + id (required, Number , `123446`)...Member id
     + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
-    + sort_by (optional, String, `date, total`)...Order search results based on a specific attribute. Default: total. <br>Note: total will sort the results by number of likes, where as date will sort the results by liked timestamp.
+    + sort_by (optional, String, `date, total`)...Order search results based on a specific attribute. Default: total. <br> **_Note:_** total will sort the results by number of likes, where as date will sort the results by liked timestamp.
     + sort_order (optional, String, `asc, desc`)...Direction of ordered search results based on value of sort_by. Default: asc.
 
     
@@ -4412,7 +4412,7 @@ If the member attempts to set the shop ONLINE without tax information a 34026 er
 ## Shop Custom Data [/shops/{id}/customdata{?custom_data,keys}]
 Operations to add/delete custom data to this shop. Custom data can be retrieved from GET shop API.
 
-Note: The key should be unique within the shop. Using the same key in POST will overwrite the existing data if any.
+**_Note:_** The key should be unique within the shop. Using the same key in POST will overwrite the existing data if any.
 
 + Parameters
     + id (required,Number,`12`)...Numeric `id` of the shop to perform action with. 
@@ -4675,7 +4675,7 @@ The shop asset forSale flag can be set to either true or flag regardless of the 
 
 Behind the scene: If the shop is OFFLINE, the assets are not going to show in the gallery and won't be available for purchase. If the shop is ONLINE, the assets are going to automatically show in the gallery when set for sale. Any change to the status of the shop (OFFLINE/ONLINE) triggers automatic update of the assets to hide/show them from the gallery.
 
-NOTE: A physical asset cannot be put for sale without product fulfillment information. 
+**_Note:_** A physical asset cannot be put for sale without product fulfillment information. 
 
 |Message|HTTP Status Code|Error Code|Data
 |----|----|----|----
@@ -9657,7 +9657,7 @@ Retrieve all the contests for the given app id.
 
 ### Get Contests [GET]
 
-Note: Please contact the Cloud Services team to get your App Id.
+**_Note:_** Please contact the Cloud Services team to get your App Id.
 
 + Request (application/x-www-form-urlencoded)
     + Headers
