@@ -1362,7 +1362,7 @@ These APIs can be used to create workflows around the asset. These APIs enables 
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
-+ Response 201 (application/json)
++ Response 200 (application/json)
 
     {
         "asset_workflows": [
@@ -1400,7 +1400,7 @@ These APIs can be used to create workflows around the asset. These APIs enables 
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
     + workflow_id (required, Number,`234324`)...Id of the workflow associated with the asset.
 
-+ Response 201 (application/json)
++ Response 200 (application/json)
 
 {
     "id": 1,
@@ -1535,7 +1535,7 @@ These APIs can be used to create workflows around the asset. These APIs enables 
     + workflow_id (required, Number,`234324`)...Id of the workflow associated with the asset.
     + workflow_step_id (required, Number,`234324`)...Id of the workflow step associated with the asset workflow.
 
-+ Response 201 (application/json)
++ Response 200 (application/json)
 
 {
     "id": 2,
@@ -1587,6 +1587,21 @@ These APIs can be used to create workflows around the asset. These APIs enables 
         }
     ]
 }
+
+### Delete workflow steps for the asset workflow [DELETE /assets/{id}/workflows/{workflow_id}/steps/{workflow_step_id}{?workflow_step_status,file_ids,message_ids}] 
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + workflow_step_status (optional, Number,`0`)...Asset workflow step status.
+    + file_ids (optional, String,`322112,23423,34534`)...Comma separated list of file Ids to be deleted from this workflow step as reference.
+    + message_ids (optional, String,`XHFMVYDI3LCLYGC,X7ZFQEKI3LCLYGA`)...Comma separated list of message Ids to be deleted from this workflow step as reference.
+    
++ Response 204 (application/json)
+
 
 ## Asset Likes [/assets/{id}/likes{?limit,offset,sort_order,follow_order}]
 This operation is basically a toggle - calling PUT operation repeteadly will set/unset like state for this member on this asset.
