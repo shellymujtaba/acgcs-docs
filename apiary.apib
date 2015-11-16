@@ -1318,7 +1318,7 @@ These APIs can be used to create workflows around the asset. These APIs enables 
 + Parameters
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
 
-### Create member permission on the asset [POST /assets/{id}/workflows] 
+### Create member permission on the asset [POST /assets/{id}/workflows{?workflow_name,workflow_notes}] 
 + Request (application/x-www-form-urlencoded)
     + Headers
     
@@ -1332,8 +1332,8 @@ These APIs can be used to create workflows around the asset. These APIs enables 
 + Response 201 (application/json)
 
     {
-        "_link": "/assets/1812775/workflows/1",
-        "workflow_id": 1
+        "_link": "/assets/1812775/workflows/2376",
+        "workflow_id": 2376
     }
 
 ## Asset Likes [/assets/{id}/likes{?limit,offset,sort_order,follow_order}]
