@@ -1318,7 +1318,7 @@ These APIs can be used to create workflows around the asset. These APIs enables 
 + Parameters
     + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
 
-### Create member permission on the asset [POST /assets/{id}/workflows{?workflow_name,workflow_notes}] 
+### Create workflow for the asset [POST /assets/{id}/workflows{?workflow_name,workflow_notes}] 
 + Request (application/x-www-form-urlencoded)
     + Headers
     
@@ -1335,6 +1335,41 @@ These APIs can be used to create workflows around the asset. These APIs enables 
         "_link": "/assets/1812775/workflows/2376",
         "workflow_id": 2376
     }
+    
+### Retrieve workflow for the asset [GET] 
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Response 201 (application/json)
+
+    {
+        "asset_workflows": [
+            {
+                "id": 1,
+                "member_id": 20704634,
+                "workflow_name": "name1",
+                "workflow_notes": "notes1",
+                "workflow_status": 1,
+                "date_submitted": "November 16, 2015 14:56:07",
+                "date_modified": "November 16, 2015 14:56:07",
+                "workflow_steps_count": 0
+            },
+            {
+                "id": 2,
+                "member_id": 20704634,
+                "workflow_name": "name2",
+                "workflow_notes": "notes3",
+                "workflow_status": 1,
+                "date_submitted": "November 16, 2015 14:59:41",
+                "date_modified": "November 16, 2015 14:59:41",
+                "workflow_steps_count": 0
+            }
+        ]
+    }
+    
 
 ## Asset Likes [/assets/{id}/likes{?limit,offset,sort_order,follow_order}]
 This operation is basically a toggle - calling PUT operation repeteadly will set/unset like state for this member on this asset.
