@@ -1326,6 +1326,9 @@ The following are the available statues:
 |Active|1|
 |Deleted|9|
 
+**_Note:_** Asset workflow cannot be deleted. However, the workflow status can be updated depending on the state.
+If the workflow step is required, it can be marked as deleted by updating the status.
+
 ### Create workflow for the asset [POST /assets/{id}/workflows{?workflow_name,workflow_notes}] 
 + Request (application/x-www-form-urlencoded)
     + Headers
