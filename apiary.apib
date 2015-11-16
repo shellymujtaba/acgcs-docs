@@ -1444,6 +1444,25 @@ These APIs can be used to create workflows around the asset. These APIs enables 
     "workflow_steps_count": 2
 }    
 
+### Create workflow steps for the asset workflow [POST /assets/{id}/workflows/{workflow_id}/steps{?workflow_name,workflow_notes}] 
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + workflow_step_name (required, String,`Asset Workflow Step Name`)...Name of the asset workflow step
+    + workflow_step_notes (optional, String,`Asset Workflow Step Notes`)...Notes regrading asset workflow step
+    + assigned_member_id (optional, Number,`123124`)...Member to whom this workflow step is assigned. **_Note:_** If no member Id is passed, the workflow step will be assigned to the API caller.
+    
++ Response 201 (application/json)
+
+    {
+        "_link": "/assets/1812775/workflows/2376",
+        "workflow_id": 2376
+    }
+
 ## Asset Likes [/assets/{id}/likes{?limit,offset,sort_order,follow_order}]
 This operation is basically a toggle - calling PUT operation repeteadly will set/unset like state for this member on this asset.
 
