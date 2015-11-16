@@ -1315,8 +1315,16 @@ There are 4 roles available for collaboration.
 
 These APIs can be used to create workflows around the asset. These APIs enables a group of members collaborate on a project and track the progress.
 
-+ Parameters
-    + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
+**Workflow Status**
+
+Asset workflow status defines the state of the overall workflow or workflow steps within the workflow. More statuses can be added depending on the use cases.
+The following are the available statues:
+
+|_Status_|_Value_
+|----|----
+|Completed|0|
+|Active|1|
+|Deleted|9|
 
 ### Create workflow for the asset [POST /assets/{id}/workflows{?workflow_name,workflow_notes}] 
 + Request (application/x-www-form-urlencoded)
@@ -1326,6 +1334,7 @@ These APIs can be used to create workflows around the asset. These APIs enables 
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
+    + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
     + workflow_name (required, String,`Asset Workflow Name`)...Name of the asset workflow
     + workflow_notes (optional, String,`Asset Workflow Notes`)...Notes regrading asset workflow
     
@@ -1344,6 +1353,8 @@ These APIs can be used to create workflows around the asset. These APIs enables 
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
+    + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
+    + workflow_id (required, Number,`234324`)...Id of the workflow associated with the asset.
     + workflow_name (optional, String,`Asset Workflow Name`)...Name of the asset workflow
     + workflow_notes (optional, String,`Asset Workflow Notes`)...Notes regrading asset workflow
     + workflow_status (optional, Number,`1`)...Asset workflow status.
@@ -1471,6 +1482,8 @@ These APIs can be used to create workflows around the asset. These APIs enables 
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
+    + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
+    + workflow_id (required, Number,`234324`)...Id of the workflow associated with the asset.
     + workflow_step_name (required, String,`Asset Workflow Step Name`)...Name of the asset workflow step
     + workflow_step_notes (optional, String,`Asset Workflow Step Notes`)...Notes regrading asset workflow step
     + assigned_member_id (optional, Number,`123124`)...Member to whom this workflow step is assigned.<br> **_Note:_** If no member Id is passed, the workflow step will be assigned to the API caller.
@@ -1490,6 +1503,8 @@ These APIs can be used to create workflows around the asset. These APIs enables 
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
+    + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
+    + workflow_id (required, Number,`234324`)...Id of the workflow associated with the asset.
     + workflow_step_name (required, String,`Asset Workflow Sub Step Name`)...Name of the asset workflow step
     + workflow_step_notes (optional, String,`Asset Workflow Sub Step Notes`)...Notes regrading asset workflow step
     + assigned_member_id (optional, Number,`123124`)...Member to whom this workflow step is assigned.<br> **_Note:_** If no member Id is passed, the workflow step will be assigned to the API caller.
@@ -1509,6 +1524,8 @@ These APIs can be used to create workflows around the asset. These APIs enables 
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
+    + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
+    + workflow_id (required, Number,`234324`)...Id of the workflow associated with the asset.
     + workflow_step_name (optional, String,`Asset Workflow Step Name`)...Name of the asset workflow step
     + workflow_step_notes (optional, String,`Asset Workflow Step Notes`)...Notes regrading asset workflow step
     + assigned_member_id (optional, Number,`123124`)...Member to whom this workflow step is assigned.<br> **_Note:_** If no member Id is passed, the workflow step will be assigned to the API caller.
@@ -1588,7 +1605,7 @@ These APIs can be used to create workflows around the asset. These APIs enables 
     ]
 }
 
-### Delete workflow steps for the asset workflow [DELETE /assets/{id}/workflows/{workflow_id}/steps/{workflow_step_id}{?workflow_step_status,file_ids,message_ids}] 
+### Delete workflow steps from the asset workflow [DELETE /assets/{id}/workflows/{workflow_id}/steps/{workflow_step_id}{?workflow_step_status,file_ids,message_ids}] 
 + Request (application/x-www-form-urlencoded)
     + Headers
     
@@ -1596,6 +1613,9 @@ These APIs can be used to create workflows around the asset. These APIs enables 
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
+    + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
+    + workflow_id (required, Number,`234324`)...Id of the workflow associated with the asset.
+    + workflow_step_id (required, Number,`234324`)...Id of the workflow step associated with the asset workflow.
     + workflow_step_status (optional, Number,`0`)...Asset workflow step status.
     + file_ids (optional, String,`322112,23423,34534`)...Comma separated list of file Ids to be deleted from this workflow step as reference.
     + message_ids (optional, String,`XHFMVYDI3LCLYGC,X7ZFQEKI3LCLYGA`)...Comma separated list of message Ids to be deleted from this workflow step as reference.
