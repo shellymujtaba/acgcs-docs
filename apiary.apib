@@ -1501,6 +1501,28 @@ These APIs can be used to create workflows around the asset. These APIs enables 
         "workflow_step_id": 3
     }    
 
+### Update workflow steps for the asset workflow [PUT /assets/{id}/workflows/{workflow_id}/steps/{workflow_step_id}{?workflow_step_name,workflow_step_notes,assigned_member_id,workflow_step_status,file_ids}] 
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + workflow_step_name (optional, String,`Asset Workflow Step Name`)...Name of the asset workflow step
+    + workflow_step_notes (optional, String,`Asset Workflow Step Notes`)...Notes regrading asset workflow step
+    + assigned_member_id (optional, Number,`123124`)...Member to whom this workflow step is assigned.<br> **_Note:_** If no member Id is passed, the workflow step will be assigned to the API caller.
+    + workflow_step_status (optional, Number,`1`)...Asset workflow step status.
+    + file_ids (optional, String,`322112,23423,34534`)...Comma separated list of file Ids to be associated to this workflow step as reference.
+    + message_ids (optional, String,`XHFMVYDI3LCLYGC,X7ZFQEKI3LCLYGA`)...Comma separated list of message Ids to be associated to this workflow step as reference.
+    
++ Response 201 (application/json)
+
+    {
+        "_link": "/assets/1812775/workflows/1/steps/3",
+        "workflow_step_id": 3
+    }
+
 ### Retrieve workflow step details [GET /assets/{id}/workflows/{workflow_id}/steps/{workflow_step_id}] 
 + Request (application/x-www-form-urlencoded)
     + Headers
