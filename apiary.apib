@@ -1336,6 +1336,25 @@ These APIs can be used to create workflows around the asset. These APIs enables 
         "workflow_id": 2376
     }
     
+### Update workflow for the asset [PUT /assets/{id}/workflows/{workflow_id}{?workflow_name,workflow_notes}] 
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + workflow_name (optional, String,`Asset Workflow Name`)...Name of the asset workflow
+    + workflow_notes (optional, String,`Asset Workflow Notes`)...Notes regrading asset workflow
+    + workflow_status (optional, Number,`1`)...Asset workflow status.
+    
++ Response 201 (application/json)
+
+    {
+        "_link": "/assets/1812775/workflows/2376",
+        "workflow_id": 2376
+    }    
+    
 ### Retrieve workflows for the asset [GET] 
 + Request (application/x-www-form-urlencoded)
     + Headers
