@@ -1311,6 +1311,31 @@ There are 4 roles available for collaboration.
 
 + Response 204 (application/json)
 
+## Asset Workflows [/assets/{id}/workflows]
+
+These APIs can be used to create workflows around the asset. These APIs enables a group of members collaborate on a project and track the progress.
+
++ Parameters
+    + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with. 
+
+### Create member permission on the asset [POST /assets/{id}/workflows] 
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + workflow_name (required, String,`Asset Workflow Name`)...Name of the asset workflow
+    + workflow_notes (optional, String,`Asset Workflow Notes`)...Notes regrading asset workflow
+    
++ Response 201 (application/json)
+
+    {
+        "_link": "/assets/1812775/workflows/1",
+        "workflow_id": 1
+    }
+
 ## Asset Likes [/assets/{id}/likes{?limit,offset,sort_order,follow_order}]
 This operation is basically a toggle - calling PUT operation repeteadly will set/unset like state for this member on this asset.
 
