@@ -1336,7 +1336,7 @@ These APIs can be used to create workflows around the asset. These APIs enables 
         "workflow_id": 2376
     }
     
-### Retrieve workflow for the asset [GET] 
+### Retrieve workflows for the asset [GET] 
 + Request (application/x-www-form-urlencoded)
     + Headers
     
@@ -1370,6 +1370,78 @@ These APIs can be used to create workflows around the asset. These APIs enables 
         ]
     }
     
+### Retrieve workflow details [GET /assets/{id}/workflows/{workflow_id}] 
++ Request (application/x-www-form-urlencoded)
+    + Headers
+    
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + workflow_id (required, Number,`234324`)...Id of the workflow associated with the asset.
+
++ Response 201 (application/json)
+
+{
+    "id": 1,
+    "member_id": 20704634,
+    "workflow_name": "name1",
+    "workflow_notes": "notes1",
+    "workflow_status": 1,
+    "date_submitted": "November 16, 2015 14:56:07",
+    "date_modified": "November 16, 2015 14:56:07",
+    "workflow_steps": [
+        {
+            "id": 1,
+            "workflow_id": 1,
+            "member_id": 20704634,
+            "assigned_member_id": 20704634,
+            "workflow_step_name": "name1",
+            "workflow_step_notes": "note1",
+            "workflow_step_status": 1,
+            "parent_id": "",
+            "date_submitted": "November 16, 2015 15:25:03",
+            "date_modified": "November 16, 2015 15:25:03",
+            "workflow_step_files": [],
+            "workflow_step_messages": [],
+            "workflow_sub_steps_count": 0
+        },
+        {
+            "id": 2,
+            "workflow_id": 1,
+            "member_id": 20704634,
+            "assigned_member_id": 20704634,
+            "workflow_step_name": "name2",
+            "workflow_step_notes": "note2",
+            "workflow_step_status": 1,
+            "parent_id": "",
+            "date_submitted": "November 16, 2015 15:25:12",
+            "date_modified": "November 16, 2015 15:25:46",
+            "workflow_step_files": [
+                {
+                    "file_id": 16807864,
+                    "date_submitted": "November 16, 2015 15:25:46"
+                },
+                {
+                    "file_id": 16807865,
+                    "date_submitted": "November 16, 2015 15:25:46"
+                }
+            ],
+            "workflow_step_messages": [
+                {
+                    "message_id": "m1",
+                    "date_submitted": "November 16, 2015 15:25:46"
+                },
+                {
+                    "message_id": "m2",
+                    "date_submitted": "November 16, 2015 15:25:46"
+                }
+            ],
+            "workflow_sub_steps_count": 0
+        }
+    ],
+    "workflow_steps_count": 2
+}    
 
 ## Asset Likes [/assets/{id}/likes{?limit,offset,sort_order,follow_order}]
 This operation is basically a toggle - calling PUT operation repeteadly will set/unset like state for this member on this asset.
