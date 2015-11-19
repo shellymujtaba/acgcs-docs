@@ -2503,7 +2503,109 @@ This group of operations provides information on the marketplace APIS such as sh
 #Group Members
 This group of operations provides information on the member. A member is a user who signs up or logs into Cloud Services eco-system.
 
-#Member [/members/{id}{?name,email,first_name,last_name,description,location,facebook,twitter,personal,locale,locale_language,locale_country,avatar,company,company_website,industry,address1,address2,city,state,postal_code,country_code,phone_home,phone_mobile,phone_work,phone_work_extension,newsletters,subscribe,preferences}]
+## Current Member [/members]
+Retrieve all information about the currently logged-in member.
+### Retreive the current member [GET]
++ Request (application/x-www-form-urlencoded)
+
++ Response 200 (application/json)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
+    + Body
+
+            {
+               "member":{
+                  "type_id": 0,
+                  "id": 20280723,
+                  "newsletters": {
+                      "newsletter": [
+                        {
+                          "frequency": "",
+                          "name": "Autodesk 123D Newsletter",
+                          "id": 1,
+                          "subscribed": 0
+                        },
+                        {
+                          "frequency": "",
+                          "name": "Autodesk 123D Artist Newsletter",
+                          "id": 2,
+                          "subscribed": 0
+                        },
+                        {
+                          "frequency": 3,
+                          "name": "Notifications",
+                          "id": 3,
+                          "subscribed": 1
+                        },
+                        {
+                          "frequency": "",
+                          "name": "General Spark Updates and Insights",
+                          "id": 4,
+                          "subscribed": 0
+                        },
+                        {
+                          "frequency": "",
+                          "name": "Spark Developer Updates and Insights",
+                          "id": 5,
+                          "subscribed": 0
+                        },
+                        {
+                          "frequency": "",
+                          "name": "Ember 3D Printer Updates and Insights",
+                          "id": 6,
+                          "subscribed": 0
+                        }
+                      ]
+                    },
+                    "profile": {
+                     "location":"usa",
+                     "description":"i am great!",
+                     "company": "ABC Co., Inc.",
+                     "address": {
+                         "address1": "address1-55",
+                         "address2": "address2-55",
+                         "city": "city55",
+                         "state": "MA",
+                         "postal_code": "90255",
+                         "country_code": "SJ"
+                     },
+                     "industry": "Engineering Services Providers",
+                     "avatar_path":"http://static.spark.autodesk.com/Images/Member/default_avatar.png",
+                     "find_me":{
+                        "twitter":"http:\/\/www.twitter.com\/jsmith",
+                        "facebook":"http:\/\/www.facebook.com\/jsmith",
+                        "github":"http:\/\/www.github.com\/jsmith",
+                        "linkedin":"http:\/\/www.linkedin.com\/in\/jsmith"
+                     },
+                     "company_website": "http:\/\/www.companyabc.com\/us\/en\/index.htm",
+                     "job_title": "Database Engineer",
+                     "phone_home": "123456789012345",
+                     "phone_mobile": [
+                                     "9975401990",
+                                     "9028174408"
+                     ],
+                     "phone_work": "213.456.789#1",
+                     "phone_work_extension": "123456"
+                  },
+                  "name": "jsmith",
+                  "comments": 23,
+                  "likes": 2,
+                  "follows": 12,
+                  "following": 3,
+                  "publish": 2,
+                  "locale": "en_US",
+                  "shop_id": 1234567890,
+                  "first_name": "John",
+                  "last_name": "Smith"
+               }
+            }
+
+
+## Member By Id [/members/{id}{?name,email,first_name,last_name,description,location,facebook,twitter,personal,locale,locale_language,locale_country,avatar,company,company_website,industry,address1,address2,city,state,postal_code,country_code,phone_home,phone_mobile,phone_work,phone_work_extension,newsletters,subscribe,preferences}]
+
 Manage public information about a member. To update a member secure session is required for following fields:
 name, email, locale and avatar.  For some parameters, if you provide no value for a parameter, the current value will be erased (see table below).
 
@@ -10131,7 +10233,7 @@ Retrieve all the contests for the given app id.
 
 Retrieve contest details by contest Id.
 
-### Get Contest details by Id [GET]
+### Get Contest details by id [GET]
 
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -10338,7 +10440,7 @@ Retrieve all the contests won by an assets.
 
 Retrieve all the contest entries
 
-### Get Contest Entries [GET]
+### Get Contest entries [GET]
 
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -10393,7 +10495,7 @@ Retrieve all the contest entries
             ]
         }
 
-### Get Contest Entries As Asset Data [GET]
+### Get Contest entries as Asset data [GET]
 
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -10553,7 +10655,7 @@ Retrieve all the winners of a contest
 
 ## Member Entries [/contests/members/{member_id}{?app_ids,limit,offset}]
 
-### Get Member Entries [GET]
+### Get Member entries [GET]
 
 Retrieve all the member contest entries for given Apps
 
@@ -10653,7 +10755,7 @@ Retrieve all the member contest entries for given Apps
 
 ## Member Contest Entries [/contests/{contest_id}/members/{member_id}{?entry_status,limit,offset,asset_id,action,country,hide}]
 
-### Get Member Contest Entries [GET]
+### Get Member Contest entries [GET]
 
 Retrieve all the contest entries by a member
 
@@ -10711,7 +10813,7 @@ Retrieve all the contest entries by a member
             ]
         }
 
-### Enter or Exit Contest [POST]
+### Enter or exit Contest [POST]
 
 Member entry or exit a contest.
 
@@ -10748,7 +10850,7 @@ Member entry or exit a contest.
 
 ## Member Contest Votes [/contests/{contest_id}/members/{member_id}/votes{?limit,offset,asset_id}]
 
-### Get Member voted Contest Entry [GET]
+### Get Member voted Contest entry [GET]
 
 Retrieve all the entries in a contest which are voted by the member.
 
@@ -10805,7 +10907,7 @@ Retrieve all the entries in a contest which are voted by the member.
             ]
         }
 
-### Vote a Contest Entry [POST]
+### Vote a Contest entry [POST]
 
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -10823,7 +10925,7 @@ Retrieve all the entries in a contest which are voted by the member.
 
 ## Member Gifts [/contests/{contest_id}/members/{member_id}/gifts{?contest_id,member_id,gift_assignment_id,accepted,name,address1,address2,city,state,zip,country,phone,email,winner_notes}]
 
-### Accept/Deny contest gift [POST]
+### Accept/deny contest gift [POST]
 
 + Request (application/x-www-form-urlencoded)
     + Headers
