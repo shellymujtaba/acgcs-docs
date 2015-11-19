@@ -2099,6 +2099,100 @@ Operations to manage status posts on an asset. Status posts are updates to the p
     + status_post_id (required,String, `234567,334562`)...Comma separated list of status posts to be deleted from this asset.
 + Response 204
 
+## File Conversations [/assets/{id}/conversations{?file_id,message_id,x_coordinate,y_coordinate,z_coordinate}]
+A file conversation an asset helps members reference an external file such as picture, videos etc. and start
+a conversation around it. This feature can be helpful when a group of members are working on a project and they want to give references
+from the project, and discuss various points around it.
+### Create a file conversation[POST]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + id (required, String, `1524252`) ...Asset Id
+    + file_id (required, Number, `17897805`)...File Id
+    + message_id (required,String, `X007DX6HYHCVYJF`)...Message id
+    + x_coordinate (optional, String, `12`) ...X coordinate of discussion.  Must be a positive integer.
+    + y_coordinate (optional, String, `45`) ...Y coordinate of discussion.  Must be a positive integer.
+    + z_coordinate (optional, String, `0`) ...Z coordinate of discussion.  Must be a positive integer.
++ Response 201 (application/json)
+
+            {
+                "_link": "/assets/1524251/conversations/114",
+                "conversation_id": 114
+            }
+
+### Retrieve file conversations for the asset [GET]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + id (required, String, `1524252`) ...Asset Id
+
++ Response 200
+
+        {
+            "file_conversations": [
+                {
+                    "id": 114,
+                    "member_id": 20722924,
+                    "asset_id": 1524252,
+                    "file_id": 17897805,
+                    "message_id": "X007DX6HYHCVYJF",
+                    "x_coordinate": 12,
+                    "y_coordinate": 25,
+                    "date_submitted": "November 18, 2015 21:19:30"
+                },
+                {
+                    "id": 12312,
+                    "member_id": 20722954,
+                    "asset_id": 1524252,
+                    "file_id": 17897804,
+                    "message_id": "X007DX6HYHCVYJF",
+                    "x_coordinate": 12,
+                    "y_coordinate": 221,
+                    "z_coordinate": 223,
+                    "date_submitted": "November 18, 2015 21:19:27"
+                }
+            ]
+        }
+
+### Retrieve a file conversation by id [GET /assets/{id}/conversations/{conversation_id}]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + id (required, String, `1524252`) ...Asset Id
+    + conversation_id (required, String, `114`) ...File Conversation Id
+
++ Response 200
+
+        {
+            "id": 114,
+            "member_id": 20722924,
+            "asset_id": 1524252,
+            "file_id": 17897805,
+            "message_id": "X007DX6HYHCVYJF",
+            "x_coordinate": 12,
+            "y_coordinate": 25,
+            "date_submitted": "November 18, 2015 21:19:30"
+        }
+
+### Delete a file conversation [DELETE /assets/{id}/conversations/{conversation_id}]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + conversation_id (required,String, `6975`)...File Conversation Id
++ Response 204
+
 # Group Files
 Files are "second class" citizens in the Cloud Services ecosystem. As explained in the Assets api introduction: Within the 3d modeling/printing eco-system it is often hard to model a complete creation and workflow with a single file. Hence a file by itself has little meaning without the context of the asset it belongs to.
 Of course in order to add a file to an asset, it must be uploaded first. The api operations below provide various ways of uploading a file and receiving a file id which can then be used to associate file with an asset.
