@@ -7136,7 +7136,9 @@ SecureSession is a required header for this API.
 
 ## Cart transfer [/carts/transfer{?cart_type,guest_session,id,name,address1,city,country_code,company,address2,postal_code,state,telephone,is_residential}]
 ### Transfer cart from guest to user [POST]
-Transfers a cart from a guest session to current logged in member
+Transfers a cart from a guest session to current logged in member.
+Upon success (COMPLETE), the response returns the list of product ids and product names that were transfered to the user cart. For PARTIAL transfer response with or without
+coupons, the response returns the list of ids and names of the products that were not transfered. Referred to the error message for a full description of the issue. 
 
 |description|HTTP|code
 |----|----|----
@@ -7163,108 +7165,130 @@ Transfers a cart from a guest session to current logged in member
 
 + Response 200 (application/json)
 
-        {
-          "status": "COMPLETE",
-          "message": "",
-          "products": "",
-          "coupons": "",
-          "error_codes":""
-        }
+            {
+              "status": "COMPLETE",
+              "message": "",
+              "error_codes": [],
+              "products": [
+                1616403,
+                1769767
+              ],
+              "coupons": [],
+              "product_names": [
+                "Asset Title",
+                "Toy chest"
+              ]
+            }
 
-        {
-          "status": "EMPTY_CART",
-          "message": "Guest with Session: 0000000-5F02-4133-BE38-ED61ACD29108 has no cart to transfer.",
-          "products": "",
-          "coupons": "",
-          "error_codes": [34900]
-        }
-
-        {
-          "status": "EMPTY_CART",
-          "message": "User 20704112 cannot buy the subscription since she already has it",
-          "products": [
-            14
-          ],
-          "coupons": [],
-          "error_codes":[34901]
-        }
-
-        {
-          "status": "EMPTY_CART",
-          "message": "User 20704112 cannot buy the product since she already has access to the product",
-          "products": [
-            1616403
-          ],
-          "coupons": [],
-          "error_codes":[34902]
-        }
-
-        {
-          "status": "PARTIAL",
-          "message": "User 20704112 cannot buy some of the product since she already has access to the product.",
-          "products": [
-            1616403
-          ],
-          "coupons": [],
-          "error_codes":[34903]
-        }
-
-        {
-          "status": "PARTIAL_WITH_COUPON",
-          "message": "Member has already used this coupon code ",
-          "products": [],
-          "coupons": [
-            "123"
-          ],
-          "error_codes":[34716]
-        }
-
-        {
-          "status": "PARTIAL_WITH_COUPON",
-          "message": "Coupon code expires ",
-          "products": [],
-          "coupons": [
-            "123"
-          ],
-          "error_codes":[34714]
-        }
-
-        {
-          "status": "PARTIAL_WITH_COUPON",
-          "message": "Coupon code usage has exceeded the limit ",
-          "products": [],
-          "coupons": [
-            "123"
-          ],
-          "error_codes":[34715]
-        }
-
-        {
-          "status": "PARTIAL",
-          "message": "User 20704112 cannot buy some of the product since she already has access to the product.Member has already used this coupon code ",
-          "products": [
-            1616403
-          ],
-          "coupons": [
-            "123"
-          ],
-          "error_codes":[34903,34716]
-        }
-
-        {
-          "status": "PARTIAL",
-          "message": "User 20704112 cannot buy some of the product since she already has access to the product.Delete coupon testcartcoupon because item is removed from cart ",
-          "error_codes": [
-            34903,
-            34907
-          ],
-          "products": [
-            1616403
-          ],
-          "coupons": [
-            "testcartcoupon"
-          ]
-        }
+            {
+              "status": "EMPTY_CART",
+              "message": "Guest with Session: 0000000-5F02-4133-BE38-ED61ACD29108 has no cart to transfer.",
+              "products": "",
+              "coupons": "",
+              "error_codes": [34900]
+            }
+    
+            {
+              "status": "EMPTY_CART",
+              "message": "User 20704112 cannot buy the subscription since she already has it",
+              "products": [
+                14
+              ],
+              "coupons": [],
+              "product_names": [
+                "Asset Title"
+              ],
+              "error_codes":[34901]
+            }
+    
+            {
+              "status": "EMPTY_CART",
+              "message": "User 20704112 cannot buy the product since she already has access to the product",
+              "products": [
+                1616403
+              ],
+              "coupons": [],
+              "product_names": [
+                "Asset Title"
+              ],
+              "error_codes":[34902]
+            }
+    
+            {
+              "status": "PARTIAL",
+              "message": "User 20704112 cannot buy some of the product since she already has access to the product.",
+              "products": [
+                1616403
+              ],
+              "coupons": [],
+              "product_names": [
+                "Asset Title"
+              ],
+              "error_codes":[34903]
+            }
+    
+            {
+              "status": "PARTIAL_WITH_COUPON",
+              "message": "Member has already used this coupon code ",
+              "products": [],
+              "coupons": [
+                "123"
+              ],
+              "error_codes":[34716]
+            }
+    
+            {
+              "status": "PARTIAL_WITH_COUPON",
+              "message": "Coupon code expires ",
+              "products": [],
+              "coupons": [
+                "123"
+              ],
+              "error_codes":[34714]
+            }
+    
+            {
+              "status": "PARTIAL_WITH_COUPON",
+              "message": "Coupon code usage has exceeded the limit ",
+              "products": [],
+              "coupons": [
+                "123"
+              ],
+              "error_codes":[34715]
+            }
+    
+            {
+              "status": "PARTIAL",
+              "message": "User 20704112 cannot buy some of the product since she already has access to the product.Member has already used this coupon code ",
+              "products": [
+                1616403
+              ],
+              "coupons": [
+                "123"
+              ],
+              "product_names": [
+                "Asset Title"
+              ],
+              "error_codes":[34903,34716]
+            }
+    
+            {
+              "status": "PARTIAL",
+              "message": "User 20704112 cannot buy some of the product since she already has access to the product.Delete coupon testcartcoupon because item is removed from cart ",
+              "error_codes": [
+                34903,
+                34907
+              ],
+              "products": [
+                1616403
+              ],
+              "coupons": [
+                "testcartcoupon"
+              ],
+              "product_names": [
+                "Asset Title"
+              ]
+            }
 
 
 
