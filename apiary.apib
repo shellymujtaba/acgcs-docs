@@ -3892,7 +3892,7 @@ API returns total accrued credits and total available credits (accrued - used) i
                 "total_purchased_with_sales_credit": 0
             }
 
-## OrderHistory [/members/{id}/orderhistory{?limit,offset}]
+## OrderHistory [/members/{id}/orderhistory{?limit,offset,order_status,start_date,end_date}]
 ### Retrieve member's purchases [GET]
 Get all the purchases made by the member.
 
@@ -3911,6 +3911,9 @@ Get all the purchases made by the member.
     + id (required, Number, `2345689`)...Numeric `id` of the member.
     + limit (optional, Number, `4`)...Number of results per page.
     + offset (optional, Number, `8`)...This offsets the start of each page by the number specified.
+    + order_status (optional, String, 'COMPLETE')... Filter by order status: IN_PROGRESS, COMPLETE, CANCELED, ON_HOLD, CLOSED, FAILED, DECLINE.
+    + start_date (optional, String, '')...
+    + end_date (optional, String, '')...
 
 + Response 200 (application/json)
 
