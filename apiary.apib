@@ -3549,7 +3549,7 @@ Retrieve member's subscription history in chronologically descending order. Each
                 "_link_next":"/member/20280723/subscriptions?limit=26&offset=39"
             }
 
-## Cancel Subscription [/members/{memberId}/subscriptions/{subscriptionId}{?affiliate_code}]
+## Cancel Subscription [/members/{memberId}/subscriptions/{subscriptionId}/cancel{?affiliate_code}]
 ### Cancel member's subscription [PUT]
 cancel a subscription. The subscription will be cancelled immediately but customer can still enjoy subscription until subscription period ends. The customer will get a cancellation email when this api is called.
 
@@ -3710,8 +3710,6 @@ Update subscription with different parameters. You have to pass any one paramete
             "status": true
         }
 
-## Update Card [/members/{memberId}/updatecards{?product_id,new_product_id,encrypted_credit_card,encrypted_cvv,exp_month}]
-### Cancel member's subscription [PUT]
 
 ## Addresses [/members/addresses/{address_id}{?address_type,limit,offset,name,address1,address2,city,state,country_code,telephone,company,is_residential,postal_code}]
 Returns a list of addresses associated with a logged-in or guest member.
