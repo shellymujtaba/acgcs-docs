@@ -5752,7 +5752,7 @@ If seller updates the status of each individual SKU, each item in fulfillment_sk
             }
 
 
-##Sales Search [/shops/sales/search{?shop_id,order_id,start_placed_date,end_placed_date,start_fulfilled_date,end_fulfilled_date,product_id,product_type,product_name,order_status,fulfilled_by,transaction_type,silent_refund,min_product_price,max_product_price,psp_ref_number,original_psp_ref_number,shop_name,shop_title,vendor_sku,buyer_id,buyer_email,buyer_name,buyer_city,buyer_state,buyer_country,tracking_number,q,limit,offset,sort_order}]
+##Sales Search [/shops/sales/search{?shop_id,order_id,start_placed_date,end_placed_date,start_fulfilled_date,end_fulfilled_date,product_id,product_type,product_name,order_status,fulfilled_by,transaction_type,silent_refund,min_product_price,max_product_price,psp_ref_number,original_psp_ref_number,shop_name,shop_title,vendor_sku,buyer_id,buyer_email,buyer_name,buyer_city,buyer_state,buyer_country,tracking_number,q,limit,offset,sort_order,sort_by}]
 Search sales' history on Marketplace. Shop ID is optional for admins to retrieve all sales regardless of shop ID. For shop owner shop_id is required and shop owner can only search for orders within his/her shop. All search fields are optional. When more than 1 search field is passed we will assume that search is done with "AND", which means orders returned will have all the searched fields.
 
 Search results returned may not return orders placed in last few minutes. If you want real time data please use /Shops/Sales API.
