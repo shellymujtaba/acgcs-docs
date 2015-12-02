@@ -2936,6 +2936,81 @@ Member apps operations
 
 + Response 204 (application/json)
 
+## Devices [/devices{?app_id,device_id,device_type,message_version,device_version,token_id,email}]
+Member device operations
+
+**Device Types**
+
+The following are available for device type.
+
+|_Device ID_|_Description_
+|----|----
+|1|UNKNOWN
+|2|IOS
+|3|ANDROID
+|4|WIN
+|5|METRO
+|6|MAC
+|7|WEB
+
+### Retrieve a member's device status [GET]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + app_id (required,Number, `19`)...Application id
+    + device_id (required, String,`e7068fe494ea510c7b30c0d096e8815aaa621838b503de858e5e72d2a2b7ddc6`)...Device id
+
++ Response 200 (application/json)
+
+        {
+          "registered": true,
+          "full_notification_registration": true
+        }
+        
+### Add a device [PUT]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + app_id (required,Number, `19`)...Application id
+    + device_id (required,String,`e7068fe494ea510c7b30c0d096e8815aaa621838b503de858e5e72d2a2b7ddc6`)...Device id
+    + device_type (required,Number, `2`)...Device type id
+    + message_version (required,String, `v1`)...Message Version
+    + device_version (optional,String, `1.0a`)...Version of device
+    + token_id (optional,Number, `19`)...Token id
+    + email (optional,String, `jsmith@gmail.com`)...Email
+    
++ Response 200 (application/json)
+
+        {
+          "registered": true,
+          "full_notification_registration": true
+        }
+        
+### Delete a device [DELETE]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + app_id (required,Number, `19`)...Application id
+    + device_id (required, String,`e7068fe494ea510c7b30c0d096e8815aaa621838b503de858e5e72d2a2b7ddc6`)...Device id
+
++ Response 200 (application/json)
+
+        {
+          "registered": false
+        }
+        
 
 ## Preferences [/members/{id}/preferences{?namespace,empty_if_null,preference_name,preference_value,preference_names,ts}]
 Member preference operations
@@ -2948,7 +3023,7 @@ _Dispatching the request:_
 * Pass timestamp parameter as "ts". Format: 'YYYY-MM-DD HH:mm:ss'. The timestamp should be within past 15 mins timeframe.
 * Pass hash parameter as "hash". This is generated using SHA-256 hash function combining Affiliate Code + Member id + Timestamp + Affiliate shared secret
 
-### Retrieve a members preferences [GET]
+### Retrieve a member's preferences [GET]
 + Request (application/x-www-form-urlencoded)
     + Headers
 
@@ -2976,7 +3051,7 @@ _Dispatching the request:_
           "last_modified": "August 11, 2015 21:04:44"
         }
 
-### Save a members preference [PUT /members/{id}/preferences{?namespace,empty_if_null,preference_name,preference_value,ts,hash}]
+### Save a member's preference [PUT /members/{id}/preferences{?namespace,empty_if_null,preference_name,preference_value,ts,hash}]
 + Request (application/x-www-form-urlencoded)
     + Headers
 
@@ -2998,7 +3073,7 @@ _Dispatching the request:_
           "_link": "/members/20708713/preferences"
         }
 
-### Remove a members preferences [DELETE /members/{id}/preferences{?namespace,preference_names}]
+### Remove a member's preferences [DELETE /members/{id}/preferences{?namespace,preference_names}]
 + Request (application/x-www-form-urlencoded)
     + Headers
 
@@ -3021,7 +3096,7 @@ Returns the list of users this member follows.
     + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
 
-### Retrieve members this member follows [GET]
+### Retrieve member's this member follows [GET]
 + Request (application/x-www-form-urlencoded)
     + Headers
 
