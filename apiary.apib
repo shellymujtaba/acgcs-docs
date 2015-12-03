@@ -3594,6 +3594,11 @@ Retrieve member's subscription history in chronologically descending order. Each
 
 ### Retrieve member's subscription history [GET]
 
++ Parameter
+    + subscription_ids (optional, String , `3,4,14,15`)... Comma seperate list of subscription ids. Return only subscriptions of particular subscription id.
+    + exclude_expired (optional, Boolean , `true`)....Return only active subscriptions.
+
+
 + Request (application/x-www-form-urlencoded)
     + Headers
 
@@ -3606,13 +3611,19 @@ Retrieve member's subscription history in chronologically descending order. Each
                 "subscriptions":
                                 [
                                     {
-                                        "subscription_id": 3,
-                                        "start_date": "July, 02 2014 16:34:00",
-                                        "end_date": "October, 27 2014 00:00:00",
-                                        "cancelled_date": "",
-                                        "event_type": "RENEW",
-                                        "is_true_subscription": false
-                                    }
+                                          "subscription_id": 4,
+                                          "start_date": "November 13, 2015 19:50:00",
+                                          "end_date": "November 13, 2016 19:50:00",
+                                          "end_date_with_grace_period": "November 14, 2016 19:50:00",
+                                          "last_modified_date": "November 13, 2015 13:50:50",
+                                          "cancelled_date": "",
+                                          "last_auto_renewal_update_date": "",
+                                          "psp_sub_id": "7572079",
+                                          "source": "DEFAULT",
+                                          "auto_renewal": true,
+                                          "event_type": "CHANGE_PLAN",
+                                          "is_true_subscription": false
+                                        }
                                 ],
                 "count":26,
                 "limit":26,
@@ -3621,6 +3632,7 @@ Retrieve member's subscription history in chronologically descending order. Each
                 "_link_prev":"/member/20280723/subscriptions?limit=26&offset=26",
                 "_link_next":"/member/20280723/subscriptions?limit=26&offset=39"
             }
+            
 
 ## Cancel Subscription [/members/{memberId}/subscriptions/{subscriptionId}/cancel{?affiliate_code}]
 ### Cancel member's subscription [PUT]
