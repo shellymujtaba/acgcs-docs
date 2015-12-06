@@ -2616,13 +2616,13 @@ name, email, locale and avatar.
 
 **Explanation of Member Name Fields**: in ACG cloud services (ACS) - There are 3 name related fields :
 
-1. User first and last name: Known as first_name and last_name in api results. This is users private data and should not be displayed on their public profile. These need to be set for the user by either the app or oxygen. Unfortunately our registration process does not collect First and Last name of the users - so oxygen attempts to populate the fields with users email address using following rules:  
+1. *User first and last name*: Known as first_name and last_name in api results. This is users private data and should not be displayed on their public profile. These need to be set for the user by either the app or oxygen. Unfortunately our registration process does not collect First and Last name of the users - so oxygen attempts to populate the fields with users email address using following rules:  
     
     a. If there is a delimiter like - or _ split the email address into 2 e.g John_Smith@yahoo.com will populate John for first and Smith for last name.  
     
     b. Otherwise the email name is used for both first and last name. So, in case of this user coolDude@yahoo.com - no delimiter is detected hence cooldude is populated for both first and last name.  
 
-2. Screen name of the user - known as "name" in the api results - this is a globally unique screen name assigned to each user - if another screen name already exists a unique number is appended to the screen name until it becomes unique. 
+2. *Screen name of the user*:known as "name" in the api results - this is a globally unique screen name assigned to each user - if another screen name already exists a unique number is appended to the screen name until it becomes unique. 
 
 However all of these fields - first, last name and screen name can be changed by the application through these api's.
 
