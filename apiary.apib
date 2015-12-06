@@ -2612,7 +2612,17 @@ Retrieve all information about the currently logged-in member.
 ## Member By Id [/members/{id}{?name,email,first_name,last_name,description,location,facebook,twitter,personal,locale,locale_language,locale_country,avatar,company,company_website,industry,address1,address2,city,state,postal_code,country_code,phone_home,phone_mobile,phone_work,phone_work_extension,newsletters,subscribe,preferences}]
 
 Manage public information about a member. To update a member secure session is required for following fields:
-name, email, locale and avatar.  For some parameters, if you provide no value for a parameter, the current value will be erased (see table below).
+name, email, locale and avatar.  
+*Explanation of Member Name Fields*: in ACG cloud services (ACS) - There are 3 name related fields :
+
+a. User first and last name: Known as first_name and last_name in api results. This is users private data and should not be displayed on their public profile. These need to be set for the user by either the app or oxygen. Unfortunately our registration process does not collect First and Last name of the users - so oxygen attempts to populate the fields with users email address using following rules:  
+    1. If there is a delimiter like - or _ split the email address into 2 e.g John_Smith@yahoo.com will populate John for first and Smith for last name.  
+    2. Otherwise the email name is used for both first and last name. So, in case of this user coolDude@yahoo.com - no delimiter is detected hence cooldude is populated for both first and last name.  
+b. Screen name of the user - known as "name" in the api results - this is a globally unique screen name assigned to each user - if another screen name already exists a unique number is appended to the screen name until it becomes unique. 
+
+However all of these fields - first, last name and screen name can be changed by the application through these api's.
+
+For some parameters, if you provide no value for a parameter, the current value will be erased (see table below).
 
 + Parameters
     + id (required,Number, `20280723`)...Member id
