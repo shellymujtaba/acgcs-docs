@@ -4395,7 +4395,7 @@ Private messaging APIs for conversation between members. These APIs also support
 
 Get all messages for a thread. 
 
-**_Note:_** The recipient & sender box signifies the type if conversation. For private messaging its is IN & OUT whereas for group conversation, it is CHAT.
+**_Note:_** The recipient & sender box signifies the type of conversation. For private messaging its is IN & OUT whereas for group conversation, it is CHAT.
 
 + Parameters
     + id (required,Number, `20280723`)...Member id
@@ -4454,7 +4454,10 @@ Get all messages for a thread.
 
 ### Send Message [POST /members/{id}/messages]
 
-Send a new message to a member or multiple member. This API can be used to initiate both private messaging and group conversation (CHAT).
+Send a new message to a member or multiple members. This API can be used to initiate both private messaging and group conversation (CHAT).
+
+**_Note:_** Private messaging can be initiated between two members whereas group conversation (CHAT) can be initiated between two or more members.
+The recipient_ids param can have only one member when its is private messaging. This can be controlled via mailbox param.
 
 + Parameters
     + id (required,Number, `20280723`)...Member id
