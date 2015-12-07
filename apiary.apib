@@ -4456,8 +4456,8 @@ Get all messages for a thread.
 
 Send a new message to a member or multiple members. This API can be used to initiate both private messaging and group conversation (CHAT).
 
-**_Note:_** Private messaging can be initiated between two members whereas group conversation (CHAT) can be initiated between two or more members.
-The recipient_ids param can have only one member when its is private messaging. This can be controlled via mailbox param.
+**_Note:_** Private messaging can be initiated between two members only whereas group conversation (CHAT) can be initiated between two or more members.
+The recipient_ids param can have only one member in case of private messaging. This can be controlled via mailbox param.
 
 + Parameters
     + id (required,Number, `20280723`)...Member id
@@ -4479,6 +4479,11 @@ The recipient_ids param can have only one member when its is private messaging. 
             "message_id": "XAWYZDDIBLUNXZY",
             "_link": "/members/20704116/messages/TAWYZDDIBLUNXZY"
         }
+        
+        {
+            "thread_id": "TAWYZDDIBLUNXZY",
+            "_link": "/members/20704116/messages/TAWYZDDIBLUNXZY"
+        }        
 
 ### Put Message [PUT]
 
