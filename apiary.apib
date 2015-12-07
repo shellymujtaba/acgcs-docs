@@ -4387,77 +4387,18 @@ Extend members subscription by specified period.
                 }
         ]
 
-## Private Messaging [/members/{id}/messages{?mailbox,limit,offset,subject,body,recipient_id,messageid,message_id,messageId,action,user_id}]
+## Private Messaging [/members/{id}/messages]
 
-Private messaging APIs for the conversation between members. These APIs also include group conversation (CHAT) among multiple members.
+Private messaging APIs for conversation between members. These APIs also include group conversations (CHAT) among multiple members.
 
-### Retrieve member Messages [GET]
+### Retrieve Messages [GET /members/{id}/messages/{thread_id}]
 
-Retrieve all the messages for a member. The messages can be retrieved from various mailboxes - IN/OUT/TRASH/DELETED/BLOCKED. This API provide "mailbox" option for this.
-
-+ Parameters
-    + id (required,Number, `20280723`)...Member id
-    + mailbox  (optional, String,`IN`)...Option :- IN, OUT, TRASH, DELETED, BLOCKED. Default: IN.
-    + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
-    + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
-
-+ Request (application/x-www-form-urlencoded)
-    + Headers
-
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-
-
-+ Response 200 (application/json)
-
-        {
-            "count": 28,
-            "limit": 2,
-            "offset": 0,
-            "_link": "/members/20704116/messages?limit=2&offset=0",
-            "_link_next": "/members/20704116/messages?limit=2&offset=2",
-            "messages": [
-                {
-                    "subject": "hi...",
-                    "thread_id": "XHFMVYDI3LCLYGC",
-                    "sent_time": "July 06, 2015 14:34:11",
-                    "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
-                    "sender_screen_id": 20707261,
-                    "sender_screen_name": "qaautomationuser",
-                    "recipient_screen_id": 20704116,
-                    "recipient_screen_name": "sumanwan",
-                    "profile_url": "http://alpha.squidplatform.com/MyCorner/qaautomationuser-20707261",
-                    "message_id": "XHFMVYDI3LCLYGC",
-                    "read_time": "",
-                    "modifier_id": "",
-                    "inreplyto": ""
-                },
-                {
-                    "subject": "Good Day",
-                    "thread_id": "X7ZFQEKI3LCLYGA",
-                    "sent_time": "July 06, 2015 14:34:11",
-                    "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
-                    "sender_screen_id": 20707261,
-                    "sender_screen_name": "qaautomationuser",
-                    "recipient_screen_id": 20704116,
-                    "recipient_screen_name": "sumanwan",
-                    "profile_url": "http://alpha.squidplatform.com/MyCorner/qaautomationuser-20707261",
-                    "message_id": "X7ZFQEKI3LCLYGA",
-                    "read_time": "",
-                    "modifier_id": "",
-                    "inreplyto": ""
-                }
-            ]
-        }
-
-
-### Retrieve Message Details [GET]
-
-Get message by Id. Person A sends mail to B and B replies to A and then A again replies to B. Then passing last message's id will return whole thread.
+Get all messages for a thread. 
 
 + Parameters
     + id (required,Number, `20280723`)...Member id
-    + messageid (required,String, `XWTWLL9H411A68F`)...Message id. Pass message id in url. for example: /api/v2/members/{memberId}/messages/{messageId}
+    + thread_id (required, String, `TWTWLL9H411A68F`)...Thread id.
+    
 + Request (application/x-www-form-urlencoded)
     + Headers
 
@@ -4466,72 +4407,59 @@ Get message by Id. Person A sends mail to B and B replies to A and then A again 
 
 + Response 200 (application/json)
 
+{
+    "count": 2,
+    "limit": 20,
+    "offset": 0,
+    "_link": "/members/20706579/messages/tiarffdihwkk2nw?limit=20&offset=0",
+    "messages": [
         {
-            "message_count_inthread": 3,
-            "messages": [
-                {
-                    "subject": "Re:Re:Health",
-                    "body": "Ok.GreatToHere",
-                    "thread_id": "X79ZOI0H411A68D",
-                    "sent_time": "July 06, 2015 14:34:11",
-                    "profile_image": "",
-                    "sender_screen_id": 0,
-                    "sender_screen_name": "xcvbvb",
-                    "recipient_screen_id": 0,
-                    "recipient_screen_name": "amoltul",
-                    "profile_url": "",
-                    "message_id": "X4FFNPTH411A68H",
-                    "read_time": "",
-                    "recipient_box": "IN",
-                    "sender_box": "OUT",
-                    "inreplyto": "XWTWLL9H411A68F"
-                },
-                {
-                    "subject": "Re:Health",
-                    "body": "IAmFine",
-                    "thread_id": "X79ZOI0H411A68D",
-                    "sent_time": "July 06, 2015 14:34:11",
-                    "profile_image": "",
-                    "sender_screen_id": 0,
-                    "sender_screen_name": "amoltul",
-                    "recipient_screen_id": 0,
-                    "recipient_screen_name": "xcvbvb",
-                    "profile_url": "",
-                    "message_id": "XWTWLL9H411A68F",
-                    "read_time": "July 06, 2015 14:34:11",
-                    "recipient_box": "DELETED",
-                    "sender_box": "OUT",
-                    "inreplyto": "X79ZOI0H411A68D"
-                },
-                {
-                    "subject": "TestSubject",
-                    "body": "HowAreYou",
-                    "thread_id": "X79ZOI0H411A68D",
-                    "sent_time": "July 06, 2015 14:34:11",
-                    "profile_image": "",
-                    "sender_screen_id": 0,
-                    "sender_screen_name": "xcvbvb",
-                    "recipient_screen_id": 0,
-                    "recipient_screen_name": "amoltul",
-                    "profile_url": "",
-                    "message_id": "X79ZOI0H411A68D",
-                    "read_time": "",
-                    "recipient_box": "IN",
-                    "sender_box": "OUT",
-                    "inreplyto": ""
-                }
-            ]
+            "subject": "wow",
+            "body": "this is nice",
+            "thread_id": "TIARFFDIHWKK2NW",
+            "sent_time": "December 07, 2015 23:08:50",
+            "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
+            "sender_screen_id": 20722945,
+            "sender_screen_name": "ecommerceoxygen fixed credits 207",
+            "recipient_screen_id": 20706579,
+            "recipient_screen_name": "new user 207",
+            "profile_url": "http://beta.squidplatform.com/MyCorner/ecommerceoxygenfixedcredits207-20722945",
+            "message_id": "XYEYBZPIHWFJC34",
+            "read_time": "",
+            "recipient_box": "CHAT",
+            "sender_box": "CHAT",
+            "inreplyto": ""
+        },
+        {
+            "subject": "wow",
+            "body": "wow",
+            "thread_id": "TIARFFDIHWKK2NW",
+            "sent_time": "December 07, 2015 23:08:21",
+            "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
+            "sender_screen_id": 20706579,
+            "sender_screen_name": "new user 207",
+            "recipient_screen_id": 20706579,
+            "recipient_screen_name": "new user 207",
+            "profile_url": "http://beta.squidplatform.com/MyCorner/newuser207-20706579",
+            "message_id": "XY52ZPZIHWFJC32",
+            "read_time": "",
+            "recipient_box": "CHAT",
+            "sender_box": "CHAT",
+            "inreplyto": ""
         }
+    ]
+}
 
-### Send Message [POST]
+### Send Message [POST /members/{id}/messages]
 
-Send new message to user.
+Send a new message to a member or multiple member
 
 + Parameters
     + id (required,Number, `20280723`)...Member id
-    + subject  (required,String`)...Subject of the message
-    + body  (required,String`)...Body of the message
-    + recipient_id  (required,Number, `20280724`)...Id of the member to whom message need to be send
+    + subject  (required,String,`message subject`)...Subject of the message
+    + body  (required,String,`message body`)...Body of the message
+    + recipient_ids (required,Number, `20280724,352345234`)...One or more Member Ids separated by comma
+    + mailbox (optional, String, `CHAT`)...Mailbox type. If passed as CHAT, a group conversation is initiated.
 
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -4542,9 +4470,9 @@ Send new message to user.
 + Response 201 (application/json)
 
         {
-            "thread_id": "XAWYZDDIBLUNXZY",
+            "thread_id": "TAWYZDDIBLUNXZY",
             "message_id": "XAWYZDDIBLUNXZY",
-            "_link": "/members/20704116/messages/XAWYZDDIBLUNXZY"
+            "_link": "/members/20704116/messages/TAWYZDDIBLUNXZY"
         }
 
 ### Put Message [PUT]
