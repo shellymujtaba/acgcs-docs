@@ -4534,6 +4534,23 @@ Mark message as read, delete, undelete, purge and mark user as block/unblock.
 
 + Response 204 (application/json)
 
+### Delete Message [DELETE /members/{id}/messages]
+
+Delete a private message or message thread.
+
++ Parameters
+    + id (required,Number, `20280723`)...Member Id
+    + message_id (optional, String, `XWTWLL9H411A68F`)...Message id.
+    + thread_id (optional, String, `TWTWLL9H411A68F`)...Thread Id. Only creator of the thread can delete the thread.
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Response 204 (application/json)
+
 ### Add recipients to a thread [POST /members/{id}/recipients]
 
 Add recipients to an existing thread.
