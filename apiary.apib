@@ -4485,6 +4485,36 @@ The recipient_ids param can have only one member in case of private messaging. T
             "_link": "/members/20704116/messages/TAWYZDDIBLUNXZY"
         }        
 
+### Reply Message [POST /members/{id}/messages/reply]
+
+Reply to a private message or a group conversation (CHAT).
+
++ Parameters
+    + id (required,Number, `20280723`)...Member id
+    + message_id (optional,String, `XWTWLL9H411A68F`)...Message Id. Id of the message to which reply has to be send.
+    + thread_id (optional,String, `TWTWLL9H411A68F`)...Thread Id. Id of the thread to which reply has to be send.
+    + subject  (required,String`)...Subject of the message
+    + body  (required,String`)...Body of the message
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Response 201 (application/json)
+
+        {
+            "thread_id": "TAWYZDDIBLUNXZY",
+            "message_id": "XAWYZDDIBLUNXZY",
+            "_link": "/members/20704116/messages/TAWYZDDIBLUNXZY"
+        }
+        
+        {
+            "thread_id": "TAWYZDDIBLUNXZY",
+            "_link": "/members/20704116/messages/TAWYZDDIBLUNXZY"
+        } 
+
 ### Put Message [PUT /members/{id}/messages]
 
 Mark message as read, delete, undelete, purge and mark user as block/unblock.
@@ -4520,30 +4550,6 @@ Add recipients to an existing thread.
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Response 204 (application/json)
-
-### Reply Message [POST]
-
-Send new message to user. To send reply to existing mail thread use Member/Reply.
-
-+ Parameters
-    + id (required,Number, `20280723`)...Member id
-    + messageId (required,String, `XWTWLL9H411A68F`)...Message id. Id of the message to which reply has to be send. You will get this id through GET /messages or GET /messages/{messageId}.
-    + subject  (required,String`)...Subject of the message
-    + body  (required,String`)...Body of the message
-
-+ Request (application/x-www-form-urlencoded)
-    + Headers
-
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-
-+ Response 201 (application/json)
-
-        {
-            "thread_id": "XAWYZDDIBLUNXZY",
-            "message_id": "XN8QJH5IBLUNY08",
-            "_link": "/members/20704116/messages/XN8QJH5IBLUNY08"
-        }
 
 # Group Auth
 
