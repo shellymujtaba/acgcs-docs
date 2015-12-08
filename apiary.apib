@@ -4568,6 +4568,23 @@ Add recipients to an existing thread.
 
 + Response 204 (application/json)
 
+### Delete recipients to a thread [DELETE /members/{id}/recipients]
+
+Delete recipients from an existing thread.
+
++ Parameters
+    + id (required,Number, `20280723`)...Member Id already present on the thread
+    + recipient_ids (required, String, `20280723,1248514`)...Member Ids to be deleted from the thread. (The creator of the thread can delete any member on the thread whereas other members can delete themself from the thread).
+    + thread_id  (required,String, `TWTWLL9H411A68F`)...Thread Id.
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Response 204 (application/json)
+
 # Group Auth
 
 ## Login [/login{?afc,display,secure,relative_redirect_path,locale,register,ssl,social_redirect,meter_session,send_create,send_first_login,oauth_asynch,authorization_code,send_opt_in,social_providers,css_query_param,moderator_id,auto_login,send_moderator_email,parent_email}]
