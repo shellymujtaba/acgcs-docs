@@ -4606,48 +4606,54 @@ Get all threads for the member.
 + Response 200 (application/json)
 
 {
-    "count": 2,
-    "limit": 20,
+    "count": 64,
+    "limit": 2,
     "offset": 0,
-    "_link": "/members/20706579/messages/tiarffdihwkk2nw?limit=20&offset=0",
-    "messages": [
+    "_link": "/members/20704634/threads?limit=2&offset=0",
+    "_link_next": "/members/20704634/threads?limit=2&offset=2",
+    "threads": [
         {
-            "subject": "wow",
-            "body": "this is nice",
-            "thread_id": "TIARFFDIHWKK2NW",
-            "sent_time": "December 07, 2015 23:08:50",
-            "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
-            "sender_screen_id": 20722945,
-            "sender_screen_name": "ecommerceoxygen fixed credits 207",
-            "recipient_screen_id": 20706579,
-            "recipient_screen_name": "new user 207",
-            "profile_url": "http://beta.squidplatform.com/MyCorner/ecommerceoxygenfixedcredits207-20722945",
-            "message_id": "XYEYBZPIHWFJC34",
-            "read_time": "",
-            "recipient_box": "CHAT",
-            "sender_box": "CHAT",
-            "inreplyto": ""
+            "subject": "subject",
+            "thread_id": "TFFKIICIHW969QD",
+            "recipients": [
+                {
+                    "name": "jclacey3",
+                    "id": 20268788
+                },
+                {
+                    "name": "Kirill Goldin",
+                    "id": 20268789
+                }
+            ],
+            "total_message_count": 1,
+            "unread_message_count": 1,
+            "sender": {
+                "name": "new user",
+                "id": 20704634
+            }
         },
         {
-            "subject": "wow",
-            "body": "wow",
-            "thread_id": "TIARFFDIHWKK2NW",
-            "sent_time": "December 07, 2015 23:08:21",
-            "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
-            "sender_screen_id": 20706579,
-            "sender_screen_name": "new user 207",
-            "recipient_screen_id": 20706579,
-            "recipient_screen_name": "new user 207",
-            "profile_url": "http://beta.squidplatform.com/MyCorner/newuser207-20706579",
-            "message_id": "XY52ZPZIHWFJC32",
-            "read_time": "",
-            "recipient_box": "CHAT",
-            "sender_box": "CHAT",
-            "inreplyto": ""
+            "subject": "subject",
+            "thread_id": "T4HSWA6IHPJ4FVP",
+            "recipients": [
+                {
+                    "name": "jclacey3",
+                    "id": 20268788
+                },
+                {
+                    "name": "Kirill Goldin",
+                    "id": 20268789
+                }
+            ],
+            "total_message_count": 2,
+            "unread_message_count": 0,
+            "sender": {
+                "name": "new user",
+                "id": 20704634
+            }
         }
     ]
 }
-
 
 # Group Auth
 
