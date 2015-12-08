@@ -4589,7 +4589,7 @@ Delete recipients from an existing thread.
 
 ### Retrieve Member Threads [GET /members/{id}/threads]
 
-Get all threads for the member. 
+Get message threads (CHAT) for the member. 
 
 + Parameters
     + id (required,Number, `20280723`)...Member id
@@ -4653,6 +4653,43 @@ Get all threads for the member.
             }
         }
     ]
+}
+
+### Retrieve Member Thread Details [GET /members/{id}/threads/{thread_id}]
+
+Get message threads (CHAT) for the member. 
+
++ Parameters
+    + id (required,Number, `20280723`)...Member id
+    + thread_id (required, String, `T4HSWA6IHPJ4FVP`)...Thread Id.
+    
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Response 200 (application/json)
+
+{
+    "subject": "subject",
+    "thread_id": "T4HSWA6IHPJ4FVP",
+    "recipients": [
+        {
+            "name": "jclacey3",
+            "id": 20268788
+        },
+        {
+            "name": "Kirill Goldin",
+            "id": 20268789
+        }
+    ],
+    "total_message_count": 2,
+    "unread_message_count": 0,
+    "sender": {
+        "name": "new user",
+        "id": 20704634
+    }
 }
 
 # Group Auth
