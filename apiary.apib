@@ -4587,6 +4587,68 @@ Delete recipients from an existing thread.
 
 + Response 204 (application/json)
 
+### Retrieve Threads [GET /members/{id}/threads]
+
+Get all threads for the member. 
+
++ Parameters
+    + id (required,Number, `20280723`)...Member id
+    + sort_order (optional, String, `recent`)...Sort order. Options: recent/unread
+    + offset (optional, Number, `0`)
+    + limit (optional, Number, `10`)
+    
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Response 200 (application/json)
+
+{
+    "count": 2,
+    "limit": 20,
+    "offset": 0,
+    "_link": "/members/20706579/messages/tiarffdihwkk2nw?limit=20&offset=0",
+    "messages": [
+        {
+            "subject": "wow",
+            "body": "this is nice",
+            "thread_id": "TIARFFDIHWKK2NW",
+            "sent_time": "December 07, 2015 23:08:50",
+            "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
+            "sender_screen_id": 20722945,
+            "sender_screen_name": "ecommerceoxygen fixed credits 207",
+            "recipient_screen_id": 20706579,
+            "recipient_screen_name": "new user 207",
+            "profile_url": "http://beta.squidplatform.com/MyCorner/ecommerceoxygenfixedcredits207-20722945",
+            "message_id": "XYEYBZPIHWFJC34",
+            "read_time": "",
+            "recipient_box": "CHAT",
+            "sender_box": "CHAT",
+            "inreplyto": ""
+        },
+        {
+            "subject": "wow",
+            "body": "wow",
+            "thread_id": "TIARFFDIHWKK2NW",
+            "sent_time": "December 07, 2015 23:08:21",
+            "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
+            "sender_screen_id": 20706579,
+            "sender_screen_name": "new user 207",
+            "recipient_screen_id": 20706579,
+            "recipient_screen_name": "new user 207",
+            "profile_url": "http://beta.squidplatform.com/MyCorner/newuser207-20706579",
+            "message_id": "XY52ZPZIHWFJC32",
+            "read_time": "",
+            "recipient_box": "CHAT",
+            "sender_box": "CHAT",
+            "inreplyto": ""
+        }
+    ]
+}
+
+
 # Group Auth
 
 ## Login [/login{?afc,display,secure,relative_redirect_path,locale,register,ssl,social_redirect,meter_session,send_create,send_first_login,oauth_asynch,authorization_code,send_opt_in,social_providers,css_query_param,moderator_id,auto_login,send_moderator_email,parent_email}]
