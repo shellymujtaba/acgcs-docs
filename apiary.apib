@@ -1144,6 +1144,63 @@ All references to external artifacts such as blog posts, videos, photos etc.
 
 + Response 204
 
+## Asset Taxonomy [/assets/taxonomy]
+Get all taxonomies in tree format
+
+### Retrieve taxonomies[GET]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
++ Parameters
+    + namespace (required,String,`Circuits`)...NameSpace for which categories are to be retrived.
+    + depth (optional,Number,`2`)... it defines levels upto gievn depth should be returned.
+    + taxonomy (optional,String,`Circuits/mydata/abc`)...the category from which the tree should start.
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Response 200 (application/json)
+
+            {
+                "links": [
+                    {
+                        "type": "VIDEO",
+                        "references": [
+                            {
+                                "id": "5423906829345",
+                                "title": "title",
+                                "description": "title",
+                                "embedWidget": "<iframe width=\"854\" height=\"510\" src=\"//www.youtube.com/embed/wQ3nCa2_f88\" frameborder=\"0\"></iframe>"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "LINK",
+                        "references": [
+                            {
+                                "id": "54239097944f1",
+                                "title": "link",
+                                "description": "title",
+                                "url": "https://www.youtube.com/watch?v=wQ3nCa2_f88"
+                            }
+                        ]
+                    }
+                ]
+            }
+
+### Delete an asset link [DELETE]
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + link_ids (optional,String,`234566,142342FD65F`)...Comma separated list of link ids provided while creating the asset links.
+
++ Response 204
+
+
 ## Asset Translations [/assets/{id}/translations]
 This api will be used by backend services to update translations for various uploaded files including source files, transformation files etc.
 
