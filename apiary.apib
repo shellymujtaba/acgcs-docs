@@ -1145,7 +1145,7 @@ All references to external artifacts such as blog posts, videos, photos etc.
 + Response 204
 
 ## Asset Taxonomy [/assets/taxonomy]
-Get all taxonomies in tree format
+Get all taxonomies/Namespace-categories in tree format
 
 ### Retrieve taxonomies[GET]
 + Request (application/x-www-form-urlencoded)
@@ -1161,44 +1161,131 @@ Get all taxonomies in tree format
 + Response 200 (application/json)
 
             {
-                "links": [
+                "name": "mkp",
+                "count": 29,
+                "depth": 0,
+                "parent_name": "",
+                "children": [
                     {
-                        "type": "VIDEO",
-                        "references": [
+                        "name": "Content",
+                        "count": 8,
+                        "depth": 1,
+                        "parent_name": "mkp",
+                        "children": [
                             {
-                                "id": "5423906829345",
-                                "title": "title",
-                                "description": "title",
-                                "embedWidget": "<iframe width=\"854\" height=\"510\" src=\"//www.youtube.com/embed/wQ3nCa2_f88\" frameborder=\"0\"></iframe>"
+                                "name": "Lessons",
+                                "count": 5,
+                                "depth": 2,
+                                "parent_name": "mkp/Content",
+                                "children": []
+                            },
+                            {
+                                "name": "Tutorials",
+                                "count": 2,
+                                "depth": 2,
+                                "parent_name": "mkp/Content",
+                                "children": []
+                            },
+                            {
+                                "name": "3D Print files",
+                                "count": 4,
+                                "depth": 2,
+                                "parent_name": "mkp/Content",
+                                "children": []
+                            },
+                            {
+                                "name": "Digital files",
+                                "count": 2,
+                                "depth": 2,
+                                "parent_name": "mkp/Content",
+                                "children": []
                             }
                         ]
                     },
                     {
-                        "type": "LINK",
-                        "references": [
+                        "name": "Services",
+                        "count": 5,
+                        "depth": 1,
+                        "parent_name": "mkp",
+                        "children": [
                             {
-                                "id": "54239097944f1",
-                                "title": "link",
-                                "description": "title",
-                                "url": "https://www.youtube.com/watch?v=wQ3nCa2_f88"
+                                "name": "3D print service",
+                                "count": 2,
+                                "depth": 2,
+                                "parent_name": "mkp/Services",
+                                "children": []
+                            },
+                            {
+                                "name": "Graphic design",
+                                "count": 4,
+                                "depth": 2,
+                                "parent_name": "mkp/Services",
+                                "children": []
+                            },
+                            {
+                                "name": "PCB fabrication",
+                                "count": 2,
+                                "depth": 2,
+                                "parent_name": "mkp/Services",
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "name": "3d Printing",
+                        "count": 2,
+                        "depth": 1,
+                        "parent_name": "mkp",
+                        "children": [
+                            {
+                                "name": "3D Printers",
+                                "count": 1,
+                                "depth": 2,
+                                "parent_name": "mkp/3d Printing",
+                                "children": []
+                            },
+                            {
+                                "name": "Materials",
+                                "count": 1,
+                                "depth": 2,
+                                "parent_name": "mkp/3d Printing",
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Electronics",
+                        "count": 19,
+                        "depth": 1,
+                        "parent_name": "mkp",
+                        "children": [
+                            {
+                                "name": "Circuits",
+                                "count": 12,
+                                "depth": 2,
+                                "parent_name": "mkp/Electronics",
+                                "children": []
+                            },
+                            {
+                                "name": "Arduino",
+                                "count": 4,
+                                "depth": 2,
+                                "parent_name": "mkp/Electronics",
+                                "children": []
+                            },
+                            {
+                                "name": "PCB",
+                                "count": 9,
+                                "depth": 2,
+                                "parent_name": "mkp/Electronics",
+                                "children": []
                             }
                         ]
                     }
                 ]
             }
 
-### Delete an asset link [DELETE]
 
-+ Request (application/x-www-form-urlencoded)
-    + Headers
-
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-
-+ Parameters
-    + link_ids (optional,String,`234566,142342FD65F`)...Comma separated list of link ids provided while creating the asset links.
-
-+ Response 204
 
 
 ## Asset Translations [/assets/{id}/translations]
