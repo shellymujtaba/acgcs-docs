@@ -1150,14 +1150,15 @@ Get all taxonomies/Namespace-categories in tree format
 ### Retrieve taxonomies[GET]
 + Request (application/x-www-form-urlencoded)
     + Headers
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
     + namespace (required,String,`Circuits`)...NameSpace for which categories are to be retrived.
-    + depth (optional,Number,`2`)... it defines levels upto gievn depth should be returned.
+    + depth (optional,Number,`2`)... it defines levels upto given depth should be returned.
     + taxonomy (optional,String,`Circuits/mydata/abc`)...the category from which the tree should start.
 
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            
 + Response 200 (application/json)
 
             {
