@@ -1685,7 +1685,7 @@ If the workflow step is not required, it can be marked as deleted by updating th
     + assigned_member_id (optional, Number,`123124`)...Member to whom this workflow step is assigned.<br> **_Note:_** If no member Id is passed, the workflow step will be assigned to the API caller.
     + workflow_step_status (optional, Number,`1`)...Asset workflow step status.
     + file_ids (optional, String,`322112,23423,34534`)...Comma separated list of file Ids to be associated to this workflow step as reference.
-    + message_ids (optional, String,`XHFMVYDI3LCLYGC,X7ZFQEKI3LCLYGA`)...Comma separated list of message Ids to be associated to this workflow step as reference.
+    + thread_ids (optional, String,`XHFMVYDI3LCLYGC,X7ZFQEKI3LCLYGA`)...Comma separated list of message Ids to be associated to this workflow step as reference.
 
 + Response 201 (application/json)
 
@@ -1731,11 +1731,11 @@ If the workflow step is not required, it can be marked as deleted by updating th
     ],
     "workflow_step_messages": [
         {
-            "message_id": "m1",
+            "thread_id": "T7WERWEVVJ32323",
             "date_submitted": "November 16, 2015 15:25:46"
         },
         {
-            "message_id": "m2",
+            "thread_id": "T7URL72II5J770V",
             "date_submitted": "November 16, 2015 15:25:46"
         }
     ],
@@ -1772,7 +1772,7 @@ If the workflow step is not required, it can be marked as deleted by updating th
     + workflow_step_id (required, Number,`234324`)...Id of the workflow step associated with the asset workflow.
     + workflow_step_status (optional, Number,`9`)...Asset workflow step status.
     + file_ids (optional, String,`322112,23423,34534`)...Comma separated list of file Ids to be deleted from this workflow step as reference.
-    + message_ids (optional, String,`XHFMVYDI3LCLYGC,X7ZFQEKI3LCLYGA`)...Comma separated list of message Ids to be deleted from this workflow step as reference.
+    + thread_ids (optional, String,`XHFMVYDI3LCLYGC,X7ZFQEKI3LCLYGA`)...Comma separated list of message Ids to be deleted from this workflow step as reference.
 
 + Response 204 (application/json)
 
