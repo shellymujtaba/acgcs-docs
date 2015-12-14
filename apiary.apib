@@ -1685,7 +1685,7 @@ If the workflow step is not required, it can be marked as deleted by updating th
     + assigned_member_id (optional, Number,`123124`)...Member to whom this workflow step is assigned.<br> **_Note:_** If no member Id is passed, the workflow step will be assigned to the API caller.
     + workflow_step_status (optional, Number,`1`)...Asset workflow step status.
     + file_ids (optional, String,`322112,23423,34534`)...Comma separated list of file Ids to be associated to this workflow step as reference.
-    + thread_ids (optional, String,`XHFMVYDI3LCLYGC,X7ZFQEKI3LCLYGA`)...Comma separated list of message Ids to be associated to this workflow step as reference.
+    + thread_ids (optional, String,`XHFMVYDI3LCLYGC,X7ZFQEKI3LCLYGA`)...Comma separated list of thread Ids to be associated to this workflow step as reference.
 
 + Response 201 (application/json)
 
@@ -1772,7 +1772,7 @@ If the workflow step is not required, it can be marked as deleted by updating th
     + workflow_step_id (required, Number,`234324`)...Id of the workflow step associated with the asset workflow.
     + workflow_step_status (optional, Number,`9`)...Asset workflow step status.
     + file_ids (optional, String,`322112,23423,34534`)...Comma separated list of file Ids to be deleted from this workflow step as reference.
-    + thread_ids (optional, String,`XHFMVYDI3LCLYGC,X7ZFQEKI3LCLYGA`)...Comma separated list of message Ids to be deleted from this workflow step as reference.
+    + thread_ids (optional, String,`XHFMVYDI3LCLYGC,X7ZFQEKI3LCLYGA`)...Comma separated list of thread Ids to be deleted from this workflow step as reference.
 
 + Response 204 (application/json)
 
@@ -2257,7 +2257,7 @@ from the project, and discuss various points around it.
 + Parameters
     + id (required, String, `1524252`) ...Asset Id
     + file_id (required, Number, `17897805`)...File Id
-    + message_id (required,String, `X007DX6HYHCVYJF`)...Message id
+    + thread_id (required,String, `X007DX6HYHCVYJF`)...Thread id
     + x_coordinate (optional, String, `12`) ...X coordinate of discussion.  Must be a positive integer.
     + y_coordinate (optional, String, `45`) ...Y coordinate of discussion.  Must be a positive integer.
     + z_coordinate (optional, String, `0`) ...Z coordinate of discussion.  Must be a positive integer.
@@ -2286,7 +2286,7 @@ from the project, and discuss various points around it.
                     "member_id": 20722924,
                     "asset_id": 1524252,
                     "file_id": 17897805,
-                    "message_id": "X007DX6HYHCVYJF",
+                    "thread_id": "T007DX6HYHCVYJF",
                     "x_coordinate": 12,
                     "y_coordinate": 25,
                     "date_submitted": "November 18, 2015 21:19:30"
@@ -2296,7 +2296,7 @@ from the project, and discuss various points around it.
                     "member_id": 20722954,
                     "asset_id": 1524252,
                     "file_id": 17897804,
-                    "message_id": "X007DX6HYHCVYJF",
+                    "thread_id": "T007DX6HYHCVYJF",
                     "x_coordinate": 12,
                     "y_coordinate": 221,
                     "z_coordinate": 223,
