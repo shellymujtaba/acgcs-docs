@@ -9828,7 +9828,7 @@ Update the member status, which are passed as a list of commas separated strings
 
 + Parameters
     + member_id (required, Number,`1234567890`)... Member id. 
-    + type (required, String, `PURCHASE_BLOCKED`)...Member status type
+    + type (required, String, `PURCHASE_BLOCKED, DELETED`)...Member status type list
     + reason (optional, String, `As per user requset`)...Reason behind the updation.
 
 + Response 200 (application/json)
@@ -9846,7 +9846,8 @@ Delete all status for member_id.
 
 + Parameters
     + member_id (required, Number,`1234567890`)... Member id.
-    + type (required, String, `PURCHASE_BLOCKED`)...Member status type
+    + type (required, String, `PURCHASE_BLOCKED, DELETED`)...Member status type list
+    + reason (optional, String, `As per user requset`)...Reason behind the deleting status
 
 + Response 204 (application/json)
 
