@@ -2145,7 +2145,7 @@ This is admin only functionality, hence must be invoked with Community ADMIN rig
     + software (Required, Number, `31`)...Indicate the Application in which this asset has to be featured.
 + Response 204
 
-## Comment Flag [/assets/{id}/comments/{commentid}/flags{?type}]
+## Asset Comment Flag [/assets/{id}/comments/{commentid}/flags{?type}]
 Flag an comment along with reason for flagging. This will bring this comment to the attention of a site admin. If the user is in ADMIN role, the comment referenced will immediately be placed in QUARANTINE status for review by a site admin.
 
 ### Flag an comment [PUT]
@@ -2244,7 +2244,7 @@ Operations to manage status posts on an asset. Status posts are updates to the p
     + status_post_id (required,String, `234567,334562`)...Comma separated list of status posts to be deleted from this asset.
 + Response 204
 
-## File Conversations [/assets/{id}/conversations{?file_id,message_id,x_coordinate,y_coordinate,z_coordinate}]
+## Asset File Conversations [/assets/{id}/conversations{?file_id,message_id,x_coordinate,y_coordinate,z_coordinate}]
 A file conversation around an asset helps members reference an external file such as picture, videos etc. and start
 a conversation around it. This feature can be helpful when a group of members are working on a project and they want to give references
 from the project, and discuss various points around it.
@@ -4669,7 +4669,7 @@ Mark message as read, delete, undelete, purge and mark user as block/unblock.
 
 + Parameters
     + id (required,Number, `20280723`)...Member Id
-    + action  (required, String, `read`)...action = read/delete/undelete/purge/block/unblock. Purge : Only allowed on deleted messages.
+    + action  (required, String, `read`)...action = read/undelete/purge/block/unblock. Purge : Only allowed on deleted messages.
     + message_id (optional, String, `XWTWLL9H411A68F`)...Message id. (required if action is of type: read/delete/undelete/purge). In case of "read", either message id or thread id can be passed.
     + thread_id (optional, String, `TWTWLL9H411A68F`)...Thread Id. (required if action is of type: read). This make all the messages in the thread as read.
     + user_id  (optional,Number, `20280724`)...Member Id to be blocked or unblocked (required if action is of type: block/unblock)
@@ -5329,7 +5329,7 @@ Operations to add/delete custom data to this shop. Custom data can be retrieved 
 + Response 204
 
 
-## Assets [/shops/{shop_id}/assets{?show_deleted,limit,offset,shippingprofile_id,product_type}]
+## Assets [/shops/{shop_id}/assets{?show_deleted,limit,offset,shippingprofile_id,product_type,use_https}]
 Retrieve the list of assets for sale. An asset can be removed from the shop via an update request.
 
 + Parameters
@@ -5349,6 +5349,7 @@ Retrieve the list of assets for sale. An asset can be removed from the shop via 
     + offset (optional, Number, `3`)... This offsets the start of each page by the number specified. Default: 0.
     + shippingprofile_id (optional, Number, `16` )... Shipping Profile id. Retrieve the list of assets of shops that uses specific shipping profile. If `shippingprofile_id` is passed show_deleted flag will be ignored i.e only non deleted assets are returned for this.
     + product_type (optional, String, `DIGITAL`)...filter by product type: DIGITAL|PHYSICAL
+    + use_https (optional, Boolean, `false`)... Set the protocol to http/https for avatar and shop logo url.
 + Response 200 (application/json)
 
             {
@@ -6172,7 +6173,7 @@ If seller updates the status of each individual SKU in order then, fulfillment_s
     + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
     + sort_order (optional, String, `DESC`)... Sort order for display orders: ASC or DESC. Default: DESC.
-    + sort_by (optional, String,`FULFILLMENT_START_DATE`)... Sort by for display orders: ORDER_ID, FULFILLMENT_START_DATE, FULFILLMENT_END_DATE, BUYER_NAME, BUYER_CITY, BUYER_STATE, BUYER_COUNTRY. Default : FULFILLMENT_START_DATE.
+    + sort_by (optional, String,`FULFILLMENT_START_DATE`)... Sort by for display orders: ORDER_ID, FULFILLMENT_START_DATE, FULFILLMENT_END_DATE, BUYER_NAME, BUYER_CITY, BUYER_STATE, BUYER_COUNTRY, QUANTITY, PRICE, STATUS. Default : FULFILLMENT_START_DATE.
 
 + Response 200 (application/json)
 
