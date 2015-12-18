@@ -3693,7 +3693,7 @@ Member like operations
                 "_link_next":"/member/20280723/likes?limit=26&offset=39"
             }
 
-## Subscriptions [/members/{id}/subscriptions]
+## Retrive Subscriptions [/members/{id}/subscriptions]
 Retrieve member's subscription history in chronologically descending order. Each subscription has associated event type. List of possible event types are as follows
 
 **CREATE:**
@@ -3760,10 +3760,51 @@ Retrieve member's subscription history in chronologically descending order. Each
             }
             
 
+## Update Subscriptions [/members/{id}/subscription{?product_id,new_product_id,auto_renew,next_payment,affiliate_code,ignore_cancellation_status,hash,ts}]
+### Update member's subscription.[PUT]
+Update subscription with different parameters. You have to pass any one parameter at a time. So either pass new_product_id|auto_renew|next_payment,ignore_cancellation_status
+
+|Message|HTTP Status Code|Error Code|Data
+|----|----|----|----
+|You must renew your subscription using iTunes App Store|400 Bad Method Exception|3207|
+|You must renew your subscription using Google Play App Store|400 Bad Method Exception|3208|
+|You must renew your subscription using the account that was used at the time of purchase|400 Bad Method Exception|3209|
+
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            X-Secure-Session : 20a79b98f7645dedc91afed7566e9a41f91ec108f574cce6da13802eccd282c4
+
++ Parameter
+    + id (required, Number , `123446`)...Member id of which subscription will be edited
+    + product_id (optional, Number,`3`)...Current plan id for this user with this affiliate id.
+    + new_product_id (optional, Number, `4`)...New Plan id to which user want to move.
+    + auto_renew (optional,Boolean, `false|true`)...If this is true then user will be charged automatically after end of subscription period, If not true subscription will end after subscription end date.
+    + next_payment (optional, String, `2015-09-30 00:00:00`)...New payment date for subscriptions in YYYY-MM-DD HH:MM:SS format.
+    + affiliate_code (optional, String, `PA1ON1`)...Affiliate for which subscription is to be modified. Note that you pass affiliate in header. If this is empty we consider affiliate in header.
+    + ignore_cancellation_status (optional,Boolean, `false|true`)...Ignore cancellation date. By default it is true.
+    + hash (optional, String, `asaskd6976324hbdgqe78du`)...Hash value is sha256hash combination of AFC+CURRENT TIME_STAMP IN GMT+SECURE CODE FOR AFC( AFC in header is considered). Ref:Java code function : DigestUtils.sha256Hex()
+    + ts (optional, String, `2015-01-23 15:00:00`)...Current time in GMT by which hash is generated.
+
++ Response 200 (application/json)
+
+        {
+            "info": "",
+            "status": true
+        }
+
 ## Cancel Subscription [/members/{memberId}/subscriptions/{subscriptionId}/cancel{?affiliate_code}]
 ### Cancel member's subscription [PUT]
 cancel a subscription. The subscription will be cancelled immediately but customer can still enjoy subscription until subscription period ends. The customer will get a cancellation email when this api is called.
 
+|Message|HTTP Status Code|Error Code|Data
+|----|----|----|----
+|You must renew your subscription using iTunes App Store|400 Bad Method Exception|3207|
+|You must renew your subscription using Google Play App Store|400 Bad Method Exception|3208|
+|You must renew your subscription using the account that was used at the time of purchase|400 Bad Method Exception|3209|
 
 + Parameter
     + memberId (Number , `123446`)...Member Id. In case 1 - user itself can cancel his/her subscription by passing his/her memberId in URL and valid session. In this case, no need to pass affiliate code.
@@ -3790,6 +3831,46 @@ cancel a subscription. The subscription will be cancelled immediately but custom
             "info": "Subscription is already cancelled.",
             "status": true
         }
+
+## Extend Subscription [/members/ExtendSubscription{?hash,ts,subscription_ids,dates,extend_by,period_names}]
+### Extend members subscription by specified period [PUT]
+Extend members subscription by specified period.
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: 00000000-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + hash (required, String, `asaskd6976324hbdgqe78du`)...Hash value is sha256hash combination of AFC+CURRENT TIME_STAMP IN GMT+SECURE CODE FOR AFC. Ref:Java code function : DigestUtils.sha256Hex()
+    + ts (required, String, `2015-01-23 15:00:00`)...Current time in GMT by which hash is generated.
+    + subscription_ids (required, Number, `2345689,2345690`)...Subscription ids to be extended.
+    + dates (optional, String, `2015-01-23 15:23:34,2015-01-25 15:23:34`)...New end date for subscriptions in YYYY-MM-DD HH:MM:SS format. If you find it difficult go for extend_by and period_names parameters.
+    + extend_by (optional, Number, `3,12,1`)....Number of days/months/years by which you need to extend subscription.
+    + period_names (optional, String, `day,month,year`)...Name of the periods. This is mandatory if 'extend_by' parameter is provided.
+
+
++ Response 200 (application/json)
+
+        [
+                {
+                        "subscriptionId":"5996168",
+                        "status":true,
+                        "reason":""
+                },
+                {
+                        "subscriptionId":"5995368",
+                        "status":false,
+                        "reason":"Subscription not present."
+                },
+                {
+                        "subscriptionId":"54879",
+                        "status":false,
+                        "reason":"Subscription not present."
+                }
+        ]
+
 
 ## Update Card [/members/{memberId}/updatecards{?product_id,new_product_id,encrypted_credit_card,encrypted_cvv,exp_month,exp_year,name,phone,card_type,card_last_four_digit,store_type}]
 
@@ -3891,35 +3972,6 @@ This API does not require afc, session to be passed in header like other apis.
 + Response 200 (application/json)
 
         returns iframe code to be embedded in web page.
-
-## Subscriptions [/members/{id}/subscription{?product_id,new_product_id,auto_renew,next_payment,affiliate_code,ignore_cancellation_status,hash,ts}]
-### Update member's subscription.[PUT]
-Update subscription with different parameters. You have to pass any one parameter at a time. So either pass new_product_id|auto_renew|next_payment,ignore_cancellation_status
-
-+ Request (application/x-www-form-urlencoded)
-    + Headers
-
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-            X-Secure-Session : 20a79b98f7645dedc91afed7566e9a41f91ec108f574cce6da13802eccd282c4
-
-+ Parameter
-    + id (required, Number , `123446`)...Member id of which subscription will be edited
-    + product_id (optional, Number,`3`)...Current plan id for this user with this affiliate id.
-    + new_product_id (optional, Number, `4`)...New Plan id to which user want to move.
-    + auto_renew (optional,Boolean, `false|true`)...If this is true then user will be charged automatically after end of subscription period, If not true subscription will end after subscription end date.
-    + next_payment (optional, String, `2015-09-30 00:00:00`)...New payment date for subscriptions in YYYY-MM-DD HH:MM:SS format.
-    + affiliate_code (optional, String, `PA1ON1`)...Affiliate for which subscription is to be modified. Note that you pass affiliate in header. If this is empty we consider affiliate in header.
-    + ignore_cancellation_status (optional,Boolean, `false|true`)...Ignore cancellation date. By default it is true.
-    + hash (optional, String, `asaskd6976324hbdgqe78du`)...Hash value is sha256hash combination of AFC+CURRENT TIME_STAMP IN GMT+SECURE CODE FOR AFC( AFC in header is considered). Ref:Java code function : DigestUtils.sha256Hex()
-    + ts (optional, String, `2015-01-23 15:00:00`)...Current time in GMT by which hash is generated.
-
-+ Response 200 (application/json)
-
-        {
-            "info": "",
-            "status": true
-        }
 
 
 ## Addresses [/members/addresses/{address_id}{?address_type,limit,offset,name,address1,address2,city,state,country_code,telephone,company,is_residential,postal_code}]
@@ -4456,44 +4508,6 @@ GET the URL, that can be iframe'd by the application. This form will allow user 
             "tax_url":"https://www.123dapp.com/API/V2/Members/20704754/tax/render?a=ID1ONA&b=F56FFEEF-8035-4F7E-90A3-066C5897AD57&c=20a79b98f7645dedc91afed7566e9a41f91ec108f574cce6da13802eccd282c4"
         }
 
-## ExtendSubscription [/members/ExtendSubscription{?hash,ts,subscription_ids,dates,extend_by,period_names}]
-### Extend members subscription by specified period [PUT]
-Extend members subscription by specified period.
-
-+ Request (application/x-www-form-urlencoded)
-    + Headers
-
-            X-AFC: FJKB32
-            X-Session: 00000000-8035-4F7E-90A3-066C5897AD57
-
-+ Parameters
-    + hash (required, String, `asaskd6976324hbdgqe78du`)...Hash value is sha256hash combination of AFC+CURRENT TIME_STAMP IN GMT+SECURE CODE FOR AFC. Ref:Java code function : DigestUtils.sha256Hex()
-    + ts (required, String, `2015-01-23 15:00:00`)...Current time in GMT by which hash is generated.
-    + subscription_ids (required, Number, `2345689,2345690`)...Subscription ids to be extended.
-    + dates (optional, String, `2015-01-23 15:23:34,2015-01-25 15:23:34`)...New end date for subscriptions in YYYY-MM-DD HH:MM:SS format. If you find it difficult go for extend_by and period_names parameters.
-    + extend_by (optional, Number, `3,12,1`)....Number of days/months/years by which you need to extend subscription.
-    + period_names (optional, String, `day,month,year`)...Name of the periods. This is mandatory if 'extend_by' parameter is provided.
-
-
-+ Response 200 (application/json)
-
-        [
-                {
-                        "subscriptionId":"5996168",
-                        "status":true,
-                        "reason":""
-                },
-                {
-                        "subscriptionId":"5995368",
-                        "status":false,
-                        "reason":"Subscription not present."
-                },
-                {
-                        "subscriptionId":"54879",
-                        "status":false,
-                        "reason":"Subscription not present."
-                }
-        ]
 
 ## Private Messaging [/members/{id}/messages]
 
