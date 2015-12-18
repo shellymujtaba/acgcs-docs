@@ -4847,6 +4847,25 @@ Get message thread details.
 "mailbox": "CHAT" 
 }
 
+## Member credit card [/members/creditcards]
+### Get member credit card [GET]
+(INTERNAL CALL ONLY) Return a list of credit card with last 4 digit number and card type.
++ Request (application/x-www-form-urlencoded)
+
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: 1B5E9C51-0CAC-4CC1-B958-26D011FEA070
+            X-Secure-Session: 154123E6623EB26EF670CFAA65F5408D4BED09F0A7E7E2373644BE072B80875A
+
+
++ Response 200 (application/json)
+
+        [{
+          "last_four_digit":"1111",
+          "type":"VISA"
+        }]
+
 # Group Auth
 
 ## Login [/login{?afc,display,secure,relative_redirect_path,locale,register,ssl,social_redirect,meter_session,send_create,send_first_login,oauth_asynch,authorization_code,send_opt_in,social_providers,css_query_param,moderator_id,auto_login,send_moderator_email,parent_email}]
@@ -9063,25 +9082,6 @@ Delete a coupon. Returns the updated cart (as identified by afc header and cart 
           "cart_tax":12.37
         }
 
-# Group Subscription
-## Member credit card [/members/creditcards]
-### Get member credit card [GET]
-(INTERNAL CALL ONLY) Return a list of credit card with last 4 digit number and card type.
-+ Request (application/x-www-form-urlencoded)
-
-    + Headers
-
-            X-AFC: FJKB32
-            X-Session: 1B5E9C51-0CAC-4CC1-B958-26D011FEA070
-            X-Secure-Session: 154123E6623EB26EF670CFAA65F5408D4BED09F0A7E7E2373644BE072B80875A
-
-
-+ Response 200 (application/json)
-
-        [{
-          "last_four_digit":"1111",
-          "type":"VISA"
-        }]
 
 # Group Admin
 These admin operations require admin privilege for logged in user.
