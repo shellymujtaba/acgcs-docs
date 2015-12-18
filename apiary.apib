@@ -196,7 +196,7 @@ Assets can have different status. The below table displays all the possible stat
 |Private|2|
 |Deleted|1|
 
-## Asset [/assets/{id}{?asset_name,description,tags,media_type_id,software,publish,progress_status,parent_asset_id,referenced_assets,extended_data,version,asset_ids,license_id,asset_taxonomy,language,region}]
+## Asset [/assets/{id}{?asset_name,description,tags,media_type_id,software,publish,progress_status,parent_asset_id,referenced_assets,extended_data,version,asset_ids,license_id,asset_taxonomy,language,region,use_https}]
 Operations to perform CRUD operations on an asset with basic metadata. Additional operation sets will populate this asset with constituent files, additional metadata etc.
 + parameters
      + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with.
@@ -385,6 +385,8 @@ Operations to perform CRUD operations on an asset with basic metadata. Additiona
     + extended_data (optional, boolean, `true`) ...When true extended asset data such as asset links, custom data etc. will be returned <br>Default: false
     + asset_taxonomy (optional, boolean, `true`) ...When true Taxonomy data will be returned <br>Default: false
     + version (optional, double, `1.15`) ...When passed returns this version of the asset.
+    + use_https (optional, Boolean, `false`)... Set the protocol to http/https for avatar and shop logo url.
+
 
 + Response 200
 
@@ -486,7 +488,7 @@ Operations to create and retrieve asset versions.
             ]
         }
 
-## Asset Search  [/assets{?q,limit,offset,start_date,end_date,thumbnail_index,ailable,file_type_list,exclude_keywords,asset_ids,sort_by,vorite_count_strict,rt,sort_order,display_filter,ewer,exclude_artist_ids,include_artist_ids,description,progress_status,parent_assets,media_type_ids,software,child_assets,include_mature,for_sale,shop_ids,min_price,max_price,is_app_featured,wildcard_search,license_ids,license_name,asset_taxonomy}]
+## Asset Search  [/assets{?q,limit,offset,start_date,end_date,thumbnail_index,ailable,file_type_list,exclude_keywords,asset_ids,sort_by,vorite_count_strict,rt,sort_order,display_filter,ewer,exclude_artist_ids,include_artist_ids,description,progress_status,parent_assets,media_type_ids,software,child_assets,include_mature,for_sale,shop_ids,min_price,max_price,is_app_featured,wildcard_search,license_ids,license_name,asset_taxonomy,use_https}]
 This api is a starting point to display galleries, perform free-form searches. Different filtering options allow searching by specific contained file type, keywords, publish dates, curation state (featured, popular) etc.
 + Parameters
     + q (optional, String, `cars+cat`) ...list of keywords to search against
@@ -519,6 +521,7 @@ This api is a starting point to display galleries, perform free-form searches. D
     + license_ids (optional, String, `123,567,987`)...Result will include asset associated to the list of given license ids.
     + license_name (optional, String, `free`)...Result will include asset associated with license whose name contains license_name.
     + asset_taxonomy (optional, String, `a/b`)...Result will include asset associated with taxonomy specified. For instance, if the taxonomy passed is 'car', the result includes all the asset with taxonomy starting car/*
+    + use_https (optional, Boolean, `false`)... Set the protocol to http/https for avatar and shop logo url.
 
 ## List all Assets [GET]
 
@@ -2604,46 +2607,6 @@ API to delete public files.
             "public_url": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Public/Alpha/16812136"
         }
 
-# Group Marketplace
-This group of operations provides information on the marketplace APIS such as shipping options, inventory checking, placing order, updating order etc.
-
-## Order [/marketplace/updateorder/{order_number}{?JSON_String}]
-### Update an order status [POST]
-+ Parameters
-    + order_number (required,String, `b9a26297-38d2-4091-8882-620122bf0374`)...Vendor order reference number
-    + JSON_String (required,String,`json string`)...You have to pass actual JSON string and set header to (application/JSON) in addition to default headers for cloud service API.
-    <br><br>status_skus is optional. If not mentioned all skus inside this order will have complete status otherwise status will set on each sku. If you are updating entire order then only on email will be send an dif you update sku then mail will be send for group of skus.
-<br><br><div class="parameterKey">JSON_String to set status to FAILED</div>
-<br>{"status":"FAILED","error_code":"B56GHSGFT","error_message":"We can not fulfil your order as items are out of stock.","status_skus":[{"sku":"1503327"}]}
-<br><br>If current status is COMPLETE | CLOSED | DECLINE | CANCELED then you can not set FAILED status.(ErrorCode : 34750 : Order status can not be modified.)
-<br><br><div class="parameterKey">JSON_String to set status to COMPLETE</div>
-<br><br>{"status":"COMPLETE","shipping":{"shipper":"UPS","tracking_url":"http://www.fedex.com?mic=shsjknbsg7262gs" ,"tracking_number":"MKAHS6724FHAHAJG6"},"completion_date":"2015-07-17 14:30:00","status_skus":[{"sku":"12345"},{"sku":"34567"}]}
-<br><br>The tracking_url is optional in the shipping payload.
-<br><br>If current status is CLOSED | DECLINE | CANCELED then you can not set COMPLETE status.(ErrorCode : 34750 : Order status can not be modified.)
-<br><br><div class="parameterKey">JSON_String to set status to CANCELED</div>
-<br><div class="parameterKey">-----It is not allowed that refund status is false. Refund is required when an order is canceled.</div>
-<br><div class="parameterKey">-----If refund status is true then you have to pass refund reason and should remove access.</div>
-<br>{"status":"CANCELED","cancellation_reason":"fake","cancellation_date":"2015-06-08 00:00:00","refund":"true","refund_reason":"I am going to refund","remove_access":"false"}
-<br>{"status":"CANCELED","cancellation_reason":"fake","cancellation_date":"2015-06-08 00:00:00","refund":"true","status_skus":[{"sku":1503327,"refund_reason":"nothing to mentione","remove_access":"false"}]}
-<br><br>If current status is COMPLETE | CLOSED | DECLINE | CANCELED then you can not set CANCELED status.(ErrorCode : 34750 : Order status can not be modified.)
-<br><br><div class="parameterKey">JSON_String to set status to IN_PROGRESS | ON_HOLD | CLOSED | DECLINE</div>
-<br>{"status":"IN_PROGRESS","status_skus":[{"sku":"1503327"}]}
-<br><br>If current status is COMPLETE | CLOSED | DECLINE | CANCELED then you can not set IN_PROGRESS status.(ErrorCode : 34750 : Order status can not be modified.)
-<br><br>If current status is COMPLETE | CLOSED | DECLINE | CANCELED | FAILED then you can not set ON_HOLD status.(ErrorCode : 34750 : Order status can not be modified.)
-<br><br>If current status is COMPLETE then you can not set CLOSED status.(ErrorCode : 34750 : Order status can not be modified.)
-<br><br>If current status is COMPLETE | CLOSED | DECLINE | CANCELED | FAILED then you can not set DECLINE status.(ErrorCode : 34750 : Order status can not be modified.)
-<br><br>Errors
-<br>Code : 34024  : Empty or invalid payload sent for updating order.
-<br>Code : 34750  : Order status can not be modified.
-<br>
-+ Request (application/json)
-    + Headers
-
-            X-AFC: TC1ONA
-            X-SECURE-SESSION: BD715D557FE163EA68A3427DD4320942
-            X-SESSION: 6015771E-DD4E-421B-8EFA-2EA2B0761C8B
-
-+ Response 200 (application/json)
 
 #Group Members
 This group of operations provides information on the member. A member is a user who signs up or logs into Cloud Services eco-system.
@@ -5008,14 +4971,17 @@ Every afc is associated with particular consumer. So if you are calling oxygen a
             "signed_url": "http://test.com?oauth_token=9q5xIWu7%2FFb%2BM0D33GuouFkhc3k%3D&oauth_consumer_key=3e3b767f-086b-49dc-b742-0e723d4b3b19&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1442810983&oauth_nonce=1266092084431905&oauth_version=1.0&oauth_signature=kVODdU7aAobUW0EYnZXkQBKXg4Q%3D"
         }
 
-# Group Shops
+# Group Marketplace
+This group of operations provides information on the marketplace APIS such as shops, shipping options, inventory checking, placing order, updating order etc.
+
+## Shops [/shops{?name,banner_file_id,logo_file_id,current_portfolio_url,current_sales_url,title,description,custom_data_key,custom_data_value,member_id,shop_name,start_date,end_date,sort_by,sort_order,limit,offset}]
+Operations for shop creation and retrieval.
+
 This group of operations work on shops. A shop is a core entity in marketplace eco-system. A seller needs to establish a shop in order to start selling assets.
 
 * A shop needs to be reviewed once it is created (requested). The Shop Approval Status indicates the review status and is initially set to PENDING following a shop creation. Once the review is complete, this field gets updated to either APPROVED or DENIED.
 * The Shop Status field indicates whether the shop is online (i.e. visible to others) or offline. The DELETE operation can be utilized to bring a shop offline.
 
-## Shops [/shops{?name,banner_file_id,logo_file_id,current_portfolio_url,current_sales_url,title,description,custom_data_key,custom_data_value,member_id,shop_name,start_date,end_date,sort_by,sort_order,limit,offset}]
-Operations for shop creation and retrieval.
 
 ### Create a new shop [POST]
 
@@ -5348,7 +5314,7 @@ Operations to add/delete custom data to this shop. Custom data can be retrieved 
 + Response 204
 
 
-## Assets [/shops/{shop_id}/assets{?show_deleted,limit,offset,shippingprofile_id,product_type,use_https}]
+## Shop Assets [/shops/{shop_id}/assets{?show_deleted,limit,offset,shippingprofile_id,product_type,use_https}]
 Retrieve the list of assets for sale. An asset can be removed from the shop via an update request.
 
 + Parameters
@@ -5569,7 +5535,7 @@ Retrieve the list of assets for sale. An asset can be removed from the shop via 
 
 
 
-## Asset [/shops/{shop_id}/assets/{asset_id}{?asset_price,for_sale,product_type,vendor_sku,vendor_display_name,is_available,package_weight,package_length,package_height,package_width,unit_measure,unit_weight,apply_tax,shipping_profile,lead_in_days}]
+## Shop Asset [/shops/{shop_id}/assets/{asset_id}{?asset_price,for_sale,product_type,vendor_sku,vendor_display_name,is_available,package_weight,package_length,package_height,package_width,unit_measure,unit_weight,apply_tax,shipping_profile,lead_in_days}]
 Update the asset of a shop.
 
 + Parameters
@@ -6386,6 +6352,45 @@ If seller updates the status of each individual SKU in order then, fulfillment_s
                 }
               ]
             }
+
+## Order [/marketplace/updateorder/{order_number}{?JSON_String}]
+### Update an order status [POST]
++ Parameters
+    + order_number (required,String, `b9a26297-38d2-4091-8882-620122bf0374`)...Vendor order reference number
+    + JSON_String (required,String,`json string`)...You have to pass actual JSON string and set header to (application/JSON) in addition to default headers for cloud service API.
+    <br><br>status_skus is optional. If not mentioned all skus inside this order will have complete status otherwise status will set on each sku. If you are updating entire order then only on email will be send an dif you update sku then mail will be send for group of skus.
+<br><br><div class="parameterKey">JSON_String to set status to FAILED</div>
+<br>{"status":"FAILED","error_code":"B56GHSGFT","error_message":"We can not fulfil your order as items are out of stock.","status_skus":[{"sku":"1503327"}]}
+<br><br>If current status is COMPLETE | CLOSED | DECLINE | CANCELED then you can not set FAILED status.(ErrorCode : 34750 : Order status can not be modified.)
+<br><br><div class="parameterKey">JSON_String to set status to COMPLETE</div>
+<br><br>{"status":"COMPLETE","shipping":{"shipper":"UPS","tracking_url":"http://www.fedex.com?mic=shsjknbsg7262gs" ,"tracking_number":"MKAHS6724FHAHAJG6"},"completion_date":"2015-07-17 14:30:00","status_skus":[{"sku":"12345"},{"sku":"34567"}]}
+<br><br>The tracking_url is optional in the shipping payload.
+<br><br>If current status is CLOSED | DECLINE | CANCELED then you can not set COMPLETE status.(ErrorCode : 34750 : Order status can not be modified.)
+<br><br><div class="parameterKey">JSON_String to set status to CANCELED</div>
+<br><div class="parameterKey">-----It is not allowed that refund status is false. Refund is required when an order is canceled.</div>
+<br><div class="parameterKey">-----If refund status is true then you have to pass refund reason and should remove access.</div>
+<br>{"status":"CANCELED","cancellation_reason":"fake","cancellation_date":"2015-06-08 00:00:00","refund":"true","refund_reason":"I am going to refund","remove_access":"false"}
+<br>{"status":"CANCELED","cancellation_reason":"fake","cancellation_date":"2015-06-08 00:00:00","refund":"true","status_skus":[{"sku":1503327,"refund_reason":"nothing to mentione","remove_access":"false"}]}
+<br><br>If current status is COMPLETE | CLOSED | DECLINE | CANCELED then you can not set CANCELED status.(ErrorCode : 34750 : Order status can not be modified.)
+<br><br><div class="parameterKey">JSON_String to set status to IN_PROGRESS | ON_HOLD | CLOSED | DECLINE</div>
+<br>{"status":"IN_PROGRESS","status_skus":[{"sku":"1503327"}]}
+<br><br>If current status is COMPLETE | CLOSED | DECLINE | CANCELED then you can not set IN_PROGRESS status.(ErrorCode : 34750 : Order status can not be modified.)
+<br><br>If current status is COMPLETE | CLOSED | DECLINE | CANCELED | FAILED then you can not set ON_HOLD status.(ErrorCode : 34750 : Order status can not be modified.)
+<br><br>If current status is COMPLETE then you can not set CLOSED status.(ErrorCode : 34750 : Order status can not be modified.)
+<br><br>If current status is COMPLETE | CLOSED | DECLINE | CANCELED | FAILED then you can not set DECLINE status.(ErrorCode : 34750 : Order status can not be modified.)
+<br><br>Errors
+<br>Code : 34024  : Empty or invalid payload sent for updating order.
+<br>Code : 34750  : Order status can not be modified.
+<br>
++ Request (application/json)
+    + Headers
+
+            X-AFC: TC1ONA
+            X-SECURE-SESSION: BD715D557FE163EA68A3427DD4320942
+            X-SESSION: 6015771E-DD4E-421B-8EFA-2EA2B0761C8B
+
++ Response 200 (application/json)
+
 
 ##Tax [/shops/{shop_id}/tax{?address_type,address_value,tax_rate,apply_tax_to_shipping,limit,offset}]
 Sellers will specify the tax rate (in %age) for a given State/Zipcodes/Zipcode range at the shop level. Sales tax for physical items will be calculated based on buyer shipping address. Sales tax for digital items will be calculated based on buyer billing address.
