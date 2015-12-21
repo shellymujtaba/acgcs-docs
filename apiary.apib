@@ -1,5 +1,5 @@
-FORMAT: 1A
-HOST: https://api.acg.autodesk.com/api/v2
+}FORMAT: 1A
+/=]\'HOST: https://api.acg.autodesk.com/api/v2
 
 
 # Cloud Services V2 API
@@ -4641,7 +4641,7 @@ Reply to a private message or a group conversation (CHAT).
             "_link": "/members/20704116/messages/TAWYZDDIBLUNXZY"
         } 
 
-### Put Message [PUT /members/{id}/messages]
+### Put Message [PUT /members/{id}/messages{?action,message_id,thread_id,user_id}]
 
 Mark message as read, delete, undelete, purge and mark user as block/unblock.
 
@@ -4677,7 +4677,7 @@ Delete a private message or message thread.
 
 + Response 204 (application/json)
 
-### Add recipients to a thread [POST /members/{id}/recipients]
+### Add recipients to a thread [POST /members/{id}/recipients{?recipient_ids,thread_id}]
 
 Add recipients to an existing thread.
 
@@ -4694,7 +4694,7 @@ Add recipients to an existing thread.
 
 + Response 204 (application/json)
 
-### Delete recipients to a thread [DELETE /members/{id}/recipients]
+### Delete recipients to a thread [DELETE /members/{id}/recipients{?recipient_ids,thread_id}]
 
 Delete recipients from an existing thread.
 
@@ -4713,7 +4713,7 @@ Delete recipients from an existing thread.
 
 + Response 204 (application/json)
 
-### Retrieve Member Threads [GET /members/{id}/threads]
+### Retrieve Member Threads [GET /members/{id}/threads{?mailbox,latest_message_info,sort_order,offset,limit}]
 
 Get message threads for the member. 
 
@@ -4803,28 +4803,28 @@ Get message thread details.
 
 + Response 200 (application/json)
 
-{
-    "subject": "subject",
-    "thread_id": "T4HSWA6IHPJ4FVP",
-    "recipients": [
         {
-            "name": "jclacey3",
-            "id": 20268788
-        },
-        {
-            "name": "Kirill Goldin",
-            "id": 20268789
+            "subject": "subject",
+            "thread_id": "T4HSWA6IHPJ4FVP",
+            "recipients": [
+                {
+                    "name": "jclacey3",
+                    "id": 20268788
+                },
+                {
+                    "name": "Kirill Goldin",
+                    "id": 20268789
+                }
+            ],
+            "total_message_count": 2,
+            "unread_message_count": 0,
+            "sender": {
+                "name": "new user",
+                "id": 20704634
+            },
+        "created_date": "December 07, 2015 21:53:51",
+        "mailbox": "CHAT" 
         }
-    ],
-    "total_message_count": 2,
-    "unread_message_count": 0,
-    "sender": {
-        "name": "new user",
-        "id": 20704634
-    },
-"created_date": "December 07, 2015 21:53:51",
-"mailbox": "CHAT" 
-}
 
 ## Member credit card [/members/creditcards]
 ### Get member credit card [GET]
@@ -9832,7 +9832,7 @@ Search members on various input parameters.
             }
 
 
-## Member Status [/admin/members/{member_id}/status]
+## Member Status [/admin/members/{member_id}/status{?type,reason}]
 CRUD operations for administrator to block users from purchasing.
 
 ### Retrieve member status [GET]
