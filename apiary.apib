@@ -1147,7 +1147,7 @@ All references to external artifacts such as blog posts, videos, photos etc.
 
 + Response 204
 
-## Asset Taxonomy [/assets/taxonomy]
+## Asset Taxonomy [/assets/taxonomy{?depth,namespace}]
 Get all taxonomies/Namespace-categories in tree format
 
 ### Retrieve taxonomies[GET]
@@ -3637,7 +3637,7 @@ Retrieve this members assets. Depending on the context this operation may return
             "_link_next": "/members/20280723/assets?limit=26&offset=39"
         }
 
-**_Note:_** keydata field in response has been deprecated.  Use `extended_data` instead.
+        **_Note:_** keydata field in response has been deprecated.  Use `extended_data` instead.
 
 ## Likes [/members/{id}/likes{?limit,offset,sort_by,sort_order}]
 Member like operations
@@ -3694,7 +3694,7 @@ Member like operations
                 "_link_next":"/member/20280723/likes?limit=26&offset=39"
             }
 
-## Retrive Subscriptions [/members/{id}/subscriptions]
+## Retrive Subscriptions [/members/{id}/subscriptions{?subscription_ids,exclude_expired}]
 Retrieve member's subscription history in chronologically descending order. Each subscription has associated event type. List of possible event types are as follows
 
 **CREATE:**
@@ -4514,9 +4514,9 @@ GET the URL, that can be iframe'd by the application. This form will allow user 
 
 Private messaging APIs for conversation between members. These APIs also supports group conversations (CHAT) among multiple members.
 
-### Retrieve Messages [GET /members/{id}/messages/{thread_id}]
+### Retrieve Messages [GET /members/{id}/messages/{?thread_id,sort_order,offset,limit}]
 
-Get all messages for a thread. 
+Get all messages for a thread.
 
 **_Note:_** The recipient & sender box signifies the type of conversation. For private messaging its is IN & OUT whereas for group conversation, it is CHAT.
 
