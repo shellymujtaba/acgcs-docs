@@ -9747,6 +9747,24 @@ If the shop is OFFLINE, the assets are not going to show in the gallery and won'
             }
 
 
+## Asset Status [/admin/assets/{asset_id}/status{?status}]
+Modify asset status.
+
++ Parameters
+    + asset_id (required, Number, `12342`) ...Asset Id
+    + status (required, String, `QUARANTINED`) ...New status for the asset.  (Currently supported: PUBLISHED|UNPUBLISHED|LIMBO|QUARANTINED|DELETED).
+
+### Update asset status [PUT]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Response 200 (application/json)
+
+        {}
+
 ## Member Search [/admin/members/search{?email,id,name,created_on,last_login,provider,sort_order,sort_by,limit,offset}]
 Search members on various input parameters.
 
