@@ -4611,7 +4611,7 @@ The recipient_ids param can have only one member in case of private messaging. T
             "_link": "/members/20704116/messages/TAWYZDDIBLUNXZY"
         }        
 
-### Reply Message [POST /members/{id}/messages/reply]
+### Reply Message [POST /members/{id}/messages/reply{?body,message_id,thread_id,subject}]
 
 Reply to a private message or a group conversation (CHAT).
 
@@ -4660,7 +4660,7 @@ Mark message as read, delete, undelete, purge and mark user as block/unblock.
 
 + Response 204 (application/json)
 
-### Delete Message [DELETE /members/{id}/messages]
+### Delete Message [DELETE /members/{id}/messages{?message_id,thread_id}]
 
 Delete a private message or message thread.
 
@@ -4733,59 +4733,59 @@ Get message threads for the member.
 
 + Response 200 (application/json)
 
-{
-    "count": 64,
-    "limit": 2,
-    "offset": 0,
-    "_link": "/members/20704634/threads?limit=2&offset=0",
-    "_link_next": "/members/20704634/threads?limit=2&offset=2",
-    "threads": [
         {
-            "subject": "subject",
-            "thread_id": "TFFKIICIHW969QD",
-            "recipients": [
+            "count": 64,
+            "limit": 2,
+            "offset": 0,
+            "_link": "/members/20704634/threads?limit=2&offset=0",
+            "_link_next": "/members/20704634/threads?limit=2&offset=2",
+            "threads": [
                 {
-                    "name": "jclacey3",
-                    "id": 20268788
+                    "subject": "subject",
+                    "thread_id": "TFFKIICIHW969QD",
+                    "recipients": [
+                        {
+                            "name": "jclacey3",
+                            "id": 20268788
+                        },
+                        {
+                            "name": "Kirill Goldin",
+                            "id": 20268789
+                        }
+                    ],
+                    "total_message_count": 1,
+                    "unread_message_count": 1,
+                    "sender": {
+                        "name": "new user",
+                        "id": 20704634
+                    },
+        "created_date": "December 07, 2015 21:53:51",
+        "mailbox": "CHAT"            
                 },
                 {
-                    "name": "Kirill Goldin",
-                    "id": 20268789
+                    "subject": "subject",
+                    "thread_id": "T4HSWA6IHPJ4FVP",
+                    "recipients": [
+                        {
+                            "name": "jclacey3",
+                            "id": 20268788
+                        },
+                        {
+                            "name": "Kirill Goldin",
+                            "id": 20268789
+                        }
+                    ],
+                    "total_message_count": 2,
+                    "unread_message_count": 0,
+                    "sender": {
+                        "name": "new user",
+                        "id": 20704634
+                    },
+        "created_date": "December 07, 2014 21:53:51",
+        "mailbox": "CHAT"            
                 }
-            ],
-            "total_message_count": 1,
-            "unread_message_count": 1,
-            "sender": {
-                "name": "new user",
-                "id": 20704634
-            },
-"created_date": "December 07, 2015 21:53:51",
-"mailbox": "CHAT"            
-        },
-        {
-            "subject": "subject",
-            "thread_id": "T4HSWA6IHPJ4FVP",
-            "recipients": [
-                {
-                    "name": "jclacey3",
-                    "id": 20268788
-                },
-                {
-                    "name": "Kirill Goldin",
-                    "id": 20268789
-                }
-            ],
-            "total_message_count": 2,
-            "unread_message_count": 0,
-            "sender": {
-                "name": "new user",
-                "id": 20704634
-            },
-"created_date": "December 07, 2014 21:53:51",
-"mailbox": "CHAT"            
+            ]
         }
-    ]
-}
 
 ### Retrieve Member Thread Details [GET /members/{id}/threads/{thread_id}]
 
