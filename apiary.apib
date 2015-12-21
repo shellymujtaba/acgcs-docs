@@ -1492,10 +1492,10 @@ If the workflow step is not required, it can be marked as deleted by updating th
 
 + Response 201 (application/json)
 
-    {
-        "_link": "/assets/1812775/workflows/2376",
-        "workflow_id": 2376
-    }
+        {
+            "_link": "/assets/1812775/workflows/2376",
+            "workflow_id": 2376
+        }
 
 ### Update workflow for the asset [PUT /assets/{id}/workflows/{workflow_id}{?workflow_name,workflow_notes,workflow_status}]
 + Request (application/x-www-form-urlencoded)
@@ -1513,10 +1513,10 @@ If the workflow step is not required, it can be marked as deleted by updating th
 
 + Response 201 (application/json)
 
-    {
-        "_link": "/assets/1812775/workflows/2376",
-        "workflow_id": 2376
-    }
+        {
+            "_link": "/assets/1812775/workflows/2376",
+            "workflow_id": 2376
+        }
 
 ### Retrieve workflows for the asset [GET]
 + Request (application/x-www-form-urlencoded)
@@ -1530,30 +1530,30 @@ If the workflow step is not required, it can be marked as deleted by updating th
 
 + Response 200 (application/json)
 
-    {
-        "asset_workflows": [
-            {
-                "id": 1,
-                "member_id": 20704634,
-                "workflow_name": "name1",
-                "workflow_notes": "notes1",
-                "workflow_status": 1,
-                "date_submitted": "November 16, 2015 14:56:07",
-                "date_modified": "November 16, 2015 14:56:07",
-                "workflow_steps_count": 0
-            },
-            {
-                "id": 2,
-                "member_id": 20704634,
-                "workflow_name": "name2",
-                "workflow_notes": "notes3",
-                "workflow_status": 1,
-                "date_submitted": "November 16, 2015 14:59:41",
-                "date_modified": "November 16, 2015 14:59:41",
-                "workflow_steps_count": 0
-            }
-        ]
-    }
+        {
+            "asset_workflows": [
+                {
+                    "id": 1,
+                    "member_id": 20704634,
+                    "workflow_name": "name1",
+                    "workflow_notes": "notes1",
+                    "workflow_status": 1,
+                    "date_submitted": "November 16, 2015 14:56:07",
+                    "date_modified": "November 16, 2015 14:56:07",
+                    "workflow_steps_count": 0
+                },
+                {
+                    "id": 2,
+                    "member_id": 20704634,
+                    "workflow_name": "name2",
+                    "workflow_notes": "notes3",
+                    "workflow_status": 1,
+                    "date_submitted": "November 16, 2015 14:59:41",
+                    "date_modified": "November 16, 2015 14:59:41",
+                    "workflow_steps_count": 0
+                }
+            ]
+        }
 
 ### Retrieve workflow details [GET /assets/{id}/workflows/{workflow_id}]
 + Request (application/x-www-form-urlencoded)
@@ -1568,30 +1568,149 @@ If the workflow step is not required, it can be marked as deleted by updating th
 
 + Response 200 (application/json)
 
-{
-    "id": 1,
-    "member_id": 20704634,
-    "workflow_name": "name1",
-    "workflow_notes": "notes1",
-    "workflow_status": 1,
-    "date_submitted": "November 16, 2015 14:56:07",
-    "date_modified": "November 16, 2015 14:56:07",
-    "workflow_steps": [
         {
             "id": 1,
-            "workflow_id": 1,
             "member_id": 20704634,
-            "assigned_member_id": 20704634,
-            "workflow_step_name": "name1",
-            "workflow_step_notes": "note1",
-            "workflow_step_status": 1,
-            "parent_id": "",
-            "date_submitted": "November 16, 2015 15:25:03",
-            "date_modified": "November 16, 2015 15:25:03",
-            "workflow_step_files": [],
-            "workflow_step_messages": [],
-            "workflow_sub_steps_count": 0
-        },
+            "workflow_name": "name1",
+            "workflow_notes": "notes1",
+            "workflow_status": 1,
+            "date_submitted": "November 16, 2015 14:56:07",
+            "date_modified": "November 16, 2015 14:56:07",
+            "workflow_steps": [
+                {
+                    "id": 1,
+                    "workflow_id": 1,
+                    "member_id": 20704634,
+                    "assigned_member_id": 20704634,
+                    "workflow_step_name": "name1",
+                    "workflow_step_notes": "note1",
+                    "workflow_step_status": 1,
+                    "parent_id": "",
+                    "date_submitted": "November 16, 2015 15:25:03",
+                    "date_modified": "November 16, 2015 15:25:03",
+                    "workflow_step_files": [],
+                    "workflow_step_messages": [],
+                    "workflow_sub_steps_count": 0
+                },
+                {
+                    "id": 2,
+                    "workflow_id": 1,
+                    "member_id": 20704634,
+                    "assigned_member_id": 20704634,
+                    "workflow_step_name": "name2",
+                    "workflow_step_notes": "note2",
+                    "workflow_step_status": 1,
+                    "parent_id": "",
+                    "date_submitted": "November 16, 2015 15:25:12",
+                    "date_modified": "November 16, 2015 15:25:46",
+                    "workflow_step_files": [
+                        {
+                            "file_id": 16807864,
+                            "date_submitted": "November 16, 2015 15:25:46"
+                        },
+                        {
+                            "file_id": 16807865,
+                            "date_submitted": "November 16, 2015 15:25:46"
+                        }
+                    ],
+                    "workflow_step_messages": [
+                        {
+                            "message_id": "m1",
+                            "date_submitted": "November 16, 2015 15:25:46"
+                        },
+                        {
+                            "message_id": "m2",
+                            "date_submitted": "November 16, 2015 15:25:46"
+                        }
+                    ],
+                    "workflow_sub_steps_count": 0
+                }
+            ],
+            "workflow_steps_count": 2
+        }
+
+### Create workflow steps for the asset workflow [POST /assets/{id}/workflows/{workflow_id}/steps{?workflow_step_name,workflow_step_notes,assigned_member_id}]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with.
+    + workflow_id (required, Number,`234324`)...Id of the workflow associated with the asset.
+    + workflow_step_name (required, String,`Asset Workflow Step Name`)...Name of the asset workflow step
+    + workflow_step_notes (optional, String,`Asset Workflow Step Notes`)...Notes regrading asset workflow step
+    + assigned_member_id (optional, Number,`123124`)...Member to whom this workflow step is assigned.<br> **_Note:_** If no member Id is passed, the workflow step will be assigned to the API caller.
+
++ Response 201 (application/json)
+
+        {
+            "_link": "/assets/1812775/workflows/1/steps/3",
+            "workflow_step_id": 3
+        }
+
+### Create workflow sub steps for the workflow step [POST /assets/{id}/workflows/{workflow_id}/steps/{workflow_step_id}/substeps{?workflow_step_name,workflow_step_notes,assigned_member_id}]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with.
+    + workflow_id (required, Number,`234324`)...Id of the workflow associated with the asset.
+    + workflow_step_id (required, Number,`234324`)...Id of the workflow step associated with the asset workflow.
+    + workflow_step_name (required, String,`Asset Workflow Sub Step Name`)...Name of the asset workflow step
+    + workflow_step_notes (optional, String,`Asset Workflow Sub Step Notes`)...Notes regrading asset workflow step
+    + assigned_member_id (optional, Number,`123124`)...Member to whom this workflow step is assigned.<br> **_Note:_** If no member Id is passed, the workflow step will be assigned to the API caller.
+
++ Response 201 (application/json)
+
+        {
+            "_link": "/assets/1812775/workflows/1/steps/3",
+            "workflow_step_id": 3
+        }
+
+### Update workflow steps for the asset workflow [PUT /assets/{id}/workflows/{workflow_id}/steps/{workflow_step_id}{?workflow_step_name,workflow_step_notes,assigned_member_id,workflow_step_status,file_ids,thread_ids}]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with.
+    + workflow_id (required, Number,`234324`)...Id of the workflow associated with the asset.
+    + workflow_step_id (required, Number,`234324`)...Id of the workflow step associated with the asset workflow.
+    + workflow_step_name (optional, String,`Asset Workflow Step Name`)...Name of the asset workflow step
+    + workflow_step_notes (optional, String,`Asset Workflow Step Notes`)...Notes regrading asset workflow step
+    + assigned_member_id (optional, Number,`123124`)...Member to whom this workflow step is assigned.<br> **_Note:_** If no member Id is passed, the workflow step will be assigned to the API caller.
+    + workflow_step_status (optional, Number,`1`)...Asset workflow step status.
+    + file_ids (optional, String,`322112,23423,34534`)...Comma separated list of file Ids to be associated to this workflow step as reference.
+    + thread_ids (optional, String,`XHFMVYDI3LCLYGC,X7ZFQEKI3LCLYGA`)...Comma separated list of thread Ids to be associated to this workflow step as reference.
+
++ Response 201 (application/json)
+
+        {
+            "_link": "/assets/1812775/workflows/1/steps/3",
+            "workflow_step_id": 3
+        }
+
+### Retrieve workflow step details [GET /assets/{id}/workflows/{workflow_id}/steps/{workflow_step_id}]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with.
+    + workflow_id (required, Number,`234324`)...Id of the workflow associated with the asset.
+    + workflow_step_id (required, Number,`234324`)...Id of the workflow step associated with the asset workflow.
+
++ Response 200 (application/json)
+
         {
             "id": 2,
             "workflow_id": 1,
@@ -1615,154 +1734,35 @@ If the workflow step is not required, it can be marked as deleted by updating th
             ],
             "workflow_step_messages": [
                 {
-                    "message_id": "m1",
+                    "thread_id": "T7WERWEVVJ32323",
                     "date_submitted": "November 16, 2015 15:25:46"
                 },
                 {
-                    "message_id": "m2",
+                    "thread_id": "T7URL72II5J770V",
                     "date_submitted": "November 16, 2015 15:25:46"
                 }
             ],
-            "workflow_sub_steps_count": 0
+            "workflow_sub_steps_count": 1,
+            "workflow_sub_steps": [
+                {
+                    "id": 5,
+                    "workflow_id": 1,
+                    "member_id": 20704634,
+                    "assigned_member_id": 20704634,
+                    "workflow_step_name": "sub1",
+                    "workflow_step_notes": "note1",
+                    "workflow_step_status": 1,
+                    "parent_id": 2,
+                    "date_submitted": "November 16, 2015 15:52:21",
+                    "date_modified": "November 16, 2015 15:52:21",
+                    "workflow_step_files": [],
+                    "workflow_step_messages": [],
+                    "workflow_sub_steps_count": 0
+                }
+            ]
         }
-    ],
-    "workflow_steps_count": 2
-}
 
-### Create workflow steps for the asset workflow [POST /assets/{id}/workflows/{workflow_id}/steps{?workflow_step_name,workflow_step_notes,assigned_member_id}]
-+ Request (application/x-www-form-urlencoded)
-    + Headers
-
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-
-+ Parameters
-    + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with.
-    + workflow_id (required, Number,`234324`)...Id of the workflow associated with the asset.
-    + workflow_step_name (required, String,`Asset Workflow Step Name`)...Name of the asset workflow step
-    + workflow_step_notes (optional, String,`Asset Workflow Step Notes`)...Notes regrading asset workflow step
-    + assigned_member_id (optional, Number,`123124`)...Member to whom this workflow step is assigned.<br> **_Note:_** If no member Id is passed, the workflow step will be assigned to the API caller.
-
-+ Response 201 (application/json)
-
-    {
-        "_link": "/assets/1812775/workflows/1/steps/3",
-        "workflow_step_id": 3
-    }
-
-### Create workflow sub steps for the workflow step [POST /assets/{id}/workflows/{workflow_id}/steps/{workflow_step_id}/substeps{?workflow_step_name,workflow_step_notes,assigned_member_id}]
-+ Request (application/x-www-form-urlencoded)
-    + Headers
-
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-
-+ Parameters
-    + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with.
-    + workflow_id (required, Number,`234324`)...Id of the workflow associated with the asset.
-    + workflow_step_id (required, Number,`234324`)...Id of the workflow step associated with the asset workflow.
-    + workflow_step_name (required, String,`Asset Workflow Sub Step Name`)...Name of the asset workflow step
-    + workflow_step_notes (optional, String,`Asset Workflow Sub Step Notes`)...Notes regrading asset workflow step
-    + assigned_member_id (optional, Number,`123124`)...Member to whom this workflow step is assigned.<br> **_Note:_** If no member Id is passed, the workflow step will be assigned to the API caller.
-
-+ Response 201 (application/json)
-
-    {
-        "_link": "/assets/1812775/workflows/1/steps/3",
-        "workflow_step_id": 3
-    }
-
-### Update workflow steps for the asset workflow [PUT /assets/{id}/workflows/{workflow_id}/steps/{workflow_step_id}{?workflow_step_name,workflow_step_notes,assigned_member_id,workflow_step_status,file_ids,message_ids}]
-+ Request (application/x-www-form-urlencoded)
-    + Headers
-
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-
-+ Parameters
-    + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with.
-    + workflow_id (required, Number,`234324`)...Id of the workflow associated with the asset.
-    + workflow_step_id (required, Number,`234324`)...Id of the workflow step associated with the asset workflow.
-    + workflow_step_name (optional, String,`Asset Workflow Step Name`)...Name of the asset workflow step
-    + workflow_step_notes (optional, String,`Asset Workflow Step Notes`)...Notes regrading asset workflow step
-    + assigned_member_id (optional, Number,`123124`)...Member to whom this workflow step is assigned.<br> **_Note:_** If no member Id is passed, the workflow step will be assigned to the API caller.
-    + workflow_step_status (optional, Number,`1`)...Asset workflow step status.
-    + file_ids (optional, String,`322112,23423,34534`)...Comma separated list of file Ids to be associated to this workflow step as reference.
-    + thread_ids (optional, String,`XHFMVYDI3LCLYGC,X7ZFQEKI3LCLYGA`)...Comma separated list of thread Ids to be associated to this workflow step as reference.
-
-+ Response 201 (application/json)
-
-    {
-        "_link": "/assets/1812775/workflows/1/steps/3",
-        "workflow_step_id": 3
-    }
-
-### Retrieve workflow step details [GET /assets/{id}/workflows/{workflow_id}/steps/{workflow_step_id}]
-+ Request (application/x-www-form-urlencoded)
-    + Headers
-
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-
-+ Parameters
-    + id (required,Number,`234566`)...Numeric `id` of the asset to perform action with.
-    + workflow_id (required, Number,`234324`)...Id of the workflow associated with the asset.
-    + workflow_step_id (required, Number,`234324`)...Id of the workflow step associated with the asset workflow.
-
-+ Response 200 (application/json)
-
-{
-    "id": 2,
-    "workflow_id": 1,
-    "member_id": 20704634,
-    "assigned_member_id": 20704634,
-    "workflow_step_name": "name2",
-    "workflow_step_notes": "note2",
-    "workflow_step_status": 1,
-    "parent_id": "",
-    "date_submitted": "November 16, 2015 15:25:12",
-    "date_modified": "November 16, 2015 15:25:46",
-    "workflow_step_files": [
-        {
-            "file_id": 16807864,
-            "date_submitted": "November 16, 2015 15:25:46"
-        },
-        {
-            "file_id": 16807865,
-            "date_submitted": "November 16, 2015 15:25:46"
-        }
-    ],
-    "workflow_step_messages": [
-        {
-            "thread_id": "T7WERWEVVJ32323",
-            "date_submitted": "November 16, 2015 15:25:46"
-        },
-        {
-            "thread_id": "T7URL72II5J770V",
-            "date_submitted": "November 16, 2015 15:25:46"
-        }
-    ],
-    "workflow_sub_steps_count": 1,
-    "workflow_sub_steps": [
-        {
-            "id": 5,
-            "workflow_id": 1,
-            "member_id": 20704634,
-            "assigned_member_id": 20704634,
-            "workflow_step_name": "sub1",
-            "workflow_step_notes": "note1",
-            "workflow_step_status": 1,
-            "parent_id": 2,
-            "date_submitted": "November 16, 2015 15:52:21",
-            "date_modified": "November 16, 2015 15:52:21",
-            "workflow_step_files": [],
-            "workflow_step_messages": [],
-            "workflow_sub_steps_count": 0
-        }
-    ]
-}
-
-### Delete workflow steps from the asset workflow [DELETE /assets/{id}/workflows/{workflow_id}/steps/{workflow_step_id}{?workflow_step_status,file_ids,message_ids}]
+### Delete workflow steps from the asset workflow [DELETE /assets/{id}/workflows/{workflow_id}/steps/{workflow_step_id}{?workflow_step_status,file_ids,thread_ids}]
 + Request (application/x-www-form-urlencoded)
     + Headers
 
@@ -2247,10 +2247,11 @@ Operations to manage status posts on an asset. Status posts are updates to the p
     + status_post_id (required,String, `234567,334562`)...Comma separated list of status posts to be deleted from this asset.
 + Response 204
 
-## Asset File Conversations [/assets/{id}/conversations{?file_id,message_id,x_coordinate,y_coordinate,z_coordinate}]
+## Asset File Conversations [/assets/{id}/conversations{?file_id,thread_id,x_coordinate,y_coordinate,z_coordinate}]
 A file conversation around an asset helps members reference an external file such as picture, videos etc. and start
 a conversation around it. This feature can be helpful when a group of members are working on a project and they want to give references
 from the project, and discuss various points around it.
+
 ### Create a file conversation[POST]
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -4534,50 +4535,50 @@ Get all messages for a thread.
 
 + Response 200 (application/json)
 
-{
-    "count": 2,
-    "limit": 20,
-    "offset": 0,
-    "_link": "/members/20706579/messages/tiarffdihwkk2nw?limit=20&offset=0",
-    "messages": [
         {
-            "subject": "wow",
-            "body": "this is nice",
-            "thread_id": "TIARFFDIHWKK2NW",
-            "sent_time": "December 07, 2015 23:08:50",
-            "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
-            "sender_screen_id": 20722945,
-            "sender_screen_name": "ecommerceoxygen fixed credits 207",
-            "recipient_screen_id": 20706579,
-            "recipient_screen_name": "new user 207",
-            "profile_url": "http://beta.squidplatform.com/MyCorner/ecommerceoxygenfixedcredits207-20722945",
-            "message_id": "XYEYBZPIHWFJC34",
-            "read_time": "",
-            "recipient_box": "CHAT",
-            "sender_box": "CHAT",
-            "inreplyto": ""
-        },
-        {
-            "subject": "wow",
-            "body": "wow",
-            "thread_id": "TIARFFDIHWKK2NW",
-            "sent_time": "December 07, 2015 23:08:21",
-            "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
-            "sender_screen_id": 20706579,
-            "sender_screen_name": "new user 207",
-            "recipient_screen_id": 20706579,
-            "recipient_screen_name": "new user 207",
-            "profile_url": "http://beta.squidplatform.com/MyCorner/newuser207-20706579",
-            "message_id": "XY52ZPZIHWFJC32",
-            "read_time": "",
-            "recipient_box": "CHAT",
-            "sender_box": "CHAT",
-            "inreplyto": ""
+            "count": 2,
+            "limit": 20,
+            "offset": 0,
+            "_link": "/members/20706579/messages/tiarffdihwkk2nw?limit=20&offset=0",
+            "messages": [
+                {
+                    "subject": "wow",
+                    "body": "this is nice",
+                    "thread_id": "TIARFFDIHWKK2NW",
+                    "sent_time": "December 07, 2015 23:08:50",
+                    "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
+                    "sender_screen_id": 20722945,
+                    "sender_screen_name": "ecommerceoxygen fixed credits 207",
+                    "recipient_screen_id": 20706579,
+                    "recipient_screen_name": "new user 207",
+                    "profile_url": "http://beta.squidplatform.com/MyCorner/ecommerceoxygenfixedcredits207-20722945",
+                    "message_id": "XYEYBZPIHWFJC34",
+                    "read_time": "",
+                    "recipient_box": "CHAT",
+                    "sender_box": "CHAT",
+                    "inreplyto": ""
+                },
+                {
+                    "subject": "wow",
+                    "body": "wow",
+                    "thread_id": "TIARFFDIHWKK2NW",
+                    "sent_time": "December 07, 2015 23:08:21",
+                    "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
+                    "sender_screen_id": 20706579,
+                    "sender_screen_name": "new user 207",
+                    "recipient_screen_id": 20706579,
+                    "recipient_screen_name": "new user 207",
+                    "profile_url": "http://beta.squidplatform.com/MyCorner/newuser207-20706579",
+                    "message_id": "XY52ZPZIHWFJC32",
+                    "read_time": "",
+                    "recipient_box": "CHAT",
+                    "sender_box": "CHAT",
+                    "inreplyto": ""
+                }
+            ]
         }
-    ]
-}
 
-### Send Message [POST /members/{id}/messages]
+### Send Message [POST /members/{id}/messages{?subject,body,recipient_ids,mailbox}]
 
 Send a new message to a member or multiple members. This API can be used to initiate both private messaging and group conversation (CHAT).
 
