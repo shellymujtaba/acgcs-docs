@@ -4673,7 +4673,7 @@ Mark message as read, delete, undelete, purge and mark user as block/unblock.
 
 ### Delete Message [DELETE /members/{id}/messages{?message_id,thread_id}]
 
-Delete a private message or message thread.
+Delete/trash a private message or message thread. The mailbox of the message is updated as TRASH.
 
 + Parameters
     + id (required,Number, `20280723`)...Member Id
