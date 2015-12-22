@@ -4673,7 +4673,7 @@ Mark message as read, delete, undelete, purge and mark user as block/unblock.
 
 ### Delete Message [DELETE /members/{id}/messages{?message_id,thread_id}]
 
-Delete/trash a private message or message thread. The mailbox of the message is updated as TRASH.
+Delete/trash a private message or message thread. The mailbox of the message will be updated as TRASH.
 
 + Parameters
     + id (required,Number, `20280723`)...Member Id
@@ -4690,7 +4690,7 @@ Delete/trash a private message or message thread. The mailbox of the message is 
 
 ### Add recipients to a thread [POST /members/{id}/recipients{?recipient_ids,thread_id}]
 
-Add recipients to an existing thread.
+Add recipients to an existing thread. This operation can be performed on CHAT mailbox message threads.
 
 + Parameters
     + id (required,Number, `20280723`)...Member Id already present on the thread
@@ -4707,7 +4707,7 @@ Add recipients to an existing thread.
 
 ### Delete recipients to a thread [DELETE /members/{id}/recipients{?recipient_ids,thread_id}]
 
-Delete recipients from an existing thread.
+Delete recipients from an existing thread. This operation can be performed on CHAT mailbox message threads.
 
 **_Note:_** The creator of the thread can delete any member on the thread whereas other members can delete themself from the thread.
 
