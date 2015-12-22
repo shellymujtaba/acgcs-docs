@@ -5300,6 +5300,8 @@ If the member attempts to set the shop ONLINE without tax information a 34026 er
 ## Shop Custom Data [/shops/{id}/customdata{?custom_data,keys}]
 Operations to add/delete custom data to this shop. Custom data can be retrieved from GET shop API.
 
+If the shop approval status is in the INCOMPLETE state, updating the shop information will trigger a validation of the shop information and tax information. Upon successful validation, the shop approval status will be changed to PENDING and the shop will show up in Tool Central for review.
+
 **_Note:_** The key should be unique within the shop. Using the same key in POST will overwrite the existing data if any.
 
 + Parameters
