@@ -4995,7 +4995,9 @@ Operations for shop creation and retrieval.
 
 This group of operations work on shops. A shop is a core entity in marketplace eco-system. A seller needs to establish a shop in order to start selling assets.
 
-* A shop needs to be reviewed once it is created (requested). The Shop Approval Status indicates the review status and is initially set to PENDING following a shop creation. Once the review is complete, this field gets updated to either APPROVED or DENIED.
+* At creation time, the shop approval status is set to INCOMPLETE until all of the shop information is filled out on the web site where the shop originates (e.g. Marketplace).
+* Once all of the information for the shop and its owner is entered on the site (including tax infpormation), the shop approval status will change to PENDING for review.
+* The shop with PENDING status will show up in Tool Central and will need to be reviewed by the shop currator. A shop will then change to either WAIT_LISTED, DENIED, or APPROVED. The wait listed status indicates that the user needs to add/correct info on the shop.
 * The Shop Status field indicates whether the shop is online (i.e. visible to others) or offline. The DELETE operation can be utilized to bring a shop offline.
 
 
