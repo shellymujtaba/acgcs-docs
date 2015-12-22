@@ -4658,7 +4658,7 @@ Mark message as read, delete, undelete, purge and mark user as block/unblock.
 
 + Parameters
     + id (required,Number, `20280723`)...Member Id
-    + action  (required, String, `read`)...action = read/undelete/purge/block/unblock. **_Note:_** Purge is allowed only on messages which are already deleted/trashed.
+    + action  (required, String, `read`)...action = read/undelete/purge/block/unblock. **_Note:_** Purge is allowed only on messages which are already deleted/trashed. Messages once purged cannot be recovered.
     + message_id (optional, String, `XWTWLL9H411A68F`)...Message Id. (required if action is of type: read/undelete/purge). In case of "read", either message id or thread id can be passed.
     + thread_id (optional, String, `TWTWLL9H411A68F`)...Thread Id. This make all the messages in the thread as read. Thread Id param is effective only for marking messages as read.
     + user_id  (optional,Number, `20280724`)...Member Id to be blocked or unblocked (required if action is of type: block/unblock)
