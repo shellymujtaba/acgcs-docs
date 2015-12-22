@@ -4514,14 +4514,14 @@ GET the URL, that can be iframe'd by the application. This form will allow user 
 
 Private messaging APIs for conversation between members. These APIs also supports group conversations (CHAT) among multiple members.
 
-Messaging support different kinds of mailboxes. The following are the different type:
+Messaging support different kinds of mailbox depending on the type of conversation. The following are the different type:
 
 |_Mailbox_|_Description_
 |----|----
 |IN|Inbox - message received|
 |OUT|Outbox - message sent|
-|TRASH|Mailbox after the message is deleted|
-|DELETED|Mailbox after the message is purged|
+|TRASH|Message mailbox after the message is deleted|
+|DELETED|Message mailbox after the message is purged|
 |CHAT|Group conversation mailbox|
 
 ### Retrieve Messages [GET /members/{id}/messages/{thread_id}{?sort_order,offset,limit}]
