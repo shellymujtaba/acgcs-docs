@@ -9133,7 +9133,7 @@ The following filters are mutually exclusive and get the following priority: sho
     + shop_name (optional, String, `Uber Shop`)... Search by shop name.
     + start_date (optional, Date, `2014-12-01`)... Limit results to shops created/modified on or after a given date ("yyyy-MM-dd" or "yyyy-MM-dd hh:mm:ss" formats).
     + end_date (optional, Date, `2014-12-15`)... Limit results to shops created/modified on or before a given date ("yyyy-MM-dd" or "yyyy-MM-dd hh:mm:ss" formats).
-    + approval_status = `PENDING` (optional, String, `PENDING,DENIED`)... Search by approval status, which can be PENDING, DENIED, and/or APPROVED.
+    + approval_status = `PENDING` (optional, String, `PENDING,DENIED`)... Search by approval status, which can be INCOMPLETE, PENDING, DENIED, WAIT_LISTED and/or APPROVED.
     + sort_by = `MODIFIED_DATE` (optional, String, `CREATED_DATE`)... Sort results according to filter: `CREATED_DATE,MODIFIED_DATE`.
     + sort_order = `DESC` (optional, String, `DESC`)... Sort order for the results: `ASC` or `DESC`.
     + limit (optional, Number,`20`)... Number of results to return in each page. Default: 10.
@@ -9292,7 +9292,7 @@ If the member attempts to set the shop ONLINE without tax information a 34026 er
     + current_portfolio_url (optional, String, `http://dev.squidplatform.net`) ...Portfolio url
     + current_sales_url (optional, String, `http://dev.squidplatform.net`) ...Sales url
     + shop_status (optional, String, `ONLINE`) ...Shop status: ONLINE/OFFLINE
-    + shop_approval_status (optional, String, `PENDING|APPROVED|DENIED`)... Approval status of a shop.
+    + shop_approval_status (optional, String, `INCOMPLETE|PENDING|APPROVED|DENIED|WAIT_LISTED`)... Approval status of a shop.
     + shop_denial_reason (optional, String, `FRAUD|DUPLICATE`)... Shop denial reason
     + title (optional, String, `shopTitle`)... title. Must be less than 256 characters.
     + description (optional, String, `This is the best shop`)... shop description. Must be less than 3500 characters.
