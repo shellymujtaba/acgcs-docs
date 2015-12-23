@@ -9349,58 +9349,160 @@ The following filters are mutually exclusive and get the following priority: sho
     + Body
 
             {
-                "count": 1,
-                "limit": 20,
-                "offset": 0,
-                "_link": "/admin/shops?approval_status=DENIED,APPROVED,PENDING&regression=true&member_name=%commerce%&limit=20&offset=0",
-                "shops": [
-                    {
-                        "shop": {
-                            "name": "Modified Shop",
-                            "title": "shopTitle",
-                            "description": "This is the best shop",
-                            "shop_id": 13,
-                            "member_id": 20707167,
-                            "banner_file_id": 87654321,
-                            "logo_file_id": 87654321,
-                            "current_portfolio_url": "https://frederic.io/myubersite.html",
-                            "current_sales_url": "https://frederic.io/mygreatshop.html",
-                            "shop_status": "OFFLINE",
-                            "shop_approval_status": "PENDING",
-                            "commerce_affiliate_id": 1,
-                            "modified_date": "December 10, 2014 18:57:09",
-                            "created_date": "November 25, 2014 22:21:35",
-                            "admin_modified_date": "",
-                            "custom_data": [
-                                {
-                                    "key": "key1",
-                                    "data": {
-                                        "1": 2
-                                    }
-                                },
-                                {
-                                    "key": "key2",
-                                    "data": {
-                                        "1": 44
-                                    }
-                                },
-                                {
-                                    "key": "color",
-                                    "data": {
-                                        "background": [
-                                            "yellow",
-                                            "black"
-                                        ],
-                                        "content": "white"
-                                    }
-                                }
-                            ]
-                        },
-                        "member_name": "ecommerce ecommerce",
-                        "member_email": "ecommerce@regression.alpha"
-                    }
-                ]
+              "count": 1,
+              "limit": 20,
+              "offset": 0,
+              "_link": "/admin/shops?shop_id=61&approval_status=PENDING,APPROVED,DENIED,WAIT_LISTED&limit=20&offset=0",
+              "shops": [
+                {
+                  "shop": {
+                    "name": "La Bete's Shop",
+                    "title": "Where spending is a treat",
+                    "shop_id": 61,
+                    "member_id": 20705501,
+                    "banner_file_id": 17915206,
+                    "logo_file_id": 17915205,
+                    "banner_file_url": "https://static.spark.autodesk.com/Public/Beta/17915206.jpg",
+                    "logo_file_url": "https://static.spark.autodesk.com/Public/Beta/17915205.jpg",
+                    "current_portfolio_url": "http://",
+                    "current_sales_url": "http://",
+                    "shop_status": "ONLINE",
+                    "shop_approval_status": "APPROVED",
+                    "needs_shipping_profile": false,
+                    "shop_denial_reason": "NONE",
+                    "shop_wait_listed_reason": "NONE",
+                    "commerce_affiliate_id": 7,
+                    "admin_modified_by_id": 20705501,
+                    "custom_data": [
+                      {
+                        "key": "address",
+                        "data": "Pier 9, The Embarcadero"
+                      },
+                      {
+                        "key": "can_ship",
+                        "data": "False"
+                      },
+                      {
+                        "key": "can_ship_to_countries",
+                        "data": "None"
+                      },
+                      {
+                        "key": "company_name",
+                        "data": "Loranger, Inc."
+                      },
+                      {
+                        "key": "company_website",
+                        "data": "www.google.com"
+                      },
+                      {
+                        "key": "country",
+                        "data": "US"
+                      },
+                      {
+                        "key": "description",
+                        "data": "I sell everything."
+                      },
+                      {
+                        "key": "first_name",
+                        "data": "Frederic"
+                      },
+                      {
+                        "key": "has_online_shop",
+                        "data": "false"
+                      },
+                      {
+                        "key": "id",
+                        "data": "61"
+                      },
+                      {
+                        "key": "industry",
+                        "data": "Games"
+                      },
+                      {
+                        "key": "insurance_files_metadata",
+                        "data": "[]"
+                      },
+                      {
+                        "key": "last_name",
+                        "data": "Loranger"
+                      },
+                      {
+                        "key": "online_shop_url",
+                        "data": "None"
+                      },
+                      {
+                        "key": "postcode",
+                        "data": "94111"
+                      },
+                      {
+                        "key": "products_type",
+                        "data": "3"
+                      },
+                      {
+                        "key": "provide_insurance",
+                        "data": "false"
+                      },
+                      {
+                        "key": "provide_terms_of_sale",
+                        "data": "false"
+                      },
+                      {
+                        "key": "provide_warranties",
+                        "data": "false"
+                      },
+                      {
+                        "key": "return_policy_files_metadata",
+                        "data": "[]"
+                      },
+                      {
+                        "key": "shipping_products_type",
+                        "data": "2"
+                      },
+                      {
+                        "key": "shop",
+                        "data": "61"
+                      },
+                      {
+                        "key": "state",
+                        "data": "CA"
+                      },
+                      {
+                        "key": "terms_of_sale_files_metadata",
+                        "data": "[]"
+                      },
+                      {
+                        "key": "top_selling_products",
+                        "data": "Gummy bears\nBubble gums"
+                      },
+                      {
+                        "key": "user",
+                        "data": "20705501"
+                      },
+                      {
+                        "key": "warranties_files_metadata",
+                        "data": "[]"
+                      }
+                    ],
+                    "created_date": "May 12, 2015 19:52:23",
+                    "total_payout": 155,
+                    "admin_modified_date": "December 01, 2015 15:34:26",
+                    "pending_total": 0,
+                    "total_sales": 100000,
+                    "available_payout": 99810.7,
+                    "available_sales_payout": 99810.7,
+                    "available_sales_tax_payout": 0,
+                    "available_shipping_payout": 0,
+                    "total_shipping": 0,
+                    "total_sales_tax": 0,
+                    "is_generic_fulfillment": true,
+                    "modified_date": "December 01, 2015 15:34:26"
+                  },
+                  "member_name": "Frederic Staging",
+                  "member_email": "frederic.loranger@autodesk.com"
+                }
+              ]
             }
+
 
 ## Shop [/admin/shops/{shop_id}{?name,banner_file_id,logo_file_id,current_portfolio_url,current_sales_url,shop_status,shop_approval_status,shop_denial_reason,title,description,custom_data_key,custom_data_value}]
 
