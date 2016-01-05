@@ -4674,11 +4674,12 @@ Mark message as read, delete, undelete, purge and mark user as block/unblock.
 ### Delete Message [DELETE /members/{id}/messages{?message_id,thread_id}]
 
 Delete/trash a private message or message thread. The mailbox of the message will be updated as TRASH.
+In case of CHAT thread, all the messages in the thread are deleted.
 
 + Parameters
     + id (required,Number, `20280723`)...Member Id
     + message_id (optional, String, `XWTWLL9H411A68F`)...Message id.
-    + thread_id (optional, String, `TWTWLL9H411A68F`)...Thread Id. Only creator of the thread can delete the thread.
+    + thread_id (optional, String, `TWTWLL9H411A68F`)...Thread Id. Only creator of the thread can delete the thread. Effective only in case of CHAT thread.
 
 + Request (application/x-www-form-urlencoded)
     + Headers
