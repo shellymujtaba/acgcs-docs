@@ -10361,11 +10361,13 @@ Retrieve the list of statuses for the member specified in the query parameters.
 + Response 200 (application/json)
     + Body
 
-            {
-                "member_status": [
-                    "PURCHASE_BLOCKED"
-                ]
-            }
+            [
+                {
+                    "reason": "Temporarily banned coppa user",
+                    "status": "TEMP_BANNED",
+                    "expiration_timestamp": "January 05, 2016 19:19:07"
+                }
+            ]
 
 ### Update member status [PUT]
 Update the member status, which are passed as a list of commas separated strings. Right now only PURCHASE_BLOCKED is supported.
