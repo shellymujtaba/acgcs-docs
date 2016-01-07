@@ -1780,7 +1780,7 @@ If the workflow step is not required, it can be marked as deleted by updating th
 + Response 204 (application/json)
 
 
-## Asset Likes [/assets/{id}/likes{?limit,offset,sort_order,follow_order}]
+## Asset Likes [/assets/{id}/likes{?limit,offset,sort_order,follow_order,child_member_id}]
 This operation is basically a toggle - calling PUT operation repeatedly will set/unset like state for this member on this asset.
 
 **_Pre-condition:_** Asset must be in published (public - 0) status.
@@ -1833,6 +1833,9 @@ This operation is basically a toggle - calling PUT operation repeatedly will set
 
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + child_member_id (optional,Number, `20707424`)...child's member id, which is required when removing a child's like as a moderator on their behalf.
+
 + Response 200 (application/json)
 
             {
@@ -1842,7 +1845,7 @@ This operation is basically a toggle - calling PUT operation repeatedly will set
             }
 
 
-## Asset Comments [/assets/{id}/comments{?comment,comment_id,in_reply_to,limit,offset,sort_order}]
+## Asset Comments [/assets/{id}/comments{?comment,comment_id,in_reply_to,limit,offset,sort_order,child_member_id}]
 Operations to manage comments on an asset
 
 **_Pre-condition:_** Asset must be in published (public - 0) status.
@@ -1930,7 +1933,8 @@ Operations to manage comments on an asset
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
-    + comment_id (required,String, `123aaddq33`)...id of comment to be deleted from this asset.
+    + comment_id (required,String, `C0YGI19IGBQK1SZ `)...id of comment to be deleted from this asset.
+    + child_member_id (optional,Number, `20707424`)...child's member id, which is required when deleting a comment as a moderator on behalf of a child.
 + Response 204
 
 ## Asset Comments level [/assets/{id}/comments-level{?num_replies,comment_id,depth,limit,offset,sort_order}]
@@ -5910,6 +5914,49 @@ Behind the scene: If the shop is OFFLINE, the assets are not going to show in th
                 "apply_tax": true
               }
             }
+
+
+## Shop Asset Shipping Options [/shops/{shop_id}/assets/{asset_id}/shipping{?country,quantity,limit,offset}]
+Retrieve the shipping options for the asset.
+
++ Parameters
+    + shop_id (required, Number, `38`)... Shop id
+    + asset_id (required, Number, `1512965`)... Asset id
+
+### Retrieve Asset Shipping Options [GET]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+
++ Parameters
+    + country (required,String,`US`)... The country for which the shipping options needs to be returned.
+    + quantity (optional, Number, `3`)... The quantity of asset to find shipping options. Default: 1.
+    + limit (optional, Number,`1`)... Number of results to return in each page. Default: 10.
++ Response 200 (application/json)
+
+{
+    "count": 2,
+    "limit": 20,
+    "offset": 0,
+    "_link": "/shops/38/assets/1512965/shipping? country=US&limit=20&offset=0",
+    "shippingoptions": [
+        {
+            "SHIPPER": "Fedex Express ",
+            "ID": "1 Day Delivery",
+            "NAME": "1 Day Delivery",
+            "PRICE": 27,
+            "INSURANCE": 0
+        },
+        {
+            "SHIPPER": "Fedex Express",
+            "ID": "3 Day Delivery",
+            "NAME": "3 Day Delivery",
+            "PRICE": 17,
+            "INSURANCE": 0
+        }
+    ]
+}
 
 
 ##Payouts [/shops/{shop_id}/payouts{?limit,offset,amount}]
