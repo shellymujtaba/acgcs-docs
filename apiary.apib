@@ -4827,28 +4827,31 @@ Get message thread details.
 
 + Response 200 (application/json)
 
+{
+    "subject": "Chat Subject",
+    "thread_id": "TIAK6BLIHWHWAK9",
+    "recipients": [
         {
-            "subject": "subject",
-            "thread_id": "T4HSWA6IHPJ4FVP",
-            "recipients": [
-                {
-                    "name": "jclacey3",
-                    "id": 20268788
-                },
-                {
-                    "name": "Kirill Goldin",
-                    "id": 20268789
-                }
-            ],
-            "total_message_count": 2,
-            "unread_message_count": 0,
-            "sender": {
-                "name": "new user",
-                "id": 20704634
-            },
-        "created_date": "December 07, 2015 21:53:51",
-        "mailbox": "CHAT" 
+            "name": "Shelly Mujtaba (901)",
+            "id": 20318901,
+            "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
+        },
+        {
+            "name": "new user 207",
+            "id": 20706579,
+            "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
         }
+    ],
+    "total_message_count": 48,
+    "unread_message_count": 0,
+    "sender": {
+        "name": "ROHIT NARAYANA",
+        "id": 20705681,
+        "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
+    },
+    "created_date": "December 07, 2015 21:53:51",
+    "mailbox": "CHAT"
+}
         
 ### Send Media Message in Chat [POST /members/{id}/chat/media]
 
