@@ -2618,7 +2618,7 @@ This group of operations provides information on the member. A member is a user 
 
 ## Current Member [/members]
 Retrieve all information about the currently logged-in member.
-### Retreive the current member [GET]
+### Retrieve the current member [GET]
 + Request (application/x-www-form-urlencoded)
 
 + Response 200 (application/json)
@@ -2717,7 +2717,8 @@ Retrieve all information about the currently logged-in member.
                   "first_name": "John",
                   "last_name": "Smith",
                   "subscription_id": 3,
-                  "subscription_name": "1-month Premium Membership"
+                  "subscription_name": "1-month Premium Membership",
+                  "parent_email":"parent@adsk.com"
                }
             }
 
@@ -4754,59 +4755,61 @@ Get message threads for the member.
 
 + Response 200 (application/json)
 
+{
+    "count": 26,
+    "limit": 2,
+    "offset": 3,
+    "_link": "/members/20706579/threads?mailbox=CHAT&limit=2&offset=3",
+    "_link_prev": "/members/20706579/threads?mailbox=CHAT&limit=2&offset=1",
+    "_link_next": "/members/20706579/threads?mailbox=CHAT&limit=2&offset=5",
+    "threads": [
         {
-            "count": 64,
-            "limit": 2,
-            "offset": 0,
-            "_link": "/members/20704634/threads?limit=2&offset=0",
-            "_link_next": "/members/20704634/threads?limit=2&offset=2",
-            "threads": [
+            "subject": "new thread",
+            "thread_id": "T8B3ZQYIHWOHI0M",
+            "recipients": [
                 {
-                    "subject": "subject",
-                    "thread_id": "TFFKIICIHW969QD",
-                    "recipients": [
-                        {
-                            "name": "jclacey3",
-                            "id": 20268788
-                        },
-                        {
-                            "name": "Kirill Goldin",
-                            "id": 20268789
-                        }
-                    ],
-                    "total_message_count": 1,
-                    "unread_message_count": 1,
-                    "sender": {
-                        "name": "new user",
-                        "id": 20704634
-                    },
-        "created_date": "December 07, 2015 21:53:51",
-        "mailbox": "CHAT"            
+                    "name": "Shelly Mujtaba (901)",
+                    "id": 20318901,
+                    "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
+                }
+            ],
+            "total_message_count": 2,
+            "unread_message_count": 0,
+            "sender": {
+                "name": "new user 207",
+                "id": 20706579,
+                "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
+            },
+            "created_date": "December 08, 2015 00:58:18",
+            "mailbox": "CHAT"
+        },
+        {
+            "subject": "Chat Subject",
+            "thread_id": "TIAK6BLIHWHWAK9",
+            "recipients": [
+                {
+                    "name": "Shelly Mujtaba (901)",
+                    "id": 20318901,
+                    "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
                 },
                 {
-                    "subject": "subject",
-                    "thread_id": "T4HSWA6IHPJ4FVP",
-                    "recipients": [
-                        {
-                            "name": "jclacey3",
-                            "id": 20268788
-                        },
-                        {
-                            "name": "Kirill Goldin",
-                            "id": 20268789
-                        }
-                    ],
-                    "total_message_count": 2,
-                    "unread_message_count": 0,
-                    "sender": {
-                        "name": "new user",
-                        "id": 20704634
-                    },
-        "created_date": "December 07, 2014 21:53:51",
-        "mailbox": "CHAT"            
+                    "name": "new user 207",
+                    "id": 20706579,
+                    "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
                 }
-            ]
+            ],
+            "total_message_count": 48,
+            "unread_message_count": 0,
+            "sender": {
+                "name": "ROHIT NARAYANA",
+                "id": 20705681,
+                "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
+            },
+            "created_date": "December 07, 2015 21:53:51",
+            "mailbox": "CHAT"
         }
+    ]
+}
 
 ### Retrieve Member Thread Details [GET /members/{id}/threads/{thread_id}]
 
@@ -4846,6 +4849,53 @@ Get message thread details.
         "created_date": "December 07, 2015 21:53:51",
         "mailbox": "CHAT" 
         }
+        
+### Send Media Message in Chat [POST /members/{id}/chat/media]
+
+Send Image files in Chat conversation.
+
+**_Note:_**
+
+1. Please call <a href="http://docs.acgcs.apiary.io/#reference/files/upload-server/upload-server">GET Upload Server API</a> to retrieve the server.
+2. Use the server as the host in the POST Upload File API above.
+3. message body received  will be a URL to download the image, which can be postfixed with Medium.jpg, Original.jpg, Medium.png or Original.png
+
+
++ Parameters
+    + id (required,Number, `20280723`)...Member id
+    + thread_id (required, String, `T4HSWA6IHPJ4FVP`)...Thread Id.
+    + content_type (required, String, `image`)... Type of file. Currently only supported type is image.
+    
+    
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            
+    + Body
+
+            ---abc123
+            Content-Disposition: form-data; name="aceb"; filename="data.aceb"
+            Content-Type: application/octet-stream
+            ... file data here ...
+            ---abc123
+            Content-Disposition: form-data; name="dome"; filename="model.gzip"
+            Content-Type: application/gzip
+            ... file data here ...
+            ---abc123
+            Content-Disposition: form-data; name="acmo"; filename="outputs.csv"
+            Content-Type: base64
+            ... file data here ...
+            ---abc123        
+
++ Response 200 (application/json)
+
+        {
+            "thread_id": "TE7SZW6II7H400G",
+            "_link": "/members/20708825/messages/TE7SZW6II7H400G"
+        }        
+
 
 ## Member credit card [/members/creditcards]
 ### Get member credit card [GET]
