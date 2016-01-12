@@ -4861,13 +4861,13 @@ Send image in chat conversation.
 **_Note:_**
 
 1. Please call <a href="http://docs.acgcs.apiary.io/#reference/files/upload-server/upload-server">GET Upload Server API</a> to retrieve the server.
-2. Use the server as the host in the POST Upload File API above.
+2. Use the server as the host in the POST members/{id}/chat/media API above.
 3. The message body will be a URL to download the image, which can be postfixed with Medium.jpg, Original.jpg, Medium.png or Original.png
 
 + Parameters
     + id (required,Number, `20280723`)...Member id
     + thread_id (required, String, `T4HSWA6IHPJ4FVP`)...Thread Id.
-    + content_type (required, String, `image`)... Type of file. Currently only supported type is image.
+    + content_type (required, String, `IMAGE`)... Type of file. Currently only supported type is IMAGE.
     
     
 + Request (application/x-www-form-urlencoded)
@@ -10442,7 +10442,7 @@ Search members on various input parameters.
             }
 
 
-## Member Status [/admin/members/{member_id}/status{?type,reason}]
+## Member Status [/admin/members/{member_id}/status{?status,reason,expires_in_mins}]
 CRUD operations for administrator to block users from purchasing.
 
 ### Retrieve member status [GET]
@@ -10470,7 +10470,10 @@ Retrieve the list of statuses for the member specified in the query parameters. 
             ]
 
 ### Update member status [PUT]
-Update the member status, which are passed as a list of commas separated strings. Right now only PURCHASE_BLOCKED is supported.
+Update the member status, which is passed one status at a time. Currently there are two mutually exclusive status groups supported: 
+[PURCHASE_BLOCKED, DELETED, TEMP_BANNED]<br/>
+and<br/> 
+[COMMUNITY_OK, COMMUNITY_LIMBO, COMMUNITY_QUARANTINE]
 
 + Request (application/x-www-form-urlencoded)
     + Header
@@ -10480,7 +10483,7 @@ Update the member status, which are passed as a list of commas separated strings
 
 + Parameters
     + member_id (required, Number,`1234567890`)... Member id. 
-    + status (required, String, `PURCHASE_BLOCKED, DELETED, TEMP_BANNED`)...Member status type list
+    + status (required, String, `PURCHASE_BLOCKED`)...Member status
     + reason (optional, String, `As per user request`)...Reason behind the updation. Minimum length 15 and maximum length 255 characters.
     + expires_in_mins (optional, Number, `1440`)... Time in minutes when given status expires. Maximum time 43200 minutes (30 days)
 
