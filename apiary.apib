@@ -7052,7 +7052,7 @@ Here are some key points about cart:
 Exp: Sketchbook, Pixlr and Circuits are under different <a href="/reference/appendices">ECommerceAffiliates</a> so for single user there will be different carts for each of these apps.
 * Cart can be different for each affiliate code (X-AFC in header). Please contact cloud service team if affiliate code specific cart is needed.
 
-## Cart [/carts{?cart_type}]
+## Cart [/carts{?cart_type,use_https}]
 Perform CRUD operations on cart with basic metadata.
 
 ### Retrieve a cart [GET]
@@ -7066,6 +7066,7 @@ Return ESTORE, MARKETPLACE or MARKETPLACE_INSTANT cart for a guest user or login
 
 + Parameters
     + cart_type = `ESTORE` (optional,String,`ESTORE|MARKETPLACE|MARKETPLACE_INSTANT`)...String `type` of the cart to perform action with.
+    + use_https (optional, Boolean, `false`)... Set the protocol to http/https for shop logo url.
 
 + Response 200 (application/json)
 
@@ -7396,6 +7397,7 @@ Return ESTORE, MARKETPLACE or MARKETPLACE_INSTANT cart for a guest user or login
             ]
         }
 
+## Cart [/carts{?cart_type}]
 ### Delete a cart [DELETE]
 Delete the cart of the logged in user or guest. After this call, a call to GET /cart will return an empty json. Returns an empty json object if successful otherwise an error object.
 
