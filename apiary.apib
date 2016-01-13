@@ -1590,6 +1590,17 @@ If the workflow step is not required, it can be marked as deleted by updating th
                     "date_modified": "November 16, 2015 15:25:03",
                     "workflow_step_files": [],
                     "workflow_step_messages": [],
+                    "data_keys": [
+                        {
+                          "key_1": {"ID":null,"name":"Doe","first-name":"John","age":25,"hobbies":["reading","cinema",{"sports":["volley-ball","badminton"]}],"address":{}}
+                        },
+                        {
+                          "key_2": {"ID":null,"name":"Doe","first-name":"John","age":25,"hobbies":["reading","cinema",{"sports":["volley-ball","badminton"]}],"address":{}}
+                        },
+                        {
+                          "key_3": {"ID":null,"name":"Doe","first-name":"John","age":25,"hobbies":["reading","cinema",{"sports":["volley-ball","badminton"]}],"address":{}}
+                        }
+                      ],
                     "workflow_sub_steps_count": 0
                 },
                 {
@@ -1603,6 +1614,7 @@ If the workflow step is not required, it can be marked as deleted by updating th
                     "parent_id": "",
                     "date_submitted": "November 16, 2015 15:25:12",
                     "date_modified": "November 16, 2015 15:25:46",
+                    "data_keys" : [],
                     "workflow_step_files": [
                         {
                             "file_id": 16807864,
@@ -1642,7 +1654,9 @@ If the workflow step is not required, it can be marked as deleted by updating th
     + workflow_step_name (required, String,`Asset Workflow Step Name`)...Name of the asset workflow step
     + workflow_step_notes (optional, String,`Asset Workflow Step Notes`)...Notes regrading asset workflow step
     + assigned_member_id (optional, Number,`123124`)...Member to whom this workflow step is assigned.<br> **_Note:_** If no member Id is passed, the workflow step will be assigned to the API caller.
-
+    + data_key (optional, String,`test_key`)...Adds a cutom data key to steps<br> **_Note:_** This is unique per steps.
+    + data_value (optional, String,`test_value`)...Adds a cutom data value to steps for a key specified. It could be String , JSON .
+     
 + Response 201 (application/json)
 
         {
@@ -1689,6 +1703,8 @@ If the workflow step is not required, it can be marked as deleted by updating th
     + workflow_step_status (optional, Number,`1`)...Asset workflow step status.
     + file_ids (optional, String,`322112,23423,34534`)...Comma separated list of file Ids to be associated to this workflow step as reference.
     + thread_ids (optional, String,`XHFMVYDI3LCLYGC,X7ZFQEKI3LCLYGA`)...Comma separated list of thread Ids to be associated to this workflow step as reference.
+    + data_key (optional, String,`test_key`)...Adds a cutom data key to steps<br> **_Note:_** This is unique per steps. If existing key is specified then the value will update.
+    + data_value (optional, String,`test_value`)...Adds a cutom data value to steps for a key specified. It could be String , JSON .
 
 + Response 201 (application/json)
 
@@ -1722,6 +1738,17 @@ If the workflow step is not required, it can be marked as deleted by updating th
             "parent_id": "",
             "date_submitted": "November 16, 2015 15:25:12",
             "date_modified": "November 16, 2015 15:25:46",
+            "data_keys": [
+                        {
+                          "key_1": {"ID":null,"name":"Doe","first-name":"John","age":25,"hobbies":["reading","cinema",{"sports":["volley-ball","badminton"]}],"address":{}}
+                        },
+                        {
+                          "key_2": {"ID":null,"name":"Doe","first-name":"John","age":25,"hobbies":["reading","cinema",{"sports":["volley-ball","badminton"]}],"address":{}}
+                        },
+                        {
+                          "key_3": {"ID":null,"name":"Doe","first-name":"John","age":25,"hobbies":["reading","cinema",{"sports":["volley-ball","badminton"]}],"address":{}}
+                        }
+                      ],
             "workflow_step_files": [
                 {
                     "file_id": 16807864,
@@ -2249,101 +2276,6 @@ Operations to manage status posts on an asset. Status posts are updates to the p
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
     + status_post_id (required,String, `234567,334562`)...Comma separated list of status posts to be deleted from this asset.
-+ Response 204
-
-## Asset File Conversations [/assets/{id}/conversations{?file_id,thread_id,x_coordinate,y_coordinate,z_coordinate}]
-A file conversation around an asset helps members reference an external file such as picture, videos etc. and start
-a conversation around it. This feature can be helpful when a group of members are working on a project and they want to give references
-from the project, and discuss various points around it.
-
-### Create a file conversation[POST]
-+ Request (application/x-www-form-urlencoded)
-    + Headers
-
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-+ Parameters
-    + id (required, String, `1524252`) ...Asset Id
-    + file_id (required, Number, `17897805`)...File Id
-    + thread_id (required,String, `X007DX6HYHCVYJF`)...Thread id
-    + x_coordinate (optional, String, `12`) ...X coordinate of discussion.  Must be a positive integer.
-    + y_coordinate (optional, String, `45`) ...Y coordinate of discussion.  Must be a positive integer.
-    + z_coordinate (optional, String, `0`) ...Z coordinate of discussion.  Must be a positive integer.
-+ Response 201 (application/json)
-
-            {
-                "_link": "/assets/1524251/conversations/114",
-                "conversation_id": 114
-            }
-
-### Retrieve file conversations for the asset [GET]
-+ Request (application/x-www-form-urlencoded)
-    + Headers
-
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-+ Parameters
-    + id (required, String, `1524252`) ...Asset Id
-
-+ Response 200
-
-        {
-            "file_conversations": [
-                {
-                    "id": 114,
-                    "member_id": 20722924,
-                    "asset_id": 1524252,
-                    "file_id": 17897805,
-                    "thread_id": "T007DX6HYHCVYJF",
-                    "x_coordinate": 12,
-                    "y_coordinate": 25,
-                    "date_submitted": "November 18, 2015 21:19:30"
-                },
-                {
-                    "id": 12312,
-                    "member_id": 20722954,
-                    "asset_id": 1524252,
-                    "file_id": 17897804,
-                    "thread_id": "T007DX6HYHCVYJF",
-                    "x_coordinate": 12,
-                    "y_coordinate": 221,
-                    "z_coordinate": 223,
-                    "date_submitted": "November 18, 2015 21:19:27"
-                }
-            ]
-        }
-
-### Retrieve a file conversation by id [GET /assets/{id}/conversations/{conversation_id}]
-+ Request (application/x-www-form-urlencoded)
-    + Headers
-
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-+ Parameters
-    + id (required, String, `1524252`) ...Asset Id
-    + conversation_id (required, String, `114`) ...File Conversation Id
-
-+ Response 200
-
-        {
-            "id": 114,
-            "member_id": 20722924,
-            "asset_id": 1524252,
-            "file_id": 17897805,
-            "message_id": "X007DX6HYHCVYJF",
-            "x_coordinate": 12,
-            "y_coordinate": 25,
-            "date_submitted": "November 18, 2015 21:19:30"
-        }
-
-### Delete a file conversation [DELETE /assets/{id}/conversations/{conversation_id}]
-+ Request (application/x-www-form-urlencoded)
-    + Headers
-
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-+ Parameters
-    + conversation_id (required,String, `6975`)...File Conversation Id
 + Response 204
 
 ## Entity Conversations [/entity/{entity_id}/conversations{?thread_id,x_coordinate,y_coordinate,z_coordinate}]
