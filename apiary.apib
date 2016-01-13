@@ -2365,11 +2365,12 @@ The following are the different kind of entities supported:
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
     + entity_id (required, String, `1524252`) ...Entity Id
-    + file_id (required, Number, `17897805`)...File Id
-    + thread_id (required,String, `X007DX6HYHCVYJF`)...Thread id
-    + x_coordinate (optional, String, `12`) ...X coordinate of discussion.  Must be a positive integer.
-    + y_coordinate (optional, String, `45`) ...Y coordinate of discussion.  Must be a positive integer.
-    + z_coordinate (optional, String, `0`) ...Z coordinate of discussion.  Must be a positive integer.
+    + entity_type (required, String, `ASSET`)...Entity type. Please refer to the above table for all possible entity values.
+    + thread_id (required,String, `T007DX6HYHCVYJF`)...Thread id
+    + x_coordinate (optional, Integer, `12`) ...X coordinate of discussion. Required for FILE entity type.
+    + y_coordinate (optional, Integer, `45`) ...Y coordinate of discussion. Required for FILE entity type.
+    + z_coordinate (optional, Integer, `0`) ...Z coordinate of discussion. Required for FILE entity type.
+    
 + Response 201 (application/json)
 
             {
