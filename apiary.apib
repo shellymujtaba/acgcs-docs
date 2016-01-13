@@ -4758,6 +4758,7 @@ Get message threads for the member.
     + id (required,Number, `20280723`)...Member id
     + mailbox (optional,String, `CHAT`)...Mailbox type. Options: CHAT/IN_OUT. Default: CHAT
     + latest_message_info (optional,boolean, `true`)...Latest thread message. Options: true/false. Default: false
+    + entity_info (optional,boolean, `true`)...Associated entity information. Options: true/false. Default: false
     + sort_order (optional, String, `recent`)...Sort order. Options: recent/unread. Default: recent.
     + offset (optional, Number, `0`)...This offsets the start of each page by the number specified. Default: 0.
     + limit (optional, Number, `20`)...Number of results to return in each page. Default: 20.
@@ -4834,6 +4835,7 @@ Get message thread details.
     + id (required,Number, `20280723`)...Member id
     + thread_id (required, String, `T4HSWA6IHPJ4FVP`)...Thread Id.
     + latest_message_info (optional,boolean, `true`)...Latest thread message. Options: true/false. Default: false
+    + entity_info (optional,boolean, `true`)...Associated entity information. Options: true/false. Default: false
     
 + Request (application/x-www-form-urlencoded)
     + Headers
