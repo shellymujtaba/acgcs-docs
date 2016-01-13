@@ -2346,6 +2346,39 @@ from the project, and discuss various points around it.
     + conversation_id (required,String, `6975`)...File Conversation Id
 + Response 204
 
+## Entity Conversations [/entity/{entity_id}/conversations{?thread_id,x_coordinate,y_coordinate,z_coordinate}]
+Entity conversations are general purpose APIs where various entities can be associated with a message thread.
+The following are the different kind of entities supported:
+
+|_Entity_|_Value_|_Description_
+|----|----|----
+|Order|ORDER|Entity representing an Order
+|Asset|ASSET|Entity representing an Asset
+|File|FILE|Entity representing a File
+|Asset Workflow Step|WORKFLOW_STEP|Entity representing an Asset Workflow step
+
+### Create entity conversation[POST]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + entity_id (required, String, `1524252`) ...Entity Id
+    + file_id (required, Number, `17897805`)...File Id
+    + thread_id (required,String, `X007DX6HYHCVYJF`)...Thread id
+    + x_coordinate (optional, String, `12`) ...X coordinate of discussion.  Must be a positive integer.
+    + y_coordinate (optional, String, `45`) ...Y coordinate of discussion.  Must be a positive integer.
+    + z_coordinate (optional, String, `0`) ...Z coordinate of discussion.  Must be a positive integer.
++ Response 201 (application/json)
+
+            {
+                "_link": "/assets/1524251/conversations/114",
+                "conversation_id": 114
+            }
+
+
+
 # Group Files
 Files are "second class" citizens in the Cloud Services ecosystem. As explained in the Assets api introduction: Within the 3d modeling/printing eco-system it is often hard to model a complete creation and workflow with a single file. Hence a file by itself has little meaning without the context of the asset it belongs to.
 Of course in order to add a file to an asset, it must be uploaded first. The api operations below provide various ways of uploading a file and receiving a file id which can then be used to associate file with an asset.
