@@ -2377,6 +2377,19 @@ The following are the different kind of entities supported:
     "_link": "/entity/16807865/conversations?entity_type=FILE"
 }
 
+### Retrieve entity conversations [GET]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + entity_id (required, String, `1524252`) ...Entity Id
+    + entity_type (required, String, `ASSET`)...Entity type. Please refer to the above table for all possible entity values.
+
++ Response 200
+
+
 
 # Group Files
 Files are "second class" citizens in the Cloud Services ecosystem. As explained in the Assets api introduction: Within the 3d modeling/printing eco-system it is often hard to model a complete creation and workflow with a single file. Hence a file by itself has little meaning without the context of the asset it belongs to.
