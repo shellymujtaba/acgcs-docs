@@ -3755,31 +3755,60 @@ Retrieve member's subscription history in chronologically descending order. Each
 + Response 200 (application/json)
 
             {
-                "subscriptions":
-                                [
-                                    {
-                                          "subscription_id": 4,
-                                          "start_date": "November 13, 2015 19:50:00",
-                                          "end_date": "November 13, 2016 19:50:00",
-                                          "end_date_with_grace_period": "November 14, 2016 19:50:00",
-                                          "last_modified_date": "November 13, 2015 13:50:50",
-                                          "cancelled_date": "",
-                                          "last_auto_renewal_update_date": "",
-                                          "psp_sub_id": "7572079",
-                                          "source": "DEFAULT",
-                                          "auto_renewal": true,
-                                          "event_type": "CHANGE_PLAN",
-                                          "is_true_subscription": false
-                                        }
-                                ],
-                "count":26,
-                "limit":26,
-                "offset":39,
-                "_link":"/member/20280723/subscriptions?limit=26",
-                "_link_prev":"/member/20280723/subscriptions?limit=26&offset=26",
-                "_link_next":"/member/20280723/subscriptions?limit=26&offset=39"
+              "count": 3,
+              "limit": 20,
+              "offset": 0,
+              "_link": "/members/20704112/subscriptions?limit=20&offset=0",
+              "subscriptions": [
+                {
+                  "subscription_id": 15,
+                  "start_date": "January 13, 2016 23:31:01",
+                  "end_date": "January 13, 2017 23:31:01",
+                  "end_date_with_grace_period": "January 14, 2017 23:31:01",
+                  "last_modified_date": "January 13, 2016 17:31:10",
+                  "cancelled_date": "",
+                  "last_auto_renewal_update_date": "",
+                  "source": "APPSTORE",
+                  "auto_renewal": true,
+                  "promotion_type": "CAMPAIGN_CODE",
+                  "event_type": "CREATE",
+                  "is_true_subscription": true
+                },
+                {
+                  "subscription_id": 14,
+                  "start_date": "January 13, 2016 23:22:12",
+                  "end_date": "February 13, 2016 23:22:12",
+                  "end_date_with_grace_period": "February 14, 2016 23:22:12",
+                  "last_modified_date": "January 13, 2016 17:22:11",
+                  "cancelled_date": "",
+                  "last_auto_renewal_update_date": "",
+                  "psp_sub_id": "131201623228",
+                  "source": "APPSTORE",
+                  "auto_renewal": true,
+                  "promotion_type": "ADMIN",
+                  "admin_member_id": 20704112,
+                  "event_type": "CREATE",
+                  "is_true_subscription": true
+                },
+                {
+                  "subscription_id": 17,
+                  "start_date": "October 14, 2014 23:23:00",
+                  "end_date": "January 14, 2015 23:23:00",
+                  "end_date_with_grace_period": "January 15, 2015 23:23:00",
+                  "last_modified_date": "October 15, 2014 23:22:59",
+                  "cancelled_date": "",
+                  "last_auto_renewal_update_date": "",
+                  "psp_sub_id": "6052194",
+                  "source": "DEFAULT",
+                  "auto_renewal": true,
+                  "event_type": "CREATE",
+                  "linked_id": 20706970,
+                  "linked_provider": "AUTODESK ID",
+                  "is_true_subscription": false
+                }
+              ]
             }
-            
+            scr
 
 ## Update Subscriptions [/members/{id}/subscription{?product_id,new_product_id,auto_renew,next_payment,affiliate_code,ignore_cancellation_status,hash,ts}]
 ### Update member's subscription.[PUT]
