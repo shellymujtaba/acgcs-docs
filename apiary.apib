@@ -2635,12 +2635,12 @@ This group of operations provides information on the member. A member is a user 
 Retrieve all information about the currently logged-in member.
 ### Retrieve the current member [GET]
 + Request (application/x-www-form-urlencoded)
-
-+ Response 200 (application/json)
-    + Headers
+   + Headers
 
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Response 200 (application/json)
 
     + Body
 
@@ -2742,13 +2742,16 @@ Retrieve all public information about the children if currently logged-in member
 
 ### Retrieve the child member [GET]
 + Request (application/x-www-form-urlencoded)
-
-+ Response 200 (application/json)
     + Headers
 
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-    
+            
+    + Parameters
+             + oxygen_id (required,String, `DXBELQQCPSQK`)...Member oxygen id       
+ 
++ Response 200 (application/json)
+
     + Body
 
             {
@@ -2775,7 +2778,6 @@ Retrieve all public information about the children if currently logged-in member
                     "follows": 0,
                     "following": 0,
                     "type_id": 8,
-                    "statuses": ""
                 }
             }
 
@@ -2803,12 +2805,12 @@ For some parameters, if you provide no value for a parameter, the current value 
 
 ### Retrieve a member [GET]
 + Request (application/x-www-form-urlencoded)
-
-+ Response 200 (application/json)
-    + Headers
+      + Headers
 
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Response 200 (application/json)
 
     + Body
 
