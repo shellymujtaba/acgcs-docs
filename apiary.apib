@@ -4246,7 +4246,7 @@ API returns total accrued credits and total available credits (accrued - used) i
                 "total_purchased_with_sales_credit": 0
             }
 
-## OrderHistory [/members/{id}/orderhistory{?limit,offset,order_status,start_date,end_date,sort_order}]
+## OrderHistory [/members/{id}/orderhistory{?limit,offset,order_status,start_date,end_date,conversation_info,sort_order}]
 ### Retrieve member's purchases [GET]
 Get all the purchases made by the member.
 
@@ -4268,6 +4268,7 @@ Get all the purchases made by the member.
     + order_status (optional, String, `COMPLETE`)... Filter by order status: IN_PROGRESS, COMPLETE, CANCELED, ON_HOLD, CLOSED, FAILED, DECLINE.
     + start_date (optional, Date, `2014-11-01`)... Limit results to purchases made on or after a given date ("yyyy-MM-dd" or "yyyy-MM-dd hh:mm:ss" formats).
     + end_date (optional, Date, `2014-12-01`)... Limit results to purchases made on or before a given date ("yyyy-MM-dd" or "yyyy-MM-dd hh:mm:ss" formats).
+    + conversation_info (optional, Boolean, `true`)... Return a list of conversation info (thread id and date submitted) associates with each order.
     + sort_order = `DESC` (optional, String, `DESC`)... Sort order for the results by purchase date: `ASC` or `DESC`.
 
 + Response 200 (application/json)
@@ -4985,29 +4986,90 @@ Get message thread details.
 + Response 200 (application/json)
 
 {
-    "subject": "Chat Subject",
-    "thread_id": "TIAK6BLIHWHWAK9",
+    "subject": "wow",
+    "thread_id": "TGC5U7ZIHWIMR4I",
     "recipients": [
         {
-            "name": "Query TTT (901)",
-            "id": 20318901,
-            "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
-        },
-        {
-            "name": "new user 207",
-            "id": 20706579,
-            "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
+            "name": "jclacey3",
+            "id": 20268788,
+            "profile_image": "https://static.spark.autodesk.com/Beta/2013/07/30__07_30_14/Squid.jpgefcc3731-b8af-4a4c-8154-d0843ac1ac3d.jpg"
         }
     ],
-    "total_message_count": 48,
-    "unread_message_count": 0,
+    "total_message_count": 2,
+    "unread_message_count": 1,
     "sender": {
-        "name": "XXXX YYYYY",
-        "id": 20705681,
+        "name": "new user 207",
+        "id": 20706579,
         "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
     },
-    "created_date": "December 07, 2015 21:53:51",
-    "mailbox": "CHAT"
+    "created_date": "December 07, 2015 22:14:26",
+    "mailbox": "CHAT",
+    "entity": [
+        {
+            "entity_type": "ASSET",
+            "entity_id": "1459794",
+            "entity_data": {
+                "asset_name": "title",
+                "thumbnails": [
+                    {
+                        "caption": "",
+                        "description": "",
+                        "file_id": 0,
+                        "thumb_path_prefix": "https://static.spark.autodesk.com/Images/FullPreview/nopicture",
+                        "is_primary": false
+                    }
+                ]
+            },
+            "date_submitted": "January 14, 2016 16:13:53"
+        },
+        {
+            "entity_type": "FILE",
+            "entity_id": "17148723",
+            "entity_data": {
+                "md5sum": "2f8c1487c45b51cccb1b1e2528df2c5b",
+                "file_name": "Modio_1204_1410.png",
+                "size": 114744
+            },
+            "date_submitted": "January 14, 2016 16:15:17",
+            "x_coordinate": 100,
+            "y_coordinate": 200,
+            "z_coordinate": 300
+        },
+        {
+            "entity_type": "WORKFLOW_STEP",
+            "entity_id": "639",
+            "entity_data": {
+                "asset_name": "title",
+                "thumbnails": [
+                    {
+                        "caption": "",
+                        "description": "",
+                        "file_id": 0,
+                        "thumb_path_prefix": "https://static.spark.autodesk.com/Images/FullPreview/nopicture",
+                        "is_primary": false
+                    }
+                ]
+            },
+            "date_submitted": "January 14, 2016 16:20:14"
+        },
+        {
+            "entity_type": "ASSET",
+            "entity_id": "1459810",
+            "entity_data": {
+                "asset_name": "title",
+                "thumbnails": [
+                    {
+                        "caption": "",
+                        "description": "",
+                        "file_id": 0,
+                        "thumb_path_prefix": "https://static.spark.autodesk.com/Images/FullPreview/nopicture",
+                        "is_primary": false
+                    }
+                ]
+            },
+            "date_submitted": "January 14, 2016 16:20:38"
+        }
+    ]
 }
         
 ### Send Media Message in Chat [POST /members/{id}/chat/media]
@@ -6353,7 +6415,7 @@ not initiated a phone verification request or never added a paypal email, the qu
             }
 
 
-##Sales [/shops/sales{?shop_id,order_id,start_date,end_date,product_type,order_status,fulfilled_by,limit,offset,sort_order}]
+##Sales [/shops/sales{?shop_id,order_id,start_date,end_date,product_type,order_status,fulfilled_by,conversation_info,limit,offset,sort_order}]
 Retrieve sales' history for a shop on Marketplace. Restricts order line items to only those sold by the seller of shop_id since an order may have multiple line items from multiple sellers.
 Shop ID is optional for admin to retrieve all sales regardless of shop ID.
 
@@ -6384,6 +6446,7 @@ If seller updates the status of each individual SKU, each item in fulfillment_sk
     + order_status (optional, String, `IN_PROGRESS`)... When specified, return only orders with given status. Values can be: IN_PROGRESS, COMPLETE, CANCELED, ON_HOLD, CLOSED, FAILED, DECLINE. Returns all orders if not specified.
     If the product_type is specified along with the order_status, only the orders containing this product type will be returned.
     + fulfilled_by (optional, String, `EInc`)... Return sales fulfilled by EInc. Returns sales regardless of fulfillment company.
+    + conversation_info (optional, Boolean, `true`)... Return a list of conversation info (thread id and date submitted) associates with each order.
     + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
     + sort_order (optional, String, `DESC`)... Sort order for display orders: ASC or DESC. Default: DESC.
