@@ -2654,6 +2654,8 @@ Retrieve all information about the currently logged-in member.
 
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters   
+   + linked_accounts (optional,Boolean, `false`)...By default false. If true returns linked accounts data associated with user.
 
 + Response 200 (application/json)
 
@@ -2746,6 +2748,13 @@ Retrieve all information about the currently logged-in member.
                   "shop_id": 1234567890,
                   "first_name": "John",
                   "last_name": "Smith",
+                  "linked_accounts": [
+                      {
+                          "id": 20490311,
+                          "email": "mcatrett+43@turbosquid.com",
+                          "social_provider": ""
+                      }
+                  ],
                   "subscription_id": 3,
                   "subscription_name": "1-month Premium Membership",
                   "parent_email":"parent@adsk.com"
@@ -2817,7 +2826,7 @@ For some parameters, if you provide no value for a parameter, the current value 
 
 + Parameters
     + id (required,Number, `20280723`)...Member id
-    + linked_accounts (optional,Boolean, `false`)......By default false. If true returns linked accounts data associated with user.
+    + linked_accounts (optional,Boolean, `false`)...By default false. If true returns linked accounts data associated with user.
 
 ### Retrieve a member [GET]
 + Request (application/x-www-form-urlencoded)
