@@ -5154,7 +5154,7 @@ Send image in chat conversation.
 
 # Group Auth
 
-## Login [/login{?afc,display,secure,relative_redirect_path,locale,register,ssl,social_redirect,meter_session,send_create,send_first_login,oauth_asynch,authorization_code,send_opt_in,social_providers,css_query_param,moderator_id,auto_login,send_moderator_email,parent_email}]
+## Login [/login{?afc,display,secure,relative_redirect_path,locale,register,ssl,social_redirect,meter_session,send_create,send_first_login,oauth_asynch,authorization_code,send_opt_in,social_providers,css_query_param,moderator_id,auto_login,send_moderator_email,parent_email,login_provider}]
 Authorization is done through an "oauth-like" 3 legged process for web applications and a slightly modified 2 legged process for desktop/mobile apps.
 Here are the general steps:
 1. Client application calls the /login end point to begin login workflow
@@ -5197,6 +5197,7 @@ Here are the general steps:
     + send_moderator_email (optional, Boolean, `true`)...The COPPA compliant apps can decide if an Identity application (Oxygen) should send an approval email to the moderator's email address provided by the child. By passing send_moderator_email parameter to login. Values= true/false. Default is true.
     + parent_email (optional, String, `OPTIONAL`)...The COPPA compliant apps can decide if an Identity application (Oxygen) should show parent email text box or not. There are three options : REQUIRED|OPTIONAL|HIDDEN. By default option is REQUIRED.
     + login_provider (optional, String, `ACS_LOCAL`)...This parametrer is used to show applications their own login screen. There are predefined values for this parameter. Application need to contact Cloud service team to set this.
+    
 + Response 302
 
     + Header
