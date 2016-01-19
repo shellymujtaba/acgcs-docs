@@ -5227,6 +5227,22 @@ Authenticate the token returned by /member/login call to receive a session id. T
 ## Provider callback [/login/provider_callback{?jwt,relative_redirect_path,login_provider,afc,ssl,secure,phone_mobile}]
 If applications are showing their own login screen (usign GET Login API's "login_provider" param) then this is the URL which applications need to call so that cloud services team can create/update entry of user.
 
+### Handle callback url [GET]
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
++ Parameters
+    + login_secret (required, String, `sse34211322424424`)...login secret provided to application during AFC creation process
+    + token_key (required, String, `12313232333`)...token key returned in login method
+    + afc (required, String, `PA1ONA`)...pass the application specific afc from which the token has been generated
+
++ Response 200 (application/json)
+
+            {"session":"2E709611-21ED-4C3B-85CB-F23B007E3334","secure_session":"2604B7D0408A16F3E2FA50E4AFFC318E","create":true,"first_login":true}
+
 ## Session [/session]
 
 Operation to get guest session and delete session. Get session always return guest session and delete session if for logged in session.
