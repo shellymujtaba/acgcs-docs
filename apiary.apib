@@ -5192,7 +5192,7 @@ Send image in chat conversation.
 ## Login provider
 If tenant has to show their own login screen then here are the steps:-
 
-    1. Tenant has to sent URL where login page is hosted to cloud service team and unique client ID. For exp:- http://homestyler.com/yourloginpage
+    1. Tenant has to sent URL where login page is hosted and unique client ID to cloud service team . For exp:- http://homestyler.com/yourloginpage
     
     2. Cloud service team will give provider code and shared key to tenant. Above keys can be different for beta and production.
     
@@ -5213,7 +5213,7 @@ email=
 external_id=Memebr id wrt tenants.
 login_method=native
     
-    6. Tenants will send information to URL which we send them in redirect_url. So it will be something like:-
+    6. Tenants will send information to URL which we send them in redirect_url. Tenants can also provide additional parameters. So it will be something like:-
     ACS_DOMAIN_BETA_OR_PROD/api/v2/login/provider_callback?afc=PA1ON1&relative_redirect_path=/whatever&login_provider=ACS_BETA_LOCAL&jwt=sdjagsdjasghdeiutqiewq8764921643912414312h431l23h123&ssl=true/false(OPTIONAL: Whether to return secure session or not)&secure=true/false(OPTIONAL: whether redirect to http or https)&phone_mobile=9881718102(OPTIONAL)
     
     7. This call will send you a token at /whatever?tokenkey=TOKEN_KEY
