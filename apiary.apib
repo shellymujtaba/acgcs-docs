@@ -523,7 +523,7 @@ This api is a starting point to display galleries, perform free-form searches. D
     + asset_taxonomy (optional, String, `a/b`)...Result will include asset associated with taxonomy specified. For instance, if the taxonomy passed is 'car', the result includes all the asset with taxonomy starting car/*
     + use_https (optional, Boolean, `false`)... Set the protocol to http/https for avatar and shop logo url.
     + facet.field (optional, String, `progress_status`)... use this parameter to get field value wise count on returned results.
-    + facet.query (optional, String, `price:[0 TO 10]`)... use this parameter to get count of asset which satisfy the given query. multiple facet.query should be used for more that one query.
+    + facet.query (optional, String, `price:[0 TO 10]`)... use this parameter to get count of asset which satisfy the given query. multiple facet.query should be used for more that one query in case of date queries please use the solr time format. like 2015-12-12T00:00:00Z.
     + cutom_type_keyname (optional, String, `house`)... use this parameter to search based on custom data saved against the asset. how to create customdata check create custom data api's below: example: custom_string_vehicle=car.
 
 ## List all Assets [GET]
@@ -628,7 +628,7 @@ Custom data can be indexed for searches and faceting. To index this key for sear
 |----|----
 |custom_string_|Corresponding value should hold any type of data like string , JSON|
 |custom_integer_|Corresponding value should hold only integer or long value |
-|custom_date_|Corresponding value should hold only date value|
+|custom_date_|Corresponding value should hold only date value. Format yyyy-MM-DD HH:MM:SS|
 |custom_double_|Corresponding value should hold only double value|
 
 + Parameters
@@ -1722,8 +1722,8 @@ Asset workflow steps accept the custom data which holds key and its value. To in
     + assigned_member_id (optional, Number,`123124`)...Member to whom this workflow step is assigned.<br> **_Note:_** If no member Id is passed, the workflow step will be assigned to the API caller.
     + workflow_step_status (optional, Number,`1`)...Asset workflow step status.
     + file_ids (optional, String,`322112,23423,34534`)...Comma separated list of file Ids to be associated to this workflow step as reference.
-    + thread_ids (optional, String,`XHFMVYDI3LCLYGC,X7ZFQEKI3LCLYGA`)...Comma separated list of thread Ids to be associated to this workflow step as reference.
     + custom_data (optional, String,`{"custom_data": [{"key": "custom_date_key_specified_1","data": "2016-01-13 02:59:30"}, {"key": "custom_integer_key_specified","data": "1555"}]}`)...Adds a cutom data key to steps<br> **_Note:_** Note: This is unique per steps. If existing key is specified then the value will update.
+
 + Response 201 (application/json)
 
         {
