@@ -4656,7 +4656,14 @@ Messaging support different kinds of mailbox depending on the type of conversati
 
 Get all messages for a thread.
 
-**_Note:_** The recipient & sender box signifies the type of conversation. For private messaging its is IN & OUT whereas for group conversation, it is CHAT.
+**_Mailbox Options_** 
+
+|_Mailbox_|_Description_
+|----|----
+|IN|Returns messages received by the member|
+|OUT|Returns messages sent by the member|
+|IN_OUT|Returns messages received & sent by the member|
+|TRASH|Returns messages trashed by the member. Includes both sent & received|
 
 + Parameters
     + id (required,Number, `20280723`)...Member id
