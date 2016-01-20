@@ -5192,26 +5192,32 @@ Send image in chat conversation.
 ## Login provider
 If tenant has to show their own login screen then here are the steps:-
 
-    + Tenant has to sent URL where login page is hosted to cloud service team. For exp:- http://homestyler.com/ourloginpage
-    + Cloud service team will give provider code, shared key and client ID to tenant. ABove keys can be different for beta and production.
-    + Tenant will call ACSs api/v2/login API with parameter afc, login_provider and relative_redirect_path.
+    Tenant has to sent URL where login page is hosted to cloud service team. For exp:- http://homestyler.com/ourloginpage
+    
+    Cloud service team will give provider code, shared key and client ID to tenant. ABove keys can be different for beta and production.
+    
+    Tenant will call ACSs api/v2/login API with parameter afc, login_provider and relative_redirect_path.
 For Exp:- ACS_DOMAIN_BETA_OR_PROD/api/v2/login?afc=PA1ON1&login_provider=ACS_BETA_LOCAL&relative_redirect_path=/whatever
 afc : Tenants application AFC
 login_provider : provider code that ACS will give you in step 2.
 relative_redirect_path : This is the path where tenant wants token to be sent. (Details further)
-    + Once tenant will call URL in step 3, they will get redirected to their login page with parameter appended.
+
+    Once tenant will call URL in step 3, they will get redirected to their login page with parameter appended.
 TENANTS_URL_FOR_LOGIN_PAGE_FROM_STEP_1?redirect_url=%2Fapi%2Fv2%2Flogin%2Fprovider_callback%3Fafc%3DPA1ON1%26relative_redirect_path%3D%2Fwhatever&client_id=e8c07232-197c-4ee5-88dc-66e66a63b0da
-    + Now tenants will handle their page. Tenants will create JWT(enccoded information) of member with following information.
+
+    Now tenants will handle their page. Tenants will create JWT(enccoded information) of member with following information.
 screen_name=
 first_name=
 last_name=
 email=
 external_id=Memebr id wrt tenants.
 login_method=native
-    + Tenants will send information to URL which we send them in redirect_url. So it will be something like:-
+    Tenants will send information to URL which we send them in redirect_url. So it will be something like:-
     ACS_DOMAIN_BETA_OR_PROD/api/v2/login/provider_callback?afc=PA1ON1&relative_redirect_path=/whatever&login_provider=ACS_BETA_LOCAL&jwt=sdjagsdjasghdeiutqiewq8764921643912414312h431l23h123&ssl=true/false(OPTIONAL: Whether to return secure session or not)&secure=true/false(OPTIONAL: whether redirect to http or https)&phone_mobile=9881718102(OPTIONAL)
-    + This call will send you a token at /whatever?tokenkey=TOKEN_KEY
-    + Call Authenticate token API which will return you a session.
+    
+    This call will send you a token at /whatever?tokenkey=TOKEN_KEY
+    
+    Call Authenticate token API which will return you a session.
 
 ## Login [/login{?afc,display,secure,relative_redirect_path,locale,register,ssl,social_redirect,meter_session,send_create,send_first_login,oauth_asynch,authorization_code,send_opt_in,social_providers,css_query_param,moderator_id,auto_login,send_moderator_email,parent_email,login_provider}]
 Authorization is done through an "oauth-like" 3 legged process for web applications and a slightly modified 2 legged process for desktop/mobile apps.
