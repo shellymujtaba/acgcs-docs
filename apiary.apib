@@ -5192,9 +5192,9 @@ Send image in chat conversation.
 ## Login provider
 If tenant has to show their own login screen then here are the steps:-
 
-    1. Tenant has to sent URL where login page is hosted to cloud service team. For exp:- http://homestyler.com/yourloginpage
+    1. Tenant has to sent URL where login page is hosted to cloud service team and unique client ID. For exp:- http://homestyler.com/yourloginpage
     
-    2. Cloud service team will give provider code, shared key and client ID to tenant. ABove keys can be different for beta and production.
+    2. Cloud service team will give provider code and shared key to tenant. Above keys can be different for beta and production.
     
     3. Tenant will call ACSs api/v2/login API with parameter afc, login_provider and relative_redirect_path.
 For Exp:- ACS_DOMAIN_BETA_OR_PROD/api/v2/login?afc=PA1ON1&login_provider=ACS_BETA_LOCAL&relative_redirect_path=/whatever
