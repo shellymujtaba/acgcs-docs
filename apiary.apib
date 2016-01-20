@@ -4864,10 +4864,12 @@ Delete recipients from an existing thread. This operation can be performed on CH
 
 Get message threads for the member. 
 
-|_Mailbox_|_Description_
+|_Mailbox Options_|_Description_
 |----|----
-|IN_OUT|Private message threads|
-|CHAT|Group conversation threads|
+|IN|Returns threads which has at least one message received by the member|
+|OUT|Returns threads which has at least one message sent by the member|
+|IN_OUT|Returns threads which has both received & sent messages by the member|
+|TRASH|Returns threads which has at least one trashed message by the member. Includes both sent & received|
 
 + Parameters
     + id (required,Number, `20280723`)...Member id
