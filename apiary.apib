@@ -10957,6 +10957,39 @@ Get all asset or comment  flags received by a member.
           "_link_next": "/admin/1272411/userflags?type=comment&limit=1&offset=12"
         }
 
++ Response 200 (application/json)
+
+            {
+              "offset": 11,
+              "limit": 1,
+              "count": 188,
+              "assets": [
+                {
+                  "id": "AXF5Y77HDH18QOE",
+                  "title": "Star Warser",
+                  "approved": false,
+                  "status": "QUARANTINED",
+                  "body": "",
+                  "flag": "INAPPROPRIATE",
+                  "type": "asset",
+                  "timestamp": "2014-02-18 22:15:56.0",
+                  "tenant_id": "ALPHA",
+                  "author_name": "Don Smith",
+                  "author_id": "MB37GGDHDH18QNE",
+                  "date_added": "2013-02-27 13:10:52.0",
+                  "modified_date": "2014-02-18 22:15:56.0",
+                  "image_urls": [
+                    ""
+                  ],
+                  "view_url": "http://alpha.squidplatform.com/FullPreview/Index.cfm/ID/1221352",
+                  "flag_count": "1",
+                  "flagger_id": "MAU1YJHHMTMKYG3"
+                }
+              ],
+              "_link": "/admin/flags?type=asset?type=asset&limit=1&offset=11",
+              "_link_prev": "/admin/0/userflags?type=asset&limit=1&offset=10",
+              "_link_next": "/admin/0/userflags?type=asset&limit=1&offset=12"
+            }
 
 ## Flags [/admin/flags{?type,asset_id,media_type,limit,offset}]
 Retrieve flags for assets and comments, or clear all flags on an asset.
@@ -11005,6 +11038,40 @@ Retrieve flags for assets and comments, or clear all flags on an asset.
               "_link": "/admin/flags?type=comment",
               "_link_prev": "/admin/flags?type=comment&limit=1&offset=7",
               "_link_next": "/admin/flags?type=comment&limit=1&offset=9"
+            }
+
++ Response 200 (application/json)
+
+            {
+              "offset": 8,
+              "limit": 1,
+              "count": 188,
+              "assets": [
+                {
+                  "id": "ATVOSLWHD7P66OV",
+                  "title": "z77 2",
+                  "approved": false,
+                  "status": "QUARANTINED",
+                  "body": "z77",
+                  "flag": "INAPPROPRIATE",
+                  "type": "asset",
+                  "timestamp": "2014-03-20 01:02:43.0",
+                  "tenant_id": "ALPHA",
+                  "author_name": "cpgr pe",
+                  "author_id": "MDEE3D9HD7P66OT",
+                  "date_added": "2013-02-19 07:24:42.0",
+                  "modified_date": "2014-03-20 01:02:43.0",
+                  "image_urls": [
+                    ""
+                  ],
+                  "view_url": "http://alpha.squidplatform.com/FullPreview/Index.cfm/ID/1206414",
+                  "flag_count": "2",
+                  "flagger_id": "MAU1YJHHMTMKYG3"
+                }
+              ],
+              "_link": "/admin/flags?type=asset?type=asset&limit=1&offset=8",
+              "_link_prev": "/admin/0/userflags?type=asset&limit=1&offset=7",
+              "_link_next": "/admin/0/userflags?type=asset&limit=1&offset=9"
             }
 
 ## Payouts [/admin/payouts/{payout_id}{?limit,offset,include_pending,include_paid,include_approved,payout_status,payout_denial_reason}]
