@@ -10959,7 +10959,8 @@ Get all asset or comment  flags received by a member.
 
 
 ## Flags [/admin/flags{?type,asset_id,media_type,limit,offset}]
-Update, clear and retrieve flags for assets and comments.
+Retrieve flags for assets and comments, or clear all flags on an asset.
+
 
 ### Get Flags [GET]
 + Request (application/x-www-form-urlencoded)
@@ -11047,6 +11048,19 @@ Retrieve payouts and approve/deny payout requests. Approving a payout places it 
               "_link_prev": "/admin/payouts?limit=26&offset=26",
               "_link_next": "/admin/payouts?limit=26&offset=39"
             }
+
+### Delete Asset Flags [DELETE /admin/assets/{asset_id}/flags]
+Clear all flags on an asset.
++ Request (application/x-www-form-urlencoded)
+    + Header
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + asset_id (required, String, `123456`)... Asset Id
+
++ Response 204
 
 ### Update payout [PUT]
 + Request (application/x-www-form-urlencoded)
