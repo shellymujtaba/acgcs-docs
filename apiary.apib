@@ -10921,6 +10921,7 @@ Get all asset or comment  flags received by a member.
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
+    + member_id (required, Number, `12342`) ...Member Id
     + type (required, String, `asset`)...The type of flag, either `asset` or `comment`.
     + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.    
@@ -10976,7 +10977,34 @@ Update, clear and retrieve flags for assets and comments.
     
 + Response 200 (application/json)
 
-            {}
+            {
+              "offset": 8,
+              "limit": 1,
+              "count": 12,
+              "comments": [
+                {
+                  "id": "C5CS6GGHJ72EM2I",
+                  "title": "aaa - Dave Smith (222)",
+                  "approved": false,
+                  "tenantId": "ALPHA",
+                  "authorName": "Dave Smith (222)",
+                  "status": "QUARANTINED",
+                  "body": "aaa",
+                  "reason": "",
+                  "authorId": "M1A866YHH2QB45W",
+                  "addedDate": "2013-07-17 05:58:47.0",
+                  "modifiedDate": "2013-07-17 07:55:24.0",
+                  "flagCount": "1",
+                  "flag": "not_nice",
+                  "type": "comment",
+                  "timestamp": "2013-07-17 06:18:05.0",
+                  "flaggerId": "M1A866YHH2QB45W"
+                }
+              ],
+              "_link": "/admin/flags?type=comment",
+              "_link_prev": "/admin/flags?type=comment&limit=1&offset=7",
+              "_link_next": "/admin/flags?type=comment&limit=1&offset=9"
+            }
 
 ## Payouts [/admin/payouts/{payout_id}{?limit,offset,include_pending,include_paid,include_approved,payout_status,payout_denial_reason}]
 Retrieve payouts and approve/deny payout requests. Approving a payout places it to the payout queue.
