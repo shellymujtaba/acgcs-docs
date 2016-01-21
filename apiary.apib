@@ -10910,6 +10910,53 @@ Get Member details by passing oxygen id. This api is hash based and timestamp ha
                }
             }
 
+## Members Flags [/admin/{member_id}/userflags{?type,limit,offset}]
+
+### Get Member Flags [GET]
+Get all asset or comment  flags received by a member.
++ Request (application/x-www-form-urlencoded)
+    + Header
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + type (required, String, `asset`)...The type of flag, either `asset` or `comment`.
+    + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
+    + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.    
+    
++ Response 200 (application/json)
+
+        {
+          "offset": 11,
+          "limit": 1,
+          "count": 28,
+          "comments": [
+            {
+              "id": "CV1ITBCICVKVM03",
+              "title": "13 - test140",
+              "approved": false,
+              "tenantId": "123D",
+              "authorName": "test140",
+              "status": "QUARANTINED",
+              "body": "13",
+              "reason": "",
+              "authorId": "MLLYAB2ICVKVLV5",
+              "addedDate": "2015-08-05 11:09:48.0",
+              "modifiedDate": "2015-10-28 07:07:39.0",
+              "flagCount": "1",
+              "flag": "SPAM",
+              "type": "comment",
+              "timestamp": "2015-10-28 07:07:39.0",
+              "flaggerId": "MHFSRHTHO9W97FY"
+            }
+          ],
+          "_link": "/admin/1272411/userflags?type=comment",
+          "_link_prev": "/admin/1272411/userflags?type=comment&limit=1&offset=10",
+          "_link_next": "/admin/1272411/userflags?type=comment&limit=1&offset=12"
+        }
+
+
 ## Flags [/admin/flags{?type,asset_id,media_type,limit,offset}]
 Update, clear and retrieve flags for assets and comments.
 
