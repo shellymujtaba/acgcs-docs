@@ -10771,7 +10771,7 @@ Search members on various input parameters.
 CRUD operations for administrator to block users from purchasing.
 
 ### Retrieve member status [GET]
-Retrieve the list of statuses for the member specified in the query parameters. Expiration timestamp for a status can be null and that means status will never expire.
+Retrieve the list of statuses for the member specified in the query parameters. Expiration timestamp for a status can be null and that means status will never expire.  Community status may be COMMUNITY_OK, COMMUNITY_LIMBO, COMMUNITY_QUARANTINE, which reflects the status of the member's ability to use community functions.
 
 + Request (application/x-www-form-urlencoded)
     + Header
@@ -10787,6 +10787,12 @@ Retrieve the list of statuses for the member specified in the query parameters. 
     + Body
 
             [
+            
+                {
+                    "reason": "",
+                    "status": "COMMUNITY_OK",
+                    "expiration_timestamp": ""
+                },
                 {
                     "reason": "Temporarily banned coppa user",
                     "status": "TEMP_BANNED",
