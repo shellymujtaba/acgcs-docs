@@ -5471,8 +5471,8 @@ Every afc is associated with particular consumer. So if you are calling oxygen a
 # Group Marketplace
 This group of operations provides information on the marketplace APIS such as shops, shipping options, inventory checking, placing order, updating order etc.
 
-## Shops [/shops{?name,banner_file_id,logo_file_id,current_portfolio_url,current_sales_url,title,description,custom_data_key,custom_data_value,member_id,shop_name,start_date,end_date,sort_by,sort_order,limit,offset}]
-Operations for shop creation and retrieval.
+## Shop [/shops/{shop_id}{?name,banner_file_id,logo_file_id,current_portfolio_url,current_sales_url,title,description,custom_data_key,custom_data_value,member_id,shop_name,start_date,end_date,sort_by,sort_order,limit,offset,submit_request}]
+CRUD operations for shops.
 
 This group of operations work on shops. A shop is a core entity in marketplace eco-system. A seller needs to establish a shop in order to start selling assets.
 
@@ -5481,8 +5481,158 @@ This group of operations work on shops. A shop is a core entity in marketplace e
 * The shop with PENDING status will show up in Tool Central and will need to be reviewed by the shop currator. A shop will then change to either WAIT_LISTED, DENIED, or APPROVED. The wait listed status indicates that the user needs to add/correct info on the shop.
 * The Shop Status field indicates whether the shop is online (i.e. visible to others) or offline. The DELETE operation can be utilized to bring a shop offline.
 
++ parameters
+     + shop_id (required,Number,`12345678`)...Identifier of the shop.
 
-### Create a new shop [POST]
++ Model (application/json)
+
+    + Body
+    
+            {
+                "name": "La Bete's Shop",
+                "title": "Where spending is a treat",
+                "shop_id": 61,
+                "member_id": 20705501,
+                "banner_file_id": 17915206,
+                "logo_file_id": 17915205,
+                "banner_file_url": "https://static.spark.autodesk.com/Public/Beta/17915206.jpg",
+                "logo_file_url": "https://static.spark.autodesk.com/Public/Beta/17915205.jpg",
+                "current_portfolio_url": "http://",
+                "current_sales_url": "http://",
+                "shop_status": "ONLINE",
+                "shop_approval_status": "APPROVED",
+                "needs_shipping_profile": false,
+                "shop_denial_reason": "NONE",
+                "shop_wait_listed_reason": "NONE",
+                "commerce_affiliate_id": 7,
+                "admin_modified_by_id": 20705501,
+                "custom_data": [
+                    {
+                      "key": "address",
+                      "data": "Pier 9, The Embarcadero"
+                    },
+                    {
+                      "key": "can_ship",
+                      "data": "False"
+                    },
+                    {
+                      "key": "can_ship_to_countries",
+                      "data": "None"
+                    },
+                    {
+                      "key": "company_name",
+                      "data": "Loranger, Inc."
+                    },
+                    {
+                      "key": "company_website",
+                      "data": "www.google.com"
+                    },
+                    {
+                      "key": "country",
+                      "data": "US"
+                    },
+                    {
+                      "key": "description",
+                      "data": "I sell everything."
+                    },
+                    {
+                      "key": "first_name",
+                      "data": "Frederic"
+                    },
+                    {
+                      "key": "has_online_shop",
+                      "data": "false"
+                    },
+                    {
+                      "key": "id",
+                      "data": "61"
+                    },
+                    {
+                      "key": "industry",
+                      "data": "Games"
+                    },
+                    {
+                      "key": "insurance_files_metadata",
+                      "data": "[]"
+                    },
+                    {
+                      "key": "last_name",
+                      "data": "Loranger"
+                    },
+                    {
+                      "key": "online_shop_url",
+                      "data": "None"
+                    },
+                    {
+                      "key": "postcode",
+                      "data": "94111"
+                    },
+                    {
+                      "key": "products_type",
+                      "data": "3"
+                    },
+                    {
+                      "key": "provide_insurance",
+                      "data": "false"
+                    },
+                    {
+                      "key": "provide_terms_of_sale",
+                      "data": "false"
+                    },
+                    {
+                      "key": "provide_warranties",
+                      "data": "false"
+                    },
+                    {
+                      "key": "return_policy_files_metadata",
+                      "data": "[]"
+                    },
+                    {
+                      "key": "shipping_products_type",
+                      "data": "2"
+                    },
+                    {
+                      "key": "shop",
+                      "data": "61"
+                    },
+                    {
+                      "key": "state",
+                      "data": "CA"
+                    },
+                    {
+                      "key": "terms_of_sale_files_metadata",
+                      "data": "[]"
+                    },
+                    {
+                      "key": "top_selling_products",
+                      "data": "Gummy bears\nBubble gums"
+                    },
+                    {
+                      "key": "user",
+                      "data": "20705501"
+                    },
+                    {
+                      "key": "warranties_files_metadata",
+                      "data": "[]"
+                    }
+                ],
+                "created_date": "May 12, 2015 19:52:23",
+                "total_payout": 155,
+                "admin_modified_date": "December 01, 2015 15:34:26",
+                "pending_total": 0,
+                "total_sales": 100000,
+                "available_payout": 99810.7,
+                "available_sales_payout": 99810.7,
+                "available_sales_tax_payout": 0,
+                "available_shipping_payout": 0,
+                "total_shipping": 0,
+                "total_sales_tax": 0,
+                "is_generic_fulfillment": true,
+                "modified_date": "December 01, 2015 15:34:26"
+            }
+
+
+### Create a new shop [POST /shops{?name,banner_file_id,logo_file_id,current_portfolio_url,current_sales_url,title,description,custom_data_key,custom_data_value}]
 
 |Message|HTTP Status Code|Error Code|Data
 |----|----|----|----
@@ -5499,6 +5649,7 @@ This group of operations work on shops. A shop is a core entity in marketplace e
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             X-Secure-Session: ABC1232324244
+
 + Parameters
     + name (required, String, `Hello Shop`)... Shop Name
     + banner_file_id (optional, Number, `55555555`)... File id of the uploaded banner image [See Upload file section](http://docs.acgcs.apiary.io/reference/files/upload-file/upload-files)
@@ -5506,49 +5657,15 @@ This group of operations work on shops. A shop is a core entity in marketplace e
     + current_portfolio_url (required, String, `http://dev.squidplatform.net`)... Portfolio url
     + current_sales_url (required, String, `http://dev.squidplatform.net`)... Sales url
     + title (optional, String, `shopTitle`)... title. Must be less than 256 characters.
-    + description (optional, String, `This is the best shop`)... shop description. Must be less than 3500 characters.
+    + description (optional, String, `This is the best shop`)... description. Must be less than 3500 characters.
     + custom_data_key (optional, String, `color`)... custom data key
     + custom_data_value (optional, JSON, `{"background":["yellow","black"],"content":"white"}`)... custom data value.
 
++ Response 201
+    [Shop][]
 
-+ Response 201 (application/json)
 
-    + Body
-
-            {
-                "shop_id": 1234567890,
-                "member_id": 1234567890,
-                "name": "Hello Shop",
-                "title": "shopTitle",
-                "description": "This is the best shop",
-                "banner_file_id": "55555555",
-                "banner_file_url": "https://aws-file-server/resources/image.png",
-                "logo_file_id": "55555552",
-                "logo_file_url": "https://aws-file-server/resources/image.png",
-                "current_portfolio_url": "http://dev.squidplatform.net",
-                "current_sales_url": "http://dev.squidplatform.net",
-                "shop_status": "ONLINE",
-                "shop_approval_status": "PENDING",
-                "shop_denial_reason": null,
-                "pending_total": 0,
-                "total_sales": 0,
-                "total_payout": 0,
-                "custom_data": [
-                    {
-                        "key": "color",
-                        "data": {
-                            "background": [
-                                "yellow",
-                                "black"
-                            ],
-                            "content": "white"
-                        }
-                    }
-                ]
-
-            }
-
-### Retrieve shops [GET]
+### Search shops [GET /shops{?member_id,shop_name,start_date,end_date,sort_by,sort_order,limit,offset}]
 Search shops according to query parameters. Only public information is returned, unless the logged in user is
 an administrator or searches with his own member_id. In the case, payout information is returned in the shop object.
 
@@ -5568,7 +5685,7 @@ an administrator or searches with his own member_id. In the case, payout informa
     + limit (optional, Number,`20`)... Number of results to return in each page. Default: 10.
     + offset (optional, Number, `3`)... This offsets the start of each page by the number specified. Default: 0.
 
-+ Response 200 (application/json)
++ Response 200
     + Body
 
             {
@@ -5623,161 +5740,7 @@ an administrator or searches with his own member_id. In the case, payout informa
             }
 
 
-##Shop [/shops/{shop_id}{?name,banner_file_id,logo_file_id,current_portfolio_url,current_sales_url,shop_status,title,description,custom_data_key,custom_data_value,submit_request}]
-CRUD operations on a shop (see above for POST). Requesting a shop via POST causes the shop to be placed in the approval queue.
-
-+ Parameters
-    + shop_id (required, Number, `1234567890`)...Shop id
-
-+ Model (application/json)
-
-    + Body
-
-            {
-              "name": "La Bete's Shop",
-              "title": "Where spending is a treat",
-              "shop_id": 61,
-              "member_id": 20705501,
-              "banner_file_id": 17915206,
-              "logo_file_id": 17915205,
-              "banner_file_url": "https://static.spark.autodesk.com/Public/Beta/17915206.jpg",
-              "logo_file_url": "https://static.spark.autodesk.com/Public/Beta/17915205.jpg",
-              "current_portfolio_url": "http://",
-              "current_sales_url": "http://",
-              "shop_status": "ONLINE",
-              "shop_approval_status": "APPROVED",
-              "needs_shipping_profile": false,
-              "shop_denial_reason": "NONE",
-              "shop_wait_listed_reason": "NONE",
-              "commerce_affiliate_id": 7,
-              "admin_modified_by_id": 20705501,
-              "custom_data": [
-                {
-                  "key": "address",
-                  "data": "Pier 9, The Embarcadero"
-                },
-                {
-                  "key": "can_ship",
-                  "data": "False"
-                },
-                {
-                  "key": "can_ship_to_countries",
-                  "data": "None"
-                },
-                {
-                  "key": "company_name",
-                  "data": "Loranger, Inc."
-                },
-                {
-                  "key": "company_website",
-                  "data": "www.google.com"
-                },
-                {
-                  "key": "country",
-                  "data": "US"
-                },
-                {
-                  "key": "description",
-                  "data": "I sell everything."
-                },
-                {
-                  "key": "first_name",
-                  "data": "Frederic"
-                },
-                {
-                  "key": "has_online_shop",
-                  "data": "false"
-                },
-                {
-                  "key": "id",
-                  "data": "61"
-                },
-                {
-                  "key": "industry",
-                  "data": "Games"
-                },
-                {
-                  "key": "insurance_files_metadata",
-                  "data": "[]"
-                },
-                {
-                  "key": "last_name",
-                  "data": "Loranger"
-                },
-                {
-                  "key": "online_shop_url",
-                  "data": "None"
-                },
-                {
-                  "key": "postcode",
-                  "data": "94111"
-                },
-                {
-                  "key": "products_type",
-                  "data": "3"
-                },
-                {
-                  "key": "provide_insurance",
-                  "data": "false"
-                },
-                {
-                  "key": "provide_terms_of_sale",
-                  "data": "false"
-                },
-                {
-                  "key": "provide_warranties",
-                  "data": "false"
-                },
-                {
-                  "key": "return_policy_files_metadata",
-                  "data": "[]"
-                },
-                {
-                  "key": "shipping_products_type",
-                  "data": "2"
-                },
-                {
-                  "key": "shop",
-                  "data": "61"
-                },
-                {
-                  "key": "state",
-                  "data": "CA"
-                },
-                {
-                  "key": "terms_of_sale_files_metadata",
-                  "data": "[]"
-                },
-                {
-                  "key": "top_selling_products",
-                  "data": "Gummy bears\nBubble gums"
-                },
-                {
-                  "key": "user",
-                  "data": "20705501"
-                },
-                {
-                  "key": "warranties_files_metadata",
-                  "data": "[]"
-                }
-              ],
-              "created_date": "May 12, 2015 19:52:23",
-              "total_payout": 155,
-              "admin_modified_date": "December 01, 2015 15:34:26",
-              "pending_total": 0,
-              "total_sales": 100000,
-              "available_payout": 99810.7,
-              "available_sales_payout": 99810.7,
-              "available_sales_tax_payout": 0,
-              "available_shipping_payout": 0,
-              "total_shipping": 0,
-              "total_sales_tax": 0,
-              "is_generic_fulfillment": true,
-              "modified_date": "December 01, 2015 15:34:26"
-            }
-
-
-### Retrieve a shop [GET]
+### Retrieve a shop [GET /shops/{shop_id}]
 Guest session results in only the public shop data to be returned. Offline shops and non-public information about a shop such as approval status, denial, etc. are filtered out.
 
 + Request (application/x-www-form-urlencoded)
@@ -5789,7 +5752,8 @@ Guest session results in only the public shop data to be returned. Offline shops
 + Response 200
         [Shop][]
 
-### Update a shop [PUT]
+
+### Update a shop [PUT /shops/{shop_id}{?name,banner_file_id,logo_file_id,current_portfolio_url,current_sales_url,shop_status,title,description,custom_data_key,custom_data_value,submit_request}]
 
 Please note that a shop cannot be put ONLINE until the seller has completed his tax withholding information.
 If the member attempts to set the shop ONLINE without tax information a 34026 error is returned.
@@ -5809,6 +5773,7 @@ If the member attempts to set the shop ONLINE without tax information a 34026 er
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             X-Secure-Session: ABC1232324244
+            
 + Parameters
     + name (optional, String, `New Shop Name`)... Shop Name
     + banner_file_id (optional, Number, `55555555`)... File id of the uploaded banner image
@@ -5822,151 +5787,8 @@ If the member attempts to set the shop ONLINE without tax information a 34026 er
     + custom_data_value (optional, JSON, `{"background":["yellow","black"],"content":"white"}`)... custom data value.
     + submit_request (optional, String, `true`)...Whether this shop will be submitted for approval. If 'true' and the shop is in WAIT_LISTED status, an email will be sent to administrator for notification.
 
-+ Response 200 (application/json)
-    + Body
-
-            {
-              "name": "La Bete's Shop",
-              "title": "Where spending is a treat",
-              "shop_id": 61,
-              "member_id": 20705501,
-              "banner_file_id": 17915206,
-              "logo_file_id": 17915205,
-              "banner_file_url": "https://static.spark.autodesk.com/Public/Beta/17915206.jpg",
-              "logo_file_url": "https://static.spark.autodesk.com/Public/Beta/17915205.jpg",
-              "current_portfolio_url": "http://",
-              "current_sales_url": "http://",
-              "shop_status": "ONLINE",
-              "shop_approval_status": "APPROVED",
-              "needs_shipping_profile": false,
-              "shop_denial_reason": "NONE",
-              "shop_wait_listed_reason": "NONE",
-              "commerce_affiliate_id": 7,
-              "admin_modified_by_id": 20705501,
-              "custom_data": [
-                {
-                  "key": "address",
-                  "data": "Pier 9, The Embarcadero"
-                },
-                {
-                  "key": "can_ship",
-                  "data": "False"
-                },
-                {
-                  "key": "can_ship_to_countries",
-                  "data": "None"
-                },
-                {
-                  "key": "company_name",
-                  "data": "Loranger, Inc."
-                },
-                {
-                  "key": "company_website",
-                  "data": "www.google.com"
-                },
-                {
-                  "key": "country",
-                  "data": "US"
-                },
-                {
-                  "key": "description",
-                  "data": "I sell everything."
-                },
-                {
-                  "key": "first_name",
-                  "data": "Frederic"
-                },
-                {
-                  "key": "has_online_shop",
-                  "data": "false"
-                },
-                {
-                  "key": "id",
-                  "data": "61"
-                },
-                {
-                  "key": "industry",
-                  "data": "Games"
-                },
-                {
-                  "key": "insurance_files_metadata",
-                  "data": "[]"
-                },
-                {
-                  "key": "last_name",
-                  "data": "Loranger"
-                },
-                {
-                  "key": "online_shop_url",
-                  "data": "None"
-                },
-                {
-                  "key": "postcode",
-                  "data": "94111"
-                },
-                {
-                  "key": "products_type",
-                  "data": "3"
-                },
-                {
-                  "key": "provide_insurance",
-                  "data": "false"
-                },
-                {
-                  "key": "provide_terms_of_sale",
-                  "data": "false"
-                },
-                {
-                  "key": "provide_warranties",
-                  "data": "false"
-                },
-                {
-                  "key": "return_policy_files_metadata",
-                  "data": "[]"
-                },
-                {
-                  "key": "shipping_products_type",
-                  "data": "2"
-                },
-                {
-                  "key": "shop",
-                  "data": "61"
-                },
-                {
-                  "key": "state",
-                  "data": "CA"
-                },
-                {
-                  "key": "terms_of_sale_files_metadata",
-                  "data": "[]"
-                },
-                {
-                  "key": "top_selling_products",
-                  "data": "Gummy bears\nBubble gums"
-                },
-                {
-                  "key": "user",
-                  "data": "20705501"
-                },
-                {
-                  "key": "warranties_files_metadata",
-                  "data": "[]"
-                }
-              ],
-              "created_date": "May 12, 2015 19:52:23",
-              "total_payout": 155,
-              "admin_modified_date": "December 01, 2015 15:34:26",
-              "pending_total": 0,
-              "total_sales": 100000,
-              "available_payout": 99810.7,
-              "available_sales_payout": 99810.7,
-              "available_sales_tax_payout": 0,
-              "available_shipping_payout": 0,
-              "total_shipping": 0,
-              "total_sales_tax": 0,
-              "is_generic_fulfillment": true,
-              "modified_date": "December 01, 2015 15:34:26"
-            }
++ Response 200
+        [Shop][]
 
 ## Shop Custom Data [/shops/{id}/customdata{?custom_data,keys}]
 Operations to add/delete custom data to this shop. Custom data can be retrieved from GET shop API.
