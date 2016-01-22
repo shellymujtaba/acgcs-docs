@@ -7171,7 +7171,7 @@ Delete shipping profile will also delete all the shipping destinations defined f
 
 + Response 204
 
-## Shipping Destination [/shops/{shop_id}/shippingprofile/{shippingprofile_id}/shippingdestinationgroup]
+## Shipping Destination [/shops/{shop_id}/shippingprofile/{shippingprofile_id}/shippingdestinationgroup/{shippingdestinationgroup_id}]
 A shipping profile encompasses all the rules and pricing associated with shipping for a given class of item in destination. A single shipping profile can have multiple shipping destinations but for a given to country can only be in a single destination item for profile. The seller can then associate a shipping profile with any number of products which fit the "large item" description. Similarly there may be another  shipping profile for "small items" which can be applied to smaller items. For example lets say there is a shipping profile for "Large Items" . This profile will include 1...n  sub profiles (destinations) with each destination line item indicating:
 * Country from where the shipment will originate (from_country)
 * Countries to which the shipment will be delivered (1..n)
@@ -7180,34 +7180,13 @@ A shipping profile encompasses all the rules and pricing associated with shippin
 + Parameters
     + shop_id (required, Number, `79`)...Shop id
     + shippingprofile_id (required, Number, `10`)...Shipping Profile id
+    + shippingdestinationgroup_id (required, `Number`, `12341234`)... Shipping destination group id.
 
-### Add Shipping destination[POST]
+
+### Add Shipping destination [POST /shops/{shop_id}/shippingprofile/{shippingprofile_id}/shippingdestinationgroup]
 
 + Request (application/x-www-form-urlencoded)
-
-           [
-               {
-                  "destination_from_country":"US",
-                  "destination_handling_fee":5,
-                  "destination_to_country":[
-                       "US",
-                       "CA",
-                       "MX"
-                   ],
-                  "shipping_options":[
-                       {
-                          "shipping_option_name":"1 Day Delivery",
-                          "shipping_option_shipping_cost":20,
-                          "shipping_option_secondary_shipping_cost":2
-                       },
-                       {
-                           "shipping_option_name":"3 Day Delivery",
-                           "shipping_option_shipping_cost":10,
-                           "shipping_option_secondary_shipping_cost":2
-                       }
-                    ]
-               }
-            ]
+        
     + Headers
 
             X-AFC: FJKB32
@@ -7216,9 +7195,31 @@ A shipping profile encompasses all the rules and pricing associated with shippin
 
 + Response 200 (application/json)
 
-        [{"destination_id":20,"destination_from_country":"US","destination_handling_fee":1.5, "destination_to_country":["US","CA","MX"],"shipping_options":[{"shippingoption_name":"2 Day Delivery",  "shipping_option_shipping_cost":9 }, {"shipping_option_name":"3 Day Delivery",  "shipping_option_shipping_cost":11}]}]
+        [
+            {
+                "destination_id":20,
+                "destination_from_country":"US",
+                "destination_handling_fee":1.5,
+                "destination_to_country":[
+                    "US",
+                    "CA",
+                    "MX"
+                ],
+                "shipping_options":[
+                    {
+                        "shippingoption_name":"2 Day Delivery",
+                        "shipping_option_shipping_cost":9
+                    },
+                    {
+                        "shipping_option_name":"3 Day Delivery",
+                        "shipping_option_shipping_cost":11
+                    }
+                ]
+            }
+        ]
 
-### Update Shipping destination[PUT]
+
+### Update Shipping destination [PUT]
 
 + Request (application/x-www-form-urlencoded)
            [
@@ -7254,12 +7255,7 @@ A shipping profile encompasses all the rules and pricing associated with shippin
 
 + Response 204
 
-## Shipping Destination [/shops/{shop_id}/shippingprofile/{shippingprofile_id}/shippingdestinationgroup/{shippingdestinationgroup_id}]
-### Delete Shipping destination[DELETE]
-+ Parameters
-    + shop_id (required, Number, `79`)...Shop id
-    + shippingprofile_id (required, Number, `10`)...Shipping Profile id
-    + shippingdestinationgroup_id (required, Number, `23`)...shipping destination id
+### Delete Shipping destination [DELETE /shops/{shop_id}/shippingprofile/{shippingprofile_id}/shippingdestinationgroup/{shippingdestinationgroup_id}]
 
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -7267,6 +7263,7 @@ A shipping profile encompasses all the rules and pricing associated with shippin
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             X-Secure-Session: ABC1232324244
+            
 + Response 204
 
 #Group Carts
