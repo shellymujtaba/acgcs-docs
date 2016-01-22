@@ -7028,13 +7028,27 @@ If tax rate already exists for input address, the call will update the tax rate.
 
 + Response 204
 
-##Shipping Profile [/shops/{shop_id}/shippingprofile{?limit,offset,name,description,is_default}]
+## Shipping Profile [/shops/{shop_id}/shippingprofile/{shipping_profile_id}{?limit,offset,name,description,is_default}]
 Sellers will specify the shipping profile at the shop level. Shipping cost for physical items will be calculated based on buyer shipping address and shipping profile associated with physical products. If shop does not have shipping profile, then seller cannot publish any of physical assets for sale of that shop. The seller can always add physical assets, that are NOT for sale without shipping profile
 
 + Parameters
     + shop_id (required, Number, `79`)...Shop id
+    + shipping_profile_id (required, Number, `12341234`)...Shipping profile id.
 
-### Retrieve shipping profile [GET]
++ Model (application/json)
+
+    + Body
+
+            {
+                "shippingprofile_id": 5,
+                "shop_id": 79,
+                "shippingprofile_name": "Large Items Shipping profile",
+                "shippingprofile_description": "Large items shipping profile",
+                "is_default_shipping_profile": true
+            }
+
+
+### Retrieve shipping profile [GET /shops/{shop_id}/shippingprofile{?limit,offset}]
 + Request (application/x-www-form-urlencoded)
     + Headers
 
@@ -7045,7 +7059,6 @@ Sellers will specify the shipping profile at the shop level. Shipping cost for p
 + Parameters
     + limit (optional, Number,`1`)... Number of results to return in each page. Default: 10.
     + offset (optional, Number, `3`)... This offsets the start of each page by the number specified. Default: 0.
-
 
 + Response 200 (application/json)
 
@@ -7109,7 +7122,8 @@ Sellers will specify the shipping profile at the shop level. Shipping cost for p
                 ]
             }
 
-### Add shipping profile [POST]
+
+### Add shipping profile [POST /shops/{shop_id}/shippingprofile{?name,description,is_default}]
 If shop doesn't have shipping profile, then first shipping profile will be the default shipping profile for the shop and all the physical products of the shop will automatically assigned to default profile.
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -7123,23 +7137,11 @@ If shop doesn't have shipping profile, then first shipping profile will be the d
     + description (optional, String,`US Overnight shipping profile`)...Shipping profile description
     + is_default (optional, String, `true`)...If is_default is true then this shipping profile will become the default shipping profile for the shop. So when you add physical product for this shop, the product will be associated to default profile automatically.
 
-+ Response 200 (application/json)
-
-        {
-            "shippingprofile_id": 5,
-            "shop_id": 79,
-            "shippingprofile_name": "Large Items Shipping profile",
-            "shippingprofile_description": "Large items shipping profile"
-            "is_default_shipping_profile": true
-        }
++ Response 200
+    [Shipping Profile][]
 
 
-##Shipping Profile [/shops/{shop_id}/shippingprofile/{shippingprofile_id}{?name,description,is_default}]
-+ Parameters
-    + shop_id (required, Number, `20280723`)...Shop id
-    + shippingprofile_id (required, Number, `10`)...Shipping Profile id
-
-### Update shipping profile [PUT]
+### Update shipping profile [PUT /shops/{shop_id}/shippingprofile/{shipping_profile_id}{?name,description,is_default}]
 The Seller can update shipping profile to Shop by changing its name, shipping time, shipping cost or any other fields. The seller can also change default shipping profile of the shop by passing is_default=true. When seller pass is_default true for shipping profile then that shipping profile will become the default shipping profile for shop. The shop can have only one shipping profile at a time.
 
 + Request (application/x-www-form-urlencoded)
@@ -7154,17 +7156,11 @@ The Seller can update shipping profile to Shop by changing its name, shipping ti
     + description (optional, String,`US Overnight shipping profile`)...Shipping profile description
     + is_default (optional, String, `true`)...If is_default is true then this shipping profile will become the default shipping profile for the shop. So when you add physical product for this shop, the product will be associated to default profile automatically.
 
-+ Response 200 (application/json)
++ Response 200
+    [Shipping Profile][]
 
-        {
-            "shippingprofile_id": 5,
-            "shop_id": 79,
-            "shippingprofile_name": "Large items profile",
-            "shippingprofile_description": "Shipping profile for large items",
-            "is_default_shipping_profile": true
-        }
 
-### Delete shipping profile[DELETE]
+### Delete shipping profile [DELETE /shops/{shop_id}/shippingprofile/{shipping_profile_id}]
 Delete shipping profile will also delete all the shipping destinations defined for this profile.
 + Request (application/x-www-form-urlencoded)
     + Headers
