@@ -4670,6 +4670,7 @@ Get messages for a thread.
     + id (required,Number, `20280723`)...Member id
     + thread_id (required, String, `TWTWLL9H411A68F`)...Thread id.
     + mailbox (optional, String, `IN`)...Mailbox type. Options: IN/OUT/IN_OUT/TRASH. Default: IN_OUT
+    + from_message_id (optional, String, `XM6SRU1IHWFJC5M`)...A pointer message id within this thread. Returns results after this message.
     + sort_order (optional, String, `desc`)...Sort order. Options: desc/asc. Default: desc.
     + offset (optional, Number, `0`)...This offsets the start of each page by the number specified. Default: 0.
     + limit (optional, Number, `20`)...Number of results to return in each page. Default: 20.
@@ -4752,18 +4753,18 @@ The recipient_ids param can have only one member in case of private messaging. T
 
 + Response 201 (application/json)
 
-        {
-            "thread_id": "TAWYZDDIBLUNXZY",
-            "message_id": "XAWYZDDIBLUNXZY",
-            "_link": "/members/20704116/messages/TAWYZDDIBLUNXZY"
-        }
-        
-        {
-            "thread_id": "TAWYZDDIBLUNXZY",
-            "_link": "/members/20704116/messages/TAWYZDDIBLUNXZY"
-        }        
+    {
+        "thread_id": "TAWYZDDIBLUNXZY",
+        "message_id": "XAWYZDDIBLUNXZY",
+        "_link": "/members/20704116/messages/TAWYZDDIBLUNXZY"
+    }
+    
+    {
+        "thread_id": "TAWYZDDIBLUNXZY",
+        "_link": "/members/20704116/messages/TAWYZDDIBLUNXZY"
+    } 
 
-### Reply Message [POST /members/{id}/messages/reply{?body,message_id,thread_id,subject}]
+### Reply Message [POST /members/{id}/messages/reply{?body,message_id,thread_id,subject,command}]
 
 Reply to a private message or a group conversation (CHAT).
 
@@ -4783,16 +4784,78 @@ Reply to a private message or a group conversation (CHAT).
 
 + Response 201 (application/json)
 
+    {
+        "thread_id": "TAWYZDDIBLUNXZY",
+        "message_id": "XAWYZDDIBLUNXZY",
+        "_link": "/members/20704116/messages/TAWYZDDIBLUNXZY"
+    }
+    
+    {
+        "thread_id": "TAWYZDDIBLUNXZY",
+        "_link": "/members/20704116/messages/TAWYZDDIBLUNXZY"
+    } 
+
+### Send or Reply Message with Attachments [POST /members/{id}/messages/media{?subject,body,recipient_ids,mailbox}]
+
+Send/Reply message with attachments for Non chat private messages
+
+**_Note:_** this Api's can be used for Non-chat private messages only.
+
++ Parameters
+    + id (required,Number, `20280723`)...Member id
+    + subject  (required,String,`message subject`)...Subject of the message
+    + body  (required,String,`message body`)...Body of the message
+    + recipient_ids (required,Number, `20280724,352345234`)... member Id to whom the message is to be sent.. use this param only when new thread needs to be started
+    + message_id (optional,String, `XWTWLL9H411A68F`)...Message Id. Id of the message to which reply has to be sent.
+    + mailbox (optional, String, `OUT`)...Mailbox type. If passed as CHAT, a group conversation is initiated.
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Response 201 (application/json)
+
         {
-            "thread_id": "TAWYZDDIBLUNXZY",
-            "message_id": "XAWYZDDIBLUNXZY",
-            "_link": "/members/20704116/messages/TAWYZDDIBLUNXZY"
+    "subject": "test subject",
+    "body": "nice body",
+    "thread_id": "TR3YREKIJPJU28C",
+    "sent_time": "January 22, 2016 10:33:08",
+    "sender_member_id": 20704116,
+    "sender_screen_name": "sumanwan",
+    "recipient_member_id": 20704469,
+    "recipient_screen_name": "tejinder singh (469)",
+    "message_id": "X5QBYFHIJPBNSCU",
+    "read_time": "",
+    "recipient_box": "IN",
+    "sender_box": "OUT",
+    "_link": "/members/20704116/messages/TR3YREKIJPJU28C",
+    "in_reply_to": "",
+    "attachment": [
+        {
+            "file_original_name": "Chrysanthemum.jpg",
+            "file_size": 555555,
+            "fileitem_id": 17463402,
+            "download_url": "Alpha/2016/01/20__07/Chrysanthemum.jpg569f285eb5ea8-569f285eb5ea8.jpg",
+            "file_type": "image/jpeg",
+            "file_extension": "jpg",
+            "url_prefix": "https://static.spark.autodesk.com/"
+        },
+        {
+            "file_original_name": "nthemum.jpg",
+            "file_size": 879394,
+            "fileitem_id": 17463403,
+            "download_url": "Alpha/2016/01/20__07/nthemum.jpg569f285eb5ea8-569f28sdfsd5eb5ea8.jpg",
+            "file_type": "image/jpeg",
+            "file_extension": "jpg",
+            "url_prefix": "https://static.spark.autodesk.com/"
         }
-        
-        {
-            "thread_id": "TAWYZDDIBLUNXZY",
-            "_link": "/members/20704116/messages/TAWYZDDIBLUNXZY"
-        } 
+    ],
+    "message_media_type": "",
+    "sender_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
+    "recipient_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
+}
 
 ### Put Message [PUT /members/{id}/messages{?action,message_id,thread_id,user_id}]
 
