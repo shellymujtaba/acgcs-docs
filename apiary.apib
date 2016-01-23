@@ -10992,10 +10992,48 @@ Remove the country, which is no longer supported by our service payment provider
 
 + Response 204
 
-## Coupons [/admin/carts/coupons{?name,description,discount_type,discount_amount,usage_limit_per_code,once_per_member,effective_from_date,effective_to_date,apply_to_product,code,autodesk_shared_discount_percent,seller_shared_discount_percent,coupon_status,sort_by,sort_order,offset}]
+## Coupon [/admin/carts/coupons/{coupon_id}{?name,description,discount_type,discount_amount,usage_limit_per_code,once_per_member,effective_from_date,effective_to_date,apply_to_product,code,autodesk_shared_discount_percent,seller_shared_discount_percent,coupon_status,sort_by,sort_order,offset}]
 Manage coupons that can be issued to buyers to get discount on selected SKUs. This is ONLY applicable for Marketplace SKUs.
 
-### Create Coupon [POST]
++ Model (application/json)
+
+    + Body
+
+            {
+                "name": "baf60923-fd7b-4f14-8056-7622f973e990",
+                "description": "testDesc",
+                "id": 49,
+                "codes": [
+                    {
+                        "code": "4cbc4fa7-7db8-42b1-8ff6-a984640c52be",
+                        "used_count": 0
+                    },
+                    {
+                        "code": "400f4f85-ca73-4134-bba9-aab7d0d4dff4",
+                        "used_count": 0
+                    }
+                ],
+                "discount_amount": 10,
+                "usage_limit_per_code": 1,
+                "once_per_member": true,
+                "used_count": 0,
+                "discount_type": "USD",
+                "created_date": "June 29, 2015 21:57:40",
+                "last_modified_date": "June 29, 2015 21:57:40",
+                "create_by_member_id": 20708730,
+                "last_modified_by_member_id": 20708730,
+                "coupon_status": "ISSUED",
+                "products": [
+                    2
+                ],
+                "effective_from_date": "June 29, 2015 00:00:00",
+                "effective_to_date": "July 09, 2015 00:00:00",
+                "autodesk_shared_discount_percent": "100.00",
+                "seller_shared_discount_percent": "0.00"
+            }
+
+
+### Create Coupon [POST /admin/carts/coupons{?name,description,discount_type,discount_amount,usage_limit_per_code,once_per_member,effective_from_date,effective_to_date,apply_to_product,code,autodesk_shared_discount_percent,seller_shared_discount_percent}]
 
 Create a new coupon.
 
@@ -11034,42 +11072,11 @@ Create a new coupon.
     + autodesk_shared_discount_percent (optional, Number, `100.00`)... Percentage value of discount amount that Autodesk eats. By default Autodesk eat all cost for discount(100%). Default: 100.00
     + seller_shared_discount_percent (optional, Number, `0.00`)... Percentage value of discount amount that seller eats.
 
-+ Response 200 (application/json)
++ Response 200
+    [Coupon][]
 
-            {
-                "name": "baf60923-fd7b-4f14-8056-7622f973e990",
-                "description": "testDesc",
-                "id": 49,
-                "codes": [
-                    {
-                        "code": "4cbc4fa7-7db8-42b1-8ff6-a984640c52be",
-                        "used_count": 0
-                    },
-                    {
-                        "code": "400f4f85-ca73-4134-bba9-aab7d0d4dff4",
-                        "used_count": 0
-                    }
-                ],
-                "discount_amount": 10,
-                "usage_limit_per_code": 1,
-                "once_per_member": true,
-                "used_count": 0,
-                "discount_type": "USD",
-                "created_date": "June 29, 2015 21:57:40",
-                "last_modified_date": "June 29, 2015 21:57:40",
-                "create_by_member_id": 20708730,
-                "last_modified_by_member_id": 20708730,
-                "coupon_status": "ISSUED",
-                "products": [
-                    2
-                ],
-                "effective_from_date": "June 29, 2015 00:00:00",
-                "effective_to_date": "July 09, 2015 00:00:00",
-                "autodesk_shared_discount_percent": "100.00",
-                "seller_shared_discount_percent": "0.00"
-            }
 
-### Search Coupons [GET]
+### Search Coupons [GET /admin/carts/coupons{?name,apply_to_product,code,coupon_status,sort_by,sort_order,limit,offset}]
 
 Search all coupons.
 
@@ -11169,11 +11176,13 @@ Search all coupons.
             ]
         }
 
-## Coupon [/admin/carts/coupons/{coupon_id}{?name,description,discount_type,discount_amount,usage_limit_per_code,once_per_member,effective_from_date,effective_to_date,apply_to_product,add_coupon_code,remove_unused_codes,autodesk_shared_discount_percent,seller_shared_discount_percent}]
 
-### Get Coupon [GET]
+### Get Coupon [GET /admin/carts/coupons/{coupon_id}]
 
 Get a single coupon by unique id
+
++ Parameters
+    + coupon_id (required, Number, `12341234`)... Coupon id.
 
 + Request (application/x-www-form-urlencoded)
     + Header
@@ -11182,43 +11191,11 @@ Get a single coupon by unique id
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
             X-Secure-Session : cc33b7e56319409c3bda251c9dcda3a331b914cdc0f6d4716ccbc4a2e5fd09d2
 
-+ Response 200 (application/json)
++ Response 200
+    [Coupon][]
 
-        {
-            "name": "test11",
-            "description": "foo",
-            "id": 34,
-            "codes": [
-                {
-                    "code": "test34",
-                    "used_count": 0
-                },
-                {
-                    "code": " 768",
-                    "used_count": 0
-                }
-            ],
-            "usage_limit_per_code": 1,
-            "once_per_member": true,
-            "used_count": 0,
-            "discount_type": "USD",
-            "created_date": "June 25, 2015 15:09:03",
-            "last_modified_date": "June 25, 2015 15:09:03",
-            "create_by_member_id": 20704130,
-            "last_modified_by_member_id": 20704130,
-            "coupon_status": "ISSUED",
-            "products": [
-                10,
-                12
-            ],
-            "effective_from_date": "June 26, 2015 15:00:00",
-            "effective_to_date": "June 27, 2015 15:00:00",
-            "discount_amount": 10,
-            "autodesk_shared_discount_percent": "100.00",
-            "seller_shared_discount_percent": "0.00"
-        }
 
-### Update Coupon [PUT]
+### Update Coupon [PUT /admin/carts/coupons/{coupon_id}{?name,description,discount_type,discount_amount,usage_limit_per_code,once_per_member,effective_from_date,effective_to_date,apply_to_product,add_coupon_code,remove_unused_codes,autodesk_shared_discount_percent,seller_shared_discount_percent}]
 
 Update an existing coupon.
 
@@ -11244,6 +11221,7 @@ Update an existing coupon.
             X-Secure-Session : cc33b7e56319409c3bda251c9dcda3a331b914cdc0f6d4716ccbc4a2e5fd09d2
 
 + Parameters
+    + coupon_id (required, Number, `12341234`)... Coupon id.
     + name (optional, String, `50_OFF`)... User friendly unique name for the coupon.
     + description (optional, String, `50% discount on SKUs`)... Description for the coupon.
     + discount_type (optional, USD|PERCENT, `PERCENT`)... Type of discount. Absolute dollar amount or percentage value.
@@ -11258,44 +11236,16 @@ Update an existing coupon.
     + autodesk_shared_discount_percent (optional, Number, `100.00`)... Percentage value of discount amount that Autodesk eats. By default Autodesk eat all cost for discount(100%). Default: 100.00
     + seller_shared_discount_percent (optional, Number, `0.00`)... Percentage value of discount amount that seller eats.
 
-+ Response 200 (application/json)
++ Response 200
+    [Coupon][]
+    
 
-            {
-                "name": "baf60923-fd7b-4f14-8056-7622f973e990",
-                "description": "testDesc",
-                "id": 49,
-                "codes": [
-                    {
-                        "code": "4cbc4fa7-7db8-42b1-8ff6-a984640c52be",
-                        "used_count": 0
-                    },
-                    {
-                        "code": "400f4f85-ca73-4134-bba9-aab7d0d4dff4",
-                        "used_count": 0
-                    }
-                ],
-                "discount_amount": 10,
-                "usage_limit_per_code": 1,
-                "once_per_member": true,
-                "used_count": 0,
-                "discount_type": "USD",
-                "created_date": "June 29, 2015 21:57:40",
-                "last_modified_date": "June 29, 2015 21:57:40",
-                "create_by_member_id": 20708730,
-                "last_modified_by_member_id": 20708730,
-                "coupon_status": "ISSUED",
-                "products": [
-                    2
-                ],
-                "effective_from_date": "June 29, 2015 00:00:00",
-                "effective_to_date": "July 09, 2015 00:00:00",
-                "autodesk_shared_discount_percent": "100.00",
-                "seller_shared_discount_percent": "0.00"
-            }
-
-### Delete Coupon [DELETE]
+### Delete Coupon [DELETE /admin/carts/coupons/{coupon_id}]
 
 Delete a single coupon by unique id
+
++ Parameters
+    + coupon_id (required, Number, `12341234`)... Coupon id.
 
 + Request (application/x-www-form-urlencoded)
     + Header
@@ -11305,6 +11255,7 @@ Delete a single coupon by unique id
             X-Secure-Session : cc33b7e56319409c3bda251c9dcda3a331b914cdc0f6d4716ccbc4a2e5fd09d2
 
 + Response 204 (application/json)
+
 
 ## Refund [/admin/refunds]
 
