@@ -9646,11 +9646,163 @@ Delete a coupon. Returns the updated cart (as identified by afc header and cart 
 These admin operations require admin privilege for logged in user.
 
 
-## Shops [/admin/shops{?shop_id,member_id,member_name,member_email,shop_name,store_name,start_date,end_date,approval_status,sort_by,sort_order,limit,offset}]
+## Admin Shop [/admin/shops/{shop_id}{?shop_id,member_id,member_name,member_email,shop_name,store_name,start_date,end_date,approval_status,sort_by,sort_order,limit,offset}]
 Retrieve shops according to the query parameters.
 The default parameters will retrieve the latest `PENDING` shops with most recent at the top.
 
-### Retrieve shops [GET]
++ Model (application/json)
+
+    + Body
+
+            {
+              "shop": {
+                "name": "La Bete's Shop",
+                "title": "Where spending is a treat",
+                "shop_id": 61,
+                "member_id": 20705501,
+                "banner_file_id": 17915206,
+                "logo_file_id": 17915205,
+                "banner_file_url": "https://static.spark.autodesk.com/Public/Beta/17915206.jpg",
+                "logo_file_url": "https://static.spark.autodesk.com/Public/Beta/17915205.jpg",
+                "current_portfolio_url": "http://",
+                "current_sales_url": "http://",
+                "shop_status": "ONLINE",
+                "shop_approval_status": "APPROVED",
+                "needs_shipping_profile": false,
+                "shop_denial_reason": "NONE",
+                "shop_wait_listed_reason": "NONE",
+                "commerce_affiliate_id": 7,
+                "admin_modified_by_id": 20705501,
+                "custom_data": [
+                  {
+                    "key": "address",
+                    "data": "Pier 9, The Embarcadero"
+                  },
+                  {
+                    "key": "can_ship",
+                    "data": "False"
+                  },
+                  {
+                    "key": "can_ship_to_countries",
+                    "data": "None"
+                  },
+                  {
+                    "key": "company_name",
+                    "data": "Loranger, Inc."
+                  },
+                  {
+                    "key": "company_website",
+                    "data": "www.google.com"
+                  },
+                  {
+                    "key": "country",
+                    "data": "US"
+                  },
+                  {
+                    "key": "description",
+                    "data": "I sell everything."
+                  },
+                  {
+                    "key": "first_name",
+                    "data": "Frederic"
+                  },
+                  {
+                    "key": "has_online_shop",
+                    "data": "false"
+                  },
+                  {
+                    "key": "id",
+                    "data": "61"
+                  },
+                  {
+                    "key": "industry",
+                    "data": "Games"
+                  },
+                  {
+                    "key": "insurance_files_metadata",
+                    "data": "[]"
+                  },
+                  {
+                    "key": "last_name",
+                    "data": "Loranger"
+                  },
+                  {
+                    "key": "online_shop_url",
+                    "data": "None"
+                  },
+                  {
+                    "key": "postcode",
+                    "data": "94111"
+                  },
+                  {
+                    "key": "products_type",
+                    "data": "3"
+                  },
+                  {
+                    "key": "provide_insurance",
+                    "data": "false"
+                  },
+                  {
+                    "key": "provide_terms_of_sale",
+                    "data": "false"
+                  },
+                  {
+                    "key": "provide_warranties",
+                    "data": "false"
+                  },
+                  {
+                    "key": "return_policy_files_metadata",
+                    "data": "[]"
+                  },
+                  {
+                    "key": "shipping_products_type",
+                    "data": "2"
+                  },
+                  {
+                    "key": "shop",
+                    "data": "61"
+                  },
+                  {
+                    "key": "state",
+                    "data": "CA"
+                  },
+                  {
+                    "key": "terms_of_sale_files_metadata",
+                    "data": "[]"
+                  },
+                  {
+                    "key": "top_selling_products",
+                    "data": "Gummy bears\nBubble gums"
+                  },
+                  {
+                    "key": "user",
+                    "data": "20705501"
+                  },
+                  {
+                    "key": "warranties_files_metadata",
+                    "data": "[]"
+                  }
+                ],
+                "created_date": "May 12, 2015 19:52:23",
+                "total_payout": 155,
+                "admin_modified_date": "December 01, 2015 15:34:26",
+                "pending_total": 0,
+                "total_sales": 100000,
+                "available_payout": 99810.7,
+                "available_sales_payout": 99810.7,
+                "available_sales_tax_payout": 0,
+                "available_shipping_payout": 0,
+                "total_shipping": 0,
+                "total_sales_tax": 0,
+                "is_generic_fulfillment": true,
+                "modified_date": "December 01, 2015 15:34:26"
+              },
+              "member_name": "Frederic Staging",
+              "member_email": "frederic.loranger@autodesk.com"
+            }
+
+
+### Retrieve shops [GET /admin/shops{?shop_id,member_id,member_name,member_email,shop_name,store_name,start_date,end_date,approval_status,sort_by,sort_order,limit,offset}]
 The following filters are mutually exclusive and get the following priority: shop_id, member_id, member_name, member_email, shop_name.
 
 + Request (application/x-www-form-urlencoded)
@@ -9832,9 +9984,7 @@ The following filters are mutually exclusive and get the following priority: sho
             }
 
 
-## Shop [/admin/shops/{shop_id}{?name,banner_file_id,logo_file_id,current_portfolio_url,current_sales_url,shop_status,shop_approval_status,shop_denial_reason,title,description,custom_data_key,custom_data_value}]
-
-### Get a shop [GET]
+### Get a shop [GET /admin/shops/{shop_id}]
 Retrieve a shop by shop id only.
 
 + Request (application/x-www-form-urlencoded)
@@ -9846,157 +9996,11 @@ Retrieve a shop by shop id only.
 + Parameters
     + shop_id (required, Number, `1234567890`)...Shop id
 
-+ Response 200 (application/json)
-    + Body
++ Response 200
+    [Admin Shop][]
 
-            {
-              "shop": {
-                "name": "La Bete's Shop",
-                "title": "Where spending is a treat",
-                "shop_id": 61,
-                "member_id": 20705501,
-                "banner_file_id": 17915206,
-                "logo_file_id": 17915205,
-                "banner_file_url": "https://static.spark.autodesk.com/Public/Beta/17915206.jpg",
-                "logo_file_url": "https://static.spark.autodesk.com/Public/Beta/17915205.jpg",
-                "current_portfolio_url": "http://",
-                "current_sales_url": "http://",
-                "shop_status": "ONLINE",
-                "shop_approval_status": "APPROVED",
-                "needs_shipping_profile": false,
-                "shop_denial_reason": "NONE",
-                "shop_wait_listed_reason": "NONE",
-                "commerce_affiliate_id": 7,
-                "admin_modified_by_id": 20705501,
-                "custom_data": [
-                  {
-                    "key": "address",
-                    "data": "Pier 9, The Embarcadero"
-                  },
-                  {
-                    "key": "can_ship",
-                    "data": "False"
-                  },
-                  {
-                    "key": "can_ship_to_countries",
-                    "data": "None"
-                  },
-                  {
-                    "key": "company_name",
-                    "data": "Loranger, Inc."
-                  },
-                  {
-                    "key": "company_website",
-                    "data": "www.google.com"
-                  },
-                  {
-                    "key": "country",
-                    "data": "US"
-                  },
-                  {
-                    "key": "description",
-                    "data": "I sell everything."
-                  },
-                  {
-                    "key": "first_name",
-                    "data": "Frederic"
-                  },
-                  {
-                    "key": "has_online_shop",
-                    "data": "false"
-                  },
-                  {
-                    "key": "id",
-                    "data": "61"
-                  },
-                  {
-                    "key": "industry",
-                    "data": "Games"
-                  },
-                  {
-                    "key": "insurance_files_metadata",
-                    "data": "[]"
-                  },
-                  {
-                    "key": "last_name",
-                    "data": "Loranger"
-                  },
-                  {
-                    "key": "online_shop_url",
-                    "data": "None"
-                  },
-                  {
-                    "key": "postcode",
-                    "data": "94111"
-                  },
-                  {
-                    "key": "products_type",
-                    "data": "3"
-                  },
-                  {
-                    "key": "provide_insurance",
-                    "data": "false"
-                  },
-                  {
-                    "key": "provide_terms_of_sale",
-                    "data": "false"
-                  },
-                  {
-                    "key": "provide_warranties",
-                    "data": "false"
-                  },
-                  {
-                    "key": "return_policy_files_metadata",
-                    "data": "[]"
-                  },
-                  {
-                    "key": "shipping_products_type",
-                    "data": "2"
-                  },
-                  {
-                    "key": "shop",
-                    "data": "61"
-                  },
-                  {
-                    "key": "state",
-                    "data": "CA"
-                  },
-                  {
-                    "key": "terms_of_sale_files_metadata",
-                    "data": "[]"
-                  },
-                  {
-                    "key": "top_selling_products",
-                    "data": "Gummy bears\nBubble gums"
-                  },
-                  {
-                    "key": "user",
-                    "data": "20705501"
-                  },
-                  {
-                    "key": "warranties_files_metadata",
-                    "data": "[]"
-                  }
-                ],
-                "created_date": "May 12, 2015 19:52:23",
-                "total_payout": 155,
-                "admin_modified_date": "December 01, 2015 15:34:26",
-                "pending_total": 0,
-                "total_sales": 100000,
-                "available_payout": 99810.7,
-                "available_sales_payout": 99810.7,
-                "available_sales_tax_payout": 0,
-                "available_shipping_payout": 0,
-                "total_shipping": 0,
-                "total_sales_tax": 0,
-                "is_generic_fulfillment": true,
-                "modified_date": "December 01, 2015 15:34:26"
-              },
-              "member_name": "Frederic Staging",
-              "member_email": "frederic.loranger@autodesk.com"
-            }
 
-### Update a shop [PUT]
+### Update a shop [PUT /admin/shops/{shop_id}{?shop_id,name,banner_file_id,logo_file_id,current_portfolio_url,current_sales_url,shop_status,shop_approval_status,shop_denial_reason,title,description,custom_data_key,custom_data_value}]
 Update a shop based on the parameters in the query.
 
 Please note that a shop cannot be put ONLINE until the seller has completed his tax withholding information.
@@ -10032,156 +10036,8 @@ If the member attempts to set the shop ONLINE without tax information a 34026 er
     + custom_data_key (optional, String, `color`)... custom data key
     + custom_data_value (optional, JSON, `{"background":["yellow","black"],"content":"white"}`)... custom data value.
 
-+ Response 200 (application/json)
-    + Body
-
-            {
-              "shop": {
-                "name": "La Bete's Shop",
-                "title": "Where spending is a treat",
-                "shop_id": 61,
-                "member_id": 20705501,
-                "banner_file_id": 17915206,
-                "logo_file_id": 17915205,
-                "banner_file_url": "https://static.spark.autodesk.com/Public/Beta/17915206.jpg",
-                "logo_file_url": "https://static.spark.autodesk.com/Public/Beta/17915205.jpg",
-                "current_portfolio_url": "http://",
-                "current_sales_url": "http://",
-                "shop_status": "ONLINE",
-                "shop_approval_status": "APPROVED",
-                "needs_shipping_profile": false,
-                "shop_denial_reason": "NONE",
-                "shop_wait_listed_reason": "NONE",
-                "commerce_affiliate_id": 7,
-                "admin_modified_by_id": 20705501,
-                "custom_data": [
-                  {
-                    "key": "address",
-                    "data": "Pier 9, The Embarcadero"
-                  },
-                  {
-                    "key": "can_ship",
-                    "data": "False"
-                  },
-                  {
-                    "key": "can_ship_to_countries",
-                    "data": "None"
-                  },
-                  {
-                    "key": "company_name",
-                    "data": "Loranger, Inc."
-                  },
-                  {
-                    "key": "company_website",
-                    "data": "www.google.com"
-                  },
-                  {
-                    "key": "country",
-                    "data": "US"
-                  },
-                  {
-                    "key": "description",
-                    "data": "I sell everything."
-                  },
-                  {
-                    "key": "first_name",
-                    "data": "Frederic"
-                  },
-                  {
-                    "key": "has_online_shop",
-                    "data": "false"
-                  },
-                  {
-                    "key": "id",
-                    "data": "61"
-                  },
-                  {
-                    "key": "industry",
-                    "data": "Games"
-                  },
-                  {
-                    "key": "insurance_files_metadata",
-                    "data": "[]"
-                  },
-                  {
-                    "key": "last_name",
-                    "data": "Loranger"
-                  },
-                  {
-                    "key": "online_shop_url",
-                    "data": "None"
-                  },
-                  {
-                    "key": "postcode",
-                    "data": "94111"
-                  },
-                  {
-                    "key": "products_type",
-                    "data": "3"
-                  },
-                  {
-                    "key": "provide_insurance",
-                    "data": "false"
-                  },
-                  {
-                    "key": "provide_terms_of_sale",
-                    "data": "false"
-                  },
-                  {
-                    "key": "provide_warranties",
-                    "data": "false"
-                  },
-                  {
-                    "key": "return_policy_files_metadata",
-                    "data": "[]"
-                  },
-                  {
-                    "key": "shipping_products_type",
-                    "data": "2"
-                  },
-                  {
-                    "key": "shop",
-                    "data": "61"
-                  },
-                  {
-                    "key": "state",
-                    "data": "CA"
-                  },
-                  {
-                    "key": "terms_of_sale_files_metadata",
-                    "data": "[]"
-                  },
-                  {
-                    "key": "top_selling_products",
-                    "data": "Gummy bears\nBubble gums"
-                  },
-                  {
-                    "key": "user",
-                    "data": "20705501"
-                  },
-                  {
-                    "key": "warranties_files_metadata",
-                    "data": "[]"
-                  }
-                ],
-                "created_date": "May 12, 2015 19:52:23",
-                "total_payout": 155,
-                "admin_modified_date": "December 01, 2015 15:34:26",
-                "pending_total": 0,
-                "total_sales": 100000,
-                "available_payout": 99810.7,
-                "available_sales_payout": 99810.7,
-                "available_sales_tax_payout": 0,
-                "available_shipping_payout": 0,
-                "total_shipping": 0,
-                "total_sales_tax": 0,
-                "is_generic_fulfillment": true,
-                "modified_date": "December 01, 2015 15:34:26"
-              },
-              "member_name": "Frederic Staging",
-              "member_email": "frederic.loranger@autodesk.com"
-            }
-
++ Response 200
+    [Admin Shop][]
 
 + Response 400 (application/json)
 
