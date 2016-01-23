@@ -5940,6 +5940,7 @@ Retrieve the list of assets for sale. An asset can be removed from the shop via 
             X-Secure-Session: 87B30A4BCB94B9955BE4CBF3C1865FDC00B117C3CA30E674AAA1E3B45563A978
 
 + Parameters
+    + shop_id (required, Number, `20280723`)... Shop id
     + show_deleted (optional,Boolean,`true`)... If true even deleted assets that are part of this shop will be returned. This flag is only applicable for shop owner or admin. Default : false.
     + limit (optional, Number,`1`)... Number of results to return in each page. Default: 10.
     + offset (optional, Number, `3`)... This offsets the start of each page by the number specified. Default: 0.
@@ -6176,6 +6177,7 @@ Behind the scene: If the shop is OFFLINE, the assets are not going to show in th
             X-Secure-Session: ABC1232324244
 
 + Parameters
+    + shop_id (required, Number, `20280723`)... Shop id
     + asset_id (required, Number, `588452`)... Asset id
     + asset_price (required, Number, `5.99`)... Sets asset price
     + for_sale (optional, Boolean, `true`)... Mark asset for sale. Default: false
