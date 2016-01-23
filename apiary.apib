@@ -10051,7 +10051,7 @@ If the member attempts to set the shop ONLINE without tax information a 34026 er
 
 
 
-## Shop Assets [/admin/shops/assets/{asset_id}{?shop_id,member_id,start_date,end_date,for_sale_only,sort_by,sort_order,limit,offset,asset_price,product_type,vendor_sku,vendor_display_name,is_available,package_weight,package_length,package_height,package_width,unit_measure,unit_weight,apply_tax}]
+## Admin Shop Asset [/admin/shops/assets/{asset_id}{?shop_id,member_id,start_date,end_date,for_sale_only,sort_by,sort_order,limit,offset,asset_price,product_type,vendor_sku,vendor_display_name,is_available,package_weight,package_length,package_height,package_width,unit_measure,unit_weight,apply_tax}]
 
 CRUD operations for shop assets.
 
@@ -10063,69 +10063,95 @@ The default will retrieve the latest assets for sale sorted with most recent at 
     + Body
 
             {
-               "keywords":"Cowboy Hut Strand beach",
-               "language":"en",
-               "region":"",
-               "software":9,
-               "artist":{
-                  "location":"",
-                  "avatar":"http://alpha.squidplatform.com/Images/v23/Member/default_avatar.png",
-                  "description":"",
-                  "artist_id":20707167,
-                  "artist_name":"ecommerce"
-               },
-               "mesh":false,
-               "asset_id":1065897,
-               "asset_name":"DO NOT REMOVE. shop api regression test",
-               "is_gallery_asset":true,
-               "description":"directly from da beach :)",
-               "download_count":0,
-               "is_online_viewer_available":false,
-               "parent_asset_id":"",
-               "is_premium":false,
-               "progress_status":1,
-               "delivery_media":"",
-               "asset_status_code":0,
-               "media_type":"Catch",
-               "view_count":0,
-               "model_type":1,
-               "is_download_asset":false,
-               "status_post_count":0,
-               "is_member_favorite":false,
-               "used_in_project_count":0,
-               "favorited_by":[
-
-               ],
-               "favorite_count":0,
-               "child_asset_count":0,
-               "date_submitted":"April 03, 2015 02:14:16",
-               "date_modified":"",
-               "total_price":4.99,
-               "shop_id":13,
-               "is_for_sale":true,
-               "purchase_date":"",
-               "_link":"",
-               "thumbnails":[
-                  {
-                     "caption":"",
-                     "description":"",
-                     "file_id":13954751,
-                     "thumb_path_prefix":"https://static.spark.autodesk.com/2012/11/30__18_36_02/icon.png9ad3822b-d61a-462a-9042-5b0a4e61e35d",
-                     "is_primary":true
-                  }
-               ],
-               "referenced_assets":[
-
-               ],
-               "file_formats":[
-
-               ],
-               "extended_data":{},
-               "is_authorized_download":true,
-               "is_deleted":false,
-               "is_repurchasable":false,
-               "is_store_asset":false,
-               "is_reviewable":false
+              "keywords": "tags",
+              "language": "en",
+              "region": "",
+              "software": 9,
+              "artist": {
+                "location": "",
+                "avatar": "",
+                "description": "",
+                "artist_id": 20704112,
+                "artist_name": "q z"
+              },
+              "mesh": false,
+              "asset_id": 1486028,
+              "asset_name": "create asset",
+              "is_gallery_asset": true,
+              "description": "test description",
+              "download_count": 0,
+              "is_online_viewer_available": false,
+              "parent_asset_id": "",
+              "is_premium": false,
+              "progress_status": 1,
+              "delivery_media": "",
+              "asset_status_code": 0,
+              "media_type": "123D_Design",
+              "view_count": 5,
+              "comment_count": 0,
+              "model_type": 1,
+              "is_download_asset": false,
+              "status_post_count": 0,
+              "is_member_favorite": false,
+              "used_in_project_count": 0,
+              "favorited_by": [],
+              "favorite_count": 0,
+              "child_asset_count": 0,
+              "date_submitted": "August 19, 2015 21:59:21",
+              "date_modified": "",
+              "total_price": 9.99,
+              "shop_id": 10,
+              "is_for_sale": true,
+              "purchase_date": "",
+              "_link": "",
+              "_link_version_prev": "",
+              "_link_version_next": "",
+              "thumbnails": [
+                {
+                  "caption": "",
+                  "description": "",
+                  "file_id": 0,
+                  "thumb_path_prefix": "http://static.spark.autodesk.com/Images/FullPreview/nopicture",
+                  "is_primary": false
+                }
+              ],
+              "referenced_assets": [],
+              "is_authorized_download": true,
+              "is_deleted": false,
+              "is_repurchasable": false,
+              "is_store_asset": false,
+              "is_reviewable": false,
+              "license_id": "",
+              "license_name": "",
+              "file_formats": [],
+              "extended_data": {},
+              "asset_version": "1.00",
+              "product_info": {
+                "id": 1486028,
+                "shipping_info": {
+                  "weight": 2.11,
+                  "length": 3.4,
+                  "height": 5.67,
+                  "width": 8.9,
+                  "product_id": 1486028,
+                  "shop_id": 10,
+                  "unit_measure": "mm",
+                  "unit_weight": "oz"
+                },
+                "shop_name": "DO NOT REMOVE. For regression test 测试",
+                "type": "PHYSICAL",
+                "store_type": "MARKETPLACE",
+                "vendor_sku_id": "1486028",
+                "lead_in_days": 10,
+                "shop_id": 10,
+                "total_price": 9.99,
+                "name": "create asset",
+                "description": "test description",
+                "for_sale": true,
+                "vendor_display_name": "",
+                "is_available": true,
+                "apply_tax": true
+              }
             }
 
 
@@ -10290,10 +10316,7 @@ Retrieve the assets given the filters passed as parameters.
             }
 
 
-## Shop Asset [/admin/shops/{shop_id}/assets/{asset_id}{?asset_price,product_type,vendor_sku,vendor_display_name,is_available,package_weight,package_length,package_height,package_width,unit_measure,unit_weight,apply_tax}]
-Allow the retrieval and modification of shop asset specific properties.
-
-### Get a shop asset [GET]
+### Get a shop asset [GET /admin/shops/{shop_id}/assets/{asset_id}]
 
 + Request (application/x-www-form-urlencoded)
     + Header
@@ -10305,76 +10328,11 @@ Allow the retrieval and modification of shop asset specific properties.
     + shop_id (required, Number, `123123`)... Shop id
     + asset_id (required, Number, `536546`)... Asset id
 
-+ Response 200 (application/json)
-
-            {
-               "keywords":"Cowboy Hut Strand beach",
-               "language":"en",
-               "region":"",
-               "software":9,
-               "artist":{
-                  "location":"",
-                  "avatar":"http://alpha.squidplatform.com/Images/v23/Member/default_avatar.png",
-                  "description":"",
-                  "artist_id":20707167,
-                  "artist_name":"ecommerce"
-               },
-               "mesh":false,
-               "asset_id":1065897,
-               "asset_name":"DO NOT REMOVE. shop api regression test",
-               "is_gallery_asset":true,
-               "description":"directly from da beach :)",
-               "download_count":0,
-               "is_online_viewer_available":false,
-               "parent_asset_id":"",
-               "is_premium":false,
-               "progress_status":1,
-               "delivery_media":"",
-               "asset_status_code":0,
-               "media_type":"Catch",
-               "view_count":0,
-               "model_type":1,
-               "is_download_asset":false,
-               "status_post_count":0,
-               "is_member_favorite":false,
-               "used_in_project_count":0,
-               "favorited_by":[
-
-               ],
-               "favorite_count":0,
-               "child_asset_count":0,
-               "date_submitted":"April 03, 2015 02:14:16",
-               "date_modified":"",
-               "total_price":4.99,
-               "shop_id":13,
-               "is_for_sale":true,
-               "purchase_date":"",
-               "_link":"",
-               "thumbnails":[
-                  {
-                     "caption":"",
-                     "description":"",
-                     "file_id":13954751,
-                     "thumb_path_prefix":"https://static.spark.autodesk.com/2012/11/30__18_36_02/icon.png9ad3822b-d61a-462a-9042-5b0a4e61e35d",
-                     "is_primary":true
-                  }
-               ],
-               "referenced_assets":[
-
-               ],
-               "file_formats":[
-
-               ],
-               "extended_data":{},
-               "is_authorized_download":true,
-               "is_deleted":false,
-               "is_repurchasable":false,
-               "is_store_asset":false,
-               "is_reviewable":false
-            }
++ Response 200
+    [Admin Shop Asset][]
 
 
-### Update a shop asset [PUT]
+### Update a shop asset [PUT /admin/shops/{shop_id}/assets/{asset_id}{?asset_price,product_type,vendor_sku,vendor_display_name,is_available,package_weight,package_length,package_height,package_width,unit_measure,unit_weight,apply_tax}]
 Add / Update the shop asset.
 
 Allow administrators to change the shop asset properties. The administrators cannot change the for_sale flag of an asset since it reflects seller's intent.
@@ -10419,100 +10377,8 @@ If the shop is OFFLINE, the assets are not going to show in the gallery and won'
     + unit_weight (optional, String, `kg`)... Sets unit for weight. Default: oz
     + apply_tax (optional, Boolean, `true`)... Sets whether tax should be applied on a product. Default: true
 
-+ Response 200 (application/json)
-
-
-            {
-              "keywords": "tags",
-              "language": "en",
-              "region": "",
-              "software": 9,
-              "artist": {
-                "location": "",
-                "avatar": "",
-                "description": "",
-                "artist_id": 20704112,
-                "artist_name": "q z"
-              },
-              "mesh": false,
-              "asset_id": 1486028,
-              "asset_name": "create asset",
-              "is_gallery_asset": true,
-              "description": "test description",
-              "download_count": 0,
-              "is_online_viewer_available": false,
-              "parent_asset_id": "",
-              "is_premium": false,
-              "progress_status": 1,
-              "delivery_media": "",
-              "asset_status_code": 0,
-              "media_type": "123D_Design",
-              "view_count": 5,
-              "comment_count": 0,
-              "model_type": 1,
-              "is_download_asset": false,
-              "status_post_count": 0,
-              "is_member_favorite": false,
-              "used_in_project_count": 0,
-              "favorited_by": [],
-              "favorite_count": 0,
-              "child_asset_count": 0,
-              "date_submitted": "August 19, 2015 21:59:21",
-              "date_modified": "",
-              "total_price": 9.99,
-              "shop_id": 10,
-              "is_for_sale": true,
-              "purchase_date": "",
-              "_link": "",
-              "_link_version_prev": "",
-              "_link_version_next": "",
-              "thumbnails": [
-                {
-                  "caption": "",
-                  "description": "",
-                  "file_id": 0,
-                  "thumb_path_prefix": "http://static.spark.autodesk.com/Images/FullPreview/nopicture",
-                  "is_primary": false
-                }
-              ],
-              "referenced_assets": [],
-              "is_authorized_download": true,
-              "is_deleted": false,
-              "is_repurchasable": false,
-              "is_store_asset": false,
-              "is_reviewable": false,
-              "license_id": "",
-              "license_name": "",
-              "file_formats": [],
-              "extended_data": {},
-              "asset_version": "1.00",
-              "product_info": {
-                "id": 1486028,
-                "shipping_info": {
-                  "weight": 2.11,
-                  "length": 3.4,
-                  "height": 5.67,
-                  "width": 8.9,
-                  "product_id": 1486028,
-                  "shop_id": 10,
-                  "unit_measure": "mm",
-                  "unit_weight": "oz"
-                },
-                "shop_name": "DO NOT REMOVE. For regression test 测试",
-                "type": "PHYSICAL",
-                "store_type": "MARKETPLACE",
-                "vendor_sku_id": "1486028",
-                "lead_in_days": 10,
-                "shop_id": 10,
-                "total_price": 9.99,
-                "name": "create asset",
-                "description": "test description",
-                "for_sale": true,
-                "vendor_display_name": "",
-                "is_available": true,
-                "apply_tax": true
-              }
-            }
++ Response 200
+    [Admin Shop Asset][]
 
 
 ## Asset Status [/admin/assets/{asset_id}/status{?status}]
