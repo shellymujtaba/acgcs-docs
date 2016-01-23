@@ -5827,13 +5827,111 @@ If the shop approval status is in the INCOMPLETE state, updating the shop inform
 + Response 204
 
 
-## Shop Assets [/shops/{shop_id}/assets{?show_deleted,limit,offset,shippingprofile_id,product_type,use_https}]
+## Shop Asset [/shops/{shop_id}/assets/{asset_id}{?show_deleted,limit,offset,shippingprofile_id,product_type,use_https,asset_price,for_sale,product_type,vendor_sku,vendor_display_name,is_available,package_weight,package_length,package_height,package_width,unit_measure,unit_weight,apply_tax,shipping_profile,lead_in_days}]
 Retrieve the list of assets for sale. An asset can be removed from the shop via an update request.
 
 + Parameters
     + shop_id (required, Number, `20280723`)... Shop id
+    + asset_id (required, Number, `12341234`)... Asset id (a.k.a. product id)
 
-### Retrieve shop assets [GET]
++ Model (application/json)
+
+    + Body
+    
+            {
+              "keywords": "tags",
+              "language": "en",
+              "region": "",
+              "software": 9,
+              "artist": {
+                "location": "",
+                "avatar": "",
+                "description": "",
+                "artist_id": 20704112,
+                "artist_name": "q z"
+              },
+              "mesh": false,
+              "asset_id": 1486028,
+              "asset_name": "create asset",
+              "is_gallery_asset": true,
+              "description": "test description",
+              "download_count": 0,
+              "is_online_viewer_available": false,
+              "parent_asset_id": "",
+              "is_premium": false,
+              "progress_status": 1,
+              "delivery_media": "",
+              "asset_status_code": 0,
+              "media_type": "123D_Design",
+              "view_count": 5,
+              "comment_count": 0,
+              "model_type": 1,
+              "is_download_asset": false,
+              "status_post_count": 0,
+              "is_member_favorite": false,
+              "used_in_project_count": 0,
+              "favorited_by": [],
+              "favorite_count": 0,
+              "child_asset_count": 0,
+              "date_submitted": "August 19, 2015 21:59:21",
+              "date_modified": "",
+              "total_price": 9.99,
+              "shop_id": 10,
+              "is_for_sale": true,
+              "purchase_date": "",
+              "_link": "",
+              "_link_version_prev": "",
+              "_link_version_next": "",
+              "thumbnails": [
+                {
+                  "caption": "",
+                  "description": "",
+                  "file_id": 0,
+                  "thumb_path_prefix": "http://static.spark.autodesk.com/Images/FullPreview/nopicture",
+                  "is_primary": false
+                }
+              ],
+              "referenced_assets": [],
+              "is_authorized_download": true,
+              "is_deleted": false,
+              "is_repurchasable": false,
+              "is_store_asset": false,
+              "is_reviewable": false,
+              "license_id": "",
+              "license_name": "",
+              "file_formats": [],
+              "extended_data": {},
+              "asset_version": "1.00",
+              "product_info": {
+                "id": 1486028,
+                "shipping_info": {
+                  "weight": 2.11,
+                  "length": 3.4,
+                  "height": 5.67,
+                  "width": 8.9,
+                  "product_id": 1486028,
+                  "shop_id": 10,
+                  "unit_measure": "mm",
+                  "unit_weight": "oz"
+                },
+                "shop_name": "DO NOT REMOVE. For regression test 测试",
+                "type": "PHYSICAL",
+                "store_type": "MARKETPLACE",
+                "vendor_sku_id": "1486028",
+                "lead_in_days": 10,
+                "shop_id": 10,
+                "total_price": 9.99,
+                "name": "create asset",
+                "description": "test description",
+                "for_sale": true,
+                "vendor_display_name": "",
+                "is_available": true,
+                "apply_tax": true
+              }
+            }
+
+
+### Retrieve shop assets [GET /shops/{shop_id}/assets{?show_deleted,limit,offset,shippingprofile_id,product_type,use_https}]
 + Request (application/x-www-form-urlencoded)
     + Headers
 
@@ -5848,6 +5946,7 @@ Retrieve the list of assets for sale. An asset can be removed from the shop via 
     + shippingprofile_id (optional, Number, `16` )... Shipping Profile id. Retrieve the list of assets of shops that uses specific shipping profile. If `shippingprofile_id` is passed show_deleted flag will be ignored i.e only non deleted assets are returned for this.
     + product_type (optional, String, `DIGITAL`)...filter by product type: DIGITAL|PHYSICAL
     + use_https (optional, Boolean, `false`)... Set the protocol to http/https for avatar and shop logo url.
+
 + Response 200 (application/json)
 
             {
@@ -6046,15 +6145,7 @@ Retrieve the list of assets for sale. An asset can be removed from the shop via 
             }
 
 
-
-
-## Shop Asset [/shops/{shop_id}/assets/{asset_id}{?asset_price,for_sale,product_type,vendor_sku,vendor_display_name,is_available,package_weight,package_length,package_height,package_width,unit_measure,unit_weight,apply_tax,shipping_profile,lead_in_days}]
-Update the asset of a shop.
-
-+ Parameters
-    + shop_id (required, Number, `20280723`)...Shop id
-
-### Update shop asset [PUT]
+### Update shop asset [PUT /shops/{shop_id}/assets/{asset_id}{?asset_price,for_sale,product_type,vendor_sku,vendor_display_name,is_available,package_weight,package_length,package_height,package_width,unit_measure,unit_weight,apply_tax,shipping_profile,lead_in_days}]
 The shop asset forSale flag can be set to either true or flag regardless of the Shop status. It is meant to reflect the seller's intent and is controlled by the seller of the shop.
 
 Behind the scene: If the shop is OFFLINE, the assets are not going to show in the gallery and won't be available for purchase. If the shop is ONLINE, the assets are going to automatically show in the gallery when set for sale. Any change to the status of the shop (OFFLINE/ONLINE) triggers automatic update of the assets to hide/show them from the gallery.
@@ -6104,98 +6195,7 @@ Behind the scene: If the shop is OFFLINE, the assets are not going to show in th
 
 
 + Response 200
-
-            {
-              "keywords": "tags",
-              "language": "en",
-              "region": "",
-              "software": 9,
-              "artist": {
-                "location": "",
-                "avatar": "",
-                "description": "",
-                "artist_id": 20704112,
-                "artist_name": "q z"
-              },
-              "mesh": false,
-              "asset_id": 1486028,
-              "asset_name": "create asset",
-              "is_gallery_asset": true,
-              "description": "test description",
-              "download_count": 0,
-              "is_online_viewer_available": false,
-              "parent_asset_id": "",
-              "is_premium": false,
-              "progress_status": 1,
-              "delivery_media": "",
-              "asset_status_code": 0,
-              "media_type": "123D_Design",
-              "view_count": 5,
-              "comment_count": 0,
-              "model_type": 1,
-              "is_download_asset": false,
-              "status_post_count": 0,
-              "is_member_favorite": false,
-              "used_in_project_count": 0,
-              "favorited_by": [],
-              "favorite_count": 0,
-              "child_asset_count": 0,
-              "date_submitted": "August 19, 2015 21:59:21",
-              "date_modified": "",
-              "total_price": 9.99,
-              "shop_id": 10,
-              "is_for_sale": true,
-              "purchase_date": "",
-              "_link": "",
-              "_link_version_prev": "",
-              "_link_version_next": "",
-              "thumbnails": [
-                {
-                  "caption": "",
-                  "description": "",
-                  "file_id": 0,
-                  "thumb_path_prefix": "http://static.spark.autodesk.com/Images/FullPreview/nopicture",
-                  "is_primary": false
-                }
-              ],
-              "referenced_assets": [],
-              "is_authorized_download": true,
-              "is_deleted": false,
-              "is_repurchasable": false,
-              "is_store_asset": false,
-              "is_reviewable": false,
-              "license_id": "",
-              "license_name": "",
-              "file_formats": [],
-              "extended_data": {},
-              "asset_version": "1.00",
-              "product_info": {
-                "id": 1486028,
-                "shipping_info": {
-                  "weight": 2.11,
-                  "length": 3.4,
-                  "height": 5.67,
-                  "width": 8.9,
-                  "product_id": 1486028,
-                  "shop_id": 10,
-                  "unit_measure": "mm",
-                  "unit_weight": "oz"
-                },
-                "shop_name": "DO NOT REMOVE. For regression test 测试",
-                "type": "PHYSICAL",
-                "store_type": "MARKETPLACE",
-                "vendor_sku_id": "1486028",
-                "lead_in_days": 10,
-                "shop_id": 10,
-                "total_price": 9.99,
-                "name": "create asset",
-                "description": "test description",
-                "for_sale": true,
-                "vendor_display_name": "",
-                "is_available": true,
-                "apply_tax": true
-              }
-            }
+    [Shop Asset][]
 
 
 ## Shop Asset Shipping Options [/shops/{shop_id}/assets/{asset_id}/shipping{?country,quantity,limit,offset}]
