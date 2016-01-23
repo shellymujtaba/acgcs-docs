@@ -7278,7 +7278,7 @@ Exp: Sketchbook, Pixlr and Circuits are under different <a href="/reference/appe
 ## Cart [/carts{?cart_type,use_https}]
 Perform CRUD operations on cart with basic metadata.
 
-### Retrieve a cart [GET]
+### Retrieve a cart [GET /carts{?cart_type,use_https}]
 Return ESTORE, MARKETPLACE or MARKETPLACE_INSTANT cart for a guest user or login user. Return empty JSON if cart doesn't exist.
 
 + Request (application/x-www-form-urlencoded)
@@ -7620,8 +7620,8 @@ Return ESTORE, MARKETPLACE or MARKETPLACE_INSTANT cart for a guest user or login
             ]
         }
 
-## Cart [/carts{?cart_type}]
-### Delete a cart [DELETE]
+
+### Delete a cart [DELETE /carts{?cart_type}]
 Delete the cart of the logged in user or guest. After this call, a call to GET /cart will return an empty json. Returns an empty json object if successful otherwise an error object.
 
 + Request (application/x-www-form-urlencoded)
@@ -10193,11 +10193,85 @@ If the member attempts to set the shop ONLINE without tax information a 34026 er
 
 
 
-## Shop Assets [/admin/shops/assets{?shop_id,member_id,member_name,member_email,shop_name,start_date,end_date,for_sale_only,sort_by,sort_order,limit,offset}]
-Retrieve the assets for sales according to the query parameters. Only the assets for the APPROVED and ONLINE shops are returned.
+## Shop Assets [/admin/shops/assets/{asset_id}{?shop_id,member_id,start_date,end_date,for_sale_only,sort_by,sort_order,limit,offset,asset_price,product_type,vendor_sku,vendor_display_name,is_available,package_weight,package_length,package_height,package_width,unit_measure,unit_weight,apply_tax}]
+
+CRUD operations for shop assets.
+
+The GET operation will retrieve the assets for sales according to the query parameters. Only the assets for the APPROVED and ONLINE shops are returned.
 The default will retrieve the latest assets for sale sorted with most recent at the top.
 
-### Retrieve assets [GET]
++ Model (application/json)
+
+    + Body
+
+            {
+               "keywords":"Cowboy Hut Strand beach",
+               "language":"en",
+               "region":"",
+               "software":9,
+               "artist":{
+                  "location":"",
+                  "avatar":"http://alpha.squidplatform.com/Images/v23/Member/default_avatar.png",
+                  "description":"",
+                  "artist_id":20707167,
+                  "artist_name":"ecommerce"
+               },
+               "mesh":false,
+               "asset_id":1065897,
+               "asset_name":"DO NOT REMOVE. shop api regression test",
+               "is_gallery_asset":true,
+               "description":"directly from da beach :)",
+               "download_count":0,
+               "is_online_viewer_available":false,
+               "parent_asset_id":"",
+               "is_premium":false,
+               "progress_status":1,
+               "delivery_media":"",
+               "asset_status_code":0,
+               "media_type":"Catch",
+               "view_count":0,
+               "model_type":1,
+               "is_download_asset":false,
+               "status_post_count":0,
+               "is_member_favorite":false,
+               "used_in_project_count":0,
+               "favorited_by":[
+
+               ],
+               "favorite_count":0,
+               "child_asset_count":0,
+               "date_submitted":"April 03, 2015 02:14:16",
+               "date_modified":"",
+               "total_price":4.99,
+               "shop_id":13,
+               "is_for_sale":true,
+               "purchase_date":"",
+               "_link":"",
+               "thumbnails":[
+                  {
+                     "caption":"",
+                     "description":"",
+                     "file_id":13954751,
+                     "thumb_path_prefix":"https://static.spark.autodesk.com/2012/11/30__18_36_02/icon.png9ad3822b-d61a-462a-9042-5b0a4e61e35d",
+                     "is_primary":true
+                  }
+               ],
+               "referenced_assets":[
+
+               ],
+               "file_formats":[
+
+               ],
+               "extended_data":{},
+               "is_authorized_download":true,
+               "is_deleted":false,
+               "is_repurchasable":false,
+               "is_store_asset":false,
+               "is_reviewable":false
+            }
+
+
+### Retrieve assets [GET /admin/shops/assets{?shop_id,member_id,start_date,end_date,for_sale_only,sort_by,sort_order,limit,offset}]
 Retrieve the assets given the filters passed as parameters.
 
 + Request (application/x-www-form-urlencoded)
