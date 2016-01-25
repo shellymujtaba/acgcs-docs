@@ -1476,7 +1476,7 @@ There are 4 roles available for collaboration.
 
 These APIs can be used to create workflows around the asset. These APIs enables a group of members collaborate on a project and track the progress.
 
-**Workflow Status**
+**_Workflow Status_**
 
 Asset workflow status defines the state of the overall workflow or workflow steps within the workflow. More statuses can be added depending on the use cases.
 The following are the available statues:
@@ -1722,6 +1722,7 @@ Asset workflow steps accept the custom data which holds key and its value. To in
     + assigned_member_id (optional, Number,`123124`)...Member to whom this workflow step is assigned.<br> **_Note:_** If no member Id is passed, the workflow step will be assigned to the API caller.
     + workflow_step_status (optional, Number,`1`)...Asset workflow step status.
     + file_ids (optional, String,`322112,23423,34534`)...Comma separated list of file Ids to be associated to this workflow step as reference.
+    + file_notes (optional, String,`File notes`)...Notes for the files associated to this workflow step. Max 1000 chars. **_Note:_** If multiple files are added, all the files will have the same notes.
     + custom_data (optional, String,`{"custom_data": [{"key": "custom_date_key_specified_1","data": "2016-01-13 02:59:30"}, {"key": "custom_integer_key_specified","data": "1555"}]}`)...Adds a cutom data key to steps<br> **_Note:_** Note: This is unique per steps. If existing key is specified then the value will update.
 
 + Response 201 (application/json)
@@ -10858,12 +10859,24 @@ Clear all flags on an asset.
               "modified_date": "July, 09 2014 16:34:00"
             }
 
-## Countries [/admin/countries{?sort_by,sort_order,approved_only,limit,offset,country_iso_code,country_name,approved}]
-Manage the list of countries supported by our payment service provider (Blue Snap).
+## Country [/admin/countries{?sort_by,sort_order,approved_only,limit,offset,country_iso_code,country_name,approved}]
+
+CRUD operations to manage the list of countries supported by our payment service provider (Blue Snap).
 The countries are keyed by ISO code (2 letters), and only the countries supported by our PSP exists in the table.
 The approved flag is set to true for all countries we do commerce with.
 
-### Retrieve Countries [GET]
++ Model (application/json)
+
+    + Body
+
+            {
+                "approved": 1,
+                "country_iso_code": "AI",
+                "country_name": "Anguilla"
+            }
+
+
+### Retrieve Countries [GET /admin/countries{?sort_by,sort_order,approved_only,limit,offset}]
 Retrieve countries according to the query parameters.
 Specify a limit greater than 250 if you want to get all supported countries in 1 call.
 This API is available to Guests, Members, and Administrators.
@@ -10918,7 +10931,7 @@ This API is available to Guests, Members, and Administrators.
                 ]
             }
 
-### Create Country [POST]
+### Create Country [POST /admin/countries{?country_iso_code,approved,country_name}]
 Add a country supported by the payment service provider.
 
 |description|HTTP|code
@@ -10936,18 +10949,11 @@ Add a country supported by the payment service provider.
     + country_name (required, String, `United Stats of America`)... Name of the country.
     + approved (required, Boolean, `true`)... Set to true if approved for commerce with the US.
 
-+ Response 200 (application/json)
++ Response 200
+    [Country][]
 
-            {
-                "approved": 1,
-                "country_iso_code": "AI",
-                "country_name": "Anguilla"
-            }
 
-## Country [/admin/countries{?country_iso_code,approved,country_name}]
-Get or modify countries by ISO code.
-
-### Update Country [PUT]
+### Update Country [PUT /admin/countries{?country_iso_code,approved,country_name}]
 Update the approval status or name of the country.
 
 |description|HTTP|code
@@ -10965,16 +10971,11 @@ Update the approval status or name of the country.
     + approved (required, Boolean, `true`)... Set to true if approved for commerce with the US.
     + country_name (optional, String, `United Stats of America`)... Name of the country.
 
-+ Response 200 (application/json)
-
-            {
-                "approved": 1,
-                "country_iso_code": "AI",
-                "country_name": "Anguilla"
-            }
++ Response 200
+    [Country][]
 
 
-### Delete Country [DELETE]
+### Delete Country [DELETE /admin/countries{?country_iso_code}]
 Remove the country, which is no longer supported by our service payment provider.
 
 |description|HTTP|code
