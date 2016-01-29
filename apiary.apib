@@ -964,6 +964,7 @@ The update operations supports 2 actions:
 ### Retrieve asset sources[GET]
 + Parameters
     + version (optional,double,`1.15`)...Asset Version. When passed, returns all the asset sources until this version.
+    + major_version (optional, double, `2.0`) ...Asset major version. When specified, returns all the files present at the last minor version of this major version.
 
 + Request (application/x-www-form-urlencoded)
     + Headers
