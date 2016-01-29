@@ -948,6 +948,7 @@ Adding the sources will usually be a starting point for storing an asset in clou
 + Parameters
     + file_ids (required,String, `123456,234345`) ...Comma separated list of new files to be added as sources to this asset.
     + old_file_ids (required,String, `34567,65432`) ...Comma separated list of old files previously added as sources to this asset.
+    + major_version (required,double, `2.0`) ...Asset major version. When specified the files will be added as the last minor version of this major version. **_Note:_** File can only be added in this operation.
 
 + Response 201 (application/json)
 
