@@ -947,8 +947,8 @@ Adding the sources will usually be a starting point for storing an asset in clou
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
     + file_ids (required,String, `123456,234345`) ...Comma separated list of new files to be added as sources to this asset.
-    + old_file_ids (required,String, `34567,65432`) ...Comma separated list of old files previously added as sources to this asset.
-    + major_version (required,double, `2.0`) ...Asset major version. When specified the files will be added as the last minor version of this major version. <br> **_Note:_** File can only be added in this operation.
+    + old_file_ids (optional, String, `34567,65432`) ...Comma separated list of old files previously added as sources to this asset.
+    + major_version (required, double, `2.0`) ...Asset major version. When specified the files will be added as the last minor version of this major version. <br> **_Note:_** File can only be added in this operation. The file_ids param is considered as new files to be added at this minor version.
 
 + Response 201 (application/json)
 
