@@ -5127,7 +5127,7 @@ Get message threads for the member.
     + mailbox (optional,String, `CHAT`)...Mailbox type. Options: IN/OUT/IN_OUT/TRASH/CHAT. Default: CHAT
     + latest_message_info (optional,boolean, `true`)...Latest thread message. Options: true/false. Default: false
     + entity_info (optional,boolean, `true`)...Associated entity information. Options: true/false. Default: false
-    + entity_types (optional,String, `ASSET,FILE,NONE`)...Comma separated list of entity types. Returns threads which are associated with the entities passed. <br> **_Options:_** NONE/ASSET/FILE/WORKFLOW_STEP/ORDER
+    + entity_types (optional,String, `ASSET,FILE,NONE`)...Comma separated list of entity types. Returns threads which are associated with the entities passed. Options: NONE/ASSET/FILE/WORKFLOW_STEP/ORDER <br> **_Note:_** The type **_NONE_** will return threads which are not associated to any entities.
     + sort_order (optional, String, `recent`)...Sort order. Options: recent/unread. Default: recent.
     + offset (optional, Number, `0`)...This offsets the start of each page by the number specified. Default: 0.
     + limit (optional, Number, `20`)...Number of results to return in each page. Default: 20.
