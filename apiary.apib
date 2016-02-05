@@ -4923,6 +4923,7 @@ The recipient_ids param can have only one member in case of private messaging. T
     + body  (required,String,`message body`)...Body of the message
     + recipient_ids (required,Number, `20280724,352345234`)...One or more Member Ids separated by comma
     + mailbox (optional, String, `CHAT`)...Mailbox type. If passed as CHAT, a group conversation is initiated.
+    + command  (optional,String,`command`)...Command for the mobile devices. If passed, the message_media_type is marked as COMMAND.
 
 + Request (application/x-www-form-urlencoded)
     + Headers
