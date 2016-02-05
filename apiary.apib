@@ -3608,7 +3608,7 @@ This API will return a boolean response if a member is following another member
             "follow_status": true
         }
 
-## Member Activity Stream [/members/{id}/useractivity{?limit,offset,user_type,activity_type,media_type_id,asset_custom_data,asset_custom_data_keys}]
+## Member Activity Stream [/members/{id}/useractivity{?limit,offset,user_type,activity_type,media_type_id,asset_custom_data,asset_custom_data_keys,show_moderated}]
 Returns the activity stream for this member.  Activities include updates, items published, features, contest finalists and winners, comments and comment updates, followers and followees, and likes.
 
 + Parameters
@@ -3620,6 +3620,7 @@ Returns the activity stream for this member.  Activities include updates, items 
     + media_type_id (optional, String, `5,23`)...Limit results based on media type ids. Full media type list is provided in the introduction.
     + asset_custom_data (optional, boolean, `true`)...By default FALSE. If TRUE returns hidden data associated with assets.
     + asset_custom_data_keys (optional, string, `viewerFiles,stlfiles,photoscenes`)...This is a comma separated list of keys representing the hidden data associated with the assets. This parameter has effect only when file_ids option is set to TRUE.
+    + show_moderated (optional, boolean, `true`)...Admin only feature to show if activity has been intervened by a moderator, outputted by `moderated` property.
 
 ### Retrieve member activity stream [GET]
 + Request (application/x-www-form-urlencoded)
@@ -5391,18 +5392,20 @@ Get message thread details.
         
 ### Send Media Message in Chat [POST /members/{id}/chat/media{?thread_id,content_type}]
 
-Send image in chat conversation.
+Send media in chat conversation.
 
 **_Note:_**
 
 1. Please call <a href="http://docs.acgcs.apiary.io/#reference/files/upload-server/upload-server">GET Upload Server API</a> to retrieve the server.
 2. Use the server as the host in the POST members/{id}/chat/media API above.
-3. The message body will be a URL to download the image, which can be postfixed with Medium.jpg, Original.jpg, Medium.png or Original.png
+3. Supported content types are IMAGE(.jpg,.png) and AUDIO(.aac)
+3. In Case of IMAGE, The message body will be a URL to download the image, which should be postfixed with Medium.jpg, Original.jpg, Medium.png or Original.png
+3. In case of AUDIO, The message body will be a URL to download the Audio, which should be postfixed with AAC.aac.
 
 + Parameters
     + id (required,Number, `20280723`)...Member id
     + thread_id (required, String, `T4HSWA6IHPJ4FVP`)...Thread Id.
-    + content_type (required, String, `IMAGE`)... Type of file. Currently only supported type is IMAGE.
+    + content_type (required, String, `IMAGE`)... Type of file. Valid Values are IMAGE and AUDIO.
     
     
 + Request (application/x-www-form-urlencoded)
