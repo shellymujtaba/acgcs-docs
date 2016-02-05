@@ -5127,7 +5127,7 @@ Get message threads for the member.
     + mailbox (optional,String, `CHAT`)...Mailbox type. Options: IN/OUT/IN_OUT/TRASH/CHAT. Default: CHAT
     + latest_message_info (optional,boolean, `true`)...Latest thread message. Options: true/false. Default: false
     + entity_info (optional,boolean, `true`)...Associated entity information. Options: true/false. Default: false
-    + entity_types (optional,String, `ASSET,FILE`)...Comma separated list of entity types. Returns threads which are associated with the entities passed. <br> **_Note:_** When passed as only **NONE**, returns threads which are not associated to any entities. Please refer to the <a href="http://docs.acgcs.apiary.io/#reference/assets/entity-conversations/retrieve-member-threads">Entity Conversations API</a> for other entity types options.
+    + entity_types (optional,String, `ASSET,FILE,NONE`)...Comma separated list of entity types. Returns threads which are associated with the entities passed. <br> **_Options:_** NONE/ASSET/FILE/WORKFLOW_STEP/ORDER
     + sort_order (optional, String, `recent`)...Sort order. Options: recent/unread. Default: recent.
     + offset (optional, Number, `0`)...This offsets the start of each page by the number specified. Default: 0.
     + limit (optional, Number, `20`)...Number of results to return in each page. Default: 20.
