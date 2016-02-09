@@ -505,11 +505,9 @@ This api is a starting point to display galleries, perform free-form searches. D
     + display_filter  (optional,String, `d`)...Show only Gallery or Featured items.<br>Options:<br>d: Gallery item with downloads <br>f: Featured items; <br>o: Online viewer enabled assets <br>Example: d, f, o, dfo, fo
     + exclude_artist_ids (optional,Number, `2345678`)...Limit results based on member or artist ids.
     + include_artist_ids (optional, Number, `20288475`)...Limit results based on artist ids.
-    + description (optional, Boolean, `false`)...Return description of asset till 150 characters in results
     + progress_status (optional, Number, `1`)...Get result with project status. pass 1 for completed or 0 for in-progress.<br> Options: 0 or 1
     + parent_assets (optional, Number, `588383`)...Pass parent asset Id and get its corresponding child assets.
     + media_type_ids (optional, String, `1,2,41,42`)...Limit results based on a comma-separated list of media type ids.
-    + software (optional, String, `1,2,3,4`)...Limit results based on a comma-separated list of software ids.
     + child_assets (optional, Number, `588383`)...Pass child asset Id and get its corresponding child assets.
     + include_mature (optional, Boolean, `false`)...Result will include asset marked as mature.
     + for_sale (optional, Boolean , `false`)...Result will include asset which are for sale or for free.
@@ -4910,7 +4908,7 @@ Get messages for a thread.
     ]
 }
 
-### Retrieve Media Messages [GET /members/{id}/messages/media{?sort_order,offset,limit}]
+### Retrieve Media Messages [GET /members/{id}/messages/media{?sort_order,offset,limit,message_media_types,thread_ids}]
 
 Get media messages for a member across multiple threads. These includes messages with media types - IMAGE, AUDIO & VIDEO.
 
@@ -4977,6 +4975,29 @@ Get media messages for a member across multiple threads. These includes messages
             "file_id": 17972013
         }        
     ]
+}
+
+### Retrieve Messages Counts [GET /members/{id}/messages/counts{?}]
+
+Get member message counts. These counts are across all the threads in which this member is participating.
+
++ Parameters
+    + id (required,Number, `20280723`)...Member id
+    + entity_types (optional,String, `ASSET,FILE,NONE`)...Comma separated list of entity types. Returns threads which are associated with the entities passed. Options: NONE/ASSET/FILE/WORKFLOW_STEP/ORDER <br> **_Note:_** The type **_NONE_** will return threads which are not associated to any entities.
+    + mailbox (optional,String, `CHAT`)...Mailbox type. Options: IN/OUT/IN_OUT/TRASH/CHAT. Default: CHAT
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Response 200 (application/json)
+
+{
+    "total_message_count": 150,
+    "unread_message_count": 21
+}
 
 ### Send Message [POST /members/{id}/messages{?subject,body,recipient_ids,mailbox}]
 
