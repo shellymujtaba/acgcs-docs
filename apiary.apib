@@ -3314,6 +3314,41 @@ Member apps operations
 
 + Response 204 (application/json)
 
+## Affiliates [/members/{id}/affiliates{?id,limit,offset,sort_by,sort_order}]
+Retrieve all information about affiliates used by the member to login.
+
+### Retrieve a member affiliates [GET]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + id (required,String, `20706644`)...Member id
+    + limit (optional, Number,`20`)...Number of results to return in each page. Default: 20.
+    + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
+    + sort_by (optional, String, `name, affiliate_id, affiliate_code`)...Order search results based on a specific attribute. Default: affiliate_id.
+    + sort_order (optional, String, `asc, desc`)...Direction of ordered search results based on value of sort_by. Default: asc
+
++ Response 200 (application/json)
+
+          {
+             "count": 3,
+             "limit": 1,
+             "offset": 1,
+             "_link": "/members/20706644/apps?limit=1&offset=1",
+             "_link_prev": "/members/20706644/apps?limit=1&offset=0",
+             "_link_next": "/members/20706644/apps?limit=1&offset=2",
+             "apps": [
+                       {
+                            "app_id": "57f78c3a-7bdd-4c0b-a386-80066dbd9eec",
+                            "app_name": "sandbox-x1",
+                            "date_approved": "February 05, 2015 09:20:01"
+                       }
+                     ]
+          }
+
 ## Devices [/devices{?app_id,device_id,device_type,message_version,device_version,token_id,email}]
 Member device operations
 
