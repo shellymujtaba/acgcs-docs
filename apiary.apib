@@ -5118,7 +5118,7 @@ Reply to a private message or a group conversation (CHAT).
         "_link": "/members/20704116/messages/TAWYZDDIBLUNXZY"
     } 
 
-### Send or Reply Message with Attachments [POST /members/{id}/messages/media{?subject,body,recipient_ids,mailbox}]
+### Send or Reply Message with Attachments [POST /members/{id}/messages/media{?subject,body,recipient_ids,mailbox,app_id}]
 
 Send/Reply message with attachments for Non chat private messages
 
@@ -5131,6 +5131,7 @@ Send/Reply message with attachments for Non chat private messages
     + recipient_ids (required,Number, `20280724,352345234`)... member Id to whom the message is to be sent.. use this param only when new thread needs to be started
     + message_id (optional,String, `XWTWLL9H411A68F`)...Message Id. Id of the message to which reply has to be sent.
     + mailbox (optional, String, `OUT`)...Mailbox type. If passed as CHAT, a group conversation is initiated.
+    + app_id (required, Integer, `12`)...App Id to initiate the message.
 
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -5692,7 +5693,7 @@ Get message thread details.
     ]
 }
         
-### Send Media Message in Chat [POST /members/{id}/chat/media{?thread_id,content_type}]
+### Send Media Message in Chat [POST /members/{id}/chat/media{?thread_id,content_type,recipient_ids,subject,body,app_id}]
 
 Send media in chat conversation.
 
@@ -5706,9 +5707,12 @@ Send media in chat conversation.
 
 + Parameters
     + id (required,Number, `20280723`)...Member id
-    + thread_id (required, String, `T4HSWA6IHPJ4FVP`)...Thread Id.
-    + content_type (required, String, `IMAGE`)... Type of file. Valid Values are IMAGE and AUDIO.
-    
+    + thread_id (optional, String, `T4HSWA6IHPJ4FVP`)...Thread Id. Note: Either thread_id or recipient_ids should be passed.
+    + recipient_ids (optional, String, `20704116,20704117`)...Comma Seperated member id.Either thread_id or recipient_ids should be passed.
+    + content_type (required, String, `IMAGE`)...Type of file. Valid Values are IMAGE and AUDIO.
+    + subject (optional, String, `Test Subject`)...Subject is required when you are initiating the chat.
+    + body (required, String, `Test body`)...Body of the messages.
+    + app_id (required, Integer, `12`)...App id.
     
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -7766,7 +7770,7 @@ Exp: Sketchbook, Pixlr and Circuits are under different <a href="/reference/appe
 Perform CRUD operations on cart with basic metadata.
 
 ### Retrieve a cart [GET /carts{?cart_type,use_https}]
-Return ESTORE, MARKETPLACE or MARKETPLACE_INSTANT cart for a guest user or login user. Return empty JSON if cart doesn't exist.
+Return ESTORE, MARKETPLACE or MARKETPLACE_INSTANT cart for a guest user or login user. Return empty JSON if cart doesn't exist. Return error if coupon is invalid. Call delete coupon API to remove the coupon.
 
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -8105,6 +8109,18 @@ Return ESTORE, MARKETPLACE or MARKETPLACE_INSTANT cart for a guest user or login
                     }
                 }
             ]
+        }
+
++ Response 400 (application/json)
+
+        {
+            "code": 3000,
+            "status": 400,
+            "message": "Coupon invalid for user cart.",
+            "data": {
+                "coupon_code": "Xi3rlbg4test20"
+            },
+            "error_id": "fbbbee06-1129-4c31-b013-2f926f42dd10"
         }
 
 
