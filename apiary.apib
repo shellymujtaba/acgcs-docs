@@ -2548,6 +2548,13 @@ If the file is sent as a application/gzip and unzip parameter is = true, it will
 In case of gzipped files, file name extension will be utilized to determine the file type (e.g. stl or obj).
 In case of base64 encoded files, file name extension will be utilized to determine file type (e.g stl or obj).
 
+In instances where affiliates need to download files without a logged in user (e.g., to download files on behalf of the user). Follow the the steps mentioned below.
+
+_Building the Request:_
+* Use Guest session when calling the the API.
+* Pass parameter "ts", which is Timestamp, Format is 'YYYY-MM-DD HH:mm:ss'.  Must be converted to GMT (no offset).  Must be within 15 minutes of the server's timestamp when call is made
+* Pass Parameter "hash", which is generated via SHA-256 hash function of the affiliate code + asset ID + timestamp + shared secret.
+
 + Parameters
     + unzip (optional,String, `false`)...Indicate if the zip file should be unzipped and each constituent files be treated as an individual file. Default is false.
     + fileurl (optional,String, `http://xxxxxx.com/file`)...URL of the file from where the file need to be retrieved.(only works when filename parameters passed along with)
@@ -2555,6 +2562,9 @@ In case of base64 encoded files, file name extension will be utilized to determi
     + public (optional,String, `false`)...Indicate if the file should have URL which can be accessed without restrictions. Default is false.
     + software (optional,Number, `31`)...Indicate the Application used to upload file.
     + use_https (optional,String, `false`)...Indicate if the public URls should have https or not. Default is false.
+    + asset_id (optional, String, `23244422`)... Asset id
+    + ts (optional,string, `2012-01-26 15:51:44`)... timestamp in format 'YYYY-MM-DD HH:mm:ss'. to be used when app is downloading on behalf of a user
+    + hash (optional,String, `942F52D6AECAA46993D8839639CE56FFEF1FFB7F92AC376647A6`)... to be used when app is downloading on behalf of a user
 
 ### Upload files [POST]
 
@@ -2772,6 +2782,14 @@ API to delete public files.
 
 ## File Details [/filesystem/{file_id}]
 
+In instances where affiliates need to download files without a logged in user (e.g., to download files on behalf of the user). Follow the the steps mentioned below.
+
+_Building the Request:_
+* Use Guest session when calling the the API.
+* Pass parameter "ts", which is Timestamp, Format is 'YYYY-MM-DD HH:mm:ss'.  Must be converted to GMT (no offset).  Must be within 15 minutes of the server's timestamp when call is made
+* Pass Parameter "hash", which is generated via SHA-256 hash function of the affiliate code + FileItem Id + timestamp + shared secret.
+
+
 ### Get File details [GET]
 
 **_Note:_** The public url of the file is returned only if the file is made public.
@@ -2784,6 +2802,8 @@ API to delete public files.
 
 + Parameters
     + file_id (required, Number, `1234`)...File Id
+    + ts (optional,string, `2012-01-26 15:51:44`)... timestamp in format 'YYYY-MM-DD HH:mm:ss'. to be used when app is downloading on behalf of a user
+    + hash (optional,String, `942F52D6AECAA46993D8839639CE56FFEF1FFB7F92AC376647A6`)... to be used when app is downloading on behalf of a user
 
 + Response 200 (application/json)
 
@@ -5577,7 +5597,7 @@ Get message threads for multiple members. This API returns threads where only an
     ]
 }
 
-### Retrieve Member Thread Details [GET /members/{id}/threads/{?thread_id,latest_message_info,entity_info}]
+### Retrieve Member Thread Details [GET /members/{id}/threads/{thread_id}{?latest_message_info,entity_info}]
 
 Get message thread details. 
 
@@ -7818,10 +7838,11 @@ Return ESTORE, MARKETPLACE or MARKETPLACE_INSTANT cart for a guest user or login
                     "offer_price": 5.99,
                     "shipping_endpoint": "",
                     "product_id": 588452,
-                    "product_type": "DIGITAL",
+                    "product_type": "PHYSICAL",
                     "parent_id": "",
                     "parent_ids": [],
-                    "vendor_display_name": "",
+                    "vendor_sku": "3282178",
+                    "vendor_display_name": "Test",
                     "lead_date": "",
                     "shop_id": 7,
                     "logo_file_id": 7342,
@@ -8220,6 +8241,7 @@ Here are some key points about cart:
                   "quantity":3,
                   "parent_id":12345,
                   "parent_idS": [],
+                  "vendor_sku": "MP04948",
                   "data":"",
                   "name":"Makerbot Envelope",
                   "description":"Makerbot Envelope",
@@ -8963,6 +8985,7 @@ Update user selected shipping options for one or more shipping line items in the
                     "product_type": "PHYSICAL",
                     "parent_id": "",
                     "parent_ids": [],
+                    "vendor_sku": "MP05925KT1",
                     "vendor_display_name": "Arvato",
                     "lead_date": "",
                     "shop_id": ""
@@ -8984,6 +9007,7 @@ Update user selected shipping options for one or more shipping line items in the
                     "product_type": "PHYSICAL",
                     "parent_id": "",
                     "parent_ids": [],
+                    "vendor_sku": "MP05925KT1",
                     "vendor_display_name": "Arvato",
                     "lead_date": "",
                     "shop_id": ""
@@ -9005,6 +9029,7 @@ Update user selected shipping options for one or more shipping line items in the
                     "product_type": "PHYSICAL",
                     "parent_id": "",
                     "parent_ids": [],
+                    "vendor_sku": "CS-KIT-MAKER",
                     "vendor_display_name": "Electroninks, Inc",
                     "lead_date": "",
                     "shop_id": ""
@@ -9026,6 +9051,7 @@ Update user selected shipping options for one or more shipping line items in the
                     "product_type": "PHYSICAL",
                     "parent_id": "",
                     "parent_ids": [],
+                    "vendor_sku": "CS-P-B9V",
                     "vendor_display_name": "Electroninks, Inc",
                     "lead_date": "",
                     "shop_id": ""
@@ -9189,6 +9215,7 @@ Update how the shipments for multiple physical items should be grouped together.
                         "product_type": "PHYSICAL",
                         "parent_id": "",
                         "parent_ids": [],
+                        "vendor_sku": "MP05925KT1",
                         "vendor_display_name": "Arvato",
                         "lead_date": "",
                         "shop_id": ""
@@ -9210,6 +9237,7 @@ Update how the shipments for multiple physical items should be grouped together.
                         "product_type": "PHYSICAL",
                         "parent_id": "",
                         "parent_ids": [],
+                        "vendor_sku": "MP05925KT1",
                         "vendor_display_name": "Arvato",
                         "lead_date": "",
                         "shop_id": ""
@@ -9231,6 +9259,7 @@ Update how the shipments for multiple physical items should be grouped together.
                         "product_type": "PHYSICAL",
                         "parent_id": "",
                         "parent_ids": [],
+                        "vendor_sku": "CS-KIT-MAKER",
                         "vendor_display_name": "Electroninks, Inc",
                         "lead_date": 12,
                         "shop_id": ""
@@ -9252,6 +9281,7 @@ Update how the shipments for multiple physical items should be grouped together.
                         "product_type": "PHYSICAL",
                         "parent_id": "",
                         "parent_ids": [],
+                        "vendor_sku": "CS-P-B9V",
                         "vendor_display_name": "Electroninks, Inc",
                         "lead_date": 7,
                         "shop_id": ""
