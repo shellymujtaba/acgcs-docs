@@ -4170,6 +4170,7 @@ Update subscription with different parameters. You have to pass any one paramete
 
 There are difference between set auto_renew=false and cancel subscription.
 If customer set auto_renew=false, the customer will get an email regarding disable  auto renew. When subscription ends, she won’t be charged and won’t have subscription in our system. However, her subscription still exists in Bluesnap (Our payment provider) and remains deactive. The customer can set auto_renew=true during this time. After several days if the customer doesn’t make her payment, bluesnap will cancel the subscription automatically. At this time customer get another email regarding the cancellation. Once the subscription is cancelled, customer cannot change it and has to buy a new subscription.
+If customer makes cancellation api call, we don't support reactivate service. No change can be made after subscription cancellation.
 
 |Message|HTTP Status Code|Error Code|Data
 |----|----|----|----
