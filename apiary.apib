@@ -4040,6 +4040,26 @@ Retrieve member's subscription history in chronologically descending order. Each
 
 **DELETE:**
     Subscription was deleted by one of the administrator for this application.
+    
+Subscriptions can be purchased through app website (for example www.sketchbook.com), Apple App Store, Google Play. Customer can also acquire subscription through promotion without payment (for example with campaign code), or administrator grant subscription to customers. The sources can be distinguished in the response:
+
+**website purchase:** 
+    "source": "DEFAULT"
+
+**Apple App Store purchase:**
+    "source": "APPSTORE"
+
+**Google Play purchase:**
+    "source": "GOOGLEPLAY" 
+      
+**promotion subscription with campaign code:**
+    "source": "APPSTORE",
+    "custom_data": "{\"CUSTOM_FIELDS\":{\"campaigncodecustom\":\"[{\"name\":\"campaign_code\",\"value\":\"wacomtalentshine\"}]\"}}",
+    "promotion_type": "CAMPAIGN_CODE"
+
+**Admin granted subscription (through tool central):**
+    "source": "APPSTORE",
+    "promotion_type": "ADMIN"
 
 + Parameter
     + id (required, Number , `123446`)...Member id
@@ -4061,11 +4081,26 @@ Retrieve member's subscription history in chronologically descending order. Each
 + Response 200 (application/json)
 
             {
-              "count": 3,
+              "count": 4,
               "limit": 20,
               "offset": 0,
               "_link": "/members/20704112/subscriptions?limit=20&offset=0",
+              "_link_next": "/members/20704112/subscriptions?limit=20&offset=20",
               "subscriptions": [
+                {
+                  "subscription_id": 14,
+                  "start_date": "November 25, 2015 18:19:00",
+                  "end_date": "February 25, 2016 18:18:00",
+                  "end_date_with_grace_period": "February 26, 2016 18:18:00",
+                  "last_modified_date": "January 25, 2016 12:00:18",
+                  "cancelled_date": "",
+                  "last_auto_renewal_update_date": "",
+                  "psp_sub_id": "7609763",
+                  "source": "DEFAULT",
+                  "auto_renewal": true,
+                  "event_type": "RENEW",
+                  "is_true_subscription": true
+                },    
                 {
                   "subscription_id": 15,
                   "start_date": "January 13, 2016 23:31:01",
@@ -4075,6 +4110,7 @@ Retrieve member's subscription history in chronologically descending order. Each
                   "cancelled_date": "",
                   "last_auto_renewal_update_date": "",
                   "source": "APPSTORE",
+                  "custom_data": "{\"CUSTOM_FIELDS\":{\"campaigncodecustom\":\"[{\"name\":\"campaign_code\",\"value\":\"wacomtalentshine\"}]\"}}",
                   "auto_renewal": true,
                   "promotion_type": "CAMPAIGN_CODE",
                   "event_type": "CREATE",
@@ -4095,26 +4131,38 @@ Retrieve member's subscription history in chronologically descending order. Each
                   "admin_member_id": 20704112,
                   "event_type": "CREATE",
                   "is_true_subscription": true
-                },
+                },   
                 {
-                  "subscription_id": 17,
-                  "start_date": "October 14, 2014 23:23:00",
-                  "end_date": "January 14, 2015 23:23:00",
-                  "end_date_with_grace_period": "January 15, 2015 23:23:00",
-                  "last_modified_date": "October 15, 2014 23:22:59",
+                  "subscription_id": 15,
+                  "start_date": "May 01, 2015 17:32:00",
+                  "end_date": "October 01, 2016 17:32:00",
+                  "end_date_with_grace_period": "October 02, 2016 17:32:00",
+                  "last_modified_date": "September 04, 2015 16:55:20",
                   "cancelled_date": "",
                   "last_auto_renewal_update_date": "",
-                  "psp_sub_id": "6052194",
-                  "source": "DEFAULT",
+                  "psp_sub_id": "6545579",
+                  "source": "APPSTORE",
                   "auto_renewal": true,
                   "event_type": "CREATE",
-                  "linked_id": 20706970,
-                  "linked_provider": "AUTODESK ID",
+                  "is_true_subscription": false
+                },
+                {
+                  "subscription_id": 15,
+                  "start_date": "May 01, 2015 17:32:00",
+                  "end_date": "October 01, 2016 17:32:00",
+                  "end_date_with_grace_period": "October 02, 2016 17:32:00",
+                  "last_modified_date": "September 04, 2015 16:55:20",
+                  "cancelled_date": "",
+                  "last_auto_renewal_update_date": "",
+                  "psp_sub_id": "6545579",
+                  "source": "GOOGLEPLAY",
+                  "auto_renewal": true,
+                  "event_type": "CREATE",
                   "is_true_subscription": false
                 }
               ]
             }
-            scr
+
 
 ## Update Subscriptions [/members/{id}/subscription{?product_id,new_product_id,auto_renew,next_payment,affiliate_code,ignore_cancellation_status,hash,ts,extension_reason,extension_campaign_code}]
 ### Update member's subscription.[PUT]
