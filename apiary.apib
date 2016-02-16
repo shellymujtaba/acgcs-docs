@@ -4168,6 +4168,9 @@ Subscriptions can be purchased through app website (for example www.sketchbook.c
 ### Update member's subscription.[PUT]
 Update subscription with different parameters. You have to pass any one parameter at a time. So either pass new_product_id|auto_renew|next_payment,ignore_cancellation_status
 
+There are difference between set auto_renew=false and cancel subscription.
+If customer set auto_renew=false, the customer will get an email regarding disable  auto renew. When subscription ends, she won’t be charged and won’t have subscription in our system. However, her subscription still exists in Bluesnap (Our payment provider) and remains deactive. The customer can set auto_renew=true during this time. After several days if the customer doesn’t make her payment, bluesnap will cancel the subscription automatically. At this time customer get another email regarding the cancellation. Once the subscription is cancelled, customer cannot change it and has to buy a new subscription.
+
 |Message|HTTP Status Code|Error Code|Data
 |----|----|----|----
 |You must renew your subscription using iTunes App Store|400 Bad Method Exception|3207|
