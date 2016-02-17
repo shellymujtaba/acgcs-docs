@@ -911,7 +911,7 @@ This operation will return a list of assets where this asset is referenced.
                 ]
             }
 
-## Asset Sources [/assets/{id}/sources{?file_ids,old_file_ids,version}]
+## Asset Sources [/assets/{id}/sources{?file_ids,old_file_ids,version,major_version}]
 Add files which constitute the "source" for this asset, this can include virtually any file type -
 all major 3d formats will be automatically translated into a print ready STL format, which will be available in through the asset translations api.
 Adding the sources will usually be a starting point for storing an asset in cloud services storage - subsequent transformation operations can then be performed on these source files.
@@ -2344,176 +2344,176 @@ The following are the different kind of entities supported:
 
 + Response 200
 
-"entity": [
-    {
-        "entity_type": "FILE",
-        "entity_id": "16807865",
-        "conversations": [
+        "entity": [
             {
-                "thread_id": "TEGVILGIIGIBAIR",
-                "total_message_count": 3,
-                "unread_message_count": 1,
-                "date_submitted": "January 08, 2016 17:47:34",
-                "x_coordinate": 1,
-                "y_coordinate": 1,
-                "z_coordinate": 1,
-                "latest_message": {
-                    "subject": "Chat Subject",
-                    "body": "Chat Message",
-                    "thread_id": "TEGVILGIIGIBAIR",
-                    "sent_time": "January 13, 2016 17:14:26",
-                    "sender_member_id": 20728420,
-                    "sender_screen_name": "ad designer2",
-                    "recipient_member_id": 20728420,
-                    "recipient_screen_name": "ad designer2",
-                    "message_id": "X175E5WIJC6CNB9",
-                    "read_time": "",
-                    "recipient_box": "CHAT",
-                    "sender_box": "CHAT",
-                    "in_reply_to": "",
-                    "message_media_type": "TEXT",
-                    "sender_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
-                    "recipient_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
+                "entity_type": "FILE",
+                "entity_id": "16807865",
+                "conversations": [
+                    {
+                        "thread_id": "TEGVILGIIGIBAIR",
+                        "total_message_count": 3,
+                        "unread_message_count": 1,
+                        "date_submitted": "January 08, 2016 17:47:34",
+                        "x_coordinate": 1,
+                        "y_coordinate": 1,
+                        "z_coordinate": 1,
+                        "latest_message": {
+                            "subject": "Chat Subject",
+                            "body": "Chat Message",
+                            "thread_id": "TEGVILGIIGIBAIR",
+                            "sent_time": "January 13, 2016 17:14:26",
+                            "sender_member_id": 20728420,
+                            "sender_screen_name": "ad designer2",
+                            "recipient_member_id": 20728420,
+                            "recipient_screen_name": "ad designer2",
+                            "message_id": "X175E5WIJC6CNB9",
+                            "read_time": "",
+                            "recipient_box": "CHAT",
+                            "sender_box": "CHAT",
+                            "in_reply_to": "",
+                            "message_media_type": "TEXT",
+                            "sender_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
+                            "recipient_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
+                        }
+                    },
+                    {
+                        "thread_id": "TPKYZYPIJABM0Z7",
+                        "total_message_count": 1,
+                        "unread_message_count": 0,
+                        "date_submitted": "January 11, 2016 16:54:15",
+                        "x_coordinate": 1,
+                        "y_coordinate": 1,
+                        "z_coordinate": 1,
+                        "latest_message": {
+                            "subject": "Chat Subject",
+                            "body": "Chat Message",
+                            "thread_id": "TPKYZYPIJABM0Z7",
+                            "sent_time": "January 13, 2016 17:14:26",
+                            "sender_member_id": 20728420,
+                            "sender_screen_name": "ad designer2",
+                            "recipient_member_id": 20728420,
+                            "recipient_screen_name": "ad designer2",
+                            "message_id": "X175E5WIJC6CNB9",
+                            "read_time": "",
+                            "recipient_box": "CHAT",
+                            "sender_box": "CHAT",
+                            "in_reply_to": "",
+                            "message_media_type": "TEXT",
+                            "sender_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
+                            "recipient_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
+                        }
+                    }
+                ],
+                "entity_data": {
+                    "md5sum": "305f9cfbfd2016295cb965efc9e0f313",
+                    "asset_name": "title",
+                    "asset_id": 1829581,
+                    "thumbnails": [
+                        {
+                            "caption": "",
+                            "description": "",
+                            "file_id": 0,
+                            "thumb_path_prefix": "https://static.spark.autodesk.com/Images/FullPreview/nopicture",
+                            "is_primary": false
+                        }
+                    ],
+                    "file_name": "sfo.jpg",
+                    "size": 325729
                 }
             },
             {
-                "thread_id": "TPKYZYPIJABM0Z7",
-                "total_message_count": 1,
-                "unread_message_count": 0,
-                "date_submitted": "January 11, 2016 16:54:15",
-                "x_coordinate": 1,
-                "y_coordinate": 1,
-                "z_coordinate": 1,
-                "latest_message": {
-                    "subject": "Chat Subject",
-                    "body": "Chat Message",
-                    "thread_id": "TPKYZYPIJABM0Z7",
-                    "sent_time": "January 13, 2016 17:14:26",
-                    "sender_member_id": 20728420,
-                    "sender_screen_name": "ad designer2",
-                    "recipient_member_id": 20728420,
-                    "recipient_screen_name": "ad designer2",
-                    "message_id": "X175E5WIJC6CNB9",
-                    "read_time": "",
-                    "recipient_box": "CHAT",
-                    "sender_box": "CHAT",
-                    "in_reply_to": "",
-                    "message_media_type": "TEXT",
-                    "sender_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
-                    "recipient_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
+                "entity_type": "ASSET",
+                "entity_id": "1536590",
+                "conversations": [
+                    {
+                        "thread_id": "T7YK4OPIIGILISM",
+                        "total_message_count": 3,
+                        "unread_message_count": 1,
+                        "date_submitted": "January 08, 2016 17:46:04",
+                        "latest_message": {
+                            "subject": "Chat Subject",
+                            "body": "Chat Message",
+                            "thread_id": "T7YK4OPIIGILISM",
+                            "sent_time": "January 13, 2016 17:14:26",
+                            "sender_member_id": 20728420,
+                            "sender_screen_name": "ad designer2",
+                            "recipient_member_id": 20728420,
+                            "recipient_screen_name": "ad designer2",
+                            "message_id": "X175E5WIJC6CNB9",
+                            "read_time": "",
+                            "recipient_box": "CHAT",
+                            "sender_box": "CHAT",
+                            "in_reply_to": "",
+                            "message_media_type": "TEXT",
+                            "sender_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
+                            "recipient_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
+                        }
+                    },
+                    {
+                        "thread_id": "THKFO90IIGICSX5",
+                        "total_message_count": 3,
+                        "unread_message_count": 1,
+                        "date_submitted": "January 08, 2016 17:46:13",
+                        "latest_message": {
+                            "subject": "Chat Subject",
+                            "body": "Chat Message",
+                            "thread_id": "THKFO90IIGICSX5",
+                            "sent_time": "January 13, 2016 17:14:26",
+                            "sender_member_id": 20728420,
+                            "sender_screen_name": "ad designer2",
+                            "recipient_member_id": 20728420,
+                            "recipient_screen_name": "ad designer2",
+                            "message_id": "X175E5WIJC6CNB9",
+                            "read_time": "",
+                            "recipient_box": "CHAT",
+                            "sender_box": "CHAT",
+                            "in_reply_to": "",
+                            "message_media_type": "TEXT",
+                            "sender_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
+                            "recipient_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
+                        }
+                    },
+                    {
+                        "thread_id": "TPKYZYPIJABM0Z7",
+                        "total_message_count": 1,
+                        "unread_message_count": 0,
+                        "date_submitted": "January 11, 2016 16:46:16",
+                        "latest_message": {
+                            "subject": "Chat Subject",
+                            "body": "Chat Message",
+                            "thread_id": "TPKYZYPIJABM0Z7",
+                            "sent_time": "January 13, 2016 17:14:26",
+                            "sender_member_id": 20728420,
+                            "sender_screen_name": "ad designer2",
+                            "recipient_member_id": 20728420,
+                            "recipient_screen_name": "ad designer2",
+                            "message_id": "X175E5WIJC6CNB9",
+                            "read_time": "",
+                            "recipient_box": "CHAT",
+                            "sender_box": "CHAT",
+                            "in_reply_to": "",
+                            "message_media_type": "TEXT",
+                            "sender_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
+                            "recipient_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
+                        }
+                    }
+                ],
+                "entity_data": {
+                    "asset_name": "title",
+                    "asset_id": 1536590,
+                    "thumbnails": [
+                        {
+                            "caption": "",
+                            "description": "",
+                            "file_id": 0,
+                            "thumb_path_prefix": "https://static.spark.autodesk.com/Images/FullPreview/nopicture",
+                            "is_primary": false
+                        }
+                    ]
                 }
             }
-        ],
-        "entity_data": {
-            "md5sum": "305f9cfbfd2016295cb965efc9e0f313",
-            "asset_name": "title",
-            "asset_id": 1829581,
-            "thumbnails": [
-                {
-                    "caption": "",
-                    "description": "",
-                    "file_id": 0,
-                    "thumb_path_prefix": "https://static.spark.autodesk.com/Images/FullPreview/nopicture",
-                    "is_primary": false
-                }
-            ],
-            "file_name": "sfo.jpg",
-            "size": 325729
+        ]
         }
-    },
-    {
-        "entity_type": "ASSET",
-        "entity_id": "1536590",
-        "conversations": [
-            {
-                "thread_id": "T7YK4OPIIGILISM",
-                "total_message_count": 3,
-                "unread_message_count": 1,
-                "date_submitted": "January 08, 2016 17:46:04",
-                "latest_message": {
-                    "subject": "Chat Subject",
-                    "body": "Chat Message",
-                    "thread_id": "T7YK4OPIIGILISM",
-                    "sent_time": "January 13, 2016 17:14:26",
-                    "sender_member_id": 20728420,
-                    "sender_screen_name": "ad designer2",
-                    "recipient_member_id": 20728420,
-                    "recipient_screen_name": "ad designer2",
-                    "message_id": "X175E5WIJC6CNB9",
-                    "read_time": "",
-                    "recipient_box": "CHAT",
-                    "sender_box": "CHAT",
-                    "in_reply_to": "",
-                    "message_media_type": "TEXT",
-                    "sender_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
-                    "recipient_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
-                }
-            },
-            {
-                "thread_id": "THKFO90IIGICSX5",
-                "total_message_count": 3,
-                "unread_message_count": 1,
-                "date_submitted": "January 08, 2016 17:46:13",
-                "latest_message": {
-                    "subject": "Chat Subject",
-                    "body": "Chat Message",
-                    "thread_id": "THKFO90IIGICSX5",
-                    "sent_time": "January 13, 2016 17:14:26",
-                    "sender_member_id": 20728420,
-                    "sender_screen_name": "ad designer2",
-                    "recipient_member_id": 20728420,
-                    "recipient_screen_name": "ad designer2",
-                    "message_id": "X175E5WIJC6CNB9",
-                    "read_time": "",
-                    "recipient_box": "CHAT",
-                    "sender_box": "CHAT",
-                    "in_reply_to": "",
-                    "message_media_type": "TEXT",
-                    "sender_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
-                    "recipient_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
-                }
-            },
-            {
-                "thread_id": "TPKYZYPIJABM0Z7",
-                "total_message_count": 1,
-                "unread_message_count": 0,
-                "date_submitted": "January 11, 2016 16:46:16",
-                "latest_message": {
-                    "subject": "Chat Subject",
-                    "body": "Chat Message",
-                    "thread_id": "TPKYZYPIJABM0Z7",
-                    "sent_time": "January 13, 2016 17:14:26",
-                    "sender_member_id": 20728420,
-                    "sender_screen_name": "ad designer2",
-                    "recipient_member_id": 20728420,
-                    "recipient_screen_name": "ad designer2",
-                    "message_id": "X175E5WIJC6CNB9",
-                    "read_time": "",
-                    "recipient_box": "CHAT",
-                    "sender_box": "CHAT",
-                    "in_reply_to": "",
-                    "message_media_type": "TEXT",
-                    "sender_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
-                    "recipient_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
-                }
-            }
-        ],
-        "entity_data": {
-            "asset_name": "title",
-            "asset_id": 1536590,
-            "thumbnails": [
-                {
-                    "caption": "",
-                    "description": "",
-                    "file_id": 0,
-                    "thumb_path_prefix": "https://static.spark.autodesk.com/Images/FullPreview/nopicture",
-                    "is_primary": false
-                }
-            ]
-        }
-    }
-]
-}
 
 ### Delete entity conversations [DELETE]
 + Request (application/x-www-form-urlencoded)
@@ -2543,7 +2543,7 @@ The API to get the upload server for uploading the files
             "server": "storagealpha.squidplatform.com"
         }
 
-## Upload File [/files/upload{?unzip,fileurl,filename,public,software}]
+## Upload File [/files/upload{?unzip,fileurl,filename,public,software,use_https,asset_id,ts,hash}]
 If the file is sent as a application/gzip and unzip parameter is = true, it will be unzipped and id will be returned for each constituent file within the zip.
 In case of gzipped files, file name extension will be utilized to determine the file type (e.g. stl or obj).
 In case of base64 encoded files, file name extension will be utilized to determine file type (e.g stl or obj).
@@ -2780,7 +2780,7 @@ API to delete public files.
 
 + Response 204 (application/json)
 
-## File Details [/filesystem/{file_id}]
+## File Details [/filesystem/{file_id,ts,hash}]
 
 In instances where affiliates need to download files without a logged in user (e.g., to download files on behalf of the user). Follow the the steps mentioned below.
 
@@ -2819,7 +2819,7 @@ _Building the Request:_
 #Group Members
 This group of operations provides information on the member. A member is a user who signs up or logs into Cloud Services eco-system.
 
-## Current Member [/members]
+## Current Member [/members{?linked_accounts}]
 Retrieve all information about the currently logged-in member.
 ### Retrieve the current member [GET]
 + Request (application/x-www-form-urlencoded)
