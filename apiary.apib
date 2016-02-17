@@ -3334,7 +3334,7 @@ Member apps operations
 
 + Response 204 (application/json)
 
-## Affiliates [/members/{id}/affiliates]
+## Affiliates [/members/{id}/affiliates{?limit,offset,sort_by,sort_order}]
 Retrieve all information about affiliates used by the member to login.
 
 ### Retrieve a member affiliates [GET]
@@ -4937,7 +4937,7 @@ Messaging support different kinds of mailbox depending on the type of conversati
 |DELETED|Message mailbox after the message is purged|
 |CHAT|Group conversation mailbox|
 
-### Retrieve Messages [GET /members/{id}/messages/{thread_id}{?sort_order,offset,limit,mailbox}]
+### Retrieve Messages [GET /members/{id}/messages/{thread_id}{?sort_order,offset,limit,mailbox,from_message_id}]
 
 Get messages for a thread.
 
@@ -5056,52 +5056,52 @@ Get media messages for a member across multiple threads. These includes messages
 
 + Response 200 (application/json)
 
-{
-    "count": 2,
-    "limit": 20,
-    "offset": 0,
-    "_link": "/members/20706579/messages/tiarffdihwkk2nw?limit=20&offset=0",
-    "messages": [
         {
-            "subject": "Chat Subject",
-            "body": "https://static.spark.autodesk.com/Beta/2016/02/06__04/200711912453162_2.jpg56b57bef346fb-56b57bef347a3",
-            "thread_id": "T7Z15Q7IJWMT65W",
-            "sent_time": "February 06, 2016 04:51:59",
-            "sender_member_id": 20728734,
-            "sender_screen_name": "Consumer A",
-            "recipient_member_id": 20728734,
-            "recipient_screen_name": "Consumer A",
-            "message_id": "X93KYUJIKABZG4N",
-            "read_time": "",
-            "recipient_box": "CHAT",
-            "sender_box": "CHAT",
-            "message_media_type": "IMAGE",
-            "sender_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
-            "recipient_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
-            "in_reply_to": "",
-            "file_id": 17972013
-        },
-        {
-            "subject": "Chat Subject",
-            "body": "https://static.spark.autodesk.com/Beta/2016/02/06__04/200711912453162_2.jpg56b5790440f42-56b5790440fea",
-            "thread_id": "T7Z15Q7IJWMT65W",
-            "sent_time": "February 06, 2016 04:39:33",
-            "sender_member_id": 20728734,
-            "sender_screen_name": "Consumer A",
-            "recipient_member_id": 20728734,
-            "recipient_screen_name": "Consumer A",
-            "message_id": "XSRNFLMIKABZG4L",
-            "read_time": "",
-            "recipient_box": "CHAT",
-            "sender_box": "CHAT",
-            "message_media_type": "VIDEO",
-            "sender_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
-            "recipient_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
-            "in_reply_to": "",
-            "file_id": 17972013
-        }        
-    ]
-}
+            "count": 2,
+            "limit": 20,
+            "offset": 0,
+            "_link": "/members/20706579/messages/tiarffdihwkk2nw?limit=20&offset=0",
+            "messages": [
+                {
+                    "subject": "Chat Subject",
+                    "body": "https://static.spark.autodesk.com/Beta/2016/02/06__04/200711912453162_2.jpg56b57bef346fb-56b57bef347a3",
+                    "thread_id": "T7Z15Q7IJWMT65W",
+                    "sent_time": "February 06, 2016 04:51:59",
+                    "sender_member_id": 20728734,
+                    "sender_screen_name": "Consumer A",
+                    "recipient_member_id": 20728734,
+                    "recipient_screen_name": "Consumer A",
+                    "message_id": "X93KYUJIKABZG4N",
+                    "read_time": "",
+                    "recipient_box": "CHAT",
+                    "sender_box": "CHAT",
+                    "message_media_type": "IMAGE",
+                    "sender_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
+                    "recipient_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
+                    "in_reply_to": "",
+                    "file_id": 17972013
+                },
+                {
+                    "subject": "Chat Subject",
+                    "body": "https://static.spark.autodesk.com/Beta/2016/02/06__04/200711912453162_2.jpg56b5790440f42-56b5790440fea",
+                    "thread_id": "T7Z15Q7IJWMT65W",
+                    "sent_time": "February 06, 2016 04:39:33",
+                    "sender_member_id": 20728734,
+                    "sender_screen_name": "Consumer A",
+                    "recipient_member_id": 20728734,
+                    "recipient_screen_name": "Consumer A",
+                    "message_id": "XSRNFLMIKABZG4L",
+                    "read_time": "",
+                    "recipient_box": "CHAT",
+                    "sender_box": "CHAT",
+                    "message_media_type": "VIDEO",
+                    "sender_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
+                    "recipient_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
+                    "in_reply_to": "",
+                    "file_id": 17972013
+                }        
+            ]
+        }
 
 ### Retrieve Messages Counts [GET /members/{id}/messages/counts{?entity_types,mailbox}]
 
@@ -5120,10 +5120,10 @@ Get member message counts. These counts are across all the threads in which this
 
 + Response 200 (application/json)
 
-{
-    "total_message_count": 150,
-    "unread_message_count": 21
-}
+        {
+            "total_message_count": 150,
+            "unread_message_count": 21
+        }
 
 ### Send Message [POST /members/{id}/messages{?subject,body,recipient_ids,mailbox}]
 
@@ -5148,16 +5148,16 @@ The recipient_ids param can have only one member in case of private messaging. T
 
 + Response 201 (application/json)
 
-    {
-        "thread_id": "TAWYZDDIBLUNXZY",
-        "message_id": "XAWYZDDIBLUNXZY",
-        "_link": "/members/20704116/messages/TAWYZDDIBLUNXZY"
-    }
-    
-    {
-        "thread_id": "TAWYZDDIBLUNXZY",
-        "_link": "/members/20704116/messages/TAWYZDDIBLUNXZY"
-    } 
+        {
+            "thread_id": "TAWYZDDIBLUNXZY",
+            "message_id": "XAWYZDDIBLUNXZY",
+            "_link": "/members/20704116/messages/TAWYZDDIBLUNXZY"
+        }
+        
+        {
+            "thread_id": "TAWYZDDIBLUNXZY",
+            "_link": "/members/20704116/messages/TAWYZDDIBLUNXZY"
+        }
 
 ### Reply Message [POST /members/{id}/messages/reply{?body,message_id,thread_id,subject,command}]
 
@@ -5179,16 +5179,16 @@ Reply to a private message or a group conversation (CHAT).
 
 + Response 201 (application/json)
 
-    {
-        "thread_id": "TAWYZDDIBLUNXZY",
-        "message_id": "XAWYZDDIBLUNXZY",
-        "_link": "/members/20704116/messages/TAWYZDDIBLUNXZY"
-    }
-    
-    {
-        "thread_id": "TAWYZDDIBLUNXZY",
-        "_link": "/members/20704116/messages/TAWYZDDIBLUNXZY"
-    } 
+        {
+            "thread_id": "TAWYZDDIBLUNXZY",
+            "message_id": "XAWYZDDIBLUNXZY",
+            "_link": "/members/20704116/messages/TAWYZDDIBLUNXZY"
+        }
+        
+        {
+            "thread_id": "TAWYZDDIBLUNXZY",
+            "_link": "/members/20704116/messages/TAWYZDDIBLUNXZY"
+        }
 
 ### Send or Reply Message with Attachments [POST /members/{id}/messages/media{?subject,body,recipient_ids,mailbox,app_id}]
 
