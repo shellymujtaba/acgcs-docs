@@ -6009,7 +6009,7 @@ Checks whether session and secure session is valid or not.
         "is_secure_valid": true
         }
 
-## Sign Url [/a360/signurl{?http_verb,url}]
+## Sign URL [/a360/signurl{?http_verb,url}]
 Every afc is associated with particular consumer. So if you are calling oxygen api directly, you need to sign your api url to get proper response. This API is an utility API, which will sign your url using your consumer credentials which is associated with AFC.
 
 ### Sign URL [GET]
@@ -10964,6 +10964,7 @@ If the shop is OFFLINE, the assets are not going to show in the gallery and won'
     [Admin Shop Asset][]
 
 
+
 ## Asset Status [/admin/assets/{asset_id}/status{?status}]
 Modify asset status.
 
@@ -10981,466 +10982,6 @@ Modify asset status.
 + Response 200 (application/json)
 
         {}
-
-## Member Search [/admin/members/search{?email,id,name,created_on,last_login,provider,sort_order,sort_by,limit,offset}]
-Search members on various input parameters.
-
-+ Parameters
-    + email (optional, String, `jsmith@autodesk.com`)...Member email address
-    + id (optional, Number, `20280723`)...Member id
-    + name (optional, String, `John Smith`)...Member name
-    + created_on (optional, String, `2011-11-19`)... Member created date based search
-    + last_login (optional, String, `2014-12-29`)... Member last login based search
-    + provider (optional, String, `google`)...Member created through which provider. It can be social or through autodesk oxygen. (Currently supported: google | facebook | messenger | twitter | linkedin | yahoo | oxygen)
-    + sort_order (optional, String, `desc`)...Sort order.  (asc | desc)
-    + sort_by (optional, String, `email`)...Field to sort on.  (Possible fields: date | name | id | email) Default: name.
-    + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
-    + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
-
-### Retrieve list of members [GET]
-+ Request (application/x-www-form-urlencoded)
-    + Headers
-
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-
-+ Response 200 (application/json)
-
-            {
-                "count": 1516,
-                "limit": 3,
-                "offset": 10,
-                "_link": "/admin/members/search?sort_by=id&name=Smith&sort_order=asc&limit=3&offset=10",
-                "_link_prev": "/admin/members/search?sort_by=id&name=Smith&sort_order=asc&limit=3&offset=7",
-                "_link_next": "/admin/members/search?sort_by=id&name=Smith&sort_order=asc&limit=3&offset=13",
-                "members": [
-                    {
-                        "email": "thomass@theacesinc.com",
-                        "provider": "oxygen",
-                        "locale": "en_US",
-                        "name": "Thomas Smith",
-                        "ada_id": null,
-                        "login": "Thomas Smith",
-                        "id": 20292992,
-                        "type_id": 0
-                    },
-                    {
-                        "email": "ssmith@co.carver.mn.us",
-                        "provider": "oxygen",
-                        "locale": "en_US",
-                        "name": "Scott A. Smith",
-                        "ada_id": null,
-                        "login": "Scott A. Smith",
-                        "id": 20293105,
-                        "type_id": 0
-                    },
-                    {
-                        "email": "kyle-s-smith@msn.com",
-                        "provider": "oxygen",
-                        "locale": "en_US",
-                        "name": "kylesmith",
-                        "ada_id": null,
-                        "login": "kylesmith",
-                        "id": 20294986,
-                        "type_id": 0
-                    }
-                ]
-            }
-
-
-## Member Status [/admin/members/{member_id}/status{?status,reason,expires_in_mins}]
-CRUD operations for administrator to block users from purchasing.
-
-### Retrieve member status [GET]
-Retrieve the list of statuses for the member specified in the query parameters. Expiration timestamp for a status can be null and that means status will never expire.  Community status may be COMMUNITY_OK, COMMUNITY_LIMBO, COMMUNITY_QUARANTINE, which reflects the status of the member's ability to use community functions.
-
-+ Request (application/x-www-form-urlencoded)
-    + Header
-
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-
-+ Parameters
-
-    + member_id (required, Number,`1234567890`)... Member id.
-
-+ Response 200 (application/json)
-    + Body
-
-            [
-            
-                {
-                    "reason": "",
-                    "status": "COMMUNITY_OK",
-                    "expiration_timestamp": ""
-                },
-                {
-                    "reason": "Temporarily banned coppa user",
-                    "status": "TEMP_BANNED",
-                    "expiration_timestamp": "January 05, 2016 19:19:07"
-                }
-            ]
-
-### Update member status [PUT]
-Update the member status, which is passed one status at a time. Currently there are two mutually exclusive status groups supported: 
-[PURCHASE_BLOCKED, DELETED, TEMP_BANNED]<br/>
-and<br/> 
-[COMMUNITY_OK, COMMUNITY_LIMBO, COMMUNITY_QUARANTINE]
-
-+ Request (application/x-www-form-urlencoded)
-    + Header
-
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-
-+ Parameters
-    + member_id (required, Number,`1234567890`)... Member id. 
-    + status (required, String, `PURCHASE_BLOCKED`)...Member status
-    + reason (optional, String, `As per user request`)...Reason behind the updation. Minimum length 15 and maximum length 255 characters.
-    + expires_in_mins (optional, Number, `1440`)... Time in minutes when given status expires. Maximum time 43200 minutes (30 days)
-
-+ Response 200 (application/json)
-
-            {}
-
-### Delete member status [DELETE]
-Delete all status for member_id.
-
-+ Request (application/x-www-form-urlencoded)
-    + Header
-
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-
-+ Parameters
-    + member_id (required, Number,`1234567890`)... Member id.
-    + status (required, String, `PURCHASE_BLOCKED, DELETED`)...Member status type list
-    + reason (optional, String, `As per user request`)...Reason behind the deleting status
-
-+ Response 204 (application/json)
-
-## Members [/admin/members/{member_id}{?reason}]
-
-### Delete a member [DELETE]
-Delete a member from the database, and associated items such as assets, likes, follows, comments, etc.
-+ Request (application/x-www-form-urlencoded)
-    + Header
-
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-
-+ Parameters
-    + member_id (required, Number,`1234567890`)... Member id.
-    + reason (optional, String, `Member requested deletion`)... Reason for deletion
-
-+ Response 204 (application/json)
-
-## Members Oxygen [/admin/members/oxygen/{oxygenid}{?member_code,ts,hash,afc}]
-
-### Retrieve Member Information from Oxygen Id [GET]
-Get Member details by passing oxygen id. This api is hash based and timestamp has window of 180 mins.
-
-+ Parameters
-    + oxygenid (required, Number,`116461678769132`)... Oxygen id
-    + member_code (required, Number,`ABCD34DEBJ`)... Member code.This should be Hex encode of admin member id and timestamp concatenated with pound sign. Pattern is Hex.encode(12345678#2015-06-22 11:15:55)
-    + ts (required, String, `2015-06-22 11:15:55`)... timestamp
-    + hash (required, String, `b97cbb9c6a7c7c9a1b016897cb76744a6c3c1cf9175e9bcd1c98d12eff79fffe`)... Hash Code. This should be SHA256 of afc code, member code, timestamp and shared secret. SHA256(afc+member_code+timestamp+shared_secret).
-    + afc (required, String, `AB1ON1`)... Affiliate code.
-
-+ Response 200 (application/json)
-
-            {
-               "member":{
-                  "type_id": 0,
-                  "id": 20280723,
-                  "profile": {
-                     "location":"usa",
-                     "description":"i am great!",
-                     "company": "ABC Co., Inc.",
-                     "address": {
-                         "address1": "address1-55",
-                         "address2": "address2-55",
-                         "city": "city55",
-                         "state": "MA",
-                         "postal_code": "90255",
-                         "country_code": "SJ"
-                     },
-                     "industry": "Engineering Services Providers",
-                     "avatar_path":"http://static.spark.autodesk.com/Images/Member/default_avatar.png",
-                     "find_me":{
-                        "twitter":"http:\/\/www.twitter.com\/jsmith",
-                        "facebook":"http:\/\/www.facebook.com\/jsmith",
-                        "github":"http:\/\/www.github.com\/jsmith",
-                        "linkedin":"http:\/\/www.linkedin.com\/in\/jsmith"
-                     },
-                     "company_website": "http:\/\/www.companyabc.com\/us\/en\/index.htm",
-                     "job_title": "Database Engineer",
-                     "phone_home": "123456789012345",
-                     "phone_mobile": [
-                                     "9975401990",
-                                     "9028174408"
-                     ],
-                     "phone_work": "213.456.789#1",
-                     "phone_work_extension": "123456"
-                  },
-                  "email": "jsmith@gmail.com",
-                  "name": "jsmith",
-                  "comments": 23,
-                  "likes": 2,
-                  "follows": 12,
-                  "following": 3,
-                  "publish": 2,
-                  "locale": "en_US",
-                  "shop_id": 1234567890,
-                  "first_name": "John",
-                  "last_name": "Smith"
-               }
-            }
-
-## Members Flags [/admin/{member_id}/userflags{?type,limit,offset}]
-
-### Get Member Flags [GET]
-Get all asset or comment  flags received by a member.
-+ Request (application/x-www-form-urlencoded)
-    + Header
-
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-
-+ Parameters
-    + member_id (required, Number, `12342`) ...Member Id
-    + type (required, String, `asset`)...The type of flag, either `asset` or `comment`.
-    + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
-    + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.    
-    
-+ Response 200 (application/json)
-
-        {
-          "offset": 11,
-          "limit": 1,
-          "count": 28,
-          "comments": [
-            {
-              "id": "CV1ITBCICVKVM03",
-              "title": "13 - test140",
-              "approved": false,
-              "tenant_id": "123D",
-              "author_name": "test140",
-              "status": "QUARANTINED",
-              "body": "13",
-              "reason": "",
-              "author_id": "MLLYAB2ICVKVLV5",
-              "date_added": "2015-08-05 11:09:48.0",
-              "modified_date": "2015-10-28 07:07:39.0",
-              "flag_count": "1",
-              "flag": "SPAM",
-              "type": "comment",
-              "timestamp": "2015-10-28 07:07:39.0",
-              "flagger_id": "MHFSRHTHO9W97FY"
-            }
-          ],
-          "_link": "/admin/1272411/userflags?type=comment",
-          "_link_prev": "/admin/1272411/userflags?type=comment&limit=1&offset=10",
-          "_link_next": "/admin/1272411/userflags?type=comment&limit=1&offset=12"
-        }
-
-+ Response 200 (application/json)
-
-            {
-              "offset": 11,
-              "limit": 1,
-              "count": 188,
-              "assets": [
-                {
-                  "id": "AXF5Y77HDH18QOE",
-                  "title": "Star Warser",
-                  "approved": false,
-                  "status": "QUARANTINED",
-                  "body": "",
-                  "flag": "INAPPROPRIATE",
-                  "type": "asset",
-                  "timestamp": "2014-02-18 22:15:56.0",
-                  "tenant_id": "ALPHA",
-                  "author_name": "Don Smith",
-                  "author_id": "MB37GGDHDH18QNE",
-                  "date_added": "2013-02-27 13:10:52.0",
-                  "modified_date": "2014-02-18 22:15:56.0",
-                  "image_urls": [
-                    ""
-                  ],
-                  "view_url": "http://alpha.squidplatform.com/FullPreview/Index.cfm/ID/1221352",
-                  "flag_count": "1",
-                  "flagger_id": "MAU1YJHHMTMKYG3"
-                }
-              ],
-              "_link": "/admin/flags?type=asset?type=asset&limit=1&offset=11",
-              "_link_prev": "/admin/0/userflags?type=asset&limit=1&offset=10",
-              "_link_next": "/admin/0/userflags?type=asset&limit=1&offset=12"
-            }
-
-## Flags [/admin/flags{?type,asset_id,media_type,limit,offset}]
-Retrieve flags for assets and comments, or clear all flags on an asset.
-
-
-### Get Flags [GET]
-+ Request (application/x-www-form-urlencoded)
-    + Header
-
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-
-+ Parameters
-    + type (required, String, `asset`)...The type of flag, either `asset` or `comment`.
-    + asset_id (optional, Number, `123456`)...Filter by asset id.
-    + media_type (optional, String, `Catch`)..Filter by media type.
-    + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
-    + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.    
-    
-+ Response 200 (application/json)
-
-            {
-              "offset": 8,
-              "limit": 1,
-              "count": 12,
-              "comments": [
-                {
-                  "id": "C5CS6GGHJ72EM2I",
-                  "title": "aaa - Dave Smith (222)",
-                  "approved": false,
-                  "tenant_id": "ALPHA",
-                  "author_name": "Dave Smith (222)",
-                  "status": "QUARANTINED",
-                  "body": "aaa",
-                  "reason": "",
-                  "author_id": "M1A866YHH2QB45W",
-                  "date_added": "2013-07-17 05:58:47.0",
-                  "modified_date": "2013-07-17 07:55:24.0",
-                  "flag_count": "1",
-                  "flag": "not_nice",
-                  "type": "comment",
-                  "timestamp": "2013-07-17 06:18:05.0",
-                  "flagger_id": "M1A866YHH2QB45W"
-                }
-              ],
-              "_link": "/admin/flags?type=comment",
-              "_link_prev": "/admin/flags?type=comment&limit=1&offset=7",
-              "_link_next": "/admin/flags?type=comment&limit=1&offset=9"
-            }
-
-+ Response 200 (application/json)
-
-            {
-              "offset": 8,
-              "limit": 1,
-              "count": 188,
-              "assets": [
-                {
-                  "id": "ATVOSLWHD7P66OV",
-                  "title": "z77 2",
-                  "approved": false,
-                  "status": "QUARANTINED",
-                  "body": "z77",
-                  "flag": "INAPPROPRIATE",
-                  "type": "asset",
-                  "timestamp": "2014-03-20 01:02:43.0",
-                  "tenant_id": "ALPHA",
-                  "author_name": "cpgr pe",
-                  "author_id": "MDEE3D9HD7P66OT",
-                  "date_added": "2013-02-19 07:24:42.0",
-                  "modified_date": "2014-03-20 01:02:43.0",
-                  "image_urls": [
-                    ""
-                  ],
-                  "view_url": "http://alpha.squidplatform.com/FullPreview/Index.cfm/ID/1206414",
-                  "flag_count": "2",
-                  "flagger_id": "MAU1YJHHMTMKYG3"
-                }
-              ],
-              "_link": "/admin/flags?type=asset?type=asset&limit=1&offset=8",
-              "_link_prev": "/admin/0/userflags?type=asset&limit=1&offset=7",
-              "_link_next": "/admin/0/userflags?type=asset&limit=1&offset=9"
-            }
-
-## Payouts [/admin/payouts/{payout_id}{?limit,offset,include_pending,include_paid,include_approved,payout_status,payout_denial_reason}]
-Retrieve payouts and approve/deny payout requests. Approving a payout places it to the payout queue.
-
-
-### Retrieve payouts [GET]
-+ Request (application/x-www-form-urlencoded)
-    + Header
-
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-
-+ Parameters
-    + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
-    + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
-    + include_pending (optional, Boolean, `true`) ...Include pending payouts
-    + include_paid (optional, Boolean, `false`) ...Include paid payouts
-    + include_approved (optional, Boolean, `false`) ...Include approved payouts
-
-+ Response 200 (application/json)
-
-            {
-              "payouts": [
-                {
-                  "payout_id": 1234567890,
-                  "member_id": 123456,
-                  "shop_id": 1234567,
-                  "request_date": "July, 02 2014 16:34:00",
-                  "request_amount": 100,
-                  "payout_status": "PENDING",
-                  "payout_denial_reason": null,
-                  "modified_date": "July, 09 2014 16:34:00"
-                }
-              ],
-              "count": 260,
-              "pages": 20,
-              "limit": 13,
-              "offset": 39,
-              "_link": "/admin/payouts?limit=26",
-              "_link_prev": "/admin/payouts?limit=26&offset=26",
-              "_link_next": "/admin/payouts?limit=26&offset=39"
-            }
-
-### Delete Asset Flags [DELETE /admin/assets/{asset_id}/flags]
-Clear all flags on an asset.
-+ Request (application/x-www-form-urlencoded)
-    + Header
-
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-
-+ Parameters
-    + asset_id (required, String, `123456`)... Asset Id
-
-+ Response 204
-
-### Update payout [PUT]
-+ Request (application/x-www-form-urlencoded)
-    + Header
-
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-
-+ Parameters
-    + payout_id (required, Number, `1234567890`)...Payout id
-    + payout_status (optional, String,`DENIED`)...Payout status
-    + payout_denial_reason (optional, String,`BALANCE_MISMATCH`)...Payout denial reason
-
-+ Response 200 (application/json)
-
-            {
-              "payout_id": 1234567890,
-              "member_id": 123456,
-              "shop_id": 1234567,
-              "request_date": "July, 07 2014 16:34:00",
-              "request_amount": 50,
-              "payout_status": "DENIED",
-              "payout_denial_reason": "BALANCE_MISMATCH",
-              "modified_date": "July, 09 2014 16:34:00"
-            }
-
 ## Country [/admin/countries{?sort_by,sort_order,approved_only,limit,offset,country_iso_code,country_name,approved}]
 
 CRUD operations to manage the list of countries supported by our payment service provider (Blue Snap).
@@ -11842,6 +11383,470 @@ Delete a single coupon by unique id
             X-Secure-Session : cc33b7e56319409c3bda251c9dcda3a331b914cdc0f6d4716ccbc4a2e5fd09d2
 
 + Response 204 (application/json)
+
+
+## Flags [/admin/flags{?type,asset_id,media_type,limit,offset}]
+Retrieve flags for assets and comments, or clear all flags on an asset.
+
+
+### Get Flags [GET]
++ Request (application/x-www-form-urlencoded)
+    + Header
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + type (required, String, `asset`)...The type of flag, either `asset` or `comment`.
+    + asset_id (optional, Number, `123456`)...Filter by asset id.
+    + media_type (optional, String, `Catch`)..Filter by media type.
+    + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
+    + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.    
+    
++ Response 200 (application/json)
+
+            {
+              "offset": 8,
+              "limit": 1,
+              "count": 12,
+              "comments": [
+                {
+                  "id": "C5CS6GGHJ72EM2I",
+                  "title": "aaa - Dave Smith (222)",
+                  "approved": false,
+                  "tenant_id": "ALPHA",
+                  "author_name": "Dave Smith (222)",
+                  "status": "QUARANTINED",
+                  "body": "aaa",
+                  "reason": "",
+                  "author_id": "M1A866YHH2QB45W",
+                  "date_added": "2013-07-17 05:58:47.0",
+                  "modified_date": "2013-07-17 07:55:24.0",
+                  "flag_count": "1",
+                  "flag": "not_nice",
+                  "type": "comment",
+                  "timestamp": "2013-07-17 06:18:05.0",
+                  "flagger_id": "M1A866YHH2QB45W"
+                }
+              ],
+              "_link": "/admin/flags?type=comment",
+              "_link_prev": "/admin/flags?type=comment&limit=1&offset=7",
+              "_link_next": "/admin/flags?type=comment&limit=1&offset=9"
+            }
+
++ Response 200 (application/json)
+
+            {
+              "offset": 8,
+              "limit": 1,
+              "count": 188,
+              "assets": [
+                {
+                  "id": "ATVOSLWHD7P66OV",
+                  "title": "z77 2",
+                  "approved": false,
+                  "status": "QUARANTINED",
+                  "body": "z77",
+                  "flag": "INAPPROPRIATE",
+                  "type": "asset",
+                  "timestamp": "2014-03-20 01:02:43.0",
+                  "tenant_id": "ALPHA",
+                  "author_name": "cpgr pe",
+                  "author_id": "MDEE3D9HD7P66OT",
+                  "date_added": "2013-02-19 07:24:42.0",
+                  "modified_date": "2014-03-20 01:02:43.0",
+                  "image_urls": [
+                    ""
+                  ],
+                  "view_url": "http://alpha.squidplatform.com/FullPreview/Index.cfm/ID/1206414",
+                  "flag_count": "2",
+                  "flagger_id": "MAU1YJHHMTMKYG3"
+                }
+              ],
+              "_link": "/admin/flags?type=asset?type=asset&limit=1&offset=8",
+              "_link_prev": "/admin/0/userflags?type=asset&limit=1&offset=7",
+              "_link_next": "/admin/0/userflags?type=asset&limit=1&offset=9"
+            }
+
+
+## Member [/admin/members/{member_id}{?reason}]
+
+### Delete a member [DELETE]
+Delete a member from the database, and associated items such as assets, likes, follows, comments, etc.
++ Request (application/x-www-form-urlencoded)
+    + Header
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + member_id (required, Number,`1234567890`)... Member id.
+    + reason (optional, String, `Member requested deletion`)... Reason for deletion
+
++ Response 204 (application/json)
+
+
+## Member Flags [/admin/{member_id}/userflags{?type,limit,offset}]
+
+### Get Member Flags [GET]
+Get all asset or comment  flags received by a member.
++ Request (application/x-www-form-urlencoded)
+    + Header
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + member_id (required, Number, `12342`) ...Member Id
+    + type (required, String, `asset`)...The type of flag, either `asset` or `comment`.
+    + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
+    + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.    
+    
++ Response 200 (application/json)
+
+        {
+          "offset": 11,
+          "limit": 1,
+          "count": 28,
+          "comments": [
+            {
+              "id": "CV1ITBCICVKVM03",
+              "title": "13 - test140",
+              "approved": false,
+              "tenant_id": "123D",
+              "author_name": "test140",
+              "status": "QUARANTINED",
+              "body": "13",
+              "reason": "",
+              "author_id": "MLLYAB2ICVKVLV5",
+              "date_added": "2015-08-05 11:09:48.0",
+              "modified_date": "2015-10-28 07:07:39.0",
+              "flag_count": "1",
+              "flag": "SPAM",
+              "type": "comment",
+              "timestamp": "2015-10-28 07:07:39.0",
+              "flagger_id": "MHFSRHTHO9W97FY"
+            }
+          ],
+          "_link": "/admin/1272411/userflags?type=comment",
+          "_link_prev": "/admin/1272411/userflags?type=comment&limit=1&offset=10",
+          "_link_next": "/admin/1272411/userflags?type=comment&limit=1&offset=12"
+        }
+
++ Response 200 (application/json)
+
+            {
+              "offset": 11,
+              "limit": 1,
+              "count": 188,
+              "assets": [
+                {
+                  "id": "AXF5Y77HDH18QOE",
+                  "title": "Star Warser",
+                  "approved": false,
+                  "status": "QUARANTINED",
+                  "body": "",
+                  "flag": "INAPPROPRIATE",
+                  "type": "asset",
+                  "timestamp": "2014-02-18 22:15:56.0",
+                  "tenant_id": "ALPHA",
+                  "author_name": "Don Smith",
+                  "author_id": "MB37GGDHDH18QNE",
+                  "date_added": "2013-02-27 13:10:52.0",
+                  "modified_date": "2014-02-18 22:15:56.0",
+                  "image_urls": [
+                    ""
+                  ],
+                  "view_url": "http://alpha.squidplatform.com/FullPreview/Index.cfm/ID/1221352",
+                  "flag_count": "1",
+                  "flagger_id": "MAU1YJHHMTMKYG3"
+                }
+              ],
+              "_link": "/admin/flags?type=asset?type=asset&limit=1&offset=11",
+              "_link_prev": "/admin/0/userflags?type=asset&limit=1&offset=10",
+              "_link_next": "/admin/0/userflags?type=asset&limit=1&offset=12"
+            }
+            
+            
+## Member Oxygen Id [/admin/members/oxygen/{oxygenid}{?member_code,ts,hash,afc}]
+
+### Retrieve Member Information from Oxygen Id [GET]
+Get Member details by passing oxygen id. This api is hash based and timestamp has window of 180 mins.
+
++ Parameters
+    + oxygenid (required, Number,`116461678769132`)... Oxygen id
+    + member_code (required, Number,`ABCD34DEBJ`)... Member code.This should be Hex encode of admin member id and timestamp concatenated with pound sign. Pattern is Hex.encode(12345678#2015-06-22 11:15:55)
+    + ts (required, String, `2015-06-22 11:15:55`)... timestamp
+    + hash (required, String, `b97cbb9c6a7c7c9a1b016897cb76744a6c3c1cf9175e9bcd1c98d12eff79fffe`)... Hash Code. This should be SHA256 of afc code, member code, timestamp and shared secret. SHA256(afc+member_code+timestamp+shared_secret).
+    + afc (required, String, `AB1ON1`)... Affiliate code.
+
++ Response 200 (application/json)
+
+            {
+               "member":{
+                  "type_id": 0,
+                  "id": 20280723,
+                  "profile": {
+                     "location":"usa",
+                     "description":"i am great!",
+                     "company": "ABC Co., Inc.",
+                     "address": {
+                         "address1": "address1-55",
+                         "address2": "address2-55",
+                         "city": "city55",
+                         "state": "MA",
+                         "postal_code": "90255",
+                         "country_code": "SJ"
+                     },
+                     "industry": "Engineering Services Providers",
+                     "avatar_path":"http://static.spark.autodesk.com/Images/Member/default_avatar.png",
+                     "find_me":{
+                        "twitter":"http:\/\/www.twitter.com\/jsmith",
+                        "facebook":"http:\/\/www.facebook.com\/jsmith",
+                        "github":"http:\/\/www.github.com\/jsmith",
+                        "linkedin":"http:\/\/www.linkedin.com\/in\/jsmith"
+                     },
+                     "company_website": "http:\/\/www.companyabc.com\/us\/en\/index.htm",
+                     "job_title": "Database Engineer",
+                     "phone_home": "123456789012345",
+                     "phone_mobile": [
+                                     "9975401990",
+                                     "9028174408"
+                     ],
+                     "phone_work": "213.456.789#1",
+                     "phone_work_extension": "123456"
+                  },
+                  "email": "jsmith@gmail.com",
+                  "name": "jsmith",
+                  "comments": 23,
+                  "likes": 2,
+                  "follows": 12,
+                  "following": 3,
+                  "publish": 2,
+                  "locale": "en_US",
+                  "shop_id": 1234567890,
+                  "first_name": "John",
+                  "last_name": "Smith"
+               }
+            }
+
+## Member Search [/admin/members/search{?email,id,name,created_on,last_login,provider,sort_order,sort_by,limit,offset}]
+Search members on various input parameters.
+
++ Parameters
+    + email (optional, String, `jsmith@autodesk.com`)...Member email address
+    + id (optional, Number, `20280723`)...Member id
+    + name (optional, String, `John Smith`)...Member name
+    + created_on (optional, String, `2011-11-19`)... Member created date based search
+    + last_login (optional, String, `2014-12-29`)... Member last login based search
+    + provider (optional, String, `google`)...Member created through which provider. It can be social or through autodesk oxygen. (Currently supported: google | facebook | messenger | twitter | linkedin | yahoo | oxygen)
+    + sort_order (optional, String, `desc`)...Sort order.  (asc | desc)
+    + sort_by (optional, String, `email`)...Field to sort on.  (Possible fields: date | name | id | email) Default: name.
+    + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
+    + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
+
+### Retrieve list of members [GET]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Response 200 (application/json)
+
+            {
+                "count": 1516,
+                "limit": 3,
+                "offset": 10,
+                "_link": "/admin/members/search?sort_by=id&name=Smith&sort_order=asc&limit=3&offset=10",
+                "_link_prev": "/admin/members/search?sort_by=id&name=Smith&sort_order=asc&limit=3&offset=7",
+                "_link_next": "/admin/members/search?sort_by=id&name=Smith&sort_order=asc&limit=3&offset=13",
+                "members": [
+                    {
+                        "email": "thomass@theacesinc.com",
+                        "provider": "oxygen",
+                        "locale": "en_US",
+                        "name": "Thomas Smith",
+                        "ada_id": null,
+                        "login": "Thomas Smith",
+                        "id": 20292992,
+                        "type_id": 0
+                    },
+                    {
+                        "email": "ssmith@co.carver.mn.us",
+                        "provider": "oxygen",
+                        "locale": "en_US",
+                        "name": "Scott A. Smith",
+                        "ada_id": null,
+                        "login": "Scott A. Smith",
+                        "id": 20293105,
+                        "type_id": 0
+                    },
+                    {
+                        "email": "kyle-s-smith@msn.com",
+                        "provider": "oxygen",
+                        "locale": "en_US",
+                        "name": "kylesmith",
+                        "ada_id": null,
+                        "login": "kylesmith",
+                        "id": 20294986,
+                        "type_id": 0
+                    }
+                ]
+            }
+
+
+## Member Status [/admin/members/{member_id}/status{?status,reason,expires_in_mins}]
+CRUD operations for administrator to block users from purchasing.
+
+### Retrieve member status [GET]
+Retrieve the list of statuses for the member specified in the query parameters. Expiration timestamp for a status can be null and that means status will never expire.  Community status may be COMMUNITY_OK, COMMUNITY_LIMBO, COMMUNITY_QUARANTINE, which reflects the status of the member's ability to use community functions.
+
++ Request (application/x-www-form-urlencoded)
+    + Header
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+
+    + member_id (required, Number,`1234567890`)... Member id.
+
++ Response 200 (application/json)
+    + Body
+
+            [
+            
+                {
+                    "reason": "",
+                    "status": "COMMUNITY_OK",
+                    "expiration_timestamp": ""
+                },
+                {
+                    "reason": "Temporarily banned coppa user",
+                    "status": "TEMP_BANNED",
+                    "expiration_timestamp": "January 05, 2016 19:19:07"
+                }
+            ]
+
+### Update member status [PUT]
+Update the member status, which is passed one status at a time. Currently there are two mutually exclusive status groups supported: 
+[PURCHASE_BLOCKED, DELETED, TEMP_BANNED]<br/>
+and<br/> 
+[COMMUNITY_OK, COMMUNITY_LIMBO, COMMUNITY_QUARANTINE]
+
++ Request (application/x-www-form-urlencoded)
+    + Header
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + member_id (required, Number,`1234567890`)... Member id. 
+    + status (required, String, `PURCHASE_BLOCKED`)...Member status
+    + reason (optional, String, `As per user request`)...Reason behind the updation. Minimum length 15 and maximum length 255 characters.
+    + expires_in_mins (optional, Number, `1440`)... Time in minutes when given status expires. Maximum time 43200 minutes (30 days)
+
++ Response 200 (application/json)
+
+            {}
+
+### Delete member status [DELETE]
+Delete all status for member_id.
+
++ Request (application/x-www-form-urlencoded)
+    + Header
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + member_id (required, Number,`1234567890`)... Member id.
+    + status (required, String, `PURCHASE_BLOCKED, DELETED`)...Member status type list
+    + reason (optional, String, `As per user request`)...Reason behind the deleting status
+
++ Response 204 (application/json)
+
+
+## Payouts [/admin/payouts/{payout_id}{?limit,offset,include_pending,include_paid,include_approved,payout_status,payout_denial_reason}]
+Retrieve payouts and approve/deny payout requests. Approving a payout places it to the payout queue.
+
+
+### Retrieve payouts [GET]
++ Request (application/x-www-form-urlencoded)
+    + Header
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + limit (optional, Number,`20`)...Number of results to return in each page. Default: 10.
+    + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
+    + include_pending (optional, Boolean, `true`) ...Include pending payouts
+    + include_paid (optional, Boolean, `false`) ...Include paid payouts
+    + include_approved (optional, Boolean, `false`) ...Include approved payouts
+
++ Response 200 (application/json)
+
+            {
+              "payouts": [
+                {
+                  "payout_id": 1234567890,
+                  "member_id": 123456,
+                  "shop_id": 1234567,
+                  "request_date": "July, 02 2014 16:34:00",
+                  "request_amount": 100,
+                  "payout_status": "PENDING",
+                  "payout_denial_reason": null,
+                  "modified_date": "July, 09 2014 16:34:00"
+                }
+              ],
+              "count": 260,
+              "pages": 20,
+              "limit": 13,
+              "offset": 39,
+              "_link": "/admin/payouts?limit=26",
+              "_link_prev": "/admin/payouts?limit=26&offset=26",
+              "_link_next": "/admin/payouts?limit=26&offset=39"
+            }
+
+### Delete Asset Flags [DELETE /admin/assets/{asset_id}/flags]
+Clear all flags on an asset.
++ Request (application/x-www-form-urlencoded)
+    + Header
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + asset_id (required, String, `123456`)... Asset Id
+
++ Response 204
+
+### Update payout [PUT]
++ Request (application/x-www-form-urlencoded)
+    + Header
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + payout_id (required, Number, `1234567890`)...Payout id
+    + payout_status (optional, String,`DENIED`)...Payout status
+    + payout_denial_reason (optional, String,`BALANCE_MISMATCH`)...Payout denial reason
+
++ Response 200 (application/json)
+
+            {
+              "payout_id": 1234567890,
+              "member_id": 123456,
+              "shop_id": 1234567,
+              "request_date": "July, 07 2014 16:34:00",
+              "request_amount": 50,
+              "payout_status": "DENIED",
+              "payout_denial_reason": "BALANCE_MISMATCH",
+              "modified_date": "July, 09 2014 16:34:00"
+            }
 
 
 ## Refund [/admin/refunds]
