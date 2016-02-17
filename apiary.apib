@@ -1711,7 +1711,7 @@ Asset workflow steps accept the custom data which holds key and its value. To in
             "workflow_step_id": 3
         }
 
-### Update workflow steps for the asset workflow [PUT /assets/{id}/workflows/{workflow_id}/steps/{workflow_step_id}{?workflow_step_name,workflow_step_notes,assigned_member_id,workflow_step_status,file_ids,thread_ids,custom_data}]
+### Update workflow steps for the asset workflow [PUT /assets/{id}/workflows/{workflow_id}/steps/{workflow_step_id}{?workflow_step_name,workflow_step_notes,assigned_member_id,workflow_step_status,file_ids,thread_ids,custom_data,file_notes}]
 + Request (application/x-www-form-urlencoded)
     + Headers
 
@@ -2330,7 +2330,7 @@ The following are the different kind of entities supported:
             "_link": "/entity/16807865/conversations?entity_type=FILE"
         }
 
-### Retrieve entity conversations [GET /entity/conversations{?entity_types,entity_ids}]
+### Retrieve entity conversations [GET /entity/conversations{?entity_types,entity_ids,thread_info}]
 
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -2978,7 +2978,7 @@ Retrieve all public information about the children if currently logged-in member
                 }
             }
 
-## Member By Id [/members/{id}{?name,email,first_name,last_name,description,location,facebook,twitter,personal,locale,locale_language,locale_country,avatar,company,company_website,industry,address1,address2,city,state,postal_code,country_code,phone_home,phone_mobile,phone_work,phone_work_extension,newsletters,subscribe,preferences}]
+## Member By Id [/members/{id}{?linked_accounts,name,email,first_name,last_name,description,location,facebook,twitter,personal,locale,locale_language,locale_country,avatar,company,company_website,industry,address1,address2,city,state,postal_code,country_code,phone_home,phone_mobile,phone_work,phone_work_extension,newsletters,subscribe,preferences}]
 
 Manage public information about a member. To update a member secure session is required for following fields:
 name, email, locale and avatar.  
@@ -4967,72 +4967,72 @@ Get messages for a thread.
 
 + Response 200 (application/json)
 
-{
-    "count": 3,
-    "limit": 20,
-    "offset": 0,
-    "_link": "/members/20706579/messages/tiarffdihwkk2nw?limit=20&offset=0",
-    "messages": [
         {
-            "subject": "subject",
-            "body": "command",
-            "thread_id": "TQCIGJOIICQFCHD",
-            "sent_time": "January 20, 2016 04:49:18",
-            "sender_member_id": 20706579,
-            "sender_screen_name": "new user 207",
-            "recipient_member_id": 20706579,
-            "recipient_screen_name": "new user 207",
-            "message_id": "XJB09DCIJMBWMXQ",
-            "read_time": "",
-            "recipient_box": "CHAT",
-            "sender_box": "CHAT",
-            "in_reply_to": "",
-            "attachment": [],
-            "message_media_type": "COMMAND",
-            "sender_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
-            "recipient_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
-            "command": "@2323@"
-        },
-        {
-            "subject": "subject",
-            "body": "body",
-            "thread_id": "TQCIGJOIICQFCHD",
-            "sent_time": "December 19, 2015 06:36:57",
-            "sender_member_id": 20706579,
-            "sender_screen_name": "new user 207",
-            "recipient_member_id": 20706579,
-            "recipient_screen_name": "new user 207",
-            "message_id": "XEWCF26IICPVQ5C",
-            "read_time": "",
-            "recipient_box": "CHAT",
-            "sender_box": "CHAT",
-            "in_reply_to": "",
-            "attachment": [],
-            "message_media_type": "TEXT",
-            "sender_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
-            "recipient_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
-        },
-        {
-            "subject": "new",
-            "body": "https://static.spark.autodesk.com/Beta/2016/01/27__03/nyc.jpg56a83558374ca-56a8355837571",
-            "thread_id": "T6KEQMAIJW96LF8",
-            "sent_time": "January 27, 2016 03:11:21",
-            "sender_member_id": 20706579,
-            "sender_screen_name": "new user 207",
-            "recipient_member_id": 20706579,
-            "recipient_screen_name": "new user 207",
-            "message_id": "XXE5RFLIJUAMF4M",
-            "read_time": "",
-            "recipient_box": "CHAT",
-            "sender_box": "CHAT",
-            "in_reply_to": "",
-            "message_media_type": "IMAGE",
-            "sender_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
-            "recipient_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
-            "file_id": 17972013
-        }        
-    ]
-}
+            "count": 3,
+            "limit": 20,
+            "offset": 0,
+            "_link": "/members/20706579/messages/tiarffdihwkk2nw?limit=20&offset=0",
+            "messages": [
+                {
+                    "subject": "subject",
+                    "body": "command",
+                    "thread_id": "TQCIGJOIICQFCHD",
+                    "sent_time": "January 20, 2016 04:49:18",
+                    "sender_member_id": 20706579,
+                    "sender_screen_name": "new user 207",
+                    "recipient_member_id": 20706579,
+                    "recipient_screen_name": "new user 207",
+                    "message_id": "XJB09DCIJMBWMXQ",
+                    "read_time": "",
+                    "recipient_box": "CHAT",
+                    "sender_box": "CHAT",
+                    "in_reply_to": "",
+                    "attachment": [],
+                    "message_media_type": "COMMAND",
+                    "sender_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
+                    "recipient_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
+                    "command": "@2323@"
+                },
+                {
+                    "subject": "subject",
+                    "body": "body",
+                    "thread_id": "TQCIGJOIICQFCHD",
+                    "sent_time": "December 19, 2015 06:36:57",
+                    "sender_member_id": 20706579,
+                    "sender_screen_name": "new user 207",
+                    "recipient_member_id": 20706579,
+                    "recipient_screen_name": "new user 207",
+                    "message_id": "XEWCF26IICPVQ5C",
+                    "read_time": "",
+                    "recipient_box": "CHAT",
+                    "sender_box": "CHAT",
+                    "in_reply_to": "",
+                    "attachment": [],
+                    "message_media_type": "TEXT",
+                    "sender_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
+                    "recipient_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
+                },
+                {
+                    "subject": "new",
+                    "body": "https://static.spark.autodesk.com/Beta/2016/01/27__03/nyc.jpg56a83558374ca-56a8355837571",
+                    "thread_id": "T6KEQMAIJW96LF8",
+                    "sent_time": "January 27, 2016 03:11:21",
+                    "sender_member_id": 20706579,
+                    "sender_screen_name": "new user 207",
+                    "recipient_member_id": 20706579,
+                    "recipient_screen_name": "new user 207",
+                    "message_id": "XXE5RFLIJUAMF4M",
+                    "read_time": "",
+                    "recipient_box": "CHAT",
+                    "sender_box": "CHAT",
+                    "in_reply_to": "",
+                    "message_media_type": "IMAGE",
+                    "sender_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
+                    "recipient_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
+                    "file_id": 17972013
+                }        
+            ]
+        }
 
 ### Retrieve Media Messages [GET /members/{id}/messages/media{?sort_order,offset,limit,message_media_types,thread_ids}]
 
@@ -5125,7 +5125,7 @@ Get member message counts. These counts are across all the threads in which this
             "unread_message_count": 21
         }
 
-### Send Message [POST /members/{id}/messages{?subject,body,recipient_ids,mailbox}]
+### Send Message [POST /members/{id}/messages{?subject,body,recipient_ids,mailbox,command}]
 
 Send a new message to a member or multiple members. This API can be used to initiate both private messaging and group conversation (CHAT).
 
@@ -5190,7 +5190,7 @@ Reply to a private message or a group conversation (CHAT).
             "_link": "/members/20704116/messages/TAWYZDDIBLUNXZY"
         }
 
-### Send or Reply Message with Attachments [POST /members/{id}/messages/media{?subject,body,recipient_ids,mailbox,app_id}]
+### Send or Reply Message with Attachments [POST /members/{id}/messages/media{?subject,body,recipient_ids,message_id,mailbox,app_id}]
 
 Send/Reply message with attachments for Non chat private messages
 
@@ -5214,44 +5214,44 @@ Send/Reply message with attachments for Non chat private messages
 + Response 201 (application/json)
 
         {
-    "subject": "test subject",
-    "body": "nice body",
-    "thread_id": "TR3YREKIJPJU28C",
-    "sent_time": "January 22, 2016 10:33:08",
-    "sender_member_id": 20704116,
-    "sender_screen_name": "sumanwan",
-    "recipient_member_id": 20704469,
-    "recipient_screen_name": "tejinder singh (469)",
-    "message_id": "X5QBYFHIJPBNSCU",
-    "read_time": "",
-    "recipient_box": "IN",
-    "sender_box": "OUT",
-    "_link": "/members/20704116/messages/TR3YREKIJPJU28C",
-    "in_reply_to": "",
-    "attachment": [
-        {
-            "file_original_name": "Chrysanthemum.jpg",
-            "file_size": 555555,
-            "fileitem_id": 17463402,
-            "download_url": "Alpha/2016/01/20__07/Chrysanthemum.jpg569f285eb5ea8-569f285eb5ea8.jpg",
-            "file_type": "image/jpeg",
-            "file_extension": "jpg",
-            "url_prefix": "https://static.spark.autodesk.com/"
-        },
-        {
-            "file_original_name": "nthemum.jpg",
-            "file_size": 879394,
-            "fileitem_id": 17463403,
-            "download_url": "Alpha/2016/01/20__07/nthemum.jpg569f285eb5ea8-569f28sdfsd5eb5ea8.jpg",
-            "file_type": "image/jpeg",
-            "file_extension": "jpg",
-            "url_prefix": "https://static.spark.autodesk.com/"
+            "subject": "test subject",
+            "body": "nice body",
+            "thread_id": "TR3YREKIJPJU28C",
+            "sent_time": "January 22, 2016 10:33:08",
+            "sender_member_id": 20704116,
+            "sender_screen_name": "sumanwan",
+            "recipient_member_id": 20704469,
+            "recipient_screen_name": "tejinder singh (469)",
+            "message_id": "X5QBYFHIJPBNSCU",
+            "read_time": "",
+            "recipient_box": "IN",
+            "sender_box": "OUT",
+            "_link": "/members/20704116/messages/TR3YREKIJPJU28C",
+            "in_reply_to": "",
+            "attachment": [
+                {
+                    "file_original_name": "Chrysanthemum.jpg",
+                    "file_size": 555555,
+                    "fileitem_id": 17463402,
+                    "download_url": "Alpha/2016/01/20__07/Chrysanthemum.jpg569f285eb5ea8-569f285eb5ea8.jpg",
+                    "file_type": "image/jpeg",
+                    "file_extension": "jpg",
+                    "url_prefix": "https://static.spark.autodesk.com/"
+                },
+                {
+                    "file_original_name": "nthemum.jpg",
+                    "file_size": 879394,
+                    "fileitem_id": 17463403,
+                    "download_url": "Alpha/2016/01/20__07/nthemum.jpg569f285eb5ea8-569f28sdfsd5eb5ea8.jpg",
+                    "file_type": "image/jpeg",
+                    "file_extension": "jpg",
+                    "url_prefix": "https://static.spark.autodesk.com/"
+                }
+            ],
+            "message_media_type": "",
+            "sender_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
+            "recipient_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
         }
-    ],
-    "message_media_type": "",
-    "sender_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png",
-    "recipient_profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
-}
 
 ### Put Message [PUT /members/{id}/messages{?action,message_id,thread_id,user_id}]
 
@@ -5326,7 +5326,7 @@ Delete recipients from an existing thread. This operation can be performed on CH
 
 + Response 204 (application/json)
 
-### Retrieve Member Threads [GET /members/{id}/threads{?mailbox,latest_message_info,sort_order,offset,limit,entity_info}]
+### Retrieve Member Threads [GET /members/{id}/threads{?mailbox,latest_message_info,sort_order,offset,limit,entity_info,entity_types}]
 
 Get message threads for the member. 
 
@@ -5356,142 +5356,142 @@ Get message threads for the member.
 
 + Response 200 (application/json)
 
-{
-    "count": 27,
-    "limit": 2,
-    "offset": 3,
-    "_link": "/members/20706579/threads?mailbox=CHAT&limit=2&offset=3",
-    "_link_prev": "/members/20706579/threads?mailbox=CHAT&limit=2&offset=1",
-    "_link_next": "/members/20706579/threads?mailbox=CHAT&limit=2&offset=5",
-    "threads": [
         {
-            "subject": "wow",
-            "thread_id": "TGC5U7ZIHWIMR4I",
-            "recipients": [
+            "count": 27,
+            "limit": 2,
+            "offset": 3,
+            "_link": "/members/20706579/threads?mailbox=CHAT&limit=2&offset=3",
+            "_link_prev": "/members/20706579/threads?mailbox=CHAT&limit=2&offset=1",
+            "_link_next": "/members/20706579/threads?mailbox=CHAT&limit=2&offset=5",
+            "threads": [
                 {
-                    "name": "jclacey3",
-                    "id": 20268788,
-                    "profile_image": "https://static.spark.autodesk.com/Beta/2013/07/30__07_30_14/Squid.jpgefcc3731-b8af-4a4c-8154-d0843ac1ac3d.jpg"
-                }
-            ],
-            "total_message_count": 2,
-            "unread_message_count": 1,
-            "sender": {
-                "name": "new user 207",
-                "id": 20706579,
-                "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
-            },
-            "created_date": "December 07, 2015 22:14:26",
-            "mailbox": "CHAT",
-            "entity": [
-                {
-                    "entity_type": "ASSET",
-                    "entity_id": "1459794",
-                    "entity_data": {
-                        "asset_name": "title",
-                        "thumbnails": [
-                            {
-                                "caption": "",
-                                "description": "",
-                                "file_id": 0,
-                                "thumb_path_prefix": "https://static.spark.autodesk.com/Images/FullPreview/nopicture",
-                                "is_primary": false
-                            }
-                        ]
+                    "subject": "wow",
+                    "thread_id": "TGC5U7ZIHWIMR4I",
+                    "recipients": [
+                        {
+                            "name": "jclacey3",
+                            "id": 20268788,
+                            "profile_image": "https://static.spark.autodesk.com/Beta/2013/07/30__07_30_14/Squid.jpgefcc3731-b8af-4a4c-8154-d0843ac1ac3d.jpg"
+                        }
+                    ],
+                    "total_message_count": 2,
+                    "unread_message_count": 1,
+                    "sender": {
+                        "name": "new user 207",
+                        "id": 20706579,
+                        "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
                     },
-                    "date_submitted": "January 14, 2016 16:13:53"
+                    "created_date": "December 07, 2015 22:14:26",
+                    "mailbox": "CHAT",
+                    "entity": [
+                        {
+                            "entity_type": "ASSET",
+                            "entity_id": "1459794",
+                            "entity_data": {
+                                "asset_name": "title",
+                                "thumbnails": [
+                                    {
+                                        "caption": "",
+                                        "description": "",
+                                        "file_id": 0,
+                                        "thumb_path_prefix": "https://static.spark.autodesk.com/Images/FullPreview/nopicture",
+                                        "is_primary": false
+                                    }
+                                ]
+                            },
+                            "date_submitted": "January 14, 2016 16:13:53"
+                        },
+                        {
+                            "entity_type": "FILE",
+                            "entity_id": "17148723",
+                            "entity_data": {
+                                "md5sum": "2f8c1487c45b51cccb1b1e2528df2c5b",
+                                "file_name": "Modio_1204_1410.png",
+                                "size": 114744,
+                                "asset_name": "wow",
+                                "asset_id": 1524559,
+                                "thumbnails": [
+                                    {
+                                        "caption": "",
+                                        "description": "",
+                                        "file_id": 17898783,
+                                        "thumb_path_prefix": "https://static.spark.autodesk.com/Beta/2015/11/19__16_37_54/nyc.jpgdc6cac04-8fc7-11e5-8ceb-22000b27b5ec",
+                                        "is_primary": true
+                                    }
+                                ]
+                            },
+                            "date_submitted": "January 14, 2016 16:15:17",
+                            "x_coordinate": 100,
+                            "y_coordinate": 200,
+                            "z_coordinate": 300
+                        },
+                        {
+                            "entity_type": "WORKFLOW_STEP",
+                            "entity_id": "639",
+                            "entity_data": {
+                                "asset_name": "title",
+                                "asset_id": 1524559,
+                                "thumbnails": [
+                                    {
+                                        "caption": "",
+                                        "description": "",
+                                        "file_id": 0,
+                                        "thumb_path_prefix": "https://static.spark.autodesk.com/Images/FullPreview/nopicture",
+                                        "is_primary": false
+                                    }
+                                ]
+                            },
+                            "date_submitted": "January 14, 2016 16:20:14"
+                        },
+                        {
+                            "entity_type": "ASSET",
+                            "entity_id": "1459810",
+                            "entity_data": {
+                                "asset_name": "title",
+                                "thumbnails": [
+                                    {
+                                        "caption": "",
+                                        "description": "",
+                                        "file_id": 0,
+                                        "thumb_path_prefix": "https://static.spark.autodesk.com/Images/FullPreview/nopicture",
+                                        "is_primary": false
+                                    }
+                                ]
+                            },
+                            "date_submitted": "January 14, 2016 16:20:38"
+                        }
+                    ]
                 },
                 {
-                    "entity_type": "FILE",
-                    "entity_id": "17148723",
-                    "entity_data": {
-                        "md5sum": "2f8c1487c45b51cccb1b1e2528df2c5b",
-                        "file_name": "Modio_1204_1410.png",
-                        "size": 114744,
-                        "asset_name": "wow",
-                        "asset_id": 1524559,
-                        "thumbnails": [
-                            {
-                                "caption": "",
-                                "description": "",
-                                "file_id": 17898783,
-                                "thumb_path_prefix": "https://static.spark.autodesk.com/Beta/2015/11/19__16_37_54/nyc.jpgdc6cac04-8fc7-11e5-8ceb-22000b27b5ec",
-                                "is_primary": true
-                            }
-                        ]
+                    "subject": "Chat Subject",
+                    "thread_id": "TIAK6BLIHWHWAK9",
+                    "recipients": [
+                        {
+                            "name": "Query TTT (901)",
+                            "id": 20318901,
+                            "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
+                        },
+                        {
+                            "name": "new user 207",
+                            "id": 20706579,
+                            "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
+                        }
+                    ],
+                    "total_message_count": 48,
+                    "unread_message_count": 0,
+                    "sender": {
+                        "name": "XXXX YYYYY",
+                        "id": 20705681,
+                        "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
                     },
-                    "date_submitted": "January 14, 2016 16:15:17",
-                    "x_coordinate": 100,
-                    "y_coordinate": 200,
-                    "z_coordinate": 300
-                },
-                {
-                    "entity_type": "WORKFLOW_STEP",
-                    "entity_id": "639",
-                    "entity_data": {
-                        "asset_name": "title",
-                        "asset_id": 1524559,
-                        "thumbnails": [
-                            {
-                                "caption": "",
-                                "description": "",
-                                "file_id": 0,
-                                "thumb_path_prefix": "https://static.spark.autodesk.com/Images/FullPreview/nopicture",
-                                "is_primary": false
-                            }
-                        ]
-                    },
-                    "date_submitted": "January 14, 2016 16:20:14"
-                },
-                {
-                    "entity_type": "ASSET",
-                    "entity_id": "1459810",
-                    "entity_data": {
-                        "asset_name": "title",
-                        "thumbnails": [
-                            {
-                                "caption": "",
-                                "description": "",
-                                "file_id": 0,
-                                "thumb_path_prefix": "https://static.spark.autodesk.com/Images/FullPreview/nopicture",
-                                "is_primary": false
-                            }
-                        ]
-                    },
-                    "date_submitted": "January 14, 2016 16:20:38"
+                    "created_date": "December 07, 2015 21:53:51",
+                    "mailbox": "CHAT",
+                    "entity": []
                 }
             ]
-        },
-        {
-            "subject": "Chat Subject",
-            "thread_id": "TIAK6BLIHWHWAK9",
-            "recipients": [
-                {
-                    "name": "Query TTT (901)",
-                    "id": 20318901,
-                    "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
-                },
-                {
-                    "name": "new user 207",
-                    "id": 20706579,
-                    "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
-                }
-            ],
-            "total_message_count": 48,
-            "unread_message_count": 0,
-            "sender": {
-                "name": "XXXX YYYYY",
-                "id": 20705681,
-                "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
-            },
-            "created_date": "December 07, 2015 21:53:51",
-            "mailbox": "CHAT",
-            "entity": []
         }
-    ]
-}
 
-### Retrieve Multiple Members Threads [GET /members/threads{?recipient_ids,latest_message_info,sort_order,offset,limit,entity_info}]
+### Retrieve Multiple Members Threads [GET /members/threads{?recipient_ids,latest_message_info,sort_order,offset,limit,entity_info,entity_types}]
 
 Get message threads for multiple members. This API returns threads where only and all the recipients are participating.
 
@@ -5514,14 +5514,159 @@ Get message threads for multiple members. This API returns threads where only an
 
 + Response 200 (application/json)
 
-{
-    "count": 27,
-    "limit": 2,
-    "offset": 3,
-    "_link": "/members/20706579/threads?mailbox=CHAT&limit=2&offset=3",
-    "_link_prev": "/members/20706579/threads?mailbox=CHAT&limit=2&offset=1",
-    "_link_next": "/members/20706579/threads?mailbox=CHAT&limit=2&offset=5",
-    "threads": [
+        {
+            "count": 27,
+            "limit": 2,
+            "offset": 3,
+            "_link": "/members/20706579/threads?mailbox=CHAT&limit=2&offset=3",
+            "_link_prev": "/members/20706579/threads?mailbox=CHAT&limit=2&offset=1",
+            "_link_next": "/members/20706579/threads?mailbox=CHAT&limit=2&offset=5",
+            "threads": [
+                {
+                    "subject": "wow",
+                    "thread_id": "TGC5U7ZIHWIMR4I",
+                    "recipients": [
+                        {
+                            "name": "jclacey3",
+                            "id": 20268788,
+                            "profile_image": "https://static.spark.autodesk.com/Beta/2013/07/30__07_30_14/Squid.jpgefcc3731-b8af-4a4c-8154-d0843ac1ac3d.jpg"
+                        }
+                    ],
+                    "total_message_count": 2,
+                    "unread_message_count": 1,
+                    "sender": {
+                        "name": "new user 207",
+                        "id": 20706579,
+                        "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
+                    },
+                    "created_date": "December 07, 2015 22:14:26",
+                    "mailbox": "CHAT",
+                    "entity": [
+                        {
+                            "entity_type": "ASSET",
+                            "entity_id": "1459794",
+                            "entity_data": {
+                                "asset_name": "title",
+                                "thumbnails": [
+                                    {
+                                        "caption": "",
+                                        "description": "",
+                                        "file_id": 0,
+                                        "thumb_path_prefix": "https://static.spark.autodesk.com/Images/FullPreview/nopicture",
+                                        "is_primary": false
+                                    }
+                                ]
+                            },
+                            "date_submitted": "January 14, 2016 16:13:53"
+                        },
+                        {
+                            "entity_type": "FILE",
+                            "entity_id": "17148723",
+                            "entity_data": {
+                                "md5sum": "2f8c1487c45b51cccb1b1e2528df2c5b",
+                                "file_name": "Modio_1204_1410.png",
+                                "size": 114744,
+                                "asset_name": "wow",
+                                "asset_id": 1524559,
+                                "thumbnails": [
+                                    {
+                                        "caption": "",
+                                        "description": "",
+                                        "file_id": 17898783,
+                                        "thumb_path_prefix": "https://static.spark.autodesk.com/Beta/2015/11/19__16_37_54/nyc.jpgdc6cac04-8fc7-11e5-8ceb-22000b27b5ec",
+                                        "is_primary": true
+                                    }
+                                ]
+                            },
+                            "date_submitted": "January 14, 2016 16:15:17",
+                            "x_coordinate": 100,
+                            "y_coordinate": 200,
+                            "z_coordinate": 300
+                        },
+                        {
+                            "entity_type": "WORKFLOW_STEP",
+                            "entity_id": "639",
+                            "entity_data": {
+                                "asset_name": "title",
+                                "asset_id": 1524559,
+                                "thumbnails": [
+                                    {
+                                        "caption": "",
+                                        "description": "",
+                                        "file_id": 0,
+                                        "thumb_path_prefix": "https://static.spark.autodesk.com/Images/FullPreview/nopicture",
+                                        "is_primary": false
+                                    }
+                                ]
+                            },
+                            "date_submitted": "January 14, 2016 16:20:14"
+                        },
+                        {
+                            "entity_type": "ASSET",
+                            "entity_id": "1459810",
+                            "entity_data": {
+                                "asset_name": "title",
+                                "thumbnails": [
+                                    {
+                                        "caption": "",
+                                        "description": "",
+                                        "file_id": 0,
+                                        "thumb_path_prefix": "https://static.spark.autodesk.com/Images/FullPreview/nopicture",
+                                        "is_primary": false
+                                    }
+                                ]
+                            },
+                            "date_submitted": "January 14, 2016 16:20:38"
+                        }
+                    ]
+                },
+                {
+                    "subject": "Chat Subject",
+                    "thread_id": "TIAK6BLIHWHWAK9",
+                    "recipients": [
+                        {
+                            "name": "Query TTT (901)",
+                            "id": 20318901,
+                            "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
+                        },
+                        {
+                            "name": "new user 207",
+                            "id": 20706579,
+                            "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
+                        }
+                    ],
+                    "total_message_count": 48,
+                    "unread_message_count": 0,
+                    "sender": {
+                        "name": "XXXX YYYYY",
+                        "id": 20705681,
+                        "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
+                    },
+                    "created_date": "December 07, 2015 21:53:51",
+                    "mailbox": "CHAT",
+                    "entity": []
+                }
+            ]
+        }
+
+### Retrieve Member Thread Details [GET /members/{id}/threads/{thread_id}{?latest_message_info,entity_info}]
+
+Get message thread details. 
+
++ Parameters
+    + id (required,Number, `20280723`)...Member id
+    + thread_id (required, String, `T4HSWA6IHPJ4FVP`)...Thread Id.
+    + latest_message_info (optional,boolean, `true`)...Latest thread message. Options: true/false. Default: false
+    + entity_info (optional,boolean, `true`)...Associated entity information. Options: true/false. Default: false
+    
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Response 200 (application/json)
+
         {
             "subject": "wow",
             "thread_id": "TGC5U7ZIHWIMR4I",
@@ -5588,7 +5733,6 @@ Get message threads for multiple members. This API returns threads where only an
                     "entity_id": "639",
                     "entity_data": {
                         "asset_name": "title",
-                        "asset_id": 1524559,
                         "thumbnails": [
                             {
                                 "caption": "",
@@ -5619,151 +5763,7 @@ Get message threads for multiple members. This API returns threads where only an
                     "date_submitted": "January 14, 2016 16:20:38"
                 }
             ]
-        },
-        {
-            "subject": "Chat Subject",
-            "thread_id": "TIAK6BLIHWHWAK9",
-            "recipients": [
-                {
-                    "name": "Query TTT (901)",
-                    "id": 20318901,
-                    "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
-                },
-                {
-                    "name": "new user 207",
-                    "id": 20706579,
-                    "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
-                }
-            ],
-            "total_message_count": 48,
-            "unread_message_count": 0,
-            "sender": {
-                "name": "XXXX YYYYY",
-                "id": 20705681,
-                "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
-            },
-            "created_date": "December 07, 2015 21:53:51",
-            "mailbox": "CHAT",
-            "entity": []
         }
-    ]
-}
-
-### Retrieve Member Thread Details [GET /members/{id}/threads/{thread_id}{?latest_message_info,entity_info}]
-
-Get message thread details. 
-
-+ Parameters
-    + id (required,Number, `20280723`)...Member id
-    + thread_id (required, String, `T4HSWA6IHPJ4FVP`)...Thread Id.
-    + latest_message_info (optional,boolean, `true`)...Latest thread message. Options: true/false. Default: false
-    + entity_info (optional,boolean, `true`)...Associated entity information. Options: true/false. Default: false
-    
-+ Request (application/x-www-form-urlencoded)
-    + Headers
-
-            X-AFC: FJKB32
-            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
-
-+ Response 200 (application/json)
-
-{
-    "subject": "wow",
-    "thread_id": "TGC5U7ZIHWIMR4I",
-    "recipients": [
-        {
-            "name": "jclacey3",
-            "id": 20268788,
-            "profile_image": "https://static.spark.autodesk.com/Beta/2013/07/30__07_30_14/Squid.jpgefcc3731-b8af-4a4c-8154-d0843ac1ac3d.jpg"
-        }
-    ],
-    "total_message_count": 2,
-    "unread_message_count": 1,
-    "sender": {
-        "name": "new user 207",
-        "id": 20706579,
-        "profile_image": "http://static.spark.autodesk.com/Images/Member/default_avatar.png"
-    },
-    "created_date": "December 07, 2015 22:14:26",
-    "mailbox": "CHAT",
-    "entity": [
-        {
-            "entity_type": "ASSET",
-            "entity_id": "1459794",
-            "entity_data": {
-                "asset_name": "title",
-                "thumbnails": [
-                    {
-                        "caption": "",
-                        "description": "",
-                        "file_id": 0,
-                        "thumb_path_prefix": "https://static.spark.autodesk.com/Images/FullPreview/nopicture",
-                        "is_primary": false
-                    }
-                ]
-            },
-            "date_submitted": "January 14, 2016 16:13:53"
-        },
-        {
-            "entity_type": "FILE",
-            "entity_id": "17148723",
-            "entity_data": {
-                "md5sum": "2f8c1487c45b51cccb1b1e2528df2c5b",
-                "file_name": "Modio_1204_1410.png",
-                "size": 114744,
-                "asset_name": "wow",
-                "asset_id": 1524559,
-                "thumbnails": [
-                    {
-                        "caption": "",
-                        "description": "",
-                        "file_id": 17898783,
-                        "thumb_path_prefix": "https://static.spark.autodesk.com/Beta/2015/11/19__16_37_54/nyc.jpgdc6cac04-8fc7-11e5-8ceb-22000b27b5ec",
-                        "is_primary": true
-                    }
-                ]
-            },
-            "date_submitted": "January 14, 2016 16:15:17",
-            "x_coordinate": 100,
-            "y_coordinate": 200,
-            "z_coordinate": 300
-        },
-        {
-            "entity_type": "WORKFLOW_STEP",
-            "entity_id": "639",
-            "entity_data": {
-                "asset_name": "title",
-                "thumbnails": [
-                    {
-                        "caption": "",
-                        "description": "",
-                        "file_id": 0,
-                        "thumb_path_prefix": "https://static.spark.autodesk.com/Images/FullPreview/nopicture",
-                        "is_primary": false
-                    }
-                ]
-            },
-            "date_submitted": "January 14, 2016 16:20:14"
-        },
-        {
-            "entity_type": "ASSET",
-            "entity_id": "1459810",
-            "entity_data": {
-                "asset_name": "title",
-                "thumbnails": [
-                    {
-                        "caption": "",
-                        "description": "",
-                        "file_id": 0,
-                        "thumb_path_prefix": "https://static.spark.autodesk.com/Images/FullPreview/nopicture",
-                        "is_primary": false
-                    }
-                ]
-            },
-            "date_submitted": "January 14, 2016 16:20:38"
-        }
-    ]
-}
         
 ### Send Media Message in Chat [POST /members/{id}/chat/media{?thread_id,content_type,recipient_ids,subject,body,app_id}]
 
@@ -11157,7 +11157,7 @@ Manage coupons that can be issued to buyers to get discount on selected SKUs. Th
             }
 
 
-### Create Coupon [POST /admin/carts/coupons{?name,description,discount_type,discount_amount,usage_limit_per_code,once_per_member,effective_from_date,effective_to_date,apply_to_product,code,autodesk_shared_discount_percent,seller_shared_discount_percent}]
+### Create Coupon [POST /admin/carts/coupons{?name,description,discount_type,discount_amount,usage_limit_per_code,once_per_member,include_shipping,effective_from_date,effective_to_date,apply_to_product,code,autodesk_shared_discount_percent,seller_shared_discount_percent}]
 
 Create a new coupon.
 
@@ -11322,7 +11322,7 @@ Get a single coupon by unique id
     [Coupon][]
 
 
-### Update Coupon [PUT /admin/carts/coupons/{coupon_id}{?name,description,discount_type,discount_amount,usage_limit_per_code,once_per_member,effective_from_date,effective_to_date,apply_to_product,add_coupon_code,remove_unused_codes,autodesk_shared_discount_percent,seller_shared_discount_percent}]
+### Update Coupon [PUT /admin/carts/coupons/{coupon_id}{?name,description,discount_type,discount_amount,usage_limit_per_code,once_per_member,effective_from_date,effective_to_date,apply_to_product,add_coupon_code,remove_unused_codes,autodesk_shared_discount_percent,seller_shared_discount_percent,include_shipping}]
 
 Update an existing coupon.
 
