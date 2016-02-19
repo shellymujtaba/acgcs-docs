@@ -4603,6 +4603,7 @@ Get all the purchases made by the member.
     + start_date (optional, Date, `2014-11-01`)... Limit results to purchases made on or after a given date ("yyyy-MM-dd" or "yyyy-MM-dd hh:mm:ss" formats).
     + end_date (optional, Date, `2014-12-01`)... Limit results to purchases made on or before a given date ("yyyy-MM-dd" or "yyyy-MM-dd hh:mm:ss" formats).
     + conversation_info (optional, Boolean, `true`)... Return a list of conversation info (thread id and date submitted) associates with each order.
+    + product_id (optional, String, `14123,39234`)... Limit results to orders containing at least one product ids from the list (coma separated list of ids).
     + sort_order = `DESC` (optional, String, `DESC`)... Sort order for the results by purchase date: `ASC` or `DESC`.
 
 + Response 200 (application/json)
