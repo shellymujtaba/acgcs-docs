@@ -1094,6 +1094,20 @@ https://static.spark.autodesk.com/2015/nyc.jpg42111c3Original.jpg<br>
 + Response 204
 
 
+## Thumbnail Order [/assets/{id}/thumbnails/order]
+Re-order thumbnail position
+
+### set new thumbnail order[PUT]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + thumbnail_ids (required,String, `234567,334562`)...Comma separated list of all assets thumbnails in the required order.
++ Response 204            
+
 ## Asset External Links [/assets/{id}/links{?links,link_ids}]
 All references to external artifacts such as blog posts, videos, photos etc.
 
@@ -11566,8 +11580,69 @@ Get all asset or comment  flags received by a member.
               "_link_prev": "/admin/0/userflags?type=asset&limit=1&offset=10",
               "_link_next": "/admin/0/userflags?type=asset&limit=1&offset=12"
             }
-            
-            
+
+
+## Member Note [/admin/{member_id}/notes{?note,offset,limit,sort_order}]
+Add and view admin notes for a given member.
+
+### Retrieve Member's Notes [GET]
+
++ Request (application/x-www-form-urlencoded)
+    + Header
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + member_id (required, Number,`1234567890`)... Member id. 
+    + note (required, String, `The note for this member`)...The note for the given member.
+    + limit (optional, Number,`20`)...Number of results to return in each page. Default: 20.
+    + offset (optional, Number, `3`)...Current result offset number. Default: 0.
+    + sort_order (optional, String, `asc, desc`)...Direction of ordered search results based on `date_added`. Default: desc.
+
++ Response 200 (application/json)
+
+        {
+          "count": 2,
+          "limit": 20,
+          "offset": 0,
+          "_link": "/admin/members/20710217/notes?limit=20&offset=0",
+          "notes": [
+            {
+              "id": "BV1WS32IKK8S422",
+              "note": "Member complained that he cannot log in.",
+              "member_id": "MNDNBXTIF8GGEJ1",
+              "author_id": "MF1UDJQI371ZNR7",
+              "date_added": "2016-02-11 03:14:04.0"
+            },
+            {
+              "id": "BF1UN3KIKJ243R",
+              "note": "Deleted other account, log in issue resolved.",
+              "member_id": "MNDNBXTIF8GGEJ1",
+              "author_id": "MF1UDJQI371Z8ER",
+              "date_added": "2016-02-13 18:33:08.0"
+            }
+          ]
+        }
+
+
+### Add A Member Note [POST]
+
++ Request (application/x-www-form-urlencoded)
+    + Header
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + member_id (required, Number,`1234567890`)... Member id. 
+    + note (required, String, `The note for this member`)...The note for the given member.
+
++ Response 200 (application/json)
+
+            {}
+
+
 ## Member Oxygen Id [/admin/members/oxygen/{oxygenid}{?member_code,ts,hash,afc}]
 
 ### Retrieve Member Information from Oxygen Id [GET]
