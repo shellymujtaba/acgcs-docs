@@ -402,9 +402,9 @@ Operations to perform CRUD operations on an asset with basic metadata. Additiona
             X-AFC: FJKB32
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 + Parameters
-    + asset_name (required, String, `Alien`) ...Asset title
-    + description (required, String, `Mint colored alien`) ...title description
-    + tags (required, String, `alien,sci-fi,fantasy`) ... comma separated list of tags
+    + asset_name (optional, String, `Alien`) ...Asset title
+    + description (optional, String, `Mint colored alien`) ...title description
+    + tags (optional, String, `alien,sci-fi,fantasy`) ... comma separated list of tags
     + publish (optional, Boolean, `false`) ...Publish to gallery. This param also controls the asset status. If true, asset status is public '0'. If false, the asset status is private '1'.
     + progress_status (optional, Number, `1`) ...progress status <br> Options:<br> 0:in progress<br>1:complete
     + parent_asset_id (optional, String, `12345`) ...Parent Asset Id
