@@ -1096,11 +1096,7 @@ https://static.spark.autodesk.com/2015/nyc.jpg42111c3Original.jpg<br>
     + thumbnail_ids (required,String, `234567,334562`)...Comma separated list of assets thumbnails to be deleted from this asset.
 + Response 204
 
-
-## Thumbnail Order [/assets/{id}/thumbnails/order]
-Re-order thumbnail position
-
-### set new thumbnail order[PUT]
+### Order thumbnail postions [PUT /assets/{id}/thumbnails/order]
 + Request (application/x-www-form-urlencoded)
     + Headers
 
@@ -1108,8 +1104,9 @@ Re-order thumbnail position
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
-    + thumbnail_ids (required,String, `234567,334562`)...Comma separated list of all assets thumbnails in the required order.
-+ Response 204            
+    + thumbnail_ids (required,String, `234567,334562`)...Comma separated list of all assets thumbnails in the order desired.
+    
++ Response 204
 
 ## Asset External Links [/assets/{id}/links{?links,link_ids}]
 All references to external artifacts such as blog posts, videos, photos etc.
