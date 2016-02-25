@@ -4357,6 +4357,8 @@ Example scenario:-
         }
 
 ### Update members card [POST]
+This is an internal API call. 
+Please call Update Card URL to get an iframe code of update card page. Javascript in iframe will encrypt the payload (i.e. card info) and make the POST API call.
 
 + Parameter
   + memberId (Number , `123446`)...Member Id.
@@ -5802,7 +5804,7 @@ Get message thread details.
             ]
         }
         
-### Send Media Message in Chat [POST /members/{id}/chat/media{?thread_id,content_type,recipient_ids,subject,body,app_id}]
+### Send Media Message in Chat [POST /members/{id}/chat/media{?thread_id,content_type,recipient_ids,subject,app_id}]
 
 Send media in chat conversation.
 
@@ -5810,9 +5812,9 @@ Send media in chat conversation.
 
 1. Please call <a href="http://docs.acgcs.apiary.io/#reference/files/upload-server/upload-server">GET Upload Server API</a> to retrieve the server.
 2. Use the server as the host in the POST members/{id}/chat/media API above.
-3. Supported content types are IMAGE(.jpg,.png) and AUDIO(.aac)
+3. Supported content types are IMAGE(.jpg,.png) and AUDIO(.m4a)
 3. In Case of IMAGE, The message body will be a URL to download the image, which should be postfixed with Medium.jpg, Original.jpg, Medium.png or Original.png
-3. In case of AUDIO, The message body will be a URL to download the Audio, which should be postfixed with AAC.aac.
+3. In case of AUDIO, The message body will be a URL to download the Audio, which should be postfixed with M4A.m4a.
 
 + Parameters
     + id (required,Number, `20280723`)...Member id
@@ -5820,8 +5822,7 @@ Send media in chat conversation.
     + recipient_ids (optional, String, `20704116,20704117`)...Comma Seperated member id.Either thread_id or recipient_ids should be passed.
     + content_type (required, String, `IMAGE`)...Type of file. Valid Values are IMAGE and AUDIO.
     + subject (optional, String, `Test Subject`)...Subject is required when you are initiating the chat.
-    + body (required, String, `Test body`)...Body of the messages.
-    + app_id (required, Integer, `12`)...App id.
+    + app_id (optional, Integer, `12`)...App id is required while initiating the chat.
     
 + Request (application/x-www-form-urlencoded)
     + Headers
