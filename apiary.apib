@@ -5141,6 +5141,27 @@ Get member message counts. These counts are across all the threads in which this
             "unread_message_count": 21
         }
 
+### Retrieve Media Messages Counts [GET /members/{id}/messages/{thread_id}/media/counts]
+
+Get media messages count for a given thread
+
++ Parameters
+    + id (required,Number, `20280723`)...Member id
+    + thread_id (optional,String,`T7Z15Q7IJWMT65W`)...Thread id.
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Response 200 (application/json)
+
+        {
+            "total_message_count": 150,
+            "unread_message_count": 21
+        }
+
 ### Send Message [POST /members/{id}/messages{?subject,body,recipient_ids,mailbox,command}]
 
 Send a new message to a member or multiple members. This API can be used to initiate both private messaging and group conversation (CHAT).
