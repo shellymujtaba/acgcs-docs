@@ -5148,8 +5148,8 @@ Get member message counts. These counts are across all the threads in which this
 Get media messages count for a given thread. This API is entity dependent internally. This API gets the counts in the following fashion:
 
 1. For the given thread, it fetches all the media messages for the file Ids internally.
-2. For the file ids fetched, it fetches all the associated threads which includes thread id passed.
-3. Its retrieves the counts for the list of threads fetches for this member.
+2. For the file ids fetched, it fetches all the associated threads as file entity association.
+3. Its retrieves the member message counts for the list of threads fetched.
 
 + Parameters
     + id (required,Number, `20280723`)...Member id
