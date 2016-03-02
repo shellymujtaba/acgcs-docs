@@ -1096,7 +1096,7 @@ https://static.spark.autodesk.com/2015/nyc.jpg42111c3Original.jpg<br>
     + thumbnail_ids (required,String, `234567,334562`)...Comma separated list of assets thumbnails to be deleted from this asset.
 + Response 204
 
-### Order thumbnail postions [PUT /assets/{id}/thumbnails/order]
+### Order thumbnail postions [PUT /assets/{id}/thumbnails/order{?thumbnail_ids}]
 + Request (application/x-www-form-urlencoded)
     + Headers
 
@@ -3254,7 +3254,7 @@ The same notification preferences will be used even for sending push notificatio
                 "_link":"/member/20280723"
             }
 
-## Search [/members/search{?name,description,limit,offset,sort_by,sort_order}]
+## Search [/members/search{?name,description,affiliate_code,limit,offset,sort_by,sort_order}]
 This operation will return a list of members.  At least one parameter is required.
 
 **Search Rules:**
@@ -3273,6 +3273,7 @@ This operation will return a list of members.  At least one parameter is require
 + Parameters
     + name (optional,String, `Smith`)...Member name, which must be at least 1 character in length.
     + description (optional,String, `Photography`)...Member description, which must be at least 3 characters in length.
+    + affiliate_code (optional,String, `SB1ONB`)...Full or partial affiliate code.  Useful for filtering by app.
     + limit (optional, Number,`20`)...Number of results to return in each page. Default: 20.
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
     + sort_by (optional, String, `name`)...Indexed field to sort by.
@@ -3291,6 +3292,7 @@ This operation will return a list of members.  At least one parameter is require
                     "member": {
                         "id": 20212345,
                         "name": "John Smith",
+                        "affiliate_code": "SB1ONB",
                         "profile": {
                             "location": "San Francisco, CA",
                             "description": "I do stuff with aerial photography, hyperspectral imaging and stuff with machines that go beep",
@@ -5120,7 +5122,7 @@ Get media messages for a member across multiple threads. These includes messages
             ]
         }
 
-### Retrieve Messages Counts [GET /members/{id}/messages/counts{?entity_types,mailbox}]
+### Retrieve Messages Counts [GET /members/{id}/messages/counts{?entity_types,entity_ids,mailbox}]
 
 Get member message counts. These counts are across all the threads in which this member is participating.
 
@@ -5534,13 +5536,14 @@ Get message threads for the member.
             ]
         }
 
-### Retrieve Multiple Members Threads [GET /members/threads{?recipient_ids,latest_message_info,sort_order,offset,limit,entity_info,entity_types}]
+### Retrieve Multiple Members Threads [GET /members/{id}/threads{?recipient_ids,latest_message_info,sort_order,offset,limit,entity_info,entity_types}]
 
 Get message threads for multiple members. This API returns threads where only and all the recipients are participating.
 
 **_Note:_** This API returns only CHAT threads.
 
 + Parameters
+    + id (required,Number, `20280723`)...Member id
     + recipient_ids (required,String, `20268788,20318901,20706579`)...Recipient Member Ids.
     + latest_message_info (optional,boolean, `true`)...Latest thread message. Options: true/false. Default: false
     + entity_info (optional,boolean, `true`)...Associated entity information. Options: true/false. Default: false
