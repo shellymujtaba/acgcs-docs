@@ -4195,6 +4195,15 @@ If customer makes cancellation api call, we don't support reactivate service. No
 |You must renew your subscription using the account that was used at the time of purchase|400 Bad Method Exception|3209|
 |A reason must be provided to extend the subscription|400 Bad Method Exception|34217|
 
+**Hash based API calls**
+
+Save(PUT) Member Subscription API can also be invoked by passing the hash value as a param for authentication.
+
+_Dispatching the request:_
+* Use the guest session when calling the the API.
+* Pass timestamp parameter as "ts". Format: 'YYYY-MM-DD HH:mm:ss'. The timestamp should be within past 15 mins timeframe.
+* Pass hash parameter as "hash". This is generated using SHA-256 hash function combining Affiliate Code + Member id + Timestamp + Affiliate shared secret
+
 
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -5536,14 +5545,13 @@ Get message threads for the member.
             ]
         }
 
-### Retrieve Multiple Members Threads [GET /members/{id}/threads{?recipient_ids,latest_message_info,sort_order,offset,limit,entity_info,entity_types}]
+### Retrieve Multiple Members Threads [GET /members/threads{?recipient_ids,latest_message_info,sort_order,offset,limit,entity_info,entity_types}]
 
 Get message threads for multiple members. This API returns threads where only and all the recipients are participating.
 
 **_Note:_** This API returns only CHAT threads.
 
 + Parameters
-    + id (required,Number, `20280723`)...Member id
     + recipient_ids (required,String, `20268788,20318901,20706579`)...Recipient Member Ids.
     + latest_message_info (optional,boolean, `true`)...Latest thread message. Options: true/false. Default: false
     + entity_info (optional,boolean, `true`)...Associated entity information. Options: true/false. Default: false
