@@ -4083,10 +4083,21 @@ Subscriptions can be purchased through app website (for example www.sketchbook.c
 
 ### Retrieve member's subscription history [GET]
 
+**Hash based API calls**
+
+GET Member Subscriptions API can also be invoked by passing the hash value as a param for authentication.
+
+_Dispatching the request:_
+* Use the guest session when calling the the API.
+* Pass timestamp parameter as "ts". Format: 'YYYY-MM-DD HH:mm:ss'. The timestamp should be within past 15 mins timeframe.
+* Pass hash parameter as "hash". This is generated using SHA-256 hash function combining Affiliate Code + Member id + Timestamp + Affiliate shared secret
+
+
 + Parameter
     + subscription_ids (optional, String , `3,4,14,15`)... Comma seperate list of subscription ids. Return only subscriptions of particular subscription id.
     + exclude_expired (optional, Boolean , `true`)....Return only active subscriptions.
-
+    + hash (optional, String, `asaskd6976324hbdgqe78du`)...Hash value is sha256hash combination of AFC+ member id +CURRENT TIME_STAMP IN GMT+SECURE CODE FOR AFC( AFC in header is considered). Ref:Java code function : DigestUtils.sha256Hex()
+    + ts (optional, String, `2015-01-23 15:00:00`)...Current time in GMT by which hash is generated.
 
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -4270,9 +4281,19 @@ cancel a subscription. The subscription will be cancelled immediately but custom
 
 ## Extend Subscription [/members/ExtendSubscription{?hash,ts,subscription_ids,dates,extend_by,period_names}]
 ### Extend members subscription by specified period [PUT]
-Extend members subscription by specified period.
+Extend members subscription by specified period for a group of subscriptions.
 
 Note: This API was created to migrate 100% of users from one subscription plan to another. To extend the subscription of members, please see the PUT subscription API.
+
+**Hash based API calls**
+
+Extend Member Subscription API can also be invoked by passing the hash value as a param for authentication.
+
+_Dispatching the request:_
+* Use the guest session when calling the the API.
+* Pass timestamp parameter as "ts". Format: 'YYYY-MM-DD HH:mm:ss'. The timestamp should be within past 15 mins timeframe.
+* Pass hash parameter as "hash". This is generated using SHA-256 hash function combining Affiliate Code + Timestamp + Affiliate shared secret
+
 
 + Request (application/x-www-form-urlencoded)
     + Headers
