@@ -4283,7 +4283,7 @@ Note: This API was created to migrate 100% of users from one subscription plan t
 + Parameters
     + hash (required, String, `asaskd6976324hbdgqe78du`)...Hash value is sha256hash combination of AFC+CURRENT TIME_STAMP IN GMT+SECURE CODE FOR AFC. Ref:Java code function : DigestUtils.sha256Hex()
     + ts (required, String, `2015-01-23 15:00:00`)...Current time in GMT by which hash is generated.
-    + subscription_ids (required, Number, `2345689,2345690`)...Subscription ids to be extended.
+    + subscription_ids (required, Number, `2345689,2345690`)...PSP Subscription ids to be extended.
     + dates (optional, String, `2015-01-23 15:23:34,2015-01-25 15:23:34`)...New end date for subscriptions in YYYY-MM-DD HH:MM:SS format. If you find it difficult go for extend_by and period_names parameters.
     + extend_by (optional, Number, `3,12,1`)....Number of days/months/years by which you need to extend subscription.
     + period_names (optional, String, `day,month,year`)...Name of the periods. This is mandatory if 'extend_by' parameter is provided.
@@ -5556,7 +5556,7 @@ Get message threads for multiple members. This API returns threads where only an
     + latest_message_info (optional,boolean, `true`)...Latest thread message. Options: true/false. Default: false
     + entity_info (optional,boolean, `true`)...Associated entity information. Options: true/false. Default: false
     + entity_types (optional,String, `ASSET,FILE,NONE`)...Comma separated list of entity types. Returns threads which are associated with the entities passed. Options: NONE/ASSET/FILE/WORKFLOW_STEP/ORDER <br> **_Note:_** The type **_NONE_** will return threads which are not associated to any entities.
-    + sort_order (optional, String, `recent`)...Sort order. Options: recent/unread. Default: recent.
+    + sort_order (optional, String, `asc`)...Sort order. Options: asc/desc. Default: asc.
     + offset (optional, Number, `0`)...This offsets the start of each page by the number specified. Default: 0.
     + limit (optional, Number, `20`)...Number of results to return in each page. Default: 20.
     
