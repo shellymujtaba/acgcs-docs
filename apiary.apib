@@ -3825,6 +3825,7 @@ Retrieve this members assets. Depending on the context this operation may return
 + Parameter
     + id (required, Number , `123446`)...Member id
     + q (optional, String, `robot`)... Keyword(s) to query fields by.  Fields queried include: name, description and tags.
+    + referenced_assets (optional, boolean, `true`) ...When true referenced assets will be returned as an array sorted in descending order of the time when they were added.<br>Default: false
     + use_wildcards (optional, String, `true`)... If true, for a given `q` query, partial matches will be returned. Default: false
     + limit (optional, Number, `20`)...number of results per page
     + offset (optional, Number, `60`) ...This offsets the start of each page by the number specified.
