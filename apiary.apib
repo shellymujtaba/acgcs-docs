@@ -184,7 +184,7 @@ All the Assets API below can also be invoked by passing the hash value as a para
 
 _Dispatching the request:_
 * Use the guest session when calling the the API.
-* Pass timestamp parameter as "ts". Format: 'YYYY-MM-DD HH:mm:ss'. The timestamp should be within past 15 mins timeframe.
+* Pass timestamp parameter as "ts". Format: 'YYYY-MM-DD HH:mm:ss'. The timestamp should be within past 15 mins timeframe. The timezone is GMT.
 * Pass hash parameter as "hash". This is generated using SHA-256 hash function combining Affiliate Code + Asset Id + Timestamp + Affiliate shared secret
 
 **_Note_**: For Asset creation POST API, please use Member Id (Asset owner) instead of Asset Id for generating the hash value.
@@ -3488,7 +3488,7 @@ Save(PUT) Member Preference API below can also be invoked by passing the hash va
 
 _Dispatching the request:_
 * Use the guest session when calling the the API.
-* Pass timestamp parameter as "ts". Format: 'YYYY-MM-DD HH:mm:ss'. The timestamp should be within past 15 mins timeframe.
+* Pass timestamp parameter as "ts". Format: 'YYYY-MM-DD HH:mm:ss'. The timestamp should be within past 15 mins timeframe. The timezone is GMT.
 * Pass hash parameter as "hash". This is generated using SHA-256 hash function combining Affiliate Code + Member id + Timestamp + Affiliate shared secret
 
 ### Retrieve a member's preferences [GET]
@@ -4090,7 +4090,7 @@ GET Member Subscriptions API can also be invoked by passing the hash value as a 
 
 _Dispatching the request:_
 * Use the guest session when calling the the API.
-* Pass timestamp parameter as "ts". Format: 'YYYY-MM-DD HH:mm:ss'. The timestamp should be within past 15 mins timeframe.
+* Pass timestamp parameter as "ts". Format: 'YYYY-MM-DD HH:mm:ss'. The timestamp should be within past 15 mins timeframe. The timezone is GMT.
 * Pass hash parameter as "hash". This is generated using SHA-256 hash function combining Affiliate Code + Member id + Timestamp + Affiliate shared secret
 
 
@@ -4213,7 +4213,7 @@ Save(PUT) Member Subscription API can also be invoked by passing the hash value 
 
 _Dispatching the request:_
 * Use the guest session when calling the the API.
-* Pass timestamp parameter as "ts". Format: 'YYYY-MM-DD HH:mm:ss'. The timestamp should be within past 15 mins timeframe.
+* Pass timestamp parameter as "ts". Format: 'YYYY-MM-DD HH:mm:ss'. The timestamp should be within past 15 mins timeframe. The timezone is GMT.
 * Pass hash parameter as "hash". This is generated using SHA-256 hash function combining Affiliate Code + Member id + Timestamp + Affiliate shared secret
 
 
@@ -4292,7 +4292,7 @@ Extend Member Subscription API can also be invoked by passing the hash value as 
 
 _Dispatching the request:_
 * Use the guest session when calling the the API.
-* Pass timestamp parameter as "ts". Format: 'YYYY-MM-DD HH:mm:ss'. The timestamp should be within past 15 mins timeframe.
+* Pass timestamp parameter as "ts". Format: 'YYYY-MM-DD HH:mm:ss'. The timestamp should be within past 15 mins timeframe. The timezone is GMT.
 * Pass hash parameter as "hash". This is generated using SHA-256 hash function combining Affiliate Code + Timestamp + Affiliate shared secret
 
 
