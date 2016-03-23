@@ -12891,7 +12891,42 @@ Retrieve all the entries in a contest which are voted by the member.
 + Response 200
 
 # Group Team Subscription
+Team
 
-## Team CRUD operations [/teams/{team_id}/members]
+Team is created when primary admin buy team subscription. Team will be removed when the team subscription expires. Every team member has active subscription.
+Primary admin
+
+Team has only one primary admin, whose credit card is used for team subscription payment.
+
+Primary admin can update the team and add/remove member. She doesn't have to be one of the team member. She will have membership if she is one the team member. One member can be primary admin for only one team. The primary admin cannot be member of other team. The primary admin must be member of the team if she needs subscription. 
+
+Primary admin cannot be updated (for phase I implementation)
+Team admin
+
+Team can have multiple admin. They must be members in team. They can be assigned by primary admin or other team admin in same team. They can add/remove members by calling update team API.
+Team member
+
+Team can have 0 to multiple members. Team member cannot edit team. But they can remove themselves from team. One user can only belongs to one team. Team admin is also team member. The size of team cannot be greater than purchased team subscription.
+
+
+## Team CRUD operations [/teams/{team_id}/members{?member_email,resend_invitation}]
+
+Only commerce admin or admin all will be allowed to perform below task. Please, contact ecommerce team for admin role.
 
 ### Add members to team [POST]
+
+Add given member to team based on email id.
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: SB1ONB
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + member_email (required, String, `teamsubs@gmail.com`) ...list of email ids
+    
++ Response 200 (application/json)
+
+        {
+            "members got added to team successfully!"
+        }
