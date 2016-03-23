@@ -8327,7 +8327,7 @@ Delete the cart of the logged in user or guest. After this call, a call to GET /
 + Response 204 (application/json)
 
 
-## Cart line items [/carts/lineitems{?product_id,product_type,cart_type,quantity,unit_price,data,parent_id,line_item_id,hash_key,timestamp}]
+## Cart line items [/carts/lineitems{?product_id,product_type,cart_type,quantity,unit_price,data,parent_id,line_item_id,hash_key,timestamp,number_of_seats}]
 Line items are items within carts. Cart can contain 'n' line items. User can perform various CRUD operations on line items.
 
 
@@ -8349,6 +8349,13 @@ Here are some key points about cart:
 |Line Item not found in cart|400 Bad Request|3010
 |Physical item is out of stock.|400 Bad Request|3050
 |Line item quantity must be greater than 0|400 Bad Request|34801
+|Cannot buy individual subscription when team subscription is present.|400 Bad Request|35100
+|Number_of_seats is missing|400 Bad Request|35101
+|Cannot purchase same team subscription|400 Bad Request|35102
+|Customer cannot purchase subscription when he/she is one of the team member.|400 Bad Request|35103
+|Team primary admin cannot purchase individual subscription|400 Bad Request|35104
+|Team subscription can only be purchased by team primary admin|400 Bad Request|35105
+
 
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -8371,6 +8378,8 @@ Here are some key points about cart:
         * data: replaces existing data field
     + hash_key (optional, string, `AHFDHS56GFTSR67tfgdjst564a`)... required if unit_price present. Hash value is sha256hash combination of AFC+CURRENT TIME_STAMP IN GMT+SECURE CODE FOR AFC. Ref:Java code function : DigestUtils.sha256Hex(). Please contact cloud service team for secure code.
     + timestamp (optional, String,`2014-08-14 18:55:59`)...required if unit_price present. Current time in GMT by which hash is generated. Format: YYYY-MM-DD HH:mm:ss
+    + number_of_seats (optional, Number,`5`)...number of seats for team subscription when the team subscription line item is added in cart. This is mandatory if line item is team subscription. Must be greater than 0.
+
 + Response 200 (application/json)
 
         {
