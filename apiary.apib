@@ -4331,6 +4331,46 @@ _Dispatching the request:_
                 }
         ]
 
+## Add Subscription [/members/{memberId}/subscriptions{?hash,ts,plan_id,affiliate_code,app_store_type,receipt,transaction_id,true_sub,promotion_type,reason}]
+### Add members subscription with subscription id [POST]
+Add member subscription without credit card. This call can only be called by admin or with hash.
+
+**Hash based API calls**
+
+Add Member Subscription API can also be invoked by passing the hash value as a param for authentication.
+
+_Dispatching the request:_
+* Use the guest session when calling the the API.
+* Pass timestamp parameter as "ts". Format: 'YYYY-MM-DD HH:mm:ss'. The timestamp should be within past 15 mins timeframe. The timezone is GMT.
+* Pass hash parameter as "hash". This is generated using SHA-256 hash function combining Affiliate Code + Member Id + Timestamp + Affiliate shared secret
+
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: 00000000-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + hash (required if caller is not admin, String, `asaskd6976324hbdgqe78du`)...Hash value is sha256hash combination of AFC + Member id + CURRENT TIME_STAMP IN GMT + SECURE CODE FOR AFC. Ref:Java code function : DigestUtils.sha256Hex()
+    + ts (required if caller is not admin, String, `2015-01-23 15:00:00`)...Current time in GMT by which hash is generated.
+    + plan_id (required, Number, `15`)...Subscription ids to be added.
+    + affiliate_code (required, String, `FJKB32`)...Affiliate code
+    + app_store_type (optional, Number, `GOOGLEPLAY`)....App store type. Default: APPSTORE
+    + receipt (optional, String, `rufnv373ehn0d98`)...App store receipt. This is mandatory if subscription is purchased through app store
+    + transaction_id (optional, String, `908373822222098`)...App store transaction Id. This is mandatory if subscription is purchased through app store
+    + true_sub (optional, boolean, `true`)...If subscription is purchased through app store. This is mandatory if subscription is purchased through app store. Default:false
+    + promotion_type (optional, String, `CAMPAIGN_CODE`)...Available value: CAMPAIGN_CODE|ADMIN. This is mandatory if subscription is not purchased through app store
+    + reason (optional, String, `zendesk ticket 1`)...Reason why subscription is added. This is mandatory if subscription is not purchased through app store
+
+
++ Response 200 (application/json)
+
+        {
+          "result": "success",
+          "start_date": "March 23, 2016 13:39:08",
+          "end_date": "March 23, 2017 13:39:08"
+        }
 
 ## Update Card [/members/{memberId}/updatecards{?product_id,new_product_id,encrypted_credit_card,encrypted_cvv,exp_month,exp_year,name,phone,card_type,card_last_four_digit,store_type}]
 
