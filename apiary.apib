@@ -12891,21 +12891,18 @@ Retrieve all the entries in a contest which are voted by the member.
 + Response 200
 
 # Group Team Subscription
-Team
-
+**Team**
 Team is created when primary admin buy team subscription. Team will be removed when the team subscription expires. Every team member has active subscription.
-Primary admin
 
+**Primary admin**
 Team has only one primary admin, whose credit card is used for team subscription payment.
-
 Primary admin can update the team and add/remove member. She doesn't have to be one of the team member. She will have membership if she is one the team member. One member can be primary admin for only one team. The primary admin cannot be member of other team. The primary admin must be member of the team if she needs subscription. 
-
 Primary admin cannot be updated (for phase I implementation)
-Team admin
 
+**Team admin**
 Team can have multiple admin. They must be members in team. They can be assigned by primary admin or other team admin in same team. They can add/remove members by calling update team API.
-Team member
 
+**Team member**
 Team can have 0 to multiple members. Team member cannot edit team. But they can remove themselves from team. One user can only belongs to one team. Team admin is also team member. The size of team cannot be greater than purchased team subscription.
 
 
@@ -12936,7 +12933,6 @@ Add given member to team based on email id. Send an email invitation to member t
 
 Update member as team admin or team primary admin.
 
-This call can be called by team primary admin, team admin or curie admin.
 + Request (application/x-www-form-urlencoded)
     + Headers
 
@@ -12949,7 +12945,7 @@ This call can be called by team primary admin, team admin or curie admin.
     
 + Response 204 (application/json)
 
-### Delete member from team [PUT /teams/{team_id}/members/{member_id}]
+### Delete member from team [DELETE /teams/{team_id}/members/{member_id}]
 
 Remove member from team. It can be called by team admin, curie admin and member herself if she wants to remove herself from the team.
 
@@ -12964,3 +12960,73 @@ This call can be called by team primary admin, team admin or curie admin.
     + team_id (required, Number, `123`) ...id of team
 
 + Response 204 (application/json)
+
+### Get teams [GET /teams]
+
+logged-in member team will be returned. This is applicable for tool central; were admin logs in and comes to manage team subscription page. So, admin will the members added by him.
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: SB1ONB
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Response 200 (application/json)
+{
+    "team_id": 2,
+    "team_size": 1,
+    "max_subscription_size": 10,
+    "affiliate_id": 0,
+    "created_date": "March 15, 2016 23:32:37",
+    "updated_date": "",
+    "primary_member_id": 20704116,
+    "order_fulfillment_id": "",
+    "has_active_subscription": false,
+    "members": [
+        {
+            "team_id": 2,
+            "created_date": "March 16, 2016 04:33:14",
+            "updated_date": "",
+            "affiliate_id": 501,
+            "member_id": 20731705,
+            "team_member_id": 1,
+            "email": "kp469@yopmail.com",
+            "added_by_member": 20704116,
+            "modified_by_member_id": 20704116,
+            "accepted_date": "March 16, 2016 04:34:34",
+            "last_invitation_email_sent": "March 16, 2016 04:33:14",
+            "is_admin": true,
+            "is_accepted_by_member": true
+        },
+        {
+            "team_id": 2,
+            "created_date": "March 16, 2016 07:57:31",
+            "updated_date": "",
+            "affiliate_id": 501,
+            "member_id": 20731706,
+            "team_member_id": 2,
+            "email": "kp470@yopmail.com",
+            "added_by_member": 20704116,
+            "modified_by_member_id": 20704116,
+            "accepted_date": "",
+            "last_invitation_email_sent": "March 16, 2016 07:57:31",
+            "is_admin": false,
+            "is_accepted_by_member": false
+        },
+        {
+            "team_id": 2,
+            "created_date": "March 17, 2016 10:09:16",
+            "updated_date": "",
+            "affiliate_id": 497,
+            "member_id": 20268789,
+            "team_member_id": 3,
+            "email": "kirill_goldin@hotmail.com",
+            "added_by_member": 20704116,
+            "modified_by_member_id": 20704116,
+            "accepted_date": "",
+            "last_invitation_email_sent": "March 17, 2016 10:09:16",
+            "is_admin": true,
+            "is_accepted_by_member": false
+        }
+    ]
+}
