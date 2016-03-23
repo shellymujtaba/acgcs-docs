@@ -12909,11 +12909,11 @@ Team member
 Team can have 0 to multiple members. Team member cannot edit team. But they can remove themselves from team. One user can only belongs to one team. Team admin is also team member. The size of team cannot be greater than purchased team subscription.
 
 
-## Team CRUD operations [/teams/{team_id}/members{?member_email,resend_invitation,is_admin}]
+## Team CRUD operations [/teams/{team_id}/members]
 
 Only commerce admin or admin all will be allowed to perform below task. Please, contact ecommerce team for admin role.
 
-### Add members to team [POST]
+### Add members to team [POST /teams/{team_id}/members{?member_email}]
 
 Add given member to team based on email id. Send an email invitation to member to join the team.
 + Request (application/x-www-form-urlencoded)
@@ -12923,15 +12923,16 @@ Add given member to team based on email id. Send an email invitation to member t
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
+    + team_id (required, Number, `123`) ...id of team
     + member_email (required, String, `teamsubs@gmail.com`) ...list of email ids
-    
+
 + Response 200 (application/json)
 
         {
             "members got added to team successfully!"
         }
         
-### Update member role [PUT]
+### Update member role [PUT /teams/{team_id}/members/{member_id}{?is_admin}]
 
 Update member as team admin or team primary admin.
 
@@ -12943,6 +12944,23 @@ This call can be called by team primary admin, team admin or curie admin.
             X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
+    + team_id (required, Number, `123`) ...id of team
     + is_admin (required, boolean, `true`) ...pass false to modify user to normal user from Admin.  Default: true.
     
++ Response 204 (application/json)
+
+### Delete member from team [PUT /teams/{team_id}/members/{member_id}]
+
+Remove member from team. It can be called by team admin, curie admin and member herself if she wants to remove herself from the team.
+
+This call can be called by team primary admin, team admin or curie admin.
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: SB1ONB
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + team_id (required, Number, `123`) ...id of team
+
 + Response 204 (application/json)
