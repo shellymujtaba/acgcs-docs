@@ -12959,7 +12959,7 @@ Only commerce admin or admin all will be allowed to perform below task. Please, 
 
 ### Add members to team [POST /teams/{team_id}/members{?member_email}]
 
-Add given member to team based on email id. Send an email invitation to member to join the team.
+Add given member to team based on email id. Send an email invitation to member to join the team. Resend an email invitation.
 + Request (application/x-www-form-urlencoded)
     + Headers
 
@@ -12969,6 +12969,7 @@ Add given member to team based on email id. Send an email invitation to member t
 + Parameters
     + team_id (required, Number, `123`) ...id of team
     + member_email (required, String, `teamsubs@gmail.com`) ...list of email ids
+    + resend_invitation (optional, boolean, 'true') ...resend the invitation email.
 
 + Response 200 (application/json)
 
