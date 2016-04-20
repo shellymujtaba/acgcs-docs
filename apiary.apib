@@ -12993,7 +12993,7 @@ Update member as team admin or team primary admin.
     
 + Response 204 (application/json)
 
-### Delete member from team [DELETE /teams/{team_id}/members/{member_id}]
+### Delete member from team [DELETE /teams/{team_id}/members/{team_member_id}]
 
 Remove member from team. It can be called by team admin, curie admin and member herself if she wants to remove herself from the team.
 
@@ -13006,6 +13006,7 @@ This call can be called by team primary admin, team admin or curie admin.
 
 + Parameters
     + team_id (required, Number, `123`) ...id of team
+    + team_member_id (required, Number, `123`) ...id of member in the team. "team_member_id" can be retrieved from Get teams API.
 
 + Response 204 (application/json)
 
