@@ -511,6 +511,7 @@ This api is a starting point to display galleries, perform free-form searches. D
     + progress_status (optional, Number, `1`)...Get result with project status. pass 1 for completed or 0 for in-progress.<br> Options: 0 or 1
     + parent_assets (optional, Number, `588383`)...Pass parent asset Id and get its corresponding child assets.
     + media_type_ids (optional, String, `1,2,41,42`)...Limit results based on a comma-separated list of media type ids.
+    + software (optional, String, `1,2,13`)...Limit results based on a comma-separated list of software ids.
     + child_assets (optional, Number, `588383`)...Pass child asset Id and get its corresponding child assets.
     + include_mature (optional, Boolean, `false`)...Result will include asset marked as mature.
     + for_sale (optional, Boolean , `false`)...Result will include asset which are for sale or for free.
@@ -5030,7 +5031,7 @@ Messaging support different kinds of mailbox depending on the type of conversati
 |DELETED|Message mailbox after the message is purged|
 |CHAT|Group conversation mailbox|
 
-### Retrieve Messages [GET /members/{id}/messages/{thread_id}{?sort_order,offset,limit,mailbox,from_message_id}]
+### Retrieve Messages [GET /members/{id}/messages/{thread_id}{?sort_order,offset,limit,mailbox,from_message_id,to_message_id}]
 
 Get messages for a thread.
 
@@ -5048,6 +5049,7 @@ Get messages for a thread.
     + thread_id (required, String, `TWTWLL9H411A68F`)...Thread id.
     + mailbox (optional, String, `IN`)...Mailbox type. Options: IN/OUT/IN_OUT/TRASH. Default: IN_OUT
     + from_message_id (optional, String, `XM6SRU1IHWFJC5M`)...A pointer message id within this thread. Returns results after this message.
+    + to_message_id (optional, String, `XM6SRU1IHWFJC5M`)...A pointer message id within this thread. Returns results till this message.
     + sort_order (optional, String, `desc`)...Sort order. Options: desc/asc. Default: desc.
     + offset (optional, Number, `0`)...This offsets the start of each page by the number specified. Default: 0.
     + limit (optional, Number, `20`)...Number of results to return in each page. Default: 20.
@@ -5462,10 +5464,12 @@ Get message threads for the member.
     + mailbox (optional,String, `CHAT`)...Mailbox type. Options: IN/OUT/IN_OUT/TRASH/CHAT. Default: CHAT
     + latest_message_info (optional,boolean, `true`)...Latest thread message. Options: true/false. Default: false
     + entity_info (optional,boolean, `true`)...Associated entity information. Options: true/false. Default: false
-    + entity_types (optional,String, `ASSET,FILE,NONE`)...Comma separated list of entity types. Returns threads which are associated with the entities passed. Options: NONE/ASSET/FILE/WORKFLOW_STEP/ORDER <br> **_Note:_** The type **_NONE_** will return threads which are not associated to any entities.
+    + exclude_member_id (optional, Number, `23412456`)...Return list of thread not started by given member id.
+    + sent_by_member_id (optional, Number, `20895643`)...Return List of threads started by the given member id.
     + sort_order (optional, String, `recent`)...Sort order. Options: recent/unread. Default: recent.
     + offset (optional, Number, `0`)...This offsets the start of each page by the number specified. Default: 0.
     + limit (optional, Number, `20`)...Number of results to return in each page. Default: 20.
+    + entity_types (optional,String, `ASSET,FILE,NONE`)...Comma separated list of entity types. Returns threads which are associated with the entities passed. Options: NONE/ASSET/FILE/WORKFLOW_STEP/ORDER <br> **_Note:_** The type **_NONE_** will return threads which are not associated to any entities.
     
 + Request (application/x-www-form-urlencoded)
     + Headers
