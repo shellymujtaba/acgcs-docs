@@ -185,7 +185,7 @@ All the Assets API below can also be invoked by passing the hash value as a para
 _Dispatching the request:_
 * Use the guest session when calling the the API.
 * Pass timestamp parameter as "ts". Format: 'YYYY-MM-DD HH:mm:ss'. The timestamp should be within past 15 mins timeframe. The timezone is GMT.
-* Pass hash parameter as "hash". This is generated using SHA-256 hash function combining Affiliate Code + Asset Id + Timestamp + Affiliate shared secret
+* Pass hash parameter as "hash". This is generated using SHA-256 HEX hash function combining Affiliate Code + Asset Id + Timestamp + Affiliate shared secret
 
 **_Note_**: For Asset creation POST API, please use Member Id (Asset owner) instead of Asset Id for generating the hash value.
 
@@ -2569,7 +2569,7 @@ In instances where affiliates need to download files without a logged in user (e
 _Building the Request:_
 * Use Guest session when calling the the API.
 * Pass parameter "ts", which is Timestamp, Format is 'YYYY-MM-DD HH:mm:ss'.  Must be converted to GMT (no offset).  Must be within 15 minutes of the server's timestamp when call is made
-* Pass Parameter "hash", which is generated via SHA-256 hash function of the affiliate code + asset ID + timestamp + shared secret.
+* Pass Parameter "hash", which is generated via SHA-256 HEX hash function of the affiliate code + asset ID + timestamp + shared secret.
 
 + Parameters
     + unzip (optional,String, `false`)...Indicate if the zip file should be unzipped and each constituent files be treated as an individual file. Default is false.
@@ -2666,7 +2666,7 @@ In instances where affiliates need to download files without a logged in user (e
 _Building the Request:_
 * Use Guest session when calling the the API.
 * Pass parameter "ts", which is Timestamp, Format is 'YYYY-MM-DD HH:mm:ss'.  Must be converted to GMT (no offset).  Must be within 15 minutes of the server's timestamp when call is made
-* Pass Parameter "hash", which is generated via SHA-256 hash function of the affiliate code + asset ID + timestamp + shared secret.
+* Pass Parameter "hash", which is generated via SHA-256 HEX hash function of the affiliate code + asset ID + timestamp + shared secret.
 
 + Parameters
     + file_ids (required, String, `1233233,1333233`) ...Comma separated list of file ids. If more than one file is specified, the download will be a zip
@@ -2803,7 +2803,7 @@ In instances where affiliates need to download files without a logged in user (e
 _Building the Request:_
 * Use Guest session when calling the the API.
 * Pass parameter "ts", which is Timestamp, Format is 'YYYY-MM-DD HH:mm:ss'.  Must be converted to GMT (no offset).  Must be within 15 minutes of the server's timestamp when call is made
-* Pass Parameter "hash", which is generated via SHA-256 hash function of the affiliate code + FileItem Id + timestamp + shared secret.
+* Pass Parameter "hash", which is generated via SHA-256 HEX hash function of the affiliate code + FileItem Id + timestamp + shared secret.
 
 
 ### Get File details [GET]
@@ -3491,7 +3491,7 @@ Save(PUT) Member Preference API below can also be invoked by passing the hash va
 _Dispatching the request:_
 * Use the guest session when calling the the API.
 * Pass timestamp parameter as "ts". Format: 'YYYY-MM-DD HH:mm:ss'. The timestamp should be within past 15 mins timeframe. The timezone is GMT.
-* Pass hash parameter as "hash". This is generated using SHA-256 hash function combining Affiliate Code + Member id + Timestamp + Affiliate shared secret
+* Pass hash parameter as "hash". This is generated using SHA-256 HEX hash function combining Affiliate Code + Member id + Timestamp + Affiliate shared secret
 
 ### Retrieve a member's preferences [GET]
 + Request (application/x-www-form-urlencoded)
@@ -3535,7 +3535,7 @@ _Dispatching the request:_
     + preference_name (optional, Number, `default_unit`)...The name of the preference.  Accepted characters: [a-ZA-Z0-9_-] (no spaces)
     + preference_value (optional, String, `{"test": 10}`)...Value to save for given preference name. Either value or JSON String accepted.  Validated as JSON if previously saved as JSON.
     + ts (optional, String, `2015-09-15 11:15:00`)...timestamp for hash validations.
-    + hash (optional, String, `hashstring`)... SHA-256 coded value of AFC+memberID+timestamp+sharedSecret
+    + hash (optional, String, `hashstring`)... SHA-256 HEX coded value of AFC+memberID+timestamp+sharedSecret
 
 + Response 201 (application/json)
 
@@ -4094,13 +4094,13 @@ GET Member Subscriptions API can also be invoked by passing the hash value as a 
 _Dispatching the request:_
 * Use the guest session when calling the the API.
 * Pass timestamp parameter as "ts". Format: 'YYYY-MM-DD HH:mm:ss'. The timestamp should be within past 15 mins timeframe. The timezone is GMT.
-* Pass hash parameter as "hash". This is generated using SHA-256 hash function combining Affiliate Code + Member id + Timestamp + Affiliate shared secret
+* Pass hash parameter as "hash". This is generated using SHA-256 HEX hash function combining Affiliate Code + Member id + Timestamp + Affiliate shared secret
 
 
 + Parameter
     + subscription_ids (optional, String , `3,4,14,15`)... Comma seperate list of subscription ids. Return only subscriptions of particular subscription id.
     + exclude_expired (optional, Boolean , `true`)....Return only active subscriptions.
-    + hash (optional, String, `asaskd6976324hbdgqe78du`)...Hash value is sha256hash combination of AFC+ member id +CURRENT TIME_STAMP IN GMT+SECURE CODE FOR AFC( AFC in header is considered). Ref:Java code function : DigestUtils.sha256Hex()
+    + hash (optional, String, `asaskd6976324hbdgqe78du`)...Hash value is sha256 HEX hash combination of AFC+ member id +CURRENT TIME_STAMP IN GMT+SECURE CODE FOR AFC( AFC in header is considered). Ref:Java code function : DigestUtils.sha256Hex()
     + ts (optional, String, `2015-01-23 15:00:00`)...Current time in GMT by which hash is generated.
 
 + Request (application/x-www-form-urlencoded)
@@ -4217,7 +4217,7 @@ Save(PUT) Member Subscription API can also be invoked by passing the hash value 
 _Dispatching the request:_
 * Use the guest session when calling the the API.
 * Pass timestamp parameter as "ts". Format: 'YYYY-MM-DD HH:mm:ss'. The timestamp should be within past 15 mins timeframe. The timezone is GMT.
-* Pass hash parameter as "hash". This is generated using SHA-256 hash function combining Affiliate Code + Member id + Timestamp + Affiliate shared secret
+* Pass hash parameter as "hash". This is generated using SHA-256 HEX hash function combining Affiliate Code + Member id + Timestamp + Affiliate shared secret
 
 
 + Request (application/x-www-form-urlencoded)
@@ -4237,7 +4237,7 @@ _Dispatching the request:_
     + extension_campaign_code (optional, String `All4Free`)... Campaign code used for the extension.
     + affiliate_code (optional, String, `PA1ON1`)...Affiliate for which subscription is to be modified. Note that you pass affiliate in header. If this is empty we consider affiliate in header.
     + ignore_cancellation_status (optional,Boolean, `false|true`)...Ignore cancellation date. By default it is true.
-    + hash (optional, String, `asaskd6976324hbdgqe78du`)...Hash value is sha256hash combination of AFC+ member id +CURRENT TIME_STAMP IN GMT+SECURE CODE FOR AFC( AFC in header is considered). Ref:Java code function : DigestUtils.sha256Hex()
+    + hash (optional, String, `asaskd6976324hbdgqe78du`)...Hash value is sha256 HEX hash combination of AFC+ member id +CURRENT TIME_STAMP IN GMT+SECURE CODE FOR AFC( AFC in header is considered). Ref:Java code function : DigestUtils.sha256Hex()
     + ts (optional, String, `2015-01-23 15:00:00`)...Current time in GMT by which hash is generated.
 
 + Response 200 (application/json)
@@ -4296,7 +4296,7 @@ Extend Member Subscription API can also be invoked by passing the hash value as 
 _Dispatching the request:_
 * Use the guest session when calling the the API.
 * Pass timestamp parameter as "ts". Format: 'YYYY-MM-DD HH:mm:ss'. The timestamp should be within past 15 mins timeframe. The timezone is GMT.
-* Pass hash parameter as "hash". This is generated using SHA-256 hash function combining Affiliate Code + Timestamp + Affiliate shared secret
+* Pass hash parameter as "hash". This is generated using SHA-256 HEX hash function combining Affiliate Code + Timestamp + Affiliate shared secret
 
 
 + Request (application/x-www-form-urlencoded)
@@ -4306,7 +4306,7 @@ _Dispatching the request:_
             X-Session: 00000000-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
-    + hash (required, String, `asaskd6976324hbdgqe78du`)...Hash value is sha256hash combination of AFC+CURRENT TIME_STAMP IN GMT+SECURE CODE FOR AFC. Ref:Java code function : DigestUtils.sha256Hex()
+    + hash (required, String, `asaskd6976324hbdgqe78du`)...Hash value is sha256 HEX hash combination of AFC+CURRENT TIME_STAMP IN GMT+SECURE CODE FOR AFC. Ref:Java code function : DigestUtils.sha256Hex()
     + ts (required, String, `2015-01-23 15:00:00`)...Current time in GMT by which hash is generated.
     + subscription_ids (required, Number, `2345689,2345690`)...PSP Subscription ids to be extended.
     + dates (optional, String, `2015-01-23 15:23:34,2015-01-25 15:23:34`)...New end date for subscriptions in YYYY-MM-DD HH:MM:SS format. If you find it difficult go for extend_by and period_names parameters.
@@ -4345,7 +4345,7 @@ Add Member Subscription API can also be invoked by passing the hash value as a p
 _Dispatching the request:_
 * Use the guest session when calling the the API.
 * Pass timestamp parameter as "ts". Format: 'YYYY-MM-DD HH:mm:ss'. The timestamp should be within past 15 mins timeframe. The timezone is GMT.
-* Pass hash parameter as "hash". This is generated using SHA-256 hash function combining Affiliate Code + Member Id + Timestamp + Affiliate shared secret
+* Pass hash parameter as "hash". This is generated using SHA-256 HEX hash function combining Affiliate Code + Member Id + Timestamp + Affiliate shared secret
 
 
 + Request (application/x-www-form-urlencoded)
@@ -4355,7 +4355,7 @@ _Dispatching the request:_
             X-Session: 00000000-8035-4F7E-90A3-066C5897AD57
 
 + Parameters
-    + hash (required if caller is not admin, String, `asaskd6976324hbdgqe78du`)...Hash value is sha256hash combination of AFC + Member id + CURRENT TIME_STAMP IN GMT + SECURE CODE FOR AFC. Ref:Java code function : DigestUtils.sha256Hex()
+    + hash (required if caller is not admin, String, `asaskd6976324hbdgqe78du`)...Hash value is sha256 HEX hash combination of AFC + Member id + CURRENT TIME_STAMP IN GMT + SECURE CODE FOR AFC. Ref:Java code function : DigestUtils.sha256Hex()
     + ts (required if caller is not admin, String, `2015-01-23 15:00:00`)...Current time in GMT by which hash is generated.
     + plan_id (required, Number, `15`)...Subscription ids to be added.
     + affiliate_code (required, String, `FJKB32`)...Affiliate code
@@ -8384,7 +8384,7 @@ Here are some key points about cart:
         * parent_id: replaces the existing parent(s) of this line item.
         * unit_price: replaces existing unit price
         * data: replaces existing data field
-    + hash_key (optional, string, `AHFDHS56GFTSR67tfgdjst564a`)... required if unit_price present. Hash value is sha256hash combination of AFC+CURRENT TIME_STAMP IN GMT+SECURE CODE FOR AFC. Ref:Java code function : DigestUtils.sha256Hex(). Please contact cloud service team for secure code.
+    + hash_key (optional, string, `AHFDHS56GFTSR67tfgdjst564a`)... required if unit_price present. Hash value is sha256 HEX hash combination of AFC+CURRENT TIME_STAMP IN GMT+SECURE CODE FOR AFC. Ref:Java code function : DigestUtils.sha256Hex(). Please contact cloud service team for secure code.
     + timestamp (optional, String,`2014-08-14 18:55:59`)...required if unit_price present. Current time in GMT by which hash is generated. Format: YYYY-MM-DD HH:mm:ss
     + number_of_seats (optional, Number,`5`)...number of seats for team subscription when the team subscription line item is added in cart. This is mandatory if line item is team subscription. Must be greater than 0.
 
@@ -11770,7 +11770,7 @@ Get Member details by passing oxygen id. This api is hash based and timestamp ha
     + oxygenid (required, Number,`116461678769132`)... Oxygen id
     + member_code (required, Number,`ABCD34DEBJ`)... Member code.This should be Hex encode of admin member id and timestamp concatenated with pound sign. Pattern is Hex.encode(12345678#2015-06-22 11:15:55)
     + ts (required, String, `2015-06-22 11:15:55`)... timestamp
-    + hash (required, String, `b97cbb9c6a7c7c9a1b016897cb76744a6c3c1cf9175e9bcd1c98d12eff79fffe`)... Hash Code. This should be SHA256 of afc code, member code, timestamp and shared secret. SHA256(afc+member_code+timestamp+shared_secret).
+    + hash (required, String, `b97cbb9c6a7c7c9a1b016897cb76744a6c3c1cf9175e9bcd1c98d12eff79fffe`)... Hash Code. This should be SHA256 HAX of afc code, member code, timestamp and shared secret. SHA256HEX(afc+member_code+timestamp+shared_secret).
     + afc (required, String, `AB1ON1`)... Affiliate code.
 
 + Response 200 (application/json)
