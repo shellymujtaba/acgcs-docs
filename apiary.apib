@@ -639,7 +639,7 @@ Custom data can be indexed for searches and faceting. To index this key for sear
 
 ### Create a new custom data entry within an asset [POST]
 + Parameters
-    + custom_data (required, String, '{"custom data": [{"key": "<any key name 1>","data": "<Any custom data. Escaped json in case of JSON custom data>"},{"key": "<any key name 2>","data": "<Any custom data. Escaped json in case of JSON custom data>"}]}')...Key-Value pair of custom data JSON. Please replace the content inside <> and send the json. If the key name doesn't exist for the shop, the key/value pair will be added. If the key name already exists for the shop, the data value will be replaced.
+    + custom_data (required, String, `{"custom data": [{"key": "<any key name 1>","data": "<Any custom data. Escaped json in case of JSON custom data>"},{"key": "<any key name 2>","data": "<Any custom data. Escaped json in case of JSON custom data>"}]}`)...Key-Value pair of custom data JSON. Please replace the content inside <> and send the json. If the key name doesn't exist for the shop, the key/value pair will be added. If the key name already exists for the shop, the data value will be replaced.
 
 + Request (application/x-www-form-urlencoded)
     + Headers
