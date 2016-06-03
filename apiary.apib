@@ -3832,11 +3832,11 @@ Retrieve this members assets. Depending on the context this operation may return
     + limit (optional, Number, `20`)...number of results per page
     + offset (optional, Number, `60`) ...This offsets the start of each page by the number specified.
     + sort_by (optional, String, `date, name, size , publicprivate`)...Order search results based on a specific attribute.
-    + sort_order (optional, String, `asc, desc`)...Direction of ordered search results based on value of sort_by
+    + sort_order (optional, String, `asc, desc`)...Direction of ordered search results based on value of sort by
     + asset_status (optional, String, `public, semi_public, private, all , premium, downloads`)...default is all. returns assets public/private/all based on value.
-    + access_type (optional, String, `PREMIUM,PURCHASED`)... Returns PREMIUM/PURCHASED assets based on value. Dependency: asset_status=downloads
-    + extended_data (optional, boolean, `false`)...By default FALSE. If TRUE returns hidden data associated with assets.  (This was formerly called `file_ids`, which is now deprecated.)
-    + hidden_keys (optional, String, `boltFolderLocation, photoFileList`)...List of hidden keys comma separated. Dependency: extended_data=true
+    + access_type (optional, String, `PREMIUM,PURCHASED`)... Returns PREMIUM/PURCHASED assets based on value. Dependency: asset status=downloads
+    + extended_data (optional, boolean, `false`)...By default FALSE. If TRUE returns hidden data associated with assets.  (This was formerly called `file ids`, which is now deprecated.)
+    + hidden_keys (optional, String, `boltFolderLocation, photoFileList`)...List of hidden keys comma separated. Dependency: extended data=true
     + file_type_list (optional, String, `123d,obj`)...Limit results based on a comma-separated list of file types
     + file_type_ids (optional, Number, `1, 4`)...Limit results based on a list file types
     + media_type_ids (optional, Number, `5, 7`)...Limit results based on media type. Multiple values can be sent as a comma separated list.
