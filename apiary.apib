@@ -3497,15 +3497,12 @@ Sends one off push notifications to a user. API call can be made only by Communi
       The convention of messageKey: MESSAGE_<appName>_<eventName>
       For example, the message key for the push notification which is sent when catch is complete is “MESSAGE_CATCH_COMPLETE” or “MESSAGE_CATCH_FAIL”.
       Please inform platform team of the messageKey beforehand. Otherwise it will not go out as a notification in forerunner.
-      Message key cannot be one of the predefined keys, documented @ Push Notifications:IOS and Mac Appstore developer guide
-      
     + message_version (required,String, `v1`)...Version for this message to allow backward compatibility for messages
     + message_args (optional,String, `foo,bar`)...One ore more arguments for the message identified by messageKey. 
     + custom_data (optional,String, ` {"key1":"value1", "key2":"value2"}`)...A JSON string with key value pairs to be sent along with the message. 
     + asset_id (optional,Number, `234566`)...Numeric id of the asset, if message is asscociated with an asset
     + send_email (optional,Boolean, `true,false`)...Whether to send email notification with this. Default is false.
       If set to true and member messageFrequency is set to NONE then it will generate validation error.
-      
     + email_subject (optional,String, `notification email`)...The subject of the email
     + email_body (optional,String, `body`)...The body of the email
     
