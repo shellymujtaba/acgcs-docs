@@ -503,8 +503,8 @@ This api is a starting point to display galleries, perform free-form searches. D
     + thumbnail_index (optional, Number, `1`)...Index of the primary thumbnail image for the results shown in THUMBNAIL FILE (default is 1). <br> If thumbnail index=2 is not available then it defaults to thumbnail index=1.
     + exclude_keywords (optional, String, `dog`)...Limit results based to those not associated with a list of keywords
     + asset_ids (optional, String, `123456,987654,456789` )...Limit results based on asset ID(s)
-    + sort_by (optional, String,`asset_name`)...Order search results based on a specific attribute. <br> Options:<br> asset name <br> artist<br> date<br> date modified<br> favorite count<br> favorite count_strict<br> format<br> price<br> download_count<br> featured_date<br> **_Note:_** favorite_count_strict will sort the results strictly by number of likes, where as favorite_count will sort the results by popularity.
-    + sort_order  (optional,String,`asc`)...Direction of ordered search results based on value of sort by. <br> Options: asc, desc
+    + sort_by (optional, String,`asset_name`)...Order search results based on a specific attribute. <br> Options:<br> asset name <br> artist<br> date<br> date modified<br> favorite count<br> favorite count_strict<br> format<br> price<br> download_count<br> featured_date<br> **_Note:_** favorite_count_strict will sort the results strictly by number of likes, where as favorite_count will sort the results by popularity.<br> **_Note:_** multiple sort_by values can be used. example artist,asset_name.. 
+    + sort_order  (optional,String,`asc`)...Direction of ordered search results based on value of sort by. <br> Options: asc, desc <br> multiple sort_order_values can be used when multiple sort_by values are used.
     + display_filter  (optional,String, `d`)...Show only Gallery or Featured items.<br>Options:<br>d: Gallery item with downloads <br>f: Featured items; <br>o: Online viewer enabled assets <br>Example: d, f, o, dfo, fo
     + exclude_artist_ids (optional,Number, `2345678`)...Limit results based on member or artist ids.
     + include_artist_ids (optional, Number, `20288475`)...Limit results based on artist ids.
@@ -3481,6 +3481,34 @@ The following are available for device type.
           "registered": false
         }
         
+## Notifications [/notifications{?recipient_id,message_key,message_version,message_args,custom_data,asset_id,send_email,email_subject,email_body}]
+Sends one off push notifications to a user. API call can be made only by Community admin user or admin user.
+
+### Send Notification [POST]
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + recipient_id (required,Number, `19`)...Id of the member to whom message need to be send
+    + message_key (required, String,`MESSAGE_CATCH_COMPLETE,MESSAGE_CATCH_FAIL`)...A key identifying the message to client application can use it to display a localized message to user.
+      The convention of messageKey: MESSAGE_<appName>_<eventName>
+      For example, the message key for the push notification which is sent when catch is complete is “MESSAGE_CATCH_COMPLETE” or “MESSAGE_CATCH_FAIL”.
+      Please inform platform team of the messageKey beforehand. Otherwise it will not go out as a notification in forerunner.
+      Message key cannot be one of the predefined keys, documented @ Push Notifications:IOS and Mac Appstore developer guide
+    + message_version (required,String, `v1`)...Version for this message to allow backward compatibility for messages
+    + message_args (optional,String, `foo,bar`)...One ore more arguments for the message identified by messageKey. e.g. messageArgs=foo,bar
+    + custom_data (optional,String, `19`)...A JSON string with key value pairs to be sent along with the message. e.g {"key1":"value1", "key2":"value2"}
+    + asset_id (optional,Number, `jsmith@gmail.com`)...id of the asset, if message is asscociated with an asset
+    + send_email (optional,Boolean, `true,false`)...Whether to send email notification with this. Default is false.
+If set to true and member messageFrequency is set to NONE then it will generate validation error.
+    + email_subject (optional,String, `jsmith@gmail.com`)...Email
+    + email_body (optional,String, `jsmith@gmail.com`)...Email
+    
++ Response 200 (application/json)
+
 
 ## Preferences [/members/{id}/preferences{?namespace,empty_if_null,preference_name,preference_value,preference_names,ts}]
 Member preference operations
