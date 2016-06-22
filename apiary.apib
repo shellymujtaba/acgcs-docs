@@ -2831,6 +2831,43 @@ _Building the Request:_
             "public_url": "http://sherpapreview-standard.s3-website-us-east-1.amazonaws.com/Preview/Public/Alpha/16812136"
         }
 
+## Thumbnails [/filesystem/{fileitemId}/thumbnails]
+APIs to create/get thumbnails from already uploaded image files.
+
+### create thumbnails [POST]
+API to create thumbnails of the given fileitem id
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
+
++ Response 201 (application/json)
+        
+
+### Retrieve thumnails [GET]
+API to retrieve the already created thumbnails.
+
+**_Note:_** The thumbnails must had been craeted using POST API earlier.
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Response 200 (application/json)
+
+        {
+            "caption": "",
+            "description": "",
+            "file_id": 17669188,
+            "thumb_path_prefix": "https://static.spark.autodesk.com/Alpha/2016/03/28__17_54_21/Hydrangeas.jpg1cef6a67-3857-11e6-ae57-22000bb427f3",
+            "is_primary": false
+        }
+
 
 #Group Members
 This group of operations provides information on the member. A member is a user who signs up or logs into Cloud Services eco-system.
