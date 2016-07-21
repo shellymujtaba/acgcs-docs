@@ -3542,6 +3542,9 @@ Sends one off push notifications to a user. API call can be made only by Communi
       If set to true and member messageFrequency is set to NONE then it will generate validation error.
     + email_subject (optional,String, `notification subject`)...The subject of the email
     + email_body (optional,String, `notification body`)...The body of the email
+    + member_id (optional,Number, `20669829`)... use this when calling the api on behalf of other user.
+    + ts (optional,String, `2017-07-19 12:15:00`)... use this when doing hash based calls.
+    + hash (optional,String, `asdgfgdhfghdhjgf`)...SHA-256 HEX hash function combining Affiliate Code + member id + Timestamp + Affiliate shared secret.
     
 + Response 200 (application/json)
 
@@ -3769,6 +3772,7 @@ Returns the activity stream for this member.  Activities include updates, items 
     + id (required,Number, `20280723`)...Member id
     + limit (optional, Number,`20`)...Number of results to return in each page. Default: 20.
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
+    + activity_type_info (optional, boolean, 'false')...return info about the activity. in case of comments returns comment body.
     + user_type (optional, Number, `1`)...User type for which you want activities. Default : 1 (self), 1 : self, 2 : followed_users This is bit wise. So you want activities of self and followed_users then pass (1 bitwise OR 2 i.e. 3)
     + activity_type (required, String, `UPDATE,_COMMENT,COMMENT`)...Activity type of which you want activities. Following is the list of activities UPDATE,PUBLISH,FEATURE,CONTEST_FINALIST,CONTEST_WINNER,COMMENT,_COMMENT,FOLLOW,_FOLLOW,LIKE,_LIKE,COMMENT_UPDATE,_COMMENT_UPDATE
     + media_type_id (optional, String, `5,23`)...Limit results based on media type ids. Full media type list is provided in the introduction.
@@ -5533,6 +5537,7 @@ Get message threads for the member.
 + Parameters
     + id (required,Number, `20280723`)...Member id
     + mailbox (optional,String, `CHAT`)...Mailbox type. Options: IN/OUT/IN_OUT/TRASH/CHAT. Default: CHAT
+    + thread_ids (optional,String, `TRDNDDJH66J`)... comma seperated list of thread ids to filter from.
     + latest_message_info (optional,boolean, `true`)...Latest thread message. Options: true/false. Default: false
     + entity_info (optional,boolean, `true`)...Associated entity information. Options: true/false. Default: false
     + exclude_member_id (optional, Number, `23412456`)...Return list of thread not started by given member id.
@@ -5541,6 +5546,7 @@ Get message threads for the member.
     + offset (optional, Number, `0`)...This offsets the start of each page by the number specified. Default: 0.
     + limit (optional, Number, `20`)...Number of results to return in each page. Default: 20.
     + entity_types (optional,String, `ASSET,FILE,NONE`)...Comma separated list of entity types. Returns threads which are associated with the entities passed. Options: NONE/ASSET/FILE/WORKFLOW_STEP/ORDER <br> **_Note:_** The type **_NONE_** will return threads which are not associated to any entities.
+    
     
 + Request (application/x-www-form-urlencoded)
     + Headers
@@ -6034,6 +6040,27 @@ Send media in chat conversation.
           "type":"VISA"
         }]
 
+## Register [/members/register{?http_verb,url}]
+This API is used to register member with 3 legged OAuth1.0 auth token. 
+
+### Register [POST]
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: PA1ON1
+
++ Parameters
+    + tokens (required String, `EK8zqGqzgAbl98VKWUNYAiUdEqw`)... Token for which you want to register member.
+    + secure (optional, Boolean, `true/false`)... If you want secure session back as response.
+
++ Response 200 (application/json)
+
+        [{
+          "token": "EK8zqGqzgAbl98VKWUNYAiUdEqw=",
+          "session": "9D49452C-DDF8-461E-8840-ED269147D8B7",
+          "secure_session": "4CB207F2CC6D02ED46BB70552102C63412F8E7CCFCE921F28AD91730CE9791E9"
+        }]
 # Group Auth
 ## Login provider
 If tenant has to show their own login screen then here are the steps:-
