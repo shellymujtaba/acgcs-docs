@@ -3511,6 +3511,10 @@ The following are available for device type.
 + Parameters
     + app_id (required,Number, `19`)...Application id
     + device_id (required, String,`e7068fe494ea510c7b30c0d096e8815aaa621838b503de858e5e72d2a2b7ddc6`)...Device id
+    + member_id (optional,Number, `2045678`)...member id, compulsary in case of hash based calls.
+    + hash (optional,String, `sgsgsgfdshgshfh`)...hash value.
+    + hash (optional,String, `2016-08-09 12:00:00`)...timestamp.
+    + clean (optional,boolean, `false`)...used when calling as admin, it cleans all the reference of the device.
 
 + Response 200 (application/json)
 
@@ -3920,6 +3924,7 @@ Retrieve this members assets. Depending on the context this operation may return
     + roles_only (optional, Boolean, `false,true`)...Returns assets only for which the member has the access due to roles.        
     + custom_keys (optional, String, `customkey1,customkey2`)...Limits the result based on list of custom key's used to create the Asset.        
     + custom_values (optional, String, `customvalue1,customvalue2`)...Limits the result based on list of custom value's. Dependency: custom keys=room,bedroom          
+    + asset_ids (optional, Number, `123456,987654,456789`)...Limit results based on asset ID(s).
 
 ### Retrieve member assets [GET]
 
