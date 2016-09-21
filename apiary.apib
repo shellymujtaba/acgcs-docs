@@ -3769,14 +3769,14 @@ This API will return a boolean response if a member is following another member
             "follow_status": true
         }
 
-## Member Activity Stream [/members/{id}/useractivity{?limit,offset,user_type,activity_type,media_type_id,asset_custom_data,asset_custom_data_keys,show_moderated}]
+## Member Activity Stream [/members/{id}/useractivity{?limit,offset,activity_type_info,user_type,activity_type,media_type_id,asset_custom_data,asset_custom_data_keys,show_moderated}]
 Returns the activity stream for this member.  Activities include updates, items published, features, contest finalists and winners, comments and comment updates, followers and followees, and likes.
 
 + Parameters
     + id (required,Number, `20280723`)...Member id
     + limit (optional, Number,`20`)...Number of results to return in each page. Default: 20.
     + offset (optional, Number, `3`)...This offsets the start of each page by the number specified. Default: 0.
-    + activity_type_info (optional, boolean, 'false')...return info about the activity. in case of comments returns comment body.
+    + activity_type_info (optional, boolean, `false`)...return info about the activity. in case of comments returns comment body.
     + user_type (optional, Number, `1`)...User type for which you want activities. Default : 1 (self), 1 : self, 2 : followed_users This is bit wise. So you want activities of self and followed_users then pass (1 bitwise OR 2 i.e. 3)
     + activity_type (required, String, `UPDATE,_COMMENT,COMMENT`)...Activity type of which you want activities. Following is the list of activities UPDATE,PUBLISH,FEATURE,CONTEST_FINALIST,CONTEST_WINNER,COMMENT,_COMMENT,FOLLOW,_FOLLOW,LIKE,_LIKE,COMMENT_UPDATE,_COMMENT_UPDATE
     + media_type_id (optional, String, `5,23`)...Limit results based on media type ids. Full media type list is provided in the introduction.
@@ -3925,6 +3925,7 @@ Retrieve this members assets. Depending on the context this operation may return
     + custom_keys (optional, String, `customkey1,customkey2`)...Limits the result based on list of custom key's used to create the Asset.        
     + custom_values (optional, String, `customvalue1,customvalue2`)...Limits the result based on list of custom value's. Dependency: custom keys=room,bedroom          
     + asset_ids (optional, Number, `123456,987654,456789`)...Limit results based on asset ID(s).
+    + custom_data_include_all (optional, Boolean, `false,true`)...Returns assets with all custom keys & custom values present. Default value false.        
 
 ### Retrieve member assets [GET]
 
@@ -5339,7 +5340,7 @@ The recipient_ids param can have only one member in case of private messaging. T
     + id (required,Number, `20280723`)...Member id
     + subject  (required,String,`message subject`)...Subject of the message
     + body  (required,String,`message body`)...Body of the message
-    + recipient_ids (required,Number, `20280724,352345234`)...One or more Member Ids separated by comma
+    + recipient_ids_asdf (required,Number, `20280724,352345234`)...One or more Member Ids separated by comma
     + mailbox (optional, String, `CHAT`)...Mailbox type. If passed as CHAT, a group conversation is initiated.
     + command  (optional,String,`command`)...Command for the mobile devices. If passed, the message_media_type is marked as COMMAND.
 
