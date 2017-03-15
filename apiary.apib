@@ -2867,6 +2867,65 @@ API to retrieve the already created thumbnails.
             "thumb_path_prefix": "https://static.spark.autodesk.com/Alpha/2016/03/28__17_54_21/Hydrangeas.jpg1cef6a67-3857-11e6-ae57-22000bb427f3",
             "is_primary": false
         }
+        
+## Multiple Thumbnails [/filesystem/thumbnails]
+APIs to create/get thumbnails from already uploaded image files.
+
+### create thumbnails [POST]
+API to create thumbnails of the given fileitem ids
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Parameters
+    + file_ids (required,String, `234567,334562`)...Comma separated list of file ids.
+    + member_id (optional, String, `23244422`)... member id. to be used when using hash
+    + ts (optional,string, `2012-01-26 15:51:44`)... timestamp in format 'YYYY-MM-DD HH:mm:ss'. to be used when app is downloading on behalf of a user
+    + hash (optional,String, `942F52D6AECAA46993D8839639CE56FFEF1FFB7F92AC376647A6`)... to be used when app is calling on behalf of a user
+
++ Response 201 (application/json)
+        
+
+### Retrieve thumnails [GET]
+API to retrieve the already created thumbnails.
+
+**_Note:_** The thumbnails must had been craeted using POST API earlier.
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+            
++ Parameters
+    + file_ids (required,String, `234567,334562`)...Comma separated list of file ids.
+    + member_id (optional, String, `23244422`)... member id. to be used when using hash
+    + ts (optional,string, `2012-01-26 15:51:44`)... timestamp in format 'YYYY-MM-DD HH:mm:ss'. to be used when app is downloading on behalf of a user
+    + hash (optional,String, `942F52D6AECAA46993D8839639CE56FFEF1FFB7F92AC376647A6`)... to be used when app is calling on behalf of a user
+    
++ Response 200 (application/json)
+
+       {
+            "thumbnails": [
+                {
+                    "caption": "",
+                    "description": "",
+                    "file_id": 17668635,
+                    "thumb_path_prefix": "https://static.spark.autodesk.com/Alpha/2016/03/28__17_54_21/pic3.jpgaf900859-9480-11e6-ae57-22000bb427f3",
+                    "is_primary": false
+                },
+                {
+                    "caption": "",
+                    "description": "",
+                    "file_id": 17668741,
+                    "thumb_path_prefix": "https://static.spark.autodesk.com/Alpha/2016/03/28__17_54_21/Desert.jpgca5e6df0-9480-11e6-ae57-22000bb427f3",
+                    "is_primary": false
+                }
+            ]
+        }
 
 
 #Group Members
@@ -5521,6 +5580,40 @@ Delete recipients from an existing thread. This operation can be performed on CH
     + id (required,Number, `20280723`)...Member Id already present on the thread
     + recipient_ids (required, String, `20280723,1248514`)...Member Ids to be deleted from the thread.
     + thread_id  (required,String, `TWTWLL9H411A68F`)...Thread Id.
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Response 204 (application/json)
+
+### Mark members to a thread [POST /members/{id}/threads/{threadid}/markedmembers{?member_ids}]
+
+add members id as marked to the thread
+
++ Parameters
+    + id (required,Number, `20280723`)...Member Id already present on the thread
+    + member_ids (required, String, `20280723,1248514`)...Member Ids to be added to marked member list.
+    + threadid  (required,String, `TWTWLL9H411A68F`)...Thread Id.
+
++ Request (application/x-www-form-urlencoded)
+    + Headers
+
+            X-AFC: FJKB32
+            X-Session: F56FFEEF-8035-4F7E-90A3-066C5897AD57
+
++ Response 201 (application/json)
+
+### Delete Marked members from a thread [DELETE /members/{id}/threads/{threadid}/markedmembers{?member_ids}]
+
+delete marked members
+
++ Parameters
+    + id (required,Number, `20280723`)...Member Id already present on the thread
+    + member_ids (required, String, `20280723,1248514`)...Member Ids to be added to marked member list.
+    + threadid  (required,String, `TWTWLL9H411A68F`)...Thread Id.
 
 + Request (application/x-www-form-urlencoded)
     + Headers
